@@ -207,3 +207,7 @@ img {
 .logo {
   margin-top: 15px;
 }
+
+ol.listing{
+  list-style-type: decimal;
+}
