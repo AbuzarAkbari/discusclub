@@ -20,20 +20,21 @@
 <body>
     <div id="fb-root"></div>
     <script>
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.10";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+    ;(function(d, s, id) {
+  var js,
+    fjs = d.getElementsByTagName(s)[0]
+  if (d.getElementById(id)) return
+  js = d.createElement(s)
+  js.id = id
+  js.src = '//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.10'
+  fjs.parentNode.insertBefore(js, fjs)
+})(document, 'script', 'facebook-jssdk')
+</script>
     <div class="header">
       <div class="inlog">
-          <a href="inloggen.html">Inloggen</a>
-          <a href="registeren.html">Registreer</a>
-          <a href="wachtwoordvergeten.html">Wachtwoord vergeten?</a>
+          <a href="inloggen.php">Inloggen</a>
+          <a href="registeren.php">Registreer</a>
+          <a href="wachtwoordvergeten.php">Wachtwoord vergeten?</a>
       </div>
         <div class="col-xs-6">
             <img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland">
@@ -48,35 +49,7 @@
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Over ons <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="onstaan.html">Onstaan Discus Club Holland</a></li>
-                            <li><a href="nieuws.html">Nieuws</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Forum <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="actievetopics.html">Actieve topics</a></li>
-                            <li><a href="nieuwetopics.html">Nieuw topics</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="wordlid.html">Word lid!</a></li>
-                    <li class="dropdown">
-                        <a href="sponsoren" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sponsoren <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Ook sponsor worden?</a></li>
-                            <li><a href="sponsoren.html">Onze sponsoren</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="albums.html">Albums</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+<?php require 'nav_uitloggen.php'; ?>
             <!--/.nav-collapse -->
         </div>
     </nav>
@@ -295,17 +268,18 @@
                 <h3 class="footer-title"><b>Volg ons op Twitter!</b></h3>
                 <a class="twitter-timeline" href="https://twitter.com/discusholland?lang=en" data-widget-id="831416744602431488">Tweets van @HealthBetuwe</a>
                 <script>
-                    ! function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0],
-                            p = /^http:/.test(d.location) ? 'http' : 'https';
-                        if (!d.getElementById(id)) {
-                            js = d.createElement(s);
-                            js.id = id;
-                            js.src = p + "://platform.twitter.com/widgets.js";
-                            fjs.parentNode.insertBefore(js, fjs);
-                        }
-                    }(document, "script", "twitter-wjs");
-                </script>
+                !(function(d, s, id) {
+  var js,
+    fjs = d.getElementsByTagName(s)[0],
+    p = /^http:/.test(d.location) ? 'http' : 'https'
+  if (!d.getElementById(id)) {
+    js = d.createElement(s)
+    js.id = id
+    js.src = p + '://platform.twitter.com/widgets.js'
+    fjs.parentNode.insertBefore(js, fjs)
+  }
+})(document, 'script', 'twitter-wjs')
+</script>
             </div>
             <div class="col-md-4 col-sm-12 text-center">
                 <h3 class="footer-title"><b>Contact</b></h3>
