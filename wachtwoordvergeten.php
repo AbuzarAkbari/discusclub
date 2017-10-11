@@ -29,9 +29,9 @@
     </script>
     <div class="header">
       <div class="inlog">
-          <a href="inloggen.html">Inloggen</a>
-          <a href="registeren.html">Registreer</a>
-          <a href="wachtwoordvergeten.html">Wachtwoord vergeten?</a>
+          <a href="inloggen.php">Inloggen</a>
+          <a href="registeren.php">Registreer</a>
+          <a href="wachtwoordvergeten.php">Wachtwoord vergeten?</a>
       </div>
         <div class="col-xs-6">
             <img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland">
@@ -46,35 +46,7 @@
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
             </div>
-<div id="navbar" class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Over ons <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="onstaan.html">Onstaan Discus Club Holland</a></li>
-                <li><a href="nieuws.html">Nieuws</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Forum <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="actievetopics.html">Actieve topics</a></li>
-                <li><a href="nieuwetopics.html">Nieuw topics</a></li>
-            </ul>
-        </li>
-        <li><a href="wordlid.html">Word lid!</a></li>
-        <li class="dropdown">
-            <a href="sponsoren.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sponsoren <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Ook sponsor worden?</a></li>
-                <li><a href="sponsoren.html">Onze sponsoren</a></li>
-            </ul>
-        </li>
-        <li><a href="albums.html">Albums</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</div>
+<?php require 'nav_uitloggen.php'; ?>
             <!--/.nav-collapse -->
         </div>
     </nav>
@@ -86,7 +58,7 @@
               <div class="panel-heading panel-heading1">
                   <h4>Inloggen</h4></div>
                 <div class="panel-body">
-                  <form class="" action="index.html" method="post">
+                  <form class="" action="index.php" method="post">
 
                   <p>U zal een e-mail met uw naam ontvangen. Wij zullen nooit uw wachtwoord toezenden, want die weten wij ook niet (ter beveiliging). De e-mail bevat in plaats daarvan een link waarmee u uw wachtwoord kan wijzigen.</p>
 
