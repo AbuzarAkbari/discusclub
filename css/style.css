@@ -211,3 +211,7 @@ img {
 ol.listing{
   list-style-type: decimal;
 }
+
+.menu-right {
+    margin-right: 500px;
+}
