@@ -48,32 +48,30 @@
         </button>
             </div>
 <?php require 'nav_uitloggen.php'; ?>
-            <!--/.nav-collapse -->
         </div>
     </nav>
-    </div>
     <div class="container">
         <div class="row">
-          <br><br>
-          <div class="panel panel-primary">
-              <div class="panel-heading panel-heading1">
-                  <h4>Inloggen</h4></div>
-                <div class="panel-body">
-                  <form class="" action="index.php" method="post">
-                      Naam
-                      <input class="form-control" required type="text" name="" value="" placeholder="Naam "><br>
-                      Wachtwoord
-                      <input class="form-control" required type="email" name="" value="" placeholder="Email "><br>
-
-                    <input required type="checkbox" name="" value="">  Onthoud mij<br><br>
-
-                    <a href="wachtwoordvergeten.php">Naam of wachtwoord vergeten?</a><br><br>
-
-                      <input type="submit" class="btn btn-primary" name="send" value="Login">
-                  </form>
-
+            <br>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Profiel aanpassen</h3>
               </div>
-          </div>
+              <div class="panel-body">
+                    <form class="" action="geenidee.php" method="post">
+                        <input type="checkbox" name="" value=""> Ik wil de DCH nieuwsbrief ontvangen <br><br>
+                        <input class="form-control" type="password" name="" value="" placeholder="Wachtwoord"><br>
+                        <input class="form-control" type="password" name="" value="" placeholder="Herhaal wachtwoord"><br>
+                        <input class="form-control" type="email" name="" value="" placeholder="E-mail"><br>
+                        <input class="form-control" type="email" name="" value="" placeholder="Herhaal e-mail"><br>
+                        <input class="form-control" type="date" name="date1" min="1950-01-01" max=<?php echo date('Y-m-d');?> placeholder="Geboortedatum"><br>
+                        <input class="form-control" type="text" name="" value="" placeholder="Locatie"><br>
+                        <input class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="" value="" placeholder="Selecteer bestand"><br>
+                        <input class="form-control" type="text" name="" value="" placeholder="Handtekening"><br>
+                        <input type="submit" class="btn btn-primary" name="" value="Opslaan">
+                    </form>
+              </div>
+            </div>
         </div>
     </div>
     <footer>
@@ -102,8 +100,8 @@
             </div>
         </div>
     </footer>
+    <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
-
 </html>

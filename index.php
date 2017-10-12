@@ -29,11 +29,7 @@
 })(document, 'script', 'facebook-jssdk')
 </script>
     <div class="header">
-      <div class="inlog">
-          <a href="inloggen.php">Inloggen</a>
-          <a href="registeren.php">Registreer</a>
-          <a href="wachtwoordvergeten.php">Wachtwoord vergeten?</a>
-      </div>
+<?php require "ingelogd.php" ?>
         <div class="col-xs-6">
             <img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland">
         </div>
