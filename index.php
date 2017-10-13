@@ -177,7 +177,7 @@
     </div>
     <footer>
         <div class="footer-wrapper">
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <div class="row">
                   <div class="col-md-4">
                       <h3 class="footer-title"><b>Vind ons leuk!</b></h3>
@@ -200,6 +200,7 @@
                   </div>
                 </div>
             </div>
+            <br>
             <div class="col-md-12 text-center">
                 <a href="#">&copy; Discus Club Holland</a> | <a href="#">Webdesign door Impact4ROI</a> | <a href="#">Algemene voorwaarden</a>
             </div>
