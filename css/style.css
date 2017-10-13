@@ -218,10 +218,9 @@ ol.listing {
   list-style-type: decimal;
 }
 
-<<<<<<< HEAD
 .menu-right {
-    margin-right: 500px;
-=======
+  margin-right: 500px;
+}
 .navbar {
   border-radius: 0 !important;
 }
@@ -276,5 +275,4 @@ a:focus,
 a:hover {
   color: white !important;
   text-decoration: none !important;
->>>>>>> 98d13cd15b52a39b2a90b3945ba882cdfb8ca3a6
 }
