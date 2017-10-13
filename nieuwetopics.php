@@ -488,30 +488,7 @@
     </div>
   </div>
     <footer>
-        <div class="footer-wrapper">
-            <div class="col-md-4 text-center">
-                <h3 class="footer-title"><b>Vind ons leuk!</b></h3>
-                <div class="fb-page" data-href="https://www.facebook.com/DiscusClubHolland/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                    <blockquote cite="https://www.facebook.com/DiscusClubHolland/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <h3 class="footer-title"><b>Volg ons op Twitter!</b></h3>
-                <a class="twitter-timeline"  href="https://twitter.com/discusholland?lang=en"  data-widget-id="831416744602431488">Tweets van @HealthBetuwe</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-            </div>
-            <div class="col-md-4 col-sm-12 text-center">
-                <h3 class="footer-title"><b>Contact</b></h3>
-                <form class="" action="verwerk.php" method="post">
-                    <input class="footer-name" type="text" name="naam" value="" placeholder="Naam"><br>
-                    <textarea class="footer-message" name="bericht" placeholder="Uw bericht"></textarea><br>
-                    <input class="lees-meer-btn footer-btn" type="submit" name="send" value="Verzenden">
-                </form>
-            </div>
-            <div class="col-md-12 text-center">
-                <a href="#">&copy; Discus Club Holland</a> | <a href="#">Webdesign door Impact4ROI</a> | <a href="#">Algemene voorwaarden</a>
-            </div>
-        </div>
+<?php require 'footer.php' ; ?>
     </footer>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

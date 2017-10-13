@@ -81,7 +81,7 @@ hr {
 }
 
 .footer-wrapper {
-  min-height: 600px;
+  height: 100%;
   background: linear-gradient(#2b2b2b, black);
 }
 
@@ -275,4 +275,10 @@ a:focus,
 a:hover {
   color: white !important;
   text-decoration: none !important;
+}
+
+.fb-comments,
+.fb-comments span,
+.fb-comments.fb_iframe_widget span iframe {
+  width: 100% !important;
 }
