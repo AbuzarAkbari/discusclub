@@ -9,8 +9,7 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
-
+    <link rel="stylesheet" href="css/nieuws.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
@@ -20,16 +19,15 @@
 <body>
     <div id="fb-root"></div>
     <script>
-    ;(function(d, s, id) {
-  var js,
-    fjs = d.getElementsByTagName(s)[0]
-  if (d.getElementById(id)) return
-  js = d.createElement(s)
-  js.id = id
-  js.src = '//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.10'
-  fjs.parentNode.insertBefore(js, fjs)
-})(document, 'script', 'facebook-jssdk')
-</script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.10";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="header">
       <div class="inlog">
           <a href="inloggen.php">Inloggen</a>
@@ -53,209 +51,100 @@
             <!--/.nav-collapse -->
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <br><br>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Meldingen en nieuws</h4></div>
-                <div class="panel-body">
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
+    <div class="container-fluid">
+        <div class="row sliderbox">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="images/vissen1.jpg" alt="fishing">
                     </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
+
+                    <div class="item">
+                        <img src="images/vissen2.jpg" alt="fishing">
                     </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="col-md-12 col-sm-12 text-center">
-                        <img src="http://via.placeholder.com/400x100" alt="">
+
+                    <div class="item">
+                        <img src="images/vissen3.jpg" alt="vissen">
                     </div>
                 </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Discus Vissen</h4></div>
-                <div class="panel-body">
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="col-md-12 col-sm-12 text-center">
-                        <img src="http://via.placeholder.com/400x100" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Wat nergers thuishoort</h4></div>
-                <div class="panel-body">
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="col-md-12 col-sm-12 text-center">
-                        <img src="http://via.placeholder.com/400x100" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Foto album (Toon hier uw foto's)</h4></div>
-                <div class="panel-body">
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="col-md-12 col-sm-12 text-center">
-                        <img src="http://via.placeholder.com/400x100" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Handel</h4></div>
-                <div class="panel-body">
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="col-md-12 col-sm-12 text-center">
-                        <img src="http://via.placeholder.com/400x100" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Discus Club Holland</h4></div>
-                <div class="panel-body">
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="forum-box">
-                        <h4>Lorem Slipsum</h4>
-                        <h5><i>24-02-2017 Door mr. anonymous </i></h5>
-                        <img src="http://via.placeholder.com/75x75" alt=""><br> Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.<br>
-                    </div>
-                    <hr>
-                    <div class="col-md-12 col-sm-12 text-center">
-                        <img src="http://via.placeholder.com/400x100" alt="">
-                    </div>
-                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </div>
+    <br><br>
+    <div class="container">
+      <div class="row columns">
+      <div class="col-md-12">
+        <div class="panel panel-primary ">
+          <div class="panel-heading border-colors">Nieuws</div>
+          <div class="panel-body padding-padding">
+            <table>
+              <tr>
+                <th> #</th>
+                <th> Titel</th>
+                <th>Forum</th>
+                <th>Auteur</th>
+                <th>Berichten</th>
+
+                <th>Bekeken</th>
+                <th>Laatste bericht</th>
+              </tr>
+              <tr>
+                <td>	&#128193; </td>
+                <td>lorem ipsum</td>                <td>lorem ipsum</td>                <td>lorem ipsum</td>
+                <td>1</td>
+               <td>123</td> <td>1 dage geleden, <br> door henk</td>
+              </tr>
+              <tr>
+                <td>	&#128193; </td>
+                <td>lorem ipsum</td>                <td>lorem ipsum</td>                <td>lorem ipsum</td>
+                <td>1</td>
+                <td>123</td> <td>1 dage geleden, <br> door henk</td>
+              </tr>
+              <tr>
+                <td>	&#128193; </td>
+                <td>lorem ipsum</td>                <td>lorem ipsum</td>                <td>lorem ipsum</td>
+                <td>1</td>
+                <td>123</td> <td>1 dage geleden, <br> door henk</td>
+              </tr>
+              <div class="panel-heading">
+
+                <tr>
+                  <th> #</th>
+                  <th> Titel</th>
+                  <th>Forum</th>
+                  <th>Auteur</th>
+                  <th>Berichten</th>
+
+                  <th>Bekeken</th>
+                  <th>Laatste bericht</th>
+                </tr>
+
+              </div>
+                  </div>
+            </table>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
     <footer>
 <?php require 'footer.php' ; ?>
     </footer>
@@ -263,5 +152,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
-
 </html>

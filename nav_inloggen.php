@@ -11,7 +11,7 @@
               </ul>
           </li>
           <li class='dropdown'>
-              <a href='#' class='dropdown-toggle'>Forum </a>
+              <a href='form.php' class='dropdown-toggle'>Forum </a>
               <ul class='dropdown-menu'>
                   <li><a href='actievetopics.php'>Actieve topics</a></li>
                   <li><a href='nieuwetopics.php'>Nieuw topics</a></li>
