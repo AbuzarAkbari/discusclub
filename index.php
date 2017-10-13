@@ -199,11 +199,11 @@
                       </form>
                   </div>
                 </div>
+                <div class="col-md-12 text-center">
+                    <a href="#">&copy; Discus Club Holland</a> | <a href="#">Webdesign door Impact4ROI</a> | <a href="#">Algemene voorwaarden</a>
+                </div>
             </div>
             <br>
-            <div class="col-md-12 text-center">
-                <a href="#">&copy; Discus Club Holland</a> | <a href="#">Webdesign door Impact4ROI</a> | <a href="#">Algemene voorwaarden</a>
-            </div>
         </div>
     </footer>
     <!-- bootstrap script -->
