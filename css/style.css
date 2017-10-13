@@ -81,7 +81,7 @@ hr {
 }
 
 .footer-wrapper {
-  height: 600px;
+  min-height: 600px;
   background: linear-gradient(#2b2b2b, black);
 }
 
