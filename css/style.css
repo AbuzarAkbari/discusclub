@@ -282,3 +282,11 @@ a:hover {
 .fb-comments.fb_iframe_widget span iframe {
   width: 100% !important;
 }
+
+#gebruikersvoorwaarden:hover{
+    color: orange !important
+}
+
+.album-image {
+    margin-right: 12px
+}

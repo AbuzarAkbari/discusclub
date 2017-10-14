@@ -103,7 +103,7 @@
       <div class="col-md-12">
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+            <img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -114,7 +114,7 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+            <img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -125,7 +125,7 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+            <img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -136,7 +136,32 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+            <img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+            <div class="panel-heading border-colors">Sponsoren</div>
+                <img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
+                <span class="albumTekst">
+                Geüpload door
+                <br>collin
+                <br>Aantal foto's
+                <br>3
+                <br>Datum
+                <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -147,7 +172,8 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -158,7 +184,8 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -169,7 +196,8 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -180,7 +208,8 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -191,7 +220,8 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -202,7 +232,8 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -213,7 +244,8 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -224,7 +256,8 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin
@@ -235,29 +268,8 @@
         </div>
         <div class="col-md-4 col-sm-6 ruimte">
           <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+<img src="http://via.placeholder.com/130x130" class="albumTekst album-image">
+
               <span class="albumTekst">
               Geüpload door
               <br>collin

@@ -71,8 +71,10 @@
                     <th>Laatste bericht</th>
                   </tr>
                   <tr>
-                    <td>	&#128193; </td>
-                    <td>lorem ipsum</td>                <td>lorem ipsum</td>                <td>lorem ipsum</td>
+                    <td>&#128193;</td>
+                    <td>lorem ipsum</td>
+                    <td>lorem ipsum</td>
+                    <td>lorem ipsum</td>
                     <td>1</td>
                    <td>123</td> <td>1 dage geleden, <br> door henk</td>
                   </tr>
@@ -90,8 +92,9 @@
                   </tr>
                 </div>
                 </table>
-              </div>
+            </div>
               <div class="col-md-12 col-sm-12 text-center">
+                  <br><br>
                 <img src="http://via.placeholder.com/400x100" alt="">
               </div>
             </div>
@@ -136,6 +139,7 @@
                 </table>
               </div>
               <div class="col-md-12 col-sm-12 text-center">
+                   <br><br>
                 <img src="http://via.placeholder.com/400x100" alt="">
               </div>
             </div>
@@ -180,6 +184,7 @@
                 </table>
               </div>
               <div class="col-md-12 col-sm-12 text-center">
+                   <br><br>
                 <img src="http://via.placeholder.com/400x100" alt="">
               </div>
             </div>
@@ -224,6 +229,7 @@
                 </table>
               </div>
               <div class="col-md-12 col-sm-12 text-center">
+                   <br><br>
                 <img src="http://via.placeholder.com/400x100" alt="">
               </div>
             </div>
@@ -268,6 +274,7 @@
                 </table>
               </div>
               <div class="col-md-12 col-sm-12 text-center">
+                   <br><br>
                 <img src="http://via.placeholder.com/400x100" alt="">
               </div>
             </div>
@@ -312,6 +319,7 @@
                 </table>
               </div>
               <div class="col-md-12 col-sm-12 text-center">
+                 <br><br>  
                 <img src="http://via.placeholder.com/400x100" alt="">
               </div>
             </div>

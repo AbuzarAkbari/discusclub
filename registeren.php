@@ -59,7 +59,7 @@
                   <h4>Registeren</h4></div>
                 <div class="panel-body">
                   <form class="" action="index.php" method="post">
-                      Vooraam + achternaam
+                      Volledige naam
                       <input class="form-control" required type="text" name="" value="" placeholder="Naam "><br>
                       Wachtwoord
                       <input class="form-control" required type="email" name="" value="" placeholder="Wachtwoord"><br>
@@ -70,7 +70,7 @@
                       Herhaal e-mailadres
                       <input class="form-control" required type="email" name="" value="" placeholder="Herhaal e-mailadres"><br>
                       Als u registreert gaat u akkoord met onze gebruiksvoorwaarden.
-                    <a href="gebruiksvoorwaarden.php">gebruiksvoorwaarden</a><br><br>
+                      <a id="gebruikersvoorwaarden" href="gebruiksvoorwaarden.php">gebruiksvoorwaarden</a><br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
                   </form>
