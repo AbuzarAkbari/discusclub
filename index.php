@@ -36,7 +36,7 @@
     <div class="header container">
 <?php require "ingelogd.php" ?>
         <div class="col-xs-6">
-            <img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland">
+            <a href="/"><img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland"></a>
         </div>
     </div>
     <div class="container-fluid headerzijkant">
