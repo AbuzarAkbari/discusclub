@@ -286,3 +286,7 @@ a:hover {
 .headerzijkant {
   background: linear-gradient(#2b2b2b, black);
 }
+
+.footer-contact-text {
+    color: #ffffff;
+}

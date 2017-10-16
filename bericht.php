@@ -91,6 +91,13 @@
                             hold a candle to man.
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">lorem slipsum</h3>
+                </div>
+                <div class="panel-body">
                     <div class="wrapper-box col-md-12">
                         <div class="col-md-2">
                             <img src='http://via.placeholder.com/130x130' alt="">
