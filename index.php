@@ -31,10 +31,9 @@
 
 <div class="header">
 <div class="container-fluid headerzijkant">
-
 </div>
     <div class="header container">
-<?php require "ingelogd.php" ?>
+        <?php require "ingelogd.php" ?>
         <div class="col-xs-6">
             <a href="/"><img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland"></a>
         </div>
