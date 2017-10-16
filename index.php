@@ -28,12 +28,21 @@
   fjs.parentNode.insertBefore(js, fjs)
 })(document, 'script', 'facebook-jssdk')
 </script>
-    <div class="header">
+
+<div class="header">
+<div class="container-fluid headerzijkant">
+
+</div>
+    <div class="header container">
 <?php require "ingelogd.php" ?>
         <div class="col-xs-6">
             <img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland">
         </div>
     </div>
+    <div class="container-fluid headerzijkant">
+
+    </div>
+  </div>
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
@@ -105,6 +114,9 @@
         <br><br>
     </div>
     <div class="row ">
+      <div class="conainter-fluid"></div>
+      <div class="container">
+
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Reacties</div>
@@ -174,7 +186,8 @@
             </div>
         </div>
     </div>
-    </div>
+  </div>
+    <div class="conainter-fluid"></div>
     <footer>
 <?php require 'footer.php' ; ?>
     </footer>
