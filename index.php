@@ -28,33 +28,9 @@
   fjs.parentNode.insertBefore(js, fjs)
 })(document, 'script', 'facebook-jssdk')
 </script>
-
-<div class="header">
-<div class="container-fluid headerzijkant">
-
-</div>
-    <div class="header container">
-<?php require "ingelogd.php" ?>
-        <div class="col-xs-6">
-            <a href="/"><img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland"></a>
-        </div>
-    </div>
-    <div class="container-fluid headerzijkant">
-
-    </div>
-  </div>
-    <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </button>
-            </div>
-<?php require 'nav_uitloggen.php'; ?>
-        </div>
-    </nav>
+<?php
+ require 'ingelogd.php'; 
+  ?>
     <div class="container-fluid">
         <div class="row sliderbox">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
