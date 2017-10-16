@@ -15,7 +15,7 @@
                 <ul class='dropdown-menu'>
                     <li><a href='actievetopics.php'>Actieve topics</a></li>
                     <li><a href='nieuwetopics.php'>Nieuw topics</a></li>
-                    <li><a href='favoriete.php'>Favoriete topics</a></li>
+                    <li><a href='fav-topics.php'>Favoriete topics</a></li>
                     <li><a href='ledenlijst.php'>Ledenlijst</a></li>
                 </ul>
             </li>

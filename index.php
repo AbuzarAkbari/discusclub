@@ -14,7 +14,6 @@
     <!-- bootstrap style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-
 <body>
     <div id="fb-root"></div>
     <script>
@@ -47,11 +46,11 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </button>
-            </div>
-<?php require 'nav_uitloggen.php'; ?>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
+            <!-- </div> -->
+            <?php require 'nav_uitloggen.php'; ?>
         </div>
     </nav>
     <div class="container-fluid">
