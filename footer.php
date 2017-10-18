@@ -18,7 +18,7 @@
                   <br>
 
                   <form class='' action='verwerk.php' method='post'>
-                      <h5 class="FooterContactTekst">heeft u feedback, of een vraag?
+                      <h5 class="FooterContactTekst">Heeft u feedback, of een vraag?
                           <br>
                           Stuur ons een bericht!
                       </h5>

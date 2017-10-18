@@ -329,3 +329,7 @@ li.dropdown:hover > .dropdown-menu {
         text-align: center;
     }
 }
+
+.border-color {
+    background-color: #0ba8ec !important;
+}

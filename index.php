@@ -97,8 +97,8 @@
       <div class="container">
 
         <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reacties</div>
+            <div class="panel panel-primary border-colors">
+                <div class="panel-heading border-color">Reacties</div>
                 <div class="panel-body">
                     <div class="box">
                         <p class="title-box title-box-color"><b>Lorem slipsum</b></p>
@@ -140,9 +140,9 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="nieuws-box">
-                    <div class="panel-heading">Ander nieuws</div>
+                    <div class="panel-heading border-color">Ander nieuws</div>
                     <div class="panel-body">
                         <p><b>lorem slipsum</b></p>
                         You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other,

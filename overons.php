@@ -75,17 +75,16 @@
     <div class="container">
       <div class="row columns">
       <div class="col-md-8">
-        <div class="panel panel-primary ">
-          <div class="panel-heading border-colors">Over Discus Club Holland</div>
+        <div class="panel panel-primary">
+          <div class="panel-heading border-color">Over Discus Club Holland</div>
           <div class="panel-body padding-padding space">
               <li class="overonsHover"><a>Het ontstaan van Discus Club Holland</a></li>
               <li class="overonsHover"><a>Nieuwsberichten​</a></li>
-              <li class="overonsHover"><a>Zoeken in de nieuwsberichten</a></li>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-          <div class="panel panel-default">
+          <div class="panel panel-primary">
               <div class="panel-heading border-colors">Advertentie</div>
               <div class="panel-body">
                   <div class="col-md-12 col-sm-12 ruimte"><img src="http://via.placeholder.com/320x320"> </div>
@@ -94,7 +93,7 @@
       </div>
       <div class="col-md-8"></div>
       <div class="col-md-4">
-          <div class="panel panel-default">
+          <div class="panel panel-primary">
               <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
               <div class="panel-body">
                   <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
