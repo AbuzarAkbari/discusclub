@@ -32,9 +32,6 @@
     <?php
      require 'ingelogd.php';
       ?>
-      <?php
-      //  require 'ingelogd.php';
-        ?>
     <div class="container-fluid">
         <div class="row sliderbox">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -81,11 +78,11 @@
                     <h3 class="panel-title">Album toevoegen</h3>
                   </div>
                   <div class="panel-body">
-
+                    <button type="button" class="btn col-md-12" name="button">Upload een album</button>
                   </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -93,7 +90,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -105,7 +102,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -113,7 +110,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -125,7 +122,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -133,7 +130,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -145,7 +142,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -153,7 +150,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -165,7 +162,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -173,7 +170,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -185,7 +182,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -193,7 +190,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -205,7 +202,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -213,7 +210,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -225,7 +222,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -233,7 +230,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -245,7 +242,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -253,7 +250,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -265,7 +262,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -273,7 +270,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -285,7 +282,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -293,7 +290,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -305,7 +302,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -313,7 +310,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -325,7 +322,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -333,7 +330,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
@@ -345,7 +342,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
@@ -353,7 +350,47 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">Geplaatst door: <i>Jack Sparrow </i></h4>
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
                                 <p>
                                     Aantal foto's: <i>7</i><br>
                                     Datum: <i>05-07-2017</i><br>
