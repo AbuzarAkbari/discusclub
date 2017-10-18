@@ -78,16 +78,9 @@
         <div class="panel panel-primary ">
           <div class="panel-heading border-colors">Over Discus Club Holland</div>
           <div class="panel-body padding-padding space">
-            <ul>
-              <li><a>World Championship Discus</a></li>
-              <li><a>Het ontstaan van Discus Club Holland</a></li>
-              <li><a>Nieuwsberichten​</a></li>
-              <li><a>Zoeken in de nieuwsberichten</a></li>
-            </ul>
-
-
-
-
+              <li class="overonsHover"><a>Het ontstaan van Discus Club Holland</a></li>
+              <li class="overonsHover"><a>Nieuwsberichten​</a></li>
+              <li class="overonsHover"><a>Zoeken in de nieuwsberichten</a></li>
           </div>
         </div>
       </div>
@@ -99,6 +92,7 @@
               </div>
           </div>
       </div>
+      <div class="col-md-8"></div>
       <div class="col-md-4">
           <div class="panel panel-default">
               <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
@@ -113,6 +107,7 @@
           </div>
       </div>
 
+      <div class="col-md-8"></div>
 
             <div class="col-md-4">
               <div class="panel panel-primary">
@@ -126,6 +121,7 @@
                 </div>
               </div>
             </div>
+            <div class="col-md-8"></div>
 
       <div class="col-md-4">
         <div class="panel panel-primary">
@@ -140,6 +136,7 @@
           </div>
         </div>
       </div>
+      <div class="col-md-8"></div>
 
 
       <div class="col-md-4">

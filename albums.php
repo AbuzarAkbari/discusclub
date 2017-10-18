@@ -71,6 +71,7 @@
     </div>
     <br><br>
     <div class="container">
+<<<<<<< HEAD
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -402,15 +403,192 @@
                     </div>
                 </div>
             </div>
+=======
+      <div class="row columns">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading border-colors">Albums</div>
+            <div class="panel-body padding-padding space ">
+              <button type="button" name="button" class="btn ">foto albums toevoegen</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+        </div>
+        <div class="col-md-4 col-sm-6 ruimte">
+          <div class="panel-heading border-colors">Sponsoren</div>
+            <img src="http://via.placeholder.com/130x130" class="albumTekst">
+              <span class="albumTekst">
+              Geüpload door
+              <br>collin
+              <br>Aantal foto's
+              <br>3
+              <br>Datum
+              <br>05-10-17</span>
+>>>>>>> e14543f7938071b21be1dccd18b8777e24899c1e
         </div>
     </div>
-    <br>
-    <br>
-    <br>
+  </div>
+</div>
+  <br>
+  <br>
+  <br>
     <footer>
-        <?php require 'footer.php'; ?>
+    <?php require 'footer.php' ; ?>
     </footer>
-
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
