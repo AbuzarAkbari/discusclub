@@ -306,3 +306,7 @@ li.dropdown:hover > .dropdown-menu {
     /*cursor: pointer !important;*/
     cursor: crosshair !important;
 }
+
+.footer-contact-text {
+    color: #ffffff;
+}
