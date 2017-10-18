@@ -102,7 +102,7 @@ hr {
 }
 
 .footer-name {
-    width: 90%;
+    width: 100%;
     padding: 4px;
     border-top-left-radius: 0.4em;
     border-top-right-radius: 0.4em;
@@ -111,14 +111,14 @@ hr {
 }
 
 .footer-message {
-    width: 90%;
+    width: 100%;
     height: 230px;
     padding: 4px;
     border: none;
 }
 
 .footer-btn {
-    width: 90%;
+    width: 100%;
     margin-top: -5px;
     border-bottom-left-radius: 0.4em;
     border-bottom-right-radius: 0.4em;
@@ -307,6 +307,25 @@ li.dropdown:hover > .dropdown-menu {
     cursor: crosshair !important;
 }
 
-.footer-contact-text {
-    color: #ffffff;
+.FooterContactTekst {
+    color: white;
+    text-align: left;
+}
+
+@media screen and (max-width: 990px) {
+    .footer-name {
+        width: 50%;
+    }
+
+    .footer-message {
+        width: 50%;
+    }
+
+    .footer-btn {
+        width: 50%;
+    }
+    .FooterContactTekst {
+        color: white;
+        text-align: center;
+    }
 }
