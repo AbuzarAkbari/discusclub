@@ -73,7 +73,8 @@
     </div>
     <br><br>
     <div class="container">
-      <div class="row columns">
+      <div class="row">
+
       <div class="col-md-8">
         <div class="panel panel-primary">
           <div class="panel-heading border-color">Over Discus Club Holland</div>
@@ -91,7 +92,8 @@
               </div>
           </div>
       </div>
-      <div class="col-md-8"></div>
+      <div class="col-md-8"> </div>
+      
       <div class="col-md-4">
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
@@ -105,9 +107,7 @@
               </div>
           </div>
       </div>
-
-      <div class="col-md-8"></div>
-
+      <div class="col-md-8"> </div>
             <div class="col-md-4">
               <div class="panel panel-primary">
                 <div class="panel-heading border-colors">laatste reacties of foto's</div>
@@ -120,8 +120,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-8"></div>
-
+      <div class="col-md-8"> </div>
       <div class="col-md-4">
         <div class="panel panel-primary">
           <div class="panel-heading border-colors">laatste nieuws</div>
@@ -135,9 +134,9 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8"></div>
 
 
+      <div class="col-md-8"> </div>
       <div class="col-md-4">
         <div class="panel panel-primary">
           <div class="panel-heading border-colors">laatste reacties op topics</div>
@@ -150,9 +149,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8">
 
-      </div>
     </div>
   </div>
     <footer>

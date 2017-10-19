@@ -71,11 +71,10 @@
     </div>
     <br><br>
     <div class="container">
-<<<<<<< HEAD
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                  <div class="panel-heading">
+                  <div class="panel-heading border-color">
                     <h3 class="panel-title">Album toevoegen</h3>
                   </div>
                   <div class="panel-body">
@@ -85,7 +84,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -105,7 +104,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -125,7 +124,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -145,7 +144,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -165,7 +164,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -185,7 +184,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -205,7 +204,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -225,7 +224,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -245,7 +244,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -265,7 +264,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -285,7 +284,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -305,7 +304,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -325,7 +324,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -345,7 +344,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -365,7 +364,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -385,7 +384,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -403,182 +402,6 @@
                     </div>
                 </div>
             </div>
-=======
-      <div class="row columns">
-        <div class="col-md-12">
-          <div class="panel panel-primary">
-            <div class="panel-heading border-colors">Albums</div>
-            <div class="panel-body padding-padding space ">
-              <button type="button" name="button" class="btn ">foto albums toevoegen</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
->>>>>>> e14543f7938071b21be1dccd18b8777e24899c1e
         </div>
     </div>
   </div>
