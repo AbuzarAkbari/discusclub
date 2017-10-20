@@ -26,7 +26,7 @@ hr {
 }
 
 .inlog a {
-    color: #ffffff;
+    color: #ffffff !important;
     padding-left: 10px;
 }
 
@@ -175,13 +175,15 @@ hr {
 
 .navbar {
     margin-bottom: 0px !important;
-    border: 1px solid black !important;
+    border: 0px solid black !important;
     font-weight: bold;
+
 }
 
 .dropdown-menu > li > a:hover {
     background: #0ba8ec !important;
     color: #fff !important;
+    text-decoration: underline !important;
 }
 
 .row {
@@ -260,14 +262,14 @@ li.dropdown:hover > .dropdown-menu {
     position: absolute;
     text-decoration: none;
     min-width: 160px;
-
     z-index: 1;
 }
 
 .dropdown-content a {
+    z-index: 1000000000 !important;
     color: white !important;
     text-decoration: none;
-    padding: 12px 16px;
+    padding: 8px 12px;
     text-decoration: none;
     display: block;
 }
