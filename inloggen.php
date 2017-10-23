@@ -39,15 +39,15 @@
           <br><br>
           <div class="panel panel-primary">
               <div class="panel-heading panel-heading1">
-                  <h4>Registeren</h4></div>
+                  <h4>Inloggen</h4></div>
                 <div class="panel-body">
                   <form class="" action="index.php" method="post">
-                      Vooraam + achternaam
+                      Gebruikersnaam
                       <input class="form-control" required type="text" name="" value="" placeholder="Naam "><br>
                       Wachtwoord
-                      <input class="form-control" required type="email" name="" value="" placeholder="Wachtwoord"><br>
+                      <input class="form-control" required type="password" name="" value="" placeholder="Wachtwoord"><br>
 
-                      <input class="" required type="checkbox" name="" value=""> Onthoud mij<br>
+                      <input class="" type="checkbox" name="" value=""> Onthoud mij<br>
 
                       <a href="wachtwoordvergeten.php">Naam of wachtwoord vergeten?</a><br><br>
 
