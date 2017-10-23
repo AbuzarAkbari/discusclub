@@ -49,18 +49,13 @@
                     </li>
                     <li><a href='wordlid.php'>Word lid!</a></li>
                     <li class='dropdown'>
-                        <a class='dropdown-toggle'>Sponsoren </a>
+                        <a href='#' class='dropdown-toggle'>Sponsoren </a>
                         <ul class='dropdown-menu'>
                             <li><a href='sponsoren-worden.php'>Ook sponsor worden?</a></li>
                             <li><a href='sponsoren.php'>Onze sponsoren</a></li>
                         </ul>
                     </li>
-                    <li class='dropdown'>
-                        <a href='albums.php' class='dropdown-toggle'>Albums </a>
-                        <ul class='dropdown-menu'>
-                            <li><a href='album-upload.php'>Uploaden</a></li>
-                        </ul>
-                    </li>
+                    <li><a href='albums.php'>Albums</a></li>
                     <li><a href='contact.php'>Contact</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
