@@ -70,7 +70,7 @@
 
                             $sub_categorie_naam = $result2->fetchAll();
 
-                            $sql3 = "SELECT COUNT(id) AS i FROM berichten WHERE topic_id = ?";
+                            $sql3 = "SELECT COUNT(id) AS i FROM message WHERE topic_id = ?";
                             $result3 = $dbc->prepare($sql3);
                             $result3->bindParam(1, $topic['id']);
                             $result3->execute();
@@ -85,10 +85,10 @@
                             ?>
 
                             <tr>
-                                <td><?php echo $topic['topic_icon']; ?></td>
-                                <td><a href="topics.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['topic_titel']; ?></a></td>
-                                <td><a href="#"><?php echo $sub_categorie_naam[0]['sub_categorie_naam']; ?></a></td>
-                                <td><a href="#"><?php echo $topic['topic_auteur']; ?></a></td>
+                                <td><?php echo $topic['icon']; ?></td>
+                                <td><a href="topics.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
+                                <td><a href="#"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
+                                <td><a href="#"><?php echo $topic['user_id']; ?></a></td>
 
                                 <td><?php echo $results2[0]['i']; ?></td>
                                 <td><?php echo $x_bekeken['x']; ?></td>

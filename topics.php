@@ -1,5 +1,5 @@
     <?php require_once('dbc.php'); 
-$categorieenSql = "SELECT * FROM categorieen";
+$categorieenSql = "SELECT * FROM category";
 $categorieenResult = $dbc->prepare($categorieenSql);
 $categorieenResult->execute();
 $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
@@ -73,7 +73,7 @@ $subResult->execute();
 $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
 
-$sql = "SELECT * FROM topic WHERE sub_categorie_id = ?";
+$sql = "SELECT * FROM topic WHERE sub_category_id = ?";
 $result = $dbc->prepare($sql);
 $result->bindParam(1, $_GET['id']);
 $result->execute();
@@ -87,7 +87,7 @@ $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
         <div class="col-md-12">
             <div class="panel panel-primary ">
             	<?php foreach($results2 as $subRow): ?>
-                <div class="panel-heading border-colors"><?php echo $subRow['sub_categorie_naam']; ?></div>
+                <div class="panel-heading border-colors"><?php echo $subRow['name']; ?></div>
             <?php endforeach; ?>
                 <div class="panel-body padding-padding">
                     <table>
@@ -108,16 +108,16 @@ $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
                                 $i = $result3->fetchAll(PDO::FETCH_ASSOC);
 
 
-                                $sql4 = "SELECT COUNT(id) AS x FROM ips WHERE topics_id = ?";
+                                $sql4 = "SELECT COUNT(id) AS x FROM ips WHERE topic_id = ?";
                                 $result4 = $dbc->prepare($sql4);
                                 $result4->bindParam(1, $topic['id']);
                                 $result4->execute();
                                 $x = $result4->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
-                                <td><?php echo $topic['topic_icon']; ?></td>
-                                <td><a href="bericht.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['topic_titel']; ?></a></td>
-                                <td><a href="#"><?php echo $topic['topic_auteur']; ?></a></td>
+                                <td><?php echo $topic['icon']; ?></td>
+                                <td><a href="bericht.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
+                                <td><a href="#"><?php echo $topic['user_id']; ?></a></td>
 
                                 <td><?php echo $i[0]['i']; ?></td>
                                 <td><?php echo $x[0]['x']; ?></td>
