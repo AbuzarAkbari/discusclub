@@ -5,13 +5,13 @@
     <div class="header container">
       <div class='inlog'>
         <div class='dropdown'>
-          <a class='dropbtn'>Gebruiker</a>
+          <a href="gebruiker" class='dropbtn'>Gebruiker</a>
           <div class='dropdown-content'>
-            <a href='#'>Berichten </a>
-            <a href='#'>Profiel aanpasen </a>
+            <a href='bericht.php'>Berichten </a>
+            <a href='profiel-aanpassen.php'>Profiel aanpasen </a>
           </div>
       </div>
-          <a href='uitloggen.php'>Uitloggen</a>
+          <a href='index.php'>Uitloggen</a>
       </div>
         <div class="col-xs-6">
             <a href="/"><img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland"></a>
@@ -49,18 +49,13 @@
                     </li>
                     <li><a href='wordlid.php'>Word lid!</a></li>
                     <li class='dropdown'>
-                        <a class='dropdown-toggle'>Sponsoren </a>
+                        <a href='#' class='dropdown-toggle'>Sponsoren </a>
                         <ul class='dropdown-menu'>
                             <li><a href='sponsoren-worden.php'>Ook sponsor worden?</a></li>
                             <li><a href='sponsoren.php'>Onze sponsoren</a></li>
                         </ul>
                     </li>
-                    <li class='dropdown'>
-                        <a href='albums.php' class='dropdown-toggle'>Albums </a>
-                        <ul class='dropdown-menu'>
-                            <li><a href='album-upload.php'>Uploaden</a></li>
-                        </ul>
-                    </li>
+                    <li><a href='albums.php'>Albums</a></li>
                     <li><a href='contact.php'>Contact</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
