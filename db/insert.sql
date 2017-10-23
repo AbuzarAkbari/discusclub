@@ -5,7 +5,7 @@ INSERT INTO `role`(`name`) VALUES
 ('admin');
 
 INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
-('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$OlUECsjs7xtSg0lOtiQEwOF5BgFvb3mIeSp1mI8w7QwN/AZeHnZjq', 4);
+('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 4);
 
 INSERT INTO `category` (`name`) VALUES
 ('Mededelingen en Nieuws'),

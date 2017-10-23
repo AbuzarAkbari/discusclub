@@ -29,8 +29,8 @@
     </script>
     <?php
      require 'ingelogd.php';
-      ?>
-      <?php
+        ?>
+        <?php
       //  require 'ingelogd.php';
         ?>
     </div>
@@ -43,24 +43,26 @@
                 <div class="panel-body">
                   <form class="" action="index.php" method="post">
                       Vooraam
-                      <input class="form-control" required type="text" name="" value="" placeholder="Naam "><br>
+                      <input class="form-control" required type="text" name="first_name" value="" placeholder="Naam "><br>
                       Achternaam
-                      <input class="form-control" required type="text" name="" value="" placeholder="AchterNaam "><br>
+                      <input class="form-control" required type="text" name="last_name" value="" placeholder="AchterNaam "><br>
                       Wachtwoord
-                      <input class="form-control" required type="email" name="" value="" placeholder="Wachtwoord"><br>
-                      Wachtwoord
-                      <input class="form-control" required type="email" name="" value="" placeholder="Wachtwoord"><br>
+                      <input class="form-control" required type="email" name="password" value="" placeholder="Wachtwoord"><br>
                       Herhaal wachtwoord
-                      <input class="form-control" required type="email" name="" value="" placeholder="Herhaal wachtwoord"><br>
+                      <input class="form-control" required type="email" name="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
                       E-mailadres
-                      <input class="form-control" required type="email" name="" value="" placeholder="E-mailadres"><br>
+                      <input class="form-control" required type="email" name="email" value="" placeholder="E-mailadres"><br>
                       Herhaal e-mailadres
                       Als u registreert gaat u akkoord met onze gebruiksvoorwaarden.
                     <a href="gebruiksvoorwaarden.php">gebruiksvoorwaarden</a><br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
                   </form>
-
+                    <?php
+                    if (isset($_POST[""])) {
+                        ;
+                    }
+                    ?>
               </div>
           </div>
         </div>
