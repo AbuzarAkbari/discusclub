@@ -29,6 +29,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+<<<<<<< HEAD
     <div class="header">
         <div class="container">
       <div class="inlog">
@@ -63,34 +64,15 @@
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
+=======
+    <?php
+     require 'ingelogd.php';
+      ?>
+      <?php
+      //  require 'ingelogd.php';
+        ?>
+>>>>>>> eba39912b355e9f8c2cfaa6c8b31fc240777b66e
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="images/vissen1.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen2.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen3.jpg" alt="vissen">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
     <br><br>
 <?php
    $sql = "SELECT * FROM topics";

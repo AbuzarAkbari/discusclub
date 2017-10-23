@@ -29,68 +29,13 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <div class="header">
-        <div class="container">
-      <div class="inlog">
-          <a href="inloggen.php">Inloggen</a>
-          <a href="registeren.php">Registreer</a>
-          <a href="wachtwoordvergeten.php">Wachtwoord vergeten?</a>
-      </div>
-        <div class="col-xs-6">
-            <img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland">
-        </div>
-        </div>
-    </div>
-    <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </button>
-            </div>
-<?php require 'nav_uitloggen.php'; ?>
-            <!--/.nav-collapse -->
-        </div>
-    </nav>
-    <div class="container-fluid">
-        <div class="row sliderbox">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
+    <?php
+     require 'ingelogd.php';
+      ?>
+      <?php
+      //  require 'ingelogd.php';
+        ?>
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="images/vissen1.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen2.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen3.jpg" alt="vissen">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
     <br><br>
    <?php
    $sql = "SELECT * FROM topic";
@@ -100,8 +45,7 @@
 ?>
 <br><br>
 <div class="container">
-    <div class="row columns">
-        <div class="col-md-12">
+    <div class="row">
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors">Favoriete topics</div>
                 <div class="panel-body padding-padding">
@@ -156,7 +100,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
     <footer>
 <?php require 'footer.php' ; ?>

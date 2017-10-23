@@ -32,222 +32,340 @@
     <?php
      require 'ingelogd.php';
       ?>
-      <?php
-      //  require 'ingelogd.php';
-        ?>
-    <div class="container-fluid">
-        <div class="row sliderbox">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="images/vissen1.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen2.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen3.jpg" alt="vissen">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
     <br><br>
     <div class="container">
-      <div class="row columns">
-        <div class="col-md-12">
-          <div class="panel panel-primary">
-            <div class="panel-heading border-colors">Albums</div>
-            <div class="panel-body padding-padding space ">
-              <button type="button" name="button" class="btn ">foto albums toevoegen</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
-        </div>
-        <div class="col-md-4 col-sm-6 ruimte">
-          <div class="panel-heading border-colors">Sponsoren</div>
-            <img src="http://via.placeholder.com/130x130" class="albumTekst">
-              <span class="albumTekst">
-              Geüpload door
-              <br>collin
-              <br>Aantal foto's
-              <br>3
-              <br>Datum
-              <br>05-10-17</span>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Album toevoegen</h3>
+                  </div>
+                  <div class="panel-body">
+                    <button type="button" class="btn btn-primary col-md-12" name="button">Upload een album</button>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
   </div>

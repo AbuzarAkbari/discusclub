@@ -34,43 +34,7 @@
   <?php
    require 'uitgelogd.php';
     ?>
-    <div class="container-fluid">
-        <div class="row sliderbox">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="images/vissen1.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen2.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen3.jpg" alt="vissen">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
+<?php require 'slider.php';?>
     <div class="container">
         <div class="row">
             <br><br>
@@ -97,8 +61,8 @@
       <div class="container">
 
         <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reacties</div>
+            <div class="panel panel-primary border-colors">
+                <div class="panel-heading border-color">Reacties</div>
                 <div class="panel-body">
                     <div class="box">
                         <p class="title-box title-box-color"><b>Lorem slipsum</b></p>
@@ -140,9 +104,9 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="nieuws-box">
-                    <div class="panel-heading">Ander nieuws</div>
+                    <div class="panel-heading border-color">Ander nieuws</div>
                     <div class="panel-body">
                         <p><b>lorem slipsum</b></p>
                         You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other,

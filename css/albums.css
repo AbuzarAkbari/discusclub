@@ -1,35 +1,8 @@
-.btn {
-  background: #d93434;
-  background-image: -webkit-linear-gradient(top, #d93434, #b82b2b);
-  background-image: -moz-linear-gradient(top, #d93434, #b82b2b);
-  background-image: -ms-linear-gradient(top, #d93434, #b82b2b);
-  background-image: -o-linear-gradient(top, #d93434, #b82b2b);
-  background-image: linear-gradient(to bottom, #d93434, #b82b2b);
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
-  border-radius: 4px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+.space {
+    padding: 10px !important;
+    text-align: right;
 }
 
-.btn:hover {
-  background: #fc3c3c;
-  background-image: -webkit-linear-gradient(top, #fc3c3c, #d93434);
-  background-image: -moz-linear-gradient(top, #fc3c3c, #d93434);
-  background-image: -ms-linear-gradient(top, #fc3c3c, #d93434);
-  background-image: -o-linear-gradient(top, #fc3c3c, #d93434);
-  background-image: linear-gradient(to bottom, #fc3c3c, #d93434);
-  text-decoration: none;
-}
-.space{
-  padding: 10px !important;
-  text-align: right;
-}
-
-.albumTekst{
-  float: left;
-
+.albumTekst {
+    float: left;
 }

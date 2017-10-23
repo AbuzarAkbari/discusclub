@@ -5,13 +5,13 @@
     <div class="header container">
       <div class='inlog'>
         <div class='dropdown'>
-          <a class='dropbtn'>Gebruiker</a>
+          <a href="gebruiker" class='dropbtn'>Gebruiker</a>
           <div class='dropdown-content'>
-            <a href='#'>Berichten </a>
-            <a href='#'>Profiel aanpasen </a>
+            <a href='bericht.php'>Berichten </a>
+            <a href='profiel-aanpassen.php'>Profiel aanpasen </a>
           </div>
       </div>
-          <a href='uitloggen.php'>Uitloggen</a>
+          <a href='index.php'>Uitloggen</a>
       </div>
         <div class="col-xs-6">
             <a href="/"><img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland"></a>
@@ -34,7 +34,7 @@
                 <ul class='nav navbar-nav'>
                     <li><a href='index.php'>Home</a></li>
                     <li class='dropdown'>
-                        <a href='#' class='dropdown-toggle'>Over ons </a>
+                        <a href='overons.php' class='dropdown-toggle'>Over ons </a>
                         <ul class='dropdown-menu'>
                             <li><a href='ontstaan.php'>Onstaan Discus Club Holland</a></li>
                             <li><a href='nieuws.php'>Nieuws</a></li>

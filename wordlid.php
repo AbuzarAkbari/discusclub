@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row">
             <br><br>
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading panel-heading1">
                     <h4>Word lid!</h4></div>
                 <div class="panel-body">
