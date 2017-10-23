@@ -4,8 +4,8 @@ INSERT INTO `role`(`name`) VALUES
 ('redacteur'),
 ('admin');
 
-INSERT INTO `user` (`first_name`, `last_name`, `username`, `password`, `role_id`) VALUES
-('john', 'doe', 'test', '$2y$10$OlUECsjs7xtSg0lOtiQEwOF5BgFvb3mIeSp1mI8w7QwN/AZeHnZjq', 4);
+INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
+('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$OlUECsjs7xtSg0lOtiQEwOF5BgFvb3mIeSp1mI8w7QwN/AZeHnZjq', 4);
 
 INSERT INTO `category` (`name`) VALUES
 ('Mededelingen en Nieuws'),
