@@ -41,7 +41,7 @@
               <div class="panel-heading panel-heading1">
                   <h4>Registeren</h4></div>
                 <div class="panel-body">
-                  <form class="" action="index.php" method="post">
+                  <form class="" action="<?php echo $_SERVER["php_self"]; ?>" method="post">
                       Vooraam + achternaam
                       <input class="form-control" required type="text" name="" value="" placeholder="Naam "><br>
                       Wachtwoord
@@ -53,7 +53,11 @@
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
                   </form>
-
+                    <?php
+                    if (isset($_POST["submit"])) {
+                        echo "login try";
+                    }
+                    ?>
               </div>
           </div>
         </div>
