@@ -36,96 +36,55 @@
         ?>
 
     <br><br>
-    <!-- <div class="container"> -->
-    <div class="row">
-        <div class="col-md-12 col-sm-12">
+    <div class="container">
+        <div class="row">
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors">Favoriete topics</div>
                 <div class="panel-body padding-padding">
                     <table>
                         <tr>
-                            <th>Titel</th>
+                            <th> #</th>
+                            <th> Titel</th>
+                            <th>Forum</th>
                             <th>Auteur</th>
-                            <th>bekeken</th>
+                            <th>Berichten</th>
+
+                            <th>Bekeken</th>
                             <th>Laatste bericht</th>
                         </tr>
                         <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
+                            <td> &#128193; </td>
+                            <td>lorem ipsum</td>
+                            <td>lorem ipsum</td>
+                            <td>lorem ipsum</td>
+                            <td>1</td>
+                            <td>123</td>
+                            <td>1 dage geleden, <br> door henk</td>
                         </tr>
                         <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
+                            <td> &#128193; </td>
+                            <td>lorem ipsum</td>
+                            <td>lorem ipsum</td>
+                            <td>lorem ipsum</td>
+                            <td>1</td>
+                            <td>123</td>
+                            <td>1 dage geleden, <br> door henk</td>
                         </tr>
                         <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
+                            <td> &#128193; </td>
+                            <td>lorem ipsum</td>
+                            <td>lorem ipsum</td>
+                            <td>lorem ipsum</td>
+                            <td>1</td>
+                            <td>123</td>
+                            <td>1 dage geleden, <br> door henk</td>
                         </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                    </table>
                 </div>
+                </table>
             </div>
         </div>
     </div>
+</div>
     <footer>
     <?php require 'footer.php' ; ?>
     </footer>

@@ -177,7 +177,6 @@ hr {
     margin-bottom: 0px !important;
     border: 0px solid black !important;
     font-weight: bold;
-
 }
 
 .dropdown-menu > li > a:hover {
@@ -338,4 +337,7 @@ li.dropdown:hover > .dropdown-menu {
 
 .columns {
     column-count: 1;
+}
+.panel-primary > .panel-heading {
+    border-color: #000 !important;
 }
