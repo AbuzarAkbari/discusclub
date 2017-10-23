@@ -1,3 +1,4 @@
+<?php require_once('dbc.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,12 +29,31 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <?php
-     require 'ingelogd.php';
-      ?>
-      <?php
-      //  require 'ingelogd.php';
-        ?>
+    <div class="header">
+        <div class="container">
+      <div class="inlog">
+          <a href="inloggen.php">Inloggen</a>
+          <a href="registeren.php">Registreer</a>
+          <a href="wachtwoordvergeten.php">Wachtwoord vergeten?</a>
+      </div>
+        <div class="col-xs-6">
+            <img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland">
+        </div>
+        </div>
+    </div>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+            </div>
+<?php require 'nav_uitloggen.php'; ?>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
     <div class="container-fluid">
         <div class="row sliderbox">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -72,102 +92,77 @@
         </div>
     </div>
     <br><br>
-    <!-- <div class="container"> -->
-    <div class="row">
-        <div class="col-md-12 col-sm-12">
+   <?php
+   $sql = "SELECT * FROM topic";
+   $result = $dbc->prepare($sql);
+   $result->execute();
+   $results = $result->fetchAll(PDO::FETCH_ASSOC);
+?>
+<br><br>
+<div class="container">
+    <div class="row columns">
+        <div class="col-md-12">
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors">Favoriete topics</div>
                 <div class="panel-body padding-padding">
                     <table>
                         <tr>
-                            <th>Titel</th>
+                            <th> #</th>
+                            <th> Titel</th>
+                            <th>Forum</th>
                             <th>Auteur</th>
-                            <th>bekeken</th>
+                            <th>Berichten</th>
+                            <th>Bekeken</th>
                             <th>Laatste bericht</th>
                         </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                        <tr>
-                            <td>Lorem Ipsum</td>
-                            <td>12-10-2017</td>
-                            <td>12-10-2017</td>
-                            <td>26-09-2017</td>
-                        </tr>
-                    </table>
-                </div>
+                        <?php foreach($results as $topic) : ?>
+                            <?php
+                            $id = 1;
+
+                            $sql2 = "SELECT * FROM sub_category WHERE category_id = ?";
+                            $result2 = $dbc->prepare($sql2);
+                            $result2->bindParam(1, $id);
+                            $result2->execute();
+
+                            $sub_categorie_naam = $result2->fetchAll();
+
+                            $sql3 = "SELECT COUNT(id) AS i FROM berichten WHERE topic_id = ?";
+                            $result3 = $dbc->prepare($sql3);
+                            $result3->bindParam(1, $topic['id']);
+                            $result3->execute();
+
+                            $results2 = $result3->fetchAll(PDO::FETCH_ASSOC);
+
+                            $sql4 = "SELECT COUNT(*) AS x FROM ips WHERE topic_id = ?";
+                            $result4 = $dbc->prepare($sql4);
+                            $result4->bindParam(1, $topic['id']);
+                            $result4->execute();
+                            $x_bekeken = $result4->fetchAll()[0];
+                            ?>
+
+                            <tr>
+                                <td><?php echo $topic['topic_icon']; ?></td>
+                                <td><a href="topics.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['topic_titel']; ?></a></td>
+                                <td><a href="#"><?php echo $sub_categorie_naam[0]['sub_categorie_naam']; ?></a></td>
+                                <td><a href="#"><?php echo $topic['topic_auteur']; ?></a></td>
+
+                                <td><?php echo $results2[0]['i']; ?></td>
+                                <td><?php echo $x_bekeken['x']; ?></td>
+                                <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </div>
+                </table>
             </div>
         </div>
     </div>
+</div>
+</div>
     <footer>
-    <?php require 'footer.php' ; ?>
+<?php require 'footer.php' ; ?>
     </footer>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
-
 </html>

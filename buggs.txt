@@ -1,0 +1,8 @@
+summernote-typbox header aanpassen
+form.php blijf op 4 berichten staan als je er 1 toevoegd
+breadcrumbs met juiste namen van sub-cats en topics
+pagination
+quoting system
+
+
+actieve topics : binnen 7 dagen

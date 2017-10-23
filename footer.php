@@ -21,7 +21,7 @@
                   <br>
                   <form class='' action='verwerk.php' method='post'>
                       <input class='footer-name' type='text' name='naam' value='' placeholder='Naam'><br>
-                      <textarea class='footer-message' name='bericht' placeholder='Uw bericht'></textarea><br>
+                      <textarea class='footer-message' name='bericht' placeholder='Uw bericht' style='resize: none;'></textarea><br>
                       <input class='lees-meer-btn footer-btn' type='submit' name='send' value='Verzenden'>
                   </form>
               </div>
