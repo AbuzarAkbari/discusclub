@@ -1,20 +1,3 @@
-.btn {
-    background: #0ba8ec;
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
-    border-radius: 4px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-}
-
-.btn:hover {
-    background: #0a99d7;
-    color: WHITE !important;
-    text-decoration: none;
-}
 .space {
     padding: 10px !important;
     text-align: right;

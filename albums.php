@@ -38,17 +38,17 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                  <div class="panel-heading border-color">
+                  <div class="panel-heading">
                     <h3 class="panel-title">Album toevoegen</h3>
                   </div>
                   <div class="panel-body">
-                    <button type="button" class="btn col-md-12" name="button">Upload een album</button>
+                    <button type="button" class="btn btn-primary col-md-12" name="button">Upload een album</button>
                   </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -60,7 +60,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -80,7 +80,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -100,7 +100,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -120,7 +120,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -140,7 +140,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -160,7 +160,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -180,7 +180,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -200,7 +200,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -208,7 +208,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -220,7 +220,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -228,7 +228,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -240,7 +240,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -248,7 +248,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -260,7 +260,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -268,7 +268,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -280,7 +280,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -288,7 +288,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -300,7 +300,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -308,7 +308,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -320,7 +320,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -328,7 +328,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -340,7 +340,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
@@ -348,7 +348,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color">
+                    <div class="panel-heading">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -360,7 +360,7 @@
                                     Datum: <i>05-07-2017</i><br>
                                 </p>
                                 <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn" name="button">Bekijken</button></b>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>
                     </div>
