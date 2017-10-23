@@ -29,8 +29,8 @@
     </script>
     <?php
      require 'ingelogd.php';
-      ?>
-      <?php
+        ?>
+        <?php
       //  require 'ingelogd.php';
         ?>
     </div>
