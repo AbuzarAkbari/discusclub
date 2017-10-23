@@ -1,5 +1,5 @@
 * {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -155,7 +155,7 @@ hr {
 }
 
 .navbar-default .navbar-collapse {
-    border-color: #0ba8ec !important;
+    border-color: #000 !important;
 }
 
 .navbar-default .navbar-toggle {
@@ -340,4 +340,8 @@ li.dropdown:hover > .dropdown-menu {
 }
 .panel-primary > .panel-heading {
     border-color: #000 !important;
+}
+
+.verticalLine {
+    border-left: 2px solid #0ba8ec;
 }
