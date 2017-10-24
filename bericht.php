@@ -126,7 +126,16 @@ require_once("includes/nav.php");
                 </div>
 
                 <div class="panel-footer">
-                    <b>Geplaatst door:</b> <i><?php echo $row['user_id']; ?></i>
+                    <?php
+                        $userSql = "SELECT * FROM user WHERE id = ?";
+                        $userResult = $dbc->prepare($userSql);
+                        $userResult->bindParam(1, $row['user_id']);
+                        $userResult->execute();
+                        $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
+                    ?>
+                    <?php foreach($users as $user) : ?>
+                        <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                    <?php endforeach; ?>
                     op <?php echo $row['created_at']; ?></h3>
                 </div>
 
@@ -158,7 +167,16 @@ require_once("includes/nav.php");
                 </div>
             </div>
             <div class="panel-footer">
-                <b>Geplaatst door:</b> <i><?php echo $row2['user_id']; ?></i>
+                <?php
+                    $userSql = "SELECT * FROM user WHERE id = ?";
+                    $userResult = $dbc->prepare($userSql);
+                    $userResult->bindParam(1, $row2['user_id']);
+                    $userResult->execute();
+                    $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                <?php foreach($users as $user) : ?>
+                    <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                <?php endforeach; ?>
                 op <?php echo $row2['created_at']; ?></h3>
             </div>
 
