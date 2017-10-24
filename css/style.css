@@ -346,3 +346,27 @@ li.dropdown:hover > .dropdown-menu {
 .maring {
     margin-bottom: 20px;
 }
+
+/*Gelukt*/
+.Gelukt {
+    background: #27ae60;
+    border-radius: 4px;
+    padding: 6px 12px;
+    width: 100%;
+    max-width: 200px;
+    max-height: 100px;
+    color: white;
+    max-height: auto;
+}
+
+/*Error*/
+.Error {
+    background: #c0392b;
+    border-radius: 4px;
+    padding: 6px 12px;
+    width: 100%;
+    max-width: 200px;
+    max-height: 100px;
+    color: white;
+    max-height: auto;
+}
