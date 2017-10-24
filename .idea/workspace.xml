@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bericht.php" afterPath="$PROJECT_DIR$/bericht.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/berichtParse.php" afterPath="$PROJECT_DIR$/berichtParse.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/topicToevoegen.php" afterPath="$PROJECT_DIR$/topicToevoegen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/topics.php" afterPath="$PROJECT_DIR$/topics.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ledenlijst.php" afterPath="$PROJECT_DIR$/ledenlijst.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="topicToevoegen.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="topicToevoegen.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/topicToevoegen.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
@@ -32,11 +29,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ledenlijst.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ledenlijst.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="55" column="113" lean-forward="false" selection-start-line="55" selection-start-column="113" selection-end-line="55" selection-end-column="113" />
+              <folding>
+                <marker date="1508850806415" expanded="true" signature="1753:1771" ph="SELECT * FRO... user" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="bericht.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bericht.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="149" column="86" lean-forward="true" selection-start-line="149" selection-start-column="86" selection-end-line="149" selection-end-column="86" />
+            <state relative-caret-position="255">
+              <caret line="87" column="10" lean-forward="true" selection-start-line="87" selection-start-column="10" selection-end-line="87" selection-end-column="10" />
               <folding>
                 <marker date="1508848888845" expanded="true" signature="275:374" ph="INSERT INTO aantal_bekeken... " />
                 <marker date="1508848888845" expanded="true" signature="3153:3185" ph="SELECT * FRO... topic" />
@@ -116,6 +125,7 @@
         <option value="$PROJECT_DIR$/topics.php" />
         <option value="$PROJECT_DIR$/bericht.php" />
         <option value="$PROJECT_DIR$/topicToevoegen.php" />
+        <option value="$PROJECT_DIR$/ledenlijst.php" />
       </list>
     </option>
   </component>
@@ -192,12 +202,12 @@
       <updated>1508314253816</updated>
       <workItem from="1508314255238" duration="17271000" />
       <workItem from="1508751434595" duration="16531000" />
-      <workItem from="1508836636754" duration="10407000" />
+      <workItem from="1508836636754" duration="11870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44209000" />
+    <option name="totallyTimeSpent" value="45672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -487,18 +497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bericht.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="149" column="86" lean-forward="true" selection-start-line="149" selection-start-column="86" selection-end-line="149" selection-end-column="86" />
-          <folding>
-            <marker date="1508848888845" expanded="true" signature="275:374" ph="INSERT INTO aantal_bekeken... " />
-            <marker date="1508848888845" expanded="true" signature="3153:3185" ph="SELECT * FRO... topic" />
-            <marker date="1508848888845" expanded="true" signature="4803:4841" ph="SELECT * FRO... reply" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/topicToevoegen.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -508,6 +506,28 @@
             <marker date="1508848899327" expanded="true" signature="233:308" ph="INSERT INTO topic... " />
             <marker date="1508848899327" expanded="true" signature="233:310" ph="INSERT INTO topic... " />
             <marker date="1508848899327" expanded="true" signature="233:351" ph="INSERT INTO topics... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bericht.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="87" column="10" lean-forward="true" selection-start-line="87" selection-start-column="10" selection-end-line="87" selection-end-column="10" />
+          <folding>
+            <marker date="1508848888845" expanded="true" signature="275:374" ph="INSERT INTO aantal_bekeken... " />
+            <marker date="1508848888845" expanded="true" signature="3153:3185" ph="SELECT * FRO... topic" />
+            <marker date="1508848888845" expanded="true" signature="4803:4841" ph="SELECT * FRO... reply" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ledenlijst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="55" column="113" lean-forward="false" selection-start-line="55" selection-start-column="113" selection-end-line="55" selection-end-column="113" />
+          <folding>
+            <marker date="1508850806415" expanded="true" signature="1753:1771" ph="SELECT * FRO... user" />
           </folding>
         </state>
       </provider>
