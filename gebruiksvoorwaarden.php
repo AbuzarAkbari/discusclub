@@ -1,3 +1,4 @@
+<?php require_once("includes/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,12 +28,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <?php
-     require 'ingelogd.php';
-      ?>
-      <?php
-      //  require 'ingelogd.php';
-        ?>
+    <?php require_once("includes/nav.php"); ?>
     </div>
     <div class="container">
         <div class="row">

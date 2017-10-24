@@ -1,4 +1,7 @@
-<?php require_once('dbc.php'); ?>
+<?php
+require_once("includes/security.php");
+require_once('dbc.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,19 +32,15 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <?php
-     require 'ingelogd.php';
-      ?>
-      <?php
-      //  require 'ingelogd.php';
-        ?>
+
+    <?php require_once("includes/nav.php"); ?>
 
     <br><br>
-   <?php
-$sql = "SELECT * FROM topic";
-$result = $dbc->prepare($sql);
-$result->execute();
-$results = $result->fetchAll(PDO::FETCH_ASSOC);
+    <?php
+    $sql = "SELECT * FROM topic";
+    $result = $dbc->prepare($sql);
+    $result->execute();
+    $results = $result->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <br><br>
@@ -61,7 +60,7 @@ $results = $result->fetchAll(PDO::FETCH_ASSOC);
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
                         </tr>
-                        <?php foreach($results as $topic) : ?>
+                        <?php foreach ($results as $topic) : ?>
                             <?php
                                 $id = 1;
 

@@ -1,4 +1,5 @@
-<?php require_once('dbc.php'); ?>
+<?php require_once("includes/security.php");
+require_once('dbc.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +31,7 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-        require 'ingelogd.php';
+        require_once("includes/nav.php");
     ?>
 <br><br>
     <div class="container">
@@ -53,7 +54,7 @@
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
                             ?>
-                            <?php foreach($rows as $user) : ?>
+                            <?php foreach ($rows as $user) : ?>
                                 <tr>
                                     <td><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                     <td><?php echo $user['last_changed']; ?></td>
