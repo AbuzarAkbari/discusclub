@@ -34,17 +34,17 @@
       <div class="container">
           <br><br>
         <div class="col-md-12">
-            <div class="panel panel-primary border-colors">
-                <div class="panel-heading border-color">Gebruiker</div>
+            <div class="panel panel-primary border-color-blues">
+                <div class="panel-heading border-color-blue">Gebruiker</div>
                 <div class="panel-body text-right">
-                    <input type="submit" class="btn btn-primary" name="send" value="Fotoalbums">
-                    <input type="submit" class="btn btn-primary" name="send" value="Wijzig profiel">
+                    <a><input type="submit" class="btn btn-primary" name="send" value="Fotoalbums"></a>
+                    <a href="profiel-aanpassen.php"><input type="submit" class="btn btn-primary" name="send" value="Wijzig profiel"></a>
                     </div>
                 </div>
             </div>
         <div class="col-md-4">
-            <div class="panel panel-primary border-colors">
-                <div class="panel-heading border-color">Informatie</div>
+            <div class="panel panel-primary border-color-blues">
+                <div class="panel-heading border-color-blue">Informatie</div>
                 <div class="panel-body text-left">
                     <div class="text-center"><img src="http://via.placeholder.com/100x100" class="text-center"></div>
                     <div class="col-md-12">
@@ -65,12 +65,12 @@
                 </div>
             </div>
         <div class="col-md-8">
-            <div class="panel panel-primary border-colors">
-                <div class="panel-heading border-color">Laatste reacties op topics</div>
-                <div class="panel-heading">
+            <div class="panel panel-primary border-color-blues">
+                <div class="panel-heading border-color-blue">Laatste reacties op topics</div>
+                <div class="panel-heading border-color-black">
                     <table>
                         <tr>
-                    <th class="col-md-4 col-xs-4">Topic</th>
+                    <th class="col-md-4 col-xs-4 ">Topic</th>
                     <th class="col-md-4 col-xs-4">Forum</th>
                     <th class="col-md-4 col-xs-4">Datum</th>
                     <tr>
@@ -81,8 +81,8 @@
                 </div>
             </div>
         <div class="col-md-8">
-            <div class="panel panel-primary border-colors">
-                <div class="panel-heading border-color">Albums</div>
+            <div class="panel panel-primary border-color-blues">
+                <div class="panel-heading border-color-blue">Albums</div>
                 <div class="panel-body text-right">
                     Geen albums gevonden
                     </div>
@@ -90,8 +90,8 @@
             </div>
             <div class="col-md-12"></div>
         <div class="col-md-4">
-            <div class="panel panel-primary border-colors">
-                <div class="panel-heading border-color">Statistieken</div>
+            <div class="panel panel-primary border-color-blues">
+                <div class="panel-heading border-color-blue">Statistieken</div>
                 <div class="panel-body text-right">
                     <strong>Aantal forum topics
                     </strong><br>

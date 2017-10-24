@@ -37,7 +37,7 @@
           <br><br>
           <div class="panel panel-primary">
               <div class="panel-heading panel-heading1">
-                  <h4>Inloggen</h4></div>
+                  <h4>Wachtwoord vergeten</h4></div>
                 <div class="panel-body">
                   <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
 

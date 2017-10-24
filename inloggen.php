@@ -44,7 +44,7 @@
                       <label for="password">Wachtwoord</label>
                       <input class="form-control" required type="password" name="password" id="password" value="" placeholder="Wachtwoord"><br>
 
-                      <input class="" type="checkbox" name="remember_me" value=""> Onthoud mij<br>
+                      <input id="onthoud" class="" type="checkbox" name="remember_me" value=""> <label for="onthoud">Onthoud mij</label><br>
 
                       <a href="wachtwoordvergeten.php">Naam of wachtwoord vergeten?</a><br><br>
 
