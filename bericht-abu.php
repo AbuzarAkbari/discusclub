@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
+    <!-- summernote css -->
+    <link rel="stylesheet" href="css/summernote.css">
     <!-- bootstrap style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -44,7 +45,7 @@
         <div class="row">
             <br><br>
             <div class="panel panel-primary ">
-                <div class="panel-heading border-colors"> <h3>Welkom</h3></div>
+                <div class="panel-heading border-color-blue"> <h3>Welkom</h3></div>
                 <div class="panel-body padding-padding">
                     <div class="col-md-12 verticalLine">
                         <h4>Welkom bij Discus Club Holland!</h4>
@@ -81,20 +82,20 @@
       <div class="container">
 
           <div class="panel panel-primary ">
-              <div class="panel-heading border-color">Reacties</div>
-              <div class="panel-heading "> #23	Geplaatst door	marco.middelhuis	op zondag 23 februari 2014 10:39:39</div>
+              <div class="panel-heading border-color-blue">Reacties</div>
+              <div class="panel-heading border-color-black "> #23	Geplaatst door	marco.middelhuis	op zondag 23 februari 2014 10:39:39</div>
               <div class="panel-body padding-padding">
                   <div>
                     het contact formulier werkt niet
                 </div>
               </div>
-              <div class="panel-heading "> #23	Geplaatst door	marco.middelhuis	op zondag 23 februari 2014 10:39:39</div>
+              <div class="panel-heading border-color-black"> #23	Geplaatst door	marco.middelhuis	op zondag 23 februari 2014 10:39:39</div>
               <div class="panel-body padding-padding">
                   <div>
                     het contact formulier werkt niet
                 </div>
               </div>
-              <div class="panel-heading "> #23	Geplaatst door	marco.middelhuis	op zondag 23 februari 2014 10:39:39</div>
+              <div class="panel-heading border-color-black"> #23	Geplaatst door	marco.middelhuis	op zondag 23 februari 2014 10:39:39</div>
               <div class="panel-body padding-padding">
                   <div>
                     het contact formulier werkt niet
@@ -102,9 +103,11 @@
               </div>
           </div>
           <br>
-          <div class="panel panel-primary ">
-              <div class="panel-heading border-color">Reactie Toevoegen</div>
-                <?php require 'nice.php';?>
+          <div class=" panel-default border-note ">
+              <div class="panel-heading border-color-black">Reactie Toevoegen</div>
+              <textarea required class="form-control editor maring" col="8" rows="20" name="reply_content"
+                        style="resize: none;" placeholder="Uw bericht.."></textarea>
+              </div>
               </div>
           </div>
     </div>
@@ -119,6 +122,16 @@
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- summernote js -->
+    <script type="text/javascript" src="js/summernote.min.js"></script>
+    <script>
+        $('.editor').summernote({
+            codemirror: {
+                theme: 'yeti'
+            }
+        });
+    </script>
 </body>
 </html>
 <!-- https://twitter.com/DiscusHolland -->

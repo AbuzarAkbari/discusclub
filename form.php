@@ -96,11 +96,22 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 $q->execute();
                                 $results3 = $q->fetchAll(PDO::FETCH_ASSOC);
 
-                                $sql2 = "SELECT COUNT(*) as aantal_berichten FROM message JOIN topic ON topic.id = message.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE sub_category.id = ?";
-                                $q2 = $dbc->prepare($sql2);
-                                $q2->bindParam(1, $subCat['id']);
-                                $q2->execute();
-                                $results4 = $q2->fetchAll(PDO::FETCH_ASSOC);
+//                                $sql2 = "SELECT COUNT(id) AS i FROM reply WHERE topic_id = ?";
+//                                $q2 = $dbc->prepare($sql2);
+//                                $q2->bindParam(1, $subCat['id']);
+//                                $q2->execute();
+//                                $results4 = $q2->fetchAll(PDO::FETCH_ASSOC);
+
+                                $query2 = $dbc->prepare('SELECT COUNT(reply.id) as x FROM `sub_category` LEFT JOIN topic ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON reply.topic_id = topic.id WHERE sub_category.id = ?');
+                                $query2->bindParam(1, $subCat['id']);
+                                $query2->execute();
+                                $berichten = $query2->fetchAll(PDO::FETCH_ASSOC)[0];
+
+                                $query3 = $dbc->prepare('SELECT COUNT(topic.id) as x FROM `topic` WHERE sub_category_id = ?');
+                                $query3->bindParam(1, $subCat['id']);
+                                $query3->execute();
+                                $topic_x = $query3->fetchAll(PDO::FETCH_ASSOC)[0];
+
                             ?>
                             <tr>
                                 <td> &#128193;</td>
@@ -108,7 +119,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                     <a href="topics.php?id=<?php echo $subCat['id']; ?>"><?php echo $subCat['name']; ?></a>
                                 </td>
                                 <td><?php echo $results3[0]['aantal_topics']; ?></td>
-                                <td><?php echo $results4[0]['aantal_berichten']; ?></td>
+                                <td><?php echo $berichten['x'] + $topic_x['x']; ?></td>
                                 <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
                             </tr>
                         <?php endforeach; ?>
