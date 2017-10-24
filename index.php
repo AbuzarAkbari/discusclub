@@ -84,8 +84,9 @@
                             <div class="col-md-9">
                             <p class="title-box-color"><b>Lorem slipsum</b></p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
+                                <hr>
+
                             </div>
-                            <div class="col-md-12 horizontalLine">   </div>
 
                         </div>
                     </div>
@@ -95,8 +96,10 @@
                             <div class="col-md-9">
                             <p class="title-box-color"><b>Lorem slipsum</b></p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
+                                <hr>
+
                             </div>
-                            <div class="col-md-12 horizontalLine">   </div>
+
 
                         </div>
                     </div>
@@ -106,8 +109,10 @@
                             <div class="col-md-9">
                             <p class="title-box-color"><b>Lorem slipsum</b></p>
                             <p>Lorem ipsum dolor sit amet, onsectetur adipisicing elit Lorem ipsum dolor sit amet,consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
+                                <hr>
+
                             </div>
-                            <div class="col-md-12 horizontalLine">   </div>
+
                         </div>
                     </div>
                     <div class="box">
@@ -116,8 +121,10 @@
                             <div class="col-md-9">
                             <p class="title-box-color"><b>Lorem slipsum</b></p>
                             <p>Lorem ipsum dolor sit amet, c consectetur adipisicing elit<p>
+                                <hr>
+
                             </div>
-                            <div class="col-md-12 horizontalLine">   </div>
+
                         </div>
                     </div>
                     <div class="box">
@@ -126,8 +133,10 @@
                             <div class="col-md-9">
                             <p class="title-box-color"><b>Lorem slipsum</b></p>
                             <p>Lorem ipsum dolor sit amet, consectetupisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elir adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
+                                <hr>
+
                             </div>
-                            <div class="col-md-12 horizontalLine">   </div>
+
                         </div>
                     </div>
 

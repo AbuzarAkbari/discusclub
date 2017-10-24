@@ -9,7 +9,7 @@ body {
 }
 
 hr {
-    border-color: #aaa !important;
+    border-color: #0ba8ec !important;
 }
 
 .header {
@@ -345,13 +345,4 @@ li.dropdown:hover > .dropdown-menu {
 
 .maring {
     margin-bottom: 20px;
-}
-
-.horizontalLine {
-    border-bottom: 1px solid #0ba8ec;
-    margin-bottom: 20px;
-}
-
-hr {
-    color: black;
 }
