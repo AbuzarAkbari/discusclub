@@ -57,8 +57,8 @@
                       Als u registreert gaat u akkoord met onze <a href="gebruiksvoorwaarden.php">gebruiksvoorwaarden</a>.<br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
-                      <div class="Gelukt">Bent nu geregistreerd</div>
-                      <div class="Error">Error er iets mis gegaan</div>
+                      <div class="Gelukt"><b>Bent nu geregistreerd</b></div>
+                      <div class="Error"><b>Error er iets mis gegaan</b></div>
 
                   </form>
                     <?php

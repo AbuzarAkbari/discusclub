@@ -349,7 +349,7 @@ li.dropdown:hover > .dropdown-menu {
 
 /*Gelukt*/
 .Gelukt {
-    background: #27ae60;
+    background: #00a99d;
     border-radius: 4px;
     padding: 6px 12px;
     width: 100%;
@@ -361,7 +361,7 @@ li.dropdown:hover > .dropdown-menu {
 
 /*Error*/
 .Error {
-    background: #c0392b;
+    background: #ff254a;
     border-radius: 4px;
     padding: 6px 12px;
     width: 100%;
@@ -369,4 +369,5 @@ li.dropdown:hover > .dropdown-menu {
     max-height: 100px;
     color: white;
     max-height: auto;
+    text-shadow: 1px;
 }
