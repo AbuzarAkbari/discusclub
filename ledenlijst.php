@@ -44,18 +44,21 @@
                                 <th>Naam</th>
                                 <th>Laatste login</th>
                                 <th>Geregistreerd</th>
+                                <th>Rol</th>
                             </tr>
                             <?php
-                                $sql = "SELECT * FROM user";
+                                $sql = "SELECT * FROM user JOIN role ON user.role_id = role.id";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+
                             ?>
                             <?php foreach($rows as $user) : ?>
                                 <tr>
                                     <td><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                     <td><?php echo $user['last_changed']; ?></td>
                                     <td><?php echo $user['created_at']; ?></td>
+                                    <td><?php echo $user    ['name']; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </table>

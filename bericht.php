@@ -143,7 +143,7 @@ require 'ingelogd.php';
             $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <?php foreach ($rows2 as $row2) : ?>
-                <div class="panel panel-primary">
+                <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
                     <div class="panel-body">
                         <div class="wrapper-box col-md-12">
                             <div class="col-md-2">
