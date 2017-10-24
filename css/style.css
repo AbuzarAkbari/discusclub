@@ -46,11 +46,6 @@ hr {
     }
 }
 
-.panel-heading {
-    background: black !important;
-    color: white !important;
-}
-
 .panel-heading1 {
     background: #0ba8ec !important;
 }
@@ -131,10 +126,6 @@ hr {
 
 .navbar-default a {
     color: #0ba8ec !important;
-}
-
-.dropdown-toggle {
-    background-color: black !important;
 }
 
 .dropdown-menu > ul {
@@ -304,8 +295,7 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 .overonsHover {
-    /*cursor: pointer !important;*/
-    cursor: crosshair !important;
+    cursor: pointer;
 }
 
 .FooterContactTekst {
@@ -331,8 +321,12 @@ li.dropdown:hover > .dropdown-menu {
     }
 }
 
-.border-color {
+.border-color-blue {
     background-color: #0ba8ec !important;
+}
+.border-color-black {
+    background-color: #000 !important;
+    color: white !important;
 }
 
 .columns {
@@ -344,4 +338,11 @@ li.dropdown:hover > .dropdown-menu {
 
 .verticalLine {
     border-left: 2px solid #0ba8ec;
+}
+
+.border-note {
+}
+
+.maring {
+    margin-bottom: 20px;
 }
