@@ -1,3 +1,5 @@
+<?php require_once("includes/security.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,12 +29,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <?php
-     require 'ingelogd.php';
-        ?>
-        <?php
-      //  require 'ingelogd.php';
-        ?>
+    <?php require_once("includes/nav.php"); ?>
     </div>
     <div class="container">
         <div class="row">
@@ -42,10 +39,10 @@
                   <h4>Inloggen</h4></div>
                 <div class="panel-body">
                   <form class="" action="<?php echo $_SERVER["php_self"]; ?>" method="post">
-                      Gebruikersnaam
-                      <input class="form-control" required type="text" name="username" value="" placeholder="Naam "><br>
-                      Wachtwoord
-                      <input class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
+                      <label for="username">Gebruikersnaam</label>
+                      <input class="form-control" required type="text" name="username" id="username" value="" placeholder="Naam "><br>
+                      <label for="password">Wachtwoord</label>
+                      <input class="form-control" required type="password" name="password" id="password" value="" placeholder="Wachtwoord"><br>
 
                       <input class="" type="checkbox" name="remember_me" value=""> Onthoud mij<br>
 

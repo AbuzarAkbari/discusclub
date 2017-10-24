@@ -1,3 +1,4 @@
+<?php require_once("includes/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,12 +30,8 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-     require 'ingelogd.php';
-      ?>
-      <?php
-      //  require 'ingelogd.php';
-        ?>
-
+    require_once("includes/nav.php");
+    ?>
     <br><br>
     <div class="container">
       <div class="row">
@@ -117,7 +114,7 @@
     </div>
   </div>
     <footer>
-  <?php require 'footer.php' ; ?>
+    <?php require 'footer.php' ; ?>
     </footer>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,3 +1,4 @@
+<?php require_once("includes/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,11 +29,8 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-     require 'ingelogd.php';
-      ?>
-      <?php
-      //  require 'ingelogd.php';
-        ?>
+    require_once("includes/nav.php");
+    ?>
     </div>
     <div class="container">
         <div class="row">
@@ -41,12 +39,12 @@
               <div class="panel-heading panel-heading1">
                   <h4>Inloggen</h4></div>
                 <div class="panel-body">
-                  <form class="" action="index.php" method="post">
+                  <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
 
-                  <p>U zal een e-mail met uw naam ontvangen. Wij zullen nooit uw wachtwoord toezenden, want die weten wij ook niet (ter beveiliging). De e-mail bevat in plaats daarvan een link waarmee u uw wachtwoord kan wijzigen.</p>
+                      <p>U zal een e-mail met uw naam ontvangen. Wij zullen nooit uw wachtwoord toezenden, want die weten wij ook niet (ter beveiliging). De e-mail bevat in plaats daarvan een link waarmee u uw wachtwoord kan wijzigen.</p>
 
-                      E-mailadres
-                      <input class="form-control" required type="text" name="" value="" placeholder="E-mail"><br>
+                      <label for="email">E-mailadres</label>
+                      <input class="form-control" required type="text" name="email" id="email" value="" placeholder="E-mail"><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Stuur mij de e-mail">
                       <br>
@@ -54,6 +52,28 @@
                       <p>Houd in gedachten dat deze functionaliteit altijd zegt dat u uw e-mail moet nakijken. Het geeft geen enkele indicatie of het e-mail adres goed of fout is.</p>
 
                   </form>
+
+                    <?php
+                    if (isset($_POST["send"])) {
+                        require_once("dbc.php");
+                        $token = md5(microtime (true)*100000);
+                        $message =  "/wachtwoordwijzigen.php?token=$token&email=$_POST[email]";
+                        $sth = $dbc->prepare("UPDATE user set forgot_pass = :hash WHERE email = :email");
+
+                        try {
+                            $res = $sth->execute([":hash" => password_hash($token, PASSWORD_BCRYPT), ":email" => $_POST["email"]]);
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
+
+                        if ($res) {
+                            echo "updated db";
+                        }
+
+                        echo $message;
+                    }
+
+                    ?>
 
               </div>
           </div>
