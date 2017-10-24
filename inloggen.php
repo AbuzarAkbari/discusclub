@@ -42,12 +42,12 @@
                   <h4>Inloggen</h4></div>
                 <div class="panel-body">
                   <form class="" action="<?php echo $_SERVER["php_self"]; ?>" method="post">
-                      Gebruikersnaam
-                      <input class="form-control" required type="text" name="username" value="" placeholder="Naam "><br>
-                      Wachtwoord
-                      <input class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
+                      <label for="gebruikersnaam">Gebruikersnaam</label>
+                      <input id="gebruikersnaam" class="form-control" required type="text" name="username" value="" placeholder="Naam "><br>
+                      <label for="wachtwoord">Wachtwoord</label>
+                      <input id="wachtwoord" class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
 
-                      <input class="" type="checkbox" name="remember_me" value=""> Onthoud mij<br>
+                      <input id="onthoud" class="" type="checkbox" name="remember_me" value=""> <label for="onthoud">Onthoud mij</label><br>
 
                       <a href="wachtwoordvergeten.php">Naam of wachtwoord vergeten?</a><br><br>
 

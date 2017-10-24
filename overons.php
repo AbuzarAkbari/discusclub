@@ -41,7 +41,7 @@
 
       <div class="col-md-8">
         <div class="panel panel-primary">
-          <div class="panel-heading border-color">Over Discus Club Holland</div>
+          <div class="panel-heading border-color-blue">Over Discus Club Holland</div>
           <div class="panel-body padding-padding space">
               <li class="overonsHover"><a>Het ontstaan van Discus Club Holland</a></li>
               <li class="overonsHover"><a>Nieuwsberichten​</a></li>

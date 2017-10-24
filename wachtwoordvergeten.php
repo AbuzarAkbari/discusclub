@@ -39,14 +39,14 @@
           <br><br>
           <div class="panel panel-primary">
               <div class="panel-heading panel-heading1">
-                  <h4>Inloggen</h4></div>
+                  <h4>Wachtwoord vergeten</h4></div>
                 <div class="panel-body">
                   <form class="" action="index.php" method="post">
 
                   <p>U zal een e-mail met uw naam ontvangen. Wij zullen nooit uw wachtwoord toezenden, want die weten wij ook niet (ter beveiliging). De e-mail bevat in plaats daarvan een link waarmee u uw wachtwoord kan wijzigen.</p>
 
-                      E-mailadres
-                      <input class="form-control" required type="text" name="" value="" placeholder="E-mail"><br>
+                      <label for="email">E-mailadres</label>
+                      <input id="email" class="form-control" required type="text" name="" value="" placeholder="E-mail"><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Stuur mij de e-mail">
                       <br>
