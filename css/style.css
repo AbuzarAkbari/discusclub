@@ -337,7 +337,7 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 .verticalLine {
-    border-left: 2px solid #0ba8ec;
+    border-left: 1px solid #0ba8ec;
 }
 
 .border-note {
@@ -345,4 +345,13 @@ li.dropdown:hover > .dropdown-menu {
 
 .maring {
     margin-bottom: 20px;
+}
+
+.horizontalLine {
+    border-bottom: 1px solid #0ba8ec;
+    margin-bottom: 20px;
+}
+
+hr {
+    color: black;
 }

@@ -42,8 +42,9 @@
     <div class="container">
         <div class="row">
             <br><br>
+            <h1>Welkom bij Discus Club Holland!</h1>
+
             <div class="col-md-12 verticalLine">
-                <h1>Welkom bij Discus Club Holland!</h1>
                 <div class="">
                 Categorie: Website | 04-01-2014<br>
                 Beste Lezer,<br>
@@ -73,52 +74,70 @@
       <div class="container">
 
         <div class="col-md-6">
-            <div class="panel panel-primary s">
-                <div class="panel-heading ">Reacties</div>
+            <div class="panel panel-default ">
+                <div class="panel-heading border-color-black">Reacties</div>
                 <div class="panel-body">
+
                     <div class="box">
-                        <p class="title-box title-box-color"><b>Lorem slipsum</b></p>
-                        <div class="col-md-3">
-                            <img src="http://via.placeholder.com/75x75">
-                        </div>
-                        <div class="col-md-9">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            <hr>
+                        <div class="col-md-12">
+                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
+                            <div class="col-md-9">
+                            <p class="title-box-color"><b>Lorem slipsum</b></p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
+                            </div>
+                            <div class="col-md-12 horizontalLine">   </div>
+
                         </div>
                     </div>
-                    <br><br>
                     <div class="box">
-                        <p class="title-box title-box-color"><b>lorem slipslum</b></p>
-                        <div class="col-md-3">
-                            <img src="http://via.placeholder.com/75x75">
-                        </div>
-                        <div class="col-md-9">
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum.
-                            <hr>
+                        <div class="col-md-12">
+                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
+                            <div class="col-md-9">
+                            <p class="title-box-color"><b>Lorem slipsum</b></p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
+                            </div>
+                            <div class="col-md-12 horizontalLine">   </div>
+
                         </div>
                     </div>
-                    <br><br>
                     <div class="box">
-                        <p class="title-box title-box-color"><b>Lorem slipsum</b></p>
-                        <div class="col-md-3">
-                            <img src="http://via.placeholder.com/75x75">
-                        </div>
-                        <div class="col-md-9">
-                            Like you, I used to think the world was this great place where everybody lived by the same standards I did, then some kid with a nail showed me I was living in his world, a world where chaos rules not order, a world where righteousness is not rewarded.
-                            That's Cesar's world, and if you're not willing to play by his rules, then you're gonna have to pay the price.
-                            <hr>
+                        <div class="col-md-12">
+                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
+                            <div class="col-md-9">
+                            <p class="title-box-color"><b>Lorem slipsum</b></p>
+                            <p>Lorem ipsum dolor sit amet, onsectetur adipisicing elit Lorem ipsum dolor sit amet,consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
+                            </div>
+                            <div class="col-md-12 horizontalLine">   </div>
                         </div>
                     </div>
-                    <br><br>
+                    <div class="box">
+                        <div class="col-md-12">
+                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
+                            <div class="col-md-9">
+                            <p class="title-box-color"><b>Lorem slipsum</b></p>
+                            <p>Lorem ipsum dolor sit amet, c consectetur adipisicing elit<p>
+                            </div>
+                            <div class="col-md-12 horizontalLine">   </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="col-md-12">
+                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
+                            <div class="col-md-9">
+                            <p class="title-box-color"><b>Lorem slipsum</b></p>
+                            <p>Lorem ipsum dolor sit amet, consectetupisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elir adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
+                            </div>
+                            <div class="col-md-12 horizontalLine">   </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
                 <div class="nieuws-box">
-                    <div class="panel-heading ">Ander nieuws</div>
+                    <div class="panel-heading border-color-black">Ander nieuws</div>
                     <div class="panel-body ">
                         <div class=" col-md-12 verticalLine">
 
