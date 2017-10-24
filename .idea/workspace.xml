@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/actievetopics.php" afterPath="$PROJECT_DIR$/actievetopics.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fav-topics.php" afterPath="$PROJECT_DIR$/fav-topics.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form.php" afterPath="$PROJECT_DIR$/form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nieuwetopics.php" afterPath="$PROJECT_DIR$/nieuwetopics.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/berichtParse.php" afterPath="$PROJECT_DIR$/berichtParse.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fav-topics.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fav-topics.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fav-topics.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
@@ -59,6 +56,20 @@
                 <marker date="1508852874612" expanded="true" signature="2164:2212" ph="SELECT * FRO... sub_category" />
                 <marker date="1508852874612" expanded="true" signature="2493:2546" ph="SELECT COUNT... berichten" />
                 <marker date="1508852874612" expanded="true" signature="2842:2890" ph="SELECT COUNT... ips" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="berichtParse.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/berichtParse.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="122" lean-forward="false" selection-start-line="8" selection-start-column="122" selection-end-line="8" selection-end-column="122" />
+              <folding>
+                <marker date="1508852996283" expanded="true" signature="189:256" ph="INSERT INTO reply... " />
+                <marker date="1508852996283" expanded="true" signature="189:283" ph="INSERT INTO reply... " />
+                <marker date="1508852996283" expanded="true" signature="189:306" ph="INSERT INTO reply... " />
               </folding>
             </state>
           </provider>
@@ -135,11 +146,11 @@
         <option value="$PROJECT_DIR$/topicToevoegen.php" />
         <option value="$PROJECT_DIR$/ledenlijst.php" />
         <option value="$PROJECT_DIR$/bericht.php" />
-        <option value="$PROJECT_DIR$/berichtParse.php" />
         <option value="$PROJECT_DIR$/form.php" />
         <option value="$PROJECT_DIR$/actievetopics.php" />
         <option value="$PROJECT_DIR$/nieuwetopics.php" />
         <option value="$PROJECT_DIR$/fav-topics.php" />
+        <option value="$PROJECT_DIR$/berichtParse.php" />
       </list>
     </option>
   </component>
@@ -216,12 +227,12 @@
       <updated>1508314253816</updated>
       <workItem from="1508314255238" duration="17271000" />
       <workItem from="1508751434595" duration="16531000" />
-      <workItem from="1508836636754" duration="13868000" />
+      <workItem from="1508836636754" duration="14046000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47670000" />
+    <option name="totallyTimeSpent" value="47848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -458,18 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/berichtParse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="138" lean-forward="true" selection-start-line="8" selection-start-column="138" selection-end-line="8" selection-end-column="138" />
-          <folding>
-            <marker date="1508852652315" expanded="true" signature="189:256" ph="INSERT INTO reply... " />
-            <marker date="1508852652315" expanded="true" signature="189:287" ph="INSERT INTO reply... " />
-            <marker date="1508852652315" expanded="true" signature="189:312" ph="INSERT INTO reply... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/topics.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -542,6 +541,18 @@
             <marker date="1508852874612" expanded="true" signature="2164:2212" ph="SELECT * FRO... sub_category" />
             <marker date="1508852874612" expanded="true" signature="2493:2546" ph="SELECT COUNT... berichten" />
             <marker date="1508852874612" expanded="true" signature="2842:2890" ph="SELECT COUNT... ips" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/berichtParse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="122" lean-forward="false" selection-start-line="8" selection-start-column="122" selection-end-line="8" selection-end-column="122" />
+          <folding>
+            <marker date="1508852996283" expanded="true" signature="189:256" ph="INSERT INTO reply... " />
+            <marker date="1508852996283" expanded="true" signature="189:283" ph="INSERT INTO reply... " />
+            <marker date="1508852996283" expanded="true" signature="189:306" ph="INSERT INTO reply... " />
           </folding>
         </state>
       </provider>

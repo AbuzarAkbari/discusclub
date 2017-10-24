@@ -6,7 +6,7 @@ require_once('dbc.php');
     $reply_content = $_POST['reply_content'];
     $bericht_id = $_POST['bericht_id'];
     $reply_auteur = 1;
-    $sql3 = "INSERT INTO reply (topic_id, user_id, content, created_at) VALUES (':bericht_id', ':reply_auteur', ':reply_content', NOW())";
+    $sql3 = "INSERT INTO reply (topic_id, user_id, content, created_at) VALUES (:bericht_id, :reply_auteur, :reply_content, NOW())";
 
 
     $result3 = $dbc->prepare($sql3);
