@@ -36,7 +36,6 @@ $result->execute();
 </head>
 
 <body>
-<<<<<<< HEAD
 <div id="fb-root"></div>
 <script>
     (function (d, s, id) {
@@ -111,7 +110,7 @@ require 'ingelogd.php';
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><?php echo $row['topic_titel']; ?></h3>
-=======
+
     <div id="fb-root"></div>
     <script>
         (function(d, s, id) {
@@ -141,7 +140,6 @@ require 'ingelogd.php';
                     <input type="submit" class="btn btn-primary" name="send" value="Favoriete">
                     <input type="submit" class="btn btn-primary" name="send" value="Button 1">
                     <input type="submit" class="btn btn-primary" name="send" value="Button 2">
->>>>>>> eba39912b355e9f8c2cfaa6c8b31fc240777b66e
                 </div>
 
                 <div class="panel-body">
@@ -150,20 +148,16 @@ require 'ingelogd.php';
                             <img src='http://via.placeholder.com/130x130' alt="">
                         </div>
                         <div class="col-md-10">
-<<<<<<< HEAD
                             <p><?php echo $row['topic_content']; ?></p>
-=======
                             <p>
                             <h4>Titel</h4></p>
                             You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other,
                             but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't
                             hold a candle to man.
->>>>>>> eba39912b355e9f8c2cfaa6c8b31fc240777b66e
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer">
-<<<<<<< HEAD
                     <b>Geplaatst door:</b> <i><?php echo $row['topic_auteur']; ?></i>
                     op <?php echo $row['post_datum']; ?></h3>
                 </div>
@@ -187,7 +181,6 @@ require 'ingelogd.php';
                             <div class="col-md-10">
                                 <p><?php echo $row2['reply_content']; ?></p>
                             </div>
-=======
                     #102439	<b>Geplaatst door:</b> <i>Jack Sparrow</i> op donderdag 23 februari 2017 17:22:28</h3>
                 </div>
             </div>
@@ -204,7 +197,6 @@ require 'ingelogd.php';
                             You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other,
                             but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't
                             hold a candle to man.
->>>>>>> eba39912b355e9f8c2cfaa6c8b31fc240777b66e
                         </div>
                     </div>
                     <div class="panel-footer">
@@ -212,7 +204,6 @@ require 'ingelogd.php';
                         op <?php echo $row2['reply_datum']; ?></h3>
                     </div>
                 </div>
-<<<<<<< HEAD
             <?php endforeach; ?>
         </div>
     </div>
@@ -239,12 +230,10 @@ require 'ingelogd.php';
     </div>
     <div class="row">
         <div class="col-md-12">
-=======
                 <div class="panel-footer">
                     #102439	<b>Geplaatst door:</b> <i>Jack Sparrow</i> op donderdag 23 februari 2017 17:22:28</h3>
                 </div>
             </div>
->>>>>>> eba39912b355e9f8c2cfaa6c8b31fc240777b66e
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Antwoord toevoegen</h3>
