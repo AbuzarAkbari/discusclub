@@ -103,10 +103,37 @@
               </div>
           </div>
           <br>
-          <div class=" panel-default border-note ">
-              <div class="panel-heading border-color-black">Reactie Toevoegen</div>
-              <textarea required class="form-control editor maring" col="8" rows="20" name="reply_content"
-                        style="resize: none;" placeholder="Uw bericht.."></textarea>
+              <div class="panel panel-primary">
+                  <div class="panel-heading border-color-black">
+                      <h3 class="panel-title">Reactie toevoegen</h3>
+                  </div>
+                  <div class="panel-body">
+                      <form class="form-horizontal" action="topicToevoegen.php" method="post">
+                          <div class="form-group">
+                              <div class="col-md-12">
+                                  <input type="text" class="form-control" name="add_topic_title" placeholder="Topic Titel">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <div class="col-md-12">
+                                  <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content"
+                                            style="resize: none !important;" placeholder="Uw bericht.."></textarea>
+                              </div>
+
+                          </div>
+                          <div class="form-group">
+                              <div class="col-md-12">
+                                  <input type="hidden" name="subId" value="<?php echo $_GET['id']; ?>">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <div class="col-md-12">
+                                  <input type="submit" class="btn btn-primary" class="form-control" name="post_add_topic"
+                                         value="Toevoegen">
+                              </div>
+                          </div>
+                      </form>
+                  </div>
               </div>
               </div>
           </div>

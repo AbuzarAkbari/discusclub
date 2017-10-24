@@ -1,4 +1,4 @@
-    <?php require_once('dbc.php'); 
+    <?php require_once('dbc.php');
 $categorieenSql = "SELECT * FROM category";
 $categorieenResult = $dbc->prepare($categorieenSql);
 $categorieenResult->execute();
