@@ -1,3 +1,4 @@
+<?php require_once("includes/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,44 +29,46 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-     require 'ingelogd.php';
-        ?>
-        <?php
-      //  require 'ingelogd.php';
-        ?>
+    require_once("includes/nav.php");
+    ?>
     </div>
     <div class="container">
         <div class="row">
           <br><br>
           <div class="panel panel-primary">
-              <div class="panel-heading panel-heading1">
-                  <h4>Wachtwoord wijzigen van GebruikerId</h4></div>
+                <div class="panel-heading panel-heading1">
+                  <h4>Wachtwoord wijzigen van GebruikerId</h4>
+                </div>
                 <div class="panel-body">
-                  <form class="" action="<?php echo $_SERVER["php_self"]; ?>" method="post">
-                      Wachtwoord
-                      <input class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
-                      Wachtwoord herhalen
-                      <input class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
-
-                      <input type="submit" class="btn btn-primary" name="send" value="Wijzig">
-                  </form>
                     <?php
+                    if (isset($_GET["token"]) && isset($_GET["email"])) {
+                        require_once("dbc.php");
+                        $sth = $dbc->prepare("SELECT forgot_pass, id FROM user WHERE email = :email");
+                        $sth->execute([":email" => $_GET["email"]]);
+                        $res = $sth->fetch(PDO::FETCH_OBJ);
+                        if (!empty($res) && password_verify($_GET["token"], $res->forgot_pass)) {
+                            // set it to null again to prevent someone else doing it again
+                            $sth = $dbc->prepare("UPDATE user SET forgot_pass = null WHERE id = :id");
+                            $sth->execute([":id" => $res->id]);
+                            ?>
+                            <form class="" action="<?php echo $_SERVER["php_self"]; ?>" method="post">
+                                Wachtwoord
+                                <input class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
+                                Wachtwoord herhalen
+                                <input class="form-control" required type="password" name="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
+
+                                <input type="submit" class="btn btn-primary" name="send" value="Wijzig">
+                            </form>
+                            <?php
+                        } else {
+                            echo "kan het wachtwoord niet wijzigen";
+                        }
+                    }
+
                     if (isset($_POST["send"])) {
                         require_once("dbc.php");
-                        $sth = $dbc->prepare("SELECT * FROM user WHERE username = :username");
-                        $sth->execute([":username" => $_POST["username"]]);
-                        $res = $sth->fetch(PDO::FETCH_OBJ);
-
-                        if (!empty($res)) {
-                            if (password_verify($_POST["password"], $res->password)) {
-                                $_SESSION["user"] = $res;
-                                header("Location: index.php");
-                            } else {
-                                echo "wrong combination";
-                            }
-                        } else {
-                            echo "wrong combination";
-                        }
+                        $sth = $dbc->prepare("UPDATE user SET password = :pass WHERE email = :email");
+                        $sth->execute([":pass" => $_POST["password"], ":email" => $_GET["email"]]);
                     }
                     ?>
               </div>

@@ -1,4 +1,5 @@
-<?php require_once('dbc.php'); ?>
+<?php require_once("includes/security.php");
+require_once('dbc.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,11 +31,8 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-     require 'ingelogd.php';
-      ?>
-      <?php
-      //  require 'ingelogd.php';
-        ?>
+    require_once("includes/nav.php");
+    ?>
     <div class="container-fluid">
         <div class="row sliderbox">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -75,13 +73,13 @@
     <br>
     <div class="container">
         <div class="row">
-            <?php  
+            <?php
                 $sql = "SELECT * FROM topics WHERE id = {$_GET['id']}";
                 $result = mysqli_query($dbc, $sql);
             ?>
-            <?php while($row = mysqli_fetch_assoc($result)) : ?>
+            <?php while ($row = mysqli_fetch_assoc($result)) : ?>
             <div class="alert alert-success" style="background-color: black; color: white;"><?php echo $row['topic_titel']; ?></div>
-            
+
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">geplaatst door <?php echo $row['topic_auteur']; ?></h3>
@@ -122,7 +120,7 @@
         </div>
     </div>
     <footer>
-      <?php require 'footer.php' ; ?>
+        <?php require 'footer.php' ; ?>
     </footer>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

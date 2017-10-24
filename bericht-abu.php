@@ -1,3 +1,4 @@
+<?php require_once("includes/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,14 +32,9 @@
   fjs.parentNode.insertBefore(js, fjs)
 })(document, 'script', 'facebook-jssdk')
 </script>
-<?php
- // require 'ingelogd.php';
-  ?>
-  <?php
-   require 'uitgelogd.php';
-    ?>
-  <?php
-   require 'slider.php';
+    <?php
+    require_once("includes/nav.php");
+    require 'slider.php';
     ?>
 
     <div class="container">
@@ -83,19 +79,19 @@
 
           <div class="panel panel-primary ">
               <div class="panel-heading border-color-blue">Reacties</div>
-              <div class="panel-heading border-color-black "> #23	Geplaatst door	marco.middelhuis	op zondag 23 februari 2014 10:39:39</div>
+              <div class="panel-heading border-color-black "> #23   Geplaatst door  marco.middelhuis    op zondag 23 februari 2014 10:39:39</div>
               <div class="panel-body padding-padding">
                   <div>
                     het contact formulier werkt niet
                 </div>
               </div>
-              <div class="panel-heading border-color-black"> #23	Geplaatst door	marco.middelhuis	op zondag 23 februari 2014 10:39:39</div>
+              <div class="panel-heading border-color-black"> #23    Geplaatst door  marco.middelhuis    op zondag 23 februari 2014 10:39:39</div>
               <div class="panel-body padding-padding">
                   <div>
                     het contact formulier werkt niet
                 </div>
               </div>
-              <div class="panel-heading border-color-black"> #23	Geplaatst door	marco.middelhuis	op zondag 23 februari 2014 10:39:39</div>
+              <div class="panel-heading border-color-black"> #23    Geplaatst door  marco.middelhuis    op zondag 23 februari 2014 10:39:39</div>
               <div class="panel-body padding-padding">
                   <div>
                     het contact formulier werkt niet

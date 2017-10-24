@@ -1,3 +1,4 @@
+<?php require_once("includes/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,11 +29,8 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-     require 'ingelogd.php';
-        ?>
-        <?php
-      //  require 'ingelogd.php';
-        ?>
+    require_once("includes/nav.php");
+    ?>
     </div>
     <div class="container">
         <div class="row">

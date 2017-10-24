@@ -1,4 +1,5 @@
-<?php require_once('dbc.php');
+<?php require_once("includes/security.php");
+require_once('dbc.php');
 $categorieenSql = "SELECT * FROM category";
 $categorieenResult = $dbc->prepare($categorieenSql);
 $categorieenResult->execute();
@@ -35,36 +36,11 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
         fjs.parentNode.insertBefore(js, fjs)
     })(document, 'script', 'facebook-jssdk')
 </script>
-<div class="header">
-    <div class="container">
-        <div class="inlog">
-            <a href="inloggen.php">Inloggen</a>
-            <a href="registeren.php">Registreer</a>
-            <a href="wachtwoordvergeten.php">Wachtwoord vergeten?</a>
-        </div>
-        <div class="col-xs-6">
-            <img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland">
-        </div>
-    </div>
-</div>
-<!-- Static navbar -->
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </button>
-        </div>
-        <?php require 'nav_uitloggen.php'; ?>
-        <!--/.nav-collapse -->
-    </div>
-</nav>
+<?php require_once("includes/nav.php"); ?>
 <div class="container">
     <div class="row">
         <br><br>
-        <?php foreach($results as $categorie) : ?>
+        <?php foreach ($results as $categorie) : ?>
             <?php
             $id = $categorie['id'];
             $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ?";
@@ -88,7 +64,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         </thead>
 
                         <tbody>
-                        <?php foreach($results2 as $subCat): ?>
+                        <?php foreach ($results2 as $subCat) : ?>
                             <?php
                                 $sql = "SELECT *, COUNT(*) as aantal_topics FROM topic WHERE sub_category_id = ?";
                                 $q = $dbc->prepare($sql);

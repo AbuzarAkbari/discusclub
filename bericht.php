@@ -1,4 +1,5 @@
-<?php require_once('dbc.php'); ?>
+<?php require_once("includes/security.php");
+require_once('dbc.php'); ?>
 
 <?php
 
@@ -48,7 +49,7 @@ $result->execute();
     }(document, 'script', 'facebook-jssdk'));
 </script>
 <?php
-require 'ingelogd.php';
+require_once("includes/nav.php");
 ?>
 <div class="container-fluid">
     <div class="row sliderbox">
