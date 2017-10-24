@@ -119,11 +119,19 @@ $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
                                 <td><a href="bericht.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
-                                <td><a href="#"><?php echo $topic['user_id']; ?></a></td>
-
-                                <td><?php echo $x_berichten; ?></td>
-                                <td><?php echo $x[0]['x']; ?></td>
-                                <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
+                                <?php
+                                    $userSql = "SELECT * FROM user WHERE id = ?";
+                                    $userResult = $dbc->prepare($userSql);
+                                    $userResult->bindParam(1, $topic['user_id']);
+                                    $userResult->execute();
+                                    $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
+                                ?>
+                                <?php foreach($users as $user) : ?>
+                                    <td><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                    <td><?php echo $x_berichten; ?></td>
+                                    <td><?php echo $x[0]['x']; ?></td>
+                                    <td><?php echo $topic['created_at']; ?>, <br> Door <a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                <?php endforeach; ?>
                             </tr>
                         <?php endforeach; ?>
                     </div>
