@@ -3,7 +3,7 @@ if(isset($_POST['post_add_topic']))
 {
     require_once('dbc.php');
 
-    $subId = 1;//$_POST['subId'];
+    $subId = $_POST['subId'];
     $topicTitle = $_POST['add_topic_title'];
     $topicAuteur = 1;
     $topicContent = $_POST['add_topic_content'];
@@ -19,5 +19,5 @@ if(isset($_POST['post_add_topic']))
 
     $result->execute();
 
-    header("Location: http://localhost/Stage/discusclub/topics.php?id=".$subId);
+    header("Location: http://localhost/htdocs-backup/Stage/discusclub/bericht.php?id=".$subId);
 }

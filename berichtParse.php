@@ -11,5 +11,5 @@ require_once('dbc.php');
 
     $result3 = $dbc->prepare($sql3);
     $result3->execute();
-    header("Location: http://localhost/Stage/discusclub/bericht.php?id=".$bericht_id);
+    header("Location: http://localhost/htdocs-backup/Stage/discusclub/bericht.php?id=".$bericht_id);
 }

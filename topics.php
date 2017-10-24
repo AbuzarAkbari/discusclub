@@ -106,7 +106,8 @@ $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
                                 $result3->bindParam(1, $topic['id']);
                                 $result3->execute();
                                 $i = $result3->fetchAll(PDO::FETCH_ASSOC);
-                                $x_berichten = $i[0]['i'] +1 - 1;
+
+                                $x_berichten = $i[0]['i'] +1;
 
 
                                 $sql4 = "SELECT COUNT(id) AS x FROM ips WHERE topic_id = ?";
@@ -116,7 +117,7 @@ $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
                                 $x = $result4->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
-                                <td><?php echo $topic['icon']; ?></td>
+                                <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
                                 <td><a href="bericht.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <td><a href="#"><?php echo $topic['user_id']; ?></a></td>
 
