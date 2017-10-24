@@ -348,25 +348,23 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 /*Gelukt*/
-.gelukt {
-    background: #00a99d;
-    border-radius: 4px;
+
+.message {
+    border-radius: 0.3em;
     padding: 6px 12px;
     width: 100%;
     max-width: 200px;
     max-height: 100px;
     color: white;
-    max-height: auto;
+    padding: 0.4em 0.2em;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.gelukt {
+    background: #00a99d;
 }
 
 /*Error*/
 .error {
-    background: #ff254a;
-    border-radius: 4px;
-    padding: 6px 12px;
-    width: 100%;
-    max-width: 200px;
-    max-height: 100px;
-    color: white;
-    max-height: auto;
+    background: #e74c3c;
 }

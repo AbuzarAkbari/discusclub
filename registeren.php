@@ -58,8 +58,8 @@
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
 
-                      <div class="gelukt">Bent nu geregistreerd</div>
-                      <div class="error">Error er iets mis gegaan</div>
+                      <div class="gelukt message">Bent nu geregistreerd</div>
+                      <div class="error message">Error er iets mis gegaan</div>
 
 
                   </form>
