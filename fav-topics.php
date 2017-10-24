@@ -85,7 +85,7 @@
                             ?>
 
                             <tr>
-                                <td><?php echo $topic['icon']; ?></td>
+                                <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
                                 <td><a href="topics.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <td><a href="#"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
                                 <td><a href="#"><?php echo $topic['user_id']; ?></a></td>

@@ -96,12 +96,6 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 $q->execute();
                                 $results3 = $q->fetchAll(PDO::FETCH_ASSOC);
 
-//                                $sql2 = "SELECT COUNT(id) AS i FROM reply WHERE topic_id = ?";
-//                                $q2 = $dbc->prepare($sql2);
-//                                $q2->bindParam(1, $subCat['id']);
-//                                $q2->execute();
-//                                $results4 = $q2->fetchAll(PDO::FETCH_ASSOC);
-
                                 $query2 = $dbc->prepare('SELECT COUNT(reply.id) as x FROM `sub_category` LEFT JOIN topic ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON reply.topic_id = topic.id WHERE sub_category.id = ?');
                                 $query2->bindParam(1, $subCat['id']);
                                 $query2->execute();
