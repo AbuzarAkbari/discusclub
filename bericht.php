@@ -10,7 +10,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
 
-$sql = "INSERT INTO aantal_bekeken (topic_id, user_id, ip_adres, bekeken_op) VALUES ({$_GET['id']}, 1, '{$ip}', NOW())";
+$sql = "INSERT INTO ips (topic_id, user_id, ip_adres, created_at) VALUES ({$_GET['id']}, 1, '{$ip}', NOW())";
 $result = $dbc->prepare($sql);
 $result->execute();
 ?>
@@ -87,20 +87,13 @@ require 'ingelogd.php';
         </div>
     </div>
 </div>
-<br>
-<div class="container">
-<ol class="breadcrumb">
-    <li><a href="#">Forum</a></li>
-    <li><a href="#">Mededelingen</a></li>
-    <li><a href="#" class="active">Nieuwe website DCH</a></li>
-</ol>
-</div>
-<div class="container text-center">
+
+<div class="container" style="margin-top:25px;">
 
     <div class="row">
         <div class="col-md-12">
             <?php
-            $sql = "SELECT * FROM topics WHERE id = ?";
+            $sql = "SELECT * FROM topic WHERE id = ?";
             $result = $dbc->prepare($sql);
             $result->bindParam(1, $_GET['id']);
             $result->execute();
@@ -109,46 +102,23 @@ require 'ingelogd.php';
             <?php foreach ($rows as $row) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><?php echo $row['topic_titel']; ?></h3>
+                    <h3 class="panel-title text-left"><?php echo $row['title']; ?></h3>
 
-    <div id="fb-root"></div>
-    <script>
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.10";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <?php
-     require 'ingelogd.php';
-      ?>
-      <?php
-      //  require 'ingelogd.php';
-        ?>
-<br>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Item</h3>
-                </div>
-                <div class="panel-heading text-right">
-                    <input type="submit" class="btn btn-primary" name="send" value="Favoriete">
-                    <input type="submit" class="btn btn-primary" name="send" value="Button 1">
-                    <input type="submit" class="btn btn-primary" name="send" value="Button 2">
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-primary" name="send" value="Favoriete">
+                        <input type="submit" class="btn btn-primary" name="send" value="Button 1">
+                        <input type="submit" class="btn btn-primary" name="send" value="Button 2">
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
 
                 <div class="panel-body">
-                    <div class="wrapper-box col-md-12">
+                    <div class="col-md-12">
                         <div class="col-md-2">
                             <img src='http://via.placeholder.com/130x130' alt="">
                         </div>
                         <div class="col-md-10">
-                            <p><?php echo $row['topic_content']; ?></p>
+                            <p><?php echo $row['content']; ?></p>
                             <p>
                             <h4>Titel</h4></p>
                             You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other,
@@ -156,21 +126,28 @@ require 'ingelogd.php';
                             hold a candle to man.
                         </div>
                     </div>
+
                 </div>
+
                 <div class="panel-footer">
                     <b>Geplaatst door:</b> <i><?php echo $row['topic_auteur']; ?></i>
                     op <?php echo $row['post_datum']; ?></h3>
                 </div>
+
+                <?php endforeach; ?>
+
+
+
             </div>
-            <?php endforeach; ?>
+
             <?php
-                $sql2 = "SELECT * FROM reply WHERE topic_id = ?";
-                $result2 = $dbc->prepare($sql2);
-                $result2->bindParam(1, $_GET['id']);
-                $result2->execute();
-                $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+            $sql2 = "SELECT * FROM reply WHERE topic_id = ?";
+            $result2 = $dbc->prepare($sql2);
+            $result2->bindParam(1, $_GET['id']);
+            $result2->execute();
+            $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
             ?>
-            <?php foreach($rows2 as $row2) : ?>
+            <?php foreach ($rows2 as $row2) : ?>
                 <div class="panel panel-primary">
                     <div class="panel-body">
                         <div class="wrapper-box col-md-12">
@@ -188,7 +165,7 @@ require 'ingelogd.php';
 
                 <div class="panel-body">
                     <div class="wrapper-box col-md-12">
-                        <div class="col-md-2">
+                        <div class="wrapper-box col-md-2">
                             <img src='http://via.placeholder.com/130x130' alt="x">
                         </div>
                         <div class="col-md-10">
@@ -199,34 +176,38 @@ require 'ingelogd.php';
                             hold a candle to man.
                         </div>
                     </div>
-                    <div class="panel-footer">
-                        <b>Geplaatst door:</b> <i><?php echo $row2['reply_auteur']; ?></i>
-                        op <?php echo $row2['reply_datum']; ?></h3>
-                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
+     </div>
     </div>
-    <div class="container">
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -243,7 +224,7 @@ require 'ingelogd.php';
                         <div class="form-group">
                             <div class="col-md-12">
                             <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
-                                       style="resize: none;" placeholder="Uw bericht.."></textarea>
+                                      style="resize: none;" placeholder="Uw bericht.."></textarea>
                             </div>
                         </div>
                         <div class="form-group">

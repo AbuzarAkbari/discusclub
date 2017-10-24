@@ -43,19 +43,33 @@
                 <div class="panel-body">
                   <form class="" action="<?php echo $_SERVER["php_self"]; ?>" method="post">
                       Gebruikersnaam
-                      <input class="form-control" required type="text" name="" value="" placeholder="Naam "><br>
+                      <input class="form-control" required type="text" name="username" value="" placeholder="Naam "><br>
                       Wachtwoord
-                      <input class="form-control" required type="password" name="" value="" placeholder="Wachtwoord"><br>
+                      <input class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
 
-                      <input class="" type="checkbox" name="" value=""> Onthoud mij<br>
+                      <input class="" type="checkbox" name="remember_me" value=""> Onthoud mij<br>
 
                       <a href="wachtwoordvergeten.php">Naam of wachtwoord vergeten?</a><br><br>
 
-                      <input type="submit" class="btn btn-primary" name="send" value="Registeren">
+                      <input type="submit" class="btn btn-primary" name="send" value="Inloggen">
                   </form>
                     <?php
-                    if (isset($_POST["submit"])) {
-                        echo "login try";
+                    if (isset($_POST["send"])) {
+                        require_once("dbc.php");
+                        $sth = $dbc->prepare("SELECT * FROM user WHERE username = :username");
+                        $sth->execute([":username" => $_POST["username"]]);
+                        $res = $sth->fetch(PDO::FETCH_OBJ);
+
+                        if (!empty($res)) {
+                            if (password_verify($_POST["password"], $res->password)) {
+                                $_SESSION["user"] = $res;
+                                header("Location: index.php");
+                            } else {
+                                echo "wrong combination";
+                            }
+                        } else {
+                            echo "wrong combination";
+                        }
                     }
                     ?>
               </div>

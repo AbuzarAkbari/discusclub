@@ -74,7 +74,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
             $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <div class="panel panel-primary ">
-                <div class="panel-heading border-colors"><?php echo $categorie['categorie_naam']; ?></div>
+                <div class="panel-heading border-colors"><?php echo $categorie['name']; ?></div>
                 <div class="panel-body padding-padding">
                     <table>
                         <thead>
@@ -96,7 +96,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 $q->execute();
                                 $results3 = $q->fetchAll(PDO::FETCH_ASSOC);
 
-                                $sql2 = "SELECT COUNT(*) as aantal_berichten FROM berichten JOIN topics ON topics.id = berichten.topic_id JOIN sub_categorieen ON sub_categorieen.id = topics.sub_categorie_id WHERE sub_categorieen.id = ?";
+                                $sql2 = "SELECT COUNT(*) as aantal_berichten FROM message JOIN topic ON topic.id = message.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE sub_category.id = ?";
                                 $q2 = $dbc->prepare($sql2);
                                 $q2->bindParam(1, $subCat['id']);
                                 $q2->execute();
@@ -105,7 +105,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <td> &#128193;</td>
                                 <td>
-                                    <a href="topics.php?id=<?php echo $subCat['id']; ?>"><?php echo $subCat['sub_categorie_naam']; ?></a>
+                                    <a href="topics.php?id=<?php echo $subCat['id']; ?>"><?php echo $subCat['name']; ?></a>
                                 </td>
                                 <td><?php echo $results3[0]['aantal_topics']; ?></td>
                                 <td><?php echo $results4[0]['aantal_berichten']; ?></td>
