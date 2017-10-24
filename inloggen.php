@@ -53,7 +53,7 @@
                     <?php
                     if (isset($_POST["send"])) {
                         require_once("dbc.php");
-                        $sth = $dbc->prepare("SELECT * FROM user WHERE username = :username");
+                        $sth = $dbc->prepare("SELECT * FROM user JOIN role ON role.id = user.role_id WHERE username = :username");
                         $sth->execute([":username" => $_POST["username"]]);
                         $res = $sth->fetch(PDO::FETCH_OBJ);
 

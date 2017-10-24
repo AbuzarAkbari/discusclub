@@ -3,6 +3,7 @@
 
 </div>
     <div class="header container">
+        <?php if ($logged_in) { ?>
       <div class='inlog'>
         <div class='dropdown'>
           <a href="gebruiker" class='dropbtn'>Gebruiker</a>
@@ -11,8 +12,15 @@
             <a href='profiel-aanpassen.php'>Profiel aanpasen </a>
           </div>
       </div>
-          <a href='index.php'>Uitloggen</a>
+        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>?logout=true">Uitloggen</a>
       </div>
+        <?php } else { ?>
+            <div class='inlog'>
+                <a href='inloggen.php'>Inloggen</a>
+                <a href='registeren.php'>Registreer</a>
+                <a href='wachtwoordvergeten.php'>Wachtwoord vergeten?</a>
+            </div>
+        <?php } ?>
         <div class="col-xs-6">
             <a href="/"><img class="logo" src="images\Discus_Club_Holland_Logo.png" alt="Discusclubholland"></a>
         </div>
@@ -45,6 +53,10 @@
                         <ul class='dropdown-menu'>
                             <li><a href='actievetopics.php'>Actieve topics</a></li>
                             <li><a href='nieuwetopics.php'>Nieuw topics</a></li>
+                            <?php if ($logged_in) { ?>
+                                <li><a href='fav-topics.php'>Favoriete topics</a></li>
+                                <li><a href='ledenlijst.php'>Ledenlijst</a></li>
+                            <?php } ?>
                         </ul>
                     </li>
                     <li><a href='wordlid.php'>Word lid!</a></li>
@@ -60,4 +72,4 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
-    </nav>
+</nav>
