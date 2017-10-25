@@ -34,7 +34,6 @@
 </script>
 <?php
 require_once("includes/nav.php");
-require 'slider.php';
 ?>
 
 <div class="container">

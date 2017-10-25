@@ -95,7 +95,32 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 </td>
                                 <td><?php echo $results3[0]['aantal_topics']; ?></td>
                                 <td><?php echo $berichten['x'] + $topic_x['x']; ?></td>
-                                <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
+                                <?php
+                                    $laasteberichtSql = "SELECT topic.id AS topic_id, reply.id AS reply_id, reply.*, user.* FROM sub_category JOIN topic ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON reply.topic_id = topic.id LEFT JOIN user ON reply.user_id = user.id WHERE sub_category.id = ? ORDER BY reply.created_at DESC LIMIT 1";
+                                    $laasteberichtResult = $dbc->prepare($laasteberichtSql);
+                                    $laasteberichtResult->bindParam(1, $subCat['id']);
+                                    $laasteberichtResult->execute();
+
+                                    $laatsteBericht = $laasteberichtResult->fetchAll(PDO::FETCH_ASSOC);
+
+//                                    echo '<pre>';
+//                                    print_r($laatsteBericht);
+
+                                    if (isset($laatsteBericht[0]['reply_id'])): ?>
+                                        <td>reply gevonden</td>
+                                    <?php elseif(isset($laatsteBericht[0]['topic_id'])): ?>
+                                        <td>Topic gevonden</td>
+                                    <?php else: ?>
+                                        <td>Niks gevonden</td>
+                                <?php endif; ?>
+
+                                <?php
+//                                if (isset($laatsteBericht[0])): ?>
+<!--                                    <td>--><?php //echo $laatsteBericht[0]['created_at']; ?><!--, <br> Door <a href="#">--><?php //echo $laatsteBericht[0]['first_name'].' '.$laatsteBericht[0]['last_name']; ?><!--</a></td>-->
+<!--                                --><?php //else: ?>
+<!--                                    <td>Er zijn nog geen topics toegevoegd, bent u de eerste?</td>-->
+<!--                                --><?php //endif; ?>
+
                             </tr>
                         <?php endforeach; ?>
                         </tbody>

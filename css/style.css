@@ -357,11 +357,12 @@ li.dropdown:hover > .dropdown-menu {
     color: white;
     padding: 1em;
     font-size: 1.5rem;
-    margin: 0 auto;
+    margin: 1em auto;
     text-align: center;
 }
 .linkTekst {
     color: white;
+    text-decoration: underline;
 }
 .linkTekst:hover {
     color: white;
