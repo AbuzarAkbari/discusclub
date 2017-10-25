@@ -1,4 +1,15 @@
 <?php require_once("includes/security.php"); ?>
+<?php
+if (isset($_GET["id"])) {
+    $sth = $dbc->prepare("SELECT u.id, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.id = :id");
+    $sth->execute([":id" => $_GET["id"]]);
+
+    $user_data = $sth->fetch(PDO::FETCH_OBJ);
+} else {
+    $user_data = $_SESSION["user"];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,20 +57,18 @@
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Informatie</div>
                 <div class="panel-body text-left">
-                    <div class="text-center"><img src="http://via.placeholder.com/100x100" class="text-center"></div>
+                    <div class="text-center"><img src="<?php echo isset($user_data->profile_img) ? $user_data->profile_img : ""; ?>" class="text-center"></div>
                     <div class="col-md-12">
                         <strong>Locatie</strong><br>
-                        Onbekend<br>
+                        <?php echo isset($user_data->location) ? $user_data->location : "Onbekend"; ?><br>
                         <strong>Leeftijd</strong><br>
-                        47<br>
-                        <strong>Groep</strong>
-                        Leden<br>
-                        <strong>rollen</strong> <br>
-                        Gebruiker<br>
+                        <?php echo isset($user_data->birthdate) ? $user_data->birthdate : "Onbekend"; ?><br>
+                        <strong>rol</strong> <br>
+                        <?php echo isset($user_data->role_name) ? $user_data->role_name : "Onbekend"; ?><br>
                         <strong>Geregistreerd</strong><br>
-                        woensdag 11 oktober 2017 13:30:39<br>
+                        <?php echo isset($user_data->created_at) ? $user_data->created_at : "Onbekend"; ?><br>
                         <strong>Forum handtekening</strong><br>
-                        ik ben een geile turkse snicker<br>
+                        <?php echo isset($user_data->signature) ? $user_data->signature : ""; ?><br>
                 </div>
                     </div>
                 </div>
@@ -77,6 +86,13 @@
                 </table>
                 </div>
                 <div class="panel-body text-right">
+                    <table>
+                        <tr>
+                            <td>bla</td>
+                            <td>bla</td>
+                            <td>bla</td>
+                        </tr>
+                    </table>
                     </div>
                 </div>
             </div>
