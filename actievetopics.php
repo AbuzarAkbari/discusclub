@@ -71,7 +71,7 @@ require_once('dbc.php');
 
                                 $sub_categorie_naam = $result2->fetchAll();
 
-                                $sql3 = "SELECT COUNT(id) AS i FROM message WHERE topic_id = ?";
+                                $sql3 = "SELECT COUNT(id) AS i FROM reply WHERE topic_id = ?";
                                 $result3 = $dbc->prepare($sql3);
                                 $result3->bindParam(1, $topic['id']);
                                 $result3->execute();
@@ -87,7 +87,7 @@ require_once('dbc.php');
 
                             <tr>
                                 <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
-                                <td><a href="topics.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
+                                <td><a href="bericht.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <td><a href="#"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
                                 <td><a href="#"><?php echo $topic['user_id']; ?></a></td>
 
