@@ -14,6 +14,9 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 $sql = "INSERT INTO ips (topic_id, user_id, ip_adres, created_at) VALUES ({$_GET['id']}, 1, '{$ip}', NOW())";
 $result = $dbc->prepare($sql);
 $result->execute();
+
+$page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+$perPage = 10;
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +102,20 @@ require_once("includes/nav.php");
             $result->bindParam(1, $_GET['id']);
             $result->execute();
             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            $subcat_id = $rows[0]['sub_category_id'];
+            $subSql = "SELECT * FROM sub_category WHERE id = ?";
+            $subResult = $dbc->prepare($subSql);
+            $subResult->bindParam(1, $subcat_id);
+            $subResult->execute();
+            $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Forum</a></li>
+                <li><a href="/"><?php echo $subId[0]['name']; ?></a></li>
+                <li class="active"><?php echo $rows[0]['title']; ?></li>
+            </ol>
             <?php foreach ($rows as $row) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -146,13 +162,48 @@ require_once("includes/nav.php");
             </div>
 
             <?php
-            $sql2 = "SELECT * FROM reply WHERE topic_id = ?";
+            $a = $page * $perPage - $perPage;
+            $sql2 = "SELECT * FROM reply WHERE topic_id = ? LIMIT {$perPage} OFFSET {$a}";
             $result2 = $dbc->prepare($sql2);
             $result2->bindParam(1, $_GET['id']);
             $result2->execute();
             $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <?php foreach ($rows2 as $row2) : ?>
+                <?php
+
+                $matches = [
+                    [],
+                    [1]
+                ];
+
+                while ($matches[1]) {
+                    preg_match_all('/\[quote\s(\d+)\]/', $row2['content'], $matches);
+
+                    foreach($matches[1] as $match) {
+
+                        $sql = "SELECT * FROM reply WHERE id = :id";
+                        $query = $dbc->prepare($sql);
+                        $query->execute([
+                            ':id' => $match
+                        ]);
+                        $results = $query->fetchAll();
+
+                        if (!isset($results[0])) {
+                            $replace = 'Oops, deze post bestaat niet meer';
+                        } else {
+                            $replace = $results[0]['content'];
+                        }
+
+                        $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px">'.$replace.'</div>', $row2['content']);
+
+                    }
+                }
+
+
+
+                ?>
+
                 <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
                     <div class="panel-body">
                         <div class="wrapper-box col-md-12">
@@ -178,6 +229,15 @@ require_once("includes/nav.php");
                     <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
                 <?php endforeach; ?>
                 op <?php echo $row2['created_at']; ?></h3>
+
+                <div class="pull-right">
+
+                    <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
+                        Quote deze post
+                    </button>
+                </div>
+
+                <div class="clearfix"></div>
             </div>
 
      </div>
@@ -190,6 +250,16 @@ require_once("includes/nav.php");
     <div class="row">
         <div class="col-md-12">
 
+            <?php
+
+                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM reply WHERE topic_id = :id');
+                $query->execute([
+                        ':id' => $_GET['id']
+                ]);
+                $results = $query->fetchAll()[0];
+                $count = ceil($results['x'] / $perPage);
+            ?>
+
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
@@ -197,11 +267,9 @@ require_once("includes/nav.php");
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
+                    <?php for($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++): ?>
+                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>><a href="bericht.php?id=<?php echo $rows[0]['id']; ?>&pagina=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+                    <?php endfor; ?>
                     <li>
                         <a href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
@@ -254,9 +322,21 @@ require_once("includes/nav.php");
 <script type="text/javascript" src="js/summernote.min.js"></script>
 <script>
     $('.editor').summernote({
-        codemirror: {
-            theme: 'yeti'
-        }
+        toolbar: [
+            // [groupName, [list of button]]
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']]
+        ]
+    });
+
+    $(document).ready(function () {
+        $('.quote-btn').on('click', function () {
+            $('.editor').summernote('insertText', '[quote '+($(this).attr('data-id'))+']')//.disabled = true
+        });
     });
 </script>
 </body>

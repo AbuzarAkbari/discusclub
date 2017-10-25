@@ -37,7 +37,7 @@ require_once('dbc.php');
 
     <br><br>
     <?php
-    $sql = "SELECT * FROM topic";
+    $sql = "SELECT * FROM topic WHERE last_changed >= DATE(NOW()) - INTERVAL 7 DAY";
     $result = $dbc->prepare($sql);
     $result->execute();
     $results = $result->fetchAll(PDO::FETCH_ASSOC);

@@ -40,6 +40,11 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
     <div class="row">
         <br><br>
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Forum</li>
+        </ol>
+        <br>
         <?php foreach ($results as $categorie) : ?>
             <?php
             $id = $categorie['id'];

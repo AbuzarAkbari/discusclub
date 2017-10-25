@@ -58,9 +58,15 @@
             $result->execute();
             $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
+            <br><br>
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Forum</a></li>
+                <li class="active"><?php echo $results2[0]['name']; ?></li>
+            </ol>
         </div>
     </div>
-<br><br>
+<br>
 <div class="container">
     <div class="row columns">
         <div class="col-md-12">
