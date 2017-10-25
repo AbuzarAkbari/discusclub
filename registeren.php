@@ -56,8 +56,9 @@
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
 
-                      <div class="gelukt message">Bent nu geregistreerd</div>
-                      <div class="error message">Error er iets mis gegaan</div>
+                      <div class="gelukt message">blablabla gelukt, <a href="#" class="linkTekst">login</a> </div>
+                      <div class="error message">Error er iets mis gegaan <a href="#" class="linkTekst">Error</a></div>
+                      <div class="warning message">Warning al bases belong to us <a href="#" class="linkTekst">Waring</a></div>
 
 
                   </form>

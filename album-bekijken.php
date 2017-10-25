@@ -10,7 +10,6 @@
 
     <!-- Slider  -->
         <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
     <!-- custom css -->
@@ -46,7 +45,7 @@
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
-                        <div data-slick='{"slidesToShow": 4, fade}' class="slider fade">
+                        <div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
                           <div><h3>1</h3></div>
                           <div><h3>2</h3></div>
                           <div><h3>3</h3></div>
@@ -72,16 +71,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- slider -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
-    <script type="text/javascript">
-    $('.fade').slick({
-    dots: true,
-    infinite: true,
-    speed: 500,
-    fade: true,
-    cssEase: 'linear'
-    });
-
-    </script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 </body>
 </html>
