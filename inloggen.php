@@ -58,7 +58,7 @@ if (isset($_POST["send"])) {
               <div class="panel-heading panel-heading1">
                   <h4>Inloggen</h4></div>
                 <div class="panel-body">
-                  <form class="" action="<?php echo $_SERVER["php_self"]; ?>" method="post">
+                  <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                       <label for="username">Gebruikersnaam</label>
                       <input class="form-control" required type="text" name="username" id="username" value="" placeholder="Naam "><br>
                       <label for="password">Wachtwoord</label>
