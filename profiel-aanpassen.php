@@ -39,13 +39,13 @@
     <div class="container">
         <div class="row">
             <br>
-            <div class="panel panel-primary">
-              <div class="panel-heading">
+            <div class="panel panel-primary ">
+              <div class="panel-heading border-color-blue">
                 <h3 class="panel-title">Profiel aanpassen</h3>
               </div>
               <div class="panel-body">
                     <form class="" action="geenidee.php" method="post">
-                        <input type="checkbox" name="" value=""> Ik wil de DCH nieuwsbrief ontvangen <br><br>
+                        <input type="checkbox" name="" value="" id="nieuwsbrief"> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
                         <input class="form-control" type="password" name="" value="" placeholder="Wachtwoord"><br>
                         <input class="form-control" type="password" name="" value="" placeholder="Herhaal wachtwoord"><br>
                         <input class="form-control" type="email" name="" value="" placeholder="E-mail"><br>
