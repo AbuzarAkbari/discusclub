@@ -43,7 +43,10 @@ require 'slider.php';
         <div class="col-xs-12">
             <br><br>
             <div class="panel panel-primary ">
-                <div class="panel-heading border-color-blue"><h3>Welkom</h3></div>
+                <div class="panel-heading border-color-blue">
+                    <h3>Welkom</h3>
+
+                </div>
                 <div class="panel-body padding-padding">
                     <div class="col-md-12 verticalLine">
                         <h4>Welkom bij Discus Club Holland!</h4>
@@ -100,6 +103,11 @@ require 'slider.php';
                         <b>Geplaatst door:</b> <i>myname</i>
                         op 2017-08-1
                     </div>
+
+                </div>
+                <div class="panel-footer text-right">
+                    <i class="glyphicon glyphicon-star-empty GlyphSize "></i>
+                    <i class="glyphicon glyphicon-star GlyphSize "></i>
                 </div>
             </div>
             <br>
@@ -112,36 +120,81 @@ require 'slider.php';
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-primary">
-                <div class="panel-heading border-color-blue">Reacties</div>
-                <div class="panel-heading border-color-black "> #23 Geplaatst door marco.middelhuis op zondag 23
-                    februari
-                    2014 10:39:39
-                </div>
+
+                <div class="panel-heading"> #23 Geplaatst door marco.middelhuis</div>
                 <div class="panel-body padding-padding">
-                    <div>
-                        het contact formulier werkt niet
+                    <div class="col-md-12 ">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Aenean commodo ligula eget dolor.
+                             Aenean massa.
+                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                             Nulla consequat massa quis enim.
+                             Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                             In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+                             Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                             Cras dapibus. Vivamus elementum semper nisi.
+                             Aenean vulputate eleifend tellus. Aenean leo ligula,
+                             porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+                             Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+                             Aenean imperdiet. Etiam ultricies nisi vel augue.
+                             Curabitur ullamcorper ultricies nisi.
+                             Nam eget dui.
                     </div>
                 </div>
-                <div class="panel-heading border-color-black"> #23 Geplaatst door marco.middelhuis op zondag 23 februari
+                <div class="panel-footer">op zondag 23 februari
                     2014 10:39:39
                 </div>
-                <div class="panel-body padding-padding">
-                    <div>
-                        het contact formulier werkt niet
-                    </div>
+
                 </div>
-                <div class="panel-heading border-color-black"> #23 Geplaatst door marco.middelhuis op zondag 23 februari
-                    2014 10:39:39
+                <div class=" panel panel-primary">
+                <div class="panel-heading "> #23 Geplaatst door marco.middelhuis
                 </div>
                 <div class="panel-body padding-padding">
-                    <div>
-                        het contact formulier werkt niet
+                    <div class="col-md-12 ">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Aenean commodo ligula eget dolor.
+                             Aenean massa.
+                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                             Nulla consequat massa quis enim.
                     </div>
                 </div>
+                <div class="panel-footer">op zondag 23 februari
+                    2014 10:39:39</div>
+                </div>
+            <div class=" panel panel-primary">
+                <div class="panel-heading "> #23 Geplaatst door marco.middelhuis
+
+                </div>
+                <div class="panel-body padding-padding">
+                    <div class="col-md-12 ">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Aenean commodo ligula eget dolor.
+                             Aenean massa.
+                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                             Nulla consequat massa quis enim.
+
+                             Cras dapibus. Vivamus elementum semper nisi.
+                             Aenean vulputate eleifend tellus. Aenean leo ligula,
+                             porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+                             Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+                             Aenean imperdiet. Etiam ultricies nisi vel augue.
+                             Curabitur ullamcorper ultricies nisi.
+                             Nam eget dui.
+                    </div>
+                </div>
+                <div class="panel-footer">op zondag 23 februari
+                    2014 10:39:39</div>
             </div>
+        </div>
+        </div>
+    </div>
             <br>
+        <div class="col-xs-12">
             <div class="panel panel-primary">
-                <div class="panel-heading border-color-black">
+                <div class="panel-heading border-color-blue ">
                     <h3 class="panel-title">Reactie toevoegen</h3>
                 </div>
                 <div class="panel-body">
@@ -176,6 +229,7 @@ require 'slider.php';
             </div>
         </div>
     </div>
+</div>
 </div>
 <footer>
     <?php require 'footer.php'; ?>

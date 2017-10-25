@@ -347,6 +347,10 @@ li.dropdown:hover > .dropdown-menu {
     margin-bottom: 20px;
 }
 
+.GlyphSize {
+    font-size: 2.4em;
+}
+
 /*Gelukt*/
 
 .message {
