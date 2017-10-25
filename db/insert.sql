@@ -38,12 +38,6 @@ INSERT INTO `topic` (`sub_category_id`, `title`, `user_id`, `content`, `created_
 (1, 'Nieuw test topic', 1, '<p>fdsfsdfsdfsdfgsdfsd</p>', '2017-10-18 12:44:06', '2017-10-18 12:44:06'),
 (1, 'een nieuw test topic', 1, '<p><i>sdujfnsdipfpoakfdnfjksdnf</i></p>', '2017-10-18 12:44:42', '2017-10-18 12:44:42');
 
-INSERT INTO `message` (`topic_id`, `message`, `created_at`) VALUES
-(1, 'Beste allen,\r\n\r\nWe zijn reeds een 6-tal maanden bezig met de opbouw van een geheel nieuwe DCH website.\r\nDit werd reeds aangekondigd in het clubblad, maar nu dus ook voor iedereen.\r\n\r\nAangezien dit een \"rotklus\" is neemt dat wel wat tijd in beslag.\r\nIndien er vrijwilligers zijn om hun mening te geven (via privé communicatie) die wel wat kennen van websites, dan hoor ik graag (via privé bericht)\r\n\r\nIk ben niet op zoek naar 100 mensen of zo, gewoon, het oogpunt van enkele leden is al meer dan welkom.\r\n\r\n\r\nDominique', '2017-10-13 11:43:26'),
-(1, 'De eerste personen hebben al een kijkje genomen en mening gegeven.\r\n\r\nAls er nog liefhebbers zijn hoor ik het graag.', '2017-10-13 11:49:32'),
-(1, 'klinkt gezellig.', '2017-10-13 12:04:20'),
-(1, 'test bericht', '2017-10-18 11:21:09');
-
 INSERT INTO `album`(`title`, `user_id`) VALUES
 ('dinges', 1);
 
