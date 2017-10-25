@@ -124,6 +124,7 @@
             </div>
         </div>
     </div>
+    <?php if($logged_in) : ?>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary">
@@ -160,6 +161,7 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
     </div>
         </div>
     <footer>
