@@ -135,7 +135,7 @@
                     <form class="form-horizontal" action="topicToevoegen.php" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="add_topic_title" placeholder="Topic Titel">
+                                <input type="text" class="form-control" name="add_topic_title" maxlength="50" placeholder="Topic Titel (max. 50 characters)">
                             </div>
                         </div>
                         <div class="form-group">
