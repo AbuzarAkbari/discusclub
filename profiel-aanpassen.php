@@ -14,6 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
 </head>
 
 <body>
@@ -46,7 +50,7 @@
                         <input class="form-control" type="password" name="" value="" placeholder="Herhaal wachtwoord"><br>
                         <input class="form-control" type="email" name="" value="" placeholder="E-mail"><br>
                         <input class="form-control" type="email" name="" value="" placeholder="Herhaal e-mail"><br>
-                        <input class="form-control" type="date" name="date1" min="1950-01-01" max=<?php echo date('Y-m-d');?> placeholder="Geboortedatum"><br>
+                        <input class="form-control" type="datetime" name="date1" min="1940-01-01" max=<?php echo date('Y-m-d');?> placeholder="MM/DD/YYYY bijvoorbeeld 05/03/1985"><br>
                         <input class="form-control" type="text" name="" value="" placeholder="Locatie"><br>
                         <input class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="" value="" placeholder="Selecteer bestand"><br>
                         <input class="form-control" type="text" name="" value="" placeholder="Handtekening"><br>
