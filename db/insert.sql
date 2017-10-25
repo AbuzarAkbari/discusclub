@@ -4,6 +4,9 @@ INSERT INTO `role`(`name`) VALUES
 ('redacteur'),
 ('admin');
 
+INSERT INTO `image`(`path`) VALUES
+('http://via.placeholder.com/350x350');
+
 INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
 ('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 4);
 
@@ -40,3 +43,9 @@ INSERT INTO `message` (`topic_id`, `message`, `created_at`) VALUES
 (1, 'De eerste personen hebben al een kijkje genomen en mening gegeven.\r\n\r\nAls er nog liefhebbers zijn hoor ik het graag.', '2017-10-13 11:49:32'),
 (1, 'klinkt gezellig.', '2017-10-13 12:04:20'),
 (1, 'test bericht', '2017-10-18 11:21:09');
+
+INSERT INTO `album`(`title`, `user_id`) VALUES
+('dinges', 1);
+
+INSERT INTO `album_has_image`(`album_id`, `image_id`) VALUES
+(1, 1);

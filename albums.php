@@ -41,7 +41,7 @@
                     <h3 class="panel-title">Album toevoegen</h3>
                   </div>
                   <div class="panel-body">
-                    <button type="button" class="btn btn-primary col-md-12" name="button">Upload een album</button>
+                    <a href="album-upload.php" type="button" class="btn btn-primary col-md-12" name="button">Upload een album</a>
                   </div>
                 </div>
             </div>

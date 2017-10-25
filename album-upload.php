@@ -75,7 +75,7 @@
                 <h3 class="panel-title">Album uploaden</h3>
               </div>
               <div class="panel-body">
-                <form class="col-md-6" action="MYNIGGER" method="post">
+                <form class="col-md-6" action="" method="post">
                     <input class="form-control" type="text" name="title" placeholder="Titel"><br>
                     <input  class="form-control" type="file" accept="image/*" name="file"><br>
                     <input type="submit" class="btn btn-success" name="" value="Uploaden">
