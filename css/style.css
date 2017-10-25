@@ -362,6 +362,7 @@ li.dropdown:hover > .dropdown-menu {
 }
 .linkTekst {
     color: white;
+    text-decoration: underline;
 }
 .linkTekst:hover {
     color: white;
