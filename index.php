@@ -165,8 +165,9 @@
                         is the Lord when I lay My vengeance upon thee.
                         <br><br>
                         <button class="lees-meer-btn" type="button" name="button">Lees meer</button>
-                        <br><br>
                     </div>
+                    <br><br>
+                    
                     </div>
                 </div>
             </div>
