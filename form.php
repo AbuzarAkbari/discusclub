@@ -120,7 +120,6 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 <!--                                --><?php //else: ?>
 <!--                                    <td>Er zijn nog geen topics toegevoegd, bent u de eerste?</td>-->
 <!--                                --><?php //endif; ?>
-                                ?>
 
                             </tr>
                         <?php endforeach; ?>
