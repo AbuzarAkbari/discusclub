@@ -51,7 +51,7 @@
                             $sth = $dbc->prepare("UPDATE user SET forgot_pass = null WHERE id = :id");
                             $sth->execute([":id" => $res->id]);
                             ?>
-                            <form class="" action="<?php echo $_SERVER["php_self"]; ?>" method="post">
+                            <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                                 Wachtwoord
                                 <input class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
                                 Wachtwoord herhalen

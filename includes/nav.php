@@ -4,15 +4,16 @@
 </div>
     <div class="header container">
         <?php if ($logged_in) { ?>
+            <?php $name =  $_SESSION["user"]->first_name.' '.$_SESSION["user"]->last_name; ?>
       <div class='inlog'>
         <div class='dropdown'>
-          <a href="gebruiker" class='dropbtn'>Gebruiker</a>
+          <a href="gebruiker" class='dropbtn'><?php echo $name; ?></a>
           <div class='dropdown-content'>
             <a href='bericht.php'>Berichten </a>
             <a href='profiel-aanpassen.php'>Profiel aanpasen </a>
           </div>
       </div>
-        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>?logout=true">Uitloggen</a>
+        <a href="index.php?logout=true">Uitloggen</a>
       </div>
         <?php } else { ?>
             <div class='inlog'>

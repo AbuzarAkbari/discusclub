@@ -1,5 +1,3 @@
 To do :
 ------------------------------------------------------------------
 bericht.php : geplaatst door ... (werkt pas als login klaar is)
-breadcrumbs met juiste namen van sub-cats en topics
-pagination

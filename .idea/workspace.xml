@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/actievetopics.php" afterPath="$PROJECT_DIR$/actievetopics.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bericht.php" afterPath="$PROJECT_DIR$/bericht.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/berichtParse.php" afterPath="$PROJECT_DIR$/berichtParse.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/buggs.txt" afterPath="$PROJECT_DIR$/buggs.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form.php" afterPath="$PROJECT_DIR$/form.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/topics.php" afterPath="$PROJECT_DIR$/topics.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,58 +38,82 @@
       <file leaf-file-name="bericht.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bericht.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="113" column="30" lean-forward="false" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
+            <state relative-caret-position="481">
+              <caret line="278" column="18" lean-forward="true" selection-start-line="262" selection-start-column="12" selection-end-line="278" selection-end-column="18" />
               <folding>
-                <element signature="e#9726#9733#1#HTML" expanded="true" />
-                <marker date="1508931782201" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
-                <marker date="1508931782201" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
-                <marker date="1508931782201" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
-                <marker date="1508931782201" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
-                <marker date="1508931782201" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
-                <marker date="1508931782201" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
-                <marker date="1508931782201" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
-                <marker date="1508931782201" expanded="true" signature="7349:7391" ph="..." />
-                <marker date="1508931782201" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
-                <marker date="1508931782201" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
-                <marker date="1508931782201" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
-                <marker date="1508931782201" expanded="true" signature="9612:9645" ph="..." />
+                <marker date="1508934144600" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
+                <marker date="1508934144600" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
+                <marker date="1508934144600" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
+                <marker date="1508934144600" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
+                <marker date="1508934144600" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
+                <marker date="1508934144600" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
+                <marker date="1508934144600" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
+                <marker date="1508934144600" expanded="true" signature="7349:7391" ph="..." />
+                <marker date="1508934144600" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
+                <marker date="1508934144600" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
+                <marker date="1508934144600" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
+                <marker date="1508934144600" expanded="true" signature="9612:9645" ph="..." />
+                <marker date="1508934144600" expanded="true" signature="12242:12250" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topics.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="topics.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/topics.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="62" column="30" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+            <state relative-caret-position="427">
+              <caret line="137" column="108" lean-forward="false" selection-start-line="137" selection-start-column="108" selection-end-line="137" selection-end-column="108" />
               <folding>
-                <marker date="1508931791874" expanded="true" signature="101:123" ph="SELECT * FRO... category" />
-                <marker date="1508931791874" expanded="true" signature="1492:1531" ph="SELECT * FRO... sub_category" />
-                <marker date="1508931791874" expanded="true" signature="1764:1809" ph="SELECT * FRO... topic" />
-                <marker date="1508931791874" expanded="true" signature="3149:3189" ph="SELECT COUNT... reply" />
-                <marker date="1508931791874" expanded="true" signature="3149:3200" ph="SELECT COUNT... reply" />
-                <marker date="1508931791874" expanded="true" signature="3572:3621" ph="SELECT COUNT... ips" />
-                <marker date="1508931791874" expanded="true" signature="4271:4302" ph="SELECT * FRO... user" />
+                <marker date="1508935212488" expanded="true" signature="101:123" ph="SELECT * FRO... category" />
+                <marker date="1508935212488" expanded="true" signature="1492:1531" ph="SELECT * FRO... sub_category" />
+                <marker date="1508935212488" expanded="true" signature="1764:1809" ph="SELECT * FRO... topic" />
+                <marker date="1508935212488" expanded="true" signature="3149:3189" ph="SELECT COUNT... reply" />
+                <marker date="1508935212488" expanded="true" signature="3149:3200" ph="SELECT COUNT... reply" />
+                <marker date="1508935212488" expanded="true" signature="3572:3621" ph="SELECT COUNT... ips" />
+                <marker date="1508935212488" expanded="true" signature="4271:4302" ph="SELECT * FRO... user" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/form.php">
+      <file leaf-file-name="topicToevoegen.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/topicToevoegen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="43" column="26" lean-forward="false" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="85">
+              <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
               <folding>
-                <marker date="1508931797099" expanded="true" signature="50:71" ph="SELECT * FRO... categorieen" />
-                <marker date="1508931797099" expanded="true" signature="50:72" ph="SELECT * FRO... category" />
-                <marker date="1508931797099" expanded="true" signature="89:111" ph="SELECT * FRO... category" />
-                <marker date="1508931797099" expanded="true" signature="1656:1704" ph="SELECT * FRO... sub_category" />
-                <marker date="1508931797099" expanded="true" signature="2749:2821" ph="SELECT *, CO... topic" />
-                <marker date="1508931797099" expanded="true" signature="3128:3305" ph="SELECT COUNT... sub_category" />
-                <marker date="1508931797099" expanded="true" signature="3574:3640" ph="SELECT COUNT... topic" />
+                <marker date="1508935201646" expanded="true" signature="339:457" ph="INSERT INTO topic... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actievetopics.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/actievetopics.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="89" column="59" lean-forward="false" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
+              <folding>
+                <marker date="1508934284167" expanded="true" signature="1201:1271" ph="SELECT * FRO... topic" />
+                <marker date="1508934284167" expanded="true" signature="2250:2298" ph="SELECT * FRO... sub_category" />
+                <marker date="1508934284167" expanded="true" signature="2599:2650" ph="SELECT COUNT... message" />
+                <marker date="1508934284167" expanded="true" signature="2970:3018" ph="SELECT COUNT... ips" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nieuwetopics.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nieuwetopics.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="88" column="52" lean-forward="false" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
+              <folding>
+                <marker date="1508934298097" expanded="true" signature="1215:1234" ph="SELECT * FRO... topics" />
+                <marker date="1508934298097" expanded="true" signature="2189:2237" ph="SELECT * FRO... sub_categorieen" />
+                <marker date="1508934298097" expanded="true" signature="2518:2569" ph="SELECT COUNT... berichten" />
+                <marker date="1508934298097" expanded="true" signature="2865:2913" ph="SELECT COUNT... aantal_bekeken" />
               </folding>
             </state>
           </provider>
@@ -114,6 +133,7 @@
       <find>Antwoord</find>
       <find>Geplaatst</find>
       <find>#</find>
+      <find>FROM me</find>
     </findStrings>
     <dirStrings>
       <dir>D:\Coding\Xampp\htdocs\Stage\discusclub</dir>
@@ -131,14 +151,17 @@
         <option value="$PROJECT_DIR$/pagination.php" />
         <option value="$PROJECT_DIR$/dbc.php" />
         <option value="$PROJECT_DIR$/ledenlijst.php" />
-        <option value="$PROJECT_DIR$/nieuwetopics.php" />
-        <option value="$PROJECT_DIR$/fav-topics.php" />
-        <option value="$PROJECT_DIR$/topicToevoegen.php" />
         <option value="$PROJECT_DIR$/berichtParse.php" />
-        <option value="$PROJECT_DIR$/actievetopics.php" />
-        <option value="$PROJECT_DIR$/bericht.php" />
-        <option value="$PROJECT_DIR$/topics.php" />
         <option value="$PROJECT_DIR$/form.php" />
+        <option value="$PROJECT_DIR$/includes/security.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/includes/nav.php" />
+        <option value="$PROJECT_DIR$/fav-topics.php" />
+        <option value="$PROJECT_DIR$/bericht.php" />
+        <option value="$PROJECT_DIR$/actievetopics.php" />
+        <option value="$PROJECT_DIR$/nieuwetopics.php" />
+        <option value="$PROJECT_DIR$/topicToevoegen.php" />
+        <option value="$PROJECT_DIR$/topics.php" />
       </list>
     </option>
   </component>
@@ -149,7 +172,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="169" />
     <option name="y" value="18" />
     <option name="width" value="1400" />
@@ -181,6 +204,11 @@
             <path>
               <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
               <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -220,21 +248,22 @@
       <workItem from="1508314255238" duration="17271000" />
       <workItem from="1508751434595" duration="16531000" />
       <workItem from="1508836636754" duration="18190000" />
-      <workItem from="1508921817345" duration="9111000" />
+      <workItem from="1508921817345" duration="12400000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61103000" />
+    <option name="totallyTimeSpent" value="64392000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13489583" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18645833" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24390244" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -246,7 +275,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -292,19 +320,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#9726#9733#1#HTML" expanded="true" />
-            <marker date="1508931782201" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
-            <marker date="1508931782201" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
-            <marker date="1508931782201" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
-            <marker date="1508931782201" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
-            <marker date="1508931782201" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="7349:7391" ph="..." />
-            <marker date="1508931782201" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
-            <marker date="1508931782201" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
-            <marker date="1508931782201" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
-            <marker date="1508931782201" expanded="true" signature="9612:9645" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
+            <marker date="1508934144600" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
+            <marker date="1508934144600" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
+            <marker date="1508934144600" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
+            <marker date="1508934144600" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="7349:7391" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
+            <marker date="1508934144600" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
+            <marker date="1508934144600" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
+            <marker date="1508934144600" expanded="true" signature="9612:9645" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="12242:12250" ph="..." />
           </folding>
         </state>
       </provider>
@@ -314,19 +342,19 @@
         <state relative-caret-position="2414">
           <caret line="142" column="37" lean-forward="false" selection-start-line="142" selection-start-column="37" selection-end-line="142" selection-end-column="37" />
           <folding>
-            <element signature="e#9726#9733#1#HTML" expanded="true" />
-            <marker date="1508931782201" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
-            <marker date="1508931782201" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
-            <marker date="1508931782201" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
-            <marker date="1508931782201" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
-            <marker date="1508931782201" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="7349:7391" ph="..." />
-            <marker date="1508931782201" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
-            <marker date="1508931782201" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
-            <marker date="1508931782201" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
-            <marker date="1508931782201" expanded="true" signature="9612:9645" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
+            <marker date="1508934144600" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
+            <marker date="1508934144600" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
+            <marker date="1508934144600" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
+            <marker date="1508934144600" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="7349:7391" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
+            <marker date="1508934144600" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
+            <marker date="1508934144600" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
+            <marker date="1508934144600" expanded="true" signature="9612:9645" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="12242:12250" ph="..." />
           </folding>
         </state>
       </provider>
@@ -336,13 +364,10 @@
         <state relative-caret-position="1564">
           <caret line="92" column="71" lean-forward="false" selection-start-line="92" selection-start-column="71" selection-end-line="92" selection-end-column="71" />
           <folding>
-            <marker date="1508923196310" expanded="true" signature="1214:1284" ph="SELECT * FRO... topics" />
-            <marker date="1508923196310" expanded="true" signature="2250:2298" ph="SELECT * FRO... sub_categorieen" />
-            <marker date="1508923196310" expanded="true" signature="2599:2651" ph="SELECT COUNT... berichten" />
-            <marker date="1508923196310" expanded="true" signature="2599:2652" ph="SELECT COUNT... berichten" />
-            <marker date="1508923196310" expanded="true" signature="2972:3018" ph="SELECT COUNT... aantal_bekeken" />
-            <marker date="1508923196310" expanded="true" signature="2972:3019" ph="SELECT COUNT... aantal_bekeken" />
-            <marker date="1508923196310" expanded="true" signature="2972:3020" ph="SELECT COUNT... aantal_bekeken" />
+            <marker date="1508934284167" expanded="true" signature="1201:1271" ph="SELECT * FRO... topic" />
+            <marker date="1508934284167" expanded="true" signature="2250:2298" ph="SELECT * FRO... sub_category" />
+            <marker date="1508934284167" expanded="true" signature="2599:2650" ph="SELECT COUNT... message" />
+            <marker date="1508934284167" expanded="true" signature="2970:3018" ph="SELECT COUNT... ips" />
           </folding>
         </state>
       </provider>
@@ -352,10 +377,10 @@
         <state relative-caret-position="1530">
           <caret line="90" column="71" lean-forward="false" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
           <folding>
-            <marker date="1508855784684" expanded="true" signature="1217:1236" ph="SELECT * FRO... topic" />
-            <marker date="1508855784684" expanded="true" signature="2159:2207" ph="SELECT * FRO... sub_category" />
-            <marker date="1508855784684" expanded="true" signature="2488:2541" ph="SELECT COUNT... berichten" />
-            <marker date="1508855784684" expanded="true" signature="2837:2885" ph="SELECT COUNT... ips" />
+            <marker date="1508933942535" expanded="true" signature="1208:1227" ph="SELECT * FRO... topic" />
+            <marker date="1508933942535" expanded="true" signature="2159:2207" ph="SELECT * FRO... sub_category" />
+            <marker date="1508933942535" expanded="true" signature="2488:2539" ph="SELECT COUNT... reply" />
+            <marker date="1508933942535" expanded="true" signature="2835:2883" ph="SELECT COUNT... ips" />
           </folding>
         </state>
       </provider>
@@ -365,13 +390,13 @@
         <state relative-caret-position="1615">
           <caret line="95" column="103" lean-forward="true" selection-start-line="95" selection-start-column="103" selection-end-line="95" selection-end-column="103" />
           <folding>
-            <marker date="1508931791874" expanded="true" signature="101:123" ph="SELECT * FRO... category" />
-            <marker date="1508931791874" expanded="true" signature="1492:1531" ph="SELECT * FRO... sub_category" />
-            <marker date="1508931791874" expanded="true" signature="1764:1809" ph="SELECT * FRO... topic" />
-            <marker date="1508931791874" expanded="true" signature="3149:3189" ph="SELECT COUNT... reply" />
-            <marker date="1508931791874" expanded="true" signature="3149:3200" ph="SELECT COUNT... reply" />
-            <marker date="1508931791874" expanded="true" signature="3572:3621" ph="SELECT COUNT... ips" />
-            <marker date="1508931791874" expanded="true" signature="4271:4302" ph="SELECT * FRO... user" />
+            <marker date="1508935212488" expanded="true" signature="101:123" ph="SELECT * FRO... category" />
+            <marker date="1508935212488" expanded="true" signature="1492:1531" ph="SELECT * FRO... sub_category" />
+            <marker date="1508935212488" expanded="true" signature="1764:1809" ph="SELECT * FRO... topic" />
+            <marker date="1508935212488" expanded="true" signature="3149:3189" ph="SELECT COUNT... reply" />
+            <marker date="1508935212488" expanded="true" signature="3149:3200" ph="SELECT COUNT... reply" />
+            <marker date="1508935212488" expanded="true" signature="3572:3621" ph="SELECT COUNT... ips" />
+            <marker date="1508935212488" expanded="true" signature="4271:4302" ph="SELECT * FRO... user" />
           </folding>
         </state>
       </provider>
@@ -381,19 +406,19 @@
         <state relative-caret-position="2499">
           <caret line="147" column="26" lean-forward="true" selection-start-line="147" selection-start-column="26" selection-end-line="147" selection-end-column="26" />
           <folding>
-            <element signature="e#9726#9733#1#HTML" expanded="true" />
-            <marker date="1508931782201" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
-            <marker date="1508931782201" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
-            <marker date="1508931782201" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
-            <marker date="1508931782201" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
-            <marker date="1508931782201" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="7349:7391" ph="..." />
-            <marker date="1508931782201" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
-            <marker date="1508931782201" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
-            <marker date="1508931782201" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
-            <marker date="1508931782201" expanded="true" signature="9612:9645" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
+            <marker date="1508934144600" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
+            <marker date="1508934144600" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
+            <marker date="1508934144600" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
+            <marker date="1508934144600" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="7349:7391" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
+            <marker date="1508934144600" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
+            <marker date="1508934144600" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
+            <marker date="1508934144600" expanded="true" signature="9612:9645" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="12242:12250" ph="..." />
           </folding>
         </state>
       </provider>
@@ -488,19 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nieuwetopics.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="89" column="99" lean-forward="false" selection-start-line="89" selection-start-column="99" selection-end-line="89" selection-end-column="99" />
-          <folding>
-            <marker date="1508855784853" expanded="true" signature="1215:1234" ph="SELECT * FRO... topics" />
-            <marker date="1508855784853" expanded="true" signature="2189:2237" ph="SELECT * FRO... sub_categorieen" />
-            <marker date="1508855784853" expanded="true" signature="2518:2571" ph="SELECT COUNT... berichten" />
-            <marker date="1508855784853" expanded="true" signature="2867:2915" ph="SELECT COUNT... aantal_bekeken" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/overons.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -519,32 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fav-topics.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="87" column="99" lean-forward="false" selection-start-line="87" selection-start-column="99" selection-end-line="87" selection-end-column="99" />
-          <folding>
-            <marker date="1508855784684" expanded="true" signature="1217:1236" ph="SELECT * FRO... topic" />
-            <marker date="1508855784684" expanded="true" signature="2159:2207" ph="SELECT * FRO... sub_category" />
-            <marker date="1508855784684" expanded="true" signature="2488:2541" ph="SELECT COUNT... berichten" />
-            <marker date="1508855784684" expanded="true" signature="2837:2885" ph="SELECT COUNT... ips" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topicToevoegen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="61" lean-forward="false" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
-          <folding>
-            <marker date="1508853246282" expanded="true" signature="247:316" ph="INSERT INTO topic... " />
-            <marker date="1508853246282" expanded="true" signature="247:322" ph="INSERT INTO topic... " />
-            <marker date="1508853246282" expanded="true" signature="247:324" ph="INSERT INTO topic... " />
-            <marker date="1508853246282" expanded="true" signature="247:365" ph="INSERT INTO topics... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -575,44 +561,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/actievetopics.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="39" column="50" lean-forward="false" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
-          <folding>
-            <marker date="1508923196310" expanded="true" signature="1214:1284" ph="SELECT * FRO... topics" />
-            <marker date="1508923196310" expanded="true" signature="2250:2298" ph="SELECT * FRO... sub_categorieen" />
-            <marker date="1508923196310" expanded="true" signature="2599:2651" ph="SELECT COUNT... berichten" />
-            <marker date="1508923196310" expanded="true" signature="2599:2652" ph="SELECT COUNT... berichten" />
-            <marker date="1508923196310" expanded="true" signature="2972:3018" ph="SELECT COUNT... aantal_bekeken" />
-            <marker date="1508923196310" expanded="true" signature="2972:3019" ph="SELECT COUNT... aantal_bekeken" />
-            <marker date="1508923196310" expanded="true" signature="2972:3020" ph="SELECT COUNT... aantal_bekeken" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../classes/Paging.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/security.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="29" lean-forward="true" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-          <folding>
-            <marker date="1508921865673" expanded="true" signature="234:273" ph="UPDATE user " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/nav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -622,44 +574,6 @@
         <state relative-caret-position="-408">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bericht.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="113" column="30" lean-forward="false" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
-          <folding>
-            <element signature="e#9726#9733#1#HTML" expanded="true" />
-            <marker date="1508931782201" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
-            <marker date="1508931782201" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
-            <marker date="1508931782201" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
-            <marker date="1508931782201" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
-            <marker date="1508931782201" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
-            <marker date="1508931782201" expanded="true" signature="7349:7391" ph="..." />
-            <marker date="1508931782201" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
-            <marker date="1508931782201" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
-            <marker date="1508931782201" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
-            <marker date="1508931782201" expanded="true" signature="9612:9645" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topics.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="62" column="30" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
-          <folding>
-            <marker date="1508931791874" expanded="true" signature="101:123" ph="SELECT * FRO... category" />
-            <marker date="1508931791874" expanded="true" signature="1492:1531" ph="SELECT * FRO... sub_category" />
-            <marker date="1508931791874" expanded="true" signature="1764:1809" ph="SELECT * FRO... topic" />
-            <marker date="1508931791874" expanded="true" signature="3149:3189" ph="SELECT COUNT... reply" />
-            <marker date="1508931791874" expanded="true" signature="3149:3200" ph="SELECT COUNT... reply" />
-            <marker date="1508931791874" expanded="true" signature="3572:3621" ph="SELECT COUNT... ips" />
-            <marker date="1508931791874" expanded="true" signature="4271:4302" ph="SELECT * FRO... user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -675,6 +589,137 @@
             <marker date="1508931797099" expanded="true" signature="2749:2821" ph="SELECT *, CO... topic" />
             <marker date="1508931797099" expanded="true" signature="3128:3305" ph="SELECT COUNT... sub_category" />
             <marker date="1508931797099" expanded="true" signature="3574:3640" ph="SELECT COUNT... topic" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gebruiker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inloggen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1508932456362" expanded="true" signature="133:214" ph="SELECT * FRO... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fav-topics.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="73" column="48" lean-forward="true" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
+          <folding>
+            <marker date="1508933942535" expanded="true" signature="1208:1227" ph="SELECT * FRO... topic" />
+            <marker date="1508933942535" expanded="true" signature="2159:2207" ph="SELECT * FRO... sub_category" />
+            <marker date="1508933942535" expanded="true" signature="2488:2539" ph="SELECT COUNT... reply" />
+            <marker date="1508933942535" expanded="true" signature="2835:2883" ph="SELECT COUNT... ips" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/security.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <marker date="1508932717910" expanded="true" signature="302:341" ph="UPDATE user " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actievetopics.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="89" column="59" lean-forward="false" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
+          <folding>
+            <marker date="1508934284167" expanded="true" signature="1201:1271" ph="SELECT * FRO... topic" />
+            <marker date="1508934284167" expanded="true" signature="2250:2298" ph="SELECT * FRO... sub_category" />
+            <marker date="1508934284167" expanded="true" signature="2599:2650" ph="SELECT COUNT... message" />
+            <marker date="1508934284167" expanded="true" signature="2970:3018" ph="SELECT COUNT... ips" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nieuwetopics.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="88" column="52" lean-forward="false" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
+          <folding>
+            <marker date="1508934298097" expanded="true" signature="1215:1234" ph="SELECT * FRO... topics" />
+            <marker date="1508934298097" expanded="true" signature="2189:2237" ph="SELECT * FRO... sub_categorieen" />
+            <marker date="1508934298097" expanded="true" signature="2518:2569" ph="SELECT COUNT... berichten" />
+            <marker date="1508934298097" expanded="true" signature="2865:2913" ph="SELECT COUNT... aantal_bekeken" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bericht.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="278" column="18" lean-forward="true" selection-start-line="262" selection-start-column="12" selection-end-line="278" selection-end-column="18" />
+          <folding>
+            <marker date="1508934144600" expanded="true" signature="314:413" ph="INSERT INTO ips... " />
+            <marker date="1508934144600" expanded="true" signature="3272:3304" ph="SELECT * FRO... topic" />
+            <marker date="1508934144600" expanded="true" signature="3565:3604" ph="SELECT * FRO... sub_category" />
+            <marker date="1508934144600" expanded="true" signature="5327:5358" ph="SELECT * FRO... user" />
+            <marker date="1508934144600" expanded="true" signature="6093:6131" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="6093:6156" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="6744:6778" ph="SELECT * FRO... reply" />
+            <marker date="1508934144600" expanded="true" signature="7349:7391" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="8156:8187" ph="SELECT * FRO... user" />
+            <marker date="1508934144600" expanded="true" signature="9224:9273" ph="SELECT COUNT... rpely" />
+            <marker date="1508934144600" expanded="true" signature="9224:9276" ph="SELECT COUNT... reply" />
+            <marker date="1508934144600" expanded="true" signature="9612:9645" ph="..." />
+            <marker date="1508934144600" expanded="true" signature="12242:12250" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topicToevoegen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding>
+            <marker date="1508935201646" expanded="true" signature="339:457" ph="INSERT INTO topic... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topics.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="137" column="108" lean-forward="false" selection-start-line="137" selection-start-column="108" selection-end-line="137" selection-end-column="108" />
+          <folding>
+            <marker date="1508935212488" expanded="true" signature="101:123" ph="SELECT * FRO... category" />
+            <marker date="1508935212488" expanded="true" signature="1492:1531" ph="SELECT * FRO... sub_category" />
+            <marker date="1508935212488" expanded="true" signature="1764:1809" ph="SELECT * FRO... topic" />
+            <marker date="1508935212488" expanded="true" signature="3149:3189" ph="SELECT COUNT... reply" />
+            <marker date="1508935212488" expanded="true" signature="3149:3200" ph="SELECT COUNT... reply" />
+            <marker date="1508935212488" expanded="true" signature="3572:3621" ph="SELECT COUNT... ips" />
+            <marker date="1508935212488" expanded="true" signature="4271:4302" ph="SELECT * FRO... user" />
           </folding>
         </state>
       </provider>

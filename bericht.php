@@ -279,8 +279,8 @@ require_once("includes/nav.php");
             </nav>
         </div>
     </div>
+    <?php if($logged_in) : ?>
     <div class="row">
-
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Antwoord toevoegen</h3>
@@ -308,6 +308,7 @@ require_once("includes/nav.php");
                 </div>
             </div>
         </div>
+        <?php endif; ?>
     </div>
 </div>
 

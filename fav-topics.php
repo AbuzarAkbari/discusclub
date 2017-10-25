@@ -68,7 +68,7 @@ require_once('dbc.php'); ?>
 
                             $sub_categorie_naam = $result2->fetchAll();
 
-                            $sql3 = "SELECT COUNT(id) AS i FROM message WHERE topic_id = ?";
+                            $sql3 = "SELECT COUNT(id) AS i FROM reply WHERE topic_id = ?";
                             $result3 = $dbc->prepare($sql3);
                             $result3->bindParam(1, $topic['id']);
                             $result3->execute();
