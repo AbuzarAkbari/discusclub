@@ -13,7 +13,7 @@ if (isset($_GET["logout"])) {
 $logged_in = !empty($_SESSION["user"]);
 if ($logged_in) {
     // to update last login date
-    $sth = $dbc->prepare("UPDATE user SET id = :id WHERE id = :id");
+    $sth = $dbc->prepare("UPDATE user SET last_changed = NOW() WHERE id = :id");
     $sth->execute([
       ":id" => $_SESSION["user"]->id,
     ]);
