@@ -65,16 +65,32 @@
                     <?php
                     if (isset($_POST["send"])) {
                         require_once("dbc.php");
-                        $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email) VALUES
-                                                              (:first_name, :last_name, :username, :password, :email)");
 
-                        $res = $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
-                            ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"]]);
+                        $sth = $dbc->prepare("SELECT email, username FROM user WHERE email = :email OR username = :username");
 
-                        if ($res) {
-                            echo "worked!";
+                        $sth->execute([":email" => $_POST["email"], ":username" => $_POST["username"]]);
+
+                        $res = $sth->fetch(PDO::FETCH_OBJ);
+
+                        if (empty($res)) {
+                            $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email) VALUES
+                                                                  (:first_name, :last_name, :username, :password, :email)");
+
+                            $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
+                                ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"]]);
+                            ?>
+                            <div class="message gelukt">Het account is aangemaakt, <a href="inloggen.php">login.</a></div>
+                            <?php
                         } else {
-                            echo "username in use";
+                            if ($res->email === $_POST["email"]) {
+                                ?>
+                                <div class="message error">Email is al in gebruik. <a href="wachtwoordwijzigen.php">Wijzig wachtwoord.</a></div>
+                                <?php
+                            } else {
+                                ?>
+                                <div class="message error">Gebruikersnaam is al in gebruik, verzin een nieuwe.</div>
+                                <?php
+                            }
                         }
                     }
                     ?>
@@ -87,7 +103,7 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/password.js"></script>
+    <script src="/js/password.js"></script>
 </body>
 
 </html>
