@@ -351,19 +351,28 @@ li.dropdown:hover > .dropdown-menu {
     font-size: 2.4em;
 }
 
-/*Gelukt*/
-
 .message {
     border-radius: 0.3em;
-    padding: 6px 12px;
-    width: 100%;
-    max-width: 200px;
-    max-height: 100px;
+    width: 90%;
     color: white;
-    padding: 0.4em 0.2em;
+    padding: 1em;
     font-size: 1.5rem;
+    margin: 1em auto;
     text-align: center;
 }
+.linkTekst {
+    color: white;
+}
+.linkTekst:hover {
+    color: white;
+}
+
+/*Warining*/
+.warning {
+    background: #e67e22;
+}
+
+/*Gelukt*/
 .gelukt {
     background: #00a99d;
 }

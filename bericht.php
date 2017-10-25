@@ -135,7 +135,7 @@ require_once("includes/nav.php");
                             <img src='http://via.placeholder.com/130x130' alt="">
                         </div>
                         <div class="col-md-10">
-                            <p><?php echo $row['content']; ?></p>
+                            <p><?php echo html_entity_decode($row['content']); ?></p>
                         </div>
                     </div>
 
@@ -189,13 +189,26 @@ require_once("includes/nav.php");
                         ]);
                         $results = $query->fetchAll();
 
+                        $id = $rows[0]['user_id'];
+
+//                        echo '<pre>';
+//                        print_r($rows[0]['user_id']);
+//                        exit;
+
+                        $userIdSql = "SELECT * FROM user WHERE id = ?";
+                        $userIdResult = $dbc->prepare($userIdSql);
+                        $userIdResult->bindParam(1, $id);
+                        $userIdResult->execute();
+                        $userId = $userIdResult->fetchAll(PDO::FETCH_ASSOC);
+
                         if (!isset($results[0])) {
                             $replace = 'Oops, deze post bestaat niet meer';
                         } else {
-                            $replace = $results[0]['content'];
+                            $naam = $userId[0]['first_name'].' '.$userId[0]['last_name'];
+                            $replace = $naam.' schreef:<br>'.$results[0]['content'];
                         }
 
-                        $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px">'.$replace.'</div>', $row2['content']);
+                        $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $row2['content']);
 
                     }
                 }
