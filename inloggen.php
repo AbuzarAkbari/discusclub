@@ -1,5 +1,6 @@
 <?php require("includes/security.php"); ?>
 <?php
+$error = false;
 if (isset($_POST["send"])) {
     require_once("dbc.php");
     $sth = $dbc->prepare("SELECT u.id, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.username = :username");
@@ -11,10 +12,10 @@ if (isset($_POST["send"])) {
             $_SESSION["user"] = $res;
             header("Location: /");
         } else {
-            echo "wrong combination";
+            $error = true;
         }
     } else {
-        echo "wrong combination";
+        $error = true;
     }
 }
 ?>
@@ -70,6 +71,13 @@ if (isset($_POST["send"])) {
 
                       <input type="submit" class="btn btn-primary" name="send" value="Inloggen">
                   </form>
+                    <?php
+                    if ($error) {
+                        ?>
+                        <div class="message error">Verkeerde combinatie, probeer opnieuw.</div>
+                        <?php
+                    }
+                    ?>
               </div>
           </div>
         </div>
