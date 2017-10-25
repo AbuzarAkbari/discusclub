@@ -42,15 +42,16 @@
             <br><br>
             <h1>Welkom bij Discus Club Holland!</h1>
 
-            <div class="col-md-12 verticalLine">
-                <div class="">
+            <div class="col-md-12 ">
+                <div class="verticalLine ">
+                    <div class="verticalLineRuimte">
                 Categorie: Website | 04-01-2014<br>
                 Beste Lezer,<br>
 <br><br>
                 De ” koning van de Amazone”  heeft Uw aandacht getrokken. U heeft reeds discusvissen in uw  bezit of overweegt deze te gaan aanschaffen, misschien wilt U er op den duur zelfs mee gaan kweken.
                 Het houden van  discusvissen (nakweek) is, als u zich aan de richtlijnen houdt, niet lastig. Voor wildvang vissen gelden trouwens andere eisen en dit is mijns inziens dan ook meer voor de ervaren aquariaan. De discus is een sterke vis die bij goede verzorging behoorlijk oud kan worden. Het houden van deze vissen krijgt een extra dimensie als er in uw aquarium spontaan een koppeltje wordt gevormd dat daadwerkelijk eieren af gaat zetten. Dan slaat bij vele hobbyisten het ”Discusvirus” toe en komt de wens om een kweekpoging te wagen. Voor al deze zaken heeft U kennis nodig die u bij onze vereniging in ruime mate kunt vinden.
                 Maar let wel:  Het dieren welzijn staat op de eerste plaats. U bent immers verantwoordelijk voor Uw dieren, er zijn vele aspecten die een bijdrage aan het welzijn kunnen leveren. Kijk daarom eens goed op deze site en bedenk daarbij :
-<br><br>
+
                 Discus Club Holland heeft naast honderden leden die veel kennis en ervaring hebben ook diverse specialisten (bijvoorbeeld op het gebied van visziekten) die u kunnen helpen bij het  voorkomen van teleurstellingen in uw hobby.
 <br><br>
                 Voor slechts 25 euro per jaar krijgt u niet alleen toegang tot dit netwerk maar ontvangt u ook 4x per jaar ons full color clubblad en bent u van harte welkom op onze informatieve en bovenal gezellige clubavonden. Ik kan u verzekeren dat het lidmaatschap van Discus Club Holland de beste investering is die u, als u echt goed voor uw vissen wil zorgen, kunt doen. Ik heet u graag welkom bij onze club..
@@ -62,14 +63,12 @@
                 Voorzitter Discus Club Holland
 <br><br>
 </div>
-
+</div>
+        <br><br>
             </div>
-        </div>
         <br><br>
 
-    <div class="row ">
-      <div class="conainter-fluid"></div>
-      <div class="container">
+      <div class="">
 
         <div class="col-md-6">
             <div class="panel panel-default ">
@@ -175,7 +174,6 @@
     </div>
   </div>
       </div>
-    <div class="conainter-fluid"></div>
     <footer>
 <?php require 'footer.php' ; ?>
     </footer>
