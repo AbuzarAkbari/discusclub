@@ -14,6 +14,12 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+
+
 </head>
 
 <body>
@@ -42,14 +48,14 @@
               <div class="panel-body">
                     <form class="" action="geenidee.php" method="post">
                         <input type="checkbox" name="" value="" id="nieuwsbrief"> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
-                        <input class="form-control" type="password" name="" value="" placeholder="Wachtwoord"><br>
-                        <input class="form-control" type="password" name="" value="" placeholder="Herhaal wachtwoord"><br>
-                        <input class="form-control" type="email" name="" value="" placeholder="E-mail"><br>
-                        <input class="form-control" type="email" name="" value="" placeholder="Herhaal e-mail"><br>
-                        <input class="form-control" type="date" name="date1" min="1950-01-01" max=<?php echo date('Y-m-d');?> placeholder="Geboortedatum"><br>
-                        <input class="form-control" type="text" name="" value="" placeholder="Locatie"><br>
-                        <input class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="" value="" placeholder="Selecteer bestand"><br>
-                        <input class="form-control" type="text" name="" value="" placeholder="Handtekening"><br>
+                        <label for="password">Wachtwoord</label><input id="password" class="form-control" type="password" name="password" placeholder="Wachtwoord"><br>
+                        <label for="repeat_password">Herhaal wachtwoord</label><input id="repeat_password" class="form-control" type="password" name="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
+                        <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="" placeholder="Email"><br>
+                        <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="" placeholder="Herhaal e-mail"><br>
+                        <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>
+                        <label for="location">Locatie</label><input id="location" class="form-control" type="text" name="location" value="" placeholder="Locatie"><br>
+                        <label for="file">Selecteer een afbeelding</label><input id="file" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="file" value="" placeholder="Selecteer bestand"><br>
+                        <label for="signature">Handtekening</label><input id="signature" class="form-control" type="text" name="signature" value="" placeholder="Handtekening"><br>
                         <input type="submit" class="btn btn-primary" name="" value="Opslaan">
                     </form>
               </div>
@@ -62,5 +68,23 @@
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+      $( function() {
+        $( "#datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          yearRange: "-100:+0",
+          defaultDate: '01/01/1980'
+        });
+      } );
+      $( function() {
+        $( "#datepicker" ).datepicker();
+        $( "#anim" ).on( "change", function() {
+          $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+        });
+      } );
+  </script>
 </body>
 </html>
