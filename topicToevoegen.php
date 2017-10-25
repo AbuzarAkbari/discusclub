@@ -22,7 +22,9 @@ if(isset($_POST['post_add_topic']))
 
         $result->execute();
 
-        header("Location: http://localhost/htdocs-backup/Stage/discusclub/bericht.php?id=".$subId);
+        $lastId = $dbc->lastInsertId();
+
+        header("Location: http://localhost/htdocs-backup/Stage/discusclub/bericht.php?id=".$lastId);
     }
 
 }
