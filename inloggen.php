@@ -1,4 +1,24 @@
-<?php require_once("includes/security.php"); ?>
+<?php require("includes/security.php"); ?>
+<?php
+if (isset($_POST["send"])) {
+    require_once("dbc.php");
+    $sth = $dbc->prepare("SELECT * FROM user JOIN role ON role.id = user.role_id WHERE username = :username");
+    $sth->execute([":username" => $_POST["username"]]);
+    $res = $sth->fetch(PDO::FETCH_OBJ);
+
+    if (!empty($res)) {
+        if (password_verify($_POST["password"], $res->password)) {
+            $_SESSION["user"] = $res;
+            header("Location: index.php");
+        } else {
+            echo "wrong combination";
+        }
+    } else {
+        echo "wrong combination";
+    }
+}
+?>
+<?php require("includes/security.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,25 +70,6 @@
 
                       <input type="submit" class="btn btn-primary" name="send" value="Inloggen">
                   </form>
-                    <?php
-                    if (isset($_POST["send"])) {
-                        require_once("dbc.php");
-                        $sth = $dbc->prepare("SELECT * FROM user JOIN role ON role.id = user.role_id WHERE username = :username");
-                        $sth->execute([":username" => $_POST["username"]]);
-                        $res = $sth->fetch(PDO::FETCH_OBJ);
-
-                        if (!empty($res)) {
-                            if (password_verify($_POST["password"], $res->password)) {
-                                $_SESSION["user"] = $res;
-                                header("Location: index.php");
-                            } else {
-                                echo "wrong combination";
-                            }
-                        } else {
-                            echo "wrong combination";
-                        }
-                    }
-                    ?>
               </div>
           </div>
         </div>
