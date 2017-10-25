@@ -12,7 +12,7 @@
             <a href='profiel-aanpassen.php'>Profiel aanpasen </a>
           </div>
       </div>
-        <a href="<?php echo $_SERVER["PHP_SELF"]; ?>?logout=true">Uitloggen</a>
+        <a href="index.php?logout=true">Uitloggen</a>
       </div>
         <?php } else { ?>
             <div class='inlog'>
