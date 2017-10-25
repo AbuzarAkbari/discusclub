@@ -9,7 +9,7 @@ if (isset($_POST["send"])) {
     if (!empty($res)) {
         if (password_verify($_POST["password"], $res->password)) {
             $_SESSION["user"] = $res;
-            header("Location: index.php");
+            header("Location: /");
         } else {
             echo "wrong combination";
         }
