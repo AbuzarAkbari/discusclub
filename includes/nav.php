@@ -62,14 +62,21 @@
                     </li>
                     <li><a href='wordlid.php'>Word lid!</a></li>
                     <li class='dropdown'>
-                        <a href='#' class='dropdown-toggle'>Sponsoren </a>
+                        <a href='sponsoren.php' class='dropdown-toggle'>Sponsoren </a>
                         <ul class='dropdown-menu'>
                             <li><a href='sponsoren-worden.php'>Ook sponsor worden?</a></li>
                             <li><a href='sponsoren.php'>Onze sponsoren</a></li>
                         </ul>
                     </li>
-                    <li><a href='albums.php'>Albums</a></li>
-                    <li><a href='contact.php'>Contact</a></li>
+                    <li class='dropdown'>
+                        <a href='form.php' class='dropdown-toggle'>Album </a>
+                        <ul class='dropdown-menu'>
+                            <?php if ($logged_in) { ?>
+                                <li><a href='album-upload.php'>Upload</a></li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                <li><a href='contact.php'>Contact</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
