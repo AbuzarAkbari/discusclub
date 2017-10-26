@@ -16,3 +16,17 @@ th {
     color: black;
     padding: 10px 15px !important;
 }
+.paddingNone {
+    padding: 0 !important;
+}
+
+.img {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+}

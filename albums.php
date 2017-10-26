@@ -36,18 +36,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
+                <div class="panel panel-primary">
+                  <div class="panel-heading border-color-blue">
                     <h3 class="panel-title">Album toevoegen</h3>
                   </div>
                   <div class="panel-body">
-                    <a href="album-upload.php" type="button" class="btn btn-primary col-md-12" name="button">Upload een album</a>
+                    <a href="album-upload.php" type="button" class="btn btn-primary col-md-12 " name="button">Upload een album</a>
                   </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -67,7 +67,27 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
+                        <h3 class="panel-title ">Album titel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
+                                <p>
+                                    Aantal foto's: <i>7</i><br>
+                                    Datum: <i>05-07-2017</i><br>
+                                </p>
+                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
+                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -87,7 +107,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -107,7 +127,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -127,7 +147,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -147,7 +167,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -167,7 +187,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -187,7 +207,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -207,7 +227,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -227,7 +247,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -247,7 +267,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -267,7 +287,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -287,7 +307,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
@@ -307,47 +327,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Album titel</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="media">
-                            <div class="media-body">
-                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
-                                <p>
-                                    Aantal foto's: <i>7</i><br>
-                                    Datum: <i>05-07-2017</i><br>
-                                </p>
-                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Album titel</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="media">
-                            <div class="media-body">
-                                <h4 class="media-heading"><b>Geplaatst door:</b><i> Jack Sparrow </i></h4>
-                                <p>
-                                    Aantal foto's: <i>7</i><br>
-                                    Datum: <i>05-07-2017</i><br>
-                                </p>
-                                <img class="text-center" src='http://via.placeholder.com/160x160' alt=""><br><br>
-                                <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading border-color-blue">
                         <h3 class="panel-title">Album titel</h3>
                     </div>
                     <div class="panel-body">
