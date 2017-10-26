@@ -9,7 +9,7 @@
         <div class='dropdown'>
           <a href="gebruiker" class='dropbtn'><?php echo $name; ?></a>
           <div class='dropdown-content'>
-            <a href='bericht.php'>Berichten </a>
+            <a href='inbox.php'>Berichten </a>
             <a href='profiel-aanpassen.php'>Profiel aanpasen </a>
           </div>
       </div>

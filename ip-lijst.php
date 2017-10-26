@@ -39,7 +39,7 @@ require_once('dbc.php'); ?>
             <div class="col-md-12">
                 <div class="panel panel-primary ">
                     <div class="panel-heading border-colors">Ip lijst</div>
-                    <div class="panel-body padding-padding">
+                    <div class="panel-body padding-padding re">
                         <table>
                             <tr>
                                 <th>gebruiker</th>
@@ -72,11 +72,11 @@ require_once('dbc.php'); ?>
                                      echo $ip['topic_id'];
                                     ?></td>
                                     <td>
-                                     <a title="Blokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
-                                     <a title="Deblokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-ok-sign"></i></a></td>
+                                     <a title="Blokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-ban-circle"></i></a>
+                                     <a title="Deblokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-ok-circle"></i></a></td>
                                 </tr>
                             <?php
-                        endforeach;
+                            endforeach;
                             ?>
                         </table>
                     </div>
