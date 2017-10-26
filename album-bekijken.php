@@ -49,7 +49,7 @@
                             <div class="row sliderbox">
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                     <!-- Indicators -->
-                                    <ol class="carousel-indicators">
+                                    <!-- <ol class="carousel-indicators">
                                         <li data-target="#myCarousel" data-slide-to="0" class="active">
                                             <img src="images/vissen3.jpg" alt="vissen">
 
@@ -62,20 +62,20 @@
                                             <img src="images/vissen3.jpg" alt="vissen">
 
                                         </li>
-                                    </ol>
+                                    </ol> -->
 
                                     <!-- Wrapper for slides -->
                                     <div class="carousel-inner">
                                         <div class="item active">
-                                            <img src="images/vissen1.jpg" alt="fishing">
+                                            <img src="http://via.placeholder.com/350x150" alt="fishing">
                                         </div>
 
                                         <div class="item">
-                                            <img src="images/vissen2.jpg" alt="fishing">
+                                            <img src="http://via.placeholder.com/350x151" alt="fishing">
                                         </div>
 
                                         <div class="item">
-                                            <img src="images/vissen3.jpg" alt="vissen">
+                                            <img src="http://via.placeholder.com/350x152" alt="vissen">
                                         </div>
                                     </div>
 
@@ -89,9 +89,13 @@
                                         <span class="sr-only">Next</span>
                                     </a>
                                 </div>
+                                <!-- images -->
+
                             </div>
                         </div>
-
+                        <div class=" img" style="background-image:url('http://via.placeholder.com/350x150')"; data-target="#myCarousel" data-slide-to="0"></div>
+                        <div class=" img" style="background-image:url('http://via.placeholder.com/350x151')"; data-target="#myCarousel" data-slide-to="1"></div>
+                        <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
                     </div>
                 </div>
             </div>

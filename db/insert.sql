@@ -6,7 +6,21 @@ INSERT INTO `role`(`name`) VALUES
 
 INSERT INTO `image`(`path`) VALUES
 ('http://via.placeholder.com/350x350'),
-('http://via.placeholder.com/1000x150');
+('images/sponsor/ESHA-Banner_NL_discus_03B15.gif'),
+('images/sponsor/discusmania-toekan.gif'),
+('images/sponsor/banner-HVP-Aqua.gif'),
+('images/sponsor/Veldhuis-banner.jpg'),
+('images/sponsor/Dicuscompleet-banner.jpg'),
+('images/sponsor/discuspassi-banner-3.jpg'),
+('images/sponsor/Discusshop-banner.jpg'),
+('images/sponsor/Aqua-light-banner.jpg'),
+('images/sponsor/Rockzolid-banner.jpg'),
+('images/sponsor/osmoseapparaat-banner.jpg'),
+('images/sponsor/Wesdijk-banner.jpg'),
+('images/sponsor/Koidream-banner.jpg'),
+('images/sponsor/DCH-banner-AquaVaria-2014.jpg'),
+('images/sponsor/RUTO-banner.jpg'),
+('images/sponsor/discusvistotaal.gif');
 
 INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
 ('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 4);
@@ -49,4 +63,18 @@ INSERT INTO `message`(`message`, `user_1_id`, `user_2_id`) VALUES
 ('bla', 1, 1);
 
 INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
-(2, 'dinges', 'http://example.com');
+(2, 'eSHa Aquariumproducten', 'http://www.eshalabs.eu/nederlands/'),
+(3, 'discus mania', 'http://discusmania.nl/'),
+(4, 'hvp aqua', 'http://www.hvpaqua.nl/'),
+(5, 'aquaria veldhuis', 'https://www.aquariaveldhuis.nl/nl/');
+(6, 'Discuscompleet', 'http://www.discuscompleet.nl/');
+(7, 'discus passie', 'http://www.discuspassie.nl/');
+(8, 'discusshop', 'https://discusshop.nl/');
+(9, 'jmd aqua light', 'http://www.jmbaqualight.nl/'),
+(10, 'rock zolid', 'http://www.rockzolid.nl/'),
+(11, 'osmose apparaat', 'https://www.osmoseapparaat.nl/'),
+(12, 'Wesdijk', 'https://www.wesdijk.nl/'),
+(13, 'koidream', 'https://www.koidream.com/'),
+(14, 'daphnia boxtel', 'http://www.daphniaboxtel.nl/'),
+(15, 'ruto', 'https://www.ruto.nl/'),
+(16, 'discus vis totaal', 'http://www.discusvistotaal.nl/');

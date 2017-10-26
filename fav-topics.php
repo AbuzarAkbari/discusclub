@@ -46,7 +46,7 @@ require_once('dbc.php'); ?>
     <div class="row">
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors">Favoriete topics</div>
-                <div class="panel-body padding-padding">
+                <div class="panel-body padding-padding table-responsive">
                     <table>
                         <tr>
                             <th> #</th>

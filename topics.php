@@ -73,7 +73,7 @@
                 <?php foreach ($results2 as $subRow) : ?>
                 <div class="panel-heading border-colors"><?php echo $subRow['name']; ?></div>
             <?php endforeach; ?>
-                <div class="panel-body padding-padding">
+                <div class="panel-body padding-padding table-responsive">
                     <table>
                         <tr>
                             <th> #</th>

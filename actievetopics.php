@@ -49,7 +49,7 @@ require_once('dbc.php');
         <div class="col-md-12">
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors">Actieve topics</div>
-                <div class="panel-body padding-padding">
+                <div class="panel-body padding-padding table-responsive">
                     <table>
                         <tr>
                             <th> #</th>
