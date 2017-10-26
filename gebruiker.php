@@ -76,24 +76,22 @@ if (isset($_GET["id"])) {
         <div class="col-md-8">
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Laatste reacties op topics</div>
-                <div class="panel-heading border-color-black">
-                    <table>
-                        <tr>
-                    <th class="col-md-4 col-xs-4 ">Topic</th>
+                <div class="panel-body text-right">
+
+                <table>
+                    <tr class="border-color-black">
+                    <th class="col-md-4 col-xs-4">Topic</th>
                     <th class="col-md-4 col-xs-4">Forum</th>
                     <th class="col-md-4 col-xs-4">Datum</th>
                     <tr>
-                </table>
-                </div>
-                <div class="panel-body text-right">
-                    <table>
-                        <tr>
-                            <td>bla</td>
-                            <td>bla</td>
-                            <td>bla</td>
-                        </tr>
+
+                    <tr>
+                        <td class="col-md-4 col-xs-4">bla</td>
+                        <td class="col-md-4 col-xs-4">bla</td>
+                        <td class="col-md-4 col-xs-4">bla</td>
+                    </tr>
                     </table>
-                    </div>
+                </div>
                 </div>
             </div>
         <div class="col-md-8">
