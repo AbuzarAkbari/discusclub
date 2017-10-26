@@ -39,7 +39,7 @@
       <div class="col-md-8">
         <div class="panel panel-primary">
           <div class="panel-heading border-colors">Sponsoren</div>
-          <div class="panel-body padding-padding">
+          <div class="panel-body padding-padding table-responsive">
             <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
             <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
             <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>

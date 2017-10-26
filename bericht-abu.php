@@ -46,7 +46,7 @@ require_once("includes/nav.php");
                     <h3>Welkom</h3>
 
                 </div>
-                <div class="panel-body padding-padding">
+                <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 verticalLine">
                         <h4>Welkom bij Discus Club Holland!</h4>
                         <div class="">
@@ -121,7 +121,7 @@ require_once("includes/nav.php");
             <div class="panel panel-primary">
 
                 <div class="panel-heading"> #23 Geplaatst door marco.middelhuis</div>
-                <div class="panel-body padding-padding">
+                <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 ">
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                             Aenean commodo ligula eget dolor.
@@ -149,7 +149,7 @@ require_once("includes/nav.php");
             <div class="panel panel-primary">
 
                 <div class="panel-heading"> #23 Geplaatst door marco.middelhuis</div>
-                <div class="panel-body padding-padding">
+                <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 ">
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                             Aenean commodo ligula eget dolor.
@@ -177,7 +177,7 @@ require_once("includes/nav.php");
                 <div class=" panel panel-primary">
                 <div class="panel-heading "> #23 Geplaatst door marco.middelhuis
                 </div>
-                <div class="panel-body padding-padding">
+                <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 ">
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                             Aenean commodo ligula eget dolor.
@@ -194,7 +194,7 @@ require_once("includes/nav.php");
                 <div class="panel-heading "> #23 Geplaatst door marco.middelhuis
 
                 </div>
-                <div class="panel-body padding-padding">
+                <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 ">
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                             Aenean commodo ligula eget dolor.

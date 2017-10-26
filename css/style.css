@@ -391,6 +391,18 @@ li.dropdown:hover > .dropdown-menu {
     margin-left: 15px;
 }
 
+.img {
+    position: relative;
+    float: left;
+    width: 150px;
+    height: 150px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 5px;
+}
+
 /*dit is het deel wat kaan heeft gedaan.. indien het alles opfockt haal het weg :)*/
 
 .album-ruimte {
