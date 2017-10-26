@@ -43,7 +43,7 @@ require_once('dbc.php'); ?>
    $results = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <br><br>
-<div class="container">
+<div class="container main">
     <div class="row columns">
         <div class="col-md-12">
             <div class="panel panel-primary ">

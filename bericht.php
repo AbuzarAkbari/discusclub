@@ -92,7 +92,7 @@ require_once("includes/nav.php");
     </div>
 </div>
 
-<div class="container" style="margin-top:25px;">
+<div class="container main" style="margin-top:25px;">
 
     <div class="row">
         <div class="col-md-12">
@@ -257,7 +257,7 @@ require_once("includes/nav.php");
 
 </div>
 
-<div class="container">
+<div class="container main">
     <div class="row">
         <div class="col-md-12">
 

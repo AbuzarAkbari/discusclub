@@ -36,7 +36,7 @@
 require_once("includes/nav.php");
 ?>
 
-<div class="container">
+<div class="container main">
     <div class="row">
 
         <div class="col-xs-12">
@@ -115,7 +115,7 @@ require_once("includes/nav.php");
 </div>
 <br><br>
 
-<div class="container">
+<div class="container main">
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-primary">

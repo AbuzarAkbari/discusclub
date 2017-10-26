@@ -67,7 +67,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container main">
         <div class="row">
             <br><br>
             <div class="panel panel-default">

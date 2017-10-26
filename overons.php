@@ -33,7 +33,7 @@
     require_once("includes/nav.php");
     ?>
     <br><br>
-    <div class="container">
+    <div class="container main">
       <div class="row">
 
       <div class="col-md-8">
