@@ -42,7 +42,7 @@ require_once('dbc.php'); ?>
                     <div class="panel-body padding-padding">
                         <table>
                             <tr>
-                                <th>gebruikers id</th>
+                                <th>gebruiker</th>
                                 <th>Ip adres</th>
                                 <th>wanneer je account heb gemaakt</th>
                                 <th>topics</th>
