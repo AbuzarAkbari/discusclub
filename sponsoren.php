@@ -39,7 +39,6 @@
       <div class="col-md-8">
         <div class="panel panel-primary">
           <div class="panel-heading border-colors">Sponsoren</div>
-<<<<<<< HEAD
           <div class="panel-body padding-padding">
             <?php 
               $haal_sponsor = "SELECT * FROM sponsor";
@@ -57,38 +56,13 @@
               $images = $imageResult->fetchAll(PDO::FETCH_ASSOC); 
             ?>
               <div class="col-md-6 col-sm-12 ruimte">
-                <a href="<?php echo $sponsor['url'] ?>">
+                <a title="<?php echo $sponsor['name']; ?>" href="<?php echo $sponsor['url'] ?>">
                   <?php foreach($images as $image): ?>
                 <img src="<?php echo $image['path'] ?>">
                   <?php endforeach; ?>
                 </a>
               </div>
             <?php endforeach; ?>
-=======
-          <div class="panel-body padding-padding table-responsive">
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-
->>>>>>> c25f14e14356474d976ce92841bc629dc726accd
-          </div>
         </div>
       </div>
       <div class="col-md-4">
