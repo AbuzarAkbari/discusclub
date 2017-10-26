@@ -45,12 +45,12 @@
                 <input type="text" class="form-control" name="firstname" placeholder="Uw naam">
                 <br>
                 <label for="lname">E-mail</label>
-                <input type="text" class="form-control" name="lastname" placeholder="Uw email">
+                <input type="text" class="form-control" name="lastname" placeholder="Uw e-mail">
                 <br>
                 <label for="subject">Bericht</label>
                 <textarea id="subject" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;"></textarea>
                 <br>
-                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="submit" class="btn btn-primary" value="Verstuur">
               </form>
           </div>
         </div>

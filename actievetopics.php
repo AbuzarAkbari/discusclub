@@ -94,6 +94,7 @@ require_once('dbc.php');
                                 <td><?php echo $results2[0]['i']; ?></td>
                                 <td><?php echo $x_bekeken['x']; ?></td>
                                 <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
+                                
                             </tr>
                         <?php endforeach; ?>
                     </div>

@@ -57,7 +57,7 @@ if (isset($_GET["id"])) {
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Informatie</div>
                 <div class="panel-body text-left">
-                    <div class="text-center"><img src="<?php echo isset($user_data->profile_img) ? $user_data->profile_img : ""; ?>" class="text-center"></div>
+                    <div class="text-center"><div  style="background-image:url('<?php echo isset($user_data->profile_img) ? $user_data->profile_img : ""; ?>')"; class="img "></div></div>
                     <div class="col-md-12">
                         <strong>Locatie</strong><br>
                         <?php echo isset($user_data->location) ? $user_data->location : "Onbekend"; ?><br>
@@ -76,7 +76,7 @@ if (isset($_GET["id"])) {
         <div class="col-md-8">
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Laatste reacties op topics</div>
-                <div class="panel-body text-right">
+                <div class="panel-body text-right paddingNone">
 
                 <table>
                     <tr class="border-color-black">
@@ -106,7 +106,7 @@ if (isset($_GET["id"])) {
         <div class="col-md-4">
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Statistieken</div>
-                <div class="panel-body text-right">
+                <div class="panel-body text-left">
                     <strong>Aantal forum topics
                     </strong><br>
                     0 topics<br>
