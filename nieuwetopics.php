@@ -58,8 +58,7 @@ require_once('dbc.php'); ?>
                             <th>Berichten</th>
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
-                            <th>Bewerk</th>
-                            <th>Verwijderen</th>
+                            <th>Admin tools</th>
                         </tr>
                         <?php foreach ($results as $topic) : ?>
                             <?php
@@ -95,9 +94,13 @@ require_once('dbc.php'); ?>
                                 <td><?php echo $results2[0]['i']; ?></td>
                                 <td><?php echo $x_bekeken['x']; ?></td>
                                 <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
-                                <td><a href="" type="button" class="btn btn-primary  " name="button"> <i class="glyphicon glyphicon-edit"></i></a>
                                 </td>
-                                <td> <a href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-remove-circle"></i></a>  </td>
+                                <td>
+                                    <a  title="Pinnen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
+                                    <a  title="Locken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
+                                    <a title="Bewerken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
+                                    <a title="Verwijderen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
+                                </td>
                             </tr>
                             </tr>
                         <?php endforeach; ?>
