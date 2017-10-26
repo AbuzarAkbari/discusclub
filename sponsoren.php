@@ -56,10 +56,6 @@
             <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
             <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
             <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
 
           </div>
         </div>
