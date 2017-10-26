@@ -43,3 +43,5 @@ INSERT INTO `album`(`title`, `user_id`) VALUES
 
 INSERT INTO `album_has_image`(`album_id`, `image_id`) VALUES
 (1, 1);
+
+INSERT INTO `message`(`message`, `user_1_id`, `user_2_id`)

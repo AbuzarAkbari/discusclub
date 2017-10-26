@@ -75,7 +75,7 @@ require_once('dbc.php'); ?>
                                      <a href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-remove-circle"></i></a></td>
                                 </tr>
                             <?php
-                        endforeach;
+                            endforeach;
                             ?>
                         </table>
                     </div>
