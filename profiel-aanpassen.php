@@ -47,9 +47,7 @@
               </div>
               <div class="panel-body">
                     <form enctype="multipart/form-data" action="profielParse.php" method="post">
-                        <input type="checkbox" name="" value="" id="nieuwsbrief"> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
-                        <label for="password">Wachtwoord</label><input id="password" class="form-control" type="password" name="password" placeholder="Wachtwoord"><br>
-                        <label for="repeat_password">Herhaal wachtwoord</label><input id="repeat_password" class="form-control" type="password" name="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
+                        <input type="checkbox" name="nieuwsbrief" value="checked" id="nieuwsbrief"> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
                         <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="" placeholder="Email"><br>
                         <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="" placeholder="Herhaal e-mail"><br>
                         <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>
