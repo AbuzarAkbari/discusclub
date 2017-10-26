@@ -1,4 +1,17 @@
-<?php require_once("includes/security.php"); ?>
+<?php
+    require_once("includes/security.php");
+?>
+<?php
+if (isset($_GET["id"])) {
+    $sth = $dbc->prepare("SELECT u.id, u.email, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img, u.profile_img as profile_img_ida, news FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.id = :id");
+    $sth->execute([":id" => $_GET["id"]]);
+
+    $user_data = $sth->fetch(PDO::FETCH_OBJ);
+} else {
+    $user_data = $_SESSION["user"];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,13 +60,27 @@
               </div>
               <div class="panel-body">
                     <form enctype="multipart/form-data" action="profielParse.php" method="post">
-                        <input type="checkbox" name="nieuwsbrief" value="checked" id="nieuwsbrief"> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
-                        <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="" placeholder="Email"><br>
+
+                        <?php
+                            if($user_data->news == 1)
+                            {
+                                $checked = "checked";
+                            }
+                            else
+                            {
+                                $checked = "";
+                            }
+                        ?>
+
+                        <input type="checkbox" name="nieuwsbrief" id="nieuwsbrief" <?php echo $checked; ?>> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
+                        <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Email"><br>
                         <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="" placeholder="Herhaal e-mail"><br>
-                        <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>
-                        <label for="location">Locatie</label><input id="location" class="form-control" type="text" name="location" value="" placeholder="Locatie"><br>
-                        <label for="profiel">Selecteer een afbeelding</label><input id="file" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="profiel" value="" placeholder="Selecteer bestand"><br>
-                        <label for="signature">Handtekening</label><input id="signature" class="form-control" type="text" name="signature" value="" placeholder="Handtekening"><br>
+                        <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" value="<?php echo isset($user_data->birthdate) ? $user_data->birthdate : ''; ?>" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>
+                        <label for="location">Locatie</label><input id="location" class="form-control" type="text" name="location" value="<?php echo isset($user_data->location) ? $user_data->location : ''; ?>" placeholder="Locatie"><br>
+                        <label for="profiel">Selecteer een afbeelding</label><input id="file" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="profiel" placeholder="Selecteer bestand"><br>
+                        <label for="signature">Handtekening</label><input id="signature" class="form-control" type="text" name="signature" value="<?php echo isset($user_data->signature) ? $user_data->signature : ''; ?>" placeholder="Handtekening"><br>
+                        <input type="hidden" value="<?php echo $user_data->id; ?>" name="user_id">
+                        <input type="hidden" value="<?php echo $user_data->profile_img_id; ?>" name="profile_img_id">
                         <input type="submit" class="btn btn-primary" name="profiel_parse" value="Opslaan">
                     </form>
               </div>
