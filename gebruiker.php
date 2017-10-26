@@ -1,4 +1,15 @@
 <?php require_once("includes/security.php"); ?>
+<?php
+if (isset($_GET["id"])) {
+    $sth = $dbc->prepare("SELECT u.id, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.id = :id");
+    $sth->execute([":id" => $_GET["id"]]);
+
+    $user_data = $sth->fetch(PDO::FETCH_OBJ);
+} else {
+    $user_data = $_SESSION["user"];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,20 +57,18 @@
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Informatie</div>
                 <div class="panel-body text-left">
-                    <div class="text-center"><img src="http://via.placeholder.com/100x100" class="text-center"></div>
+                    <div class="text-center"><div  style="background-image:url('<?php echo isset($user_data->profile_img) ? $user_data->profile_img : ""; ?>')"; class="img "></div></div>
                     <div class="col-md-12">
                         <strong>Locatie</strong><br>
-                        Onbekend<br>
+                        <?php echo isset($user_data->location) ? $user_data->location : "Onbekend"; ?><br>
                         <strong>Leeftijd</strong><br>
-                        47<br>
-                        <strong>Groep</strong>
-                        Leden<br>
-                        <strong>rollen</strong> <br>
-                        Gebruiker<br>
+                        <?php echo isset($user_data->birthdate) ? $user_data->birthdate : "Onbekend"; ?><br>
+                        <strong>rol</strong> <br>
+                        <?php echo isset($user_data->role_name) ? $user_data->role_name : "Onbekend"; ?><br>
                         <strong>Geregistreerd</strong><br>
-                        woensdag 11 oktober 2017 13:30:39<br>
+                        <?php echo isset($user_data->created_at) ? $user_data->created_at : "Onbekend"; ?><br>
                         <strong>Forum handtekening</strong><br>
-                        ik ben een geile turkse snicker<br>
+                        <?php echo isset($user_data->signature) ? $user_data->signature : ""; ?><br>
                 </div>
                     </div>
                 </div>
@@ -67,17 +76,22 @@
         <div class="col-md-8">
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Laatste reacties op topics</div>
-                <div class="panel-heading border-color-black">
-                    <table>
-                        <tr>
-                    <th class="col-md-4 col-xs-4 ">Topic</th>
+                <div class="panel-body text-right paddingNone">
+
+                <table>
+                    <tr class="border-color-black">
+                    <th class="col-md-4 col-xs-4">Topic</th>
                     <th class="col-md-4 col-xs-4">Forum</th>
                     <th class="col-md-4 col-xs-4">Datum</th>
                     <tr>
-                </table>
+
+                    <tr>
+                        <td class="col-md-4 col-xs-4">bla</td>
+                        <td class="col-md-4 col-xs-4">bla</td>
+                        <td class="col-md-4 col-xs-4">bla</td>
+                    </tr>
+                    </table>
                 </div>
-                <div class="panel-body text-right">
-                    </div>
                 </div>
             </div>
         <div class="col-md-8">
@@ -92,7 +106,7 @@
         <div class="col-md-4">
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Statistieken</div>
-                <div class="panel-body text-right">
+                <div class="panel-body text-left">
                     <strong>Aantal forum topics
                     </strong><br>
                     0 topics<br>

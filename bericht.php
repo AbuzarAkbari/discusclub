@@ -149,8 +149,8 @@ require_once("includes/nav.php");
                         $userResult->execute();
                         $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
-                    <?php foreach($users as $user) : ?>
-                        <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                    <?php foreach ($users as $user) : ?>
+                        <b>Geplaatst door:</b> <i><a href="/gebruiker.php?id=<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
                     <?php endforeach; ?>
                     op <?php echo $row['created_at']; ?></h3>
                 </div>
@@ -180,8 +180,7 @@ require_once("includes/nav.php");
                 while ($matches[1]) {
                     preg_match_all('/\[quote\s(\d+)\]/', $row2['content'], $matches);
 
-                    foreach($matches[1] as $match) {
-
+                    foreach ($matches[1] as $match) {
                         $sql = "SELECT * FROM reply WHERE id = :id";
                         $query = $dbc->prepare($sql);
                         $query->execute([
@@ -209,7 +208,6 @@ require_once("includes/nav.php");
                         }
 
                         $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $row2['content']);
-
                     }
                 }
 
@@ -238,7 +236,7 @@ require_once("includes/nav.php");
                     $userResult->execute();
                     $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                 ?>
-                <?php foreach($users as $user) : ?>
+                <?php foreach ($users as $user) : ?>
                     <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
                 <?php endforeach; ?>
                 op <?php echo $row2['created_at']; ?></h3>
@@ -280,7 +278,7 @@ require_once("includes/nav.php");
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <?php for($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++): ?>
+                    <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
                         <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>><a href="bericht.php?id=<?php echo $rows[0]['id']; ?>&pagina=<?php echo $x; ?>"><?php echo $x; ?></a></li>
                     <?php endfor; ?>
                     <li>
@@ -292,7 +290,7 @@ require_once("includes/nav.php");
             </nav>
         </div>
     </div>
-    <?php if($logged_in) : ?>
+    <?php if ($logged_in) : ?>
     <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-heading">
