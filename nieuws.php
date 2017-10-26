@@ -414,7 +414,7 @@
 
       <div class="col-md-4">
         <div class="panel panel-primary">
-          <div class="panel-heading border-colors">laatste nieuws</div>
+          <div class="panel-heading border-colors">Laatste nieuws</div>
           <div class="panel-body">
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
@@ -452,7 +452,7 @@
       </div>
       <div class="col-md-4">
         <div class="panel panel-primary">
-          <div class="panel-heading border-colors">laatste reacties of foto's</div>
+          <div class="panel-heading border-colors">Laatste reacties op foto's</div>
           <div class="panel-body">
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
@@ -469,7 +469,7 @@
       </div>
       <div class="col-md-4">
         <div class="panel panel-primary">
-          <div class="panel-heading border-colors">laatste reacties op topics</div>
+          <div class="panel-heading border-colors">Laatste reacties op topics</div>
           <div class="panel-body">
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>

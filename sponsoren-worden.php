@@ -37,7 +37,7 @@
       <div class="row columns">
       <div class="col-md-8">
         <div class="panel panel-primary ">
-          <div class="panel-heading border-colors">sponsor worden</div>
+          <div class="panel-heading border-colors">Sponsor worden</div>
           <div class="panel-body padding-padding space">
             <h4>Beste,</h4>
             Discus Club Holland is zonder twijfel de grootste discusvereniging van Nederland en ook Europees gezien zijn wij een zwaargewicht. Zo organiseren wij bijvoorbeeld het Wereld Kampioenschap discussen, wat duidelijk maakt dat wij als vereniging toch wel héél prominent aanwezig zijn in de aquariumwereld.
@@ -127,7 +127,7 @@
 
             <div class="col-md-4">
               <div class="panel panel-primary">
-                <div class="panel-heading border-colors">laatste reacties of foto's</div>
+                <div class="panel-heading border-colors">Laatste reacties op foto's</div>
                 <div class="panel-body">
                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
@@ -140,7 +140,7 @@
 
       <div class="col-md-4">
         <div class="panel panel-primary">
-          <div class="panel-heading border-colors">laatste nieuws</div>
+          <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
           <div class="panel-body">
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
@@ -155,7 +155,7 @@
 
       <div class="col-md-4">
         <div class="panel panel-primary">
-          <div class="panel-heading border-colors">laatste reacties op topics</div>
+          <div class="panel-heading border-colors">Laatste reacties op topics</div>
           <div class="panel-body">
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
