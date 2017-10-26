@@ -111,11 +111,11 @@
                                     $userResult->execute();
                                     $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
-                                <?php foreach($users as $user) : ?>
-                                    <td><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                <?php foreach ($users as $user) : ?>
+                                    <td><a href="/gebruiker.php?id=<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                     <td><?php echo $x_berichten; ?></td>
                                     <td><?php echo $x[0]['x']; ?></td>
-                                    <td><?php echo $topic['created_at']; ?>, <br> Door <a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                    <td><?php echo $topic['created_at']; ?>, <br> Door <a href="/gebruiker.php?id=<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                 <?php endforeach; ?>
                             </tr>
                         <?php endforeach; ?>
@@ -124,7 +124,7 @@
             </div>
         </div>
     </div>
-    <?php if($logged_in) : ?>
+    <?php if ($logged_in) : ?>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary">
