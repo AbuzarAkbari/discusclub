@@ -414,7 +414,7 @@
 
       <div class="col-md-4">
         <div class="panel panel-primary">
-          <div class="panel-heading border-colors">Laatste nieuws</div>
+          <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
           <div class="panel-body">
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
              <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>

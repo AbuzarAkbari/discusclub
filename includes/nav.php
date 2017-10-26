@@ -45,7 +45,7 @@
                     <li class='dropdown'>
                         <a href='overons.php' class='dropdown-toggle'>Over ons </a>
                         <ul class='dropdown-menu'>
-                            <li><a href='ontstaan.php'>Onstaan Discus Club Holland</a></li>
+                            <li><a href='ontstaan.php'>Ontstaan Discus Club Holland</a></li>
                             <li><a href='nieuws.php'>Nieuws</a></li>
                         </ul>
                     </li>
