@@ -66,10 +66,10 @@ INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
 (2, 'eSHa Aquariumproducten', 'http://www.eshalabs.eu/nederlands/'),
 (3, 'discus mania', 'http://discusmania.nl/'),
 (4, 'hvp aqua', 'http://www.hvpaqua.nl/'),
-(5, 'aquaria veldhuis', 'https://www.aquariaveldhuis.nl/nl/');
-(6, 'Discuscompleet', 'http://www.discuscompleet.nl/');
-(7, 'discus passie', 'http://www.discuspassie.nl/');
-(8, 'discusshop', 'https://discusshop.nl/');
+(5, 'aquaria veldhuis', 'https://www.aquariaveldhuis.nl/nl/'),
+(6, 'Discuscompleet', 'http://www.discuscompleet.nl/'),
+(7, 'discus passie', 'http://www.discuspassie.nl/'),
+(8, 'discusshop', 'https://discusshop.nl/'),
 (9, 'jmd aqua light', 'http://www.jmbaqualight.nl/'),
 (10, 'rock zolid', 'http://www.rockzolid.nl/'),
 (11, 'osmose apparaat', 'https://www.osmoseapparaat.nl/'),
