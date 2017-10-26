@@ -56,7 +56,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors"><?php echo $categorie['name']; ?></div>
-                <div class="panel-body padding-padding">
+                <div class="panel-body padding-padding table-responsive">
                     <table>
                         <thead>
                             <tr>
