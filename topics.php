@@ -83,6 +83,8 @@
                             <th>Berichten</th>
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
+                            <th>Bewerken</th>
+                            <th>Verwijderen</th>
                         </tr>
                         <?php foreach ($results3 as $topic) : ?>
                             <?php
@@ -117,6 +119,10 @@
                                     <td><?php echo $x[0]['x']; ?></td>
                                     <td><?php echo $topic['created_at']; ?>, <br> Door <a href="/gebruiker.php?id=<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                 <?php endforeach; ?>
+                                <td><a href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit"></i></a>
+                                </td>
+                                <td> <a href="" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-circle"></i></a>  </td>
+
                             </tr>
                         <?php endforeach; ?>
                     </div>
