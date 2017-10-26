@@ -57,6 +57,8 @@ require_once('dbc.php');
                             <th>Forum</th>
                             <th>Auteur</th>
                             <th>Berichten</th>
+                            <th>Bekeken</th>
+                            <th>Laatste bericht</th>
                             <th>Admin tools</th>
                         </tr>
                         <?php foreach ($results as $topic) : ?>
