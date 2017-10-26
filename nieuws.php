@@ -39,7 +39,7 @@
       <div class="col-md-8">
         <div class="panel panel-primary ">
           <div class="panel-heading border-colors">Nieuws</div>
-          <div class="panel-body padding-padding">
+          <div class="panel-body padding-padding table-responsive">
             <table>
               <tr>
                 <th> Titel</th>

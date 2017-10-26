@@ -22,6 +22,7 @@ th {
 
 .img {
     position: relative;
+    float: none !important;
     width: 150px;
     height: 150px;
     background-position: 50% 50%;
