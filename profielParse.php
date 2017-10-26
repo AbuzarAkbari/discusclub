@@ -1,19 +1,76 @@
 <?php
 
 require_once("includes/security.php");
-if($logged_in)
-{
+
+if($logged_in) {
+
     require_once('dbc.php');
 
-    $target_dir = "images/profiel/";
-    $target_file = $target_dir . basename($_FILES["profiel"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-    // Check if image file is a actual image or fake image
     if(isset($_POST["profiel_parse"])) {
+
+        //Start query
+        $userId = $_SESSION['user']->id;
+        $query = "UPDATE user SET id = :id";
+        $bindings = [":id" => $userId];
+
+        //Nieuwsbrief
+        if(isset($_POST['nieuwsbrief']))
+        {
+            if($_POST['nieuwsbrief'] == "checked")
+            {
+                $news = 1;
+                $query .= ", news = :news";
+                $bindings[":news"] = $news;
+            }
+            else
+            {
+                $news = 0;
+                $query .= ", news = :news";
+                $bindings[":news"] = $news;
+            }
+        }
+
+        //Email
+        if($_POST['email'] === $_POST['repeat_email'])
+        {
+            $email = $_POST['email'];
+            $query .= ", email = :email";
+            $bindings[":email"] = $email;
+        }
+
+        //Geboortedatum
+        if(isset($_POST['date']))
+        {
+            $date = $_POST['date'];
+            $query .= ", birthdate = :birthdate";
+            $bindings[":birthdate"] = $date;
+        }
+
+        //Locatie
+        if(isset($_POST['location']))
+        {
+            $location = $_POST['location'];
+            $query .= ", location = :location";
+            $bindings[":location"] = $location;
+        }
+
+        //Handtekening
+        if(isset($_POST['signature']))
+        {
+            $signature = $_POST['signature'];
+            $query .= ", signature = :signature";
+            $bindings[":signature"] = $signature;
+        }
+
+        //Image check
+        $target_dir = "images/profiel/";
+        $target_file = $target_dir . basename($_FILES["profiel"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+        // Check if image file is a actual image or fake image
         $check = getimagesize($_FILES["profiel"]["tmp_name"]);
-        if($check !== false) {
+        if ($check !== false) {
             $uploadOk = 1;
         } else {
             echo "File is not an image.";
@@ -55,14 +112,22 @@ if($logged_in)
             $result->bindParam(1, $path);
             $result->execute();
 
+            /////verwijder oude img  if id = 1 (default) niet verwijderen  uit db en uit folder
+
             $id = $dbc->lastInsertId();
             $updateSql = "UPDATE user SET profile_img = :profile_image_id WHERE id = :id";
-            $updatResult = $dbc->prepare($updateSql);
-            $updatResult->bindParam(':profile_image_id', $id);
-            $updatResult->bindParam(':id', $_SESSION['user']->id);
-            $updatResult->execute();
+            $query .= ", profile_img = :profile_img";
+            $bindings[":profile_img_id"] = $id;
+
+            header("Location: /");
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
+
     }
+
+    //End query
+    $query .= "WHERE id = :userId";
+    $result = $dbc->prepare($query);
+    $result->execute($bindings);
 }
