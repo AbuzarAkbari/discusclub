@@ -5,7 +5,8 @@ INSERT INTO `role`(`name`) VALUES
 ('admin');
 
 INSERT INTO `image`(`path`) VALUES
-('http://via.placeholder.com/350x350');
+('http://via.placeholder.com/350x350'),
+('http://via.placeholder.com/1000x150');
 
 INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
 ('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 4);
@@ -44,4 +45,8 @@ INSERT INTO `album`(`title`, `user_id`) VALUES
 INSERT INTO `album_has_image`(`album_id`, `image_id`) VALUES
 (1, 1);
 
-INSERT INTO `message`(`message`, `user_1_id`, `user_2_id`)
+INSERT INTO `message`(`message`, `user_1_id`, `user_2_id`) VALUES
+('bla', 1, 1);
+
+INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
+(2, 'dinges', 'http://example.com');
