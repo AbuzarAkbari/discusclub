@@ -44,7 +44,7 @@ require_once('dbc.php');
 
 ?>
 <br><br>
-<div class="container">
+<div class="container main">
     <div class="row columns">
         <div class="col-md-12">
             <div class="panel panel-primary ">

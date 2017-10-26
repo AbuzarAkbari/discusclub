@@ -42,7 +42,7 @@ require_once('dbc.php'); ?>
     $results = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <br><br>
-<div class="container">
+<div class="container main">
     <div class="row">
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors">Favoriete topics</div>

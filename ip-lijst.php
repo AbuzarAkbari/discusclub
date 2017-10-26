@@ -34,7 +34,7 @@ require_once('dbc.php'); ?>
         require_once("includes/nav.php");
     ?>
 <br><br>
-    <div class="container">
+    <div class="container main">
         <div class="row columns">
             <div class="col-md-12">
                 <div class="panel panel-primary ">
@@ -49,7 +49,7 @@ require_once('dbc.php'); ?>
                                 <th>Blokeer</th>
                             </tr>
                             <?php
-                                $sql = "SELECT * FROM ips";
+                                $sql = "SELECT * FROM ips INNER JOIN user ON ips.user_id = user.id";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -59,8 +59,8 @@ require_once('dbc.php'); ?>
                             foreach ($rows as $ip) :
                                 ?>
                                 <tr>
-                                    <td><a href="#"><?php
-                                     echo $ip['user_id'];
+                                    <td><a href=""><?php
+                                     echo $ip['first_name'] . " " . $ip['last_name'];
                                     ?></a></td>
                                     <td><?php
                                      echo $ip['ip_adres'];

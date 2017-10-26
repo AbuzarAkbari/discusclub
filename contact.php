@@ -34,7 +34,7 @@
     ?>
 
     <br><br>
-    <div class="container">
+    <div class="container main">
       <div class="row">
       <div class="col-md-8">
         <div class="panel panel-primary ">
