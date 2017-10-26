@@ -46,7 +46,7 @@ require_once('dbc.php'); ?>
                                 <th>Ip adres</th>
                                 <th>wanneer je account heb gemaakt</th>
                                 <th>topics</th>
-                                <th>Blokeer</th>
+                                <th>Admin tools</th>
                             </tr>
                             <?php
                                 $sql = "SELECT * FROM ips INNER JOIN user ON ips.user_id = user.id";
@@ -72,7 +72,8 @@ require_once('dbc.php'); ?>
                                      echo $ip['topic_id'];
                                     ?></td>
                                     <td>
-                                     <a href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-remove-circle"></i></a></td>
+                                     <a title="Blokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
+                                     <a title="Deblokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-ok-sign"></i></a></td>
                                 </tr>
                             <?php
                         endforeach;
