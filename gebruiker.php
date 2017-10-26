@@ -42,7 +42,7 @@ if (isset($_GET["id"])) {
 })(document, 'script', 'facebook-jssdk')
 </script>
     <?php require_once("includes/nav.php"); ?>
-      <div class="container">
+      <div class="container main">
           <br><br>
         <div class="col-md-12">
             <div class="panel panel-primary border-color-blues">

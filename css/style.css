@@ -8,6 +8,10 @@ body {
     overflow-x: hidden;
 }
 
+.main {
+    min-height: 50vh;
+}
+
 hr {
     border-color: #0ba8ec !important;
 }

@@ -37,7 +37,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
     })(document, 'script', 'facebook-jssdk')
 </script>
 <?php require_once("includes/nav.php"); ?>
-<div class="container">
+<div class="container main">
     <div class="row">
         <br><br>
         <ol class="breadcrumb">

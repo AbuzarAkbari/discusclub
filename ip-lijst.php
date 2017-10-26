@@ -38,30 +38,45 @@ require_once('dbc.php'); ?>
         <div class="row columns">
             <div class="col-md-12">
                 <div class="panel panel-primary ">
-                    <div class="panel-heading border-colors">Ledenlijst</div>
+                    <div class="panel-heading border-colors">Ip lijst</div>
                     <div class="panel-body padding-padding">
                         <table>
                             <tr>
-                                <th>Naam</th>
-                                <th>Laatste login</th>
-                                <th>Geregistreerd</th>
-                                <th>Rol</th>
+                                <th>gebruikers id</th>
+                                <th>Ip adres</th>
+                                <th>wanneer je account heb gemaakt</th>
+                                <th>topics</th>
+                                <th>Blokeer</th>
                             </tr>
                             <?php
-                                $sql = "SELECT * FROM user JOIN role ON user.role_id = role.id";
+                                $sql = "SELECT * FROM ips INNER JOIN user ON ips.user_id = user.id";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
                             ?>
-                            <?php foreach ($rows as $user) : ?>
+                            <?php
+                            foreach ($rows as $ip) :
+                                ?>
                                 <tr>
-                                    <td><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
-                                    <td><?php echo $user['last_changed']; ?></td>
-                                    <td><?php echo $user['created_at']; ?></td>
-                                    <td><?php echo $user    ['name']; ?></td>
+                                    <td><a href=""><?php
+                                     echo $ip['first_name'] . " " . $ip['last_name'];
+                                    ?></a></td>
+                                    <td><?php
+                                     echo $ip['ip_adres'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['created_at'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['topic_id'];
+                                    ?></td>
+                                    <td>
+                                     <a href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-remove-circle"></i></a></td>
                                 </tr>
-                            <?php endforeach; ?>
+                            <?php
+                        endforeach;
+                            ?>
                         </table>
                     </div>
                 </div>

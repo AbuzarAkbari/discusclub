@@ -42,34 +42,33 @@
     <?php
     require_once("includes/nav.php");
     ?>
-    <div class="container">
-        <div class="row">
-            <?php
-            $sub_categorieen = "SELECT * FROM sub_category WHERE id = ?";
-            $subResult = $dbc->prepare($sub_categorieen);
-            $subResult->bindParam(1, $_GET['id']);
-            $subResult->execute();
-            $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
-
-            $sql = "SELECT * FROM topic WHERE sub_category_id = ?";
-            $result = $dbc->prepare($sql);
-            $result->bindParam(1, $_GET['id']);
-            $result->execute();
-            $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
-?>
-            <br><br>
-            <ol class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a href="/">Forum</a></li>
-                <li class="active"><?php echo $results2[0]['name']; ?></li>
-            </ol>
-        </div>
-    </div>
-<br>
-<div class="container">
+<div class="container main">
     <div class="row columns">
         <div class="col-md-12">
+                <div class="">
+                    <?php
+                    $sub_categorieen = "SELECT * FROM sub_category WHERE id = ?";
+                    $subResult = $dbc->prepare($sub_categorieen);
+                    $subResult->bindParam(1, $_GET['id']);
+                    $subResult->execute();
+                    $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
+
+
+                    $sql = "SELECT * FROM topic WHERE sub_category_id = ?";
+                    $result = $dbc->prepare($sql);
+                    $result->bindParam(1, $_GET['id']);
+                    $result->execute();
+                    $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+                    <br><br>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/">Forum</a></li>
+                        <li class="active"><?php echo $results2[0]['name']; ?></li>
+                    </ol>
+                </div>
+        <br>
             <div class="panel panel-primary ">
                 <?php foreach ($results2 as $subRow) : ?>
                 <div class="panel-heading border-colors"><?php echo $subRow['name']; ?></div>
@@ -83,6 +82,8 @@
                             <th>Berichten</th>
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
+                            <th>Bewerken</th>
+                            <th>Verwijderen</th>
                         </tr>
                         <?php foreach ($results3 as $topic) : ?>
                             <?php
@@ -117,6 +118,10 @@
                                     <td><?php echo $x[0]['x']; ?></td>
                                     <td><?php echo $topic['created_at']; ?>, <br> Door <a href="/gebruiker.php?id=<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                 <?php endforeach; ?>
+                                <td><a href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit"></i></a>
+                                </td>
+                                <td> <a href="" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-circle"></i></a>  </td>
+
                             </tr>
                         <?php endforeach; ?>
                     </div>

@@ -38,7 +38,7 @@
     <?php
     require_once("includes/nav.php");
     ?>
-    <div class="container">
+    <div class="container main">
         <div class="row">
             <br>
             <div class="panel panel-primary ">

@@ -32,18 +32,18 @@
     require_once("includes/nav.php");
     ?>
     </div>
-    <div class="container">
+    <div class="container main">
         <div class="row">
           <br><br>
           <div class="panel panel-primary">
               <div class="panel-heading panel-heading1">
-                  <h4>Registeren</h4></div>
+                  <h4>Registreren</h4></div>
                 <div class="panel-body">
                   <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-                      <label for="first_name" >Vooraam</label>
-                      <input class="form-control" required type="text" name="first_name" id="first_name" value="" placeholder="Naam "><br>
+                      <label for="first_name" >Voornaam</label>
+                      <input class="form-control" required type="text" name="first_name" id="first_name" value="" placeholder="Voornaam "><br>
                       <label for="last_name" >Achternaam</label>
-                      <input class="form-control" required type="text" name="last_name" id="last_name" value="" placeholder="AchterNaam "><br>
+                      <input class="form-control" required type="text" name="last_name" id="last_name" value="" placeholder="Achternaam "><br>
                       <label for="username" >Gebruikersnaam</label>
                       <input class="form-control" required type="text" name="username" id="username" value="" placeholder="Gebruikersnaam "><br>
                       <label for="password" >Wachtwoord</label>
@@ -88,7 +88,7 @@
                                 <?php
                             } else {
                                 ?>
-                                <div class="message error">Gebruikersnaam is al in gebruik, verzin een nieuwe.</div>
+                                <div class="message error">Gebruikersnaam is al in gebruik, kies een andere gebruikersnaam.</div>
                                 <?php
                             }
                         }

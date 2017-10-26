@@ -71,7 +71,7 @@ require_once('dbc.php'); ?>
         </div>
     </div>
     <br>
-    <div class="container">
+    <div class="container main">
         <div class="row">
             <?php
                 $sql = "SELECT * FROM topics WHERE id = {$_GET['id']}";

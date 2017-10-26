@@ -37,7 +37,7 @@
     require 'slider.php';
     ?>
 
-    <div class="container">
+    <div class="container main">
         <div class="row">
             <br><br>
             <h1>Welkom bij Discus Club Holland!</h1>
