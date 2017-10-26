@@ -39,29 +39,30 @@
       <div class="col-md-8">
         <div class="panel panel-primary">
           <div class="panel-heading border-colors">Sponsoren</div>
-          <div class="panel-body padding-padding table-responsive">
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-            <div class="col-md-6 col-sm-12 ruimte"><img src="http://via.placeholder.com/280x40"> </div>
-
-          </div>
+          <div class="panel-body padding-padding">
+            <?php 
+              $haal_sponsor = "SELECT * FROM sponsor";
+              $sponsorResult = $dbc->prepare($haal_sponsor);
+              $sponsorResult->execute();
+              $sponsoren = $sponsorResult->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            <?php foreach($sponsoren as $sponsor): ?>
+            <?php 
+              $image_id = $sponsor['image_id'];
+              $haal_image = "SELECT * FROM image WHERE id = ?";
+              $imageResult = $dbc->prepare($haal_image);
+              $imageResult->bindParam(1, $image_id);
+              $imageResult->execute();
+              $images = $imageResult->fetchAll(PDO::FETCH_ASSOC); 
+            ?>
+              <div class="col-md-6 col-sm-12 ruimte">
+                <a title="<?php echo $sponsor['name']; ?>" href="<?php echo $sponsor['url'] ?>">
+                  <?php foreach($images as $image): ?>
+                <img src="<?php echo $image['path'] ?>">
+                  <?php endforeach; ?>
+                </a>
+              </div>
+            <?php endforeach; ?>
         </div>
       </div>
       <div class="col-md-4">

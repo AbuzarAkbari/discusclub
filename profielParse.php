@@ -9,7 +9,7 @@ if($logged_in) {
     if(isset($_POST["profiel_parse"])) {
 
         //Start query
-        $userId = $_SESSION['user']->id;
+        $userId = $_POST["user_id"];
         $query = "UPDATE user SET id = :userId";
         $bindings = [":userId" => $userId];
 
@@ -115,10 +115,12 @@ if($logged_in) {
                     $id = $dbc->lastInsertId();
 
                     //verwijder oude img  if id = 1 (default) niet verwijderen  uit db en uit folder
-//                    $deleteSql = "DELETE FROM image WHERE id = :id";
-//                    $deleteResult = $dbc->prepare($deleteSql);
-//                    $deleteResult->bindParam(':id', $id);
-//                    $deleteResult->execute();
+
+
+                    $deleteSql = "DELETE FROM image WHERE id = :id";
+                    $deleteResult = $dbc->prepare($deleteSql);
+                    $deleteResult->bindParam(':id', $_POST["profile_img_id"]);
+                    $deleteResult->execute();
 
                     $updateSql = "UPDATE user SET profile_img = :profile_image_id WHERE id = :id";
                     $query .= ", profile_img = :profile_img";
