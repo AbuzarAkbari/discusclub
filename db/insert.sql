@@ -72,7 +72,6 @@ INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
 (3, 'discus mania', 'http://discusmania.nl/'),
 (4, 'hvp aqua', 'http://www.hvpaqua.nl/'),
 (5, 'aquaria veldhuis', 'https://www.aquariaveldhuis.nl/nl/'),
-(6, 'Discuscompleet', 'http://www.discuscompleet.nl/'),
 (7, 'discus passie', 'http://www.discuspassie.nl/'),
 (8, 'discusshop', 'https://discusshop.nl/'),
 (9, 'jmd aqua light', 'http://www.jmbaqualight.nl/'),
@@ -82,4 +81,5 @@ INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
 (13, 'koidream', 'https://www.koidream.com/'),
 (14, 'daphnia boxtel', 'http://www.daphniaboxtel.nl/'),
 (15, 'ruto', 'https://www.ruto.nl/'),
-(16, 'discus vis totaal', 'http://www.discusvistotaal.nl/');
+(16, 'discus vis totaal', 'http://www.discusvistotaal.nl/'),
+(6, 'Discuscompleet', 'http://www.discuscompleet.nl/');
