@@ -145,9 +145,9 @@ if (isset($_GET["id"])) {
                     ?>
                     <strong>Aantal forum topics
                     </strong><br>
-                    <?php echo $x_topic->t; ?><br>
+                    <?php if($x_topic->t == 0) { echo 'Geen topics'; } else { echo $x_topic->t; } ?><br>
                     <strong>Aantal forum berichten</strong><br>
-                    <?php echo $x_reply->r; ?><br>
+                    <?php if($x_reply->r == 0) { echo 'Geen berichten'; } else { echo $x_reply->r; } ?><br>
                     </div>
                 </div>
             </div>
