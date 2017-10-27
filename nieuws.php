@@ -41,372 +41,376 @@
           <div class="panel-heading border-colors">Nieuws</div>
           <div class="panel-body padding-padding table-responsive">
             <table>
-              <tr>
-                <th> Titel</th>
-                <th>Reactie</th>
-                <th>Catogorie</th>
-                <th>Datum</th>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+              <thead>
+                <tr>
+                  <th> Titel</th>
+                  <th>Reactie</th>
+                  <th>Catogorie</th>
+                  <th>Datum</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
                 <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-               <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
-              <tr>
-                <td>Lorem ipsum </td>
-                <td>1</td>
-                <td>website</td>
-                <td>26-09-2017</td>
-              </tr>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+                <tr>
+                  <td>Lorem ipsum </td>
+                  <td>1</td>
+                  <td>website</td>
+                  <td>26-09-2017</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>

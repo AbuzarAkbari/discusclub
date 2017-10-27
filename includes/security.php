@@ -40,7 +40,7 @@ foreach ($res as $value) {
 
 // if not set everyone can see it
 if (!isset($levels)) {
-    $levels = ["gast", "gebruiker", "lid", "redacteur", "admin"];
+    $levels = ["gast", "gebruiker", "lid"];
 }
 
 if (!$logged_in) {
