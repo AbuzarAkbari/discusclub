@@ -84,3 +84,9 @@ INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
 (15, 'ruto', 'https://www.ruto.nl/'),
 (16, 'discus vis totaal', 'http://www.discusvistotaal.nl/'),
 (6, 'Discuscompleet', 'http://www.discuscompleet.nl/');
+
+INSERT INTO `news`(`sub_category_id`, `title`, `content`) VALUES
+(1, 'dinges enzo', 'bla bla bla...');
+
+INSERT INTO `news_reply`(`user_id`, `news_id`, `content`) VALUES
+(1, 1, "reactie dinges enzo bla bla");
