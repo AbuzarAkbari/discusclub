@@ -58,7 +58,7 @@ if (isset($_GET["id"])) {
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Informatie</div>
                 <div class="panel-body text-left">
-                    <div class="text-center"><div  style="background-image:url('<?php echo isset($user_data->profile_img) ? $user_data->profile_img : ""; ?>')"; class="img "></div></div>
+                    <div class="text-center"><div  style="background-image:url('images/profiel/<?php echo isset($user_data->profile_img) ? $user_data->profile_img : ""; ?>')"; class="img "></div></div>
                     <div class="col-md-12">
                         <strong>Locatie</strong><br>
                         <?php echo isset($user_data->location) ? $user_data->location : "Onbekend"; ?><br>
@@ -109,8 +109,7 @@ if (isset($_GET["id"])) {
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Statistieken</div>
                 <div class="panel-body text-left">
-                    <strong>Aantal forum topics
-                    </strong><br>
+
                     <?php
                         //Get number of topic from logged_in user
                         $topicSql = "SELECT COUNT(id) AS t FROM topic WHERE user_id = ?";
@@ -125,10 +124,30 @@ if (isset($_GET["id"])) {
                         $replyResult->bindParam(1, $user_data->id);
                         $replyResult->execute();
                         $x_reply = $replyResult->fetch(PDO::FETCH_OBJ);
+
+                        if($x_topic->t > 1)
+                        {
+                            $x_topic->t = $x_topic->t.' topics';
+                        }
+                        else
+                        {
+                            $x_topic->t = $x_topic->t.' topic';
+                        }
+
+                        if($x_reply->r > 1)
+                        {
+                            $x_reply->r = $x_reply->r.' berichten';
+                        }
+                        else
+                        {
+                            $x_reply->r = $x_reply->r.' bericht';
+                        }
                     ?>
-                    <?php echo $x_topic->t; ?> topics<br>
+                    <strong>Aantal forum topics
+                    </strong><br>
+                    <?php echo $x_topic->t; ?><br>
                     <strong>Aantal forum berichten</strong><br>
-                    <?php echo $x_reply->r; ?> berichten<br>
+                    <?php echo $x_reply->r; ?><br>
                     </div>
                 </div>
             </div>
