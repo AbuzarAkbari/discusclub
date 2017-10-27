@@ -1,4 +1,4 @@
-<?php $levels = ["lid"];
+<?php $levels = ["lid", "gebruiker"];
 require_once("includes/security.php");
 require_once('dbc.php');
 
