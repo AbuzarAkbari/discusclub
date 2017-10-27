@@ -1,9 +1,7 @@
 <?php
-if(isset($_POST['post_add_topic']))
-{
+if (isset($_POST['post_add_topic'])) {
     require_once("includes/security.php");
-    if($logged_in)
-    {
+    if ($logged_in) {
         require_once('dbc.php');
 
         $subId = $_POST['subId'];
@@ -26,5 +24,4 @@ if(isset($_POST['post_add_topic']))
 
         header("Location: http://localhost/htdocs-backup/Stage/discusclub/bericht.php?id=".$lastId);
     }
-
 }
