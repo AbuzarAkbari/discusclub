@@ -41,12 +41,22 @@ require_once("includes/security.php");?>
         <div class="row">
             <div class="col-md-4">
                 <div class="UserTab">
-                    <img src="http://via.placeholder.com/350x150" class="ImgUser ImageStatic" />
+                    <img src="http://via.placeholder.com/500x500" class="ImgUser ImageStatic" />
                     <div class="Username"><b>Gebruikersnaam van user</b></div>
                 </div>
-                <div class="OtherUsers ImageStatic">
-                    <img src="http://via.placeholder.com/350x150">Gebruikersnaam
-                    tekst die ze zelf invullen
+                <div class="OtherTab">
+                    <div class="col-md-12">
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <a href="gebruikers.php" class="UsernameTab"><b>Gebruikersnaam</b></a>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <a href="gebruikers.php" class="UsernameTab"><b>Gebruikersnaam</b></a>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-8">
