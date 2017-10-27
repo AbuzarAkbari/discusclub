@@ -45,7 +45,7 @@
                   </div>
                 </div>
             </div>
-            
+
             <?php
               $haal_albums = "SELECT DISTINCT *, COUNT(album_has_image.album_id) AS aantal_fotos FROM album LEFT JOIN album_has_image ON album.id = album_has_image.album_id JOIN user ON album.user_id = user.id JOIN image ON album_has_image.image_id = image.id GROUP BY album.id ";
 
@@ -67,7 +67,7 @@
                                     Aantal foto's: <i><?php echo $album['aantal_fotos']; ?></i><br>
                                     Datum: <i><?php echo $album['created_at']; ?></i><br>
                                 </p>
-                                <img class="text-center" src="<?php echo $album['path'] ?>" alt=""><br><br>
+                                <div class="text-center"><img class="text-center imgAlbum" src="<?php echo $album['path'] ?>" alt=""></div><br><br>
                                 <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
                             </div>
                         </div>

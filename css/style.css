@@ -474,3 +474,13 @@ li.dropdown:hover > .dropdown-menu {
     border: 1px solid black;
     margin-top: 2%;
 }
+
+.imgAlbum {
+    margin: 0;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+}
