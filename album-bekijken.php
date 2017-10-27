@@ -1,4 +1,6 @@
-<?php require_once("includes/security.php"); ?>
+<?php
+$levels = ["gast", "lid", "gebruiker"];
+require_once("includes/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,15 +1,18 @@
-<?php include_once("includes/security.php"); ?>
+<?php
+$levels = ["gebruiker"];
+include_once("includes/security.php"); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Discusclub Holland</title>
-
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400" />
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/album-upload.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
@@ -29,57 +32,32 @@
   fjs.parentNode.insertBefore(js, fjs)
 })(document, 'script', 'facebook-jssdk')
 </script>
-    <? require_once("includes/nav.php"); ?>
-    <div class="container-fluid">
-        <div class="row sliderbox">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
+<?php require_once("includes/nav.php"); ?>
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="images/vissen1.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen2.jpg" alt="fishing">
-                    </div>
-
-                    <div class="item">
-                        <img src="images/vissen3.jpg" alt="vissen">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
     <div class="container main">
         <div class="row">
             <br><br>
-            <div class="panel panel-default">
-              <div class="panel-heading">
+            <div class="panel panel-primary">
+              <div class="panel-heading border-color-blue">
                 <h3 class="panel-title">Album uploaden</h3>
               </div>
               <div class="panel-body">
-                <form class="col-md-6" action="" method="post">
-                    <input class="form-control" type="text" name="title" placeholder="Titel"><br>
-                    <input  class="form-control" type="file" accept="image/*" name="file"><br>
-                    <input type="submit" class="btn btn-success" name="" value="Uploaden">
-                </form>
+                  <div class="contact">
+                  <form method="post" enctype="multipart/form-data"  action="#" id="image-form">
+
+                        <div class="one_col file-upload">
+                            <div id="file"><ul id="image-list"><p>Click or Drag in an image to upload</p></ul></div>
+                            <input type="file" class="file" name="images" id="images"/>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="one_col">
+                            <input id="submit" type="submit" value="Voegtoe" class="btn btn-primary" />
+                        </div>
+                        <span class="clear"></span>
+                    </form>
+                </div>
+
             </div>
             </div><br>
         </div>
@@ -88,6 +66,8 @@
     <footer>
 <?php require 'footer.php' ; ?>
     </footer>
+    <script src="js/album-upload.js"></script>
+
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

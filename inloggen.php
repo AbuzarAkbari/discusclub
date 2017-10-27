@@ -1,4 +1,6 @@
-<?php require("includes/security.php"); ?>
+<?php
+$levels = ["gast", "lid", "gebruiker"];
+require("includes/security.php"); ?>
 <?php
 $error = false;
 if (isset($_POST["send"])) {
