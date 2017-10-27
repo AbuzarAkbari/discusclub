@@ -9,8 +9,8 @@
         <div class='dropdown'>
           <a href="gebruiker" class='dropbtn'><?php echo $name; ?></a>
           <div class='dropdown-content'>
-            <a href='inbox.php'>Berichten </a>
-            <a href='profiel-aanpassen.php'>Profiel aanpasen </a>
+            <a href='message.php'>Berichten</a>
+            <a href='profiel-aanpassen.php'>Profiel aanpasen</a>
           </div>
       </div>
         <a href="index.php?logout=true">Uitloggen</a>
@@ -43,14 +43,14 @@
                 <ul class='nav navbar-nav'>
                     <li><a href='index.php'>Home</a></li>
                     <li class='dropdown'>
-                        <a href='overons.php' class='dropdown-toggle'>Over ons </a>
+                        <a href='overons.php' class='dropdown-toggle'>Over ons</a>
                         <ul class='dropdown-menu'>
                             <li><a href='ontstaan.php'>Ontstaan Discus Club Holland</a></li>
                             <li><a href='nieuws.php'>Nieuws</a></li>
                         </ul>
                     </li>
                     <li class='dropdown'>
-                        <a href='form.php' class='dropdown-toggle'>Forum </a>
+                        <a href='form.php' class='dropdown-toggle'>Forum</a>
                         <ul class='dropdown-menu'>
                             <li><a href='actievetopics.php'>Actieve topics</a></li>
                             <li><a href='nieuwetopics.php'>Nieuw topics</a></li>
@@ -62,19 +62,19 @@
                     </li>
                     <li><a href='wordlid.php'>Word lid!</a></li>
                     <li class='dropdown'>
-                        <a href='sponsoren.php' class='dropdown-toggle'>Sponsoren </a>
+                        <a href='sponsoren.php' class='dropdown-toggle'>Sponsoren</a>
                         <ul class='dropdown-menu'>
                             <li><a href='sponsoren-worden.php'>Ook sponsor worden?</a></li>
                             <li><a href='sponsoren.php'>Onze sponsoren</a></li>
                         </ul>
                     </li>
                     <li class='dropdown'>
-                        <a href='form.php' class='dropdown-toggle'>Album </a>
-                        <ul class='dropdown-menu'>
-                            <?php if ($logged_in) { ?>
+                        <a href='form.php' class='dropdown-toggle'>Album</a>
+                        <?php if ($logged_in) { ?>
+                            <ul class='dropdown-menu'>
                                 <li><a href='album-upload.php'>Upload</a></li>
-                            <?php } ?>
-                        </ul>
+                            </ul>
+                        <?php } ?>
                     </li>
                 <li><a href='contact.php'>Contact</a></li>
                 </ul>
