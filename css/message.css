@@ -1,0 +1,78 @@
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: #0ba8ec;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #0ba8ec;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #0ba8ec;
+}
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+    background: #ffffff;
+}
+::-webkit-scrollbar-track:active {
+    background: #ffffff;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.imageBackgroundText {
+    background-image: url('https://cdn.discordapp.com/attachments/316307287931224075/373431989761736704/Discus-Club-foto-achtergrond.jpg');
+    width: 100%;
+    height: auto;
+}
+
+/*image scale static*/
+
+.ImageStatic {
+    position: relative;
+    float: left;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 5px;
+}
+
+/*images user*/
+.ImgUser {
+    width: 25px;
+    height: 25px;
+}
+
+/*other users*/
+.OtherUsers {
+    width: 25px;
+    height: 25px;
+}
+
+/*Username class*/
+.Username {
+    color: white;
+    font-size: 2rem;
+    line-height: 36px;
+}
+
+/*UserTab class*/
+.UserTab {
+    background: black;
+    height: 100%;
+    width: auto;
+    min-height: 36px;
+}
