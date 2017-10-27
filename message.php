@@ -85,6 +85,26 @@ require_once("includes/security.php");?>
                         <div class="UsernameTab"><b>Gebruikersnaam</b></div>
                         <div>tekst die ze zelf invullen</div>
                     </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
                 </div>
                 <div class="SearchUser">
                     <div class="input-group">
@@ -99,10 +119,8 @@ require_once("includes/security.php");?>
                     <div class="Username"><b>Gebruikersnaam van user</b></div>
                 </div>
                 <div class="imageBackgroundText flexcroll">
-                    <div class="">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
+                    <div class="" >
+
                     </div>
 
                 </div>
