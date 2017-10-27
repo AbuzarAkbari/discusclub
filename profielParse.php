@@ -104,10 +104,30 @@ if($logged_in) {
 
                 // if everything is ok, try to upload file
             } else {
-                $time = time();
-                $path = $target_dir.$time.'-'.$_FILES["profiel"]["name"];
+//                $time = time();
+//                $path = $target_dir.$time.'-'.$_FILES["profiel"]["name"];
+                $fragments = explode('.', $_FILES["profiel"]["name"]);
+                $path = $_SESSION["user"]->username . '.' . end($fragments);
+                array_pop($fragments);
 
-                if(move_uploaded_file($_FILES["profiel"]["tmp_name"], $path)) {
+                $extensions = [
+                    '.png',
+                    '.jpg',
+                    '.jpeg',
+                    '.gif'
+                ];
+
+                foreach ($extensions as $extension) {
+
+                    if (file_exists(__DIR__ . '/' . $target_dir . $_SESSION["user"]->username . $extension)) {
+                        unlink(__DIR__ . '/' . $target_dir . $_SESSION["user"]->username . $extension);
+                    }
+
+                }
+
+
+
+                if(move_uploaded_file($_FILES["profiel"]["tmp_name"], 'images/profiel/'.$path)) {
                     $sql = "INSERT INTO image (path) VALUES (?)";
                     $result = $dbc->prepare($sql);
                     $result->bindParam(1, $path);

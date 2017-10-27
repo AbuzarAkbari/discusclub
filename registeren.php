@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
@@ -59,11 +59,6 @@
                       Als u registreert gaat u akkoord met onze <a href="gebruiksvoorwaarden.php">gebruiksvoorwaarden</a>.<br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
-
-                      <div class="gelukt message">blablabla gelukt, <a href="#" class="linkTekst">login</a> </div>
-                      <div class="error message">Error er iets mis gegaan <a href="#" class="linkTekst">Error</a></div>
-                      <div class="warning message">Warning al bases belong to us <a href="#" class="linkTekst">Waring</a></div>
-
 
                   </form>
                     <?php

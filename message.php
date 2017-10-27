@@ -1,5 +1,6 @@
-<?php $levels = [];
-require_once("includes/security.php"); ?>
+<?php
+$levels = ["lid", "gebruiker"];
+require_once("includes/security.php");?>
 <!DOCTYPE html>
 <html lang="en">
 
