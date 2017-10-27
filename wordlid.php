@@ -78,7 +78,7 @@
                         <input class="form-control" required type="text" name="" value="" placeholder="Adres *"><br>
                         <input class="form-control" required type="text" name="" value="" placeholder="Postcode *"><br>
                         <input class="form-control" required type="text" name="" value="" placeholder="Plaats *"><br>
-                        <input class="form-control" required type="number" name="" value="" placeholder="Telefoonnummer *"><br>
+                        <input class="form-control" required type="tel" name="" value="" placeholder="Telefoonnummer *"><br>
                         <input class="form-control" required type="text" name="" value="" placeholder="Rekeningnummer *"><br>
                         <input type="submit" class="btn btn-primary" name="send" value="Verzend">
                     </form>
