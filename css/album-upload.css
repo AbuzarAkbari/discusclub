@@ -113,15 +113,15 @@
 }
 
 .one_col #submit {
-    border-top-color: #4d4d4d;
-    background: #4d4d4d;
-    color: #d6d6d6;
-    cursor: pointer;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
 }
 
 .one_col #submit:hover {
-    background: #333;
-    color: #d6d6d6;
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
 }
 
 .clear {
