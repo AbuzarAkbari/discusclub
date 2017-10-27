@@ -54,5 +54,5 @@ $levels[] = "admin";
 $levels[] = "redacteur";
 
 if (!in_array($current_level, $levels)) {
-    die("U mag hier niet komen. <a href=\"inloggen.php\">login</a> om verder te gaan.");
+    header("Location: inloggen?redirect=" . $_SERVER["REQUEST_URI"]);
 }

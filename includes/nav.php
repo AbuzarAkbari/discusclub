@@ -69,7 +69,7 @@
                         </ul>
                     </li>
                     <li class='dropdown'>
-                        <a href='form.php' class='dropdown-toggle'>Album</a>
+                        <a href='albums.php' class='dropdown-toggle'>Album</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
                                 <li><a href='album-upload.php'>Upload</a></li>
