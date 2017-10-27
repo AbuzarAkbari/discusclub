@@ -65,7 +65,7 @@ if (isset($_GET["id"])) {
                         <strong>Leeftijd</strong><br>
                         <?php $leeftijd = date_diff(date_create(date('Y-m-d')), date_create($user_data->birthdate))->format('%y');  ?>
                         <?php echo isset($user_data->birthdate) ? $leeftijd : "Onbekend"; ?><br>
-                        <strong>rol</strong> <br>
+                        <strong>Rol</strong> <br>
                         <?php echo isset($user_data->role_name) ? $user_data->role_name : "Onbekend"; ?><br>
                         <strong>Geregistreerd</strong><br>
                         <?php echo isset($user_data->created_at) ? $user_data->created_at : "Onbekend"; ?><br>
