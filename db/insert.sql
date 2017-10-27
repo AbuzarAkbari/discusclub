@@ -59,8 +59,8 @@ INSERT INTO `album`(`title`, `user_id`) VALUES
 INSERT INTO `album_has_image`(`album_id`, `image_id`) VALUES
 (1, 1);
 
-INSERT INTO `message`(`message`, `user_1_id`, `user_2_id`) VALUES
-('bla', 1, 1);
+INSERT INTO `message`(`title`, `message`, `user_1_id`, `user_2_id`) VALUES
+('titel', 'bla', 1, 1);
 
 INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
 (2, 'eSHa Aquariumproducten', 'http://www.eshalabs.eu/nederlands/'),
