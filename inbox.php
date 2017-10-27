@@ -55,7 +55,7 @@ require_once('dbc.php'); ?>
                             foreach ($rows as $message) :
                                 ?>
                                 <tr>
-                                    <td><a href=""><?php
+                                    <td><a href="/message.php?id=<?php echo $message->id; ?>"><?php
                                      echo $message->title;
                                     ?></a></td>
                                     <td><a href="/gebruiker.php?id=<?php echo $_SESSION["user"]->id === $message->u1_id ? $message->u2_id : $message->u1_id; ?>"><?php
