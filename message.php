@@ -44,27 +44,78 @@ require_once("includes/security.php");?>
                     <img src="http://via.placeholder.com/500x500" class="ImgUser ImageStatic" />
                     <div class="Username"><b>Gebruikersnaam van user</b></div>
                 </div>
-                <div class="OtherTab">
-                    <div class="col-md-12">
-                    </div>
+                <div class="OtherTab flexcroll">
                     <div class="Other">
                         <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <a href="gebruikers.php" class="UsernameTab"><b>Gebruikersnaam</b></a>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
                         <div>tekst die ze zelf invullen</div>
                     </div>
                     <div class="Other">
                         <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <a href="gebruikers.php" class="UsernameTab"><b>Gebruikersnaam</b></a>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
                         <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                    <div class="Other">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+                </div>
+                <div class="SearchUser">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                      <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary ButtonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
                     </div>
                 </div>
             </div>
             <div class="col-md-8">
-            </div>
-            <div class="imageBackgroundText">
+                <div class="UserTab">
+                    <img src="http://via.placeholder.com/500x500" class="ImgUser ImageStatic" />
+                    <div class="Username"><b>Gebruikersnaam van user</b></div>
+                </div>
+                <div class="imageBackgroundText flexcroll">
+                    <div class="">
+                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
+                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+
+                </div>
+                <div class="SearchUser">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                      <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary ButtonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <br>    <br>
     <footer>
 <?php require 'footer.php' ; ?>
     </footer>
