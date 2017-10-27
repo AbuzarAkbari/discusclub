@@ -1,8 +1,31 @@
 <?php $levels = ["lid"];
 require_once("includes/security.php");
-require_once('dbc.php'); ?>
+require_once('dbc.php');
 
-<?php
+if (isset($_POST['post_reply'])) {
+    require_once("includes/security.php");
+    if ($logged_in) {
+        require_once('dbc.php');
+
+        $reply_content = $_POST['reply_content'];
+        $bericht_id = $_POST['bericht_id'];
+        $reply_auteur = $_SESSION['user']->id;
+        $sql3 = "INSERT INTO news_reply (news_id, user_id, content) VALUES (:bericht_id, :reply_auteur, :reply_content)";
+
+        $sql = "UPDATE news SET last_changed = NOW() WHERE id = :bericht_id";
+        $result = $dbc->prepare($sql);
+        $result->bindParam(':bericht_id', $bericht_id);
+        $result->execute();
+
+
+        $result3 = $dbc->prepare($sql3);
+        $result3->bindParam(':bericht_id', $bericht_id);
+        $result3->bindParam(':reply_auteur', $reply_auteur);
+        $result3->bindParam(':reply_content', $reply_content);
+        $result3->execute();
+        header("Location: news_post.php?id=" . $bericht_id . "#post-" . $dbc->lastInsertId());
+    }
+}
 
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -12,7 +35,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
 
-$sql = "INSERT INTO ips (user_id, ip_adres, created_at) VALUES (1, '{$ip}', NOW())";
+$sql = "INSERT INTO ips (user_id, ip_adres) VALUES (1, '{$ip}')";
 $result = $dbc->prepare($sql);
 $result->execute();
 
@@ -298,7 +321,7 @@ require_once("includes/nav.php");
                     <h3 class="panel-title">Antwoord toevoegen</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" action="berichtParse.php" method="post">
+                    <form class="form-horizontal" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
                             <textarea required class="form-control editor" col="8" rows="8" name="reply_content"

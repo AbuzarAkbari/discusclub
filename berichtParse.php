@@ -1,8 +1,7 @@
-<?php 
-if(isset($_POST['post_reply']))
-{
+<?php
+if (isset($_POST['post_reply'])) {
     require_once("includes/security.php");
-    if($logged_in) {
+    if ($logged_in) {
         require_once('dbc.php');
 
         $reply_content = $_POST['reply_content'];
@@ -21,6 +20,6 @@ if(isset($_POST['post_reply']))
         $result3->bindParam(':reply_auteur', $reply_auteur);
         $result3->bindParam(':reply_content', $reply_content);
         $result3->execute();
-        header("Location: http://localhost/htdocs-backup/Stage/discusclub/bericht.php?id=" . $bericht_id . "#post-" . $dbc->lastInsertId());
+        header("Location: bericht.php?id=" . $bericht_id . "#post-" . $dbc->lastInsertId());
     }
 }
