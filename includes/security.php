@@ -18,3 +18,41 @@ if ($logged_in) {
       ":id" => $_SESSION["user"]->id,
     ]);
 }
+
+// stuff for blocked ips
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
+
+$sth = $dbc->prepare("SELECT blocked FROM ips WHERE ip_adres = :ip");
+$sth->execute([":ip" => $ip]);
+$res = $sth->fetchAll(PDO::FETCH_OBJ);
+
+foreach ($res as $value) {
+    if ($value->blocked === "1") {
+        die("U bent geblokkeerd");
+    }
+}
+
+// if not set everyone can see it
+if (!isset($levels)) {
+    $levels = ["gast", "gebruiker", "lid", "redacteur", "admin"];
+}
+
+if (!$logged_in) {
+    $current_level = "gast";
+} else {
+    $current_level = $_SESSION["user"]->role_name;
+}
+
+// they can always go on every page, so I just always push them both.
+$levels[] = "admin";
+$levels[] = "redacteur";
+
+if (!in_array($current_level, $levels)) {
+    die("U mag hier niet komen. <a href=\"inloggen.php\">login</a> om verder te gaan.");
+}

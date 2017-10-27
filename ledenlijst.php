@@ -1,4 +1,6 @@
-<?php require_once("includes/security.php");
+<?php
+$levels = [];
+require_once("includes/security.php");
 require_once('dbc.php'); ?>
 <!DOCTYPE html>
 <html lang="en">

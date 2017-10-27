@@ -1,4 +1,6 @@
-<?php require_once("includes/security.php");
+<?php
+$levels = ["lid", "gebruiker"];
+require_once("includes/security.php");
 require_once('dbc.php');
 $categorieenSql = "SELECT * FROM category";
 $categorieenResult = $dbc->prepare($categorieenSql);
@@ -106,11 +108,11 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 //                                    echo '<pre>';
 //                                    print_r($laatsteBericht);
 
-                                    if (isset($laatsteBericht[0]['reply_id'])): ?>
+                                if (isset($laatsteBericht[0]['reply_id'])) : ?>
                                         <td>reply gevonden</td>
-                                    <?php elseif(isset($laatsteBericht[0]['topic_id'])): ?>
+                                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     elseif(isset($laatsteBericht[0]['topic_id'])) : ?>
                                         <td>Topic gevonden</td>
-                                    <?php else: ?>
+                                    <?php else : ?>
                                         <td>Niks gevonden</td>
                                 <?php endif; ?>
 

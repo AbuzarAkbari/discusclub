@@ -68,25 +68,25 @@
             Wij bieden u de volgende opties:
             <br><br>
 
-            Optie 1<br>
-            <li> een banner welke rouleert op alle pagina’s van onze website en ons forum.</li>
-            <li>een advertentie ter grootte van een hele pagina full colour A4 formaat in ons clubblad gedurende een vol jaar voor de prijs van € 275,00 excl. btw. (totaal 4.000 oplagen)</li>
+            <strong>Optie 1</strong><br>
+            <li> Een banner welke rouleert op alle pagina’s van onze website en ons forum.</li>
+            <li>Een advertentie ter grootte van een hele pagina full colour A4 formaat in ons clubblad gedurende een vol jaar voor de prijs van € 275,00 excl. btw. (totaal 4.000 oplagen)</li>
             <li>Bij aanvang van uw sponsoring wordt uw advertentie zowel op het forum, in onze nieuwsberichten én op onze facebook-pagina gepromoot.</li>
             <br><br>
 
-            Optie 2<br>
-            <li> een banner welke rouleert op alle pagina’s van onze website en ons forum.</li>
-            <li>een advertentie ter grootte van een halve pagina full colour A4 formaat in ons clubblad gedurende een vol jaar voor de prijs van € 175,00 excl. btw. (totaal 4.000 oplagen)</li>
+            <strong>Optie 2</strong><br>
+            <li> Een banner welke rouleert op alle pagina’s van onze website en ons forum.</li>
+            <li>Een advertentie ter grootte van een halve pagina full colour A4 formaat in ons clubblad gedurende een vol jaar voor de prijs van € 175,00 excl. btw. (totaal 4.000 oplagen)</li>
             <li>Bij aanvang van uw sponsoring wordt uw advertentie zowel op het forum, in onze nieuwsberichten én op onze facebook-pagina gepromoot.</li>
             <br><br>
-            Optie 3<br>
-            <li> een banner welke rouleert op alle pagina’s van onze website en ons forum.</li>
-            <li>een advertentie ter grootte van 1/4 pagina full colour A4 formaat in ons clubblad gedurende een vol jaar voor de prijs van € 125,00 excl. btw. (totaal 4.000 oplagen)</li>
+            <strong>Optie 3</strong><br>
+            <li> Een banner welke rouleert op alle pagina’s van onze website en ons forum.</li>
+            <li>Een advertentie ter grootte van 1/4 pagina full colour A4 formaat in ons clubblad gedurende een vol jaar voor de prijs van € 125,00 excl. btw. (totaal 4.000 oplagen)</li>
             <li>Bij aanvang van uw sponsoring wordt uw advertentie zowel op het forum, in onze nieuwsberichten én op onze facebook-pagina gepromoot.</li>
             <br><br>
 
-            Optie 4<br>
-            <li>een banner welke rouleert op alle pagina’s van onze website en ons forum gedurende een vol jaar voor de prijs van € 100,00 excl. btw.</li>
+            <strong>Optie 4</strong><br>
+            <li>Een banner welke rouleert op alle pagina’s van onze website en ons forum gedurende een vol jaar voor de prijs van € 100,00 excl. btw.</li>
             <li>Bij aanvang van uw sponsoring wordt uw advertentie zowel op het forum, in onze nieuwsberichten én op onze facebook-pagina gepromoot.</li>
 <br><br>
             Wij zijn er als voltallig bestuur van overtuigd dat de bovenstaande opties voor allen een win-situatie opleveren en hopen dan ook u ervan overtuigd te hebben dat samenwerken met Discus Club Holland zeker geen verkeerde keuze is.
