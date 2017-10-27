@@ -344,6 +344,7 @@ li.dropdown:hover > .dropdown-menu {
 
 .border-color-blue {
     background-color: #0ba8ec !important;
+    border-color: #0ba8ec !important;
 }
 .border-color-black {
     background-color: #000 !important;
@@ -352,9 +353,6 @@ li.dropdown:hover > .dropdown-menu {
 
 .columns {
     column-count: 1;
-}
-.panel-primary > .panel-heading {
-    border-color: #000 !important;
 }
 
 .verticalLine {
@@ -471,6 +469,6 @@ li.dropdown:hover > .dropdown-menu {
     background: #c6e4f2;
 }
 
-.sponsor_vak{
+.sponsor_vak {
     margin-bottom: 2%;
 }
