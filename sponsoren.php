@@ -56,9 +56,9 @@
               $images = $imageResult->fetchAll(PDO::FETCH_ASSOC); 
             ?>
               <div class="col-md-6 col-sm-12 ruimte">
-                <a title="<?php echo $sponsor['name']; ?>" href="<?php echo $sponsor['url'] ?>">
+                <a  title="<?php echo $sponsor['name']; ?>" href="<?php echo $sponsor['url'] ?>">
                   <?php foreach($images as $image): ?>
-                <img src="<?php echo $image['path'] ?>">
+                <img class="sponsor_vak" src="<?php echo $image['path'] ?>">
                   <?php endforeach; ?>
                 </a>
               </div>
