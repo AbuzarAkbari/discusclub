@@ -1,4 +1,5 @@
-<?php require_once("includes/security.php"); ?>
+<?php $levels = ["gebruiker", "lid"];
+require_once("includes/security.php"); ?>
 <?php
 if (isset($_GET["id"])) {
     $sth = $dbc->prepare("SELECT u.id, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.id = :id");

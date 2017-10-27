@@ -11,6 +11,20 @@ if (isset($_GET["logout"])) {
 
 // check loggedin status
 $logged_in = !empty($_SESSION["user"]);
+
+// check if user still exists
+if ($logged_in) {
+    $sth = $dbc->prepare("SELECT id FROM user WHERE id = :id");
+    $sth->execute([":id" => $_SESSION["user"]->id]);
+    $res = $sth->fetch(PDO::FETCH_OBJ);
+    // log user out
+    if (empty($res)) {
+        $logged_in = false;
+        unset($_SESSION["user"]);
+    }
+}
+
+// update user last login time tingy
 if ($logged_in) {
     // to update last login date
     $sth = $dbc->prepare("UPDATE user SET last_changed = NOW() WHERE id = :id");
@@ -55,4 +69,5 @@ $levels[] = "redacteur";
 
 if (!in_array($current_level, $levels)) {
     header("Location: inloggen?redirect=" . $_SERVER["REQUEST_URI"]);
+    die();
 }
