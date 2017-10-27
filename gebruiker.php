@@ -62,7 +62,8 @@ if (isset($_GET["id"])) {
                         <strong>Locatie</strong><br>
                         <?php echo isset($user_data->location) ? $user_data->location : "Onbekend"; ?><br>
                         <strong>Leeftijd</strong><br>
-                        <?php echo isset($user_data->birthdate) ? $user_data->birthdate : "Onbekend"; ?><br>
+                        <?php $leeftijd = date_diff(date_create(date('Y-m-d')), date_create($user_data->birthdate))->format('%y');  ?>
+                        <?php echo isset($user_data->birthdate) ? $leeftijd : "Onbekend"; ?><br>
                         <strong>rol</strong> <br>
                         <?php echo isset($user_data->role_name) ? $user_data->role_name : "Onbekend"; ?><br>
                         <strong>Geregistreerd</strong><br>
@@ -109,9 +110,24 @@ if (isset($_GET["id"])) {
                 <div class="panel-body text-left">
                     <strong>Aantal forum topics
                     </strong><br>
-                    0 topics<br>
+                    <?php
+                        //Get number of topic from logged_in user
+                        $topicSql = "SELECT COUNT(id) AS t FROM topic WHERE user_id = ?";
+                        $topicResult = $dbc->prepare($topicSql);
+                        $topicResult->bindParam(1, $user_data->id);
+                        $topicResult->execute();
+                        $x_topic = $topicResult->fetch(PDO::FETCH_OBJ);
+
+                        //Get number of reply from logged_in user
+                        $replySql = "SELECT COUNT(id) AS r FROM reply WHERE user_id = ?";
+                        $replyResult = $dbc->prepare($replySql);
+                        $replyResult->bindParam(1, $user_data->id);
+                        $replyResult->execute();
+                        $x_reply = $replyResult->fetch(PDO::FETCH_OBJ);
+                    ?>
+                    <?php echo $x_topic->t; ?> topics<br>
                     <strong>Aantal forum berichten</strong><br>
-                    0 berichten<br>
+                    <?php echo $x_reply->r; ?> berichten<br>
                     </div>
                 </div>
             </div>
