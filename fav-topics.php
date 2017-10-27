@@ -44,6 +44,7 @@ require_once('dbc.php'); ?>
 <br><br>
 <div class="container main">
     <div class="row">
+        <div class="col-md-12">
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors">Favoriete topics</div>
                 <div class="panel-body padding-padding table-responsive">
@@ -103,6 +104,7 @@ require_once('dbc.php'); ?>
                         <?php endforeach; ?>
                     </div>
                 </table>
+            </div>
             </div>
         </div>
     </div>

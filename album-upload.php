@@ -52,7 +52,7 @@ include_once("includes/security.php"); ?>
                         </div>
 
                         <div class="one_col">
-                            <input id="submit" type="submit" value="Voegtoe" class="btn btn-primary" />
+                            <input id="submit" type="submit" value="Upload album" class="btn btn-primary" />
                         </div>
                         <span class="clear"></span>
                     </form>

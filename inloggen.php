@@ -12,7 +12,11 @@ if (isset($_POST["send"])) {
     if (!empty($res)) {
         if (password_verify($_POST["password"], $res->password)) {
             $_SESSION["user"] = $res;
-            header("Location: /");
+            if (isset($_GET["redirect"])) {
+                header("Location: " . $_GET["redirect"]);
+            } else {
+                header("Location: /");
+            }
         } else {
             $error = true;
         }
@@ -57,11 +61,18 @@ if (isset($_POST["send"])) {
     <div class="container main">
         <div class="row">
           <br><br>
+            <?php
+            if (isset($_GET["redirect"])) {
+                ?>
+                <div class="message warning">Login om verder te gaan.</div>
+                <?php
+            }
+            ?>
           <div class="panel panel-primary">
               <div class="panel-heading panel-heading1">
                   <h4>Inloggen</h4></div>
                 <div class="panel-body">
-                  <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                  <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
                       <label for="username">Gebruikersnaam</label>
                       <input class="form-control" required type="text" name="username" id="username" value="" placeholder="Naam "><br>
                       <label for="password">Wachtwoord</label>
