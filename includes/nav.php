@@ -51,14 +51,14 @@
                     </li>
                     <li class='dropdown'>
                         <a href='form.php' class='dropdown-toggle'>Forum</a>
-                        <ul class='dropdown-menu'>
-                            <li><a href='actievetopics.php'>Actieve topics</a></li>
-                            <li><a href='nieuwetopics.php'>Nieuw topics</a></li>
                             <?php if ($logged_in) { ?>
-                                <li><a href='fav-topics.php'>Favoriete topics</a></li>
-                                <li><a href='ledenlijst.php'>Ledenlijst</a></li>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='actievetopics.php'>Actieve topics</a></li>
+                                    <li><a href='nieuwetopics.php'>Nieuw topics</a></li>
+                                    <li><a href='fav-topics.php'>Favoriete topics</a></li>
+                                    <li><a href='ledenlijst.php'>Ledenlijst</a></li>
+                                </ul>
                             <?php } ?>
-                        </ul>
                     </li>
                     <li><a href='wordlid.php'>Word lid!</a></li>
                     <li class='dropdown'>

@@ -37,3 +37,22 @@ foreach ($res as $value) {
         die("U bent geblokkeerd");
     }
 }
+
+// if not set everyone can see it
+if (!isset($levels)) {
+    $levels = ["gast", "gebruiker", "lid", "redacteur", "admin"];
+}
+
+if (!$logged_in) {
+    $current_level = "gast";
+} else {
+    $current_level = $_SESSION["user"]->role_name;
+}
+
+// they can always go on every page, so I just always push them both.
+$levels[] = "admin";
+$levels[] = "redacteur";
+
+if (!in_array($current_level, $levels)) {
+    die("U mag hier niet komen. <a href=\"inloggen.php\">login</a> om verder te gaan.");
+}

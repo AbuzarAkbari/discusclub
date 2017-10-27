@@ -1,9 +1,11 @@
-    <?php require_once("includes/security.php");
-    require_once('dbc.php');
-    $categorieenSql = "SELECT * FROM category";
-    $categorieenResult = $dbc->prepare($categorieenSql);
-    $categorieenResult->execute();
-    $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
+<?php
+$levels = ["gebruiker", "lid"];
+require_once("includes/security.php");
+require_once('dbc.php');
+$categorieenSql = "SELECT * FROM category";
+$categorieenResult = $dbc->prepare($categorieenSql);
+$categorieenResult->execute();
+$results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">

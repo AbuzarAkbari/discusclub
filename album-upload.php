@@ -1,4 +1,6 @@
-<?php include_once("includes/security.php"); ?>
+<?php
+$levels = ["gebruiker"];
+include_once("includes/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -7,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Discusclub Holland</title>
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400" />
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/album-upload.css">
@@ -43,17 +45,17 @@
                   <div class="contact">
                   <form method="post" enctype="multipart/form-data"  action="#" id="image-form">
 
-                		<div class="one_col file-upload">
-                			<div id="file"><ul id="image-list"><p>Click or Drag in an image to upload</p></ul></div>
-                			<input type="file" class="file" name="images" id="images"/>
-                			<span class="error"></span>
-                		</div>
+                        <div class="one_col file-upload">
+                            <div id="file"><ul id="image-list"><p>Click or Drag in an image to upload</p></ul></div>
+                            <input type="file" class="file" name="images" id="images"/>
+                            <span class="error"></span>
+                        </div>
 
-                		<div class="one_col">
-                			<input id="submit" type="submit" value="Voegtoe" class="btn btn-primary" />
-                		</div>
-                		<span class="clear"></span>
-                	</form>
+                        <div class="one_col">
+                            <input id="submit" type="submit" value="Voegtoe" class="btn btn-primary" />
+                        </div>
+                        <span class="clear"></span>
+                    </form>
                 </div>
 
             </div>

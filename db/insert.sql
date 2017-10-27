@@ -1,5 +1,6 @@
 INSERT INTO `role`(`name`) VALUES
 ('gast'),
+('gebruiker'),
 ('lid'),
 ('redacteur'),
 ('admin');
