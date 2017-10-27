@@ -9,8 +9,8 @@ if($logged_in) {
     if(isset($_POST["profiel_parse"])) {
 
         //Start query
+        $query = "UPDATE user SET";
         $userId = $_POST["user_id"];
-        $query = "UPDATE user SET id = :userId";
         $bindings = [":userId" => $userId];
 
         //Nieuwsbrief
@@ -42,7 +42,7 @@ if($logged_in) {
         if(isset($_POST['date']))
         {
             $date = $_POST['date'];
-            $query .= ", birthdate = :birthdate";
+            $query .= " birthdate = :birthdate";
             $bindings[":birthdate"] = $date;
         }
 
@@ -63,7 +63,7 @@ if($logged_in) {
         }
 
         //Image check
-        if(isset($_POST['profiel']))
+        if(isset($_FILES['profiel']))
         {
             $target_dir = "images/profiel/";
             $target_file = $target_dir . basename($_FILES["profiel"]["name"]);
@@ -107,38 +107,32 @@ if($logged_in) {
                 $time = time();
                 $path = $target_dir.$time.'-'.$_FILES["profiel"]["name"];
 
-                if (move_uploaded_file($_FILES["profiel"]["tmp_name"], $path)) {
+                if(move_uploaded_file($_FILES["profiel"]["tmp_name"], $path)) {
                     $sql = "INSERT INTO image (path) VALUES (?)";
                     $result = $dbc->prepare($sql);
                     $result->bindParam(1, $path);
                     $result->execute();
                     $id = $dbc->lastInsertId();
 
-                    //verwijder oude img  if id = 1 (default) niet verwijderen  uit db en uit folder
-
-
-                    $deleteSql = "DELETE FROM image WHERE id = :id";
-                    $deleteResult = $dbc->prepare($deleteSql);
-                    $deleteResult->bindParam(':id', $_POST["profile_img_id"]);
-                    $deleteResult->execute();
-
-                    $updateSql = "UPDATE user SET profile_img = :profile_image_id WHERE id = :id";
-                    $query .= ", profile_img = :profile_img";
-                    $bindings[":profile_img_id"] = $id;
+                    //Update user table->profile_img
+                    $query .= ", profile_img = :profile_image";
+                    $bindings[":profile_image"] = $id;
 
                 } else {
                     echo "Sorry, there was an error uploading your file.";
+                    exit();
                 }
-
             }
         }
 
         //End query
         $query .= " WHERE id = :userId";
+
         echo "<pre>";
         var_dump($query);
         var_dump($bindings);
         echo "</pre>";
+
         $result = $dbc->prepare($query);
         $result->execute($bindings);
 
