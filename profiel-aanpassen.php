@@ -96,20 +96,20 @@ if (isset($_GET["id"])) {
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
-      $( function() {
+    $( function() {
         $( "#datepicker" ).datepicker({
-          changeMonth: true,
-          changeYear: true,
-          yearRange: "-100:+0",
-          defaultDate: '01/01/1980'
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-100:+0",
+            defaultDate: '01/01/1980'
         });
-      } );
-      $( function() {
+    } );
+    $( function() {
         $( "#datepicker" ).datepicker();
         $( "#anim" ).on( "change", function() {
-          $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+            $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
         });
-      } );
-  </script>
+    } );
+    </script>
 </body>
 </html>
