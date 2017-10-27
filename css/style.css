@@ -372,12 +372,12 @@ li.dropdown:hover > .dropdown-menu {
 
 .message {
     border-radius: 0.3em;
-    width: 90%;
     color: white;
     padding: 1em;
     font-size: 1.5rem;
     margin: 1em auto;
     text-align: center;
+    width: 90%;
 }
 .linkTekst {
     color: white;
@@ -390,6 +390,7 @@ li.dropdown:hover > .dropdown-menu {
 /*Warining*/
 .warning {
     background: #e67e22;
+    width: 100%;
 }
 
 /*Gelukt*/
