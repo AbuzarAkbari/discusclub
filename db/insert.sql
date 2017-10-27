@@ -1,6 +1,6 @@
 INSERT INTO `role`(`name`) VALUES
 ('gast'),
-('clublid'),
+('lid'),
 ('redacteur'),
 ('admin');
 
@@ -23,7 +23,8 @@ INSERT INTO `image`(`path`) VALUES
 ('images/sponsor/discusvistotaal.gif');
 
 INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
-('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 4);
+('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 4),
+('jane', 'doe', 'jane_doe@example.com', 'bla', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 4);
 
 INSERT INTO `category` (`name`) VALUES
 ('Mededelingen en Nieuws'),
@@ -59,8 +60,12 @@ INSERT INTO `album`(`title`, `user_id`) VALUES
 INSERT INTO `album_has_image`(`album_id`, `image_id`) VALUES
 (1, 1);
 
-INSERT INTO `message`(`title`, `message`, `user_1_id`, `user_2_id`) VALUES
-('titel', 'bla', 1, 1);
+INSERT INTO `message`(`title`, `message`) VALUES
+('titel', 'bla');
+
+INSERT INTO `user_has_message`(`message_id`, `user_id_1`, `user_id_2`) VALUES
+(1, 2, 1),
+(1, 1, 2);
 
 INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
 (2, 'eSHa Aquariumproducten', 'http://www.eshalabs.eu/nederlands/'),

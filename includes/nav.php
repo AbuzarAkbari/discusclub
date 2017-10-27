@@ -9,7 +9,7 @@
         <div class='dropdown'>
           <a href="gebruiker" class='dropbtn'><?php echo $name; ?></a>
           <div class='dropdown-content'>
-            <a href='inbox.php'>Berichten </a>
+            <a href='message.php'>Berichten </a>
             <a href='profiel-aanpassen.php'>Profiel aanpasen </a>
           </div>
       </div>
@@ -70,11 +70,11 @@
                     </li>
                     <li class='dropdown'>
                         <a href='form.php' class='dropdown-toggle'>Album </a>
-                        <ul class='dropdown-menu'>
-                            <?php if ($logged_in) { ?>
+                        <?php if ($logged_in) { ?>
+                            <ul class='dropdown-menu'>
                                 <li><a href='album-upload.php'>Upload</a></li>
-                            <?php } ?>
-                        </ul>
+                            </ul>
+                        <?php } ?>
                     </li>
                 <li><a href='contact.php'>Contact</a></li>
                 </ul>
