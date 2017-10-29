@@ -1,4 +1,14 @@
+# NC non case senditive
+# L last rule (break the check)
+
+# turn engine on
 RewriteEngine on
 
+# remove .php
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.+)$ $1.php [L,NC,QSA]
+
+# if it doesn't exist redirect it to pages folder
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ /pages/$1 [NC]
