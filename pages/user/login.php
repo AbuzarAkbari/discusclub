@@ -79,7 +79,7 @@ if (isset($_POST["send"])) {
 
                       <input id="onthoud" class="" type="checkbox" name="remember_me" value=""> <label for="onthoud">Onthoud mij</label><br>
 
-                      <a href="/user/wachtwoordvergeten">Naam of wachtwoord vergeten?</a><br><br>
+                      <a href="/user/password/forgot">Naam of wachtwoord vergeten?</a><br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Inloggen">
                   </form>

@@ -76,12 +76,12 @@
                             $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
                                 ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"]]);
                             ?>
-                            <div class="message gelukt">Het account is aangemaakt, <a href="/user/inloggen">login.</a></div>
+                            <div class="message gelukt">Het account is aangemaakt, <a href="/user/login">login.</a></div>
                             <?php
                         } else {
                             if ($res->email === $_POST["email"]) {
                                 ?>
-                                <div class="message error">Email is al in gebruik. <a href="/user/wachtwoordwijzigen">Wijzig wachtwoord.</a></div>
+                                <div class="message error">Email is al in gebruik. <a href="/user/password/forgot">Wijzig wachtwoord.</a></div>
                                 <?php
                             } else {
                                 ?>

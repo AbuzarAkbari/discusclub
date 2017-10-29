@@ -224,7 +224,7 @@ require_once("../../includes/components/nav.php");
                     <h3 class="panel-title">Reactie toevoegen</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" action="/forum/topicToevoegen" method="post">
+                    <form class="form-horizontal" action="/forum/add-topic" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
                                 <input type="text" class="form-control" name="add_topic_title"

@@ -9,7 +9,7 @@
         <div class='dropdown'>
           <a href="/user" class='dropbtn'><?php echo $name; ?></a>
           <div class='dropdown-content'>
-            <a href='/user/message'>Berichten</a>
+            <a href='/user/messenger'>Berichten</a>
             <a href='/user/conf'>Profiel aanpasen</a>
           </div>
       </div>
@@ -17,9 +17,9 @@
       </div>
         <?php } else { ?>
             <div class='inlog'>
-                <a href='/user/inloggen'>Inloggen</a>
-                <a href='/user/registeren'>Registreer</a>
-                <a href='/user/wachtwoordvergeten'>Wachtwoord vergeten?</a>
+                <a href='/user/login'>Inloggen</a>
+                <a href='/user/register'>Registreer</a>
+                <a href='/user/password/forgot'>Wachtwoord vergeten?</a>
             </div>
         <?php } ?>
         <div class="col-xs-6">
@@ -45,7 +45,7 @@
                     <li class='dropdown'>
                         <a href='/about' class='dropdown-toggle'>Over ons</a>
                         <ul class='dropdown-menu'>
-                            <li><a href='/about/ontstaan'>Ontstaan Discus Club Holland</a></li>
+                            <li><a href='/about/origin'>Ontstaan Discus Club Holland</a></li>
                             <li><a href='/about/news'>Nieuws</a></li>
                         </ul>
                     </li>
@@ -53,10 +53,10 @@
                         <a href='/forum/' class='dropdown-toggle'>Forum</a>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
-                                    <li><a href='/forum/actievetopics'>Actieve topics</a></li>
-                                    <li><a href='/forum/nieuwetopics'>Nieuw topics</a></li>
+                                    <li><a href='/forum/active-topics'>Actieve topics</a></li>
+                                    <li><a href='/forum/new-topics'>Nieuw topics</a></li>
                                     <li><a href='/forum/fav-topics'>Favoriete topics</a></li>
-                                    <li><a href='/forum/ledenlijst'>Ledenlijst</a></li>
+                                    <li><a href='/forum/user-list'>Ledenlijst</a></li>
                                 </ul>
                             <?php } ?>
                     </li>
@@ -64,7 +64,7 @@
                     <li class='dropdown'>
                         <a href='/sponsor' class='dropdown-toggle'>Sponsoren</a>
                         <ul class='dropdown-menu'>
-                            <li><a href='/sponsor/sponsoren-worden'>Ook sponsor worden?</a></li>
+                            <li><a href='/sponsor/become'>Ook sponsor worden?</a></li>
                             <li><a href='/sponsor'>Onze sponsoren</a></li>
                         </ul>
                     </li>
@@ -72,7 +72,7 @@
                         <a href='/album' class='dropdown-toggle'>Album</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
-                                <li><a href='/album/album-upload'>Upload</a></li>
+                                <li><a href='/album/upload'>Upload</a></li>
                             </ul>
                         <?php } ?>
                     </li>
