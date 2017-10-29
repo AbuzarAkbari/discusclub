@@ -45,11 +45,10 @@
                                 <th>gebruiker</th>
                                 <th>Ip adres</th>
                                 <th>wanneer je account heb gemaakt</th>
-                                <th>topics</th>
                                 <th>Admin tools</th>
                             </tr>
                             <?php
-                                $sql = "SELECT * FROM ips INNER JOIN user ON ips.user_id = user.id";
+                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM ip LEFT JOIN user ON ip.user_id = user.id";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -59,17 +58,14 @@
                             foreach ($rows as $ip) :
                                 ?>
                                 <tr>
-                                    <td><a href=""><?php
+                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>"><?php
                                      echo $ip['first_name'] . " " . $ip['last_name'];
                                     ?></a></td>
                                     <td><?php
-                                     echo $ip['ip_adres'];
+                                     echo $ip['ip_address'];
                                     ?></td>
                                     <td><?php
-                                     echo $ip['created_at'];
-                                    ?></td>
-                                    <td><?php
-                                     echo $ip['topic_id'];
+                                     echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
                                     ?></td>
                                     <td>
                                      <a title="Blokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-ban-circle"></i></a>

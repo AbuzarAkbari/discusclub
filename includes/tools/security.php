@@ -33,7 +33,7 @@ if ($logged_in) {
     ]);
 }
 
-// stuff for blocked ips
+// stuff for ips
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
 } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -42,14 +42,43 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
 
-$sth = $dbc->prepare("SELECT blocked FROM ips WHERE ip_adres = :ip");
-$sth->execute([":ip" => $ip]);
-$res = $sth->fetchAll(PDO::FETCH_OBJ);
+unset($_SESSION["ip_id"]);
 
-foreach ($res as $value) {
-    if ($value->blocked === "1") {
-        die("U bent geblokkeerd");
+if (!isset($_SESSION["ip_id"])) {
+    // get ip address id from the db
+    $bindings = [":ip" => $ip];
+    if (isset($_SESSION["user"])) {
+        $sth = $dbc->prepare("SELECT id FROM ip WHERE ip_address = :ip AND user_id = :user_id");
+        $bindings["user_id"] = $_SESSION["user"]->id;
+    } else {
+        $sth = $dbc->prepare("SELECT id FROM ip WHERE ip_address = :ip");
     }
+    $sth->execute($bindings);
+    $res = $sth->fetch(PDO::FETCH_ASSOC);
+
+
+    // if the ip isn't in the database insert it
+    if (empty($res)) {
+        if (isset($_SESSION["user"])) {
+            $sth = $dbc->prepare("INSERT INTO ip(ip_address, user_id) VALUES (:ip, :user_id)");
+        } else {
+            $sth = $dbc->prepare("INSERT INTO ip(ip_address) VALUES (:ip)");
+        }
+        $sth->execute($bindings);
+        $res = ["id" => $dbc->lastInsertId()];
+    }
+
+    // store it in session
+    $_SESSION["ip_id"] = $res["id"];
+}
+
+$sth = $dbc->prepare("SELECT blocked FROM ip WHERE id = :ip_id");
+$sth->execute([":ip_id" => $_SESSION["ip_id"]]);
+$res = $sth->fetch(PDO::FETCH_OBJ);
+
+
+if ($res->blocked === "1") {
+    die("U bent geblokkeerd");
 }
 
 // if not set everyone can see it

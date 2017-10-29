@@ -58,8 +58,11 @@ INSERT INTO `topic` (`sub_category_id`, `title`, `user_id`, `content`, `created_
 INSERT INTO `album`(`title`, `user_id`) VALUES
 ('dinges', 1);
 
-INSERT INTO `album_has_image`(`album_id`, `image_id`) VALUES
-(1, 1);
+INSERT INTO `image`(`path`, `album_id`) VALUES
+('http://via.placeholder.com/350x350', 1);
+
+-- INSERT INTO `album_has_image`(`album_id`, `image_id`) VALUES
+-- (1, 1);
 
 INSERT INTO `message`(`title`, `message`) VALUES
 ('titel', 'bla');

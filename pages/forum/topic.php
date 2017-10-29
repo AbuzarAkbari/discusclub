@@ -97,7 +97,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 $x_berichten = $i[0]['i'] +1;
 
 
-                                $sql4 = "SELECT COUNT(id) AS x FROM ips WHERE topic_id = ?";
+                                $sql4 = "SELECT COUNT(id) AS x FROM view WHERE topic_id = ?";
                                 $result4 = $dbc->prepare($sql4);
                                 $result4->bindParam(1, $topic['id']);
                                 $result4->execute();

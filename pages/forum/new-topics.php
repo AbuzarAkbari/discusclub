@@ -78,7 +78,7 @@
 
                             $results2 = $result3->fetchAll(PDO::FETCH_ASSOC);
 
-                            $sql4 = "SELECT COUNT(*) AS x FROM ips WHERE topic_id = ?";
+                            $sql4 = "SELECT COUNT(*) AS x FROM view WHERE topic_id = ?";
                             $result4 = $dbc->prepare($sql4);
                             $result4->bindParam(1, $topic['id']);
                             $result4->execute();

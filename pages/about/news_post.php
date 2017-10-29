@@ -25,17 +25,9 @@ if (isset($_POST['post_reply'])) {
     }
 }
 
-if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    $ip = $_SERVER['HTTP_CLIENT_IP'];
-} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-} else {
-    $ip = $_SERVER['REMOTE_ADDR'];
-}
-
-$sql = "INSERT INTO ips (user_id, ip_adres) VALUES (1, '{$ip}')";
-$result = $dbc->prepare($sql);
-$result->execute();
+// $sql = "INSERT INTO view (user_id, ip_adres) VALUES (:user_id, :ip)";
+// $result = $dbc->prepare($sql);
+// $result->execute([":user_id" => $_SESSION["user"]->id, ":ip" => $_SESSION["ip_id"]]);
 
 $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 $perPage = 10;

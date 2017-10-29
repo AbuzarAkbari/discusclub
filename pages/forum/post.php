@@ -12,9 +12,9 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
 
-$sql = "INSERT INTO ips (topic_id, user_id, ip_adres, created_at) VALUES ({$_GET['id']}, 1, '{$ip}', NOW())";
+$sql = "INSERT INTO view (topic_id, ip_id) VALUES (:id, :ip_id)";
 $result = $dbc->prepare($sql);
-$result->execute();
+$result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
 
 $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 $perPage = 10;

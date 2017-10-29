@@ -47,7 +47,7 @@
             </div>
 
             <?php
-              $haal_albums = "SELECT DISTINCT *, COUNT(album_has_image.album_id) AS aantal_fotos, user.id as user_id FROM album LEFT JOIN album_has_image ON album.id = album_has_image.album_id JOIN user ON album.user_id = user.id JOIN image ON album_has_image.image_id = image.id GROUP BY album.id ";
+              $haal_albums = "SELECT *, count(i.album_id) as aantal_fotos, u.id as user_id, a.created_at as created_at FROM image as i JOIN album as a ON a.id = i.album_id JOIN user as u ON u.id = a.user_id WHERE i.album_id IS NOT NULL GROUP BY i.album_id";
 
               $albumResult = $dbc->prepare($haal_albums);
               $albumResult->execute();
