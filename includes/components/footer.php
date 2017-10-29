@@ -17,7 +17,7 @@
                   <h3 class='footer-title'><b>Contact</b></h3>
                   <br>
 
-                  <form class='' action='/includes/tools/verwerk.php' method='post'>
+                  <form class='' action='/includes/tools/verwerk' method='post'>
                       <h5 class="FooterContactTekst">Heeft u feedback, of een vraag?
                           <br>
                           Stuur ons een bericht!
@@ -31,7 +31,7 @@
             </div>
             <br>
             <div class='col-md-12 text-center'>
-            <a href='#'>&copy; Discus Club Holland</a> | <a href='#'>Webdesign door Impact4ROI</a> | <a href='gebruiksvoorwaarden'>Algemene voorwaarden</a>
+            <a href='#'>&copy; Discus Club Holland</a> | <a href='#'>Webdesign door Impact4ROI</a> | <a href='/gebruiksvoorwaarden'>Algemene voorwaarden</a>
             </div>
             <br><br>
         </div>

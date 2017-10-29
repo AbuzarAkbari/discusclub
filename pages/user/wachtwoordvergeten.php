@@ -56,7 +56,7 @@
                     <?php
                     if (isset($_POST["send"])) {
                         $token = md5(microtime (true)*100000);
-                        $message =  "/wachtwoordwijzigen.php?token=$token&email=$_POST[email]";
+                        $message =  "/user/wachtwoordwijzigen?token=$token&email=$_POST[email]";
                         $sth = $dbc->prepare("UPDATE user set forgot_pass = :hash WHERE email = :email");
 
                         try {

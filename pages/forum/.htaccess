@@ -1,0 +1,10 @@
+# remove .php
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [NC,QSA]
+
+# added id and pagination stuff to bericht
+RewriteRule ^post/([0-9]+) bericht.php?id=$1&pagina=1 [NC]
+RewriteRule ^post/([0-9]+)/([0-9]+) bericht.php?id=$1&pagina=$2 [NC]
+
+# topic id
+RewriteRule ^topic/([0-9]+) topics.php?id=$1 [NC]

@@ -56,7 +56,7 @@
                       <input class="form-control" required type="password" name="repeat_password" id="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
                       <label for="email" >E-mailadres</label>
                       <input class="form-control" required type="email" name="email" id="email" value="" placeholder="E-mailadres"><br>
-                      Als u registreert gaat u akkoord met onze <a href="gebruiksvoorwaarden.php">gebruiksvoorwaarden</a>.<br><br>
+                      Als u registreert gaat u akkoord met onze <a href="/gebruiksvoorwaarden">gebruiksvoorwaarden</a>.<br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
 
@@ -76,12 +76,12 @@
                             $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
                                 ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"]]);
                             ?>
-                            <div class="message gelukt">Het account is aangemaakt, <a href="inloggen.php">login.</a></div>
+                            <div class="message gelukt">Het account is aangemaakt, <a href="/user/inloggen">login.</a></div>
                             <?php
                         } else {
                             if ($res->email === $_POST["email"]) {
                                 ?>
-                                <div class="message error">Email is al in gebruik. <a href="wachtwoordwijzigen.php">Wijzig wachtwoord.</a></div>
+                                <div class="message error">Email is al in gebruik. <a href="/user/wachtwoordwijzigen">Wijzig wachtwoord.</a></div>
                                 <?php
                             } else {
                                 ?>

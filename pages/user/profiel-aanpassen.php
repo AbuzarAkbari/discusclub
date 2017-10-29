@@ -58,7 +58,7 @@ if (isset($_GET["id"])) {
                 <h3 class="panel-title">Profiel aanpassen</h3>
               </div>
               <div class="panel-body">
-                    <form enctype="multipart/form-data" action="profielParse.php" method="post">
+                    <form enctype="multipart/form-data" action="/includes/tools/profielParse" method="post">
 
                         <?php
                         if ($user_data->news == 1) {

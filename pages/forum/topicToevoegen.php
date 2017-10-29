@@ -20,6 +20,6 @@ if (isset($_POST['post_add_topic'])) {
 
         $lastId = $dbc->lastInsertId();
 
-        header("Location: http://localhost/htdocs-backup/Stage/discusclub/bericht.php?id=".$lastId);
+        header("Location: /forum/post/".$lastId);
     }
 }

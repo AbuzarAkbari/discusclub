@@ -51,7 +51,7 @@ require_once("../../includes/tools/security.php");
                                 <th>Rol</th>
                             </tr>
                             <?php
-                                $sql = "SELECT * FROM user JOIN role ON user.role_id = role.id";
+                                $sql = "SELECT *, user.id as user_id FROM user JOIN role ON user.role_id = role.id";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -59,7 +59,7 @@ require_once("../../includes/tools/security.php");
                             ?>
                             <?php foreach ($rows as $user) : ?>
                                 <tr>
-                                    <td><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                    <td><a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                     <td><?php echo $user['last_changed']; ?></td>
                                     <td><?php echo $user['created_at']; ?></td>
                                     <td><?php echo $user    ['name']; ?></td>

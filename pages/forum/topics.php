@@ -105,7 +105,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
                                 <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
-                                <td><a href="bericht.php?id=<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
+                                <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <?php
                                     $userSql = "SELECT * FROM user WHERE id = ?";
                                     $userResult = $dbc->prepare($userSql);
@@ -114,10 +114,10 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                     $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
                                 <?php foreach ($users as $user) : ?>
-                                    <td><a href="/gebruiker.php?id=<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                    <td><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                     <td><?php echo $x_berichten; ?></td>
                                     <td><?php echo $x[0]['x']; ?></td>
-                                    <td><?php echo $topic['created_at']; ?>, <br> Door <a href="/gebruiker.php?id=<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                    <td><?php echo $topic['created_at']; ?>, <br> Door <a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                 <?php endforeach; ?>
                                 <td>
                                     <a  title="Pinnen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
@@ -140,7 +140,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                     <h3 class="panel-title">Topic toevoegen</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" action="topicToevoegen.php" method="post">
+                    <form class="form-horizontal" action="/forum/topicToevoegen" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
                                 <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Topic Titel (max. 50 characters)">
@@ -180,7 +180,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- summernote js -->
-    <script type="text/javascript" src="js/summernote.min.js"></script>
+    <script type="text/javascript" src="/js/summernote.min.js"></script>
     <script>
         $('.editor').summernote({
             codemirror: {

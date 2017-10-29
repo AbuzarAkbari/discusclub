@@ -72,7 +72,7 @@
                 <div class="panel-heading panel-heading1">
                     <h4>Inschrijfformulier</h4></div>
                 <div class="panel-body">
-                    <form class="" action="index.php" method="post">
+                    <form class="" action="/" method="post">
                         <input class="form-control" required type="text" name="" value="" placeholder="Naam *"><br>
                         <input class="form-control" required type="email" name="" value="" placeholder="Email *"><br>
                         <input class="form-control" required type="text" name="" value="" placeholder="Adres *"><br>

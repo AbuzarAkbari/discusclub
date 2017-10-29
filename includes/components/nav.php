@@ -7,19 +7,19 @@
             <?php $name =  $_SESSION["user"]->first_name.' '.$_SESSION["user"]->last_name; ?>
       <div class='inlog'>
         <div class='dropdown'>
-          <a href="gebruiker" class='dropbtn'><?php echo $name; ?></a>
+          <a href="/user" class='dropbtn'><?php echo $name; ?></a>
           <div class='dropdown-content'>
-            <a href='/pages/user/message.php'>Berichten</a>
-            <a href='/pages/user/profiel-aanpassen.php'>Profiel aanpasen</a>
+            <a href='/user/message'>Berichten</a>
+            <a href='/user/conf'>Profiel aanpasen</a>
           </div>
       </div>
         <a href="/?logout=true">Uitloggen</a>
       </div>
         <?php } else { ?>
             <div class='inlog'>
-                <a href='/pages/user/inloggen.php'>Inloggen</a>
-                <a href='/pages/user/registeren.php'>Registreer</a>
-                <a href='/pages/user/wachtwoordvergeten.php'>Wachtwoord vergeten?</a>
+                <a href='/user/inloggen'>Inloggen</a>
+                <a href='/user/registeren'>Registreer</a>
+                <a href='/user/wachtwoordvergeten'>Wachtwoord vergeten?</a>
             </div>
         <?php } ?>
         <div class="col-xs-6">
@@ -43,40 +43,40 @@
                 <ul class='nav navbar-nav'>
                     <li><a href='/'>Home</a></li>
                     <li class='dropdown'>
-                        <a href='overons.php' class='dropdown-toggle'>Over ons</a>
+                        <a href='/about' class='dropdown-toggle'>Over ons</a>
                         <ul class='dropdown-menu'>
-                            <li><a href='ontstaan.php'>Ontstaan Discus Club Holland</a></li>
-                            <li><a href='nieuws.php'>Nieuws</a></li>
+                            <li><a href='/about/ontstaan'>Ontstaan Discus Club Holland</a></li>
+                            <li><a href='/about/news'>Nieuws</a></li>
                         </ul>
                     </li>
                     <li class='dropdown'>
-                        <a href='form.php' class='dropdown-toggle'>Forum</a>
+                        <a href='/forum/' class='dropdown-toggle'>Forum</a>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
-                                    <li><a href='actievetopics.php'>Actieve topics</a></li>
-                                    <li><a href='nieuwetopics.php'>Nieuw topics</a></li>
-                                    <li><a href='fav-topics.php'>Favoriete topics</a></li>
-                                    <li><a href='ledenlijst.php'>Ledenlijst</a></li>
+                                    <li><a href='/forum/actievetopics'>Actieve topics</a></li>
+                                    <li><a href='/forum/nieuwetopics'>Nieuw topics</a></li>
+                                    <li><a href='/forum/fav-topics'>Favoriete topics</a></li>
+                                    <li><a href='/forum/ledenlijst'>Ledenlijst</a></li>
                                 </ul>
                             <?php } ?>
                     </li>
-                    <li><a href='wordlid.php'>Word lid!</a></li>
+                    <li><a href='/wordlid'>Word lid!</a></li>
                     <li class='dropdown'>
-                        <a href='sponsoren.php' class='dropdown-toggle'>Sponsoren</a>
+                        <a href='/sponsor' class='dropdown-toggle'>Sponsoren</a>
                         <ul class='dropdown-menu'>
-                            <li><a href='sponsoren-worden.php'>Ook sponsor worden?</a></li>
-                            <li><a href='sponsoren.php'>Onze sponsoren</a></li>
+                            <li><a href='/sponsor/sponsoren-worden'>Ook sponsor worden?</a></li>
+                            <li><a href='/sponsor'>Onze sponsoren</a></li>
                         </ul>
                     </li>
                     <li class='dropdown'>
-                        <a href='albums.php' class='dropdown-toggle'>Album</a>
+                        <a href='/album' class='dropdown-toggle'>Album</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
-                                <li><a href='album-upload.php'>Upload</a></li>
+                                <li><a href='/album/album-upload'>Upload</a></li>
                             </ul>
                         <?php } ?>
                     </li>
-                <li><a href='contact.php'>Contact</a></li>
+                <li><a href='/contact'>Contact</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>

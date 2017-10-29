@@ -52,7 +52,7 @@ if ($logged_in) {
 
         //Image check
         if (isset($_FILES['profiel'])) {
-            $target_dir = "images/profiel/";
+            $target_dir = "/images/profiel/";
             $target_file = $target_dir . basename($_FILES["profiel"]["name"]);
             $uploadOk = 1;
             $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);

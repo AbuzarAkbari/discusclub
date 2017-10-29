@@ -21,7 +21,7 @@ if (isset($_POST['post_reply'])) {
         $result3->bindParam(':reply_auteur', $reply_auteur);
         $result3->bindParam(':reply_content', $reply_content);
         $result3->execute();
-        header("Location: news_post.php?id=" . $bericht_id . "#post-" . $dbc->lastInsertId());
+        header("Location: /about/news/" . $bericht_id . "#post-" . $dbc->lastInsertId());
     }
 }
 
@@ -89,15 +89,15 @@ require_once("../../includes/components/nav.php");
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="images/vissen1.jpg" alt="fishing">
+                    <img src="/images/vissen1.jpg" alt="fishing">
                 </div>
 
                 <div class="item">
-                    <img src="images/vissen2.jpg" alt="fishing">
+                    <img src="/images/vissen2.jpg" alt="fishing">
                 </div>
 
                 <div class="item">
-                    <img src="images/vissen3.jpg" alt="vissen">
+                    <img src="/images/vissen3.jpg" alt="vissen">
                 </div>
             </div>
 
@@ -172,7 +172,7 @@ require_once("../../includes/components/nav.php");
                         $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                     <?php foreach ($users as $user) : ?>
-                        <b>Geplaatst door:</b> <i><a href="/gebruiker.php?id=<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                        <b>Geplaatst door:</b> <i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
                     <?php endforeach; ?>
                     op <?php echo $row['created_at']; ?></h3>
                 </div>
@@ -301,7 +301,7 @@ require_once("../../includes/components/nav.php");
                         </a>
                     </li>
                     <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
-                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>><a href="bericht.php?id=<?php echo $rows[0]['id']; ?>&pagina=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>><a href="/post/<?php echo $rows[0]['id']; ?>/<?php echo $x; ?>"><?php echo $x; ?></a></li>
                     <?php endfor; ?>
                     <li>
                         <a href="#" aria-label="Next">
@@ -353,7 +353,7 @@ require_once("../../includes/components/nav.php");
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- summernote js -->
-<script type="text/javascript" src="js/summernote.min.js"></script>
+<script type="text/javascript" src="/js/summernote.min.js"></script>
 <script>
     $('.editor').summernote({
         toolbar: [

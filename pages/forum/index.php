@@ -93,7 +93,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <td> &#128193;</td>
                                 <td>
-                                    <a href="topics.php?id=<?php echo $subCat['id']; ?>"><?php echo $subCat['name']; ?></a>
+                                    <a href="/forum/topic/<?php echo $subCat['id']; ?>"><?php echo $subCat['name']; ?></a>
                                 </td>
                                 <td><?php echo $results3[0]['aantal_topics']; ?></td>
                                 <td><?php echo $berichten['x'] + $topic_x['x']; ?></td>

@@ -7,25 +7,25 @@ INSERT INTO `role`(`name`) VALUES
 
 INSERT INTO `image`(`path`) VALUES
 ('http://via.placeholder.com/350x350'),
-('images/sponsor/ESHA-Banner_NL_discus_03B15.gif'),
-('images/sponsor/discusmania-toekan.gif'),
-('images/sponsor/banner-HVP-Aqua.gif'),
-('images/sponsor/Veldhuis-banner.jpg'),
-('images/sponsor/Dicuscompleet-banner.jpg'),
-('images/sponsor/discuspassi-banner-3.jpg'),
-('images/sponsor/Discusshop-banner.jpg'),
-('images/sponsor/Aqua-light-banner.jpg'),
-('images/sponsor/Rockzolid-banner.jpg'),
-('images/sponsor/osmoseapparaat-banner.jpg'),
-('images/sponsor/Wesdijk-banner.jpg'),
-('images/sponsor/Koidream-banner.jpg'),
-('images/sponsor/DCH-banner-AquaVaria-2014.jpg'),
-('images/sponsor/RUTO-banner.jpg'),
-('images/sponsor/discusvistotaal.gif');
+('/images/sponsor/ESHA-Banner_NL_discus_03B15.gif'),
+('/images/sponsor/discusmania-toekan.gif'),
+('/images/sponsor/banner-HVP-Aqua.gif'),
+('/images/sponsor/Veldhuis-banner.jpg'),
+('/images/sponsor/Dicuscompleet-banner.jpg'),
+('/images/sponsor/discuspassi-banner-3.jpg'),
+('/images/sponsor/Discusshop-banner.jpg'),
+('/images/sponsor/Aqua-light-banner.jpg'),
+('/images/sponsor/Rockzolid-banner.jpg'),
+('/images/sponsor/osmoseapparaat-banner.jpg'),
+('/images/sponsor/Wesdijk-banner.jpg'),
+('/images/sponsor/Koidream-banner.jpg'),
+('/images/sponsor/DCH-banner-AquaVaria-2014.jpg'),
+('/images/sponsor/RUTO-banner.jpg'),
+('/images/sponsor/discusvistotaal.gif');
 
 INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
-('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 4),
-('jane', 'doe', 'jane_doe@example.com', 'bla', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 4);
+('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5),
+('jane', 'doe', 'jane_doe@example.com', 'bla', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5);
 
 INSERT INTO `category` (`name`) VALUES
 ('Mededelingen en Nieuws'),

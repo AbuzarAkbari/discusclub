@@ -50,7 +50,7 @@ if (isset($_GET["id"])) {
                 <div class="panel-heading border-color-blue">Gebruiker</div>
                 <div class="panel-body text-right">
                     <a><input type="submit" class="btn btn-primary" name="send" value="Fotoalbums"></a>
-                    <a href="profiel-aanpassen.php"><input type="submit" class="btn btn-primary" name="send" value="Wijzig profiel"></a>
+                    <a href="/user/conf"><input type="submit" class="btn btn-primary" name="send" value="Wijzig profiel"></a>
                     </div>
                 </div>
             </div>

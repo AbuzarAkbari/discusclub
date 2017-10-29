@@ -131,7 +131,7 @@ if (isset($_POST['post_add_topic'])) {
                 $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
                 ?>
                 <tr>
-                    <td><a href="news_post?id=<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
+                    <td><a href="/about/news/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
                     <td><?php echo $amount; ?></td>
                     <td><a href="categorie.php?id=<?php echo $value->cat_id; ?>"><?php echo $value->sub_name; ?></a></td>
                     <td><?php echo $value->created_at; ?></td>

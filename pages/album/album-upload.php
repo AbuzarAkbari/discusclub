@@ -66,7 +66,7 @@ include_once("includes/security.php"); ?>
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
-    <script src="js/album-upload.js"></script>
+    <script src="/js/album-upload.js"></script>
 
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

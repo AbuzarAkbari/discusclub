@@ -41,13 +41,13 @@
                     <h3 class="panel-title">Album toevoegen</h3>
                   </div>
                   <div class="panel-body">
-                    <a href="album-upload.php" type="button" class="btn btn-primary col-md-12 " name="button">Upload een album</a>
+                    <a href="/album/album-upload" type="button" class="btn btn-primary col-md-12 " name="button">Upload een album</a>
                   </div>
                 </div>
             </div>
 
             <?php
-              $haal_albums = "SELECT DISTINCT *, COUNT(album_has_image.album_id) AS aantal_fotos FROM album LEFT JOIN album_has_image ON album.id = album_has_image.album_id JOIN user ON album.user_id = user.id JOIN image ON album_has_image.image_id = image.id GROUP BY album.id ";
+              $haal_albums = "SELECT DISTINCT *, COUNT(album_has_image.album_id) AS aantal_fotos, user.id as user_id FROM album LEFT JOIN album_has_image ON album.id = album_has_image.album_id JOIN user ON album.user_id = user.id JOIN image ON album_has_image.image_id = image.id GROUP BY album.id ";
 
               $albumResult = $dbc->prepare($haal_albums);
               $albumResult->execute();
@@ -62,7 +62,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading"><b>Geplaatst door: </b><a href="#"><i> <?php echo $album['first_name'].' '.$album['last_name']; ?> </i></a></h4>
+                                <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $album["user_id"]; ?>"><i> <?php echo $album['first_name'].' '.$album['last_name']; ?> </i></a></h4>
                                 <p>
                                     Aantal foto's: <i><?php echo $album['aantal_fotos']; ?></i><br>
                                     Datum: <i><?php echo $album['created_at']; ?></i><br>
