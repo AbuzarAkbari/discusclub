@@ -39,47 +39,41 @@ require_once("../../includes/tools/security.php"); ?>
     <?php require_once("../../includes/components/nav.php"); ?>
 
     <br><br>
+    <?php
+      $id = $_GET['id'];
+      $haal_albums = "SELECT * FROM image as i JOIN album as a ON a.id = i.album_id JOIN user as u ON u.id = a.user_id WHERE album_id = ?";
+
+      $albumResult = $dbc->prepare($haal_albums);
+      $albumResult->bindParam(1, $id);
+      $albumResult->execute();
+      $album = $albumResult->fetchAll(PDO::FETCH_ASSOC);
+    ?>
     <div class="container main">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Album titel</h3>
+                        <h3 class="panel-title"><?php echo $album[0]['title']; ?></h3>
                     </div>
                     <div class="panel-body">
                         <div class="container-fluid">
                             <div class="row sliderbox">
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                    <!-- Indicators -->
-                                    <!-- <ol class="carousel-indicators">
-                                        <li data-target="#myCarousel" data-slide-to="0" class="active">
-                                            <img src="/images/vissen3.jpg" alt="vissen">
-
-                                        </li>
-                                        <li data-target="#myCarousel" data-slide-to="1">
-                                            <img src="/images/vissen3.jpg" alt="vissen">
-
-                                        </li>
-                                        <li data-target="#myCarousel" data-slide-to="2">
-                                            <img src="/images/vissen3.jpg" alt="vissen">
-
-                                        </li>
-                                    </ol> -->
-
-                                    <!-- Wrapper for slides -->
                                     <div class="carousel-inner">
-                                        <div class="item active">
-                                            <img src="http://via.placeholder.com/350x150" alt="fishing">
-                                        </div>
-
-                                        <div class="item">
-                                            <img src="http://via.placeholder.com/350x151" alt="fishing">
-                                        </div>
-
-                                        <div class="item">
-                                            <img src="http://via.placeholder.com/350x152" alt="vissen">
-                                        </div>
+                                        <?php foreach ($album as $key => $image) : ?>
+                                            <div class="item<?php echo $key == 0 ? " active" : null ?>">
+                                                <img src="<?php echo $image['path'] ?>" alt="fishing">
+                                            </div>
+                                        <?php endforeach; ?>
                                     </div>
+
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
+                                    <?php foreach ($album as $image) : ?>
+                                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                                    <?php endforeach; ?>
+                                    </ol> 
 
                                     <!-- Left and right controls -->
                                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -91,13 +85,13 @@ require_once("../../includes/tools/security.php"); ?>
                                         <span class="sr-only">Next</span>
                                     </a>
                                 </div>
-                                <!-- images -->
 
+                                <!-- Images -->
+                                <?php foreach ($album as $image) : ?>
+                                    <div class=" img" style="background-image:url('<?php echo $image['path'] ?>')"; data-target="#myCarousel" data-slide-to="0"></div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
-                        <div class=" img" style="background-image:url('http://via.placeholder.com/350x150')"; data-target="#myCarousel" data-slide-to="0"></div>
-                        <div class=" img" style="background-image:url('http://via.placeholder.com/350x151')"; data-target="#myCarousel" data-slide-to="1"></div>
-                        <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
                     </div>
                 </div>
             </div>
