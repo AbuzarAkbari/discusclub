@@ -36,7 +36,13 @@
     background-image: url('https://cdn.discordapp.com/attachments/316307287931224075/373431989761736704/Discus-Club-foto-achtergrond.jpg');
     width: 100%;
     height: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 500px;
+    max-height: 500px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 /*image scale static*/
@@ -156,4 +162,9 @@
     width: 50%;
     float: right;
     border-radius: 2px;
+}
+
+.MessageImage {
+    height: 100%;
+    width: auto;
 }
