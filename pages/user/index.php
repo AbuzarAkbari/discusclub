@@ -85,14 +85,22 @@ if (isset($_GET["id"])) {
                     <th class="col-md-4 col-xs-4">Topic</th>
                     <th class="col-md-4 col-xs-4">Forum</th>
                     <th class="col-md-4 col-xs-4">Datum</th>
+                        <?php
+                        $sql = "SELECT *, reply.created_at AS reply_created_at FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON topic.id = reply.topic_id WHERE reply.user_id = ? ORDER BY reply_created_at DESC LIMIT 10";
+                        $result = $dbc->prepare($sql);
+                        $result->bindParam(1, $user_data->id);
+                        $result->execute();
+                        $topics = $result->fetchAll(PDO::FETCH_OBJ);
+                        ?>
+                        <?php foreach($topics as $info) : ?>
                     <tr>
-
-                    <tr>
-                        <td class="col-md-4 col-xs-4">bla</td>
-                        <td class="col-md-4 col-xs-4">bla</td>
-                        <td class="col-md-4 col-xs-4">bla</td>
+                        <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->title; ?></a></td>
+                        <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->name; ?></a></td>
+                        <td class="col-md-4 col-xs-4"><?php echo $info->reply_created_at; ?></td>
                     </tr>
-                    </table>
+                    <?php endforeach; ?>
+
+                </table>
                 </div>
                 </div>
             </div>
