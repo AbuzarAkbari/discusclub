@@ -61,6 +61,8 @@ if (isset($_GET["id"])) {
                     <form enctype="multipart/form-data" action="/includes/tools/profielParse" method="post">
 
                         <?php
+
+
                         if ($user_data->news == 1) {
                             $checked = "checked";
                         } else {
@@ -68,13 +70,15 @@ if (isset($_GET["id"])) {
                         }
                         ?>
 
+                        <input type="hidden" name="nieuwsbrief" value="off">
                         <input type="checkbox" name="nieuwsbrief" id="nieuwsbrief" <?php echo $checked; ?>> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
                         <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Email"><br>
-                        <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="" placeholder="Herhaal e-mail"><br>
+                        <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Herhaal e-mail"><br>
                         <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" value="<?php echo isset($user_data->birthdate) ? $user_data->birthdate : ''; ?>" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>
                         <label for="location">Locatie</label><input id="location" class="form-control" type="text" name="location" value="<?php echo isset($user_data->location) ? $user_data->location : ''; ?>" placeholder="Locatie"><br>
                         <label for="profiel">Selecteer een afbeelding</label><input id="file" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="profiel" placeholder="Selecteer bestand"><br>
                         <label for="signature">Handtekening</label><input id="signature" class="form-control" type="text" name="signature" value="<?php echo isset($user_data->signature) ? $user_data->signature : ''; ?>" placeholder="Handtekening"><br>
+                        <label for="password">Wachtwoord</label><input id="wachtwoord" class="form-control" type="password" name="wachtwoord" value="" placeholder="Wachtwoord ter bevestiging"><br>
                         <input type="hidden" value="<?php echo $user_data->id; ?>" name="user_id">
                         <input type="hidden" value="<?php echo $user_data->profile_img_id; ?>" name="profile_img_id">
                         <input type="submit" class="btn btn-primary" name="profiel_parse" value="Opslaan">
