@@ -147,7 +147,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                     <form class="form-horizontal" action="/forum/add-topic" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Topic Titel (max. 50 characters)">
+                                <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Topic Titel (max. 50 tekens)">
                             </div>
                         </div>
                         <div class="form-group">
