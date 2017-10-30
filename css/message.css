@@ -147,7 +147,7 @@
     height: 33.99px;
 }
 
-.message {
+.responses {
     background-color: #fff;
     margin: 10px;
     padding: 10px;
@@ -156,7 +156,7 @@
     border-radius: 2px;
 }
 
-.response {
+.messages {
     background-color: #fff;
     margin: 10px;
     padding: 10px;
