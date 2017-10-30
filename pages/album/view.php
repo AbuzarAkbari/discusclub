@@ -17,7 +17,7 @@ require_once("../../includes/tools/security.php"); ?>
     <!-- custom css -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/nieuws.css">
-    <link rel="stylesheet" href="/css/albums.css">
+    <link rel="stylesheet" href="/css/view.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
@@ -95,9 +95,24 @@ require_once("../../includes/tools/security.php"); ?>
 
                             </div>
                         </div>
-                        <div class=" img" style="background-image:url('http://via.placeholder.com/350x150')"; data-target="#myCarousel" data-slide-to="0"></div>
-                        <div class=" img" style="background-image:url('http://via.placeholder.com/350x151')"; data-target="#myCarousel" data-slide-to="1"></div>
-                        <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                        <div id="scrollable">
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x150')"; data-target="#myCarousel" data-slide-to="0"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x151')"; data-target="#myCarousel" data-slide-to="1"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,6 +126,11 @@ require_once("../../includes/tools/security.php"); ?>
     <footer>
     <?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
+    <!-- scrollable  -->
+    <script src="/js/view.js">scrollable.addEventListener('mousemove', event => {
+        console.log(event)
+    })
+</script>
 
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
