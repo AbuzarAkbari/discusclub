@@ -65,7 +65,7 @@ if (isset($_POST['post_add_topic'])) {
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">nieuws toevoegen</h3>
+                    <h3 class="panel-title">Nieuws toevoegen</h3>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
