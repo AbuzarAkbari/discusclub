@@ -7,9 +7,13 @@
             <?php $name =  $_SESSION["user"]->first_name.' '.$_SESSION["user"]->last_name; ?>
       <div class='inlog'>
         <div class='dropdown'>
-          <a href="/user" class='dropbtn'><?php echo $name; ?></a>
+          <a href="/user/" class='dropbtn'><?php echo $name; ?></a>
           <div class='dropdown-content'>
-            <a href='/user/messenger'>Berichten</a>
+            <a href='/user/messenger'>Berichten(<?php
+                $sth = $dbc->prepare("SELECT count(*) as amount FROM user_has_message WHERE user_id_1 = :id AND opened = 0");
+                $sth->execute([":id" => $_SESSION["user"]->id]);
+                echo $sth->fetch(PDO::FETCH_OBJ)->amount;
+            ?>)</a>
             <a href='/user/conf'>Profiel aanpasen</a>
           </div>
       </div>
@@ -43,7 +47,7 @@
                 <ul class='nav navbar-nav'>
                     <li><a href='/'>Home</a></li>
                     <li class='dropdown'>
-                        <a href='/about' class='dropdown-toggle'>Over ons</a>
+                        <a href='/about/' class='dropdown-toggle'>Over ons</a>
                         <ul class='dropdown-menu'>
                             <li><a href='/about/origin'>Ontstaan Discus Club Holland</a></li>
                             <li><a href='/about/news'>Nieuws</a></li>
@@ -62,14 +66,14 @@
                     </li>
                     <li><a href='/wordlid'>Word lid!</a></li>
                     <li class='dropdown'>
-                        <a href='/sponsor' class='dropdown-toggle'>Sponsoren</a>
+                        <a href='/sponsor/' class='dropdown-toggle'>Sponsoren</a>
                         <ul class='dropdown-menu'>
                             <li><a href='/sponsor/become'>Ook sponsor worden?</a></li>
                             <li><a href='/sponsor'>Onze sponsoren</a></li>
                         </ul>
                     </li>
                     <li class='dropdown'>
-                        <a href='/album' class='dropdown-toggle'>Album</a>
+                        <a href='/album/' class='dropdown-toggle'>Album</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
                                 <li><a href='/album/upload'>Upload</a></li>

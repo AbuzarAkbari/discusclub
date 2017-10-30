@@ -1,6 +1,6 @@
 <?php
 $levels = ["gebruiker"];
-include_once("includes/security.php"); ?>
+include_once("../../includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -13,10 +13,14 @@ include_once("includes/security.php"); ?>
     <!-- custom css -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/album-upload.css">
+    <link rel="canonical" href="https://css-tricks.com/examples/DragAndDropFileUploading/">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/dropzone.css">
+<script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 </head>
 
 <body>
@@ -38,28 +42,28 @@ include_once("includes/security.php"); ?>
         <div class="row">
             <br><br>
             <div class="panel panel-primary">
-              <div class="panel-heading border-color-blue">
-                <h3 class="panel-title">Album uploaden</h3>
-              </div>
-              <div class="panel-body">
-                  <div class="contact">
-                  <form method="post" enctype="multipart/form-data"  action="#" id="image-form">
-
-                        <div class="one_col file-upload">
-                            <div id="file"><ul id="image-list"><p>Click or Drag in an image to upload</p></ul></div>
-                            <input type="file" class="file" name="images" id="images"/>
-                            <span class="error"></span>
-                        </div>
-
-                        <div class="one_col">
-                            <input id="submit" type="submit" value="Upload album" class="btn btn-primary" />
-                        </div>
-                        <span class="clear"></span>
-                    </form>
+                <div class="panel-heading border-color-blue">
+                    <h3 class="panel-title">Album uploaden</h3>
                 </div>
+                <div class="panel-body">
+                    <input type="text" class="form-control" name="album-name" placeholder='Titel'><br>
+                    <!-- <form action="/includes/tools/album-upload" class="dropzone col-md-12" id="my-awesome-dropzone">
 
+                    </form> -->
+                    <form class="box" method="post" action="" enctype="multipart/form-data">
+                      <div class="box__input">
+                        <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+                        <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+                        <button class="box__button" type="submit">Upload</button>
+                      </div>
+                      <div class="box__uploading">Uploading&hellip;</div>
+                      <div class="box__success">Done!</div>
+                      <div class="box__error">Error! <span></span>.</div>
+                    </form>
+
+                </div>
             </div>
-            </div><br>
+            <br>
         </div>
     </div>
     <!-- <div class="conainter-fluid"></div> -->
@@ -71,6 +75,13 @@ include_once("includes/security.php"); ?>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- dropzone script -->
+    <script src="/js/dropzone.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    // jQuery
+        $("#my-awesome-dropzone").dropzone({ acceptedFiles: "image/*"});
+    </script>
 </body>
 </html>
 <!-- https://twitter.com/DiscusHolland -->

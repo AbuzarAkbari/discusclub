@@ -1,6 +1,8 @@
 <?php
 $levels = ["lid", "gebruiker"];
-require_once("../../includes/tools/security.php");?>
+require_once("../../includes/tools/security.php");
+$id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,99 +42,104 @@ require_once("../../includes/tools/security.php");?>
     <div class="container main">
         <div class="row">
             <div class="col-md-4">
-                <div class="UserTab">
-                    <img src="http://via.placeholder.com/500x500" class="ImgUser ImageStatic" />
-                    <div class="Username"><b>Gebruikersnaam van user</b></div>
+                <div class="userTab">
+                    <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
+                    <div class="username"><b>Gebruikersnaam van user</b></div>
                 </div>
-                <div class="OtherTab flexcroll">
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="Other">
-                        <div><img src="http://via.placeholder.com/350x150" class="OtherUsers ImageStatic"></div>
-                        <div class="UsernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
+                <div class="otherTab flexcroll">
+                <?php
+                $sth = $dbc->prepare("SELECT *, m.message, m.id, m.created_at, m.title, m.last_changed FROM user_has_message as uhm JOIN user as u ON u.id = uhm.user_id_2 JOIN message as m ON uhm.message_id = m.id WHERE uhm.user_id_1 = :id");
+                $sth->execute([":id" => $_SESSION["user"]->id]);
+                $res = $sth->fetchAll(PDO::FETCH_OBJ);
+                foreach ($res as $value) : ?>
+                    <?php if ($value->user_id_2 === $id) {
+                        $user = $value->first_name . " " . $value->last_name;
+                    } ?>
+                    <a href="/user/messenger/<?php echo $value->user_id_2; ?>">
+                        <div class="other">
+                            <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
+                            <div class="usernameTab"><b><?php echo $value->first_name . " " . $value->last_name; ?></b></div>
+                            <div><?php echo implode(" ", array_slice(explode(" ", $value->message), 0, 5)) . "..."; ?></div>
+                        </div>
+                    </a>
+                <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 endforeach; ?>
                 </div>
-                <div class="SearchUser">
+
+                <div class="searchUser">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
-                      <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary ButtonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
+                      <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
                     </div>
                 </div>
             </div>
+            <?php
+            $sth = $dbc->prepare("SELECT * FROM user_has_message as uhm JOIN message as m ON m.id = uhm.message_id JOIN user as u ON u.user_id_2 = u.id WHERE uhm.user_id_2 = :id");
+            $sth->execute([":id" => $id]);
+            $res = $sth->fetchAll(PDO::FETCH_OBJ);
+            ?>
             <div class="col-md-8">
-                <div class="UserTab">
-                    <img src="http://via.placeholder.com/500x500" class="ImgUser ImageStatic" />
-                    <div class="Username"><b>Gebruikersnaam van user</b></div>
+                <div class="userTab">
+                    <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
+                    <div class="username"><b>bla</b></div>
                 </div>
                 <div class="imageBackgroundText flexcroll">
-                    <div class="" >
-
+                <?php foreach ($res as $value) : ?>
+                    <div class="<?php echo $value->user_id_1 === $_SESSION["user"]->id ? "response" : "message" ?>">
+                        <div>tekst die ze zelf invullen</div>
                     </div>
+                    <?php endforeach; ?>
+                    <div class="responses ">
+                        <div>tekst Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Aenean commodo ligula eget dolor.
+                         Aenean massa.
+                         Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                         Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                         Nulla consequat massa quis enim.
+                         Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                         In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+                         Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                         Cras dapibus. Vivamus elementum semper nisi.
+                         Aenean vulputate eleifend tellus. Aenean leo ligula,
+                         porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+                         Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+                         Aenean imperdiet. Etiam ultricies nisi vel augue.
+                         Curabitur ullamcorper ultricies nisi.
+                         Nam eget dui.die ze zelf invullen
+                     </p>
+                         <div><img src="http://chimpmania.com/forum/attachment.php?attachmentid=33425&d=1369770301&thumb=1" class="messageImage"></div>
+                        </div>
+                        <div class="messages">
+                            <p>
+                            tekst Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Aenean commodo ligula eget dolor.
+                             Aenean massa.
+                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                             Nulla consequat massa quis enim.
+                             Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                             In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+                             Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                             Cras dapibus. Vivamus elementum semper nisi.
+                             Aenean vulputate eleifend tellus. Aenean leo ligula,
+                             porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+                             Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+                             Aenean imperdiet. Etiam ultricies nisi vel augue.
+                             Curabitur ullamcorper ultricies nisi.
+                             Nam eget dui.die ze zelf invulldsaen
+                         </p>
+                         <div><img src="http://chimpmania.com/forum/attachment.php?attachmentid=33425&d=1369770301&thumb=1" class="messageImage"></div>
 
-                </div>
-                <div class="SearchUser">
+                            </div>
+                    </div>
+                <div class="searchUser">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
-                      <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary ButtonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
+                      <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
-    </div>
     <br>    <br>
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>

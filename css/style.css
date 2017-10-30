@@ -127,15 +127,15 @@ hr {
 
 @media screen and (max-width: 992px) {
     .footer-name {
-        min-width: 380px;
+        min-width: 250px;
     }
 
     .footer-message {
-        min-width: 380px;
+        min-width: 250px;
     }
 
     .footer-btn {
-        min-width: 380px;
+        min-width: 250px;
     }
 }
 
@@ -483,4 +483,12 @@ li.dropdown:hover > .dropdown-menu {
     background-size: cover;
     background-position: center;
     margin: 0 auto;
+}
+
+.dropzone {
+    border: 2px dashed #0087f7;
+    border-radius: 5px;
+    background: white;
+    padding: 1em;
+    min-height: 80px !important;
 }

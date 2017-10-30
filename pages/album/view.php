@@ -17,7 +17,7 @@ require_once("../../includes/tools/security.php"); ?>
     <!-- custom css -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/nieuws.css">
-    <link rel="stylesheet" href="/css/albums.css">
+    <link rel="stylesheet" href="/css/view.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
@@ -105,6 +105,11 @@ require_once("../../includes/tools/security.php"); ?>
     <footer>
     <?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
+    <!-- scrollable  -->
+    <script src="/js/view.js">scrollable.addEventListener('mousemove', event => {
+        console.log(event)
+    })
+</script>
 
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
