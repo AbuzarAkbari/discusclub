@@ -46,8 +46,9 @@ include_once("../../includes/tools/security.php"); ?>
                 </div>
                 <div class="panel-body">
                     <input type="text" class="form-control" name="album-name" placeholder='Titel'><br>
-                    <form action="/includes/tools/album-upload" class="dropzone col-md-12" id="my-awesome-dropzone"></form>
+                    <form action="/includes/tools/album-upload" class="dropzone col-md-12" id="my-awesome-dropzone">
 
+                    </form>
                 </div>
             </div>
             <br>
@@ -67,7 +68,7 @@ include_once("../../includes/tools/security.php"); ?>
     <script src="/js/dropzone.js" charset="utf-8"></script>
     <script type="text/javascript">
     // jQuery
-        $("#my-awesome-dropzone").dropzone({ acceptedFiles: "image/*" });
+        $("#my-awesome-dropzone").dropzone({ acceptedFiles: "image/*"});
     </script>
 </body>
 </html>
