@@ -225,6 +225,7 @@ while ($matches[1]) {
             $results = $query->fetchAll()[0];
             $count = ceil($results['x'] / $perPage);
             ?>
+
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
@@ -272,6 +273,7 @@ while ($matches[1]) {
                     </div>
                 </div>
             <?php endif; ?>
+        </div>
         </div>
         </div>
     </div>
