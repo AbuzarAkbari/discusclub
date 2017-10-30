@@ -84,7 +84,9 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                             <th>Berichten</th>
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
-                            <th>Admin tools</th>
+                            <?php if (in_array($current_level, $admin_levels)) : ?>
+                                <th>Admin tools</th>
+                            <?php endif; ?>
                         </tr>
                         <?php foreach ($results3 as $topic) : ?>
                             <?php
@@ -119,12 +121,14 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                     <td><?php echo $x[0]['x']; ?></td>
                                     <td><?php echo $topic['created_at']; ?>, <br> Door <a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                 <?php endforeach; ?>
+                                <?php if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
                                     <a  title="Pinnen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
                                     <a  title="Locken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
                                     <a title="Bewerken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
                                     <a title="Verwijderen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
                                 </td>
+                                <?php endif; ?>
                             </tr>
                         <?php endforeach; ?>
                     </div>
@@ -143,7 +147,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                     <form class="form-horizontal" action="/forum/add-topic" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Topic Titel (max. 50 characters)">
+                                <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Topic Titel (max. 50 tekens)">
                             </div>
                         </div>
                         <div class="form-group">
