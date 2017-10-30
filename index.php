@@ -1,4 +1,4 @@
-<?php require_once("includes/security.php"); ?>
+<?php require_once("includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +9,7 @@
     <title>Discusclub Holland</title>
 
     <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
@@ -31,10 +31,10 @@
 })(document, 'script', 'facebook-jssdk')
 </script>
     <?php
-    require_once("includes/nav.php");
+    require_once("includes/components/nav.php");
     ?>
     <?php
-    require 'slider.php';
+    require('includes/components/slider.php');
     ?>
 
     <div class="container main">
@@ -176,7 +176,7 @@
   </div>
       </div>
     <footer>
-<?php require 'footer.php' ; ?>
+<?php require 'includes/components/footer.php' ; ?>
     </footer>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
