@@ -1,8 +1,6 @@
-<?php $levels = ["lid"];
-require_once("../../includes/tools/security.php");
-    ?>
-
 <?php
+$levels = ["lid"];
+require_once("../../includes/tools/security.php");
 
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -19,7 +17,6 @@ $result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
 $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 $perPage = 10;
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,35 +28,37 @@ $perPage = 10;
 
     <!-- custom css -->
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/bericht.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- bootstrap style -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- summernote css -->
     <link rel="stylesheet" href="/css/summernote.css">
+    <!-- bootstrap style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <body>
 <div id="fb-root"></div>
 <script>
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.10";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    ;(function (d, s, id) {
+        var js,
+            fjs = d.getElementsByTagName(s)[0]
+        if (d.getElementById(id)) return
+        js = d.createElement(s)
+        js.id = id
+        js.src = '//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.10'
+        fjs.parentNode.insertBefore(js, fjs)
+    })(document, 'script', 'facebook-jssdk')
 </script>
 <?php
 require_once("../../includes/components/nav.php");
 ?>
 
-<div class="container main" style="margin-top:25px;">
-
+<div class="container main">
     <div class="row">
-        <div class="col-md-12">
+
+        <div class="col-xs-12">
+            <br><br>
             <?php
             $sql = "SELECT * FROM topic WHERE id = ?";
             $result = $dbc->prepare($sql);
@@ -81,160 +80,151 @@ require_once("../../includes/components/nav.php");
                 <li class="active"><?php echo $rows[0]['title']; ?></li>
             </ol>
             <?php foreach ($rows as $row) : ?>
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title text-left"><?php echo $row['title']; ?></h3>
-
-                    <div class="pull-right">
-                        <input type="submit" class="btn btn-primary" name="send" value="Favoriete">
-                        <input type="submit" class="btn btn-primary" name="send" value="Button 1">
-                        <input type="submit" class="btn btn-primary" name="send" value="Button 2">
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="panel-body">
-                    <div class="col-md-12">
-                        <div class="col-md-2">
-                            <img src='http://via.placeholder.com/130x130' alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <p><?php echo html_entity_decode($row['content']); ?></p>
-                        </div>
-                    </div>
+            <div class="panel panel-primary ">
+                <div class="panel-heading border-color-blue">
+                    <h3><?php echo $row['title']; ?></h3>
 
                 </div>
+                <div class="panel-body padding-padding table-responsive">
+                    <div class="col-md-12 verticalLine">
+                        <div class="">
+                            <br>
+                            <?php echo html_entity_decode($row['content']); ?>
+                            Marcel van Hintum
+                            <br><br>
+                            Voorzitter Discus Club Holland
+                            <br><br>
+                        </div>
 
-                <div class="panel-footer">
-                    <?php
+                    </div>
+                    <div class="panel-footer">
+                        <?php
                         $userSql = "SELECT * FROM user WHERE id = ?";
                         $userResult = $dbc->prepare($userSql);
                         $userResult->bindParam(1, $row['user_id']);
                         $userResult->execute();
                         $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
-                    <?php foreach ($users as $user) : ?>
-                        <b>Geplaatst door:</b> <i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                        ?>
+                        <?php foreach ($users as $user) : ?>
+                            <b>Geplaatst door:</b> <i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                        <?php endforeach; ?>
+                        op <?php echo $row['created_at']; ?></h3>
+                        <div class="text-right">
+                            <i class="glyphicon glyphicon-star-empty GlyphSize "></i>
+                            <i class="glyphicon glyphicon-star GlyphSize "></i>
+                        </div>
+                    </div>
+
                     <?php endforeach; ?>
-                    op <?php echo $row['created_at']; ?></h3>
+
                 </div>
 
-                <?php endforeach; ?>
-
-
-
             </div>
+            <br>
+        </div>
+    </div>
+</div>
+<br><br>
+<?php
+$a = $page * $perPage - $perPage;
+$sql2 = "SELECT * FROM reply WHERE topic_id = ? LIMIT {$perPage} OFFSET {$a}";
+$result2 = $dbc->prepare($sql2);
+$result2->bindParam(1, $_GET['id']);
+$result2->execute();
+$rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+?>
+<?php foreach ($rows2 as $row2) : ?>
+<?php
 
-            <?php
-            $a = $page * $perPage - $perPage;
-            $sql2 = "SELECT * FROM reply WHERE topic_id = ? LIMIT {$perPage} OFFSET {$a}";
-            $result2 = $dbc->prepare($sql2);
-            $result2->bindParam(1, $_GET['id']);
-            $result2->execute();
-            $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
-            ?>
-            <?php foreach ($rows2 as $row2) : ?>
-                <?php
+$matches = [
+    [],
+    [1]
+];
 
-                $matches = [
-                    [],
-                    [1]
-                ];
+while ($matches[1]) {
+    preg_match_all('/\[quote\s(\d+)\]/', $row2['content'], $matches);
 
-                while ($matches[1]) {
-                    preg_match_all('/\[quote\s(\d+)\]/', $row2['content'], $matches);
+    foreach ($matches[1] as $match) {
+        $sql = "SELECT * FROM reply WHERE id = :id";
+        $query = $dbc->prepare($sql);
+        $query->execute([
+            ':id' => $match
+        ]);
+        $results = $query->fetchAll();
 
-                    foreach ($matches[1] as $match) {
-                        $sql = "SELECT * FROM reply WHERE id = :id";
-                        $query = $dbc->prepare($sql);
-                        $query->execute([
-                            ':id' => $match
-                        ]);
-                        $results = $query->fetchAll();
-
-                        $id = $rows[0]['user_id'];
+        $id = $rows[0]['user_id'];
 
 //                        echo '<pre>';
 //                        print_r($rows[0]['user_id']);
 //                        exit;
 
-                        $userIdSql = "SELECT * FROM user WHERE id = ?";
-                        $userIdResult = $dbc->prepare($userIdSql);
-                        $userIdResult->bindParam(1, $id);
-                        $userIdResult->execute();
-                        $userId = $userIdResult->fetchAll(PDO::FETCH_ASSOC);
+        $userIdSql = "SELECT * FROM user WHERE id = ?";
+        $userIdResult = $dbc->prepare($userIdSql);
+        $userIdResult->bindParam(1, $id);
+        $userIdResult->execute();
+        $userId = $userIdResult->fetchAll(PDO::FETCH_ASSOC);
 
-                        if (!isset($results[0])) {
-                            $replace = 'Oops, deze post bestaat niet meer';
-                        } else {
-                            $naam = $userId[0]['first_name'].' '.$userId[0]['last_name'];
-                            $replace = $naam.' schreef:<br>'.$results[0]['content'];
-                        }
+        if (!isset($results[0])) {
+            $replace = 'Oops, deze post bestaat niet meer';
+        } else {
+            $naam = $userId[0]['first_name'].' '.$userId[0]['last_name'];
+            $replace = $naam.' schreef:<br>'.$results[0]['content'];
+        }
 
-                        $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $row2['content']);
-                    }
-                }
+        $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $row2['content']);
+    }
+}
 
 
 
-                ?>
+?>
+<div class="container main">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
 
-                <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-                    <div class="panel-body">
-                        <div class="wrapper-box col-md-12">
-                            <div class="col-md-2">
-                                <img src='http://via.placeholder.com/130x130' alt="x">
-                            </div>
-
-                            <div class="col-md-10">
-                                <p><?php echo $row2['content']; ?></p>
-                            </div>
-
+                <div class="panel-heading"> #23 Geplaatst door marco.middelhuis</div>
+                <div class="panel-body padding-padding table-responsive">
+                    <div class="col-md-12 ">
+                        <?php echo $row2['content']; ?>
+                    </div>
                 </div>
-            </div>
-            <div class="panel-footer">
-                <?php
+                <div class="panel-footer">
+                    <?php
                     $userSql = "SELECT * FROM user WHERE id = ?";
                     $userResult = $dbc->prepare($userSql);
                     $userResult->bindParam(1, $row2['user_id']);
                     $userResult->execute();
                     $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
-                ?>
-                <?php foreach ($users as $user) : ?>
-                    <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
-                <?php endforeach; ?>
-                op <?php echo $row2['created_at']; ?></h3>
+                    ?>
+                    <?php foreach ($users as $user) : ?>
+                        <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                    <?php endforeach; ?>
+                    op <?php echo $row2['created_at']; ?></h3>
 
-                <div class="pull-right">
+                    <div class="pull-right">
 
-                    <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
-                        Quote deze post
-                    </button>
+                        <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
+                            Quote deze post
+                        </button>
+                    </div>
+
+                    <div class="clearfix"></div>
                 </div>
 
-                <div class="clearfix"></div>
-            </div>
-
-     </div>
+                </div>
             <?php endforeach; ?>
-    </div>
-
-</div>
-
-<div class="container main">
-    <div class="row">
-        <div class="col-md-12">
-
+            <br>
+        <div class="col-xs-12">
             <?php
 
-                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM reply WHERE topic_id = :id');
-                $query->execute([
-                        ':id' => $_GET['id']
-                ]);
-                $results = $query->fetchAll()[0];
-                $count = ceil($results['x'] / $perPage);
+            $query = $dbc->prepare('SELECT COUNT(*) AS x FROM reply WHERE topic_id = :id');
+            $query->execute([
+                ':id' => $_GET['id']
+            ]);
+            $results = $query->fetchAll()[0];
+            $count = ceil($results['x'] / $perPage);
             ?>
-
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
@@ -252,44 +242,43 @@ require_once("../../includes/components/nav.php");
                     </li>
                 </ul>
             </nav>
-        </div>
-    </div>
-    <?php if ($logged_in) : ?>
-    <div class="row">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Antwoord toevoegen</h3>
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" action="/includes/tools/berichtParse" method="post">
-                        <div class="form-group">
-                            <div class="col-md-12">
+            <?php if ($logged_in) : ?>
+                <div class="row">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Antwoord toevoegen</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" action="/includes/tools/berichtParse" method="post">
+                                <div class="form-group">
+                                    <div class="col-md-12">
                             <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
                                       style="resize: none;" placeholder="Uw bericht.."></textarea>
-                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="hidden" name="bericht_id" value="<?php echo $_GET['id']; ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-primary" class="form-control" name="post_reply"
+                                               value="Plaats reactie">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="hidden" name="bericht_id" value="<?php echo $_GET['id']; ?>">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="submit" class="btn btn-primary" class="form-control" name="post_reply"
-                                       value="Plaats reactie">
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
-        <?php endif; ?>
+        </div>
     </div>
-</div>
-
 <footer>
     <?php require_once("../../includes/components/footer.php"); ?>
 </footer>
+
 <!-- bootstrap script -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -298,24 +287,11 @@ require_once("../../includes/components/nav.php");
 <script type="text/javascript" src="/js/summernote.min.js"></script>
 <script>
     $('.editor').summernote({
-        disableResizeEditor: true,
-        toolbar: [
-            // [groupName, [list of button]]
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['strikethrough', 'superscript', 'subscript']],
-            ['fontsize', ['fontsize']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['height', ['height']]
-        ]
-    });
-
-    $(document).ready(function () {
-        $('.quote-btn').on('click', function () {
-            $('.editor').summernote('insertText', '[quote '+($(this).attr('data-id'))+']')//.disabled = true
-        });
+        codemirror: {
+            theme: 'yeti'
+        }
     });
 </script>
 </body>
-
 </html>
+<!-- https://twitter.com/DiscusHolland -->
