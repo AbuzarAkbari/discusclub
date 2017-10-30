@@ -298,6 +298,7 @@ require_once("../../includes/components/nav.php");
 <script type="text/javascript" src="/js/summernote.min.js"></script>
 <script>
     $('.editor').summernote({
+        disableResizeEditor: true,
         toolbar: [
             // [groupName, [list of button]]
             ['style', ['bold', 'italic', 'underline', 'clear']],
