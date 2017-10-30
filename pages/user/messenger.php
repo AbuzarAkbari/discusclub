@@ -1,6 +1,8 @@
 <?php
 $levels = ["lid", "gebruiker"];
-require_once("../../includes/tools/security.php");?>
+require_once("../../includes/tools/security.php");
+$id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,6 +52,9 @@ require_once("../../includes/tools/security.php");?>
                 $sth->execute([":id" => $_SESSION["user"]->id]);
                 $res = $sth->fetchAll(PDO::FETCH_OBJ);
                 foreach ($res as $value) : ?>
+                    <?php if ($value->user_id_2 === $id) {
+                        $user = $value->first_name . " " . $value->last_name;
+                    } ?>
                     <a href="/user/messenger/<?php echo $value->user_id_2; ?>">
                         <div class="other">
                             <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
@@ -57,7 +62,7 @@ require_once("../../includes/tools/security.php");?>
                             <div><?php echo implode(" ", array_slice(explode(" ", $value->message), 0, 5)) . "..."; ?></div>
                         </div>
                     </a>
-                <?php                                                                                                                                                                                                                                                                                                                                                                                                                                 endforeach; ?>
+                <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 endforeach; ?>
                 </div>
 
                 <div class="searchUser">
@@ -68,22 +73,21 @@ require_once("../../includes/tools/security.php");?>
                 </div>
             </div>
             <?php
-            $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
-            $sth = $dbc->prepare("SELECT * FROM user_has_message as uhm JOIN message as m ON m.id = uhm.message_id WHERE uhm.user_id_2 = :id");
+            $sth = $dbc->prepare("SELECT * FROM user_has_message as uhm JOIN message as m ON m.id = uhm.message_id JOIN user as u ON u.user_id_2 = u.id WHERE uhm.user_id_2 = :id");
             $sth->execute([":id" => $id]);
             $res = $sth->fetchAll(PDO::FETCH_OBJ);
             ?>
             <div class="col-md-8">
                 <div class="userTab">
                     <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
-                    <div class="username"><b>Gebruikersnaam van user</b></div>
+                    <div class="username"><b>bla</b></div>
                 </div>
                 <div class="imageBackgroundText flexcroll">
-                <?php foreach($res as $value) : ?>
+                <?php foreach ($res as $value) : ?>
                     <div class="<?php echo $value->user_id_1 === $_SESSION["user"]->id ? "response" : "message" ?>">
                         <div>tekst die ze zelf invullen</div>
                     </div>
-<?php endforeach; ?>
+                <?php endforeach; ?>
                     <div class="response ">
                         <div>tekst Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                         Aenean commodo ligula eget dolor.
@@ -129,7 +133,7 @@ require_once("../../includes/tools/security.php");?>
                 <div class="searchUser">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
-                      <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary ButtonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
+                      <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
                     </div>
                 </div>
                 </div>
