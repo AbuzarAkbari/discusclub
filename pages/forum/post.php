@@ -90,10 +90,6 @@ require_once("../../includes/components/nav.php");
                         <div class="">
                             <br>
                             <?php echo html_entity_decode($row['content']); ?>
-                            Marcel van Hintum
-                            <br><br>
-                            Voorzitter Discus Club Holland
-                            <br><br>
                         </div>
 
                     </div>
@@ -121,10 +117,9 @@ require_once("../../includes/components/nav.php");
 
             </div>
             <br>
-        </div>
-    </div>
+
 </div>
-<br><br>
+
 <?php
 $a = $page * $perPage - $perPage;
 $sql2 = "SELECT * FROM reply WHERE topic_id = ? LIMIT {$perPage} OFFSET {$a}";
@@ -174,15 +169,12 @@ while ($matches[1]) {
         $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $row2['content']);
     }
 }
-
-
-
 ?>
 <div class="container main">
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-                
+
                 <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 ">
                         <?php echo $row2['content']; ?>
@@ -214,7 +206,7 @@ while ($matches[1]) {
                 </div>
             <?php endforeach; ?>
             <br>
-        <div class="col-xs-12">
+        </div>
             <?php
 
             $query = $dbc->prepare('SELECT COUNT(*) AS x FROM reply WHERE topic_id = :id');
@@ -242,7 +234,9 @@ while ($matches[1]) {
                     </li>
                 </ul>
             </nav>
+
             <?php if ($logged_in) : ?>
+                <div class="col-xs-12">
                 <div class="row">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -271,10 +265,9 @@ while ($matches[1]) {
                         </div>
                     </div>
                 </div>
+            </div>
             <?php endif; ?>
-        </div>
-        </div>
-        </div>
+    </div>
     </div>
 <footer>
     <?php require_once("../../includes/components/footer.php"); ?>
