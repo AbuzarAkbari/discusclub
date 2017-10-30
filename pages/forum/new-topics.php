@@ -58,7 +58,9 @@
                             <th>Berichten</th>
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
+                            <?php if (in_array($current_level, $admin_levels)) : ?>
                             <th>Admin tools</th>
+                            <?php endif; ?>
                         </tr>
                         <?php foreach ($results as $topic) : ?>
                             <?php
@@ -95,13 +97,14 @@
                                 <td><?php echo $x_bekeken['x']; ?></td>
                                 <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
                                 </td>
+                                <?php if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
                                     <a  title="Pinnen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
                                     <a  title="Locken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
                                     <a title="Bewerken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
                                     <a title="Verwijderen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
                                 </td>
-                            </tr>
+                                <?php endif; ?>
                             </tr>
                         <?php endforeach; ?>
                     </div>
