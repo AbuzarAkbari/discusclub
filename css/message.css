@@ -47,7 +47,7 @@
 
 /*image scale static*/
 
-.ImageStatic {
+.imageStatic {
     position: relative;
     float: left;
     background-position: 50% 50%;
@@ -58,32 +58,32 @@
 }
 
 /*images user*/
-.ImgUser {
+.imgUser {
     width: 25px;
     height: 25px;
 }
 
 /*other users*/
-.OtherUsers {
+.otherUsers {
     width: 50px;
     height: 50px;
 }
 
 /*Username class*/
-.Username {
+.username {
     color: #fff;
     font-size: 2rem;
     line-height: 36px;
 }
 
-.UsernameTab {
+.usernameTab {
     color: #5ba8ef;
     font-size: 2rem;
     line-height: 36px;
 }
 
 /*UserTab class*/
-.UserTab {
+.userTab {
     background: black;
     height: 100%;
     width: auto;
@@ -92,17 +92,18 @@
 
 /*OtherTab*/
 
-.OtherTab {
+.otherTab {
     max-height: 500px;
     height: 100%;
-    min-height: 400px;
+    min-height: 500px;
     width: 100%;
     background: #efeeef;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 /*Other*/
-.Other {
+.other {
     width: 100%;
     height: 63px;
     background: #fff;
@@ -110,7 +111,7 @@
 }
 
 /*SearchUser*/
-.SearchUser {
+.searchUser {
     width: 100%;
     padding: 10px;
     background: #000;
@@ -118,7 +119,7 @@
 }
 
 /*InputUser*/
-.InputUser {
+.inputUser {
     display: block;
     width: 90%;
     float: left;
@@ -142,11 +143,11 @@
     color: #0ba8ec;
 }
 
-.ButtonHeight {
+.buttonHeight {
     height: 33.99px;
 }
 
-.Message {
+.message {
     background-color: #fff;
     margin: 10px;
     padding: 10px;
@@ -155,7 +156,7 @@
     border-radius: 2px;
 }
 
-.Response {
+.response {
     background-color: #fff;
     margin: 10px;
     padding: 10px;
@@ -164,7 +165,7 @@
     border-radius: 2px;
 }
 
-.MessageImage {
+.messageImage {
     height: 100%;
     width: auto;
 }

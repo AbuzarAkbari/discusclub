@@ -1,0 +1,16 @@
+#scrollable {
+    width: auto;
+    height: 180px;
+    border: 1px solid;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    min-width: 100%;
+}
+
+#scrollable .img {
+    display: inline-block;
+    position: relative;
+    float: none;
+}
