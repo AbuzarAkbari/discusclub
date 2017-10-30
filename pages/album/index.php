@@ -68,7 +68,7 @@
                                         Datum: <i><?php echo $album['created_at']; ?></i><br>
                                     </p>
                                     <div class="text-center"><img class="text-center imgAlbum" src="<?php echo $album['path'] ?>" alt=""></div><br><br>
-                                    <button type="button" class="btn btn-primary" name="button">Bekijken</button></b>
+                                    <a href="<?php echo $album['album_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
                                 </div>
                             </div>
                         </div>
