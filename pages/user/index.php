@@ -58,7 +58,7 @@ if (isset($_GET["id"])) {
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Informatie</div>
                 <div class="panel-body text-left">
-                    <div class="text-center"><div  style="background-image:url('images/profiel/<?php echo isset($user_data->profile_img) ? $user_data->profile_img : ""; ?>')"; class="img "></div></div>
+                    <div class="text-center"><div  style="background-image:url('/images/profiel/<?php echo isset($user_data->profile_img) ? $user_data->profile_img : ""; ?>')"; class="img "></div></div>
                     <div class="col-md-12">
                         <strong>Locatie</strong><br>
                         <?php echo isset($user_data->location) ? $user_data->location : "Onbekend"; ?><br>

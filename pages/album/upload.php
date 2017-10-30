@@ -1,6 +1,6 @@
 <?php
 $levels = ["gebruiker"];
-include_once("includes/security.php"); ?>
+include_once("../../includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 

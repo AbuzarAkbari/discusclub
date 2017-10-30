@@ -5,7 +5,7 @@ require_once("../../includes/tools/security.php");
 if ($logged_in) {
     if (isset($_POST["profiel_parse"])) {
         //Start query
-        $query = "UPDATE user SET";
+        $query = "UPDATE user SET id = :userId";
         $userId = $_POST["user_id"];
         $bindings = [":userId" => $userId];
 
@@ -32,8 +32,8 @@ if ($logged_in) {
         //Geboortedatum
         if (isset($_POST['date'])) {
             $date = $_POST['date'];
-            $query .= " birthdate = :birthdate";
-            $bindings[":birthdate"] = $date;
+            $query .= ", birthdate = :birthdate";
+            $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
         }
 
         //Locatie
@@ -112,7 +112,7 @@ if ($logged_in) {
 
 
 
-                if (move_uploaded_file($_FILES["profiel"]["tmp_name"], 'images/profiel/'.$path)) {
+                if (move_uploaded_file($_FILES["profiel"]["tmp_name"], '../../images/profiel/'.$path)) {
                     $sql = "INSERT INTO image (path) VALUES (?)";
                     $result = $dbc->prepare($sql);
                     $result->bindParam(1, $path);
@@ -131,12 +131,6 @@ if ($logged_in) {
 
         //End query
         $query .= " WHERE id = :userId";
-
-        echo "<pre>";
-        var_dump($query);
-        var_dump($bindings);
-        echo "</pre>";
-
         $result = $dbc->prepare($query);
         $result->execute($bindings);
 
