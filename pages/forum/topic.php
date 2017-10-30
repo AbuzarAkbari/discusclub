@@ -183,9 +183,11 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
     <script type="text/javascript" src="/js/summernote.min.js"></script>
     <script>
         $('.editor').summernote({
+            disableResizeEditor: true,
             codemirror: {
                 theme: 'yeti'
             }
+
         });
     </script>
 </body>

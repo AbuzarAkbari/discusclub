@@ -9,17 +9,19 @@ if ($logged_in) {
         $userId = $_POST["user_id"];
         $bindings = [":userId" => $userId];
 
+//        echo '<pre>';
+//        print_r($_FILES);
+//        exit;
+
         //Nieuwsbrief
-        if (isset($_POST['nieuwsbrief'])) {
-            if ($_POST['nieuwsbrief'] == "checked") {
-                $news = 1;
-                $query .= ", news = :news";
-                $bindings[":news"] = $news;
-            } else {
-                $news = 0;
-                $query .= ", news = :news";
-                $bindings[":news"] = $news;
-            }
+        if ($_POST['nieuwsbrief'] == "on") {
+            $news = 1;
+            $query .= ", news = :news";
+            $bindings[":news"] = $news;
+        } else {
+            $news = 0;
+            $query .= ", news = :news";
+            $bindings[":news"] = $news;
         }
 
         //Email
@@ -27,6 +29,9 @@ if ($logged_in) {
             $email = $_POST['email'];
             $query .= ", email = :email";
             $bindings[":email"] = $email;
+        } else {
+            echo "Email adressen komen niet overeen";
+            exit();
         }
 
         //Geboortedatum
@@ -51,7 +56,7 @@ if ($logged_in) {
         }
 
         //Image check
-        if (isset($_FILES['profiel'])) {
+        if (isset($_FILES['profiel']) && $_FILES['profiel']['error'] !== 4) {
             $target_dir = "/images/profiel/";
             $target_file = $target_dir . basename($_FILES["profiel"]["name"]);
             $uploadOk = 1;
@@ -129,11 +134,25 @@ if ($logged_in) {
             }
         }
 
+        //Wachtwoord
+        if(isset($_POST['wachtwoord'])) {
+            $wachtwoord = $_POST['wachtwoord'];
+            $sql = "SELECT * FROM user WHERE id = ?";
+            $result = $dbc->prepare($sql);
+            $result->bindParam(1, $_SESSION["user"]->id);
+            $result->execute();
+            $user = $result->fetch(PDO::FETCH_OBJ);
+
+            if(!password_verify($wachtwoord, $user->password)) {
+                header("Location: /");
+                exit();
+            }
+        }
+
         //End query
         $query .= " WHERE id = :userId";
         $result = $dbc->prepare($query);
         $result->execute($bindings);
-
         header("Location: /");
     }
 }
