@@ -118,6 +118,9 @@ require_once("../../includes/components/nav.php");
             </div>
             <br>
     </div>
+
+</div>
+
 <?php
 $a = $page * $perPage - $perPage;
 $sql2 = "SELECT * FROM reply WHERE topic_id = ? LIMIT {$perPage} OFFSET {$a}";

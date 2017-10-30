@@ -58,18 +58,15 @@ INSERT INTO `topic` (`sub_category_id`, `title`, `user_id`, `content`, `created_
 INSERT INTO `album`(`title`, `user_id`) VALUES
 ('dinges', 1);
 
+INSERT INTO `album_reply`(`content`, `user_id`, `album_id`) VALUES
+('geile fotos jonge', 2, 1);
+
 INSERT INTO `image`(`path`, `album_id`) VALUES
 ('http://via.placeholder.com/350x350', 1);
 
--- INSERT INTO `album_has_image`(`album_id`, `image_id`) VALUES
--- (1, 1);
-
-INSERT INTO `message`(`title`, `message`) VALUES
-('titel', 'bla');
-
-INSERT INTO `user_has_message`(`message_id`, `user_id_1`, `user_id_2`) VALUES
-(1, 2, 1),
-(1, 1, 2);
+INSERT INTO `message`(`message`, `user_id_1`, `user_id_2`) VALUES
+('bla', 1, 2),
+('dinges', 2, 1);
 
 INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
 (2, 'eSHa Aquariumproducten', 'http://www.eshalabs.eu/nederlands/'),
