@@ -17,6 +17,9 @@ include_once("../../includes/tools/security.php"); ?>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/dropzone.css">
+
 </head>
 
 <body>
@@ -38,28 +41,16 @@ include_once("../../includes/tools/security.php"); ?>
         <div class="row">
             <br><br>
             <div class="panel panel-primary">
-              <div class="panel-heading border-color-blue">
-                <h3 class="panel-title">Album uploaden</h3>
-              </div>
-              <div class="panel-body">
-                  <div class="contact">
-                  <form method="post" enctype="multipart/form-data"  action="#" id="image-form">
-
-                        <div class="one_col file-upload">
-                            <div id="file"><ul id="image-list"><p>Click or Drag in an image to upload</p></ul></div>
-                            <input type="file" class="file" name="images" id="images"/>
-                            <span class="error"></span>
-                        </div>
-
-                        <div class="one_col">
-                            <input id="submit" type="submit" value="Upload album" class="btn btn-primary" />
-                        </div>
-                        <span class="clear"></span>
-                    </form>
+                <div class="panel-heading border-color-blue">
+                    <h3 class="panel-title">Album uploaden</h3>
                 </div>
+                <div class="panel-body">
+                    <input type="text" class="form-control" name="album-name" placeholder='Titel'><br>
+                    <form action="/includes/tools/album-upload" class="dropzone col-md-12" id="my-awesome-dropzone"></form>
 
+                </div>
             </div>
-            </div><br>
+            <br>
         </div>
     </div>
     <!-- <div class="conainter-fluid"></div> -->
@@ -71,6 +62,13 @@ include_once("../../includes/tools/security.php"); ?>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- dropzone script -->
+    <script src="/js/dropzone.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    // jQuery
+        $("#my-awesome-dropzone").dropzone({ acceptedFiles: "image/*" });
+    </script>
 </body>
 </html>
 <!-- https://twitter.com/DiscusHolland -->
