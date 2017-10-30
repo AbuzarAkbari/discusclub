@@ -44,17 +44,20 @@ require_once("../../includes/tools/security.php");?>
                     <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
                     <div class="username"><b>Gebruikersnaam van user</b></div>
                 </div>
-                <div class="otherTab">
-                    <div class="other">
-                        <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
-                        <div class="usernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
-                    <div class="other">
-                        <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
-                        <div class="usernameTab"><b>Gebruikersnaam</b></div>
-                        <div>tekst die ze zelf invullen</div>
-                    </div>
+                <div class="otherTab flexcroll">
+                <?php
+                $sth = $dbc->prepare("SELECT *, m.message, m.id, m.created_at, m.title, m.last_changed FROM user_has_message as uhm JOIN user as u ON u.id = uhm.user_id_2 JOIN message as m ON uhm.message_id = m.id WHERE uhm.user_id_1 = :id");
+                $sth->execute([":id" => $_SESSION["user"]->id]);
+                $res = $sth->fetchAll(PDO::FETCH_OBJ);
+                foreach ($res as $value) : ?>
+                    <a href="/user/messenger/<?php echo $value->user_id_2; ?>">
+                        <div class="other">
+                            <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
+                            <div class="usernameTab"><b><?php echo $value->first_name . " " . $value->last_name; ?></b></div>
+                            <div><?php echo implode(" ", array_slice(explode(" ", $value->message), 0, 5)) . "..."; ?></div>
+                        </div>
+                    </a>
+                <?php                                                                                                                                                                                                                                                                                                                                                                                                                                 endforeach; ?>
                 </div>
 
                 <div class="searchUser">
@@ -64,15 +67,25 @@ require_once("../../includes/tools/security.php");?>
                     </div>
                 </div>
             </div>
+            <?php
+            $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
+            $sth = $dbc->prepare("SELECT * FROM user_has_message as uhm JOIN message as m ON m.id = uhm.message_id WHERE uhm.user_id_2 = :id");
+            $sth->execute([":id" => $id]);
+            $res = $sth->fetchAll(PDO::FETCH_OBJ);
+            ?>
             <div class="col-md-8">
                 <div class="userTab">
                     <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
                     <div class="username"><b>Gebruikersnaam van user</b></div>
                 </div>
                 <div class="imageBackgroundText flexcroll">
+                <?php foreach($res as $value) : ?>
+                    <div class="<?php echo $value->user_id_1 === $_SESSION["user"]->id ? "response" : "message" ?>">
+                        <div>tekst die ze zelf invullen</div>
+                    </div>
+<?php endforeach; ?>
                     <div class="responses ">
-                        <p>
-                        tekst Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        <div>tekst Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                         Aenean commodo ligula eget dolor.
                          Aenean massa.
                          Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.

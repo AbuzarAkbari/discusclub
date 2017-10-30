@@ -9,7 +9,11 @@
         <div class='dropdown'>
           <a href="/user/" class='dropbtn'><?php echo $name; ?></a>
           <div class='dropdown-content'>
-            <a href='/user/messenger'>Berichten</a>
+            <a href='/user/messenger'>Berichten(<?php
+                $sth = $dbc->prepare("SELECT count(*) as amount FROM user_has_message WHERE user_id_1 = :id AND opened = 0");
+                $sth->execute([":id" => $_SESSION["user"]->id]);
+                echo $sth->fetch(PDO::FETCH_OBJ)->amount;
+            ?>)</a>
             <a href='/user/conf'>Profiel aanpasen</a>
           </div>
       </div>

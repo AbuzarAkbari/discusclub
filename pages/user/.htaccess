@@ -7,3 +7,6 @@ RewriteRule ^([0-9]+) index.php?id=$1 [NC]
 
 # user id thingy
 RewriteRule ^conf/([0-9]+) conf.php?id=$1 [NC]
+
+# messenger
+RewriteRule ^messenger/([0-9]+) messenger.php?id=$1 [NC]
