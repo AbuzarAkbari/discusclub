@@ -182,8 +182,7 @@ while ($matches[1]) {
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-
-                <div class="panel-heading"> #23 Geplaatst door marco.middelhuis</div>
+                
                 <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 ">
                         <?php echo $row2['content']; ?>
