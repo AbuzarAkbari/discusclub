@@ -1,0 +1,6 @@
+#scrollable {
+    width: auto;
+    height: 150px;
+    border: 1px solid;
+    overflow-x: scroll;
+}
