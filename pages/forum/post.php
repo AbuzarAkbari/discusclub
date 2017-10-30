@@ -90,10 +90,6 @@ require_once("../../includes/components/nav.php");
                         <div class="">
                             <br>
                             <?php echo html_entity_decode($row['content']); ?>
-                            Marcel van Hintum
-                            <br><br>
-                            Voorzitter Discus Club Holland
-                            <br><br>
                         </div>
 
                     </div>
@@ -124,7 +120,6 @@ require_once("../../includes/components/nav.php");
         </div>
     </div>
 </div>
-<br><br>
 <?php
 $a = $page * $perPage - $perPage;
 $sql2 = "SELECT * FROM reply WHERE topic_id = ? LIMIT {$perPage} OFFSET {$a}";
@@ -182,7 +177,7 @@ while ($matches[1]) {
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-                
+
                 <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 ">
                         <?php echo $row2['content']; ?>
