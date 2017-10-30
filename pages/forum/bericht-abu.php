@@ -179,100 +179,26 @@ require_once("../../includes/components/nav.php");
         <div class="col-xs-12">
             <div class="panel panel-primary">
 
-                <div class="panel-heading"> #23 Geplaatst door marco.middelhuis</div>
+                <div class="panel-heading" id="post-<?php echo $row2['id'] ?>"></div>
                 <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 ">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor.
-                             Aenean massa.
-                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                             Nulla consequat massa quis enim.
-                             Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                             In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                             Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
-                             Cras dapibus. Vivamus elementum semper nisi.
-                             Aenean vulputate eleifend tellus. Aenean leo ligula,
-                             porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                             Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-                             Aenean imperdiet. Etiam ultricies nisi vel augue.
-                             Curabitur ullamcorper ultricies nisi.
-                             Nam eget dui.
+<p><?php echo $row2['content']; ?></p>
                     </div>
                 </div>
-                <div class="panel-footer">op zondag 23 februari
-                    2014 10:39:39
+                <div class="panel-footer"><?php
+                    $userSql = "SELECT * FROM user WHERE id = ?";
+                    $userResult = $dbc->prepare($userSql);
+                    $userResult->bindParam(1, $row2['user_id']);
+                    $userResult->execute();
+                    $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                <?php foreach ($users as $user) : ?>
+                    <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                <?php endforeach; ?>
+                op <?php echo $row2['created_at']; ?></h3>
                 </div>
 
                 </div>
-            <div class="panel panel-primary">
-
-                <div class="panel-heading"> #23 Geplaatst door marco.middelhuis</div>
-                <div class="panel-body padding-padding table-responsive">
-                    <div class="col-md-12 ">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor.
-                             Aenean massa.
-                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                             Nulla consequat massa quis enim.
-                             Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                             In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                             Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
-                             Cras dapibus. Vivamus elementum semper nisi.
-                             Aenean vulputate eleifend tellus. Aenean leo ligula,
-                             porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                             Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-                             Aenean imperdiet. Etiam ultricies nisi vel augue.
-                             Curabitur ullamcorper ultricies nisi.
-                             Nam eget dui.
-                    </div>
-                </div>
-                <div class="panel-footer">op zondag 23 februari
-                    2014 10:39:39
-                </div>
-
-                </div>
-                <div class=" panel panel-primary">
-                <div class="panel-heading "> #23 Geplaatst door marco.middelhuis
-                </div>
-                <div class="panel-body padding-padding table-responsive">
-                    <div class="col-md-12 ">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor.
-                             Aenean massa.
-                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                             Nulla consequat massa quis enim.
-                    </div>
-                </div>
-                <div class="panel-footer">op zondag 23 februari
-                    2014 10:39:39</div>
-                </div>
-            <div class=" panel panel-primary">
-                <div class="panel-heading "> #23 Geplaatst door marco.middelhuis
-
-                </div>
-                <div class="panel-body padding-padding table-responsive">
-                    <div class="col-md-12 ">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor.
-                             Aenean massa.
-                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                             Nulla consequat massa quis enim.
-
-                             Cras dapibus. Vivamus elementum semper nisi.
-                             Aenean vulputate eleifend tellus. Aenean leo ligula,
-                             porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                             Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-                             Aenean imperdiet. Etiam ultricies nisi vel augue.
-                             Curabitur ullamcorper ultricies nisi.
-                             Nam eget dui.
-                    </div>
-                </div>
-                <div class="panel-footer">op zondag 23 februari
-                    2014 10:39:39</div>
             </div>
         </div>
     </div>
