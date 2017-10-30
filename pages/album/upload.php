@@ -46,7 +46,8 @@ include_once("../../includes/tools/security.php"); ?>
                     <h3 class="panel-title">Album uploaden</h3>
                 </div>
                 <div class="panel-body">
-                    <input type="text" class="form-control" name="album-name" placeholder='Titel'><br>
+                    
+                    <input type="text" class="form-control" name="album-name" placeholder='Titel' ><br>
                     <!-- <form action="/includes/tools/album-upload" class="dropzone col-md-12" id="my-awesome-dropzone">
 
                     </form> -->
