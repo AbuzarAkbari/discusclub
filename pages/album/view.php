@@ -77,6 +77,18 @@ require_once("../../includes/tools/security.php"); ?>
                                         </div>
 
                                         <div class="item">
+                                            <img src="http://via.placeholder.com/350x151" alt="fishing">
+                                        </div>
+
+                                        <div class="item">
+                                            <img src="http://via.placeholder.com/350x151" alt="fishing">
+                                        </div>
+
+                                        <div class="item">
+                                            <img src="http://via.placeholder.com/350x152" alt="vissen">
+                                        </div>
+
+                                        <div class="item">
                                             <img src="http://via.placeholder.com/350x152" alt="vissen">
                                         </div>
                                     </div>
@@ -92,26 +104,21 @@ require_once("../../includes/tools/security.php"); ?>
                                     </a>
                                 </div>
                                 <!-- images -->
-
                             </div>
                         </div>
                         <div id="scrollable">
                             <div class=" img" style="background-image:url('http://via.placeholder.com/350x150')"; data-target="#myCarousel" data-slide-to="0"></div>
                             <div class=" img" style="background-image:url('http://via.placeholder.com/350x151')"; data-target="#myCarousel" data-slide-to="1"></div>
                             <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
-                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="2"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="3"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="4"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="5"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x150')"; data-target="#myCarousel" data-slide-to="6"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x151')"; data-target="#myCarousel" data-slide-to="7"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="8"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="9"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="10"></div>
+                            <div class=" img" style="background-image:url('http://via.placeholder.com/350x152')"; data-target="#myCarousel" data-slide-to="11"></div>
                         </div>
                     </div>
                 </div>
