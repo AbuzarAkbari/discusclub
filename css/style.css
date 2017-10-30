@@ -127,15 +127,15 @@ hr {
 
 @media screen and (max-width: 992px) {
     .footer-name {
-        min-width: 380px;
+        min-width: 250px;
     }
 
     .footer-message {
-        min-width: 380px;
+        min-width: 250px;
     }
 
     .footer-btn {
-        min-width: 380px;
+        min-width: 250px;
     }
 }
 

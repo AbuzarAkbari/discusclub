@@ -91,6 +91,28 @@ require_once("../../includes/tools/security.php"); ?>
                                         <div class="item">
                                             <img src="http://via.placeholder.com/350x152" alt="vissen">
                                         </div>
+                                        <div class="item">
+                                            <img src="http://via.placeholder.com/350x151" alt="fishing">
+                                        </div>
+
+                                        <div class="item">
+                                            <img src="http://via.placeholder.com/350x151" alt="fishing">
+                                        </div>
+
+                                        <div class="item">
+                                            <img src="http://via.placeholder.com/350x151" alt="fishing">
+                                        </div>
+
+                                        <div class="item">
+                                            <img src="http://via.placeholder.com/350x152" alt="vissen">
+                                        </div>
+
+                                        <div class="item">
+                                            <img src="http://via.placeholder.com/350x152" alt="vissen">
+                                        </div>
+                                        <div class="item">
+                                            <img src="http://via.placeholder.com/350x152" alt="vissen">
+                                        </div>
                                     </div>
 
                                     <!-- Left and right controls -->
