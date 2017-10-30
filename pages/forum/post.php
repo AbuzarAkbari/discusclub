@@ -117,7 +117,6 @@ require_once("../../includes/components/nav.php");
 
             </div>
             <br>
-    </div>
 
 </div>
 
