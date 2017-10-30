@@ -1,4 +1,24 @@
-<?php require_once("../../includes/tools/security.php"); ?>
+<?php $levels = ["lid"];
+require_once("../../includes/tools/security.php");
+    ?>
+
+<?php
+
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
+
+$sql = "INSERT INTO view (topic_id, ip_id) VALUES (:id, :ip_id)";
+$result = $dbc->prepare($sql);
+$result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
+
+$page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+$perPage = 10;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,68 +61,54 @@ require_once("../../includes/components/nav.php");
 
         <div class="col-xs-12">
             <br><br>
+            <?php
+            $sql = "SELECT * FROM topic WHERE id = ?";
+            $result = $dbc->prepare($sql);
+            $result->bindParam(1, $_GET['id']);
+            $result->execute();
+            $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            $subcat_id = $rows[0]['sub_category_id'];
+            $subSql = "SELECT * FROM sub_category WHERE id = ?";
+            $subResult = $dbc->prepare($subSql);
+            $subResult->bindParam(1, $subcat_id);
+            $subResult->execute();
+            $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Forum</a></li>
+                <li><a href="/"><?php echo $subId[0]['name']; ?></a></li>
+                <li class="active"><?php echo $rows[0]['title']; ?></li>
+            </ol>
+            <?php foreach ($rows as $row) : ?>
             <div class="panel panel-primary ">
                 <div class="panel-heading border-color-blue">
-                    <h3>Welkom</h3>
+                    <h3><?php echo $row['title']; ?></h3>
 
                 </div>
                 <div class="panel-body padding-padding table-responsive">
                     <div class="col-md-12 verticalLine">
                         <h4>Welkom bij Discus Club Holland!</h4>
                         <div class="">
-                            Categorie: <a> Website </a> | <span>04-01-2014</span><br>
-                            Beste Lezer,<br>
-                            <br><br>
-                            De ” koning van de Amazone” heeft Uw aandacht getrokken. U heeft reeds discusvissen in uw
-                            bezit
-                            of overweegt deze te gaan aanschaffen, misschien wilt U er op den duur zelfs mee gaan
-                            kweken.
-                            Het houden van discusvissen (nakweek) is, als u zich aan de richtlijnen houdt, niet lastig.
-                            Voor
-                            wildvang vissen gelden trouwens andere eisen en dit is mijns inziens dan ook meer voor de
-                            ervaren aquariaan. De discus is een sterke vis die bij goede verzorging behoorlijk oud kan
-                            worden. Het houden van deze vissen krijgt een extra dimensie als er in uw aquarium spontaan
-                            een
-                            koppeltje wordt gevormd dat daadwerkelijk eieren af gaat zetten. Dan slaat bij vele
-                            hobbyisten
-                            het ”Discusvirus” toe en komt de wens om een kweekpoging te wagen. Voor al deze zaken heeft
-                            U
-                            kennis nodig die u bij onze vereniging in ruime mate kunt vinden.
-                            Maar let wel: Het dieren welzijn staat op de eerste plaats. U bent immers verantwoordelijk
-                            voor
-                            Uw dieren, er zijn vele aspecten die een bijdrage aan het welzijn kunnen leveren. Kijk
-                            daarom
-                            eens goed op deze site en bedenk daarbij :
-                            <br><br>
-                            Discus Club Holland heeft naast honderden leden die veel kennis en ervaring hebben ook
-                            diverse
-                            specialisten (bijvoorbeeld op het gebied van visziekten) die u kunnen helpen bij het
-                            voorkomen
-                            van teleurstellingen in uw hobby.
-                            <br><br>
-                            Voor slechts 25 euro per jaar krijgt u niet alleen toegang tot dit netwerk maar ontvangt u
-                            ook
-                            4x per jaar ons full color clubblad en bent u van harte welkom op onze informatieve en
-                            bovenal
-                            gezellige clubavonden. Ik kan u verzekeren dat het lidmaatschap van Discus Club Holland de
-                            beste
-                            investering is die u, als u echt goed voor uw vissen wil zorgen, kunt doen. Ik heet u graag
-                            welkom bij onze club..
-
-                            <br><br><br><br>
-
-                            Marcel van Hintum
-                            <br><br>
-                            Voorzitter Discus Club Holland
-                            <br><br>
+                    <?php echo html_entity_decode($row['content']); ?>
                         </div>
 
                     </div>
                     <div class="panel-footer">
-                        <b>Geplaatst door:</b> <i>myname</i>
-                        op 2017-08-1
+                        <?php
+                            $userSql = "SELECT * FROM user WHERE id = ?";
+                            $userResult = $dbc->prepare($userSql);
+                            $userResult->bindParam(1, $row['user_id']);
+                            $userResult->execute();
+                            $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
+                        ?>
+                        <?php foreach ($users as $user) : ?>
+                            <b>Geplaatst door:</b> <i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                        <?php endforeach; ?>
+                        op <?php echo $row['created_at']; ?></h3>
                     </div>
-
+        <?php endforeach; ?>
                 </div>
                 <div class="panel-footer text-right">
                     <i class="glyphicon glyphicon-star-empty GlyphSize "></i>
@@ -110,6 +116,59 @@ require_once("../../includes/components/nav.php");
                 </div>
             </div>
             <br>
+            <?php
+            $a = $page * $perPage - $perPage;
+            $sql2 = "SELECT * FROM reply WHERE topic_id = ? LIMIT {$perPage} OFFSET {$a}";
+            $result2 = $dbc->prepare($sql2);
+            $result2->bindParam(1, $_GET['id']);
+            $result2->execute();
+            $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            <?php foreach ($rows2 as $row2) : ?>
+                <?php
+
+                $matches = [
+                    [],
+                    [1]
+                ];
+
+                while ($matches[1]) {
+                    preg_match_all('/\[quote\s(\d+)\]/', $row2['content'], $matches);
+
+                    foreach ($matches[1] as $match) {
+                        $sql = "SELECT * FROM reply WHERE id = :id";
+                        $query = $dbc->prepare($sql);
+                        $query->execute([
+                            ':id' => $match
+                        ]);
+                        $results = $query->fetchAll();
+
+                        $id = $rows[0]['user_id'];
+
+//                        echo '<pre>';
+//                        print_r($rows[0]['user_id']);
+//                        exit;
+
+                        $userIdSql = "SELECT * FROM user WHERE id = ?";
+                        $userIdResult = $dbc->prepare($userIdSql);
+                        $userIdResult->bindParam(1, $id);
+                        $userIdResult->execute();
+                        $userId = $userIdResult->fetchAll(PDO::FETCH_ASSOC);
+
+                        if (!isset($results[0])) {
+                            $replace = 'Oops, deze post bestaat niet meer';
+                        } else {
+                            $naam = $userId[0]['first_name'].' '.$userId[0]['last_name'];
+                            $replace = $naam.' schreef:<br>'.$results[0]['content'];
+                        }
+
+                        $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $row2['content']);
+                    }
+                }
+
+
+
+                ?>
         </div>
     </div>
 </div>
@@ -218,6 +277,7 @@ require_once("../../includes/components/nav.php");
         </div>
     </div>
             <br>
+            <?php if ($logged_in) : ?>
         <div class="col-xs-12">
             <div class="panel panel-primary">
                 <div class="panel-heading border-color-blue ">
@@ -233,9 +293,8 @@ require_once("../../includes/components/nav.php");
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                              <textarea required class="form-control editor" col="8" rows="8"
-                                        name="add_topic_content"
-                                        style="resize: none !important;" placeholder="Uw bericht.."></textarea>
+                                <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
+                                          style="resize: none;" placeholder="Uw bericht.."></textarea>
                             </div>
 
                         </div>
@@ -254,6 +313,7 @@ require_once("../../includes/components/nav.php");
                 </div>
             </div>
         </div>
+                <?php endif; ?>
     </div>
 </div>
 </div>
