@@ -91,12 +91,16 @@
                     <div class="panel-body padding-padding ">
                         <div class="col-md-12 ">
                             <div class="col-md-2">
-                                <img src="/images/profiel/<?php echo $row['path']; ?>">
+                            <div class="col-md-12">
+                                <img class="img" src="/images/profiel/<?php echo $row['path'];?>">
                             </div>
+                            <div class="col-md-12">
                             <br>Rol: Admin
                             <br>Aantal berichten: 10
                             <br>Lid sinds: 31-10-2017<br><br>
-                            <div class="col-md-10 ">
+                            </div>
+                        </div>
+                            <div class="col-md-10">
                                 <p><?php echo html_entity_decode($row['content']); ?></p>
                                 <p>
                                     <hr><br>
