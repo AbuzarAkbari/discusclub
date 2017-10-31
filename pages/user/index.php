@@ -45,15 +45,15 @@ if (isset($_GET["id"])) {
     <?php require_once("../../includes/components/nav.php"); ?>
       <div class="container main">
           <br><br>
-        <div class="col-md-12">
-            <div class="panel panel-primary border-color-blues">
-                <div class="panel-heading border-color-blue">Gebruiker</div>
-                <div class="panel-body text-right">
-                    <a><input type="submit" class="btn btn-primary" name="send" value="Fotoalbums"></a>
-                    <a href="/user/conf"><input type="submit" class="btn btn-primary" name="send" value="Wijzig profiel"></a>
-                    </div>
-                </div>
-            </div>
+<!--        <div class="col-md-12">-->
+<!--            <div class="panel panel-primary border-color-blues">-->
+<!--                <div class="panel-heading border-color-blue">Gebruiker</div>-->
+<!--                <div class="panel-body text-right">-->
+<!--                    <a><input type="submit" class="btn btn-primary" name="send" value="Fotoalbums"></a>-->
+<!--                    <a href="/user/conf"><input type="submit" class="btn btn-primary" name="send" value="Wijzig profiel"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         <div class="col-md-4">
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Informatie</div>
@@ -80,35 +80,42 @@ if (isset($_GET["id"])) {
                 <div class="panel-heading border-color-blue">Laatste reacties op topics</div>
                 <div class="panel-body text-right paddingNone">
 
-                <table>
-                    <tr class="border-color-black">
-                    <th class="col-md-4 col-xs-4">Topic</th>
-                    <th class="col-md-4 col-xs-4">Forum</th>
-                    <th class="col-md-4 col-xs-4">Datum</th>
-                        <?php
-                        $sql = "SELECT *, reply.created_at AS reply_created_at FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON topic.id = reply.topic_id WHERE reply.user_id = ? ORDER BY reply_created_at DESC LIMIT 10";
-                        $result = $dbc->prepare($sql);
-                        $result->bindParam(1, $user_data->id);
-                        $result->execute();
-                        $topics = $result->fetchAll(PDO::FETCH_OBJ);
-                        ?>
-                        <?php foreach($topics as $info) : ?>
-                    <tr>
-                        <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->title; ?></a></td>
-                        <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->name; ?></a></td>
-                        <td class="col-md-4 col-xs-4"><?php echo $info->reply_created_at; ?></td>
-                    </tr>
-                    <?php endforeach; ?>
+                    <table>
+                        <tr class="border-color-black">
+                        <th class="col-md-4 col-xs-4">Topic</th>
+                        <th class="col-md-4 col-xs-4">Forum</th>
+                        <th class="col-md-4 col-xs-4">Datum</th>
+                            <?php
+                            $sql = "SELECT *, reply.created_at AS reply_created_at, topic.created_at as topic_created_at FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON topic.id = reply.topic_id WHERE reply.user_id = :id OR topic.user_id = :id ORDER BY reply_created_at DESC, topic_created_at DESC LIMIT 10";
+                            $result = $dbc->prepare($sql);
+                            $result->bindParam(":id", $user_data->id);
+                            $result->execute();
+                            $topics = $result->fetchAll(PDO::FETCH_OBJ);
+                            ?>
+                            <?php foreach($topics as $info) : ?>
+                        <tr>
+                            <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->title; ?></a></td>
+                            <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->name; ?></a></td>
+                            <td class="col-md-4 col-xs-4"><?php echo isset($info->reply_created_at) ? $info->reply_created_at : $info->topic_created_at; ?></td>
+                        </tr>
+                        <?php endforeach; ?>
 
-                </table>
-                </div>
+                    </table>
                 </div>
             </div>
+        </div>
         <div class="col-md-8">
             <div class="panel panel-primary border-color-blues">
                 <div class="panel-heading border-color-blue">Albums</div>
-                <div class="panel-body text-right">
-                    Geen albums gevonden
+                <div class="panel-body text-left">
+                    <?php
+                        $albumSql = "SELECT * FROM album JOIN image ON album.id = image.album_id WHERE user_id = ?";
+                        $albumResult = $dbc->prepare($albumSql);
+                        $albumResult->bindParam(1, $user_data->id);
+                        $albumResult->execute();
+                        $album = $albumResult->fetch(PDO::FETCH_OBJ);
+                    ?>
+                    <img src="<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150">
                     </div>
                 </div>
             </div>
@@ -149,15 +156,15 @@ if (isset($_GET["id"])) {
                     </strong><br>
                     <?php if ($x_topic->t == 0) {
                         echo 'Geen topics';
-} else {
-    echo $x_topic->t;
-} ?><br>
+                    } else {
+                        echo $x_topic->t;
+                    } ?><br>
                     <strong>Aantal forum berichten</strong><br>
                     <?php if ($x_reply->r == 0) {
                         echo 'Geen berichten';
-} else {
-    echo $x_reply->r;
-} ?><br>
+                        } else {
+                            echo $x_reply->r;
+                        } ?><br>
                     </div>
                 </div>
             </div>

@@ -73,7 +73,7 @@ require_once("../../includes/tools/security.php"); ?>
                                     <?php foreach ($album as $image) : ?>
                                         <li data-target="#myCarousel" data-slide-to="1"></li>
                                     <?php endforeach; ?>
-                                    </ol> 
+                                    </ol>
 
                                     <!-- Left and right controls -->
                                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -104,7 +104,7 @@ require_once("../../includes/tools/security.php"); ?>
             $result2->execute();
             $rows = $result2->fetchAll(PDO::FETCH_ASSOC);
         ?>
-        
+
         <div class="container main">
              <?php foreach ($rows as $row) : ?>
                 <div class="panel panel-primary">
@@ -125,6 +125,7 @@ require_once("../../includes/tools/security.php"); ?>
 
                     </div>
 
+
                     <div class="panel-footer">
 
                
@@ -136,7 +137,21 @@ require_once("../../includes/tools/security.php"); ?>
 
                     <?php endforeach; ?>
 
+                       
+                        
+                        <div class="pull-right">
+
+                            <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
+                                Quote deze post
+                            </button>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    <br>
+
+
                     </div>
+               
                 <?php if ($logged_in) : ?>
                     <div class="row">
                         <div class="panel panel-primary">
@@ -174,16 +189,34 @@ require_once("../../includes/tools/security.php"); ?>
         <footer>
             <?php require_once("../../includes/components/footer.php") ; ?>
         </footer>
-        <!-- scrollable  -->
-        <script src="/js/view.js">scrollable.addEventListener('mousemove', event => {
-            console.log(event)
-        })
-        </script>
 
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- slider -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+    <!-- summer note -->
+    <!-- summernote js -->
+    <<!-- script type="text/javascript" src="/js/summernote.min.js"></script>
+    <script>
+        $('.editor').summernote({
+            disableResizeEditor: true,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ]
+        });
+
+        $(document).ready(function () {
+            $('.quote-btn').on('click', function () {
+                $('.editor').summernote('insertText', '[quote '+($(this).attr('data-id'))+']')//.disabled = true
+            });
+        });
+    </script> -->
 </body>
 </html>
