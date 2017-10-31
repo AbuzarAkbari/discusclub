@@ -182,10 +182,10 @@
                     ?>
                 <div class="col-xs-12">
                     <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-                        <div class="panel-heading border-color-blue">
-                            <h3 class="panel-title text-left">Geplaatst door: <?php echo $user['first_name'].' '.$user['last_name']; ?> </h3>
-
-                        </div>
+<!--                        <div class="panel-heading border-color-blue">-->
+<!--                            <h3 class="panel-title text-left">Geplaatst door: --><?php //echo $user['first_name'].' '.$user['last_name']; ?><!-- </h3>-->
+<!---->
+<!--                        </div>-->
                         <div class="panel-body padding-padding ">
                             <div class="wrapper-box col-xs-12">
                                 <div class="col-md-2">
@@ -207,7 +207,8 @@
                         $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                         <?php foreach ($users as $user) : ?>
-
+                            Geplaatst door:
+                            <i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
                         <?php endforeach; ?> <b>op
                         <?php echo $row2['created_at']; ?></b>
                         </h3>
