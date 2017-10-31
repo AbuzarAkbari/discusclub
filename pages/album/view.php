@@ -7,7 +7,7 @@ require_once("../../includes/tools/security.php"); ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/favicon.ico" />
     <title>Discusclub Holland</title>
 
     <!-- Slider  -->
@@ -96,7 +96,7 @@ require_once("../../includes/tools/security.php"); ?>
                 </div>
             </div>
         </div>
-        
+
         <?php
             $sql2 = "SELECT *, album_reply.created_at AS reply_created_at FROM album_reply JOIN user ON album_reply.user_id = user.id WHERE album_id = ?";
             $result2 = $dbc->prepare($sql2);
@@ -128,7 +128,7 @@ require_once("../../includes/tools/security.php"); ?>
 
                     <div class="panel-footer">
 
-               
+
                 op
                 <?php echo $row['reply_created_at']; ?>
                 </h3>
@@ -137,8 +137,8 @@ require_once("../../includes/tools/security.php"); ?>
 
                     <?php endforeach; ?>
 
-                       
-                        
+
+
                         <div class="pull-right">
 
                             <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
@@ -151,7 +151,7 @@ require_once("../../includes/tools/security.php"); ?>
 
 
                     </div>
-               
+
                 <?php if ($logged_in) : ?>
                     <div class="row">
                         <div class="panel panel-primary">
