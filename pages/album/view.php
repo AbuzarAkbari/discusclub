@@ -109,15 +109,14 @@ require_once("../../includes/tools/security.php"); ?>
                 <div class="panel panel-primary">
                     <div class="panel-heading border-color-blue">
                         <h3 class="panel-title text-left"><?php echo "Geplaatst door: " .  $row['first_name'].' '.$row['last_name']; ?></h3>
-
                     </div>
 
-                    <div class="panel-body padding-padding ">
-                        <div class="col-md-12 ">
-                            <div class="col-md-2">
+                    <div class="panel-body  ">
+                        <div class="wrapper-box col-xs-12  ">
+                            <div class="col-xs-2">
                                 <img src='http://via.placeholder.com/130x130' alt="">
                             </div>
-                            <div class="col-md-10 ">
+                            <div class="col-xs-10 ">
                                 <p><?php echo html_entity_decode($row['content']); ?></p>
                             </div>
                         </div>
