@@ -60,7 +60,7 @@
               <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
               <div class="panel-body">
                   <?php
-                      $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id");
+                      $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id  LIMIT 6");
                       $sth->execute();
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -76,7 +76,7 @@
                 <div class="panel-heading border-colors">Laatste reacties op albums</div>
                 <div class="panel-body">
                     <?php
-                        $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id");
+                        $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id LIMIT 5");
                         $sth->execute();
                         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -93,7 +93,7 @@
           <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
           <div class="panel-body">
                 <?php
-                    $sth = $dbc->prepare("SELECT * FROM news_reply JOIN news ON news_id = news.id");
+                    $sth = $dbc->prepare("SELECT * FROM news_reply JOIN news ON news_id = news.id LIMIT 5");
                     $sth->execute();
                     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -110,7 +110,7 @@
           <div class="panel-heading border-colors">Laatste reacties op topics</div>
           <div class="panel-body">
               <?php
-                  $sth = $dbc->prepare("SELECT * FROM topic");
+                  $sth = $dbc->prepare("SELECT * FROM topic ORDER BY created_at LIMIT 5");
                   $sth->execute();
                   $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
