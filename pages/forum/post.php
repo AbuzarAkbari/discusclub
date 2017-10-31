@@ -88,7 +88,7 @@
 
                     </div>
 
-                    <div class="panel-body padding-padding table-responsive">
+                    <div class="panel-body padding-padding ">
                         <div class="col-md-12 ">
                             <div class="col-md-2">
                                 <img src='http://via.placeholder.com/130x130' alt="">
@@ -186,7 +186,7 @@
                             <h3 class="panel-title text-left">Geplaatst door: <?php echo $user['first_name'].' '.$user['last_name']; ?> </h3>
 
                         </div>
-                        <div class="panel-body padding-padding table-responsive">
+                        <div class="panel-body padding-padding ">
                             <div class="wrapper-box col-xs-12">
                                 <div class="col-md-2">
                                     <img src='http://via.placeholder.com/130x130' alt="x">
@@ -208,8 +208,8 @@
                         ?>
                         <?php foreach ($users as $user) : ?>
 
-                        <?php endforeach; ?> op
-                        <?php echo $row2['created_at']; ?>
+                        <?php endforeach; ?> <b>op
+                        <?php echo $row2['created_at']; ?></b>
                         </h3>
 
                         <div class="pull-right">
