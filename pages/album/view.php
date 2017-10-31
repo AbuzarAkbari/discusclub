@@ -96,48 +96,44 @@ require_once("../../includes/tools/security.php"); ?>
                 </div>
             </div>
         </div>
+        
         <?php
-            
-            $sql2 = "SELECT * FROM album_reply WHERE album_id = ?";
+            $sql2 = "SELECT *, album_reply.created_at AS reply_created_at FROM album_reply JOIN user ON album_reply.user_id = user.id WHERE album_id = ?";
             $result2 = $dbc->prepare($sql2);
             $result2->bindParam(1, $_GET['id']);
             $result2->execute();
-            $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+            $rows = $result2->fetchAll(PDO::FETCH_ASSOC);
         ?>
         
         <div class="container main">
-            <?php foreach ($rows2 as $row2) : ?>
-            <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-                    <div class="panel-body padding-padding table-responsive">
+             <?php foreach ($rows as $row) : ?>
+                <div class="panel panel-primary">
+                    <div class="panel-heading border-color-blue">
+                        <h3 class="panel-title text-left"><?php echo "Geplaatst door: " .  $row['first_name'].' '.$row['last_name']; ?></h3>
+
+                    </div>
+
+                    <div class="panel-body padding-padding ">
                         <div class="col-md-12 ">
-                            <?php echo $row2['content']; ?>
+                            <div class="col-md-2">
+                                <img src='http://via.placeholder.com/130x130' alt="">
+                            </div>
+                            <div class="col-md-10 ">
+                                <p><?php echo html_entity_decode($row['content']); ?></p>
+                            </div>
                         </div>
+
                     </div>
+
                     <div class="panel-footer">
-                        <?php
-                        $userSql = "SELECT * FROM user WHERE id = ?";
-                        $userResult = $dbc->prepare($userSql);
-                        $userResult->bindParam(1, $row2['user_id']);
-                        $userResult->execute();
-                        $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
-                        ?>
-                        <?php foreach ($users as $user) : ?>
-                            <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
-                        <?php endforeach; ?>
-                        op <?php echo $row2['created_at']; ?></h3>
 
-                        <div class="pull-right">
+               
+                op
+                <?php echo $row['reply_created_at']; ?>
+                </h3>
+                </div>
+                </div>
 
-                            <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
-                                Quote deze post
-                            </button>
-                        </div>
-
-                        <div class="clearfix"></div>
-                    </div>
-                    <br>
                     <?php endforeach; ?>
 
                     </div>
