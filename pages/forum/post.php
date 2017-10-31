@@ -27,7 +27,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/favicon.ico" />
         <title>Discusclub Holland</title>
 
         <!-- custom css -->
@@ -62,7 +62,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <?php
-                $sql = "SELECT * FROM topic WHERE id = ?";
+                $sql = "SELECT * FROM topic JOIN user ON topic.user_id = user.id JOIN image ON user.profile_img = image.id WHERE topic.id = ?";
                 $result = $dbc->prepare($sql);
                 $result->bindParam(1, $_GET['id']);
                 $result->execute();
@@ -90,11 +90,22 @@
 
                     <div class="panel-body padding-padding ">
                         <div class="col-md-12 ">
-                            <div class="col-md-2">
-                                <img src='http://via.placeholder.com/130x130' alt="">
+                            <div class="col-md-3">
+                            <div class="col-md-12">
+                                <img class="img" src="/images/profiel/<?php echo $row['path'];?>">
                             </div>
-                            <div class="col-md-10 ">
+                            <div class="col-md-12">
+                            <br>Rol: Admin
+                            <br>Aantal berichten: 10
+                            <br>Lid sinds: 31-10-2017<br><br>
+                            </div>
+                        </div>
+                            <div class="col-md-9">
                                 <p><?php echo html_entity_decode($row['content']); ?></p>
+                                <p>
+                                    <hr><br>
+                                    <?php echo $row['signature']; ?>
+                                </p>
                             </div>
                         </div>
 
@@ -183,7 +194,7 @@
                 <div class="col-xs-12">
                     <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
                        <div class="panel-heading border-color-blue">
-                           <h3 class="panel-title text-left">Geplaatst door: <b><i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i></b></h3>
+                           <h3 class="panel-title text-left">Geplaatst door: <b><i><a style="color: #fff; text-decoration: underline" href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i></b></h3>
                        </div>
                         <div class="panel-body padding-padding ">
                             <div class="wrapper-box col-xs-12">
@@ -206,7 +217,7 @@
                         $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                          <b>
-                             op <?php echo $row2['created_at']; ?>
+                             Geplaatst op <?php echo $row2['created_at']; ?>
                          </b>
                         </h3>
 

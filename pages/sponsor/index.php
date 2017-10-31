@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/favicon.ico" />
     <title>Discusclub Holland</title>
 
     <!-- custom css -->
@@ -70,7 +70,7 @@
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Advertentie</div>
               <div class="panel-body">
-                  <div class="col-md-12 col-sm-12 ruimte"><img src="http://via.placeholder.com/320x320"> </div>
+                  <div class="col-md-12 col-sm-12 ruimte"><img src="/images/ad/26-4d40233b-91a4-404c-8ff1-077653609f35.jpg"> </div>
               </div>
           </div>
       </div>
