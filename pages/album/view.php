@@ -7,7 +7,7 @@ require_once("../../includes/tools/security.php"); ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/favicon.ico" />
     <title>Discusclub Holland</title>
 
     <!-- Slider  -->
@@ -144,10 +144,20 @@ require_once("../../includes/tools/security.php"); ?>
 
                     <?php endforeach; ?>
 
+<<<<<<< HEAD
+
+
+                        <div class="pull-right">
+=======
+>>>>>>> 60ff26c151fb1a4c32b1f6642cd904355144e4e9
 
 
 
 
+<<<<<<< HEAD
+                    </div>
+=======
+>>>>>>> 60ff26c151fb1a4c32b1f6642cd904355144e4e9
 
                 <?php if ($logged_in) : ?>
                     <div class="col-xs-12">
