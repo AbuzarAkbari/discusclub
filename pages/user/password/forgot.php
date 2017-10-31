@@ -1,4 +1,4 @@
-<?php require_once("../../includes/tools/security.php"); ?>
+<?php require_once("../../../includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +29,7 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-    require_once("../../includes/components/nav.php");
+    require_once("../../../includes/components/nav.php");
     ?>
     </div>
     <div class="container main">
@@ -39,7 +39,7 @@
               <div class="panel-heading panel-heading1">
                   <h4>Wachtwoord vergeten</h4></div>
                 <div class="panel-body">
-                  <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                  <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
 
                       <p>U zal een e-mail met uw naam ontvangen. Wij zullen nooit uw wachtwoord toezenden, want die weten wij ook niet (ter beveiliging). De e-mail bevat in plaats daarvan een link waarmee u uw wachtwoord kan wijzigen.</p>
 
@@ -55,21 +55,25 @@
 
                     <?php
                     if (isset($_POST["send"])) {
-                        $token = md5(microtime (true)*100000);
-                        $message =  "/user/password/change?token=$token&email=$_POST[email]";
-                        $sth = $dbc->prepare("UPDATE user set forgot_pass = :hash WHERE email = :email");
+                        $sth = $dbc->prepare("SELECT id FROM user WHERE email = :email");
+                        $sth->execute([":email" => $_POST["email"]]);
+                        $res = $sth->fetch(PDO::FETCH_OBJ);
 
-                        try {
-                            $res = $sth->execute([":hash" => password_hash($token, PASSWORD_BCRYPT), ":email" => $_POST["email"]]);
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
+                        if($res) {
+                            $token = md5(microtime (true)*100000);
+                            $sth = $dbc->prepare("INSERT INTO forgot(token, user_id) VALUES (:token, :user_id)");
+                            echo "bla";
+                            $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
+
+                            // TODO:: add mailing thingy, add this link
+                            $message =  "/user/password/change?token=$token&id=".$dbc->lastInsertId();
+                            echo $message;
+
+                        } else {
+                            ?>
+                            <div class="message warning">Email niet gevonden, <a href="/user/register">maak een account aan.</a></div>
+                            <?php
                         }
-
-                        if ($res) {
-                            echo "updated db";
-                        }
-
-                        echo $message;
                     }
 
                     ?>
@@ -79,7 +83,7 @@
         </div>
     </div>
     <footer>
-<?php require_once("../../includes/components/footer.php") ; ?>
+<?php require_once("../../../includes/components/footer.php") ; ?>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
