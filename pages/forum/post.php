@@ -182,7 +182,7 @@
                     ?>
                 <div class="col-xs-12">
                     <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-                        <div class="panel-heading border-color-blue">
+                        <div class="panel-heading ">
                             <h3 class="panel-title text-left">Geplaatst door: <?php echo $user['first_name'].' '.$user['last_name']; ?> </h3>
 
                         </div>
@@ -285,10 +285,10 @@
                     </div>
                 </div>
             </div>
-            </div>
-            <?php endif; ?>
         </div>
+        <?php endif; ?>
     </div>
+</div>
 
     <footer>
         <?php require_once("../../includes/components/footer.php"); ?>

@@ -73,7 +73,7 @@ require_once("../../includes/tools/security.php"); ?>
                                     <?php foreach ($album as $image) : ?>
                                         <li data-target="#myCarousel" data-slide-to="1"></li>
                                     <?php endforeach; ?>
-                                    </ol> 
+                                    </ol>
 
                                     <!-- Left and right controls -->
                                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -97,14 +97,14 @@ require_once("../../includes/tools/security.php"); ?>
             </div>
         </div>
         <?php
-            
+
             $sql2 = "SELECT * FROM album_reply WHERE album_id = ?";
             $result2 = $dbc->prepare($sql2);
             $result2->bindParam(1, $_GET['id']);
             $result2->execute();
             $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
         ?>
-        
+
         <div class="container main">
             <?php foreach ($rows2 as $row2) : ?>
             <div class="row">
@@ -115,7 +115,6 @@ require_once("../../includes/tools/security.php"); ?>
                             <?php echo $row2['content']; ?>
                         </div>
                     </div>
-                    <div class="panel-footer">
                         <?php
                         $userSql = "SELECT * FROM user WHERE id = ?";
                         $userResult = $dbc->prepare($userSql);
@@ -136,40 +135,39 @@ require_once("../../includes/tools/security.php"); ?>
                         </div>
 
                         <div class="clearfix"></div>
-                    </div>
                     <br>
-                    <?php endforeach; ?>
 
                     </div>
+                <?php endforeach; ?>
                 <?php if ($logged_in) : ?>
-                    <div class="row">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Antwoord op album toevoegen</h3>
+                    <div class="col-xs-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Antwoord toevoegen</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" action="/includes/tools/berichtParse" method="post">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
+                                                          style="resize: none;" placeholder="Uw bericht.."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <input type="hidden" name="bericht_id" value="<?php echo $_GET['id']; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <input type="submit" class="btn btn-primary" class="form-control" name="post_reply"
+                                                           value="Plaats reactie">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="panel-body">
-                                <form class="form-horizontal" action="/includes/tools/albumParse" method="post">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
-                                          style="resize: none;" placeholder="Uw bericht.."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <input type="hidden" name="album_id" value="<?php echo $_GET['id']; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <input type="submit" class="btn btn-primary" class="form-control" name="post_album_reply"
-                                                   value="Plaats reactie">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 <?php endif; ?>
             </div>
           </div>
@@ -178,16 +176,34 @@ require_once("../../includes/tools/security.php"); ?>
         <footer>
             <?php require_once("../../includes/components/footer.php") ; ?>
         </footer>
-        <!-- scrollable  -->
-        <script src="/js/view.js">scrollable.addEventListener('mousemove', event => {
-            console.log(event)
-        })
-        </script>
 
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- slider -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+    <!-- summer note -->
+    <!-- summernote js -->
+    <script type="text/javascript" src="/js/summernote.min.js"></script>
+    <script>
+        $('.editor').summernote({
+            disableResizeEditor: true,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ]
+        });
+
+        $(document).ready(function () {
+            $('.quote-btn').on('click', function () {
+                $('.editor').summernote('insertText', '[quote '+($(this).attr('data-id'))+']')//.disabled = true
+            });
+        });
+    </script>
 </body>
 </html>
