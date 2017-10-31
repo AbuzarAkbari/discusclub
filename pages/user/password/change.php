@@ -1,11 +1,11 @@
-<?php require_once("../../includes/tools/security.php"); ?>
+<?php require_once("../../../includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/favicon.ico" />
     <title>Discusclub Holland</title>
 
     <!-- custom css -->
@@ -29,7 +29,7 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-    require_once("../../includes/components/nav.php");
+    require_once("../../../includes/components/nav.php");
     ?>
     </div>
     <div class="container main">
@@ -41,32 +41,41 @@
                 </div>
                 <div class="panel-body">
                     <?php
-                    if (isset($_GET["token"]) && isset($_GET["email"])) {
-                        $sth = $dbc->prepare("SELECT forgot_pass, id FROM user WHERE email = :email");
-                        $sth->execute([":email" => $_GET["email"]]);
+                    if (isset($_GET["token"]) && isset($_GET["id"])) {
+                        $sth = $dbc->prepare("SELECT * FROM forgot WHERE id = :id AND DATE_SUB(NOW(), INTERVAL 1 HOUR) < created_at");
+                        $sth->execute([":id" => $_GET["id"]]);
                         $res = $sth->fetch(PDO::FETCH_OBJ);
-                        if (!empty($res) && password_verify($_GET["token"], $res->forgot_pass)) {
-                            // set it to null again to prevent someone else doing it again
-                            $sth = $dbc->prepare("UPDATE user SET forgot_pass = null WHERE id = :id");
-                            $sth->execute([":id" => $res->id]);
-                            ?>
-                            <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-                                Wachtwoord
-                                <input class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
-                                Wachtwoord herhalen
-                                <input class="form-control" required type="password" name="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
 
-                                <input type="submit" class="btn btn-primary" name="send" value="Wijzig">
-                            </form>
+                        if (!empty($res) && password_verify($_GET["token"], $res->token)) {
+                            if (isset($_POST["send"])) {
+                                $sth = $dbc->prepare("UPDATE user SET password = :pass WHERE id = :id");
+                                $sth->execute([":pass" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":id" => $res->user_id]);
+                                $sth = $dbc->prepare("DELETE FROM forgot WHERE id = :id");
+                                $sth->execute([":id" => $_GET["id"]]);
+                                ?>
+                                <div class="message gelukt">Wachtwoord is gewijzigd, <a href="/user/login">login.</a></div>
+                                <?php
+                            } else {
+                                ?>
+                                <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
+                                    Wachtwoord
+                                    <input class="form-control" required type="password" name="password" value="" placeholder="Wachtwoord"><br>
+                                    Wachtwoord herhalen
+                                    <input class="form-control" required type="password" name="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
+
+                                    <input type="submit" class="btn btn-primary" name="send" value="Wijzig">
+                                </form>
+                                <?php
+                            }
+                            ?>
                             <?php
                         } else {
-                            echo "kan het wachtwoord niet wijzigen";
+                            $sth = $dbc->prepare("DELETE FROM forgot WHERE id = :id");
+                            $sth->execute([":id" => $_GET["id"]]);
+                            ?>
+                            <div>Kan het wachtwoord niet wijzigen, <a href="/user/password/forgot">vraag nieuwe link aan</a>.</div>
+                            <?php
                         }
-                    }
-
-                    if (isset($_POST["send"])) {
-                        $sth = $dbc->prepare("UPDATE user SET password = :pass WHERE email = :email");
-                        $sth->execute([":pass" => $_POST["password"], ":email" => $_GET["email"]]);
                     }
                     ?>
               </div>
@@ -74,7 +83,7 @@
         </div>
     </div>
     <footer>
-<?php require_once("../../includes/components/footer.php") ; ?>
+<?php require_once("../../../includes/components/footer.php") ; ?>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
