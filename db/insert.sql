@@ -21,7 +21,8 @@ INSERT INTO `image`(`path`) VALUES
 ('/images/sponsor/Koidream-banner.jpg'),
 ('/images/sponsor/DCH-banner-AquaVaria-2014.jpg'),
 ('/images/sponsor/RUTO-banner.jpg'),
-('/images/sponsor/discusvistotaal.gif');
+('/images/sponsor/discusvistotaal.gif'),
+('/images/messenger_background/default.jpg');
 
 INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
 ('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5),

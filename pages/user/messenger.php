@@ -3,8 +3,8 @@ $levels = ["lid", "gebruiker"];
 require_once("../../includes/tools/security.php");
 
 if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
-    $sth = $dbc->prepare("INSERT INTO message(message, user_id_1, user_id_2) VALUES (:message)");
-    $sth->execute([":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message_id" => $_POST["message"]]);
+    $sth = $dbc->prepare("INSERT INTO message(message, user_id_1, user_id_2) VALUES (:message, :user_id_1, :user_id_2)");
+    $sth->execute([":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message" => $_POST["message"]]);
 }
 ?>
 <!DOCTYPE html>
@@ -50,29 +50,31 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                     <img src="/images/profiel/<?php echo $_SESSION["user"]->profile_img; ?>" class="imgUser imageStatic" />
                     <div class="username"><b><?php echo $_SESSION["user"]->username; ?></b></div>
                 </div>
-                <div class="otherTab flexcroll">
-                <?php
-                $sth = $dbc->prepare("SELECT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE m.user_id_1 = :id OR m.user_id_2 = :id ORDER BY m.created_at DESC");
-                $sth->execute([":id" => $_SESSION["user"]->id]);
-                $res = $sth->fetchAll(PDO::FETCH_OBJ);
-                $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
-                foreach ($res as $value) : ?>
-                    <?php if ($value->user_id_2 === $id) {
-                        $user = $value->first_name . " " . $value->last_name;
-                    } ?>
-                    <a href="/user/messenger/<?php echo $value->user_id_2; ?>">
-                        <div class="other">
-                            <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
-                            <div class="usernameTab"><b><?php echo $value->first_name . " " . $value->last_name; ?></b></div>
-                            <div><?php echo implode(" ", array_slice(explode(" ", $value->message), 0, 5)) . "..."; ?></div>
-                        </div>
-                    </a>
-                <?php endforeach; ?>
+                <div id="userTable" class="otherTab flexcroll">
+                    <?php
+                    $sth = $dbc->prepare("SELECT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE m.user_id_1 = :id OR m.user_id_2 = :id ORDER BY m.created_at DESC");
+                    $sth->execute([":id" => $_SESSION["user"]->id]);
+                    $res = $sth->fetchAll(PDO::FETCH_OBJ);
+                    $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
+                    foreach ($res as $value) : ?>
+                        <?php if ($value->user_id_2 === $id) {
+                            $user = $value->first_name . " " . $value->last_name;
+                        } ?>
+                        <?php if($value->user_id_1 === $_SESSION["user"]->id) :?>
+                            <a href="/user/messenger/<?php echo $value->user_id_2; ?>">
+                                <div class="other">
+                                    <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
+                                    <div class="usernameTab"><b><?php echo $value->first_name . " " . $value->last_name; ?></b></div>
+                                    <div><?php echo implode(" ", array_slice(explode(" ", $value->message), 0, 5)) . "..."; ?></div>
+                                </div>
+                            </a>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="searchUser">
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                      <input type="text" class="form-control" name="userSearch" placeholder="" aria-describedby="basic-addon1">
                       <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
                     </div>
                 </div>
@@ -85,9 +87,9 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
             <div class="col-md-8">
                 <div class="userTab">
                     <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
-                    <div class="username"><b>bla</b></div>
+                    <div class="username"><b> <?php echo $res[0]->first_name . " " . $res[0]->last_name ?></b></div>
                 </div>
-                <div class="imageBackgroundText flexcroll">
+                <div style="background-image: url('/images/messenger_background/default.jpg');" class="imageBackgroundText flexcroll">
                     <?php foreach ($res as $value) : ?>
                         <div class="<?php echo $value->user_id_1 === $_SESSION["user"]->id ? "messages" : "responses" ?>">
                             <div><?php echo $value->message; ?></div>
@@ -137,7 +139,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div> -->
                 </div>
                 <div class="searchUser">
-                    <form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
+                    <form id="search" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
                       <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
                       <span class="input-group-btn " id="basic-addon1">
                         <button class="btn btn-secondary buttonHeight" type="button">
@@ -157,6 +159,11 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        const id = <?php echo $id ?>;
+        const user_id = <?php echo $_SESSION["user"]->id; ?>;
+    </script>
+    <script src="/js/messenger.js"></script>
 </body>
 </html>
 <!-- https://twitter.com/DiscusHolland -->
