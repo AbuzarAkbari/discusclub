@@ -90,7 +90,7 @@
 
                     <div class="panel-body padding-padding ">
                         <div class="col-md-12 ">
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                             <div class="col-md-12">
                                 <img class="img" src="/images/profiel/<?php echo $row['path'];?>">
                             </div>
@@ -100,7 +100,7 @@
                             <br>Lid sinds: 31-10-2017<br><br>
                             </div>
                         </div>
-                            <div class="col-md-10">
+                            <div class="col-md-9">
                                 <p><?php echo html_entity_decode($row['content']); ?></p>
                                 <p>
                                     <hr><br>
