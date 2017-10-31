@@ -96,37 +96,49 @@ require_once("../../includes/tools/security.php"); ?>
                 </div>
             </div>
         </div>
+        
         <?php
-
-            $sql2 = "SELECT * FROM album_reply WHERE album_id = ?";
+            $sql2 = "SELECT *, album_reply.created_at AS reply_created_at FROM album_reply JOIN user ON album_reply.user_id = user.id WHERE album_id = ?";
             $result2 = $dbc->prepare($sql2);
             $result2->bindParam(1, $_GET['id']);
             $result2->execute();
-            $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+            $rows = $result2->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
         <div class="container main">
-            <?php foreach ($rows2 as $row2) : ?>
-            <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-                    <div class="panel-body padding-padding table-responsive">
-                        <div class="col-md-12 ">
-                            <?php echo $row2['content']; ?>
-                        </div>
-                    </div>
-                        <?php
-                        $userSql = "SELECT * FROM user WHERE id = ?";
-                        $userResult = $dbc->prepare($userSql);
-                        $userResult->bindParam(1, $row2['user_id']);
-                        $userResult->execute();
-                        $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
-                        ?>
-                        <?php foreach ($users as $user) : ?>
-                            <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
-                        <?php endforeach; ?>
-                        op <?php echo $row2['created_at']; ?></h3>
+             <?php foreach ($rows as $row) : ?>
+                <div class="panel panel-primary">
+                    <div class="panel-heading border-color-blue">
+                        <h3 class="panel-title text-left"><?php echo "Geplaatst door: " .  $row['first_name'].' '.$row['last_name']; ?></h3>
 
+                    </div>
+
+                    <div class="panel-body padding-padding ">
+                        <div class="col-md-12 ">
+                            <div class="col-md-2">
+                                <img src='http://via.placeholder.com/130x130' alt="">
+                            </div>
+                            <div class="col-md-10 ">
+                                <p><?php echo html_entity_decode($row['content']); ?></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel-footer">
+
+               
+                op
+                <?php echo $row['reply_created_at']; ?>
+                </h3>
+                </div>
+                </div>
+
+                    <?php endforeach; ?>
+
+                       
+                        
                         <div class="pull-right">
 
                             <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
@@ -137,37 +149,38 @@ require_once("../../includes/tools/security.php"); ?>
                         <div class="clearfix"></div>
                     <br>
 
+
                     </div>
-                <?php endforeach; ?>
+               
                 <?php if ($logged_in) : ?>
-                    <div class="col-xs-12">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Antwoord toevoegen</h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        <form class="form-horizontal" action="/includes/tools/berichtParse" method="post">
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
-                                                          style="resize: none;" placeholder="Uw bericht.."></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <input type="hidden" name="bericht_id" value="<?php echo $_GET['id']; ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <input type="submit" class="btn btn-primary" class="form-control" name="post_reply"
-                                                           value="Plaats reactie">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                    <div class="row">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Antwoord op album toevoegen</h3>
                             </div>
+                            <div class="panel-body">
+                                <form class="form-horizontal" action="/includes/tools/albumParse" method="post">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
+                                          style="resize: none;" placeholder="Uw bericht.."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="hidden" name="album_id" value="<?php echo $_GET['id']; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="submit" class="btn btn-primary" class="form-control" name="post_album_reply"
+                                                   value="Plaats reactie">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 <?php endif; ?>
             </div>
           </div>
@@ -184,7 +197,7 @@ require_once("../../includes/tools/security.php"); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
     <!-- summer note -->
     <!-- summernote js -->
-    <script type="text/javascript" src="/js/summernote.min.js"></script>
+    <<!-- script type="text/javascript" src="/js/summernote.min.js"></script>
     <script>
         $('.editor').summernote({
             disableResizeEditor: true,
@@ -204,6 +217,6 @@ require_once("../../includes/tools/security.php"); ?>
                 $('.editor').summernote('insertText', '[quote '+($(this).attr('data-id'))+']')//.disabled = true
             });
         });
-    </script>
+    </script> -->
 </body>
 </html>

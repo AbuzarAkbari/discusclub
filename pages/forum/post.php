@@ -110,7 +110,7 @@
                     $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                             <?php foreach ($users as $user) : ?>
-                            <b>Geplaatst door:</b> <i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                            <b>Geplaatst door: </b><i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
                             <?php endforeach; ?> op
                             <?php echo $row['created_at']; ?>
                             </h3>
@@ -182,10 +182,9 @@
                     ?>
                 <div class="col-xs-12">
                     <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-                        <div class="panel-heading ">
-                            <h3 class="panel-title text-left">Geplaatst door: <?php echo $user['first_name'].' '.$user['last_name']; ?> </h3>
-
-                        </div>
+                       <div class="panel-heading border-color-blue">
+                           <h3 class="panel-title text-left">Geplaatst door: <b><i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i></b></h3>
+                       </div>
                         <div class="panel-body padding-padding ">
                             <div class="wrapper-box col-xs-12">
                                 <div class="col-md-2">
@@ -193,7 +192,7 @@
                                 </div>
 
                                 <div class="col-md-10">
-                                    <p><?php echo $row2['content']; ?></p>
+                                    <p><?php echo wordwrap($row2['content'], 70, "<br>", true ); ?></p>
                                 </div>
 
                     </div>
@@ -206,10 +205,9 @@
                         $userResult->execute();
                         $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                         ?>
-                        <?php foreach ($users as $user) : ?>
-
-                        <?php endforeach; ?> <b>op
-                        <?php echo $row2['created_at']; ?></b>
+                         <b>
+                             op <?php echo $row2['created_at']; ?>
+                         </b>
                         </h3>
 
                         <div class="pull-right">
@@ -267,7 +265,7 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                 <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
-                                          style="resize: none;" placeholder="Uw bericht.."></textarea>
+                                          style="resize: none;" maxlength="50" placeholder="Uw bericht.."></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
