@@ -70,8 +70,8 @@ require_once("../../includes/tools/security.php"); ?>
                                     <!-- Indicators -->
                                     <ol class="carousel-indicators">
                                         <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-                                    <?php foreach ($album as $image) : ?>
-                                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                                    <?php foreach ($album as $key => $image) : ?>
+                                        <li class="<?php echo $key == 0 ? "active" : null; ?>" data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></li>
                                     <?php endforeach; ?>
                                     </ol>
 
@@ -87,8 +87,8 @@ require_once("../../includes/tools/security.php"); ?>
                                 </div>
 
                                 <!-- Images -->
-                                <?php foreach ($album as $image) : ?>
-                                    <div class=" img" style="background-image:url('<?php echo $image['path'] ?>')"; data-target="#myCarousel" data-slide-to="0"></div>
+                                <?php foreach ($album as $key => $image) : ?>
+                                    <div class=" img" style="background-image:url('<?php echo $image['path'] ?>')"; data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
@@ -144,20 +144,10 @@ require_once("../../includes/tools/security.php"); ?>
 
                     <?php endforeach; ?>
 
-<<<<<<< HEAD
-
-
-                        <div class="pull-right">
-=======
->>>>>>> 60ff26c151fb1a4c32b1f6642cd904355144e4e9
 
 
 
 
-<<<<<<< HEAD
-                    </div>
-=======
->>>>>>> 60ff26c151fb1a4c32b1f6642cd904355144e4e9
 
                 <?php if ($logged_in) : ?>
                     <div class="col-xs-12">
