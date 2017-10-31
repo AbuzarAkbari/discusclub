@@ -60,7 +60,7 @@ require_once("../../includes/components/nav.php");
 <div class="container main" style="margin-top:25px;">
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-xs-12">
             <?php
             $sql = "SELECT * FROM topic WHERE id = ?";
             $result = $dbc->prepare($sql);
@@ -83,7 +83,7 @@ require_once("../../includes/components/nav.php");
             </ol>
             <?php foreach ($rows as $row) : ?>
             <div class="panel panel-primary">
-                <div class="panel-heading">
+                <div class="panel-heading border-color-blue">
                     <h3 class="panel-title text-left"><?php echo $row['title']; ?></h3>
 
                     <div class="pull-right">
@@ -94,12 +94,12 @@ require_once("../../includes/components/nav.php");
                     <div class="clearfix"></div>
                 </div>
 
-                <div class="panel-body">
-                    <div class="col-md-12">
+                <div class="panel-body padding-padding table-responsive">
+                    <div class="col-md-12 ">
                         <div class="col-md-2">
                             <img src='http://via.placeholder.com/130x130' alt="">
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-10 ">
                             <p><?php echo html_entity_decode($row['content']); ?></p>
                         </div>
                     </div>
@@ -107,17 +107,23 @@ require_once("../../includes/components/nav.php");
                 </div>
 
                 <div class="panel-footer">
+
                     <?php
-                        $userSql = "SELECT * FROM user WHERE id = ?";
-                        $userResult = $dbc->prepare($userSql);
-                        $userResult->bindParam(1, $row['user_id']);
-                        $userResult->execute();
-                        $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
-                    <?php foreach ($users as $user) : ?>
+                $userSql = "SELECT * FROM user WHERE id = ?";
+                $userResult = $dbc->prepare($userSql);
+                $userResult->bindParam(1, $row['user_id']);
+                $userResult->execute();
+                $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                        <?php foreach ($users as $user) : ?>
                         <b>Geplaatst door:</b> <i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
-                    <?php endforeach; ?>
-                    op <?php echo $row['created_at']; ?></h3>
+                        <?php endforeach; ?> op
+                        <?php echo $row['created_at']; ?>
+                        </h3>
+                        <div class="text-right">
+                            <i class="glyphicon glyphicon-star-empty GlyphSize "></i>
+                            <i class="glyphicon glyphicon-star GlyphSize "></i>
+                        </div>
                 </div>
 
                 <?php endforeach; ?>
@@ -181,8 +187,8 @@ require_once("../../includes/components/nav.php");
                 ?>
 
                 <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
-                    <div class="panel-body">
-                        <div class="wrapper-box col-md-12">
+                    <div class="panel-body padding-padding table-responsive">
+                        <div class="wrapper-box col-xs-12">
                             <div class="col-md-2">
                                 <img src='http://via.placeholder.com/130x130' alt="x">
                             </div>
@@ -200,31 +206,30 @@ require_once("../../includes/components/nav.php");
                     $userResult->bindParam(1, $row2['user_id']);
                     $userResult->execute();
                     $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
-                ?>
-                <?php foreach ($users as $user) : ?>
+                    ?>
+                    <?php foreach ($users as $user) : ?>
                     <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
-                <?php endforeach; ?>
-                op <?php echo $row2['created_at']; ?></h3>
+                    <?php endforeach; ?> op
+                    <?php echo $row2['created_at']; ?>
+                    </h3>
 
-                <div class="pull-right">
+                    <div class="pull-right">
 
-                    <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
-                        Quote deze post
-                    </button>
-                </div>
+                        <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
+                            Quote deze post
+                        </button>
+                    </div>
 
-                <div class="clearfix"></div>
+                    <div class="clearfix"></div>
             </div>
 
      </div>
             <?php endforeach; ?>
-    </div>
 
-</div>
 
 <div class="container main">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-xs-12">
 
             <?php
 
@@ -283,6 +288,8 @@ require_once("../../includes/components/nav.php");
                     </form>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
         <?php endif; ?>
     </div>

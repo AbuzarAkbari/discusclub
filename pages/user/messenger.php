@@ -3,13 +3,8 @@ $levels = ["lid", "gebruiker"];
 require_once("../../includes/tools/security.php");
 
 if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
-    $sth = $dbc->prepare("INSERT INTO message(message) VALUES (:message)");
-    $sth->execute([":message" => $_POST["message"]]);
-    $message_id = $dbc->lastInsertId();
-
-    $sth = $dbc->prepare("INSERT INTO user_has_message(user_id_1, user_id_2, message_id) VALUES (:user_id_1, :user_id_2, :message_id)");
-    $sth->execute([":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message_id" => $message_id]);
-    $sth->execute([":user_id_1" => $_POST["user_id_2"], ":user_id_2" => $_SESSION["user"]->id, ":message_id" => $message_id]);
+    $sth = $dbc->prepare("INSERT INTO message(message, user_id_1, user_id_2) VALUES (:message)");
+    $sth->execute([":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message_id" => $_POST["message"]]);
 }
 ?>
 <!DOCTYPE html>
@@ -57,7 +52,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
                 <div class="otherTab flexcroll">
                 <?php
-                $sth = $dbc->prepare("SELECT *, m.message, m.id, m.created_at, m.last_changed FROM user_has_message as uhm JOIN user as u ON u.id = uhm.user_id_2 JOIN message as m ON uhm.message_id = m.id WHERE uhm.user_id_1 = :id GROUP BY u.id");
+                $sth = $dbc->prepare("SELECT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE m.user_id_1 = :id OR m.user_id_2 = :id ORDER BY m.created_at DESC");
                 $sth->execute([":id" => $_SESSION["user"]->id]);
                 $res = $sth->fetchAll(PDO::FETCH_OBJ);
                 $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
@@ -83,7 +78,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
             </div>
             <?php
-            $sth = $dbc->prepare("SELECT * FROM user_has_message as uhm JOIN message as m ON m.id = uhm.message_id JOIN user as u ON uhm.user_id_2 = u.id WHERE uhm.user_id_2 = :id");
+            $sth = $dbc->prepare("SELECT * FROM message as m JOIN user as u ON m.user_id_2 = u.id WHERE m.user_id_2 = :id");
             $sth->execute([":id" => $id]);
             $res = $sth->fetchAll(PDO::FETCH_OBJ);
             ?>
