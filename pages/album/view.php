@@ -96,14 +96,90 @@ require_once("../../includes/tools/security.php"); ?>
                 </div>
             </div>
         </div>
+        <?php
+            
+            $sql2 = "SELECT * FROM album_reply WHERE album_id = ?";
+            $result2 = $dbc->prepare($sql2);
+            $result2->bindParam(1, $_GET['id']);
+            $result2->execute();
+            $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+        
+        <?php foreach ($rows2 as $row2) : ?>
+        <div class="container main">
+
+    <div class="row">
+        
+        <div class="col-xs-12">
+            <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
+                
+                <div class="panel-body padding-padding table-responsive">
+                    <div class="col-md-12 ">
+                        <?php echo $row2['content']; ?>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <?php
+                    $userSql = "SELECT * FROM user WHERE id = ?";
+                    $userResult = $dbc->prepare($userSql);
+                    $userResult->bindParam(1, $row2['user_id']);
+                    $userResult->execute();
+                    $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
+                    ?>
+                    <?php foreach ($users as $user) : ?>
+                        <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                    <?php endforeach; ?>
+                    op <?php echo $row2['created_at']; ?></h3>
+
+                    <div class="pull-right">
+
+                        <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
+                            Quote deze post
+                        </button>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+                <br>
+                <?php endforeach; ?>
+
+                </div>
+        <?php if ($logged_in) : ?>
+                <div class="row">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Antwoord op album toevoegen</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" action="/includes/tools/albumParse" method="post">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                            <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
+                                      style="resize: none;" placeholder="Uw bericht.."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="hidden" name="album_id" value="<?php echo $_GET['id']; ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-primary" class="form-control" name="post_album_reply"
+                                               value="Plaats reactie">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-  <br>
-  <br>
-  <br>
+    <br>
     <footer>
-    <?php require_once("../../includes/components/footer.php") ; ?>
+        <?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
     <!-- scrollable  -->
     <script src="/js/view.js">scrollable.addEventListener('mousemove', event => {
