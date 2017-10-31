@@ -72,70 +72,31 @@
 
         <div class="col-md-6">
             <div class="panel panel-default ">
-                <div class="panel-heading border-color-black">Reacties</div>
+                <div class="panel-heading border-color-black">Nieuws reacties</div>
                 <div class="panel-body">
+                    <?php
+                        $sth = $dbc->prepare("SELECT *, news_reply.content, news_reply.id FROM news_reply JOIN news ON news.id = news_reply.news_id ORDER BY news_reply.created_at DESC LIMIT 5");
+                        $sth->execute();
+                        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-                    <div class="box">
-                        <div class="col-md-12">
-                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
-                            <div class="col-md-9">
-                            <p class="title-box-color"><b>Lorem slipsum</b></p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
-                                <hr>
+                        foreach($res as $key => $value) : ?>
+                        <div class="box">
+                            <div class="col-md-12">
+                                <div class="col-md-3"><img src="<?php  ?>"></div>
+                                <div class="col-md-9">
+                                <p class="title-box-color"><b><?php echo $value["title"]; ?></b></p>
+                                <p><?php echo $value["content"]; ?><p>
+                                    <?php
+                                    if(sizeof($res)-1 != $key) {
+                                        echo "<hr>";
+                                    }
+                                    ?>
 
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="col-md-12">
-                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
-                            <div class="col-md-9">
-                            <p class="title-box-color"><b>Lorem slipsum</b></p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
-                                <hr>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="col-md-12">
-                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
-                            <div class="col-md-9">
-                            <p class="title-box-color"><b>Lorem slipsum</b></p>
-                            <p>Lorem ipsum dolor sit amet, onsectetur adipisicing elit Lorem ipsum dolor sit amet,consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
-                                <hr>
+                                </div>
 
                             </div>
-
                         </div>
-                    </div>
-                    <div class="box">
-                        <div class="col-md-12">
-                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
-                            <div class="col-md-9">
-                            <p class="title-box-color"><b>Lorem slipsum</b></p>
-                            <p>Lorem ipsum dolor sit amet, c consectetur adipisicing elit<p>
-                                <hr>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="col-md-12">
-                            <div class="col-md-3"><img src="http://via.placeholder.com/75x75"></div>
-                            <div class="col-md-9">
-                            <p class="title-box-color"><b>Lorem slipsum</b></p>
-                            <p>Lorem ipsum dolor sit amet, consectetupisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elir adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit<p>
-                                <hr>
-
-                            </div>
-
-                        </div>
-                    </div>
+                        <?php endforeach; ?>
 
                 </div>
             </div>
