@@ -18,7 +18,7 @@ if (isset($_POST['upload_album'])) {
 
 	        for($x = 0; $x  < count($_FILES['files']['name']); $x++) {
 	        	$album_files = $_FILES['files'];
-	        	var_dump($album_files);
+	        	// var_dump($album_files);
 	            $target_dir = "/images/album/";
 	            $target_file = $target_dir . basename($album_files["name"][$x]);
 	            $uploadOk = 1;
@@ -59,8 +59,7 @@ if (isset($_POST['upload_album'])) {
 	                // if everything is ok, try to upload file
 	            } else {
 	                $fragments = explode('.', $album_files["name"][$x]);
-	                $path = $album_files["name"][$x]; //. '.' . end($fragments);
-	                //array_pop($fragments);
+	                $path = strtotime(date("Y-m-d H:i:s")) . '-'.$x.'.' . end($fragments);
 
 	                $extensions = [
 	                    '.png',
@@ -78,7 +77,6 @@ if (isset($_POST['upload_album'])) {
 
 
 	                if (move_uploaded_file($album_files["tmp_name"][$x], '../../images/album/'.$path)) {
-
 	                    $sql = "INSERT INTO image (path, album_id) VALUES (:path, :album_id)";
 	                    $result = $dbc->prepare($sql);
 	                    $result->execute([':path' => $path, ':album_id' => $album_id]);
@@ -98,6 +96,6 @@ if (isset($_POST['upload_album'])) {
         // print_r($_FILES);
         // exit();
        
-        header("Location: /album/" . $album_id);
+         header("Location: /album/" . $album_id);
     }
 }
