@@ -99,7 +99,7 @@
                             <div class="col-md-10 ">
                                 <p><?php echo html_entity_decode($row['content']); ?></p>
                                 <p>
-                                    --------------------------------------------------<br>
+                                    <hr><br>
                                     <?php echo $row['signature']; ?>
                                 </p>
                             </div>
