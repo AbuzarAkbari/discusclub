@@ -79,18 +79,22 @@
                                         foreach($res as $key => $value) : ?>
                                         <div class="box">
                                             <div class="col-md-12">
-                                                <div class="col-md-3"><img src="<?php  ?>"></div>
-                                                <div class="col-md-9">
-                                                    <p class="title-box-color"><b><?php echo $value["title"]; ?></b></p>
-                                                    <p>
+                                                <a href="/about/news/<?php echo $value['id']; ?>">
+                                                    <div class="col-md-3"><img src="<?php  ?>"></div>
+                                                    <div class="col-md-9">
+                                                        <p class="title-box-color">
+                                                            <b><?php echo $value["title"]; ?></b>
+                                                        </p>
+                                                        <p>
                                                         <?php echo $value["content"]; ?>
-                                                    <p>
-                                                    <?php
-                                                        if(sizeof($res)-1 != $key) {
-                                                            echo "<hr>";
+                                                        <p>
+                                                        <?php
+                                                            if(sizeof($res)-1 != $key) {
+                                                                echo "<hr>";
                                                         }
-                                                    ?>
-                                                </div>
+                                                        ?>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                         <?php endforeach; ?>
@@ -104,7 +108,7 @@
                                     <div class="panel-heading border-color-black">Ander nieuws</div>
                                     <div class="panel-body ">
                                         <?php
-                                            $sth = $dbc->prepare("SELECT title, content FROM news");
+                                            $sth = $dbc->prepare("SELECT * FROM news");
                                             $sth->execute();
                                             $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -113,11 +117,10 @@
                                                 <p><b><?php echo  $value['title']; ?></b></p>
                                                 <?php echo $value['content']; ?>
                                                 <br><br>
-                                                <button class="lees-meer-btn" type="button" name="button">Lees meer</button>
+                                                <a href="/about/news/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
                                                 <br><br>
                                             </div>
                                             <br><div class="col-md-12"><br></div>
-
 
                                             <?php endforeach; ?>
                                         <br><br>
