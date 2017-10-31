@@ -48,7 +48,7 @@ require_once("../../includes/tools/security.php"); ?>
       $albumResult->execute();
       $album = $albumResult->fetchAll(PDO::FETCH_ASSOC);
     ?>
-    <div class="container main">
+    <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="panel panel-primary">
@@ -95,7 +95,6 @@ require_once("../../includes/tools/security.php"); ?>
                     </div>
                 </div>
             </div>
-        </div>
 
         <?php
             $sql2 = "SELECT *, album_reply.created_at AS reply_created_at FROM album_reply JOIN user ON album_reply.user_id = user.id WHERE album_id = ?";
@@ -105,8 +104,8 @@ require_once("../../includes/tools/security.php"); ?>
             $rows = $result2->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
-        <div class="container main">
              <?php foreach ($rows as $row) : ?>
+                 <div class="col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading border-color-blue">
                         <h3 class="panel-title text-left"><?php echo "Geplaatst door: " .  $row['first_name'].' '.$row['last_name']; ?></h3>
@@ -132,28 +131,37 @@ require_once("../../includes/tools/security.php"); ?>
                 op
                 <?php echo $row['reply_created_at']; ?>
                 </h3>
+                <div class="pull-right">
+
+                    <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
+                        Quote deze post
+                    </button>
                 </div>
+
+                <div class="clearfix"></div>
                 </div>
+            </div>
+            </div>
 
                     <?php endforeach; ?>
 
+<<<<<<< HEAD
 
 
                         <div class="pull-right">
-
-                            <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
-                                Quote deze post
-                            </button>
-                        </div>
-
-                        <div class="clearfix"></div>
-                    <br>
+=======
+>>>>>>> 60ff26c151fb1a4c32b1f6642cd904355144e4e9
 
 
+
+
+<<<<<<< HEAD
                     </div>
+=======
+>>>>>>> 60ff26c151fb1a4c32b1f6642cd904355144e4e9
 
                 <?php if ($logged_in) : ?>
-                    <div class="row">
+                    <div class="col-xs-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Antwoord op album toevoegen</h3>
@@ -183,8 +191,8 @@ require_once("../../includes/tools/security.php"); ?>
                     </div>
                 <?php endif; ?>
             </div>
-          </div>
-        </div>
+            </div>
+
         <br>
         <footer>
             <?php require_once("../../includes/components/footer.php") ; ?>
@@ -197,7 +205,7 @@ require_once("../../includes/tools/security.php"); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
     <!-- summer note -->
     <!-- summernote js -->
-    <<!-- script type="text/javascript" src="/js/summernote.min.js"></script>
+    <!-- script type="text/javascript" src="/js/summernote.min.js"></script>
     <script>
         $('.editor').summernote({
             disableResizeEditor: true,
