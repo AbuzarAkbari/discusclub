@@ -48,7 +48,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Advertentie</div>
                 <div class="panel-body">
-                    <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img src="/images/ad/26-4d40233b-91a4-404c-8ff1-077653609f35.jpg"></div></a>
+                    <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img src="/images/ad/advertentie.jpg"></div></a>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
               <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
               <div class="panel-body">
                   <?php
-                      $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id  LIMIT 6");
+                      $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id GROUP BY album.id LIMIT 6");
                       $sth->execute();
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -75,7 +75,7 @@
                 <div class="panel-heading border-colors">Laatste reacties op albums</div>
                 <div class="panel-body">
                     <?php
-                        $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id LIMIT 5");
+                        $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id GROUP BY album.id LIMIT 5");
                         $sth->execute();
                         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
