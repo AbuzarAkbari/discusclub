@@ -142,7 +142,7 @@ if (isset($_GET["id"])) {
                                     <th class="col-md-4 col-xs-4">Forum</th>
                                     <th class="col-md-4 col-xs-4">Datum</th>
                                     <?php
-                                        $sql = "SELECT *, reply.created_at AS reply_created_at, topic.created_at as topic_created_at FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON topic.id = reply.topic_id WHERE reply.user_id = :id OR topic.user_id = :id ORDER BY reply_created_at DESC, topic_created_at DESC LIMIT 10";
+                                        $sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, reply.created_at AS reply_created_at, topic.created_at as topic_created_at FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON topic.id = reply.topic_id WHERE reply.user_id = :id OR topic.user_id = :id ORDER BY reply_created_at DESC, topic_created_at DESC LIMIT 10";
                                         $result = $dbc->prepare($sql);
                                         $result->bindParam(":id", $user_data->id);
                                         $result->execute();
@@ -150,8 +150,8 @@ if (isset($_GET["id"])) {
                                     ?>
                                     <?php foreach($topics as $info) : ?>
                                         <tr>
-                                            <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->title; ?></a></td>
-                                            <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->name; ?></a></td>
+                                            <td class="col-md-4 col-xs-4"><a href="/forum/post/<?php echo $info->topic_id; ?>"><?php echo $info->title; ?></a></td>
+                                            <td class="col-md-4 col-xs-4"><a href="/forum/topic/<?php echo $info->sub_category_id; ?>"><?php echo $info->name; ?></a></td>
                                             <td class="col-md-4 col-xs-4">
                                                 <?php echo isset($info->reply_created_at) ? $info->reply_created_at : $info->topic_created_at; ?>
                                             </td>
@@ -173,7 +173,7 @@ if (isset($_GET["id"])) {
                     $albumResult->execute();
                     $album = $albumResult->fetch(PDO::FETCH_OBJ);
                     ?>
-                                <img src="/images/profiel/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150">
+                                <img src="/images/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150">
                         </div>
                     </div>
                 </div>
