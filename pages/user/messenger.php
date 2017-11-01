@@ -45,14 +45,15 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
     <br><br><br><br>
     <div class="container main">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="">
                     <ol class="breadcrumb">
                         <li><a href="/">Home</a></li>
                         <li><a href="/user/">Gebruiker</a></li>
                         <li class="active">Chat</li>
                     </ol>
-                </div>
+                </div></div>
+            <div class="col-md-4">
                 <div class="userTab">
                     <img src="/images/profiel/<?php echo $_SESSION["user"]->profile_img; ?>" class="imgUser imageStatic" />
                     <div class="username"><b> <?php echo $_SESSION["user"]->first_name . " " . $_SESSION["user"]->last_name; ?></b></div>
@@ -86,9 +87,9 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
 
                 <div class="searchUser">
-                    <div class="input-group">
+                    <div class="input-group inputWidth">
                       <input type="text" class="form-control" name="userSearch" placeholder="" aria-describedby="basic-addon1">
-                      <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
+                      <!-- <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span> -->
                     </div>
                 </div>
             </div>
@@ -102,7 +103,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                     <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
                     <div class="username"><b> <?php echo $res[0]->first_name . " " . $res[0]->last_name ?></b></div>
                 </div>
-                <div id="message" style="background-image: url('/images/messenger_background/default.jpg');" class="imageBackgroundText flexcroll">
+                <div id="message" style="background-image: url('/images/messenger_background/default.jpg');" class="imageBackgroundText flexcroll tab">
                     <?php foreach ($res as $value) : ?>
                         <div class="<?php echo $value->user_id_1 === $_SESSION["user"]->id ? "messages" : "responses" ?>">
                             <div><?php echo $value->message; ?></div>
@@ -152,13 +153,22 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div> -->
                 </div>
                 <div class="searchUser">
-                    <form id="search" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
-                      <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                    <form id="search" class="inputWidth" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
+                      <!-- <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
                       <span class="input-group-btn " id="basic-addon1">
                         <button class="btn btn-secondary buttonHeight" type="button">
                             <i class="glyphicon glyphicon-plus icon "></i>
                         </button>
-                      </span>
+                      </span> -->
+
+                      <div class="input-group inputWidth">
+                        <input type="text" class="form-control inputWidth" placeholder="Search for..." aria-label="Search for...">
+                        <span class="input-group-btn">
+                            <g class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon " type="file"></i></button>
+                        </span>
+                      </div>
+
+
                       <input type="hidden" name="user_id_2" value="<?php echo $id; ?>" />
                     </form>
                 </div>
@@ -177,6 +187,9 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
         const user_id = <?php echo $_SESSION["user"]->id; ?>;
     </script>
     <script src="/js/messenger.js"></script>
+    <script type="text/javascript">
+    $(".tab").animate({ scrollTop: $(document).height() });
+    </script>
 </body>
 </html>
 <!-- https://twitter.com/DiscusHolland -->
