@@ -2,7 +2,7 @@
 if (isset($_POST['post_reply'])) {
     require_once("../../includes/tools/security.php");
     if ($logged_in) {
-        $reply_content = htmlspecialchars($_POST['reply_content']);
+        $reply_content = $_POST['reply_content'];
         $bericht_id = $_POST['bericht_id'];
         $reply_auteur = $_SESSION['user']->id;
         $sql3 = "INSERT INTO reply (topic_id, user_id, content, created_at) VALUES (:bericht_id, :reply_auteur, :reply_content, NOW())";
