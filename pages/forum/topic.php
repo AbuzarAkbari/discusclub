@@ -65,18 +65,18 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         }
                     ?>
                     <br><br>
-                    <ol class="breadcrumb">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/forum/">Forum</a></li>
-                        <?php if ($results2): ?>
-                        <li class="active"><?php echo $results2[0]['name']; ?></li>
-                        <?php endif; ?>
-                    </ol>
                 </div>
         <br>
         <?php if(!$results2) :?>
             <div class="message error">Deze pagina bestaat niet, <a href="/forum/"> ga terug</a></div>
         <?php else : ?>
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/forum/">Forum</a></li>
+                <?php if ($results2): ?>
+                    <li class="active"><?php echo $results2[0]['name']; ?></li>
+                <?php endif; ?>
+            </ol>
             <div class="panel panel-primary ">
                 <?php foreach ($results2 as $subRow) : ?>
                 <div class="panel-heading border-colors"><?php echo $subRow['name']; ?></div>
