@@ -6,7 +6,7 @@
               <div class='col-md-4'>
                   <h3 class='footer-title'><b>Vind ons leuk!</b></h3>
                   <br>
-<div class="fb-page" data-href="https://www.facebook.com/DiscusClubHolland/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/DiscusClubHolland/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/DiscusClubHolland/">Discus Club Holland</a></blockquote></div>
+                  <div class="fb-page" data-href="https://www.facebook.com/DiscusClubHolland/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/DiscusClubHolland/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/DiscusClubHolland/">Discus Club Holland</a></blockquote></div>
               </div>
               <div class='col-md-4'>
                   <h3 class='footer-title'><b>Volg ons op Twitter!</b></h3>
@@ -23,6 +23,7 @@
                           Stuur ons een bericht!
                       </h5>
                       <input class='footer-name' type='text' name='naam' value='' placeholder='Naam'><br>
+                      <input class='footer-mail' required type='email' name='email' value='' placeholder='Email'><br>
                       <textarea class='footer-message' name='bericht' placeholder='Uw bericht' style='resize: none;'></textarea><br>
                       <input class='lees-meer-btn footer-btn' type='submit' name='send' value='Verzenden'>
                       <h5 class="FooterContactTekst"> Adres: Hoogstraat 7 3552 XJ Utrecht </h5>

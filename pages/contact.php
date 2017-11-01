@@ -40,15 +40,15 @@
         <div class="panel panel-primary ">
           <div class="panel-heading border-colors">Stel uw vraag</div>
           <div class="panel-body">
-              <form action="">
+              <form action="/includes/tools/verwerk" method="post">
                 <label for="fname">Naam</label>
-                <input type="text" class="form-control" name="firstname" placeholder="Uw naam">
+                <input type="text" class="form-control" name="naam" placeholder="Uw naam">
                 <br>
                 <label for="lname">E-mail</label>
-                <input type="text" class="form-control" name="lastname" placeholder="Uw e-mail">
+                <input type="text" class="form-control" name="email" placeholder="Uw e-mail">
                 <br>
                 <label for="subject">Bericht</label>
-                <textarea id="subject" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;"></textarea>
+                <textarea id="subject" name="bericht" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;"></textarea>
                 <br>
                 <input type="submit" class="btn btn-primary" value="Verstuur">
               </form>
