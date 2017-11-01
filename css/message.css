@@ -190,4 +190,6 @@ div.upload {
     height: 34px;
     overflow: hidden;
     background: #e8e8e8;
+    content: ' \2191';
+    color: blue !important;
 }
