@@ -169,3 +169,7 @@
     height: 100%;
     width: auto;
 }
+
+.inputWidth {
+    width: 100%;
+}

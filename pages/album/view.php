@@ -41,19 +41,28 @@ require_once("../../includes/tools/security.php"); ?>
     <br><br>
     <?php
       $id = $_GET['id'];
-      $haal_albums = "SELECT * FROM image as i JOIN album as a ON a.id = i.album_id JOIN user as u ON u.id = a.user_id WHERE album_id = ?";
+      $haal_albums = "SELECT * , a.created_at AS album_created_at FROM image as i JOIN album as a ON a.id = i.album_id JOIN user as u ON u.id = a.user_id WHERE album_id = ?";
 
       $albumResult = $dbc->prepare($haal_albums);
       $albumResult->bindParam(1, $id);
       $albumResult->execute();
       $album = $albumResult->fetchAll(PDO::FETCH_ASSOC);
+      $user_id = $_SESSION['user']->id;
     ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/album/">Albums</a></li>
+                        <li class="active"><?php echo $album[0]['title']; ?></li>
+                    </ol>
+                </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?php echo $album[0]['title']; ?></h3>
+                        <h3 class="panel-title"><?php echo $album[0]['title'] . ' | <i> Geplaatst door: </i> &nbsp; <a href="/user/'. $user_id .'">' . $album[0]['first_name'].' '.
+                        $album[0]['last_name'] . '</a>  <span style="float: right;"> Geplaatst op: '.$album[0]['album_created_at'].'</span>'  ;?></h3>
                     </div>
                     <div class="panel-body">
                         <div class="container-fluid">
@@ -108,10 +117,10 @@ require_once("../../includes/tools/security.php"); ?>
                  <div class="col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading border-color-blue">
-                        <h3 class="panel-title text-left"><?php echo "Geplaatst door: " .  $row['first_name'].' '.$row['last_name']; ?></h3>
+                        <h3 class="panel-title text-left"><?php echo "Geplaatst door: <b><a style='color: white;' href='/user/".$user_id."'>". $row['first_name'].' '.$row['last_name'].'</a></b>';?></h3>
                     </div>
 
-                    <div class="panel-body  ">
+                    <div class="panel-body">
                         <div class="wrapper-box col-xs-12  ">
                             <div class="col-xs-2">
                                 <img src='http://via.placeholder.com/130x130' alt="">
@@ -127,8 +136,9 @@ require_once("../../includes/tools/security.php"); ?>
                     <div class="panel-footer">
 
 
-                op
-                <?php echo $row['reply_created_at']; ?>
+                <i>op
+                    <?php echo $row['reply_created_at']; ?>
+                </i>
                 </h3>
                 <div class="pull-right">
 

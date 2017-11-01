@@ -53,6 +53,13 @@ if (isset($_GET["id"])) {
     <div class="container main">
         <div class="row">
             <br>
+            <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/user/">Gebruiker</a></li>
+                    <li class="active">Profiel aanpassen</li>
+                </ol>
+            </div>
             <div class="panel panel-primary ">
                 <div class="panel-heading border-color-blue">
                   <h3 class="panel-title">Profiel aanpassen</h3>

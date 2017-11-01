@@ -77,7 +77,7 @@ if (isset($_POST["send"])) {
                       <label for="password">Wachtwoord</label>
                       <input class="form-control" required type="password" name="password" id="password" value="" placeholder="Wachtwoord"><br>
 
-                      <input id="onthoud" class="" type="checkbox" name="remember_me" value=""> <label for="onthoud">Onthoud mij</label><br>
+                      <!-- <input id="onthoud" class="" type="checkbox" name="remember_me" value=""> <label for="onthoud">Onthoud mij</label><br> -->
 
                       <a href="/user/password/forgot">Naam of wachtwoord vergeten?</a><br><br>
 

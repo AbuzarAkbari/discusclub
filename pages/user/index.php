@@ -45,8 +45,17 @@ if (isset($_GET["id"])) {
             })(document, 'script', 'facebook-jssdk')
         </script>
         <?php require_once("../../includes/components/nav.php"); ?>
+        <br><br>
+        <div class="container">
+        <div class="">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">Gebruiker</li>
+            </ol>
+        </div>
+        </div>
         <div class="container main">
-            <br><br>
+            <br>
             <!--        <div class="col-md-12">-->
             <!--            <div class="panel panel-primary border-color-blues">-->
             <!--                <div class="panel-heading border-color-blue">Gebruiker</div>-->
@@ -60,7 +69,7 @@ if (isset($_GET["id"])) {
 
                 <div class="col-md-12">
                     <div class="panel panel-primary border-color-blues">
-                        <div class="panel-heading border-color-blue">Informatie</div>
+                        <div class="panel-heading border-color-blue"><?php echo $user_data->first_name.' '.$user_data->last_name; ?></div>
                         <div class="panel-body text-left">
                             <div class="text-center">
                                 <div style="background-image:url('/images/profiel/<?php echo isset($user_data->profile_img) ? $user_data->profile_img : " "; ?>')"; class="img "></div>
@@ -142,7 +151,7 @@ if (isset($_GET["id"])) {
                                     <th class="col-md-4 col-xs-4">Forum</th>
                                     <th class="col-md-4 col-xs-4">Datum</th>
                                     <?php
-                                        $sql = "SELECT *, reply.created_at AS reply_created_at, topic.created_at as topic_created_at FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON topic.id = reply.topic_id WHERE reply.user_id = :id OR topic.user_id = :id ORDER BY reply_created_at DESC, topic_created_at DESC LIMIT 10";
+                                        $sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, reply.created_at AS reply_created_at, topic.created_at as topic_created_at FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON topic.id = reply.topic_id WHERE reply.user_id = :id OR topic.user_id = :id ORDER BY reply_created_at DESC, topic_created_at DESC LIMIT 10";
                                         $result = $dbc->prepare($sql);
                                         $result->bindParam(":id", $user_data->id);
                                         $result->execute();
@@ -150,8 +159,8 @@ if (isset($_GET["id"])) {
                                     ?>
                                     <?php foreach($topics as $info) : ?>
                                         <tr>
-                                            <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->title; ?></a></td>
-                                            <td class="col-md-4 col-xs-4"><a href="#"><?php echo $info->name; ?></a></td>
+                                            <td class="col-md-4 col-xs-4"><a href="/forum/post/<?php echo $info->topic_id; ?>"><?php echo $info->title; ?></a></td>
+                                            <td class="col-md-4 col-xs-4"><a href="/forum/topic/<?php echo $info->sub_category_id; ?>"><?php echo $info->name; ?></a></td>
                                             <td class="col-md-4 col-xs-4">
                                                 <?php echo isset($info->reply_created_at) ? $info->reply_created_at : $info->topic_created_at; ?>
                                             </td>
@@ -167,13 +176,13 @@ if (isset($_GET["id"])) {
                         <div class="panel-heading border-color-blue">Albums</div>
                         <div class="panel-body text-left">
                             <?php
-                    $albumSql = "SELECT * FROM album JOIN image ON album.id = image.album_id WHERE user_id = ?";
+                    $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE user_id = ?";
                     $albumResult = $dbc->prepare($albumSql);
                     $albumResult->bindParam(1, $user_data->id);
                     $albumResult->execute();
                     $album = $albumResult->fetch(PDO::FETCH_OBJ);
                     ?>
-                                <img src="/images/profiel/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150">
+                            <a href="/album/<?php echo $album->album_id; ?>"><img src="/images/album/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150"></a>
                         </div>
                     </div>
                 </div>
