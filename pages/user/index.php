@@ -60,7 +60,7 @@ if (isset($_GET["id"])) {
 
                 <div class="col-md-12">
                     <div class="panel panel-primary border-color-blues">
-                        <div class="panel-heading border-color-blue">Informatie</div>
+                        <div class="panel-heading border-color-blue"><?php echo $user_data->first_name.' '.$user_data->last_name; ?></div>
                         <div class="panel-body text-left">
                             <div class="text-center">
                                 <div style="background-image:url('/images/profiel/<?php echo isset($user_data->profile_img) ? $user_data->profile_img : " "; ?>')"; class="img "></div>
@@ -167,13 +167,13 @@ if (isset($_GET["id"])) {
                         <div class="panel-heading border-color-blue">Albums</div>
                         <div class="panel-body text-left">
                             <?php
-                    $albumSql = "SELECT * FROM album JOIN image ON album.id = image.album_id WHERE user_id = ?";
+                    $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE user_id = ?";
                     $albumResult = $dbc->prepare($albumSql);
                     $albumResult->bindParam(1, $user_data->id);
                     $albumResult->execute();
                     $album = $albumResult->fetch(PDO::FETCH_OBJ);
                     ?>
-                                <img src="/images/album/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150">
+                            <a href="/album/<?php echo $album->album_id; ?>"><img src="/images/album/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150"></a>
                         </div>
                     </div>
                 </div>

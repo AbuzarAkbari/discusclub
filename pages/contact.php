@@ -37,18 +37,24 @@
     <div class="container main">
       <div class="row">
       <div class="col-md-8">
+          <div class="">
+              <ol class="breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li class="active">Contact</li>
+              </ol>
+          </div>
         <div class="panel panel-primary ">
           <div class="panel-heading border-colors">Stel uw vraag</div>
           <div class="panel-body">
               <form action="">
                 <label for="fname">Naam</label>
-                <input type="text" class="form-control" name="firstname" placeholder="Uw naam">
+                <input type="text" class="form-control" name="firstname" placeholder="Uw naam" required>
                 <br>
                 <label for="lname">E-mail</label>
-                <input type="text" class="form-control" name="lastname" placeholder="Uw e-mail">
+                <input type="text" class="form-control" name="lastname" placeholder="Uw e-mail" required>
                 <br>
                 <label for="subject">Bericht</label>
-                <textarea id="subject" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;"></textarea>
+                <textarea id="subject" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;" required></textarea>
                 <br>
                 <input type="submit" class="btn btn-primary" value="Verstuur">
               </form>
