@@ -167,13 +167,13 @@ if (isset($_GET["id"])) {
                         <div class="panel-heading border-color-blue">Albums</div>
                         <div class="panel-body text-left">
                             <?php
-                    $albumSql = "SELECT * FROM album JOIN image ON album.id = image.album_id WHERE user_id = ?";
+                    $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE user_id = ?";
                     $albumResult = $dbc->prepare($albumSql);
                     $albumResult->bindParam(1, $user_data->id);
                     $albumResult->execute();
                     $album = $albumResult->fetch(PDO::FETCH_OBJ);
                     ?>
-                                <img src="/images/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150">
+                            <a href="/album/<?php echo $album->album_id; ?>"><img src="/images/album/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150"></a>
                         </div>
                     </div>
                 </div>
