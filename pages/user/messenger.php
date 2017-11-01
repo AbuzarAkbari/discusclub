@@ -167,8 +167,8 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                         <span class="input-group-btn">
 
                             <div class="upload">
-                                <i class="glyphicon glyphicon-plus icon"></i>
-                                <input type="file" name="upload"/>
+                                <label for="file"></label>
+                                <input id="file" type="file" name="upload" />
                             </div>
                         </span>
 <!--
