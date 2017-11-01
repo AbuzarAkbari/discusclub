@@ -60,7 +60,7 @@ if (isset($_GET["id"])) {
 
                 <div class="col-md-12">
                     <div class="panel panel-primary border-color-blues">
-                        <div class="panel-heading border-color-blue">Informatie</div>
+                        <div class="panel-heading border-color-blue"><?php echo $user_data->first_name.' '.$user_data->last_name; ?></div>
                         <div class="panel-body text-left">
                             <div class="text-center">
                                 <div style="background-image:url('/images/profiel/<?php echo isset($user_data->profile_img) ? $user_data->profile_img : " "; ?>')"; class="img "></div>
