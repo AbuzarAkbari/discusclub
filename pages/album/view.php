@@ -47,13 +47,15 @@ require_once("../../includes/tools/security.php"); ?>
       $albumResult->bindParam(1, $id);
       $albumResult->execute();
       $album = $albumResult->fetchAll(PDO::FETCH_ASSOC);
+      $user_id = $_SESSION['user']->id;
     ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?php echo $album[0]['title']; ?></h3>
+                        <h3 class="panel-title"><?php echo $album[0]['title'] . ' | <i> Geplaatst door: </i> &nbsp; <a href="/user/'. $user_id .'">' . $album[0]['first_name'].' '.
+                        $album[0]['last_name'] ;?></h3>
                     </div>
                     <div class="panel-body">
                         <div class="container-fluid">
