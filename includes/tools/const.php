@@ -1,0 +1,2 @@
+<?php
+$USER_SELECT = "SELECT u.id, u.email, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img, u.profile_img as profile_img_id, news, i2.path as messenger_img FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id JOIN image as i2 ON u.messenger_img = i2.id";

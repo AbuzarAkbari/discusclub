@@ -103,7 +103,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                     <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
                     <div class="username"><b> <?php echo $res[0]->first_name . " " . $res[0]->last_name ?></b></div>
                 </div>
-                <div id="message" style="background-image: url('/images/messenger_background/default.jpg');" class="imageBackgroundText flexcroll tab">
+                <div id="message" style="background-image: url('<?php echo $_SESSION["user"]->messenger_img; ?>');" class="imageBackgroundText flexcroll tab">
                     <?php foreach ($res as $value) : ?>
                         <div class="<?php echo $value->user_id_1 === $_SESSION["user"]->id ? "messages" : "responses" ?>">
                             <div><?php echo $value->message; ?></div>
@@ -166,7 +166,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                         <span class="input-group-btn">
                             <button class="btn btn-secondary buttonHeight" type="button" type="file"><i class="glyphicon glyphicon-plus icon " ></i></button>
                         </span>
-<!-- 
+<!--
                         <input class="btn btn-secondary buttonHeight" type="file">
                         <i class="glyphicon glyphicon-plus icon" ></i> -->
                       </div>
