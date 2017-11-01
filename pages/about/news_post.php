@@ -117,19 +117,26 @@ require_once("../../includes/components/nav.php");
             $result->execute();
             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
-            $subcat_id = $rows[0]['sub_category_id'];
-            $subSql = "SELECT * FROM sub_category WHERE id = ?";
-            $subResult = $dbc->prepare($subSql);
-            $subResult->bindParam(1, $subcat_id);
-            $subResult->execute();
-            $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
+            if($rows){
+                $subcat_id = $rows[0]['sub_category_id'];
+                $subSql = "SELECT * FROM sub_category WHERE id = ?";
+                $subResult = $dbc->prepare($subSql);
+                $subResult->bindParam(1, $subcat_id);
+                $subResult->execute();
+                $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
+            }
             ?>
-            <ol class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a href="/">Forum</a></li>
-                <li><a href="/"><?php echo $subId[0]['name']; ?></a></li>
-                <li class="active"><?php echo $rows[0]['title']; ?></li>
-            </ol>
+            <?php if($rows) : ?>
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Forum</a></li>
+                    <li><a href="/"><?php echo $subId[0]['name']; ?></a></li>
+                    <li class="active"><?php echo $rows[0]['title']; ?></li>
+                </ol>
+            <?php endif; ?>
+            <?php if(!$rows) : ?>
+                <div class="message error">Deze pagina bestaat niet, <a href="/news/"> ga terug</a></div></div>
+            <?php else : ?>
             <?php foreach ($rows as $row) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -170,11 +177,11 @@ require_once("../../includes/components/nav.php");
                 </div>
 
                 <?php endforeach; ?>
-
+                <?php endif; ?>
 
 
             </div>
-
+            
             <?php
             $a = $page * $perPage - $perPage;
             $sql2 = "SELECT * FROM news_reply WHERE news_id = ? LIMIT {$perPage} OFFSET {$a}";
@@ -228,7 +235,7 @@ require_once("../../includes/components/nav.php");
 
 
                 ?>
-
+                
                 <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
                     <div class="panel-body">
                         <div class="wrapper-box col-md-12">
@@ -284,7 +291,7 @@ require_once("../../includes/components/nav.php");
                 $results = $query->fetchAll()[0];
                 $count = ceil($results['x'] / $perPage);
             ?>
-
+        <?php if($rows) : ?>
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
@@ -302,9 +309,10 @@ require_once("../../includes/components/nav.php");
                     </li>
                 </ul>
             </nav>
+        <?php endif; ?>
         </div>
     </div>
-    <?php if ($logged_in) : ?>
+    <?php if ($logged_in && $rows) : ?>
     <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-heading">
