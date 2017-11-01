@@ -82,7 +82,7 @@ require_once("../../includes/components/nav.php");
                 <li><a href="/forum/">Forum</a></li>
             </ol>
             <?php if(!$rows) : ?>
-                <div class="message error">Deze pagina bestaat niet, <a href="/forum/"> ga terug</a></div>
+                <div class="message error">Deze pagina bestaat niet, <a href="/forum/"> ga terug</a></div></div>
             <?php else : ?>
             <?php foreach ($rows as $row) : ?>
                 <div class="panel panel-primary">
