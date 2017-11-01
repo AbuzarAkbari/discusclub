@@ -54,7 +54,7 @@ require_once("../../includes/tools/security.php");
                     <li><a href="/forum/">Forum</a></li>
                     <li class="active">Actieve topics</li>
                 </ol>
-            </div
+            </div>
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors">Actieve topics</div>
                 <div class="panel-body padding-padding table-responsive">
