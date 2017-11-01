@@ -18,6 +18,8 @@ require_once("../../includes/tools/security.php"); ?>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/nieuws.css">
     <link rel="stylesheet" href="/css/view.css">
+    <link rel="stylesheet" href="/css/summernote.css">
+
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
@@ -75,7 +77,7 @@ require_once("../../includes/tools/security.php"); ?>
                                     <div class="carousel-inner">
                                         <?php foreach ($album as $key => $image) : ?>
                                             <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <img src="/images/album/<?php echo $image['path'] ?>" alt="fishing">
+                                                <img class="sliderImg" src="/images/album/<?php echo $image['path'] ?>"  alt="fishing">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -84,7 +86,7 @@ require_once("../../includes/tools/security.php"); ?>
                                     <ol class="carousel-indicators">
                                         <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
                                     <?php foreach ($album as $key => $image) : ?>
-                                        <li class="<?php echo $key == 0 ? "active" : null; ?>" data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></li>
+                                        <li class="<?php echo $key == 0 ? "active" : null; ?> " data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></li>
                                     <?php endforeach; ?>
                                     </ol>
 
@@ -208,7 +210,7 @@ require_once("../../includes/tools/security.php"); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
     <!-- summer note -->
     <!-- summernote js -->
-    <!-- script type="text/javascript" src="/js/summernote.min.js"></script>
+    <script type="text/javascript" src="/js/summernote.min.js"></script>
     <script>
         $('.editor').summernote({
             disableResizeEditor: true,
@@ -225,9 +227,9 @@ require_once("../../includes/tools/security.php"); ?>
 
         $(document).ready(function () {
             $('.quote-btn').on('click', function () {
-                $('.editor').summernote('insertText', '[quote '+($(this).attr('data-id'))+']')//.disabled = true
+                $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
             });
         });
-    </script> -->
+    </script>
 </body>
 </html>
