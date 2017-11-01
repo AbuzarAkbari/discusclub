@@ -2,7 +2,7 @@
 require_once("../../includes/tools/security.php"); ?>
 <?php
 if (isset($_GET["id"])) {
-    $sth = $dbc->prepare("SELECT u.id, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.id = :id");
+    $sth = $dbc->prepare("SELECT u.id, u.email, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img, u.profile_img as profile_img_id, news, i2.path as messenger_img FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id JOIN image as i2 ON u.messenger_img = i2.id WHERE u.id = :id");
     $sth->execute([":id" => $_GET["id"]]);
 
     $user_data = $sth->fetch(PDO::FETCH_OBJ);
