@@ -66,7 +66,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                     <br><br>
                     <ol class="breadcrumb">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/">Forum</a></li>
+                        <li><a href="/forum/">Forum</a></li>
                         <li class="active"><?php echo $results2[0]['name']; ?></li>
                     </ol>
                 </div>
@@ -123,10 +123,10 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 <?php endforeach; ?>
                                 <?php if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
-                                    <a  title="Pinnen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
-                                    <a  title="Locken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
-                                    <a title="Bewerken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
-                                    <a title="Verwijderen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
+                                    <a  title="Pinnen" href="/admin/tools/pin.php" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
+                                    <a  title="Locken" href="/admin/tools/lock.php" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
+                                    <a title="Bewerken" href="/admin/tools/edit.php" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
+                                    <a title="Verwijderen" href="/admin/tools/del.php?id=<?php echo $_GET['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
                                 </td>
                                 <?php endif; ?>
                             </tr>
