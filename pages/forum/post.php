@@ -83,6 +83,7 @@ require_once("../../includes/components/nav.php");
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li><a href="/forum/">Forum</a></li>
+                    <li><a href="/forum/topic/<?php echo $subId[0]['id']; ?>"><?php echo $subId[0]['name']; ?></a></li>
                 </ol>
             <?php foreach ($rows as $row) : ?>
                 <div class="panel panel-primary">
