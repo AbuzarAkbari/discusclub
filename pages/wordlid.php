@@ -34,7 +34,13 @@
     </div>
     <div class="container main">
         <div class="row">
-            <br><br>
+            <br>
+            <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Over ons</li>
+                </ol>
+            </div>
             <div class="panel panel-primary">
                 <div class="panel-heading panel-heading1">
                     <h4>Word lid!</h4></div>

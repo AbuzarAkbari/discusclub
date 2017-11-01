@@ -45,19 +45,33 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
     <br><br><br><br>
     <div class="container main">
         <div class="row">
-            <div class="col-md-4 tab">
+            <div class="col-md-12">
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/user/">Gebruiker</a></li>
+                        <li class="active">Chat</li>
+                    </ol>
+                </div></div>
+            <div class="col-md-4">
                 <div class="userTab">
                     <img src="/images/profiel/<?php echo $_SESSION["user"]->profile_img; ?>" class="imgUser imageStatic" />
-                    <div class="username"><b><?php echo $_SESSION["user"]->username; ?></b></div>
+                    <div class="username"><b> <?php echo $_SESSION["user"]->first_name . " " . $_SESSION["user"]->last_name; ?></b></div>
                 </div>
                 <div id="userTable" class="otherTab flexcroll">
                     <?php
-                    $sth = $dbc->prepare("SELECT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE m.user_id_1 = :id OR m.user_id_2 = :id ORDER BY m.created_at DESC");
+                    $sth = $dbc->prepare("SELECT DISTINCT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE m.user_id_1 = :id OR m.user_id_2 = :id GROUP BY u.id ORDER BY m.created_at ASC");
                     $sth->execute([":id" => $_SESSION["user"]->id]);
                     $res = $sth->fetchAll(PDO::FETCH_OBJ);
                     $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
                     foreach ($res as $value) : ?>
-                        <?php if ($value->user_id_2 === $id) {
+                        <?php
+
+                        $sth = $dbc->prepare("SELECT m.message FROM message as m WHERE user_id_1 = :id OR user_id_2 = :id ORDER BY m.created_at DESC LIMIT 1");
+                        $sth->execute([":id" => $id]);
+                        $last_message = $sth->fetch(PDO::FETCH_OBJ)->message;
+
+                        if ($value->user_id_2 === $id) {
                             $user = $value->first_name . " " . $value->last_name;
                         } ?>
                         <?php if($value->user_id_1 === $_SESSION["user"]->id) :?>
@@ -65,7 +79,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                                 <div class="other">
                                     <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
                                     <div class="usernameTab"><b><?php echo $value->first_name . " " . $value->last_name; ?></b></div>
-                                    <div><?php echo implode(" ", array_slice(explode(" ", $value->message), 0, 5)) . "..."; ?></div>
+                                    <div><?php echo substr($last_message, 0, 25) . "..."; ?></div>
                                 </div>
                             </a>
                         <?php endif; ?>
@@ -89,7 +103,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                     <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
                     <div class="username"><b> <?php echo $res[0]->first_name . " " . $res[0]->last_name ?></b></div>
                 </div>
-                <div style="background-image: url('/images/messenger_background/default.jpg');" class="imageBackgroundText flexcroll tab">
+                <div id="message" style="background-image: url('/images/messenger_background/default.jpg');" class="imageBackgroundText flexcroll tab">
                     <?php foreach ($res as $value) : ?>
                         <div class="<?php echo $value->user_id_1 === $_SESSION["user"]->id ? "messages" : "responses" ?>">
                             <div><?php echo $value->message; ?></div>
@@ -140,12 +154,12 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
                 <div class="searchUser">
                     <form id="search" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
-                      <!-- <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                      <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
                       <span class="input-group-btn " id="basic-addon1">
                         <button class="btn btn-secondary buttonHeight" type="button">
                             <i class="glyphicon glyphicon-plus icon "></i>
                         </button>
-                      </span> -->
+                      </span>
 
                       <!-- <div class="input-group">
                         <input type="text" class="form-control" name="userSearch" placeholder="" aria-describedby="basic-addon1">

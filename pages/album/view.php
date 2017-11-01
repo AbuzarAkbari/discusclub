@@ -52,6 +52,13 @@ require_once("../../includes/tools/security.php"); ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/album/">Albums</a></li>
+                        <li class="active"><?php echo $album[0]['title']; ?></li>
+                    </ol>
+                </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title"><?php echo $album[0]['title'] . ' | <i> Geplaatst door: </i> &nbsp; <a href="/user/'. $user_id .'">' . $album[0]['first_name'].' '.

@@ -45,8 +45,17 @@ if (isset($_GET["id"])) {
             })(document, 'script', 'facebook-jssdk')
         </script>
         <?php require_once("../../includes/components/nav.php"); ?>
+        <br><br>
+        <div class="container">
+        <div class="">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">Gebruiker</li>
+            </ol>
+        </div>
+        </div>
         <div class="container main">
-            <br><br>
+            <br>
             <!--        <div class="col-md-12">-->
             <!--            <div class="panel panel-primary border-color-blues">-->
             <!--                <div class="panel-heading border-color-blue">Gebruiker</div>-->

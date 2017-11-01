@@ -36,6 +36,12 @@
     <div class="container main">
         <div class="row">
             <div class="col-md-12">
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Over ons</li>
+                    </ol>
+                </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading border-color-blue">Over Discus Club Holland</div>
                     <div class="panel-body padding-padding space">
