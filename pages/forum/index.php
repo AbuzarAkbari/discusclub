@@ -73,7 +73,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         <tbody>
                         <?php foreach ($results2 as $subCat) : ?>
                             <?php
-                                $sql = "SELECT *, COUNT(*) as aantal_topics FROM topic WHERE sub_category_id = ?";
+                                $sql = "SELECT *, COUNT(*) as aantal_topics FROM topic WHERE sub_category_id = ? AND deleted_at IS NULL";
                                 $q = $dbc->prepare($sql);
                                 $q->bindParam(1, $subCat['id']);
                                 $q->execute();
@@ -84,7 +84,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 $query2->execute();
                                 $berichten = $query2->fetchAll(PDO::FETCH_ASSOC)[0];
 
-                                $query3 = $dbc->prepare('SELECT COUNT(topic.id) as x FROM `topic` WHERE sub_category_id = ?');
+                                $query3 = $dbc->prepare('SELECT COUNT(topic.id) as x FROM `topic` WHERE sub_category_id = ? AND deleted_at IS NULL');
                                 $query3->bindParam(1, $subCat['id']);
                                 $query3->execute();
                                 $topic_x = $query3->fetchAll(PDO::FETCH_ASSOC)[0];

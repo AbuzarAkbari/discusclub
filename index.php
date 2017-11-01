@@ -86,7 +86,7 @@
                                                             <b><?php echo $value["title"]; ?></b>
                                                         </p>
                                                         <p>
-                                                        <?php echo substr($value["content"], 0, 45); ?>
+                                                        <?php echo strlen($value["content"]) > 45 ? substr($value["content"], 0, 45) . "..." : $value["content"]; ?>
                                                         <p>
                                                         <?php
                                                             if(sizeof($res)-1 != $key) {
@@ -115,7 +115,8 @@
                                             foreach($res as $key => $value) : ?>
                                             <div class=" col-md-12 verticalLine">
                                                 <p><b><?php echo  $value['title']; ?></b></p>
-                                                <?php echo substr($value['content'],0 ,200); ?>
+                                                <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : $value["content"]; 
+                                                 ?>
                                                 <br><br>
                                                 <a href="/about/news/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
                                                 <br><br>
