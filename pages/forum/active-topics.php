@@ -48,6 +48,13 @@ require_once("../../includes/tools/security.php");
 <div class="container main">
     <div class="row columns">
         <div class="col-md-12">
+            <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/forum/">Forum</a></li>
+                    <li class="active">Actieve topics</li>
+                </ol>
+            </div
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors">Actieve topics</div>
                 <div class="panel-body padding-padding table-responsive">

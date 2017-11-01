@@ -41,6 +41,13 @@ include_once("../../includes/tools/security.php"); ?>
     <div class="container1 main">
         <div class="row">
             <br><br>
+            <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/album/">Album</a></li>
+                    <li class="active">Upload</li>
+                </ol>
+            </div>
             <div class="panel panel-primary">
                 <div class="panel-heading border-color-blue">
                     <h3 class="panel-title">Album uploaden</h3>

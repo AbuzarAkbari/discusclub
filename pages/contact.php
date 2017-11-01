@@ -37,6 +37,12 @@
     <div class="container main">
       <div class="row">
       <div class="col-md-8">
+          <div class="">
+              <ol class="breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li class="active">Contact</li>
+              </ol>
+          </div>
         <div class="panel panel-primary ">
           <div class="panel-heading border-colors">Stel uw vraag</div>
           <div class="panel-body">

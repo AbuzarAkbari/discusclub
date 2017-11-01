@@ -63,6 +63,13 @@ if (isset($_POST['post_add_topic'])) {
         <?php if ($logged_in && in_array($current_level, ["redacteur", "admin"])) :?>
     <div class="row">
         <div class="col-md-12">
+            <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">Over ons</a></li>
+                    <li class="active">Nieuws</li>
+                </ol>
+            </div>
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Nieuws toevoegen</h3>

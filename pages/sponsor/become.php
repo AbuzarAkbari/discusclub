@@ -36,6 +36,13 @@
     <div class="container main">
       <div class="row columns">
       <div class="col-md-8">
+          <div class="">
+              <ol class="breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/sponsor/">Sponsoren</a></li>
+                  <li class="active">Sponsor worden</li>
+              </ol>
+          </div>
         <div class="panel panel-primary ">
           <div class="panel-heading border-colors">Sponsor worden</div>
           <div class="panel-body padding-padding space">
