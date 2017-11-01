@@ -79,13 +79,20 @@
                     <h4>Inschrijfformulier</h4></div>
                 <div class="panel-body">
                     <form class="" action="/" method="post">
-                        <input class="form-control" required type="text" name="" value="" placeholder="Naam *"><br>
-                        <input class="form-control" required type="email" name="" value="" placeholder="Email *"><br>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Adres *"><br>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Postcode *"><br>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Plaats *"><br>
-                        <input class="form-control" required type="tel" name="" value="" placeholder="Telefoonnummer *"><br>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Rekeningnummer *"><br>
+                        <label for="">Naam *</label>
+                        <input class="form-control" required type="text" name="" value="" placeholder="Naam "><br>
+                        <label for="">Email *</label>
+                        <input class="form-control" required type="email" name="" value="" placeholder="Email "><br>
+                        <label for="">Adres *</label>
+                        <input class="form-control" required type="text" name="" value="" placeholder="Adres "><br>
+                        <label for="">Postcode *</label>
+                        <input class="form-control" required type="text" name="" value="" placeholder="Postcode "><br>
+                        <label for="">Plaats *</label>
+                        <input class="form-control" required type="text" name="" value="" placeholder="Plaats "><br>
+                        <label for="">Telefoonnummer *</label>
+                        <input class="form-control" required type="tel" name="" value="" placeholder="Telefoonnummer "><br>
+                        <label for="">Rekeningnummer *</label>
+                        <input class="form-control" required type="text" name="" value="" placeholder="Rekeningnummer "><br>
                         <input type="submit" class="btn btn-primary" name="send" value="Verzend">
                     </form>
                 </div>

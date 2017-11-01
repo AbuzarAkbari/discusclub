@@ -63,52 +63,54 @@ if (isset($_POST['post_add_topic'])) {
         <?php if ($logged_in && in_array($current_level, ["redacteur", "admin"])) :?>
     <div class="row">
         <div class="col-md-12">
-            <div class="">
+            <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about/">Over ons</a></li>
                     <li class="active">Nieuws</li>
                 </ol>
             </div>
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Nieuws toevoegen</h3>
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Titel (max. 50 characters)">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Nieuws toevoegen</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Titel (max. 50 characters)">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <select type="text" class="form-control" name="sub_category">
-                                    <?php
-                                    $sth = $dbc->prepare("SELECT * FROM sub_category");
-                                    $sth->execute();
-                                    $res = $sth->fetchAll(PDO::FETCH_OBJ);
-                                    foreach ($res as $cat) : ?>
-                                      <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
-                                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 endforeach;?>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <select type="text" class="form-control" name="sub_category">
+                                        <?php
+                                        $sth = $dbc->prepare("SELECT * FROM sub_category");
+                                        $sth->execute();
+                                        $res = $sth->fetchAll(PDO::FETCH_OBJ);
+                                        foreach ($res as $cat) : ?>
+                                        <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
+                                    <?php endforeach;?>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content"
-                                          style="resize: none !important;" placeholder="Uw bericht.."></textarea>
+                                style="resize: none !important;" placeholder="Uw bericht.."></textarea>
                             </div>
 
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <input type="submit" class="btn btn-primary" class="form-control" name="post_add_topic"
-                                       value="Toevoegen">
+                                value="Toevoegen">
                             </div>
                         </div>
                     </form>
                 </div>
+            </div>
             </div>
         </div>
     </div>
