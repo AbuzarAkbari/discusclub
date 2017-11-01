@@ -74,10 +74,10 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                     </ol>
                 </div>
         <br>
+        <?php if(!$results2) :?>
+            <div class="message error">Deze pagina bestaat niet, <a href="/forum/"> ga terug</a></div>
+        <?php else : ?>
             <div class="panel panel-primary ">
-                <?php if(!$results2) :?>
-                    <div class="message error">Deze pagina bestaat niet, <a href="/forum/"> ga terug</a></div>
-                <?php else : ?>
                 <?php foreach ($results2 as $subRow) : ?>
                 <div class="panel-heading border-colors"><?php echo $subRow['name']; ?></div>
             <?php endforeach; ?>
