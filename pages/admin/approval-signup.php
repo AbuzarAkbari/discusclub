@@ -1,4 +1,5 @@
-<?php require_once("../includes/tools/security.php"); ?>
+<?php require_once("../../includes/tools/security.php");
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +11,7 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nieuws.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
@@ -29,12 +31,57 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-    require_once("../includes/components/nav.php");
+        require_once("../../includes/components/nav.php");
     ?>
-    </div>
+<br><br>
+    <div class="container main">
+        <div class="row columns">
+            <div class="col-md-12">
+                <div class="panel panel-primary ">
+                    <div class="panel-heading border-colors">Inschrijvingen</div>
+                    <div class="panel-body padding-padding table-responsive">
+                        <table>
+                            <tr>
+                                <th>gebruikersnaam</th>
+                                <th>Ip adres</th>
+                                <th>wanneer je account heb gemaakt</th>
+                                <th>Admin tools</th>
+                            </tr>
+                            <?php
+                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM ip LEFT JOIN user ON ip.user_id = user.id";
+                                $result = $dbc->prepare($sql);
+                                $result->execute();
+                                $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
+                            ?>
+                            <?php
+                            foreach ($rows as $ip) :
+                                ?>
+                                <tr>
+                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>"><?php
+                                     echo $ip['first_name'] . " " . $ip['last_name'];
+                                    ?></a></td>
+                                    <td><?php
+                                     echo $ip['ip_address'];
+                                    ?></td>
+                                    <td><?php
+                                     echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
+                                    ?></td>
+                                    <td>
+                                     <a title="Blokeer" href="" type="button" class="btn btn-danger" name="button"><i class="glyphicon glyphicon-remove"></i></a>
+                                     <a title="Deblokeer" href="" type="button" class="btn btn-success" name="button"><i class="glyphicon glyphicon-ok"></i></a></td>
+                                </tr>
+                            <?php
+                            endforeach;
+                            ?>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer>
-<?php require_once("../includes/components/footer.php") ; ?>
+<?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
