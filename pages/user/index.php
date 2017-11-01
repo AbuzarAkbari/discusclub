@@ -10,6 +10,11 @@ if (isset($_GET["id"])) {
     $user_data = $_SESSION["user"];
 }
 
+if($user_data == false){
+        echo "<div class='message error'>test</div>";
+        header('Location: /user/');
+      }
+
 ?>
     <!DOCTYPE html>
     <html lang="en">

@@ -5,9 +5,26 @@ require_once("../../includes/tools/security.php");
 
 <?php
 
-$sql = "INSERT INTO view (topic_id, ip_id) VALUES (:id, :ip_id)";
+$sql = "SELECT *, user.created_at AS user_created_at, topic.id as topic_id FROM topic JOIN user ON topic.user_id = user.id JOIN image ON user.profile_img = image.id JOIN role ON user.role_id = role.id WHERE topic.id = ?";
 $result = $dbc->prepare($sql);
-$result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
+$result->bindParam(1, $_GET['id']);
+$result->execute();
+$rows = $result->fetchAll(PDO::FETCH_ASSOC);
+
+if($rows) {
+
+    $subcat_id = $rows[0]['sub_category_id'];
+    $subSql = "SELECT * FROM sub_category WHERE id = ?";
+    $subResult = $dbc->prepare($subSql);
+    $subResult->bindParam(1, $subcat_id);
+    $subResult->execute();
+    $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "INSERT INTO view (topic_id, ip_id) VALUES (:id, :ip_id)";
+    $result = $dbc->prepare($sql);
+    $result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
+
+}
 
 $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 $perPage = 10;
@@ -60,26 +77,13 @@ require_once("../../includes/components/nav.php");
 
     <div class="row">
         <div class="col-xs-12">
-            <?php
-            $sql = "SELECT *, user.created_at AS user_created_at, topic.id as topic_id FROM topic JOIN user ON topic.user_id = user.id JOIN image ON user.profile_img = image.id JOIN role ON user.role_id = role.id WHERE topic.id = ?";
-            $result = $dbc->prepare($sql);
-            $result->bindParam(1, $_GET['id']);
-            $result->execute();
-            $rows = $result->fetchAll(PDO::FETCH_ASSOC);
-
-            $subcat_id = $rows[0]['sub_category_id'];
-            $subSql = "SELECT * FROM sub_category WHERE id = ?";
-            $subResult = $dbc->prepare($subSql);
-            $subResult->bindParam(1, $subcat_id);
-            $subResult->execute();
-            $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
-            ?>
             <ol class="breadcrumb">
                 <li><a href="/">Home</a></li>
                 <li><a href="/forum/">Forum</a></li>
-                <li><a href="/forum/topic/<?php echo $subId[0]['id']; ?>"><?php echo $subId[0]['name']; ?></a></li>
-                <li class="active"><?php echo $rows[0]['title']; ?></li>
             </ol>
+            <?php if(!$rows) : ?>
+                <div class="message error">Deze pagina bestaat niet, <a href="/forum/"> ga terug</a></div></div>
+            <?php else : ?>
             <?php foreach ($rows as $row) : ?>
                 <div class="panel panel-primary">
                     <div class="panel-heading border-color-blue">
@@ -141,7 +145,6 @@ require_once("../../includes/components/nav.php");
                 </div>
 
             <?php endforeach; ?>
-
 
         </div>
 
@@ -311,6 +314,7 @@ require_once("../../includes/components/nav.php");
             </div>
         </div>
     </div>
+    <?php endif; ?>
     <?php endif; ?>
 </div>
 </div>
