@@ -35,11 +35,17 @@ require_once("../../includes/tools/security.php");
     <?php
         require_once("../../includes/components/nav.php");
     ?>
-<br><br>
-<br><br>
+<br>
     <div class="container main">
         <div class="row columns">
             <div class="col-md-12">
+                <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/forum/">Forum</a></li>
+                    <li class="active">Ledenlijst</li>
+                </ol>
+            </div>
                 <div class="panel panel-primary ">
                     <div class="panel-heading border-colors">Ledenlijst</div>
                     <div class="panel-body padding-padding table-responsive">

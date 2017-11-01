@@ -46,6 +46,13 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
     <div class="container main">
         <div class="row">
             <div class="col-md-4">
+                <div class="">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/user/">Gebruiker</a></li>
+                        <li class="active">Chat</li>
+                    </ol>
+                </div>
                 <div class="userTab">
                     <img src="/images/profiel/<?php echo $_SESSION["user"]->profile_img; ?>" class="imgUser imageStatic" />
                     <div class="username"><b><?php echo $_SESSION["user"]->username; ?></b></div>
