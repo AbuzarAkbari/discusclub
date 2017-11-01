@@ -113,115 +113,119 @@ if (isset($_POST['post_add_topic'])) {
         </div>
     </div>
     <?php endif; ?>
-      <div class="col-md-8">
-        <div class="panel panel-primary ">
-          <div class="panel-heading border-colors">Nieuws</div>
-          <div class="panel-body padding-padding table-responsive">
-            <table>
-              <thead>
-                <tr>
-                  <th>Titel</th>
-                  <th>Reactie</th>
-                  <th>Catogorie</th>
-                  <th>Datum</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id");
-                $sth->execute();
-                $res = $sth->fetchAll(PDO::FETCH_OBJ);
-                foreach ($res as $key => $value) { ?>
-                <?php
-                $sth = $dbc->prepare("SELECT count(*) as amount FROM news_reply WHERE news_id = :id");
-                $sth->execute([":id" => $value->id]);
-                $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
-                ?>
-                <tr>
-                    <td><a href="/about/news/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
-                    <td><?php echo $amount; ?></td>
-                    <td><a href="categorie.php?id=<?php echo $value->cat_id; ?>"><?php echo $value->sub_name; ?></a></td>
-                    <td><?php echo $value->created_at; ?></td>
-                </tr>
-                <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 } ?>
-              </tbody>
-            </table>
+    <div class="col-md-8">
+        <div class="col-md-12">
+            <div class="panel panel-primary ">
+                <div class="panel-heading border-colors">Nieuws</div>
+                <div class="panel-body padding-padding table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Titel</th>
+                                <th>Reactie</th>
+                                <th>Catogorie</th>
+                                <th>Datum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id");
+                            $sth->execute();
+                            $res = $sth->fetchAll(PDO::FETCH_OBJ);
+                            foreach ($res as $key => $value) { ?>
+                                <?php
+                                $sth = $dbc->prepare("SELECT count(*) as amount FROM news_reply WHERE news_id = :id");
+                                $sth->execute([":id" => $value->id]);
+                                $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
+                                ?>
+                                <tr>
+                                    <td><a href="/about/news/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
+                                    <td><?php echo $amount; ?></td>
+                                    <td><a href="categorie.php?id=<?php echo $value->cat_id; ?>"><?php echo $value->sub_name; ?></a></td>
+                                    <td><?php echo $value->created_at; ?></td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading border-colors">Laatste reacties op albums</div>
+            <div class="panel-body">
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading border-colors">Laatste reacties op topics</div>
+            <div class="panel-body">
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+               <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
+                <div class="panel-body">
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                    <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading border-colors">Advertentie</div>
+                <div class="panel-body">
+                    <div class="col-md-12 col-sm-12 ruimte"><img src="http://via.placeholder.com/320x320"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
+                <div class="panel-body">
+                    <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
+                    <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
+                    <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
+                    <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
+                    <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
+                    <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      <div class="col-md-4">
-        <div class="panel panel-primary">
-          <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
-          <div class="panel-body">
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-          <div class="panel panel-primary">
-              <div class="panel-heading border-colors">Advertentie</div>
-              <div class="panel-body">
-                  <div class="col-md-12 col-sm-12 ruimte"><img src="http://via.placeholder.com/320x320"> </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-4">
-          <div class="panel panel-primary">
-              <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
-              <div class="panel-body">
-                  <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
-                  <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
-                  <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
-                  <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
-                  <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
-                  <div class="col-md-4 col-sm-4 ruimte"><img src="http://via.placeholder.com/350x150"> </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-4">
-        <div class="panel panel-primary">
-          <div class="panel-heading border-colors">Laatste reacties op albums</div>
-          <div class="panel-body">
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt"><span href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></span></a>Lorem IPsum<br>12-09 23:32</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="panel panel-primary">
-          <div class="panel-heading border-colors">Laatste reacties op topics</div>
-          <div class="panel-body">
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-             <div class="col-md-12 col-sm-12 laastenieuws"><a class="blauwtxt">Lorem ipsum</a><br>12-09 23:32</div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
     <footer>

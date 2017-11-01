@@ -72,21 +72,21 @@
                                 <div class="panel-heading border-color-black">Nieuws reacties</div>
                                 <div class="panel-body">
                                     <?php
-                                        $sth = $dbc->prepare("SELECT *, news_reply.content, news_reply.id FROM news_reply JOIN news ON news.id = news_reply.news_id ORDER BY news_reply.created_at DESC LIMIT 5");
+                                        $sth = $dbc->prepare("SELECT *, news_reply.content, news_reply.id, news.id as news_id FROM news_reply JOIN news ON news.id = news_reply.news_id ORDER BY news_reply.created_at DESC LIMIT 5");
                                         $sth->execute();
                                         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                                         foreach($res as $key => $value) : ?>
                                         <div class="box">
                                             <div class="col-md-12">
-                                                <a href="/about/news/<?php echo $value['id']; ?>">
+                                                <a href="/about/news/<?php echo $value['news_id']; ?>">
                                                     <div class="col-md-3"><img src="<?php  ?>"></div>
                                                     <div class="col-md-9">
                                                         <p class="title-box-color">
                                                             <b><?php echo $value["title"]; ?></b>
                                                         </p>
                                                         <p>
-                                                        <?php echo $value["content"]; ?>
+                                                        <?php echo strlen($value["content"]) > 45 ? substr($value["content"], 0, 45) . "..." : $value["content"]; ?>
                                                         <p>
                                                         <?php
                                                             if(sizeof($res)-1 != $key) {
@@ -115,7 +115,8 @@
                                             foreach($res as $key => $value) : ?>
                                             <div class=" col-md-12 verticalLine">
                                                 <p><b><?php echo  $value['title']; ?></b></p>
-                                                <?php echo $value['content']; ?>
+                                                <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : $value["content"]; 
+                                                 ?>
                                                 <br><br>
                                                 <a href="/about/news/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
                                                 <br><br>
