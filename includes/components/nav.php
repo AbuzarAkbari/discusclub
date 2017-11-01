@@ -73,7 +73,7 @@
                         </ul>
                     </li>
                     <li class='dropdown'>
-                        <a href='/album/' class='dropdown-toggle'>Album</a>
+                        <a href='/album/' class='dropdown-toggle'>Albums</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
                                 <li><a href='/album/upload'>Upload</a></li>

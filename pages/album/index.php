@@ -39,7 +39,7 @@
                 <div class="">
                     <ol class="breadcrumb">
                         <li><a href="/">Home</a></li>
-                        <li class="active">Album</li>
+                        <li class="active">Albums</li>
                     </ol>
                 </div>
                 <div class="panel panel-primary">
