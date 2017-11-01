@@ -100,7 +100,7 @@ require_once("../../includes/components/nav.php");
                                     <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
                                 </div>
                                 <?php
-                                $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ?";
+                                $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ? AND deleted_at IS NULL";
                                 $replyResult = $dbc->prepare($replySql);
                                 $replyResult->bindParam(1, $_SESSION['user']->id);
                                 $replyResult->execute();
@@ -127,7 +127,7 @@ require_once("../../includes/components/nav.php");
                     <div class="panel-footer">
 
                         <?php
-                        $userSql = "SELECT * FROM user WHERE id = ?";
+                        $userSql = "SELECT * FROM user WHERE id = ? AND user.deleted_at IS NULL";
                         $userResult = $dbc->prepare($userSql);
                         $userResult->bindParam(1, $row['user_id']);
                         $userResult->execute();
@@ -152,7 +152,7 @@ require_once("../../includes/components/nav.php");
 
         <?php
         $a = $page * $perPage - $perPage;
-        $sql2 = "SELECT * FROM reply WHERE topic_id = ? LIMIT {$perPage} OFFSET {$a}";
+        $sql2 = "SELECT * FROM reply WHERE topic_id = ? AND reply.deleted_at IS NULL LIMIT {$perPage} OFFSET {$a}";
         $result2 = $dbc->prepare($sql2);
         $result2->bindParam(1, $_GET['id']);
         $result2->execute();
@@ -170,7 +170,7 @@ require_once("../../includes/components/nav.php");
                 preg_match_all('/\[quote\s(\d+)\]/', $row2['content'], $matches);
 
                 foreach ($matches[1] as $match) {
-                    $sql = "SELECT * FROM reply WHERE id = :id";
+                    $sql = "SELECT * FROM reply WHERE id = :id AND reply.deleted_at IS NULL";
                     $query = $dbc->prepare($sql);
                     $query->execute([
                         ':id' => $match
@@ -183,7 +183,7 @@ require_once("../../includes/components/nav.php");
                     //                        print_r($rows[0]['user_id']);
                     //                        exit;
 
-                    $userIdSql = "SELECT * FROM user WHERE id = ?";
+                    $userIdSql = "SELECT * FROM user WHERE id = ? AND user.deleted_at IS NULL";
                     $userIdResult = $dbc->prepare($userIdSql);
                     $userIdResult->bindParam(1, $id);
                     $userIdResult->execute();
@@ -209,6 +209,9 @@ require_once("../../includes/components/nav.php");
                                             style="color: #fff; text-decoration: underline"
                                             href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></a></b>
                         </h3>
+                        <?php if (in_array($current_level, $admin_levels)) : ?>
+                            <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/admin/tools/del.php?id=<?php echo $_GET['id']; ?>" type="button" class="btn" name="button" style="color: #fff;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
+                        <?php endif; ?>
                     </div>
                     <div class="panel-body padding-padding ">
                         <div class="wrapper-box col-xs-12">
@@ -224,7 +227,7 @@ require_once("../../includes/components/nav.php");
                     </div>
                     <div class="panel-footer">
                         <?php
-                        $userSql = "SELECT * FROM user WHERE id = ?";
+                        $userSql = "SELECT * FROM user WHERE id = ? AND user.deleted_at IS NULL";
                         $userResult = $dbc->prepare($userSql);
                         $userResult->bindParam(1, $row2['user_id']);
                         $userResult->execute();
@@ -253,7 +256,7 @@ require_once("../../includes/components/nav.php");
 
             <?php
 
-            $query = $dbc->prepare('SELECT COUNT(*) AS x FROM reply WHERE topic_id = :id');
+            $query = $dbc->prepare('SELECT COUNT(*) AS x FROM reply WHERE topic_id = :id AND reply.deleted_at IS NULL');
             $query->execute([
                 ':id' => $_GET['id']
             ]);

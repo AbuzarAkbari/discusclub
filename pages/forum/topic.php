@@ -57,7 +57,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
                         if($results2){
-                            $sql = "SELECT * FROM topic WHERE sub_category_id = ?";
+                            $sql = "SELECT * FROM topic WHERE sub_category_id = ? AND topic.deleted_at IS NULL";
                             $result = $dbc->prepare($sql);
                             $result->bindParam(1, $_GET['id']);
                             $result->execute();
@@ -96,7 +96,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         </tr>
                         <?php foreach ($results3 as $topic) : ?>
                             <?php
-                                $sql3 = "SELECT COUNT(id) AS i FROM reply WHERE topic_id = ?";
+                                $sql3 = "SELECT COUNT(id) AS i FROM reply WHERE topic_id = ? AND reply.deleted_at IS NULL";
                                 $result3 = $dbc->prepare($sql3);
                                 $result3->bindParam(1, $topic['id']);
                                 $result3->execute();
@@ -115,7 +115,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
                                 <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <?php
-                                    $userSql = "SELECT * FROM user WHERE id = ?";
+                                    $userSql = "SELECT * FROM user WHERE id = ? AND user.deleted_at IS NULL";
                                     $userResult = $dbc->prepare($userSql);
                                     $userResult->bindParam(1, $topic['user_id']);
                                     $userResult->execute();
