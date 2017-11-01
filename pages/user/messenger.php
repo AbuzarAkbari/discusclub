@@ -163,11 +163,12 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                       <!-- <button class="btn btn-secondary buttonHeight" type="button" type="file"><i class="glyphicon glyphicon-plus icon " ></i></button> -->
 
                       <div class="input-group inputWidth">
-                        <input type="text" class="form-control inputWidth" placeholder="&#x2B;" aria-label="Search for...">
+                        <input type="text" class="form-control inputWidth" placeholder="" aria-label="Search for...">
                         <span class="input-group-btn">
 
                             <div class="upload">
-                                <input type="file" name="upload" />
+                                <label for="file"></label>
+                                <input id="file" type="file" name="upload" />
                             </div>
                         </span>
 <!--

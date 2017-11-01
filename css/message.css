@@ -173,12 +173,27 @@
 .inputWidth {
     width: 100%;
 }
-input[type='file'] {
-    display: none;
+
+div.upload label {
+    height: 0;
+    width: 0;
+}
+
+div.upload label::before {
+    display: block;
+    content: '\002b';
+    height: 32px;
+    width: 32px;
+    font-size: 2.3rem;
+    text-align: center;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 200;
+    -webkit-font-smoothing: antialiased;
 }
 
 div.upload input {
-    display: block !important;
+    display: none !important;
     width: 34px !important;
     height: 34px !important;
     opacity: 0 !important;
@@ -190,6 +205,4 @@ div.upload {
     height: 34px;
     overflow: hidden;
     background: #e8e8e8;
-    content: ' \2191';
-    color: blue !important;
 }
