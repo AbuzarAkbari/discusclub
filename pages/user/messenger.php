@@ -164,7 +164,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                       <div class="input-group inputWidth">
                         <input type="text" class="form-control inputWidth" placeholder="Search for..." aria-label="Search for...">
                         <span class="input-group-btn">
-                            <button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button>
+                            <button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon " type="file"></i></button>
                         </span>
                       </div>
 
