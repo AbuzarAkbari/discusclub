@@ -5,14 +5,6 @@ require_once("../../includes/tools/security.php");
 
 <?php
 
-if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    $ip = $_SERVER['HTTP_CLIENT_IP'];
-} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-} else {
-    $ip = $_SERVER['REMOTE_ADDR'];
-}
-
 $sql = "INSERT INTO view (topic_id, ip_id) VALUES (:id, :ip_id)";
 $result = $dbc->prepare($sql);
 $result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
@@ -22,7 +14,9 @@ $perPage = 10;
 
 //echo '<pre>';
 //print_r($_SERVER);
-//exit;
+//exit;w
+
+require_once("../../includes/tools/berichtParse.php");
 ?>
 
 <!DOCTYPE html>
@@ -294,7 +288,7 @@ require_once("../../includes/components/nav.php");
                     <h3 class="panel-title">Antwoord toevoegen</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" action="/includes/tools/berichtParse" method="post">
+                    <form class="form-horizontal" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
                                 <textarea required class="form-control editor" col="8" rows="8" name="reply_content"

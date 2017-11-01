@@ -55,7 +55,7 @@
 
                     <?php
                     if (isset($_POST["send"])) {
-                        $sth = $dbc->prepare("SELECT id FROM user WHERE email = :email");
+                        $sth = $dbc->prepare("SELECT id, email FROM user WHERE email = :email");
                         $sth->execute([":email" => $_POST["email"]]);
                         $res = $sth->fetch(PDO::FETCH_OBJ);
 
@@ -65,14 +65,17 @@
                             echo "bla";
                             $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
 
-                            // TODO:: add mailing thingy, add this link
+                            // TODO:: add mailing thingy, add this link and username
                             $message =  "/user/password/change?token=$token&id=".$dbc->lastInsertId();
                             echo $message;
 
-                        } else {
-                            ?>
-                            <div class="message warning">Email niet gevonden, <a href="/user/register">maak een account aan.</a></div>
-                            <?php
+                            $message = "";
+
+                            $headers =  'From: webmaster@example.com' . "\r\n" .
+                                        'X-Mailer: PHP/' . phpversion();
+
+                            mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
+
                         }
                     }
 
