@@ -173,7 +173,7 @@ if (isset($_GET["id"])) {
                     $albumResult->execute();
                     $album = $albumResult->fetch(PDO::FETCH_OBJ);
                     ?>
-                                <img src="/images/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150">
+                                <img src="/images/album/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150">
                         </div>
                     </div>
                 </div>
