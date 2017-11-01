@@ -72,6 +72,7 @@
         </div>
       </div>
       </div>
+
       <div class="col-md-4">
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Advertentie</div>

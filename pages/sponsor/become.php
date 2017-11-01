@@ -176,6 +176,28 @@
 
       </div>
     </div>
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Schijf je in als sponsor!</h3>
+            </div>
+                <div class="panel-body">
+                    <form class="" action="#" method="post">
+                        <input required class="form-control" type="text" name="naam" placeholder="Naam van uw bedrijf"><br>
+                        <input required class="form-control" type="file" accept="" name="afbeelding" placeholder="Afbeelding toevoegen"><br>
+                        <input required class="form-control" type="text" name="url" placeholder="Url"><br>
+                        <select required class="form-control" name="optie">
+                            <option value="optie1">Optie 1</option>
+                            <option value="optie2">Optie 2</option>
+                            <option value="optie3">Optie 3</option>
+                            <option value="optie4">Optie 4</option>
+                        </select><br>
+                        <input class="btn btn-primary" type="submit" name="" value="Meld je aan!"><br>
+
+                </form>
+            </div>
+        </div>
+    </div>
   </div>
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>
