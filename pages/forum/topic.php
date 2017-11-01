@@ -50,28 +50,34 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
         <div class="col-md-12">
                 <div class="">
                     <?php
-                    $sub_categorieen = "SELECT * FROM sub_category WHERE id = ?";
-                    $subResult = $dbc->prepare($sub_categorieen);
-                    $subResult->bindParam(1, $_GET['id']);
-                    $subResult->execute();
-                    $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
+                        $sub_categorieen = "SELECT * FROM sub_category WHERE id = ?";
+                        $subResult = $dbc->prepare($sub_categorieen);
+                        $subResult->bindParam(1, $_GET['id']);
+                        $subResult->execute();
+                        $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
-
-                    $sql = "SELECT * FROM topic WHERE sub_category_id = ?";
-                    $result = $dbc->prepare($sql);
-                    $result->bindParam(1, $_GET['id']);
-                    $result->execute();
-                    $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
-        ?>
+                        if($results2){
+                            $sql = "SELECT * FROM topic WHERE sub_category_id = ?";
+                            $result = $dbc->prepare($sql);
+                            $result->bindParam(1, $_GET['id']);
+                            $result->execute();
+                            $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
+                        }
+                    ?>
                     <br><br>
                     <ol class="breadcrumb">
                         <li><a href="/">Home</a></li>
                         <li><a href="/forum/">Forum</a></li>
+                        <?php if ($results2): ?>
                         <li class="active"><?php echo $results2[0]['name']; ?></li>
+                        <?php endif; ?>
                     </ol>
                 </div>
         <br>
             <div class="panel panel-primary ">
+                <?php if(!$results2) :?>
+                    <div class="message error">Deze pagina bestaat niet, <a href="/forum/"> ga terug</a></div>
+                <?php else : ?>
                 <?php foreach ($results2 as $subRow) : ?>
                 <div class="panel-heading border-colors"><?php echo $subRow['name']; ?></div>
             <?php endforeach; ?>
@@ -131,12 +137,13 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 <?php endif; ?>
                             </tr>
                         <?php endforeach; ?>
+                    <?php endif; ?>
                     </div>
                 </table>
             </div>
         </div>
     </div>
-    <?php if ($logged_in) : ?>
+    <?php if ($logged_in && $results2) : ?>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary">

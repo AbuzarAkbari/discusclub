@@ -48,7 +48,11 @@ require_once("../../includes/tools/security.php"); ?>
       $albumResult->execute();
       $album = $albumResult->fetchAll(PDO::FETCH_ASSOC);
       $user_id = $_SESSION['user']->id;
-    ?>
+
+
+      if(!$album) : ?>
+        <div class="message error">Deze pagina bestaat niet, <a href="/album/"> ga terug</a></div>
+        <?php else : ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -104,7 +108,7 @@ require_once("../../includes/tools/security.php"); ?>
                     </div>
                 </div>
             </div>
-
+            <?php endif; ?>
         <?php
             $sql2 = "SELECT *, album_reply.created_at AS reply_created_at FROM album_reply JOIN user ON album_reply.user_id = user.id WHERE album_id = ?";
             $result2 = $dbc->prepare($sql2);
@@ -159,7 +163,7 @@ require_once("../../includes/tools/security.php"); ?>
 
 
 
-                <?php if ($logged_in) : ?>
+                <?php if ($logged_in && $album) : ?>
                     <div class="col-xs-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
