@@ -208,7 +208,7 @@ require_once("../../includes/components/nav.php");
                             </div>
 
                             <div class="col-md-10">
-                                <p><?php echo $row2['content']; ?></p>
+                                 <p><?php echo wordwrap($row2['content'], 70, "<br>", true); ?></p>
                             </div>
 
                 </div>
