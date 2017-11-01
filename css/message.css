@@ -176,3 +176,18 @@
 input[type='file'] {
     display: none;
 }
+
+div.upload input {
+    display: block !important;
+    width: 34px !important;
+    height: 34px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+}
+
+div.upload {
+    width: 34px;
+    height: 34px;
+    overflow: hidden;
+    background: #e8e8e8;
+}

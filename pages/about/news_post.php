@@ -68,43 +68,7 @@ $perPage = 10;
 <?php
 require_once("../../includes/components/nav.php");
 ?>
-<div class="container-fluid">
-    <div class="row sliderbox">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="/images/vissen1.jpg" alt="fishing">
-                </div>
-
-                <div class="item">
-                    <img src="/images/vissen2.jpg" alt="fishing">
-                </div>
-
-                <div class="item">
-                    <img src="/images/vissen3.jpg" alt="vissen">
-                </div>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-</div>
 
 <div class="container main" style="margin-top:25px;">
 
@@ -135,7 +99,7 @@ require_once("../../includes/components/nav.php");
                 </ol>
             <?php endif; ?>
             <?php if(!$rows) : ?>
-                <div class="message error">Deze pagina bestaat niet, <a href="/news/"> ga terug</a></div></div>
+                <div class="message error">Deze pagina bestaat niet, <a href="/about/news"> ga terug</a></div></div>
             <?php else : ?>
             <?php foreach ($rows as $row) : ?>
             <div class="panel panel-primary">
@@ -181,7 +145,7 @@ require_once("../../includes/components/nav.php");
 
 
             </div>
-            
+
             <?php
             $a = $page * $perPage - $perPage;
             $sql2 = "SELECT * FROM news_reply WHERE news_id = ? LIMIT {$perPage} OFFSET {$a}";
@@ -235,7 +199,7 @@ require_once("../../includes/components/nav.php");
 
 
                 ?>
-                
+
                 <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
                     <div class="panel-body">
                         <div class="wrapper-box col-md-12">
@@ -274,12 +238,6 @@ require_once("../../includes/components/nav.php");
 
      </div>
             <?php endforeach; ?>
-    </div>
-
-</div>
-
-<div class="container main">
-    <div class="row">
         <div class="col-md-12">
 
             <?php
@@ -311,9 +269,9 @@ require_once("../../includes/components/nav.php");
             </nav>
         <?php endif; ?>
         </div>
-    </div>
+        </div>
     <?php if ($logged_in && $rows) : ?>
-    <div class="row">
+    <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Antwoord toevoegen</h3>
@@ -342,6 +300,7 @@ require_once("../../includes/components/nav.php");
             </div>
         </div>
         <?php endif; ?>
+    </div>
     </div>
 </div>
 

@@ -36,13 +36,14 @@
     <br><br>
     <div class="container main">
       <div class="row columns">
-      <div class="col-md-8">
-          <div class="">
+          <div class="col-md-12">
               <ol class="breadcrumb">
                   <li><a href="/">Home</a></li>
                   <li class="active">Sponsoren</li>
               </ol>
           </div>
+      <div class="col-md-8">
+
         <div class="panel panel-primary">
           <div class="panel-heading border-colors">Sponsoren</div>
           <div class="panel-body padding-padding">
@@ -77,7 +78,7 @@
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Advertentie</div>
               <div class="panel-body">
-                  <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"></a><img src="/images/ad/advertentie.jpg"> </div></a>
+                  <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img src="/images/ad/advertentie.jpg"></a> </div>
               </div>
           </div>
       </div>
