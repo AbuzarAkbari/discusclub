@@ -87,7 +87,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
 
                 <div class="searchUser">
-                    <div class="form-group">
+                    <div class="input-group inputWidth">
                       <input type="text" class="form-control" name="userSearch" placeholder="" aria-describedby="basic-addon1">
                       <!-- <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span> -->
                     </div>
@@ -153,18 +153,21 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div> -->
                 </div>
                 <div class="searchUser">
-                    <form id="search" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
-                      <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                    <form id="search" class="inputWidth" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
+                      <!-- <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
                       <span class="input-group-btn " id="basic-addon1">
                         <button class="btn btn-secondary buttonHeight" type="button">
                             <i class="glyphicon glyphicon-plus icon "></i>
                         </button>
-                      </span>
+                      </span> -->
 
-                      <!-- <div class="input-group">
-                        <input type="text" class="form-control" name="userSearch" placeholder="" aria-describedby="basic-addon1">
-                        <span class="input-group-btn  " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span>
-                      </div> -->
+                      <div class="input-group inputWidth">
+                        <input type="text" class="form-control inputWidth" placeholder="Search for..." aria-label="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button>
+                        </span>
+                      </div>
+
 
                       <input type="hidden" name="user_id_2" value="<?php echo $id; ?>" />
                     </form>
