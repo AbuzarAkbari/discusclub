@@ -68,43 +68,7 @@ $perPage = 10;
 <?php
 require_once("../../includes/components/nav.php");
 ?>
-<div class="container-fluid">
-    <div class="row sliderbox">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="/images/vissen1.jpg" alt="fishing">
-                </div>
-
-                <div class="item">
-                    <img src="/images/vissen2.jpg" alt="fishing">
-                </div>
-
-                <div class="item">
-                    <img src="/images/vissen3.jpg" alt="vissen">
-                </div>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-</div>
 
 <div class="container main" style="margin-top:25px;">
 
@@ -117,19 +81,26 @@ require_once("../../includes/components/nav.php");
             $result->execute();
             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
-            $subcat_id = $rows[0]['sub_category_id'];
-            $subSql = "SELECT * FROM sub_category WHERE id = ?";
-            $subResult = $dbc->prepare($subSql);
-            $subResult->bindParam(1, $subcat_id);
-            $subResult->execute();
-            $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
+            if($rows){
+                $subcat_id = $rows[0]['sub_category_id'];
+                $subSql = "SELECT * FROM sub_category WHERE id = ?";
+                $subResult = $dbc->prepare($subSql);
+                $subResult->bindParam(1, $subcat_id);
+                $subResult->execute();
+                $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
+            }
             ?>
-            <ol class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a href="/">Forum</a></li>
-                <li><a href="/"><?php echo $subId[0]['name']; ?></a></li>
-                <li class="active"><?php echo $rows[0]['title']; ?></li>
-            </ol>
+            <?php if($rows) : ?>
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">Over ons</a></li>
+                    <li><a href="/about/news">Nieuws</a></li>
+                    <li class="active"><?php echo $rows[0]['title']; ?></li>
+                </ol>
+            <?php endif; ?>
+            <?php if(!$rows) : ?>
+                <div class="message error">Deze pagina bestaat niet, <a href="/about/news"> ga terug</a></div></div>
+            <?php else : ?>
             <?php foreach ($rows as $row) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -170,7 +141,7 @@ require_once("../../includes/components/nav.php");
                 </div>
 
                 <?php endforeach; ?>
-
+                <?php endif; ?>
 
 
             </div>
@@ -267,12 +238,6 @@ require_once("../../includes/components/nav.php");
 
      </div>
             <?php endforeach; ?>
-    </div>
-
-</div>
-
-<div class="container main">
-    <div class="row">
         <div class="col-md-12">
 
             <?php
@@ -284,7 +249,7 @@ require_once("../../includes/components/nav.php");
                 $results = $query->fetchAll()[0];
                 $count = ceil($results['x'] / $perPage);
             ?>
-
+        <?php if($rows) : ?>
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
@@ -302,10 +267,11 @@ require_once("../../includes/components/nav.php");
                     </li>
                 </ul>
             </nav>
+        <?php endif; ?>
         </div>
-    </div>
-    <?php if ($logged_in) : ?>
-    <div class="row">
+        </div>
+    <?php if ($logged_in && $rows) : ?>
+    <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Antwoord toevoegen</h3>
@@ -334,6 +300,7 @@ require_once("../../includes/components/nav.php");
             </div>
         </div>
         <?php endif; ?>
+    </div>
     </div>
 </div>
 

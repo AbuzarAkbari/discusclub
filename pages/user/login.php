@@ -4,7 +4,8 @@ require("../../includes/tools/security.php"); ?>
 <?php
 $error = false;
 if (isset($_POST["send"])) {
-    $sth = $dbc->prepare("SELECT u.id, u.email, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img, u.profile_img as profile_img_id, news FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.username = :username");
+    require_once("../../includes/tools/const.php");
+    $sth = $dbc->prepare($USER_SELECT . " WHERE u.username = :username");
     $sth->execute([":username" => $_POST["username"]]);
     $res = $sth->fetch(PDO::FETCH_OBJ);
 
