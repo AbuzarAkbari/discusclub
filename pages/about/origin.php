@@ -72,14 +72,14 @@
     <br><br>
     <div class="container main">
       <div class="row columns">
-      <div class="col-md-8">
-          <div class="">
+          <div class="col-md-12">
               <ol class="breadcrumb">
                   <li><a href="/">Home</a></li>
                   <li><a href="/about/">Over ons</a></li>
                   <li class="active">Ontstaan</li>
               </ol>
           </div>
+      <div class="col-md-8">
         <div class="panel panel-primary ">
           <div class="panel-heading border-colors">Ontstaan Discus Club Holland</div>
           <div class="panel-body padding-padding space">
@@ -167,30 +167,24 @@
                 </div>
             </div>
         </div>
-      </div>
+        <div class="col-md-4">
+          <div class="panel panel-primary">
+              <div class="panel-heading border-colors">Laatste reacties op topics</div>
+              <div class="panel-body">
+                  <?php
+                      $sth = $dbc->prepare("SELECT * FROM topic ORDER BY created_at LIMIT 5");
+                      $sth->execute();
+                      $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-<div class="col-md-8">
-
-</div>
-
-      <div class="col-md-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading border-colors">Laatste reacties op topics</div>
-            <div class="panel-body">
-                <?php
-                    $sth = $dbc->prepare("SELECT * FROM topic ORDER BY created_at LIMIT 5");
-                    $sth->execute();
-                    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-                    foreach($res as $key => $value) : ?>
-                        <a href="/forum/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['created_at'] ?></div>
-                <?php endforeach; ?>
-            </div>
+                      foreach($res as $key => $value) : ?>
+                          <a href="/forum/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['created_at'] ?></div>
+                  <?php endforeach; ?>
+              </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-8">
-
-      </div>
+      <div class="col-md-8"></div>
+      <div class="col-md-8"></div>
     </div>
   </div>
     <footer>

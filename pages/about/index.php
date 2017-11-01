@@ -67,9 +67,9 @@
                       $sth->execute();
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-                  foreach($res as $key => $value) : ?>
-                  <div class="col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"></a><img src="<?php echo $value['path']; ?>"></div>
-              <?php endforeach; ?>
+                      foreach($res as $key => $value) : ?>
+                      <div class="col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img src="/images/album/<?php echo $value['path']; ?>"></div></a>
+                      <?php endforeach; ?>
           </div>
       </div>
           <div class="panel panel-primary">
@@ -81,9 +81,12 @@
                   $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                   foreach($res as $key => $value) : ?>
-                  <div class="col-md-4 col-sm-4 laastenieuws"><span class="blauwtxt"><a href="/album/<?php echo $value["album_id"]; ?>"><img src="<?php echo $value['path']; ?>">
-                  </span></a><b><?php echo $value['title'];?></b><br><?php echo $value['created_at']; ?></div>
-              <?php endforeach; ?>
+                  <a href="/album/<?php echo $value["album_id"]; ?>"><div class="col-md-4 col-sm-4 laastenieuws"><span class="blauwtxt"><img src="/images/album/<?php echo $value['path']; ?>">
+                  </span><b><?php echo $value['title'];?></b><br>
+                      <?php echo $value['created_at']; ?>
+                  </div>
+                  </a>
+                  <?php endforeach; ?>
           </div>
       </div>
       </div>

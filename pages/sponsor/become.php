@@ -116,7 +116,7 @@
                                         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                                         foreach($res as $key => $value) : ?>
-                                        <div class="col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value[" album_id "]; ?>"><img src="<?php echo $value['path']; ?>"></div></a>
+                                        <div class="col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img src="/images/album/<?php echo $value['path']; ?>"></div></a>
                                         <?php endforeach; ?>
                                 </div>
                             </div>
@@ -126,12 +126,12 @@
                                 <div class="panel-heading border-colors">Laatste reacties op albums</div>
                                 <div class="panel-body">
                                     <?php
-                    $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id GROUP BY album.id LIMIT 5");
-                    $sth->execute();
-                    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+                                        $sth = $dbc->prepare("SELECT * FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id GROUP BY album.id LIMIT 5");
+                                        $sth->execute();
+                                        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-                    foreach($res as $key => $value) : ?>
-                                        <a href="/album/<?php echo $value["album_id"]; ?>"><div class="col-md-4 col-sm-4 laastenieuws"><span class="blauwtxt"><img src="<?php echo $value['path']; ?>">
+                                        foreach($res as $key => $value) : ?>
+                                        <a href="/album/<?php echo $value["album_id"]; ?>"><div class="col-md-4 col-sm-4 laastenieuws"><span class="blauwtxt"><img src="/images/album/<?php echo $value['path']; ?>">
                                         </span><b><?php echo $value['title'];?></b><br>
                                             <?php echo $value['created_at']; ?>
                                         </div>
