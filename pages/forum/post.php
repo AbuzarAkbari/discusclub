@@ -62,7 +62,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <?php
-                $sql = "SELECT * FROM topic JOIN user ON topic.user_id = user.id JOIN image ON user.profile_img = image.id WHERE topic.id = ?";
+                $sql = "SELECT *, user.created_at AS user_created_at FROM topic JOIN user ON topic.user_id = user.id JOIN image ON user.profile_img = image.id JOIN role ON user.role_id = role.id WHERE topic.id = ?";
                 $result = $dbc->prepare($sql);
                 $result->bindParam(1, $_GET['id']);
                 $result->execute();
@@ -94,10 +94,17 @@
                             <div class="col-md-12">
                                 <img class="img" src="/images/profiel/<?php echo $row['path'];?>">
                             </div>
+                                <?php
+                                    $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ?";
+                                    $replyResult = $dbc->prepare($replySql);
+                                    $replyResult->bindParam(1, $_SESSION['user']->id);
+                                    $replyResult->execute();
+                                    $x = $replyResult->fetch(PDO::FETCH_OBJ);
+                                ?>
                             <div class="col-md-12">
-                            <br>Rol: Admin
-                            <br>Aantal berichten: 10
-                            <br>Lid sinds: 31-10-2017<br><br>
+                            <br><b>Rol: </b><?php echo $row['name']; ?>
+                            <br><b>Aantal berichten: <?php echo $x->x_reply; ?></b>
+                            <br><b>Lid sinds: </b> <?php echo $row['user_created_at']; ?><br><br>
                             </div>
                         </div>
                             <div class="col-md-9">
