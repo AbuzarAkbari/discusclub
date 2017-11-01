@@ -135,7 +135,7 @@ require_once("../../includes/components/nav.php");
                 </ol>
             <?php endif; ?>
             <?php if(!$rows) : ?>
-                <div class="message error">Deze pagina bestaat niet, <a href="/news/"> ga terug</a></div></div>
+                <div class="message error">Deze pagina bestaat niet, <a href="/about/news"> ga terug</a></div></div>
             <?php else : ?>
             <?php foreach ($rows as $row) : ?>
             <div class="panel panel-primary">
