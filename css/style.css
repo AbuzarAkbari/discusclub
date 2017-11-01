@@ -506,3 +506,11 @@ li.dropdown:hover > .dropdown-menu {
     padding: 1em;
     min-height: 80px !important;
 }
+
+.glyphicon-remove:before {
+    line-height: 20px;
+}
+
+.glyphicon-ok:before {
+    line-height: 20px;
+}
