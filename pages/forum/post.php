@@ -77,13 +77,15 @@ require_once("../../includes/components/nav.php");
 
     <div class="row">
         <div class="col-xs-12">
-            <ol class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a href="/forum/">Forum</a></li>
-            </ol>
             <?php if(!$rows) : ?>
                 <div class="message error">Deze pagina bestaat niet, <a href="/forum/"> ga terug</a></div></div>
             <?php else : ?>
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/forum/">Forum</a></li>
+                    <li><a href="/forum/topic/<?php echo $subId[0]['id']; ?>"><?php echo $subId[0]['name']; ?></a></li>
+                    <li class="active"><?php echo $rows[0]['title']; ?></li>
+                </ol>
             <?php foreach ($rows as $row) : ?>
                 <div class="panel panel-primary">
                     <div class="panel-heading border-color-blue">
