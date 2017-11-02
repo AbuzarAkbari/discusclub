@@ -82,7 +82,7 @@
                     </li>
                     <li><a href='/contact'>Contact</a></li>
                     <li class='dropdown'>
-                        <a href='/admin/ip-list' class='dropdown-toggle'>Admin</a>
+                        <a href='#' class='dropdown-toggle'>Admin</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
                                 <li><a href='/admin/ip-list'>IP Lijst</a></li>
