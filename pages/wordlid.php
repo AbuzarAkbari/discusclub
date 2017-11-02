@@ -87,8 +87,10 @@
                         </div><br>
                         <label for="">Postcode *</label>
                         <input class="form-control" required type="text" name="" value="" placeholder="Postcode "><br>
-                        <label for="">Plaats *</label>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Plaats "><br>
+                        <label for="">Stad *</label>
+                        <input class="form-control" required type="text" name="" value="" placeholder="Stad "><br>
+                        <label for="">Geboortedatum *</label>
+                        <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" value="" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>
                         <label for="">Telefoonnummer *</label>
                         <input class="form-control" required type="tel" name="" value="" placeholder="Telefoonnummer "><br>
                         <label for="">Rekeningnummer *</label>
