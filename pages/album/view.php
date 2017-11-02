@@ -55,7 +55,7 @@ require_once("../../includes/tools/security.php"); ?>
       if(!$album) : ?>
         <div class="message error">Deze pagina bestaat niet, <a href="/album/"> ga terug</a></div>
         <?php else : ?>
-    <div class="container">
+    <div class="container main">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="">
