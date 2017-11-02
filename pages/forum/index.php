@@ -104,8 +104,8 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
                                     $laatsteBericht = $laasteberichtResult->fetchAll(PDO::FETCH_ASSOC);
 
-                                   echo '<pre>';
-                                   print_r($laatsteBericht);
+                                   // echo '<pre>';
+                                   // print_r($laatsteBericht);
 
                                 if (isset($laatsteBericht[0]['reply_id'])) : ?>
                                         <td>reply gevonden</td>
