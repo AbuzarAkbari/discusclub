@@ -42,10 +42,10 @@ if ($logged_in) {
         }
 
         //Locatie
-        if (isset($_POST['location'])) {
-            $location = $_POST['location'];
-            $query .= ", location = :location";
-            $bindings[":location"] = $location;
+        if (isset($_POST['city'])) {
+            $city = $_POST['city'];
+            $query .= ", city = :city";
+            $bindings[":city"] = $city;
         }
 
         //Handtekening
