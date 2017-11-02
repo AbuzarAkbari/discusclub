@@ -93,8 +93,11 @@
                                      echo $ip['city'];
                                     ?></td>
                                     <td>
-                                     <a title="Blokeer" href="" type="button" class="btn btn-danger" name="button"><i class="glyphicon glyphicon-remove"></i></a>
-                                     <a title="Deblokeer" href="" type="button" class="btn btn-success" name="button"><i class="glyphicon glyphicon-ok"></i></a></td>
+                                        <a title="Blokeer" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=1" class="btn btn-danger" name="button">
+                                             <i class="glyphicon glyphicon-remove"></i></a>
+                                        <a title="Deblokeer" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=2" class="btn btn-success" name="button">
+                                         <i class="glyphicon glyphicon-ok"></i></a>
+                                    </td>
                                 </tr>
                             <?php
                             endforeach;
