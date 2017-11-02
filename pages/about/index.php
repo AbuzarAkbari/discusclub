@@ -63,12 +63,12 @@
               <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
               <div class="panel-body">
                   <?php
-                      $sth = $dbc->prepare("SELECT *, album.created_at AS album_created_at FROM album_reply JOIN image ON image.album_id = album_reply.album_id JOIN album ON album_reply.album_id = album.id ORDER BY album_created_at DESC LIMIT 5");
+                      $sth = $dbc->prepare("SELECT * FROM album JOIN image ON image.album_id = album.id ORDER BY created_at DESC LIMIT 6");
                       $sth->execute();
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                       foreach($res as $key => $value) : ?>
-                      <div class="col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['album_created_at'] ?></div>
+                      <div class="col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["id"]; ?>"><img src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
                       <?php endforeach; ?>
           </div>
       </div>
