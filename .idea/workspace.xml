@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/active-topics.php" afterPath="$PROJECT_DIR$/pages/forum/active-topics.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/fav-topics.php" afterPath="$PROJECT_DIR$/pages/forum/fav-topics.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/new-topics.php" afterPath="$PROJECT_DIR$/pages/forum/new-topics.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/post.php" afterPath="$PROJECT_DIR$/pages/forum/post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/topic.php" afterPath="$PROJECT_DIR$/pages/forum/topic.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/pages/forum/post.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
-              <caret line="150" column="127" lean-forward="true" selection-start-line="150" selection-start-column="127" selection-end-line="150" selection-end-column="127" />
+              <caret line="150" column="127" lean-forward="false" selection-start-line="150" selection-start-column="127" selection-end-line="150" selection-end-column="127" />
               <folding>
                 <marker date="1509633159553" expanded="true" signature="95:306" ph="SELECT *, us... topic" />
                 <marker date="1509633159553" expanded="true" signature="516:555" ph="SELECT * FRO... sub_category" />
@@ -75,6 +70,22 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="fav-topics.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/forum/fav-topics.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="40" column="60" lean-forward="true" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
+              <folding>
+                <marker date="1509634806216" expanded="true" signature="1266:1280" ph="SELECT * FRO... topic" />
+                <marker date="1509634806216" expanded="true" signature="1266:1357" ph="SELECT * FRO... favorite" />
+                <marker date="1509634806216" expanded="true" signature="2833:2881" ph="SELECT * FRO... sub_category" />
+                <marker date="1509634806216" expanded="true" signature="3162:3213" ph="SELECT COUNT... reply" />
+                <marker date="1509634806216" expanded="true" signature="3509:3558" ph="SELECT COUNT... view" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="user-favorite.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/tools/user-favorite.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-un-favorite.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user-un-favorite.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/tools/user-un-favorite.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+              <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
               <folding>
                 <marker date="1509634121655" expanded="true" signature="155:200" ph="DELETE FROM " />
                 <marker date="1509634121655" expanded="true" signature="166:176" ph="INSERT INTO favorite... " />
@@ -182,11 +193,11 @@
         <option value="$PROJECT_DIR$/includes/tools/topic/unpin.php" />
         <option value="$PROJECT_DIR$/pages/forum/topic.php" />
         <option value="$PROJECT_DIR$/pages/forum/new-topics.php" />
-        <option value="$PROJECT_DIR$/pages/forum/fav-topics.php" />
         <option value="$PROJECT_DIR$/pages/forum/active-topics.php" />
         <option value="$PROJECT_DIR$/pages/forum/post.php" />
         <option value="$PROJECT_DIR$/includes/tools/user-favorite.php" />
         <option value="$PROJECT_DIR$/includes/tools/user-un-favorite.php" />
+        <option value="$PROJECT_DIR$/pages/forum/fav-topics.php" />
       </list>
     </option>
   </component>
@@ -319,12 +330,12 @@
       <workItem from="1509356493012" duration="18830000" />
       <workItem from="1509445994373" duration="12106000" />
       <workItem from="1509529415137" duration="15138000" />
-      <workItem from="1509615812489" duration="15389000" />
+      <workItem from="1509615812489" duration="16078000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165319000" />
+    <option name="totallyTimeSpent" value="166008000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -852,19 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/forum/fav-topics.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="72" column="36" lean-forward="true" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
-          <folding>
-            <marker date="1509632146943" expanded="true" signature="1266:1285" ph="SELECT * FRO... topic" />
-            <marker date="1509632146943" expanded="true" signature="2724:2772" ph="SELECT * FRO... sub_category" />
-            <marker date="1509632146943" expanded="true" signature="3053:3104" ph="SELECT COUNT... reply" />
-            <marker date="1509632146943" expanded="true" signature="3400:3449" ph="SELECT COUNT... view" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/tools/verwerk.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -900,10 +898,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/includes/tools/user-favorite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <marker date="1509634031489" expanded="true" signature="155:224" ph="INSERT INTO favorite... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/tools/user-un-favorite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+          <folding>
+            <marker date="1509634121655" expanded="true" signature="155:200" ph="DELETE FROM " />
+            <marker date="1509634121655" expanded="true" signature="166:176" ph="INSERT INTO favorite... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/forum/post.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="150" column="127" lean-forward="true" selection-start-line="150" selection-start-column="127" selection-end-line="150" selection-end-column="127" />
+          <caret line="150" column="127" lean-forward="false" selection-start-line="150" selection-start-column="127" selection-end-line="150" selection-end-column="127" />
           <folding>
             <marker date="1509633159553" expanded="true" signature="95:306" ph="SELECT *, us... topic" />
             <marker date="1509633159553" expanded="true" signature="516:555" ph="SELECT * FRO... sub_category" />
@@ -928,23 +947,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/tools/user-favorite.php">
+    <entry file="file://$PROJECT_DIR$/pages/forum/fav-topics.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="425">
+          <caret line="40" column="60" lean-forward="true" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
           <folding>
-            <marker date="1509634031489" expanded="true" signature="155:224" ph="INSERT INTO favorite... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/tools/user-un-favorite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding>
-            <marker date="1509634121655" expanded="true" signature="155:200" ph="DELETE FROM " />
-            <marker date="1509634121655" expanded="true" signature="166:176" ph="INSERT INTO favorite... " />
+            <marker date="1509634806216" expanded="true" signature="1266:1280" ph="SELECT * FRO... topic" />
+            <marker date="1509634806216" expanded="true" signature="1266:1357" ph="SELECT * FRO... favorite" />
+            <marker date="1509634806216" expanded="true" signature="2833:2881" ph="SELECT * FRO... sub_category" />
+            <marker date="1509634806216" expanded="true" signature="3162:3213" ph="SELECT COUNT... reply" />
+            <marker date="1509634806216" expanded="true" signature="3509:3558" ph="SELECT COUNT... view" />
           </folding>
         </state>
       </provider>

@@ -36,9 +36,9 @@
 
     <br><br>
     <?php
-    $sql = "SELECT * FROM topic";
+    $sql = "SELECT * FROM favorite as f JOIN topic as t ON f.topic_id = t.id WHERE f.user_id = :user_id";
     $result = $dbc->prepare($sql);
-    $result->execute();
+    $result->execute([":user_id" => $_SESSION["user"]->id]);
     $results = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <br><br>
