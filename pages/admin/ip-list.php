@@ -37,15 +37,21 @@
     <div class="container main">
         <div class="row columns">
             <div class="col-md-12">
+                <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">IP Lijst</li>
+                </ol>
+            </div>
                 <div class="panel panel-primary ">
-                    <div class="panel-heading border-colors">Ip lijst</div>
+                    <div class="panel-heading border-colors">IP Lijst</div>
                     <div class="panel-body padding-padding re">
                         <table>
                             <tr>
-                                <th>gebruiker</th>
-                                <th>Ip adres</th>
-                                <th>wanneer je account heb gemaakt</th>
-                                <th>Admin tools</th>
+                                <th>Gebruiker</th>
+                                <th>IP Adres</th>
+                                <th>Registratiedatum</th>
+                                <th>Tools</th>
                             </tr>
                             <?php
                                 $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM ip LEFT JOIN user ON ip.user_id = user.id";
