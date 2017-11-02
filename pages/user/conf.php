@@ -2,7 +2,7 @@
 require_once("../../includes/tools/security.php");
 
 if (isset($_GET["id"])) {
-    $sth = $dbc->prepare("SELECT u.id, u.email, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.location, i.path as profile_img, u.profile_img as profile_img_ida, news FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.id = :id");
+    $sth = $dbc->prepare("SELECT u.id, u.email, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.city, i.path as profile_img, u.profile_img as profile_img_ida, news FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.id = :id");
     $sth->execute([":id" => $_GET["id"]]);
 
     $user_data = $sth->fetch(PDO::FETCH_OBJ);
@@ -80,7 +80,7 @@ if (isset($_GET["id"])) {
                         <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Email"><br>
                         <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Herhaal e-mail"><br>
                         <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" value="<?php echo isset($user_data->birthdate) ? $user_data->birthdate : ''; ?>" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>
-                        <label for="location">Locatie</label><input id="location" class="form-control" type="text" name="location" value="<?php echo isset($user_data->location) ? $user_data->location : ''; ?>" placeholder="Locatie"><br>
+                        <label for="city">Locatie</label><input id="city" class="form-control" type="text" name="city" value="<?php echo isset($user_data->city) ? $user_data->city : ''; ?>" placeholder="Locatie"><br>
                         <label for="profiel">Selecteer een afbeelding</label><input id="file" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="profiel" placeholder="Selecteer bestand"><br>
                         <label for="signature">Handtekening</label><input id="signature" class="form-control" type="text" name="signature" value="<?php echo isset($user_data->signature) ? $user_data->signature : ''; ?>" placeholder="Handtekening"><br>
                         <label for="password">Wachtwoord</label><input required id="wachtwoord" class="form-control" type="password" name="wachtwoord" value="" placeholder="Wachtwoord ter bevestiging"><br>
