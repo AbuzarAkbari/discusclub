@@ -38,7 +38,7 @@ require_once("../../includes/tools/security.php");
 
     <br><br>
     <?php
-    $sql = "SELECT * FROM topic WHERE last_changed >= DATE(NOW()) - INTERVAL 7 DAY";
+    $sql = "SELECT * FROM topic WHERE last_changed >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at DESC";
     $result = $dbc->prepare($sql);
     $result->execute();
     $results = $result->fetchAll(PDO::FETCH_ASSOC);

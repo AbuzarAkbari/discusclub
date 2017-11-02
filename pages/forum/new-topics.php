@@ -37,7 +37,7 @@
 
     <br><br>
 <?php
-   $sql = "SELECT * FROM topic";
+   $sql = "SELECT * FROM topic WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at DESC";
    $result = $dbc->prepare($sql);
    $result->execute();
    $results = $result->fetchAll(PDO::FETCH_ASSOC);
