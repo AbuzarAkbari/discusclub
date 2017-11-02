@@ -14,7 +14,7 @@
                 $sth->execute([":id" => $_SESSION["user"]->id]);
                 echo $sth->fetch(PDO::FETCH_OBJ)->amount;
             ?>)</a>
-            <a href='/user/conf'>Profiel aanpasen</a>
+            <a href='/user/conf'>Profiel aanpassen</a>
           </div>
       </div>
         <a href="/?logout=true">Uitloggen</a>
