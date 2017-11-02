@@ -68,8 +68,8 @@
                                      echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
                                     ?></td>
                                     <td>
-                                     <a title="Blokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-ban-circle"></i></a>
-                                     <a title="Deblokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-ok-circle"></i></a></td>
+                                    <a title="Blokeer" href="" type="button" class="btn btn-danger" name="button"><i class="glyphicon glyphicon-remove"></i></a>
+                                    <a title="Deblokeer" href="" type="button" class="btn btn-success" name="button"><i class="glyphicon glyphicon-ok"></i></a></td>
                                 </tr>
                             <?php
                             endforeach;
