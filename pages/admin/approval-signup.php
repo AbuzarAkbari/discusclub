@@ -41,7 +41,7 @@
                     <div class="panel-body padding-padding table-responsive">
                         <table>
                             <tr>
-                                <th>gebruikersnaam</th>
+                                <th>Naam</th>
                                 <th>Ip adres</th>
                                 <th>Iban</th>
                                 <th>Telefoonnummer</th>
