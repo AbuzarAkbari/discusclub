@@ -16,6 +16,8 @@ if($user_data == false){
         header('Location: /user/');
       }
 
+//      die($user_data->id);
+
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -171,8 +173,7 @@ if($user_data == false){
                                                 <?php echo isset($info->reply_created_at) ? $info->reply_created_at : $info->topic_created_at; ?>
                                             </td>
                                         </tr>
-                                        <?php endforeach; ?>
-
+                                <?php endforeach; ?>
                             </table>
                         </div>
                     </div>
@@ -182,13 +183,15 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue">Albums</div>
                         <div class="panel-body text-left">
                             <?php
-                    $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE user_id = ?";
+                    $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at LIMIT 10";
                     $albumResult = $dbc->prepare($albumSql);
                     $albumResult->bindParam(1, $user_data->id);
                     $albumResult->execute();
-                    $album = $albumResult->fetch(PDO::FETCH_OBJ);
+                    $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
-                            <a href="/album/<?php echo $album->album_id; ?>"><img src="/images/album/<?php echo $album->path; ?>" alt="<?php echo $album->title; ?>" height="150" width="150"></a>
+                            <?php foreach($albums as $album): ?>
+                                <a href="/album/<?php echo $album['album_id']; ?>"><img src="/images/album/<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" height="150" width="150"></a>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
