@@ -82,13 +82,13 @@
                     </li>
                     <li><a href='/contact'>Contact</a></li>
                     <li class='dropdown'>
-                        <a href='/admin/ip-list' class='dropdown-toggle'>admin</a>
+                        <a href='/admin/ip-list' class='dropdown-toggle'>Admin</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
-                                <li><a href='/admin/ip-list'>ip lijst</a></li>
-                                <li><a href='/admin/user-list'>ledenlijst</a></li>
-                                <li><a href='/admin/approval-signup'>word lid</a></li>
-                                <li><a href='/admin/approval-sponsor'>sponsor</a></li>
+                                <li><a href='/admin/ip-list'>IP Lijst</a></li>
+                                <li><a href='/admin/user-list'>Ledenlijst</a></li>
+                                <li><a href='/admin/approval-signup'>Inschrijvingen</a></li>
+                                <li><a href='/admin/approval-sponsor'>Sponsoren</a></li>
                             </ul>
                         <?php } ?>
                     </li>
