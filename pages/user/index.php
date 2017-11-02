@@ -183,7 +183,7 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue">Albums</div>
                         <div class="panel-body text-left">
                             <?php
-                    $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at LIMIT 10";
+                    $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at LIMIT 8";
                     $albumResult = $dbc->prepare($albumSql);
                     $albumResult->bindParam(1, $user_data->id);
                     $albumResult->execute();
