@@ -82,10 +82,10 @@
                                         <img class="sponsor_vak" src="<?php echo $sponsor['path'];?>" alt="">
                                     </td>
                                     <td>
-                                    <a title="Blokeer" href="/includes/tools/approval/update?id=<?php echo $sponsor["id"]; ?>&new=1" class="btn btn-danger" name="button">
+                                    <a title="Blokeer" href="/includes/tools/approval/update?id=<?php echo $sponsor["id"]; ?>&new=2" class="btn btn-danger" name="button">
                                          <i class="glyphicon glyphicon-remove"></i></a>
-                                    <a title="Deblokeer" href="/includes/tools/approval/update?id=<?php echo $sponsor["id"]; ?>&new=2" class="btn btn-danger" name="button">
-                                     <i class="glyphicon glyphicon-remove"></i></a>
+                                    <a title="Deblokeer" href="/includes/tools/approval/update?id=<?php echo $sponsor["id"]; ?>&new=1" class="btn btn-success" name="button">
+                                     <i class="glyphicon glyphicon-ok"></i></a>
                                  </td>
                                 </tr>
                             <?php
