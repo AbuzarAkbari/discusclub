@@ -131,8 +131,8 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 <td>
                                     <a  title="Pinnen" href="/admin/tools/pin.php" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
                                     <a  title="Locken" href="/admin/tools/lock.php" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
-                                    <a title="Bewerken" href="/admin/tools/edit.php" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
-                                    <a title="Verwijderen" href="/admin/tools/del.php?id=<?php echo $_GET['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
+                                    <a title="Bewerken" href="/includes/tools/topic/edit.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
+                                        <a title="Verwijderen" href="/includes/tools/topic/del.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
                                 </td>
                                 <?php endif; ?>
                             </tr>
