@@ -79,7 +79,7 @@
                   <li class="active">Ontstaan</li>
               </ol>
           </div>
-      <div class="col-md-8">
+      <div class="col-md-7">
         <div class="panel panel-primary ">
           <div class="panel-heading border-colors">Ontstaan Discus Club Holland</div>
           <div class="panel-body padding-padding space">
@@ -110,7 +110,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
           <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Advertentie</div>
                 <div class="panel-body">
@@ -118,7 +118,7 @@
                 </div>
           </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
               <div class="panel-body">
@@ -128,14 +128,12 @@
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                       foreach($res as $key => $value) : ?>
-                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img class="imgThumbnail" src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
+                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img class="imgThumbnail2" src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
                       <?php endforeach; ?>
               </div>
           </div>
       </div>
-
-
-            <div class="col-md-4">
+            <div class="col-md-5">
               <div class="panel panel-primary">
                   <div class="panel-heading border-colors">Laatste reacties op albums</div>
                   <div class="panel-body">
@@ -151,7 +149,7 @@
               </div>
             </div>
 
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="panel panel-primary">
             <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
             <div class="panel-body">
@@ -166,7 +164,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Laatste reacties op topics</div>
               <div class="panel-body">
