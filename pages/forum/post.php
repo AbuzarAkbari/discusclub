@@ -224,7 +224,10 @@ require_once("../../includes/components/nav.php");
                     <div class="panel-body padding-padding ">
                         <div class="wrapper-box col-xs-12">
                             <div class="col-md-2">
-                                <img src='http://via.placeholder.com/130x130' alt="x">
+                                <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
+                                    <br><b>Rol: </b><?php echo $row['name']; ?>
+                                    <br><b>Aantal berichten: <?php echo $x->x_reply; ?></b>
+                                    <br><b>Lid sinds: </b> <?php echo $row['user_created_at']; ?><br><br>
                             </div>
 
                             <div class="col-md-10">
