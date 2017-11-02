@@ -43,7 +43,12 @@
                             <tr>
                                 <th>gebruikersnaam</th>
                                 <th>Ip adres</th>
-                                <th>wanneer je account heb gemaakt</th>
+                                <th>Iban</th>
+                                <th>Telefoonnummer</th>
+                                <th>Postcode</th>
+                                <th>Adres</th>
+                                <th>Geboortedatum</th>
+                                <th>Stad</th>
                                 <th>Admin tools</th>
                             </tr>
                             <?php
@@ -51,7 +56,6 @@
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
-
                             ?>
                             <?php
                             foreach ($rows as $ip) :
@@ -65,6 +69,21 @@
                                     ?></td>
                                     <td><?php
                                      echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['phone'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['postal_code'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['address'],$ip['house_number'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['birthdate'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['city'];
                                     ?></td>
                                     <td>
                                      <a title="Blokeer" href="" type="button" class="btn btn-danger" name="button"><i class="glyphicon glyphicon-remove"></i></a>

@@ -84,8 +84,8 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                 <div class="panel-body padding-padding table-responsive">
                     <table>
                         <tr>
-                            <th> #</th>
-                            <th> Titel</th>
+                            <th>#</th>
+                            <th>Titel</th>
                             <th>Auteur</th>
                             <th>Berichten</th>
                             <th>Bekeken</th>
@@ -114,19 +114,18 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <td>
                                 <?php
-                                switch ($i) {
-                                case 0:
-                                echo "<span class='glyphicon glyphicon-file'></span>";
-                                    break;
+                                switch ($topic['state_id']) {
                                 case 1:
-                                echo "<span class='glyphicon glyphicon-pushpin'></span>";
+                                    echo "<span class='glyphicon glyphicon-file'></span>";
                                     break;
                                 case 2:
-                                echo "<span class='glyphicon glyphicon-lock'></span>";
+                                    echo "<span class='glyphicon glyphicon-lock'></span>";
+                                    break;
+                                case 3:
+                                    echo "<span class='glyphicon glyphicon-pushpin'></span>";
                                     break;
                                 }
                                     ?>
-                                    <?php echo "<span class='glyphicon glyphicon-file'></span>"; ?>
                                 </td>
                                 <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <?php
