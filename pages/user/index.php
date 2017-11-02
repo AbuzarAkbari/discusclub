@@ -84,7 +84,7 @@ if($user_data == false){
                             </div>
                             <div class="col-md-12">
                                 <strong>Locatie</strong><br>
-                                <?php echo isset($user_data->location) ? $user_data->location : "Onbekend"; ?><br>
+                                <?php echo isset($user_data->city) ? $user_data->city : "Onbekend"; ?><br>
                                 <strong>Leeftijd</strong><br>
                                 <?php $leeftijd = date_diff(date_create(date('Y-m-d')), date_create($user_data->birthdate))->format('%y');  ?>
                                 <?php echo isset($user_data->birthdate) ? $leeftijd : "Onbekend"; ?><br>

@@ -50,12 +50,11 @@ require_once("../../includes/tools/security.php"); ?>
       $albumResult->execute();
       $album = $albumResult->fetchAll(PDO::FETCH_ASSOC);
       $user_id = $_SESSION['user']->id;
-
-
-      if(!$album) : ?>
+      ?>
+    <div class="container main">
+        <?php if(!$album) :?>
         <div class="message error">Deze pagina bestaat niet, <a href="/album/"> ga terug</a></div>
         <?php else : ?>
-    <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="">

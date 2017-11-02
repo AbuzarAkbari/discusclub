@@ -86,6 +86,7 @@
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
                                 <li><a href='/admin/ip-list'>ip lijst</a></li>
+                                <li><a href='/admin/user-list'>ledenlijst</a></li>
                                 <li><a href='/admin/approval-signup'>word lid</a></li>
                                 <li><a href='/admin/approval-sponsor'>sponsor</a></li>
                             </ul>

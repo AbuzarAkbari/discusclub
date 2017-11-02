@@ -98,20 +98,19 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?php echo $results3[0]['aantal_topics']; ?></td>
                                 <td><?php echo $berichten['x'] + $topic_x['x']; ?></td>
                                 <?php
-                                    $laasteberichtSql = "SELECT topic.id AS topic_id, reply.id AS reply_id, reply.*, user.* FROM sub_category JOIN topic ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON reply.topic_id = topic.id LEFT JOIN user ON reply.user_id = user.id WHERE sub_category.id = ? ORDER BY reply.created_at DESC LIMIT 1";
+                                    $laasteberichtSql = "SELECT *, r.created_at as reply_created_at, t.created_at as topic_created_at, r.user_id as reply_user_id, t.user_id as topic_user_id, u.first_name as reply_first_name, u.last_name as reply_last_name, u2.first_name as topic_first_name, u2.last_name as topic_last_name FROM reply as r JOIN topic as t ON r.topic_id = t.id JOIN user as u ON u.id = r.user_id JOIN user as u2 ON u2.id = t.user_id WHERE t.sub_category_id = :sub_id ORDER BY r.created_at, t.created_at DESC LIMIT 1";
                                     $laasteberichtResult = $dbc->prepare($laasteberichtSql);
-                                    $laasteberichtResult->bindParam(1, $subCat['id']);
-                                    $laasteberichtResult->execute();
+                                    $laasteberichtResult->execute([":sub_id" => $subCat["id"]]);
 
-                                    $laatsteBericht = $laasteberichtResult->fetchAll(PDO::FETCH_ASSOC);
+                                    $laatsteBericht = $laasteberichtResult->fetch(PDO::FETCH_ASSOC);
 
-//                                    echo '<pre>';
-//                                    print_r($laatsteBericht);
-
-                                if (isset($laatsteBericht[0]['reply_id'])) : ?>
-                                        <td>reply gevonden</td>
-                                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     elseif(isset($laatsteBericht[0]['topic_id'])) : ?>
-                                        <td>Topic gevonden</td>
+                                if ($laatsteBericht) : ?>
+                                        <td>
+                                            <?php echo isset($laatsteBericht["reply_created_at"]) ? $laatsteBericht["reply_created_at"] : $laatsteBericht["topic_created_at"]; ?>,
+                                            <br>Door <a href="/user/<?php echo isset($laatsteBericht["reply_user_id"]) ? $laatsteBericht["reply_user_id"] : $laatsteBericht["topic_user_id"]; ?>">
+                                                <?php echo isset($laatsteBericht["reply_first_name"]) ? $laatsteBericht["reply_first_name"] . " " . $laatsteBericht["reply_last_name"] : $laatsteBericht["topic_first_name"] . " " . $laatsteBericht["topic_last_name"] ?>
+                                            </a>
+                                        </td>
                                     <?php else : ?>
                                         <td>Niks gevonden</td>
                                 <?php endif; ?>

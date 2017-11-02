@@ -84,8 +84,8 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                 <div class="panel-body padding-padding table-responsive">
                     <table>
                         <tr>
-                            <th> #</th>
-                            <th> Titel</th>
+                            <th>#</th>
+                            <th>Titel</th>
                             <th>Auteur</th>
                             <th>Berichten</th>
                             <th>Bekeken</th>
@@ -112,7 +112,21 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 $x = $result4->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
-                                <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
+                                <td>
+                                <?php
+                                switch ($topic['state_id']) {
+                                case 1:
+                                    echo "<span class='glyphicon glyphicon-file'></span>";
+                                    break;
+                                case 2:
+                                    echo "<span class='glyphicon glyphicon-lock'></span>";
+                                    break;
+                                case 3:
+                                    echo "<span class='glyphicon glyphicon-pushpin'></span>";
+                                    break;
+                                }
+                                    ?>
+                                </td>
                                 <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <?php
                                     $userSql = "SELECT * FROM user WHERE id = ? AND user.deleted_at IS NULL";
