@@ -43,7 +43,7 @@
                         <li class="active">Sponsor worden</li>
                     </ol>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <div class="panel panel-primary ">
                         <div class="panel-heading border-colors">Sponsor worden</div>
                         <div class="panel-body padding-padding space">
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="col-md-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading border-colors">Advertentie</div>
