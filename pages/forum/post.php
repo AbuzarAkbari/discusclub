@@ -140,8 +140,16 @@ require_once("../../includes/components/nav.php");
                         <?php echo $row['created_at']; ?>
                         </h3>
                         <div class="text-right">
-                            <i class="glyphicon glyphicon-star-empty GlyphSize "></i>
-                            <i class="glyphicon glyphicon-star GlyphSize "></i>
+                            <?php
+                            $sth = $dbc->prepare("SELECT * FROM favorite WHERE user_id = :user_id AND topic_id = :topic_id");
+                            $sth->execute([":user_id" => $_SESSION["user"]->id, "topic_id" => $_GET["id"]]);
+                            $res = $sth->fetch(PDO::FETCH_ASSOC);
+                            if($res) :
+                            ?>
+                            <a href="/includes/tools/user-un-favorite?id=1" class="glyphicon glyphicon-star GlyphSize "></a>
+                            <?php else :?>
+                            <a href="/includes/tools/user-favorite?id=1" class="glyphicon glyphicon-star-empty GlyphSize "></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
