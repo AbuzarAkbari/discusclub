@@ -43,7 +43,7 @@
                         <li class="active">Sponsor worden</li>
                     </ol>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <div class="panel panel-primary ">
                         <div class="panel-heading border-colors">Sponsor worden</div>
                         <div class="panel-body padding-padding space">
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="col-md-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading border-colors">Advertentie</div>
@@ -111,12 +111,12 @@
                                 <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
                                 <div class="panel-body">
                                     <?php
-                                      $sth = $dbc->prepare("SELECT * FROM album JOIN image ON image.album_id = album.id ORDER BY created_at DESC LIMIT 6");
+                                      $sth = $dbc->prepare("SELECT *, album.id AS album_id FROM album JOIN image ON image.album_id = album.id ORDER BY created_at DESC LIMIT 6");
                                       $sth->execute();
                                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                                       foreach($res as $key => $value) : ?>
-                                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["id"]; ?>"><img class="imgThumbnail" src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
+                                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img class="imgThumbnail" src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
                                     <?php endforeach; ?>
                               </div>
 
