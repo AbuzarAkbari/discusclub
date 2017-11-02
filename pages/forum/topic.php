@@ -112,7 +112,22 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 $x = $result4->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
-                                <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
+                                <td>
+                                <?php
+                                switch ($i) {
+                                case 0:
+                                echo "<span class='glyphicon glyphicon-file'></span>";
+                                    break;
+                                case 1:
+                                echo "<span class='glyphicon glyphicon-pushpin'></span>";
+                                    break;
+                                case 2:
+                                echo "<span class='glyphicon glyphicon-lock'></span>";
+                                    break;
+                                }
+                                    ?>
+                                    <?php echo "<span class='glyphicon glyphicon-file'></span>"; ?>
+                                </td>
                                 <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <?php
                                     $userSql = "SELECT * FROM user WHERE id = ? AND user.deleted_at IS NULL";
