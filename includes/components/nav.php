@@ -60,7 +60,6 @@
                                     <li><a href='/forum/active-topics'>Actieve topics</a></li>
                                     <li><a href='/forum/new-topics'>Nieuw topics</a></li>
                                     <li><a href='/forum/fav-topics'>Favoriete topics</a></li>
-                                    <li><a href='/forum/user-list'>Ledenlijst</a></li>
                                 </ul>
                             <?php } ?>
                     </li>
