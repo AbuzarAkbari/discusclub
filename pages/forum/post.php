@@ -223,15 +223,20 @@ require_once("../../includes/components/nav.php");
                     </div>
                     <div class="panel-body padding-padding ">
                         <div class="wrapper-box col-xs-12">
-                            <div class="col-md-2">
+                            <div class="col-md-3">
+                                <div class="col-xs-12">
                                 <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
-                                    <br><b>Rol: </b><?php echo $row['name']; ?>
+                                </div>
+                                <div class="col-xs-12">
+                                     <br><b>Rol: </b><?php echo $row['name']; ?>
                                     <br><b>Aantal berichten: <?php echo $x->x_reply; ?></b>
                                     <br><b>Lid sinds: </b> <?php echo $row['user_created_at']; ?><br><br>
+                                    </div>
                             </div>
 
-                            <div class="col-md-10">
+                            <div class="col-md-9">
                                 <p><?php echo wordwrap($row2['content'], 70, "<br>", true); ?></p>
+                                <hr>
                             </div>
 
                         </div>
