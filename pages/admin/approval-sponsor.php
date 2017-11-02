@@ -54,7 +54,7 @@
                                 <th>Admin tools</th>
                             </tr>
                             <?php
-                                $sql = "SELECT * FROM sponsor LEFT JOIN image ON sponsor.image_id = image.id";
+                                $sql = "SELECT *, sponsor.id FROM sponsor JOIN image ON sponsor.image_id = image.id WHERE approved = 0";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -78,10 +78,14 @@
                                     ?>
                                     </td>
                                     <td>
+                                        <img class="sponsor_vak" src="<?php echo $sponsor['path'];?>" alt="">
                                     </td>
                                     <td>
-                                     <a title="Blokeer" href="" type="button" class="btn btn-danger" name="button"><i class="glyphicon glyphicon-remove"></i></a>
-                                     <a title="Deblokeer" href="" type="button" class="btn btn-success" name="button"><i class="glyphicon glyphicon-ok"></i></a></td>
+                                    <a title="Blokeer" href="/includes/tools/approval/update.php" class="btn btn-danger" name="button">
+                                         <i class="glyphicon glyphicon-remove"></i></a>
+                                    <a title="Deblokeer" href="/includes/tools/approval/update.php" class="btn btn-danger" name="button">
+                                     <i class="glyphicon glyphicon-remove"></i></a>
+                                 </td>
                                 </tr>
                             <?php
                             endforeach;
