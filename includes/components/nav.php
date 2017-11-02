@@ -60,7 +60,6 @@
                                     <li><a href='/forum/active-topics'>Actieve topics</a></li>
                                     <li><a href='/forum/new-topics'>Nieuw topics</a></li>
                                     <li><a href='/forum/fav-topics'>Favoriete topics</a></li>
-                                    <li><a href='/forum/user-list'>Ledenlijst</a></li>
                                 </ul>
                             <?php } ?>
                     </li>
@@ -82,7 +81,7 @@
                     </li>
                     <li><a href='/contact'>Contact</a></li>
                     <li class='dropdown'>
-                        <a href='#' class='dropdown-toggle'>Admin</a>
+                        <a href='/admin' class='dropdown-toggle'>Admin</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
                                 <li><a href='/admin/ip-list'>IP Lijst</a></li>

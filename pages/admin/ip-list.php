@@ -40,6 +40,7 @@
                 <div class="">
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
+                    <li><a href="/admin">Admin</a></li>
                     <li class="active">IP Lijst</li>
                 </ol>
             </div>

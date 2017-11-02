@@ -36,9 +36,9 @@
 
     <br><br>
     <?php
-    $sql = "SELECT * FROM topic";
+    $sql = "SELECT * FROM favorite as f JOIN topic as t ON f.topic_id = t.id WHERE f.user_id = :user_id";
     $result = $dbc->prepare($sql);
-    $result->execute();
+    $result->execute([":user_id" => $_SESSION["user"]->id]);
     $results = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <br><br>
@@ -105,10 +105,11 @@
                                 </td>
                                 <?php if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
-                                    <a  title="Pinnen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
-                                    <a  title="Locken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
-                                    <a title="Bewerken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
-                                    <a title="Verwijderen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
+                                    <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
+                                    <a  title="Pinnen" href="/includes/tools/topic/pin.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
+                                    <a  title="Locken" href="/includes/tools/topic/lock.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
+                                    <a title="Bewerken" href="/includes/tools/topic/edit.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
+                                    <a title="Verwijderen" href="/includes/tools/topic/del.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
                                 </td>
                                 <?php endif; ?>
                             </tr>

@@ -38,7 +38,7 @@ require_once("../../includes/tools/security.php");
 
     <br><br>
     <?php
-    $sql = "SELECT * FROM topic WHERE last_changed >= DATE(NOW()) - INTERVAL 7 DAY";
+    $sql = "SELECT * FROM topic WHERE last_changed >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at DESC";
     $result = $dbc->prepare($sql);
     $result->execute();
     $results = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +80,7 @@ require_once("../../includes/tools/security.php");
                                 $result2->bindParam(1, $id);
                                 $result2->execute();
 
-                                $sub_categorie_naam = $result2->fetchAll();
+                                $sub_categorie_naam = $result2->fetchAll(PDO::FETCH_ASSOC);
 
                                 $sql3 = "SELECT COUNT(id) AS i FROM reply WHERE topic_id = ?";
                                 $result3 = $dbc->prepare($sql3);
@@ -107,10 +107,11 @@ require_once("../../includes/tools/security.php");
                                 <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
                                 <?php if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
-                                    <a  title="Pinnen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
-                                    <a  title="Locken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
-                                    <a title="Bewerken" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
-                                    <a title="Verwijderen" href="" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
+                                    <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $sub_categorie_naam['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
+                                    <a  title="Pinnen" href="/includes/tools/topic/pin.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $sub_categorie_naam['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
+                                    <a  title="Locken" href="/includes/tools/topic/lock.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $sub_categorie_naam['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
+                                    <a title="Bewerken" href="/includes/tools/topic/edit.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
+                                    <a title="Verwijderen" href="/includes/tools/topic/del.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
                                 </td>
                                 <?php endif; ?>
                             </tr>
