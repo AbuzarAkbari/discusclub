@@ -223,12 +223,25 @@ require_once("../../includes/components/nav.php");
                     </div>
                     <div class="panel-body padding-padding ">
                         <div class="wrapper-box col-xs-12">
+<<<<<<< HEAD
                             <div class="col-md-2">
                                 <img src='http://via.placeholder.com/130x130' alt="x">
+=======
+                            <div class="col-md-3">
+                                <div class="col-xs-12">
+                                <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
+                                </div>
+                                <div class="col-xs-12">
+                                     <br><b>Rol: </b><?php echo $row['name']; ?>
+                                    <br><b>Aantal berichten: <?php echo $x->x_reply; ?></b>
+                                    <br><b>Lid sinds: </b> <?php echo $row['user_created_at']; ?><br><br>
+                                    </div>
+>>>>>>> aaa45799b3e4c05d353a418c3e25f2e17ca8a1b3
                             </div>
 
-                            <div class="col-md-10">
+                            <div class="col-md-9">
                                 <p><?php echo wordwrap($row2['content'], 70, "<br>", true); ?></p>
+                                <hr>
                             </div>
 
                         </div>
