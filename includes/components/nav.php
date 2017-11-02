@@ -80,7 +80,17 @@
                             </ul>
                         <?php } ?>
                     </li>
-                <li><a href='/contact'>Contact</a></li>
+                    <li><a href='/contact'>Contact</a></li>
+                    <li class='dropdown'>
+                        <a href='/admin/ip-list' class='dropdown-toggle'>admin</a>
+                        <?php if ($logged_in) { ?>
+                            <ul class='dropdown-menu'>
+                                <li><a href='/admin/ip-list'>ip lijst</a></li>
+                                <li><a href='/admin/approval-signup'>word lid</a></li>
+                                <li><a href='/admin/approval-sponsor'>sponsor</a></li>
+                            </ul>
+                        <?php } ?>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>

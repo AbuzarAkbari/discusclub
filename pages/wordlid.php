@@ -29,7 +29,7 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-    require_once("../includes/components/nav.php");
+        require_once("../includes/components/nav.php");
     ?>
     </div>
     <div class="container main">
@@ -79,12 +79,12 @@
                     <h4>Inschrijfformulier</h4></div>
                 <div class="panel-body">
                     <form class="" action="/" method="post">
-                        <label for="">Naam *</label>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Naam "><br>
-                        <label for="">Email *</label>
-                        <input class="form-control" required type="email" name="" value="" placeholder="Email "><br>
                         <label for="">Adres *</label>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Adres "><br>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Adres"/>
+                            <span class="input-group-addon"></span>
+                            <input type="text" class="form-control" placeholder="Huisnummer"/>
+                        </div><br>
                         <label for="">Postcode *</label>
                         <input class="form-control" required type="text" name="" value="" placeholder="Postcode "><br>
                         <label for="">Plaats *</label>
