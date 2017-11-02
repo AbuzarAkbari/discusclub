@@ -22,7 +22,7 @@ if (isset($_POST['upload_album'])) {
 	            $target_dir = "/images/album/";
 	            $target_file = $target_dir . basename($album_files["name"][$x]);
 	            $uploadOk = 1;
-	            $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+				$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
 	            // Check if image file is a actual image or fake image
 	            $check = getimagesize($album_files["tmp_name"][$x]);
@@ -31,7 +31,7 @@ if (isset($_POST['upload_album'])) {
 	            } else {
 	                echo "File is not an image.";
 	                $uploadOk = 0;
-	            }
+				}
 
 	            // Check if file already exists
 	            if (file_exists($target_file)) {
@@ -59,7 +59,7 @@ if (isset($_POST['upload_album'])) {
 	                // if everything is ok, try to upload file
 	            } else {
 	                $fragments = explode('.', $album_files["name"][$x]);
-	                $path = strtotime(date("Y-m-d H:i:s")) . '-'.$x.'.' . end($fragments);
+					$path = strtotime(date("Y-m-d H:i:s")) . '-'.$x.'.' . end($fragments);
 
 	                $extensions = [
 	                    '.png',
@@ -79,23 +79,23 @@ if (isset($_POST['upload_album'])) {
 	                if (move_uploaded_file($album_files["tmp_name"][$x], '../../images/album/'.$path)) {
 	                    $sql = "INSERT INTO image (path, album_id) VALUES (:path, :album_id)";
 	                    $result = $dbc->prepare($sql);
-	                    $result->execute([':path' => $path, ':album_id' => $album_id]);
-	                    
+						$result->execute([':path' => $path, ':album_id' => $album_id]);
+
 					} else {
 	                    echo "Sorry, there was an error uploading your file.";
 	                    exit();
 	                }
 	            }
 	        }
-	        
+
         }
 
 
-    	
+
         // echo '<pre>';
         // print_r($_FILES);
         // exit();
-       
-         header("Location: /album/" . $album_id);
+
+        header("Location: /album/" . $album_id);
     }
 }
