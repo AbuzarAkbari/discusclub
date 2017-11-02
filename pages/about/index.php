@@ -50,15 +50,8 @@
                     </div>
                 </div>
             </div>
-        <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading border-colors">Advertentie</div>
-                <div class="panel-body">
-                    <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img src="/images/ad/advertentie.jpg"></div></a>
-                </div>
-            </div>
-        </div>
-      <div class="col-md-4">
+
+      <div class="col-md-8">
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
               <div class="panel-body">
@@ -68,7 +61,7 @@
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                       foreach($res as $key => $value) : ?>
-                      <div class="col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["id"]; ?>"><img src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
+                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["id"]; ?>"><img class="imgThumbnail" src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
                       <?php endforeach; ?>
           </div>
       </div>
@@ -86,6 +79,14 @@
           </div>
       </div>
       </div>
+      <div class="col-md-4">
+          <div class="panel panel-primary">
+              <div class="panel-heading border-colors">Advertentie</div>
+              <div class="panel-body">
+                  <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img src="/images/ad/advertentie.jpg"></div></a>
+              </div>
+          </div>
+      </div>
             <div class="col-md-4">
               <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
@@ -100,25 +101,20 @@
                         <?php endforeach; ?>
                 </div>
             </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading border-colors">Laatste reacties op topics</div>
+                <div class="panel-body">
+                    <?php
+                    $sth = $dbc->prepare("SELECT * FROM topic ORDER BY created_at DESC LIMIT 5");
+                    $sth->execute();
+                    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach($res as $key => $value) : ?>
+                    <a href="/forum/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['created_at'] ?></div>
+                    <?php endforeach; ?>
+                </div>
             </div>
-
-
-      <div class="col-md-4">
-          <div class="panel panel-primary">
-              <div class="panel-heading border-colors">Laatste reacties op topics</div>
-              <div class="panel-body">
-                  <?php
-                      $sth = $dbc->prepare("SELECT * FROM topic ORDER BY created_at DESC LIMIT 5");
-                      $sth->execute();
-                      $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-                      foreach($res as $key => $value) : ?>
-                          <a href="/forum/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['created_at'] ?></div>
-                  <?php endforeach; ?>
-              </div>
-          </div>
-      </div>
-
+        </div>
     </div>
   </div>
     <footer>
