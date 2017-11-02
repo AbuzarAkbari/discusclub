@@ -1,10 +1,11 @@
 <?php
+$levels = [];
 require_once("../../../includes/tools/security.php");
 if($logged_in)
 {
-    $sql = "UPDATE reply SET deleted_at = NOW()";
+    $sql = "UPDATE reply SET deleted_at = NOW() WHERE id = :id";
     $result = $dbc->prepare($sql);
-    $result->execute();
+    $result->execute([":id" => $_GET["id"]]);
 
     header("Location: ../../forum/");
 }

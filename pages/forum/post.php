@@ -210,7 +210,7 @@ require_once("../../includes/components/nav.php");
                                             href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></a></b>
                         </h3>
                         <?php if (in_array($current_level, $admin_levels)) : ?>
-                            <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/admin/tools/del.php?id=<?php echo $_GET['id']; ?>" type="button" class="btn" name="button" style="color: #fff;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
+                            <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/admin/tools/del.php?id=<?php echo $row2['id']; ?>" type="button" class="btn" name="button" style="color: #fff;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
                         <?php endif; ?>
                     </div>
                     <div class="panel-body padding-padding ">
