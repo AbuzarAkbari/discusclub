@@ -55,7 +55,7 @@
                                 <th>Adres</th>
                                 <th>Geboortedatum</th>
                                 <th>Stad</th>
-                                <th>Tool</th>
+                                <th>Tools</th>
                             </tr>
                             <?php
                                 $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM ip LEFT JOIN user ON ip.user_id = user.id";
