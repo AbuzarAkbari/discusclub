@@ -140,8 +140,16 @@ require_once("../../includes/components/nav.php");
                         <?php echo $row['created_at']; ?>
                         </h3>
                         <div class="text-right">
-                            <i class="glyphicon glyphicon-star-empty GlyphSize "></i>
-                            <i class="glyphicon glyphicon-star GlyphSize "></i>
+                            <?php
+                            $sth = $dbc->prepare("SELECT * FROM favorite WHERE user_id = :user_id AND topic_id = :topic_id");
+                            $sth->execute([":user_id" => $_SESSION["user"]->id, "topic_id" => $_GET["id"]]);
+                            $res = $sth->fetch(PDO::FETCH_ASSOC);
+                            if($res) :
+                            ?>
+                            <a href="/includes/tools/user-un-favorite?id=1" class="glyphicon glyphicon-star GlyphSize " style="text-decoration: none; color: gold;"></a>
+                            <?php else :?>
+                            <a href="/includes/tools/user-favorite?id=1" class="glyphicon glyphicon-star-empty GlyphSize " style="text-decoration: none; color: gold;"></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -215,12 +223,25 @@ require_once("../../includes/components/nav.php");
                     </div>
                     <div class="panel-body padding-padding ">
                         <div class="wrapper-box col-xs-12">
+<<<<<<< HEAD
                             <div class="col-md-2">
                                 <img src='http://via.placeholder.com/130x130' alt="x">
+=======
+                            <div class="col-md-3">
+                                <div class="col-xs-12">
+                                <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
+                                </div>
+                                <div class="col-xs-12">
+                                     <br><b>Rol: </b><?php echo $row['name']; ?>
+                                    <br><b>Aantal berichten: <?php echo $x->x_reply; ?></b>
+                                    <br><b>Lid sinds: </b> <?php echo $row['user_created_at']; ?><br><br>
+                                    </div>
+>>>>>>> aaa45799b3e4c05d353a418c3e25f2e17ca8a1b3
                             </div>
 
-                            <div class="col-md-10">
+                            <div class="col-md-9">
                                 <p><?php echo wordwrap($row2['content'], 70, "<br>", true); ?></p>
+                                <hr>
                             </div>
 
                         </div>

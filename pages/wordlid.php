@@ -74,28 +74,30 @@
                     </p>
                 </div>
             </div>
+            <?php if($logged_in): ?>
             <div class="panel panel-primary">
                 <div class="panel-heading panel-heading1">
                     <h4>Inschrijfformulier</h4></div>
                 <div class="panel-body">
-                    <form class="" action="/" method="post">
+                    <form class="" action="/includes/tools/wordlidInsert.php" method="post">
                         <label for="">Adres *</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Adres"/>
+                            <input type="text" name="adres" class="form-control" placeholder="Adres"/>
                             <span class="input-group-addon"></span>
-                            <input type="text" class="form-control" placeholder="Huisnummer"/>
+                            <input type="text" name="huisnummer" class="form-control" placeholder="Huisnummer"/>
                         </div><br>
                         <label for="">Postcode *</label>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Postcode "><br>
-                        <label for="">Plaats *</label>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Plaats "><br>
+                        <input class="form-control" required type="text" name="postcode" value="" placeholder="Postcode "><br>
+                        <label for="">Stad *</label>
+                        <input class="form-control" required type="text" name="stad" value="" placeholder="Stad "><br>
                         <label for="">Telefoonnummer *</label>
-                        <input class="form-control" required type="tel" name="" value="" placeholder="Telefoonnummer "><br>
+                        <input class="form-control" required type="tel" name="telefoonnummer" value="" placeholder="Telefoonnummer "><br>
                         <label for="">Rekeningnummer *</label>
-                        <input class="form-control" required type="text" name="" value="" placeholder="Rekeningnummer "><br>
+                        <input class="form-control" required type="text" name="rekeningnummer" value="" placeholder="Rekeningnummer "><br>
                         <input type="submit" class="btn btn-primary" name="send" value="Verzend">
                     </form>
                 </div>
+            <?php endif; ?>
             </div>
         </div>
     </div>

@@ -36,20 +36,27 @@
     <div class="container main">
         <div class="row columns">
             <div class="col-md-12">
+                <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                    <li class="active">Inschrijvingen</li>
+                </ol>
+            </div>
                 <div class="panel panel-primary ">
-                    <div class="panel-heading border-colors">Inschrijvingen</div>
+                    <div class="panel-heading border-colors">Inschrijvingen Leden</div>
                     <div class="panel-body padding-padding table-responsive">
                         <table>
                             <tr>
-                                <th>gebruikersnaam</th>
-                                <th>Ip adres</th>
-                                <th>Iban</th>
+                                <th>Naam</th>
+                                <th>IP Adres</th>
+                                <th>Ibannummer</th>
                                 <th>Telefoonnummer</th>
                                 <th>Postcode</th>
                                 <th>Adres</th>
                                 <th>Geboortedatum</th>
                                 <th>Stad</th>
-                                <th>Admin tools</th>
+                                <th>Tools</th>
                             </tr>
                             <?php
                                 $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM ip JOIN user ON ip.user_id = user.id";
@@ -86,8 +93,11 @@
                                      echo $ip['city'];
                                     ?></td>
                                     <td>
-                                     <a title="Blokeer" href="" type="button" class="btn btn-danger" name="button"><i class="glyphicon glyphicon-remove"></i></a>
-                                     <a title="Deblokeer" href="" type="button" class="btn btn-success" name="button"><i class="glyphicon glyphicon-ok"></i></a></td>
+                                        <a title="Blokeer" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=1" class="btn btn-danger" name="button">
+                                             <i class="glyphicon glyphicon-remove"></i></a>
+                                        <a title="Deblokeer" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=2" class="btn btn-success" name="button">
+                                         <i class="glyphicon glyphicon-ok"></i></a>
+                                    </td>
                                 </tr>
                             <?php
                             endforeach;

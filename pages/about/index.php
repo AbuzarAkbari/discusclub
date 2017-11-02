@@ -76,7 +76,7 @@
                   foreach($res as $key => $value) : ?>
                   <a href="/album/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
                   <?php endforeach; ?>
-          </div>
+              </div>
       </div>
       </div>
       <div class="col-md-4">

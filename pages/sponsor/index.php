@@ -48,7 +48,7 @@
           <div class="panel-heading border-colors">Sponsoren</div>
           <div class="panel-body padding-padding">
             <?php
-              $haal_sponsor = "SELECT * FROM sponsor";
+              $haal_sponsor = "SELECT * FROM sponsor WHERE approved = 1";
               $sponsorResult = $dbc->prepare($haal_sponsor);
               $sponsorResult->execute();
               $sponsoren = $sponsorResult->fetchAll(PDO::FETCH_ASSOC);

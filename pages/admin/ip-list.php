@@ -37,15 +37,22 @@
     <div class="container main">
         <div class="row columns">
             <div class="col-md-12">
+                <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                    <li class="active">IP Lijst</li>
+                </ol>
+            </div>
                 <div class="panel panel-primary ">
-                    <div class="panel-heading border-colors">Ip lijst</div>
+                    <div class="panel-heading border-colors">IP Lijst</div>
                     <div class="panel-body padding-padding re">
                         <table>
                             <tr>
-                                <th>gebruiker</th>
-                                <th>Ip adres</th>
-                                <th>wanneer je account heb gemaakt</th>
-                                <th>Admin tools</th>
+                                <th>Gebruiker</th>
+                                <th>IP Adres</th>
+                                <th>Registratiedatum</th>
+                                <th>Tools</th>
                             </tr>
                             <?php
                                 $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM ip LEFT JOIN user ON ip.user_id = user.id";
@@ -68,8 +75,8 @@
                                      echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
                                     ?></td>
                                     <td>
-                                     <a title="Blokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-ban-circle"></i></a>
-                                     <a title="Deblokeer" href="" type="button" class="btn btn-primary  " name="button"><i class="glyphicon glyphicon-ok-circle"></i></a></td>
+                                    <a title="Blokeer" href="" type="button" class="btn btn-danger" name="button"><i class="glyphicon glyphicon-remove"></i></a>
+                                    <a title="Deblokeer" href="" type="button" class="btn btn-success" name="button"><i class="glyphicon glyphicon-ok"></i></a></td>
                                 </tr>
                             <?php
                             endforeach;
