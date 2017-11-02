@@ -48,19 +48,11 @@ require_once("../../components/nav.php");
         <div class="col-md-12">
             <div class="">
                 <?php
-                $sub_categorieen = "SELECT * FROM sub_category WHERE id = ?";
-                $subResult = $dbc->prepare($sub_categorieen);
-                $subResult->bindParam(1, $_GET['id']);
-                $subResult->execute();
-                $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
-
-                if($results2){
-                    $sql = "SELECT * FROM topic WHERE sub_category_id = ? AND topic.deleted_at IS NULL";
+                    $sql = "SELECT * FROM topic WHERE id = ? AND topic.deleted_at IS NULL";
                     $result = $dbc->prepare($sql);
                     $result->bindParam(1, $_GET['id']);
                     $result->execute();
-                    $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
-                }
+                    $res = $result->fetch(PDO::FETCH_ASSOC);
                 ?>
                 <br><br>
             </div>
@@ -68,7 +60,7 @@ require_once("../../components/nav.php");
 
         </div>
     </div>
-    <?php if ($logged_in && $results2) : ?>
+    <?php if ($logged_in && $res) : ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-primary">
@@ -79,13 +71,13 @@ require_once("../../components/nav.php");
                         <form class="form-horizontal" action="/includes/tools/edit-topic" method="post">
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" name="edit_topic_title" minlength="3" maxlength="50" value="<?php echo isset($results3[0]['title']) ? $results3[0]['title'] : ''?>" placeholder="Topic Titel (max. 50 tekens)">
+                                    <input type="text" class="form-control" name="edit_topic_title" minlength="3" maxlength="50" value="<?php echo isset($res['title']) ? $res['title'] : ''?>" placeholder="Topic Titel (max. 50 tekens)">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
                                 <textarea required class="form-control editor" col="8" rows="8" name="edit_topic_content"
-                                          style="resize: none !important;" placeholder="Uw bericht.."><?php echo isset($results3[0]['content']) ? $results3[0]['content'] : ''?></textarea>
+                                          style="resize: none !important;" placeholder="Uw bericht.."><?php echo isset($res['content']) ? $res['content'] : ''?></textarea>
                                 </div>
 
                             </div>
