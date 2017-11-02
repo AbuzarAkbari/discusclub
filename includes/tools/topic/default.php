@@ -3,7 +3,7 @@ require_once("../../../includes/tools/security.php");
 
 if($logged_in){
 
-    $state_id = 3; //pin
+    $state_id = 1; //open
     $id = $_GET['id'];
     $sub_id = $_GET['sub_id'];
     $sql = "UPDATE topic SET state_id = :state_id WHERE id = :id";
