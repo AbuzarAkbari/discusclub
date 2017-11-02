@@ -36,8 +36,14 @@
     <div class="container main">
         <div class="row columns">
             <div class="col-md-12">
+                <div class="">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Sponsoren</li>
+                </ol>
+            </div>
                 <div class="panel panel-primary ">
-                    <div class="panel-heading border-colors">Inschrijvingen</div>
+                    <div class="panel-heading border-colors">Inschrijvingen Sponsoren</div>
                     <div class="panel-body padding-padding table-responsive">
                         <table>
                             <tr>

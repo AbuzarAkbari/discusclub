@@ -42,7 +42,6 @@ require_once("../../includes/tools/security.php");
                 <div class="">
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/admin/">admin</a></li>
                     <li class="active">Ledenlijst</li>
                 </ol>
             </div>
@@ -53,7 +52,7 @@ require_once("../../includes/tools/security.php");
                             <tr>
                                 <th>Naam</th>
                                 <th>Laatste login</th>
-                                <th>Geregistreerd</th>
+                                <th>Registratiedatum</th>
                                 <th>Rol</th>
                             </tr>
                             <?php
