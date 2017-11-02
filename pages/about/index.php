@@ -63,7 +63,7 @@
                       foreach($res as $key => $value) : ?>
                       <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img class="imgThumbnail" src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
                       <?php endforeach; ?>
-          </div>
+              </div>
       </div>
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Laatste reacties op albums</div>

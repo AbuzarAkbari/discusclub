@@ -98,15 +98,14 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?php echo $results3[0]['aantal_topics']; ?></td>
                                 <td><?php echo $berichten['x'] + $topic_x['x']; ?></td>
                                 <?php
-                                    $laasteberichtSql = "SELECT topic.id AS topic_id, reply.id AS reply_id, reply.*, user.* FROM sub_category JOIN topic ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON reply.topic_id = topic.id LEFT JOIN user ON reply.user_id = user.id WHERE sub_category.id = ? ORDER BY reply.created_at DESC LIMIT 1";
+                                    $laasteberichtSql = "SELECT *, r.created_at as reply_created_at FROM reply as r JOIN topic as t ON r.topic_id = t.id JOIN user as u ON u.id = r.user_id JOIN user as u2 ON u2.id = t.user_id WHERE t.sub_category_id = :sub_id ORDER BY r.created_at, t.created_at DESC";
                                     $laasteberichtResult = $dbc->prepare($laasteberichtSql);
-                                    $laasteberichtResult->bindParam(1, $subCat['id']);
-                                    $laasteberichtResult->execute();
+                                    $laasteberichtResult->execute([":sub_id" => $subCat["id"]]);
 
                                     $laatsteBericht = $laasteberichtResult->fetchAll(PDO::FETCH_ASSOC);
 
-//                                    echo '<pre>';
-//                                    print_r($laatsteBericht);
+                                   echo '<pre>';
+                                   print_r($laatsteBericht);
 
                                 if (isset($laatsteBericht[0]['reply_id'])) : ?>
                                         <td>reply gevonden</td>
