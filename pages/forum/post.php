@@ -179,7 +179,34 @@
         }
 
 
+<<<<<<< HEAD
         ?>
+=======
+            ?>
+            <div class="col-xs-12">
+                <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
+                    <div class="panel-heading border-color-blue">
+                        <h3 class="panel-title text-left">Geplaatst door: <b><a
+                                            style="color: #fff; text-decoration: underline"
+                                            href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></a></b>
+                        </h3>
+                        <?php if (in_array($current_level, $admin_levels)) : ?>
+                            <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/includes/tools/reply/del.php?id=<?php echo $row2['id']; ?>" type="button" class="btn" name="button" style="color: #fff;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
+                        <?php endif; ?>
+                    </div>
+                    <div class="panel-body padding-padding ">
+                        <div class="wrapper-box col-xs-12">
+                            <div class="col-md-3">
+                                <div class="col-xs-12">
+                                <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
+                                </div>
+                                <div class="col-xs-12">
+                                     <br><b>Rol: </b><?php echo $row['name']; ?>
+                                    <br><b>Aantal berichten: <?php echo $x->x_reply; ?></b>
+                                    <br><b>Lid sinds: </b> <?php echo $row['user_created_at']; ?><br><br>
+                                    </div>
+                            </div>
+>>>>>>> 1c2dc5411a13070fa3e854b54535a9cccf0c537a
 
         <!-- Replies -->
         <div class="col-xs-12">

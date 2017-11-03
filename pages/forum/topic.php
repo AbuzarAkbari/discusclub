@@ -57,11 +57,12 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
                         if($results2){
-                            $sql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name FROM topic as t JOIN reply as r ON r.topic_id = t.id JOIN user as u ON u.id = r.user_id JOIN user as u2 ON u2.id = t.user_id WHERE t.sub_category_id = 1 AND t.deleted_at IS NULL AND t.state_id = 3 ORDER BY r.last_changed DESC, t.last_changed DESC";
+                            $sql = "SELECT *, topic.id FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id = 3 AND topic.deleted_at IS NULL";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"]]);
                             $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
-                            $sql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name FROM topic as t JOIN reply as r ON r.topic_id = t.id JOIN user as u ON u.id = r.user_id JOIN user as u2 ON u2.id = t.user_id WHERE t.sub_category_id = 1 AND t.deleted_at IS NULL AND t.state_id <> 3 ORDER BY r.last_changed DESC, t.last_changed DESC";
+
+                            $sql = "SELECT *, topic.id FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"]]);
                             $results3 = array_merge($results3, $result->fetchAll(PDO::FETCH_ASSOC));
@@ -132,19 +133,21 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 </td>
                                 <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <?php
-                                    $userSql = "SELECT * FROM user WHERE id = ? AND user.deleted_at IS NULL";
-                                    $userResult = $dbc->prepare($userSql);
-                                    $userResult->bindParam(1, $topic['user_id']);
-                                    $userResult->execute();
-                                    $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
+                                    $userResult = $dbc->prepare("SELECT *, u.id as user_id, r.last_changed FROM reply as r JOIN topic as t ON t.id = r.topic_id JOIN user as u ON u.id = r.user_id WHERE t.id = :id ORDER BY r.last_changed DESC LIMIT 1 ");
+                                    $userResult->execute([":id" => $topic["id"]]);
+                                    $user = $userResult->fetch(PDO::FETCH_ASSOC);
+                                    if($user) :
                                 ?>
-                                <?php foreach ($users as $user) : ?>
-                                    <td><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                    <td><a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                     <td><?php echo $x_berichten; ?></td>
                                     <td><?php echo $x[0]['x']; ?></td>
-                                    <td><?php echo $topic['created_at']; ?>, <br> Door <a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
-                                <?php endforeach; ?>
-                                <?php if (in_array($current_level, $admin_levels)) : ?>
+                                    <td><?php echo $user['last_changed']; ?>, <br> Door <a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                    <?php else : ?>
+                                    <td><a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
+                                    <td><?php echo $x_berichten; ?></td>
+                                    <td><?php echo $x[0]['x']; ?></td>
+                                    <td><?php echo $topic['last_changed']; ?>, <br> Door <a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
+                                    <?php endif;if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
                                     <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
                                     <a  title="Pinnen" href="/includes/tools/topic/pin.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>

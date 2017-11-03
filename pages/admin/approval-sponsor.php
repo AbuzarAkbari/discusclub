@@ -1,4 +1,6 @@
-<?php require_once("../../includes/tools/security.php"); ?>
+<?php
+$levels= [];
+require_once("../../includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,12 +52,13 @@
                             <tr>
                                 <th>Naam</th>
                                 <th>Url</th>
-                                <th>Inschrijf datum</th>
+                                <th>Inschrijfdatum</th>
                                 <th>Banner</th>
-                                <th>Admin tools</th>
+                                <th>Tools</th>
                             </tr>
                             <?php
-                                $sql = "SELECT *, sponsor.id FROM sponsor JOIN image ON sponsor.image_id = image.id WHERE approved = 0";
+                                $sql = "SELECT *, sponsor.id FROM sponsor JOIN image ON sponsor.image_id = image.id ORDER BY approved";
+                                // WHERE approved = 0
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);

@@ -1,7 +1,7 @@
 <?php
 $levels = [];
 require_once("../../includes/tools/security.php");
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
