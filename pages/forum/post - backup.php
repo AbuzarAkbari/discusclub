@@ -10,7 +10,7 @@
     $perPage = 10;
 
     //Select query for sub_category, topics, users, replies and roles
-    $sql = "SELECT *, reply.id as reply_id, reply.content AS reply_content, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic JOIN sub_category ON topic.sub_category_id = sub_category.id JOIN user ON topic.user_id = user.id JOIN image ON user.profile_img = image.id JOIN role ON user.role_id = role.id JOIN reply ON topic.id = reply.topic_id WHERE topic.id = ?";
+    $sql = "SELECT *, reply.id as reply_id, reply.content AS reply_content, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic JOIN sub_category ON topic.sub_category_id = sub_category.id JOIN user ON topic.user_id = user.id JOIN image ON user.profile_img = image.id JOIN role ON user.role_id = role.id JOIN reply ON topic.id = reply.topic_id WHERE topic.id = ?";
     $result = $dbc->prepare($sql);
     $result->bindParam(1, $_GET['id']);
     $result->execute();
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                             <div class="col-md-9">
-                                <p><?php echo html_entity_decode($rows['topic_content']); ?></p>
+                                <p><?php echo html_entity_decode($rows['content']); ?></p>
                                 <p>
                                     <hr>
                                     <br>
@@ -114,16 +114,11 @@
                         op
                         <?php echo $rows['topic_created_at']; ?>
                         <div class="text-right">
-                            <?php
-                                $sth = $dbc->prepare("SELECT * FROM favorite WHERE user_id = :user_id AND topic_id = :topic_id");
-                                $sth->execute([":user_id" => $_SESSION["user"]->id, "topic_id" => $_GET["id"]]);
-                                $favorite = $sth->fetch(PDO::FETCH_ASSOC);
-                            ?>
-                            <?php if($favorite) : ?>
-                                <a href="/includes/tools/user-un-favorite?id=1" class="glyphicon glyphicon-star GlyphSize " style="text-decoration: none; color: gold;"></a>
-                            <?php else :?>
-                                <a href="/includes/tools/user-favorite?id=1" class="glyphicon glyphicon-star-empty GlyphSize " style="text-decoration: none; color: gold;"></a>
-                            <?php endif; ?>
+                            <?php //if() : ?>
+                                <i class="glyphicon glyphicon-star-empty GlyphSize "></i>
+                            <?php //else : ?>
+                                <i class="glyphicon glyphicon-star GlyphSize "></i>
+                            <?php //endif; ?>
                         </div>
                     </div>
                 </div>
@@ -190,7 +185,7 @@
                                 href="/user/<?php echo $rows["user_id"]; ?>"><?php echo $fullName; ?></a></b>
                     </h3>
                     <?php if (in_array($current_level, $admin_levels)) : ?>
-                        <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/includes/tools/reply/del.php?id=<?php echo $rows['topic_id']; ?>" type="button" class="btn" name="button" style="color: #fff;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
+                        <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/admin/tools/del.php?id=<?php echo $rows['topic_id']; ?>" type="button" class="btn" name="button" style="color: #fff;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body padding-padding ">
