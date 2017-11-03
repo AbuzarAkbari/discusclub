@@ -60,8 +60,8 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
                 <div id="userTable" class="otherTab flexcroll">
                     <?php
-                    $sth = $dbc->prepare("SELECT DISTINCT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE m.user_id_1 = :id OR m.user_id_2 = :id GROUP BY u.id ORDER BY m.created_at ASC");
-                    $sth->execute([":id" => $_SESSION["user"]->id]);
+                    $sth = $dbc->prepare("SELECT DISTINCT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE (m.user_id_1 = :id OR m.user_id_2 = :id) AND u.first_name LIKE :search AND u.last_name LIKE :search AND u.username LIKE :search GROUP BY u.id ORDER BY m.created_at ASC");
+                    $sth->execute([":id" => $_SESSION["user"]->id, ":search" => isset($_GET["user_search"]) ? "%" . $_GET["user_search"] . "%" : "%"]);
                     $res = $sth->fetchAll(PDO::FETCH_OBJ);
                     $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
                     foreach ($res as $value) : ?>
@@ -163,7 +163,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                       <!-- <button class="btn btn-secondary buttonHeight" type="button" type="file"><i class="glyphicon glyphicon-plus icon " ></i></button> -->
 
                       <div class="input-group inputWidth">
-                        <input type="text" class="form-control inputWidth" placeholder="" aria-label="Search for...">
+                        <input type="text" class="form-control inputWidth" placeholder="">
                         <span class="input-group-btn">
 
                             <div class="upload">
@@ -188,11 +188,6 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        const id = <?php echo $id ?>;
-        const user_id = <?php echo $_SESSION["user"]->id; ?>;
-    </script>
-    <script src="/js/messenger.js"></script>
     <script type="text/javascript">
     $(".tab").animate({ scrollTop: $(document).height() });
     </script>
