@@ -88,6 +88,7 @@
                                     <li><a href='/admin/user-list'>Ledenlijst</a></li>
                                     <li><a href='/admin/approval-signup'>Inschrijvingen</a></li>
                                     <li><a href='/admin/approval-sponsor'>Sponsoren</a></li>
+                                    <li><a href="/phpmyadmin">phpmyadmin</a></li>
                                 </ul>
                         </li>
                     <?php } ?>
