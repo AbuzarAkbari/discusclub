@@ -57,12 +57,12 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
                         if($results2){
-                            $sql = "SELECT *, topic.id FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id = 3 AND topic.deleted_at IS NULL";
+                            $sql = "SELECT *, topic.id FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id = 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"]]);
                             $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                            $sql = "SELECT *, topic.id FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL";
+                            $sql = "SELECT *, topic.id FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"]]);
                             $results3 = array_merge($results3, $result->fetchAll(PDO::FETCH_ASSOC));

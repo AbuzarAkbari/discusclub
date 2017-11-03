@@ -10,11 +10,11 @@ $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 $perPage = 10;
 
 //Select query for sub_category, topics, users, replies and roles
-$sql = "SELECT *, reply.id as reply_id, reply.content AS reply_content, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic JOIN sub_category ON topic.sub_category_id = sub_category.id JOIN user ON topic.user_id = user.id JOIN image ON user.profile_img = image.id JOIN role ON user.role_id = role.id JOIN reply ON topic.id = reply.topic_id WHERE topic.id = ?";
+$sql = "SELECT *, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN user ON topic.user_id = user.id LEFT JOIN image ON user.profile_img = image.id LEFT JOIN role ON user.role_id = role.id WHERE topic.id = ?";
 $result = $dbc->prepare($sql);
 $result->bindParam(1, $_GET['id']);
 $result->execute();
-$rows = $result->fetchAll(PDO::FETCH_ASSOC)[0];
+$rows = $result->fetch(PDO::FETCH_ASSOC);
 
 $fullName = $rows['first_name'].' '.$rows['last_name'];
 
@@ -134,7 +134,7 @@ require_once("../../includes/components/nav.php");
 
     <?php
     $aantal = $page * $perPage - $perPage;
-    $replySql = "SELECT * FROM reply WHERE topic_id = ? AND reply.deleted_at IS NULL LIMIT {$perPage} OFFSET {$aantal}";
+    $replySql = "SELECT *, reply.id, reply.last_changed, reply.created_at FROM reply JOIN user as u ON u.id = reply.user_id WHERE topic_id = ? AND reply.deleted_at IS NULL ORDER BY reply.last_changed ASC LIMIT {$perPage} OFFSET {$aantal}";
     $replyResult = $dbc->prepare($replySql);
     $replyResult->bindParam(1, $_GET['id']);
     $replyResult->execute();
@@ -149,48 +149,40 @@ require_once("../../includes/components/nav.php");
         ];
 
         while ($matches[1]) {
-            preg_match_all('/\[quote\s(\d+)\]/', $rows['reply_content'], $matches);
+            preg_match_all('/\[quote\s(\d+)\]/', $reply['content'], $matches);
 
             foreach ($matches[1] as $match) {
-                $sql = "SELECT * FROM reply WHERE id = :id AND reply.deleted_at IS NULL";
+                $sql = "SELECT *, reply.id FROM reply JOIN user as u ON u.id = reply.user_id WHERE reply.id = :id AND reply.deleted_at IS NULL";
                 $query = $dbc->prepare($sql);
                 $query->execute([
                     ':id' => $match
                 ]);
-                $results = $query->fetchAll();
+                $results = $query->fetch(PDO::FETCH_ASSOC);
 
-                $id = $rows[0]['user_id'];
+                $naam = $results["first_name"] . " " . $results["last_name"];
 
-                $userIdSql = "SELECT * FROM user WHERE id = ? AND user.deleted_at IS NULL";
-                $userIdResult = $dbc->prepare($userIdSql);
-                $userIdResult->bindParam(1, $id);
-                $userIdResult->execute();
-                $userId = $userIdResult->fetchAll(PDO::FETCH_ASSOC);
-
-                if (!isset($results[0])) {
+                if (!isset($results)) {
                     $replace = 'Oops, deze post bestaat niet meer';
                 } else {
-                    $naam = $userId[0]['first_name'] . ' ' . $userId[0]['last_name'];
-                    $replace = $naam . ' schreef:<br>' . $results[0]['content'];
+                    $replace = $naam . ' schreef:<br>' . $results['content'];
                 }
 
-                $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">' . $replace . '</div>', $row2['content']);
+                $reply['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">' . $replace . '</div>', $reply['content']);
             }
         }
-
-
+        $naam = $reply["first_name"] . " " . $reply["last_name"];
         ?>
 
         <!-- Replies -->
         <div class="col-xs-12">
-            <div class="panel panel-primary" id="post-<?php echo $rows['reply_id'] ?>">
+            <div class="panel panel-primary" id="post-<?php echo $reply['id']; ?>">
                 <div class="panel-heading border-color-blue">
                     <h3 class="panel-title text-left">Geplaatst door: <b><a
                                     style="color: #fff; text-decoration: underline"
-                                    href="/user/<?php echo $rows["user_id"]; ?>"><?php echo $fullName; ?></a></b>
+                                    href="/user/<?php echo $reply["user_id"]; ?>"><?php echo $naam; ?></a></b>
                     </h3>
                     <?php if (in_array($current_level, $admin_levels)) : ?>
-                        <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/includes/tools/reply/del.php?id=<?php echo $rows['topic_id']; ?>" type="button" class="btn" name="button" style="color: #fff;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
+                        <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/includes/tools/reply/del.php?topic_id=<?php echo $_GET["id"]; ?>&id=<?php echo $reply['id']; ?>" type="button" class="btn" name="button" style="color: #fff;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body padding-padding ">
@@ -200,17 +192,17 @@ require_once("../../includes/components/nav.php");
                         </div>
 
                         <div class="col-md-10">
-                            <p><?php echo wordwrap($rows['reply_content'], 70, "<br>", true); ?></p>
+                            <p><?php echo wordwrap($reply["content"], 70, "<br>", true); ?></p>
                         </div>
 
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <b>Geplaatst op </b><?php echo $rows['created_at']; ?>
+                    <b>Geplaatst op </b><?php echo $reply['last_changed']; ?>
 
                     <div class="pull-right">
 
-                        <button class="btn btn-primary quote-btn" data-id="<?php echo $rows['id']; ?>">
+                        <button class="btn btn-primary quote-btn" data-id="<?php echo $reply['id']; ?>">
                             Quote deze post
                         </button>
                     </div>
@@ -246,7 +238,7 @@ require_once("../../includes/components/nav.php");
                     </li>
                     <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
                         <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>><a
-                                    href="/forum/post/<?php echo $rows[0]['topic_id']; ?>/<?php echo $x; ?>"><?php echo $x; ?></a>
+                                    href="/forum/post/<?php echo $rows['topic_id']; ?>/<?php echo $x; ?>"><?php echo $x; ?></a>
                         </li>
                     <?php endfor; ?>
                     <li>
