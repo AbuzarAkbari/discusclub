@@ -48,7 +48,7 @@ require_once("../../includes/tools/security.php");
             </div>
                 <div class="panel panel-primary ">
                     <div class="panel-heading border-colors">IP Lijst</div>
-                    <div class="panel-body padding-padding re">
+                    <div class="panel-body padding-padding table-responsive">
                         <table>
                             <tr>
                                 <th>Gebruiker</th>
