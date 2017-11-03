@@ -60,7 +60,14 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
                 <div id="userTable" class="otherTab flexcroll">
                     <?php
-                    $sth = $dbc->prepare("SELECT DISTINCT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE (m.user_id_1 = :id OR m.user_id_2 = :id) AND u.first_name LIKE :search AND u.last_name LIKE :search AND u.username LIKE :search GROUP BY u.id ORDER BY m.created_at ASC");
+                    var_dump($_GET["user_search"]);
+                    if(isset($_GET["user_search"])) {
+                        echo  0;
+                        $sth = $dbc->prepare("SELECT DISTINCT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE (m.user_id_1 = :id OR m.user_id_2 = :id) AND u.first_name LIKE :search AND u.last_name LIKE :search AND u.username LIKE :search GROUP BY u.id ORDER BY m.created_at ASC");
+                    } else {
+                        echo  1;
+                        $sth = $dbc->prepare("SELECT DISTINCT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE m.user_id_1 = :id OR m.user_id_2 = :id GROUP BY u.id ORDER BY m.created_at ASC");
+                    }
                     $sth->execute([":id" => $_SESSION["user"]->id, ":search" => isset($_GET["user_search"]) ? "%" . $_GET["user_search"] . "%" : "%"]);
                     $res = $sth->fetchAll(PDO::FETCH_OBJ);
                     $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
@@ -86,13 +93,13 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                     <?php endforeach; ?>
                 </div>
                 <form class="" action="" method="post">
-                <div class="searchUser">
-                    <div class="input-group inputWidth">
-                      <input type="text" class="form-control" name="userSearch" placeholder="" >
-                      <!-- <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span> -->
+                    <div class="searchUser">
+                        <div class="input-group inputWidth">
+                        <input type="text" class="form-control" name="userSearch" placeholder="" >
+                        <!-- <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span> -->
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
             </div>
             <?php
             $sth = $dbc->prepare("SELECT * FROM message as m JOIN user as u ON m.user_id_2 = u.id WHERE m.user_id_2 = :id");
