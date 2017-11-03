@@ -14,6 +14,19 @@ if(isset($_POST['sponsorverzend'])) {
         $uploadOk = 1;
 		$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
+        // image height width checken eeey
+
+        $image_info = getimagesize($sponsor_file["tmp_name"]);
+        $image_width = $image_info[0];
+        $image_height = $image_info[1];
+
+        if ($image_width > 468 || $image_height > 60){
+            echo "nice";
+        }else {
+            echo 'image isnt the right size (468x60)';
+            unlink($sponsor_file["tmp_name"]);
+        }
+
         // Check if image file is a actual image or fake image
         $check = getimagesize($sponsor_file["tmp_name"]);
         if ($check !== false) {
