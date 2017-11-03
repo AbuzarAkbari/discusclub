@@ -50,10 +50,10 @@
           <div class="panel-body">
               <form action="/includes/tools/verwerk" method="post">
                 <label for="fname">Naam</label>
-                <input type="text" class="form-control" name="naam" placeholder="Uw naam">
+                <input id="fname" type="text" class="form-control" name="naam" placeholder="Uw naam">
                 <br>
-                <label for="lname">E-mail</label>
-                <input type="text" class="form-control" name="email" placeholder="Uw e-mail">
+                <label for="email">E-mail</label>
+                <input id="email" type="text" class="form-control" name="email" placeholder="Uw e-mail">
                 <br>
                 <label for="subject">Bericht</label>
                 <textarea id="subject" name="bericht" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;"></textarea>
