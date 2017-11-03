@@ -32,6 +32,7 @@
         require_once("../includes/components/nav.php");
     ?>
     </div>
+    <br>
     <div class="container main">
         <div class="row">
             <br>

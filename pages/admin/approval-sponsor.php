@@ -52,9 +52,9 @@ require_once("../../includes/tools/security.php"); ?>
                             <tr>
                                 <th>Naam</th>
                                 <th>Url</th>
-                                <th>Inschrijf datum</th>
+                                <th>Inschrijfdatum</th>
                                 <th>Banner</th>
-                                <th>Admin tools</th>
+                                <th>Tools</th>
                             </tr>
                             <?php
                                 $sql = "SELECT *, sponsor.id FROM sponsor JOIN image ON sponsor.image_id = image.id ORDER BY approved";
