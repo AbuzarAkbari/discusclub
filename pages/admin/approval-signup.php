@@ -50,16 +50,16 @@
                             <tr>
                                 <th>Naam</th>
                                 <th>IP Adres</th>
-                                <th>Ibannummer</th>
+                                <th>Rekeningnummer</th>
                                 <th>Telefoonnummer</th>
                                 <th>Postcode</th>
                                 <th>Adres</th>
-                                <th>Geboortedatum</th>
+                                <!-- <th>Geboortedatum</th> -->
                                 <th>Stad</th>
                                 <th>Tools</th>
                             </tr>
                             <?php
-                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM ip LEFT JOIN user ON ip.user_id = user.id";
+                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM user LEFT JOIN ip ON ip.user_id = user.id";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -86,9 +86,9 @@
                                     <td><?php
                                      echo $ip['address'],$ip['house_number'];
                                     ?></td>
-                                    <td><?php
-                                     echo $ip['birthdate'];
-                                    ?></td>
+                                    <!-- <td><?php
+                                    // echo $ip['birthdate'];
+                                    ?></td> -->
                                     <td><?php
                                      echo $ip['city'];
                                     ?></td>
