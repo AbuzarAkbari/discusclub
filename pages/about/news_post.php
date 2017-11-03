@@ -105,19 +105,13 @@ require_once("../../includes/components/nav.php");
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title text-left"><?php echo $row['title']; ?></h3>
-
-                    <div class="pull-right">
-                        <input type="submit" class="btn btn-primary" name="send" value="Favoriete">
-                        <input type="submit" class="btn btn-primary" name="send" value="Button 1">
-                        <input type="submit" class="btn btn-primary" name="send" value="Button 2">
-                    </div>
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="panel-body">
                     <div class="col-md-12">
                         <div class="col-md-2">
-                            <img src='http://via.placeholder.com/130x130' alt="">
+                            <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
                         </div>
                         <div class="col-md-10">
                             <p><?php echo html_entity_decode($row['content']); ?></p>
@@ -204,7 +198,7 @@ require_once("../../includes/components/nav.php");
                     <div class="panel-body">
                         <div class="wrapper-box col-md-12">
                             <div class="col-md-2">
-                                <img src='http://via.placeholder.com/130x130' alt="x">
+                                <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
                             </div>
 
                             <div class="col-md-10">

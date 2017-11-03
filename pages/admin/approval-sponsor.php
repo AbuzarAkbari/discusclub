@@ -1,6 +1,11 @@
 <?php
 $levels= [];
-require_once("../../includes/tools/security.php"); ?>
+require_once("../../includes/tools/security.php");
+if(isset($_GET["id"]) && isset($_GET["new"])) {
+    $sth = $dbc->prepare("UPDATE sponsor SET approved = :new WHERE id = :id");
+    $sth->execute([":id" => $_GET["id"], ":new" => $_GET["new"]]);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,21 +91,21 @@ require_once("../../includes/tools/security.php"); ?>
                                         <img class="sponsor_vak" src="<?php echo $sponsor['path'];?>" alt="">
                                     </td>
                                     <td>
-                                    <a title="Blokeer" href="/includes/tools/approval/update?id=<?php echo $sponsor["id"]; ?>&new=2" class="btn btn-danger" name="button">
-                                         <i class="glyphicon glyphicon-remove"></i></a>
-                                    <a title="Deblokeer" href="/includes/tools/approval/update?id=<?php echo $sponsor["id"]; ?>&new=1" class="btn btn-success" name="button">
-                                     <i class="glyphicon glyphicon-ok"></i></a>
-                                 </td>
+                                        <a title="Blokeer" href="<?php echo  "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=2" class="btn btn-danger" name="button">
+                                             <i class="glyphicon glyphicon-remove"></i></a>
+                                        <a title="Deblokeer" href="<?php echo "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=1" class="btn btn-success" name="button">
+                                         <i class="glyphicon glyphicon-ok"></i></a>
+                                    </td>
                                  <td>  <?php
                                  switch ($sponsor['approved']) {
                                      case 0:
-                                     echo "<span class='glyphicon glyphicon-eye-open'></span>";
+                                     echo "<button class='btn btn-primary'><span class='glyphicon glyphicon-eye-open'></span></button>";
                                      break;
                                      case 1:
-                                     echo "<span class='glyphicon glyphicon-ok'></span>";
+                                     echo "<button class='btn btn-success'><span class='glyphicon glyphicon-ok btn-success'></span></button>";
                                      break;
                                      case 2:
-                                     echo "<span class='glyphicon glyphicon-remove'></span>";
+                                     echo "<button class='btn btn-danger'><span class='glyphicon glyphicon-remove '></span></button>";
                                      break;
                                  }?>
                                 </td>

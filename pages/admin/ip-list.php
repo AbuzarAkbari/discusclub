@@ -77,9 +77,12 @@ require_once("../../includes/tools/security.php");
                                      echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
                                     ?></td>
                                     <td>
-                                    <a title="Blokeer" href="" type="button" class="btn btn-danger" name="button"><i class="glyphicon glyphicon-remove"></i></a>
-                                    <a title="Deblokeer" href="" type="button" class="btn btn-success" name="button"><i class="glyphicon glyphicon-ok"></i></a></td>
-                                </tr>
+                                    <a title="Blokeer" href="/includes/tools/ipBlock?ip=<?php echo $ip["ip_address"]; ?>&blocked=1" class="btn btn-danger" name="button">
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </a>
+                                    <a title="Deblokeer" href="/includes/tools/ipBlock?ip=<?php echo $ip["ip_address"]; ?>&blocked=0" class="btn btn-success" name="button">
+                                         <i class="glyphicon glyphicon-ok"></i>
+                                    </a>
                             <?php
                             endforeach;
                             ?>

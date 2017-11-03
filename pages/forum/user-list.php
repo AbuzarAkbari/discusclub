@@ -35,7 +35,6 @@ require_once("../../includes/tools/security.php");
     <?php
         require_once("../../includes/components/nav.php");
     ?>
-<br>
     <div class="container main">
         <div class="row columns">
             <div class="col-md-12">
