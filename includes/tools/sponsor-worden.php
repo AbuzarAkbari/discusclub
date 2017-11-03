@@ -14,6 +14,9 @@ if(isset($_POST['sponsorverzend'])) {
         $uploadOk = 1;
 		$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
+
+
+
         // Check if image file is a actual image or fake image
         $check = getimagesize($sponsor_file["tmp_name"]);
         if ($check !== false) {
@@ -22,6 +25,17 @@ if(isset($_POST['sponsorverzend'])) {
             echo "File is not an image.";
             $uploadOk = 0;
 		}
+
+        // image height width checken eeey
+        $check = $check[0];
+        $check = $check[1];
+
+        if ($check > 468 || $check > 60){
+            echo "nice";
+        }else {
+            echo 'image isnt the right size (468x60)';
+            unlink($sponsor_file["tmp_name"]);
+        }
 
         // Check if file already exists
         if (file_exists($target_file)) {
@@ -77,10 +91,9 @@ if(isset($_POST['sponsorverzend'])) {
                 exit();
             }
         }
+        header('Location: /sponsor/become');
+
     }
 
 
-
 }
-
-header('Location: /sponsor/become');
