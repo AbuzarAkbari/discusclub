@@ -80,17 +80,17 @@
                         <?php } ?>
                     </li>
                     <li><a href='/contact'>Contact</a></li>
-                    <li class='dropdown'>
-                        <a href='/admin' class='dropdown-toggle'>Admin</a>
-                        <?php if ($logged_in) { ?>
-                            <ul class='dropdown-menu'>
-                                <li><a href='/admin/ip-list'>IP Lijst</a></li>
-                                <li><a href='/admin/user-list'>Ledenlijst</a></li>
-                                <li><a href='/admin/approval-signup'>Inschrijvingen</a></li>
-                                <li><a href='/admin/approval-sponsor'>Sponsoren</a></li>
-                            </ul>
-                        <?php } ?>
-                    </li>
+                    <?php if ($logged_in && in_array($current_level, $admin_levels)) { ?>
+                        <li class='dropdown'>
+                            <a href='/admin' class='dropdown-toggle'>Admin</a>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/admin/ip-list'>IP Lijst</a></li>
+                                    <li><a href='/admin/user-list'>Ledenlijst</a></li>
+                                    <li><a href='/admin/approval-signup'>Inschrijvingen</a></li>
+                                    <li><a href='/admin/approval-sponsor'>Sponsoren</a></li>
+                                </ul>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
