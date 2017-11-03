@@ -98,7 +98,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?php echo $results3[0]['aantal_topics']; ?></td>
                                 <td><?php echo $berichten['x'] + $topic_x['x']; ?></td>
                                 <?php
-                                    $laasteberichtSql = "SELECT *, r.created_at as reply_created_at, t.created_at as topic_created_at, r.user_id as reply_user_id, t.user_id as topic_user_id, u.first_name as reply_first_name, u.last_name as reply_last_name, u2.first_name as topic_first_name, u2.last_name as topic_last_name FROM reply as r JOIN topic as t ON r.topic_id = t.id JOIN user as u ON u.id = r.user_id JOIN user as u2 ON u2.id = t.user_id WHERE t.sub_category_id = :sub_id ORDER BY r.created_at, t.created_at DESC LIMIT 1";
+                                    $laasteberichtSql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name FROM topic AS t LEFT JOIN reply AS r ON r.topic_id = t.id LEFT JOIN user AS u ON u.id = r.user_id LEFT JOIN user AS u2 ON u2.id = t.user_id WHERE t.sub_category_id = :sub_id ORDER BY r.last_changed, t.last_changed DESC LIMIT 1";
                                     $laasteberichtResult = $dbc->prepare($laasteberichtSql);
                                     $laasteberichtResult->execute([":sub_id" => $subCat["id"]]);
 
@@ -106,7 +106,7 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
                                 if ($laatsteBericht) : ?>
                                         <td>
-                                            <?php echo isset($laatsteBericht["reply_created_at"]) ? $laatsteBericht["reply_created_at"] : $laatsteBericht["topic_created_at"]; ?>,
+                                            <?php echo isset($laatsteBericht["reply_last_changed"]) ? $laatsteBericht["reply_last_changed"] : $laatsteBericht["topic_last_changed"]; ?>,
                                             <br>Door <a href="/user/<?php echo isset($laatsteBericht["reply_user_id"]) ? $laatsteBericht["reply_user_id"] : $laatsteBericht["topic_user_id"]; ?>">
                                                 <?php echo isset($laatsteBericht["reply_first_name"]) ? $laatsteBericht["reply_first_name"] . " " . $laatsteBericht["reply_last_name"] : $laatsteBericht["topic_first_name"] . " " . $laatsteBericht["topic_last_name"] ?>
                                             </a>
@@ -114,13 +114,6 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                     <?php else : ?>
                                         <td>Niks gevonden</td>
                                 <?php endif; ?>
-
-                                <?php
-//                                if (isset($laatsteBericht[0])): ?>
-<!--                                    <td>--><?php //echo $laatsteBericht[0]['created_at']; ?><!--, <br> Door <a href="#">--><?php //echo $laatsteBericht[0]['first_name'].' '.$laatsteBericht[0]['last_name']; ?><!--</a></td>-->
-<!--                                --><?php //else: ?>
-<!--                                    <td>Er zijn nog geen topics toegevoegd, bent u de eerste?</td>-->
-<!--                                --><?php //endif; ?>
 
                             </tr>
                         <?php endforeach; ?>
