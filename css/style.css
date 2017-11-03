@@ -538,3 +538,7 @@ li.dropdown:hover > .dropdown-menu {
     background-position: center;
     margin: 5px;
 }
+
+.padding{
+    padding: 3px;
+}

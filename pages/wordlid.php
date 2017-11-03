@@ -75,6 +75,9 @@
                     </p>
                 </div>
             </div>
+            <?php if(!$logged_in): ?>
+                <div class="message warning"><a href="/user/login">Login</a> om verder te gaan.</div>
+            <?php endif; ?>
             <?php if($logged_in): ?>
             <div class="panel panel-primary">
                 <div class="panel-heading panel-heading1">
