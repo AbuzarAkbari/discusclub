@@ -9,7 +9,7 @@ if(isset($_POST['send'])) {
     $afbeelding = str_replace(' ', '', $afbeelding);
 
     $sth = $dbc->prepare("INSERT INTO image(path) VALUES (:afbeelding)");
-    $sth->execute([":afbeelding" => $afbeelding]);
+    $sth->execute([":afbeelding" => "/images/sponsor/$afbeelding"]);
     $image_id = $dbc->lastInsertId();
 
     $sth = $dbc->prepare("INSERT INTO sponsor(image_id, name, url, option) VALUES (:afbeelding, :bedrijf, :url, :opties)");
