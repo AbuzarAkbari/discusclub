@@ -181,7 +181,7 @@ if($user_data == false){
                 <div class="col-md-12">
                     <div class="panel panel-primary border-color-blues">
                         <div class="panel-heading border-color-blue">Albums</div>
-                        <div class="panel-body text-left">
+                        <div class="panel-body text-center">
                             <?php
                     $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at LIMIT 8";
                     $albumResult = $dbc->prepare($albumSql);
@@ -190,7 +190,7 @@ if($user_data == false){
                     $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                             <?php foreach($albums as $album): ?>
-                                <a href="/album/<?php echo $album['album_id']; ?>"><img src="/images/album/<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" height="150" width="150"></a>
+                                <a href="/album/<?php echo $album['album_id']; ?>"><img src="/images/album/<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
                             <?php endforeach; ?>
                         </div>
                     </div>

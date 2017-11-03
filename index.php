@@ -64,7 +64,6 @@
                         <br><br>
                     </div>
                     <br><br>
-
                     <div class="">
 
                         <div class="col-md-6">
@@ -115,7 +114,7 @@
                                             foreach($res as $key => $value) : ?>
                                             <div class=" col-md-12 verticalLine">
                                                 <p><b><?php echo  $value['title']; ?></b></p>
-                                                <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : $value["content"]; 
+                                                <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : $value["content"];
                                                  ?>
                                                 <br><br>
                                                 <a href="/about/news/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>

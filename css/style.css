@@ -96,7 +96,8 @@ hr {
 .thumbnail > img {
     display: block;
     width: 100% !important;
-    height: 55vh !important;
+    height: 60vh !important;
+    object-fit: cover;
 }
 
 .footer-name {
@@ -536,4 +537,8 @@ li.dropdown:hover > .dropdown-menu {
     background-size: cover;
     background-position: center;
     margin: 5px;
+}
+
+.padding{
+    padding: 3px;
 }

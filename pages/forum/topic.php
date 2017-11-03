@@ -57,12 +57,12 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
                         if($results2){
-                            $sql = "SELECT *, topic.id FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id = 3 AND topic.deleted_at IS NULL";
+                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id = 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"]]);
                             $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                            $sql = "SELECT *, topic.id FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL";
+                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"]]);
                             $results3 = array_merge($results3, $result->fetchAll(PDO::FETCH_ASSOC));
@@ -141,12 +141,14 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                     <td><a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                     <td><?php echo $x_berichten; ?></td>
                                     <td><?php echo $x[0]['x']; ?></td>
-                                    <td><?php echo $user['last_changed']; ?>, <br> Door <a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                    <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                     <?php else : ?>
                                     <td><a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
                                     <td><?php echo $x_berichten; ?></td>
                                     <td><?php echo $x[0]['x']; ?></td>
-                                    <td><?php echo $topic['last_changed']; ?>, <br> Door <a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
+                                    <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
+
+
                                     <?php endif;if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
                                     <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
