@@ -57,7 +57,8 @@ require_once("../../includes/tools/security.php"); ?>
                                 <th>Admin tools</th>
                             </tr>
                             <?php
-                                $sql = "SELECT *, sponsor.id FROM sponsor JOIN image ON sponsor.image_id = image.id WHERE approved = 0";
+                                $sql = "SELECT *, sponsor.id FROM sponsor JOIN image ON sponsor.image_id = image.id ORDER BY approved";
+                                // WHERE approved = 0
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
