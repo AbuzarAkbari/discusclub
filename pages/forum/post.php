@@ -18,6 +18,21 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
 
 $fullName = $rows['first_name'].' '.$rows['last_name'];
 
+if($rows) {
+
+    $subcat_id = $rows['sub_category_id'];
+    $subSql = "SELECT * FROM sub_category WHERE id = ?";
+    $subResult = $dbc->prepare($subSql);
+    $subResult->bindParam(1, $subcat_id);
+    $subResult->execute();
+    $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "INSERT INTO view (topic_id, ip_id) VALUES (:id, :ip_id)";
+    $result = $dbc->prepare($sql);
+    $result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
+
+}
+
 //Antwoord toevoegen
 require_once("../../includes/tools/berichtParse.php");
 ?>
