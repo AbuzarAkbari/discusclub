@@ -57,11 +57,14 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
                         if($results2){
-                            $sql = "SELECT * FROM topic WHERE sub_category_id = ? AND topic.deleted_at IS NULL";
+                            $sql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name FROM topic as t JOIN reply as r ON r.topic_id = t.id JOIN user as u ON u.id = r.user_id JOIN user as u2 ON u2.id = t.user_id WHERE t.sub_category_id = 1 AND t.deleted_at IS NULL AND t.state_id = 3 ORDER BY r.last_changed DESC, t.last_changed DESC";
                             $result = $dbc->prepare($sql);
-                            $result->bindParam(1, $_GET['id']);
-                            $result->execute();
+                            $result->execute([":id" => $_GET["id"]]);
                             $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
+                            $sql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name FROM topic as t JOIN reply as r ON r.topic_id = t.id JOIN user as u ON u.id = r.user_id JOIN user as u2 ON u2.id = t.user_id WHERE t.sub_category_id = 1 AND t.deleted_at IS NULL AND t.state_id <> 3 ORDER BY r.last_changed DESC, t.last_changed DESC";
+                            $result = $dbc->prepare($sql);
+                            $result->execute([":id" => $_GET["id"]]);
+                            $results3 = array_merge($results3, $result->fetchAll(PDO::FETCH_ASSOC));
                         }
                     ?>
                     <br><br>
