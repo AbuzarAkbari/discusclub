@@ -1,6 +1,11 @@
 <?php
 $levels= [];
-require_once("../../includes/tools/security.php"); ?>
+require_once("../../includes/tools/security.php");
+if(isset($_GET["id"]) && isset($_GET["new"])) {
+    $sth = $dbc->prepare("UPDATE sponsor SET approved = :new WHERE id = :id");
+    $sth->execute([":id" => $_GET["id"], ":new" => $_GET["new"]]);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,9 +91,9 @@ require_once("../../includes/tools/security.php"); ?>
                                         <img class="sponsor_vak" src="<?php echo $sponsor['path'];?>" alt="">
                                     </td>
                                     <td>
-                                        <a title="Blokeer" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=1" class="btn btn-danger" name="button">
+                                        <a title="Blokeer" href="<?php echo  "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=2" class="btn btn-danger" name="button">
                                              <i class="glyphicon glyphicon-remove"></i></a>
-                                        <a title="Deblokeer" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=2" class="btn btn-success" name="button">
+                                        <a title="Deblokeer" href="<?php echo "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=1" class="btn btn-success" name="button">
                                          <i class="glyphicon glyphicon-ok"></i></a>
                                     </td>
                                  <td>  <?php

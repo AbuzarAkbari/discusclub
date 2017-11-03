@@ -85,13 +85,14 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
-
+                <form class="" action="" method="post">
                 <div class="searchUser">
                     <div class="input-group inputWidth">
-                      <input type="text" class="form-control" name="userSearch" placeholder="" aria-describedby="basic-addon1">
+                      <input type="text" class="form-control" name="userSearch" placeholder="" >
                       <!-- <span class="input-group-btn " id="basic-addon1"><button class="btn btn-secondary buttonHeight" type="button"><i class="glyphicon glyphicon-plus icon "></i></button></span> -->
                     </div>
                 </div>
+            </form>
             </div>
             <?php
             $sth = $dbc->prepare("SELECT * FROM message as m JOIN user as u ON m.user_id_2 = u.id WHERE m.user_id_2 = :id");
@@ -153,7 +154,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div> -->
                 </div>
                 <div class="searchUser">
-                    <form id="search" class="inputWidth" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
+                    <form class="inputWidth" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
                       <!-- <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
                       <span class="input-group-btn " id="basic-addon1">
                         <button class="btn btn-secondary buttonHeight" type="button">
