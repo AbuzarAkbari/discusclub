@@ -135,9 +135,9 @@ require_once("../../includes/components/nav.php");
                         $favorite = $sth->fetch(PDO::FETCH_ASSOC);
                         ?>
                         <?php if($favorite) : ?>
-                            <a href="/includes/tools/user-un-favorite?id=1" class="glyphicon glyphicon-star GlyphSize " style="text-decoration: none; color: gold;"></a>
+                            <a href="/includes/tools/user-un-favorite?id=<?php echo $_GET['id']; ?>" class="glyphicon glyphicon-star GlyphSize " style="text-decoration: none; color: gold;"></a>
                         <?php else :?>
-                            <a href="/includes/tools/user-favorite?id=1" class="glyphicon glyphicon-star-empty GlyphSize " style="text-decoration: none; color: gold;"></a>
+                            <a href="/includes/tools/user-favorite?id=<?php echo $_GET['id']; ?>" class="glyphicon glyphicon-star-empty GlyphSize " style="text-decoration: none; color: gold;"></a>
                         <?php endif; ?>
                     </div>
                 </div>
