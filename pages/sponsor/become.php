@@ -179,7 +179,7 @@
                             <h3 class="panel-title">Schijf je in als sponsor!</h3>
                         </div>
                         <div class="panel-body">
-                            <form class="" action="#" method="post">
+                            <form class="" action="/includes/tools/sponsor-worden" method="post">
                                 <input required class="form-control" type="text" name="naam" placeholder="Naam van uw bedrijf"><br>
                                 <input required class="form-control" type="file" accept="" name="afbeelding" placeholder="Afbeelding toevoegen"><br>
                                 <input required class="form-control" type="text" name="url" placeholder="Url"><br>

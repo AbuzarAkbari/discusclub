@@ -55,6 +55,7 @@ require_once("../../includes/tools/security.php"); ?>
                                 <th>Inschrijfdatum</th>
                                 <th>Banner</th>
                                 <th>Tools</th>
+                                <th>Geaccepteerd</th>
                             </tr>
                             <?php
                                 $sql = "SELECT *, sponsor.id FROM sponsor JOIN image ON sponsor.image_id = image.id ORDER BY approved";
@@ -90,6 +91,19 @@ require_once("../../includes/tools/security.php"); ?>
                                     <a title="Deblokeer" href="/includes/tools/approval/update?id=<?php echo $sponsor["id"]; ?>&new=1" class="btn btn-success" name="button">
                                      <i class="glyphicon glyphicon-ok"></i></a>
                                  </td>
+                                 <td>  <?php
+                                 switch ($sponsor['approved']) {
+                                     case 0:
+                                     echo "<span class='glyphicon glyphicon-eye-open'></span>";
+                                     break;
+                                     case 1:
+                                     echo "<span class='glyphicon glyphicon-ok'></span>";
+                                     break;
+                                     case 2:
+                                     echo "<span class='glyphicon glyphicon-remove'></span>";
+                                     break;
+                                 }?>
+                                </td>
                                 </tr>
                             <?php
                             endforeach;
