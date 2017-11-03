@@ -81,20 +81,20 @@
                     <h4>Inschrijfformulier</h4></div>
                 <div class="panel-body">
                     <form class="" action="/includes/tools/wordlidInsert.php" method="post">
-                        <label for="">Adres *</label>
+                        <label for="adres">Adres *</label>
                         <div class="input-group">
-                            <input type="text" name="adres" class="form-control" placeholder="Adres"/>
+                            <input id="adres" type="text" name="adres" class="form-control" placeholder="Adres"/>
                             <span class="input-group-addon"></span>
                             <input type="text" name="huisnummer" class="form-control" placeholder="Huisnummer"/>
                         </div><br>
-                        <label for="">Postcode *</label>
-                        <input class="form-control" required type="text" name="postcode" value="" placeholder="Postcode "><br>
-                        <label for="">Stad *</label>
-                        <input class="form-control" required type="text" name="stad" value="" placeholder="Stad "><br>
-                        <label for="">Telefoonnummer *</label>
-                        <input class="form-control" required type="tel" name="telefoonnummer" value="" placeholder="Telefoonnummer "><br>
-                        <label for="">Rekeningnummer *</label>
-                        <input class="form-control" required type="text" name="rekeningnummer" value="" placeholder="Rekeningnummer "><br>
+                        <label for="postcode">Postcode *</label>
+                        <input id="postcode" class="form-control" required type="text" name="postcode" value="" placeholder="Postcode "><br>
+                        <label for="stad">Stad *</label>
+                        <input id="stad" class="form-control" required type="text" name="stad" value="" placeholder="Stad "><br>
+                        <label for="telefoonnummer">Telefoonnummer *</label>
+                        <input id="telefoonnummer" class="form-control" required type="tel" name="telefoonnummer" value="" placeholder="Telefoonnummer "><br>
+                        <label for="rekeningnummer">Rekeningnummer *</label>
+                        <input id="rekeningnummer" class="form-control" required type="text" name="rekeningnummer" value="" placeholder="Rekeningnummer "><br>
                         <input type="submit" class="btn btn-primary" name="send" value="Verzend">
                     </form>
                 </div>
