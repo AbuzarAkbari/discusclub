@@ -179,9 +179,6 @@
         }
 
 
-<<<<<<< HEAD
-        ?>
-=======
             ?>
             <div class="col-xs-12">
                 <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
@@ -206,7 +203,6 @@
                                     <br><b>Lid sinds: </b> <?php echo $row['user_created_at']; ?><br><br>
                                     </div>
                             </div>
->>>>>>> 1c2dc5411a13070fa3e854b54535a9cccf0c537a
 
         <!-- Replies -->
         <div class="col-xs-12">
