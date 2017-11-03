@@ -76,7 +76,7 @@
                 </div>
             </div>
             <?php if(!$logged_in): ?>
-                <div class="message warning"><a href="/user/login">Login</a> om verder te gaan.</div>
+                <div class="message warning"><a href="/user/login?redirect=<?php echo $_SERVER['REQUEST_URI']; ?>">Login</a> om verder te gaan.</div>
             <?php endif; ?>
             <?php if($logged_in): ?>
             <div class="panel panel-primary">

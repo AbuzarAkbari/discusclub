@@ -12,8 +12,6 @@ topic
 
 bericht
   - maken
-  - verwijderen
-  - wijzigen
   - bekijken
 
 ip
