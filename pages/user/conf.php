@@ -1,7 +1,7 @@
 <?php
 require_once("../../includes/tools/security.php");
 
-if (isset($_GET["id"])) {
+if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
     $sth = $dbc->prepare("SELECT u.id, u.email, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.city, i.path as profile_img, u.profile_img as profile_img_ida, news FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.id = :id");
     $sth->execute([":id" => $_GET["id"]]);
 
