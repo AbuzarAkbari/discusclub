@@ -2,13 +2,13 @@ actieve, nieuwe en favoriete topics nakijken en alles goed zetten
 
 pagination toevoegen: about/news, about/news/post-news, topics, actieve-favoriete-nieuwe topics, album, album/view, alles op admin  (achter elke query offset en limit)
 
-forum/post/ : op replies user info van user die reply gdn heeft
-
 about/news/view, album/view : alles checken en toevoegen (zelfde dingen moeten daar kunnen als op forum)
 
 
-
 wachtwoord aanpassen
-signature standaard: Geen handtekening(lichtere kleur)
+
+signature standaard tekst (als user geen signature invult): Geen handtekening(lichtere kleur)
 
 Berichtensysteem (Leon fixt het)
+
+
