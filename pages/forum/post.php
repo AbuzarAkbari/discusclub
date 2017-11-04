@@ -116,7 +116,11 @@ require_once("../../includes/components/nav.php");
                             <p><?php echo html_entity_decode($rows['topic_content']); ?></p>
                             <p>
                             <hr>
-                            <?php echo $rows['signature']; ?>
+                            <?php if($rows['signature'] != "") : ?>
+                                <?php echo $rows['signature']; ?>
+                            <?php else: ?>
+                                <span style="color: lightgray;">Geen handtekening</span>
+                            <?php endif; ?>
                             </p>
                         </div>
                     </div>
@@ -222,7 +226,11 @@ require_once("../../includes/components/nav.php");
                             <p><?php echo wordwrap($reply["content"], 70, "<br>", true); ?></p>
                             <p>
                                 <hr>
+                                <?php if($reply['signature'] != "") : ?>
                                 <?php echo $reply['signature']; ?>
+                                <?php else: ?>
+                                    <span style="color: lightgray;">Geen handtekening</span>
+                                <?php endif; ?>
                             </p>
                         </div>
                     </div>

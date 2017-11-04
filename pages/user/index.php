@@ -84,7 +84,11 @@ if($user_data == false){
                             </div>
                             <div class="col-md-12">
                                 <strong>Locatie</strong><br>
-                                <?php echo isset($user_data->city) ? $user_data->city : "Onbekend"; ?><br>
+                                <?php if($user_data->city != "") : ?>
+                                    <?php echo $user_data->city; ?>
+                                <?php else: ?>
+                                    <span style="color: lightgray;">Geen locatie bekend</span>
+                                <?php endif; ?><br>
                                 <strong>Leeftijd</strong><br>
                                 <?php $leeftijd = date_diff(date_create(date('Y-m-d')), date_create($user_data->birthdate))->format('%y');  ?>
                                 <?php echo isset($user_data->birthdate) ? $leeftijd : "Onbekend"; ?><br>
@@ -93,7 +97,11 @@ if($user_data == false){
                                 <strong>Geregistreerd</strong><br>
                                 <?php echo isset($user_data->created_at) ? $user_data->created_at : "Onbekend"; ?><br>
                                 <strong>Forum handtekening</strong><br>
-                                <?php echo isset($user_data->signature) ? $user_data->signature : ""; ?><br>
+                                <?php if($user_data->signature != "") : ?>
+                                    <?php echo $user_data->signature; ?>
+                                <?php else: ?>
+                                    <span style="color: lightgray;">Geen handtekening</span>
+                                <?php endif; ?><br>
                             </div>
                         </div>
                     </div>
