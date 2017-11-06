@@ -432,6 +432,7 @@ li.dropdown:hover > .dropdown-menu {
     margin: 5px;
 }
 
+
 /*dit is het deel wat kaan heeft gedaan.. indien het alles opfockt haal het weg :)*/
 
 .album-ruimte {
@@ -549,6 +550,6 @@ li.dropdown:hover > .dropdown-menu {
     margin: 0 auto;
 }
 
-.danger {
-    background: red;
-    width: 100%;
+.profile_img {
+    margin-bottom: 25px !important;
+}

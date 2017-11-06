@@ -80,7 +80,7 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue"><?php echo $user_data->first_name.' '.$user_data->last_name; ?></div>
                         <div class="panel-body text-left">
                             <div class="text-center">
-                                <div style="background-image:url('/images<?php echo isset($user_data->profile_img) ? $user_data->profile_img : " "; ?>')"; class="img "></div>
+                                <div style="background-image:url('/images<?php echo isset($user_data->profile_img) ? $user_data->profile_img : " "; ?>')"; class="img profile_img"></div>
                             </div>
                             <div class="col-md-12">
                                 <strong>Locatie</strong><br>
@@ -189,7 +189,7 @@ if($user_data == false){
                 <div class="col-md-12">
                     <div class="panel panel-primary border-color-blues">
                         <div class="panel-heading border-color-blue">Albums</div>
-                        <div class="panel-body text-center">
+                        <div class="panel-body">
                             <?php
                     $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at LIMIT 8";
                     $albumResult = $dbc->prepare($albumSql);
