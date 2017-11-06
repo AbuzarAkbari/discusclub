@@ -24,9 +24,9 @@ INSERT INTO `image`(`path`) VALUES
 ('/sponsor/discusvistotaal.gif'),
 ('/messenger_background/default.jpg');
 
-INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
-('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5),
-('jane', 'doe', 'jane_doe@example.com', 'bla', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5);
+INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`, `created_at`) VALUES
+('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5, NOW()),
+('jane', 'doe', 'jane_doe@example.com', 'bla', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5, NOW());
 
 INSERT INTO `category` (`name`) VALUES
 ('Mededelingen en Nieuws'),
@@ -58,38 +58,38 @@ INSERT INTO `topic` (`sub_category_id`, `title`, `user_id`, `content`, `created_
 (1, 'Nieuw test topic', 1, '<p>fdsfsdfsdfsdfgsdfsd</p>', '2017-10-18 12:44:06', '2017-10-18 12:44:06'),
 (1, 'een nieuw test topic', 1, '<p><i>sdujfnsdipfpoakfdnfjksdnf</i></p>', '2017-10-18 12:44:42', '2017-10-18 12:44:42');
 
-INSERT INTO `album`(`title`, `user_id`) VALUES
-('dinges', 1);
+INSERT INTO `album`(`title`, `user_id`, `created_at`) VALUES
+('dinges', 1, NOW());
 
-INSERT INTO `album_reply`(`content`, `user_id`, `album_id`) VALUES
-('geile fotos jonge', 2, 1);
+INSERT INTO `album_reply`(`content`, `user_id`, `album_id`, `created_at`) VALUES
+('geile fotos jonge', 2, 1, NOW());
 
 INSERT INTO `image`(`path`, `album_id`) VALUES
 ('/default.png', 1);
 
-INSERT INTO `message`(`message`, `user_id_1`, `user_id_2`) VALUES
-('bla', 1, 2),
-('dinges', 2, 1);
+INSERT INTO `message`(`message`, `user_id_1`, `user_id_2`, `created_at`) VALUES
+('bla', 1, 2, NOW()),
+('dinges', 2, 1, NOW());
 
-INSERT INTO `sponsor`(`image_id`, `name`, `url`) VALUES
-(2, 'eSHa Aquariumproducten', 'http://www.eshalabs.eu/nederlands/'),
-(3, 'discus mania', 'http://discusmania.nl/'),
-(4, 'hvp aqua', 'http://www.hvpaqua.nl/'),
-(5, 'aquaria veldhuis', 'https://www.aquariaveldhuis.nl/nl/'),
-(7, 'discus passie', 'http://www.discuspassie.nl/'),
-(8, 'discusshop', 'https://discusshop.nl/'),
-(9, 'jmd aqua light', 'http://www.jmbaqualight.nl/'),
-(10, 'rock zolid', 'http://www.rockzolid.nl/'),
-(11, 'osmose apparaat', 'https://www.osmoseapparaat.nl/'),
-(12, 'Wesdijk', 'https://www.wesdijk.nl/'),
-(13, 'koidream', 'https://www.koidream.com/'),
-(14, 'daphnia boxtel', 'http://www.daphniaboxtel.nl/'),
-(15, 'ruto', 'https://www.ruto.nl/'),
-(16, 'discus vis totaal', 'http://www.discusvistotaal.nl/'),
-(6, 'Discuscompleet', 'http://www.discuscompleet.nl/');
+INSERT INTO `sponsor`(`image_id`, `name`, `url`, `created_at`) VALUES
+(2, 'eSHa Aquariumproducten', 'http://www.eshalabs.eu/nederlands/', NOW()),
+(3, 'discus mania', 'http://discusmania.nl/', NOW()),
+(4, 'hvp aqua', 'http://www.hvpaqua.nl/', NOW()),
+(5, 'aquaria veldhuis', 'https://www.aquariaveldhuis.nl/nl/', NOW()),
+(7, 'discus passie', 'http://www.discuspassie.nl/', NOW()),
+(8, 'discusshop', 'https://discusshop.nl/', NOW()),
+(9, 'jmd aqua light', 'http://www.jmbaqualight.nl/', NOW()),
+(10, 'rock zolid', 'http://www.rockzolid.nl/', NOW()),
+(11, 'osmose apparaat', 'https://www.osmoseapparaat.nl/', NOW()),
+(12, 'Wesdijk', 'https://www.wesdijk.nl/', NOW()),
+(13, 'koidream', 'https://www.koidream.com/', NOW()),
+(14, 'daphnia boxtel', 'http://www.daphniaboxtel.nl/', NOW()),
+(15, 'ruto', 'https://www.ruto.nl/', NOW()),
+(16, 'discus vis totaal', 'http://www.discusvistotaal.nl/', NOW()),
+(6, 'Discuscompleet', 'http://www.discuscompleet.nl/', NOW());
 
-INSERT INTO `news`(`sub_category_id`, `title`, `content`) VALUES
-(1, 'dinges enzo', 'bla bla bla...');
+INSERT INTO `news`(`sub_category_id`, `title`, `content`, `created_at`) VALUES
+(1, 'dinges enzo', 'bla bla bla...', NOW());
 
-INSERT INTO `news_reply`(`user_id`, `news_id`, `content`) VALUES
-(1, 1, "reactie dinges enzo bla bla");
+INSERT INTO `news_reply`(`user_id`, `news_id`, `content`, `created_at`) VALUES
+(1, 1, "reactie dinges enzo bla bla", NOW());

@@ -10,7 +10,7 @@ if (isset($_POST['upload_album'])) {
     		$album_name = $_POST['album_name'];
 	        $id_poster = $_SESSION['user']->id;
     	if (isset($_FILES['files']) && $_FILES['files']['error'] !== 4) {
-	        $albumsql = "INSERT INTO album (title, user_id) VALUES (:title, :user_id)";
+	        $albumsql = "INSERT INTO album (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
             $album_result = $dbc->prepare($albumsql);
             // var_dump([':title' => $album_name, ':user_id' => $id_poster]);
             $album_result->execute([':title' => $album_name, ':user_id' => $id_poster]);

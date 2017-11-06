@@ -1,6 +1,6 @@
 <?php
 //Levels var
-$levels = ["lid"];
+$levels = ["lid", "gebruiker"];
 
 //Security
 require_once("../../includes/tools/security.php");
@@ -30,7 +30,7 @@ if($rows) {
     $subResult->execute();
     $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql = "INSERT INTO view (topic_id, ip_id) VALUES (:id, :ip_id)";
+    $sql = "INSERT INTO view (topic_id, ip_id, created_at) VALUES (:id, :ip_id, NOW())";
     $result = $dbc->prepare($sql);
     $result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
 

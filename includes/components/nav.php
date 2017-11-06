@@ -50,7 +50,6 @@
                         <a href='/about/' class='dropdown-toggle'>Over ons</a>
                         <ul class='dropdown-menu'>
                             <li><a href='/about/origin'>Ontstaan Discus Club Holland</a></li>
-                            <li><a href='/about/news'>Nieuws</a></li>
                         </ul>
                     </li>
                     <li class='dropdown'>
@@ -80,18 +79,25 @@
                         <?php } ?>
                     </li>
                     <li><a href='/contact'>Contact</a></li>
-                    <?php if ($logged_in && in_array($current_level, $admin_levels)) { ?>
+                    <?php if ($logged_in && in_array($current_level, $admin_levels)) {
+                        $sth = $dbc->prepare("SELECT count(*) as amount FROM sponsor WHERE approved = 0");
+                        $sth->execute([":id" => $_SESSION["user"]->id]);
+                        $sth1 = $dbc->prepare("SELECT count(*) as amount FROM approval_signup JOIN user on user.id = approval_signup.user_id");
+                        $sth1->execute([":id" => $_SESSION["user"]->id]);
+                         ?>
                         <li class='dropdown'>
                             <a href='/admin/' class='dropdown-toggle'>Admin</a>
                                 <ul class='dropdown-menu'>
                                     <li><a href='/admin/ip-list'>IP Lijst</a></li>
                                     <li><a href='/admin/user-list'>Ledenlijst</a></li>
-                                    <li><a href='/admin/approval-signup'>Inschrijvingen</a></li>
-                                    <li><a href='/admin/approval-sponsor'>Sponsoren</a></li>
+                                    <li><a href='/admin/approval-signup'>Inschrijvingen(<?php echo $sth1->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
+                                    <li><a href='/admin/approval-sponsor'>Sponsoren(<?php echo $sth->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
                                     <li><a href="/phpmyadmin">phpmyadmin</a></li>
                                 </ul>
                         </li>
+
                     <?php } ?>
+                    <li><a href='/news'>Nieuws</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>

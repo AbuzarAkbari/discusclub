@@ -70,8 +70,8 @@
                         $res = $sth->fetch(PDO::FETCH_OBJ);
 
                         if (empty($res)) {
-                            $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email) VALUES
-                                                                  (:first_name, :last_name, :username, :password, :email)");
+                            $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email, created_at) VALUES
+                                                                  (:first_name, :last_name, :username, :password, :email, NOW())");
 
                             $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
                                 ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"]]);
@@ -107,8 +107,9 @@
         $( "#datepicker" ).datepicker({
             changeMonth: true,
             changeYear: true,
-            yearRange: "-100:+0",
-            defaultDate: '01/01/1980'
+            yearRange: "-90:+0",
+            defaultDate: '01/01/1980',
+            dateFormat: 'dd-mm-yy'
         });
     } );
     $( function() {

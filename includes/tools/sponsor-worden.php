@@ -84,7 +84,7 @@ if(isset($_POST['sponsorverzend'])) {
                 $result = $dbc->prepare("INSERT INTO image (path) VALUES (:path)");
 				$result->execute([':path' => $path]);
 
-                $sth = $dbc->prepare("INSERT INTO sponsor(image_id, name, url, option) VALUES (:image_id, :name, :url, :option)");
+                $sth = $dbc->prepare("INSERT INTO sponsor(image_id, name, url, option, created_at) VALUES (:image_id, :name, :url, :option, NOW())");
                 $sth->execute([":image_id" => $dbc->lastInsertId(), ":name" => $bedrijf, ":url" => $url, ":option" => $opties]);
 			} else {
                 echo "Sorry, there was an error uploading your file.";

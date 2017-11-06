@@ -61,7 +61,7 @@
 
                         if($res) {
                             $token = md5(microtime (true)*100000);
-                            $sth = $dbc->prepare("INSERT INTO forgot(token, user_id) VALUES (:token, :user_id)");
+                            $sth = $dbc->prepare("INSERT INTO forgot(token, user_id, created_at) VALUES (:token, :user_id, NOW())");
                             echo "bla";
                             $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
 

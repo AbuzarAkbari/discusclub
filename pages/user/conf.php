@@ -109,6 +109,7 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
             changeYear: true,
             yearRange: "-100:+0",
             defaultDate: '01/01/1980'
+            dateFormat: 'dd-mm-yy'
         });
     } );
     $( function() {

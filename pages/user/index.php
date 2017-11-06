@@ -122,6 +122,34 @@ if($user_data == false){
                                 $replyResult->execute();
                                 $x_reply = $replyResult->fetch(PDO::FETCH_OBJ);
 
+                                //Get number of album from logged_in user
+                                $albumSql = "SELECT COUNT(id) AS a FROM album WHERE user_id = ?";
+                                $albumResult = $dbc->prepare($albumSql);
+                                $albumResult->bindParam(1, $user_data->id);
+                                $albumResult->execute();
+                                $x_album = $albumResult->fetch(PDO::FETCH_OBJ);
+
+                                // Get number of album reply from logged_in user
+                                $albumreplySql = "SELECT COUNT(id) AS ar FROM album_reply WHERE user_id = ?";
+                                $albumreplyResult = $dbc->prepare($albumreplySql);
+                                $albumreplyResult->bindParam(1, $user_data->id);
+                                $albumreplyResult->execute();
+                                $x_albumreply = $albumreplyResult->fetch(PDO::FETCH_OBJ);
+
+                                // Get number of news from logged_in user
+                                $newsSql = "SELECT COUNT(id) AS n FROM news WHERE id = ?";
+                                $newsResult = $dbc->prepare($newsSql);
+                                $newsResult->bindParam(1, $user_data->id);
+                                $newsResult->execute();
+                                $x_news = $newsResult->fetch(PDO::FETCH_OBJ);
+
+                                // Get number of news reply from logged_in user
+                                $newsreplySql = "SELECT COUNT(id) AS nr FROM news_reply WHERE id = ?";
+                                $newsreplyResult = $dbc->prepare($newsreplySql);
+                                $newsreplyResult->bindParam(1, $user_data->id);
+                                $newsreplyResult->execute();
+                                $x_newsreply = $newsreplyResult->fetch(PDO::FETCH_OBJ);
+
                                 if ($x_topic->t > 1) {
                                     $x_topic->t = $x_topic->t.' topics';
                                 } else {
@@ -133,6 +161,31 @@ if($user_data == false){
                                 } else {
                                     $x_reply->r = $x_reply->r.' bericht';
                                 }
+
+                                if ($x_album->a > 1) {
+                                    $x_album->a = $x_album->a.' berichten';
+                                } else {
+                                    $x_album->a = $x_album->a.' bericht';
+                                }
+
+                                if ($x_albumreply->ar > 1) {
+                                    $x_albumreply->ar = $x_albumreply->ar.' berichten';
+                                } else {
+                                    $x_albumreply->ar = $x_albumreply->ar.' bericht';
+                                }
+
+                                if ($x_news->n > 1) {
+                                    $x_news->n = $x_news->n.' berichten';
+                                } else {
+                                    $x_news->n = $x_news->n.' bericht';
+                                }
+
+                                if ($x_newsreply->nr > 1) {
+                                    $x_newsreply->nr = $x_newsreply->nr.' berichten';
+                                } else {
+                                    $x_newsreply->nr = $x_newsreply->nr.' bericht';
+                                }
+
                                 ?>
                                 <strong>Aantal forum topics</strong><br>
                                 <?php if ($x_topic->t == 0) {
@@ -140,12 +193,42 @@ if($user_data == false){
                                 } else {
                                     echo $x_topic->t;
                                 } ?><br>
+
                                 <strong>Aantal forum berichten</strong><br>
                                 <?php if ($x_reply->r == 0) {
                                     echo 'Geen berichten';
                                 } else {
                                     echo $x_reply->r;
                                 } ?><br>
+
+                                <strong>Aantal albums </strong><br>
+                                <?php if ($x_album->a == 0) {
+                                    echo 'Geen berichten';
+                                } else {
+                                    echo $x_album->a;
+                                } ?><br>
+
+                                <strong>Aantal album reacties</strong><br>
+                                <?php if ($x_albumreply->ar == 0) {
+                                    echo 'Geen berichten';
+                                } else {
+                                    echo $x_albumreply->ar;
+                                } ?><br>
+
+                                <strong>Aantal news </strong><br>
+                                <?php if ($x_news->n == 0) {
+                                    echo 'Geen berichten';
+                                } else {
+                                    echo $x_news->n;
+                                } ?><br>
+
+                                <strong>Aantal news reacties</strong><br>
+                                <?php if ($x_newsreply->nr == 0) {
+                                    echo 'Geen berichten';
+                                } else {
+                                    echo $x_newsreply->nr;
+                                } ?><br>
+
                         </div>
                     </div>
             </div>
