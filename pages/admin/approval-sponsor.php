@@ -99,13 +99,13 @@ if(isset($_GET["id"]) && isset($_GET["new"])) {
                                  <td>  <?php
                                  switch ($sponsor['approved']) {
                                      case 0:
-                                     echo "<div class='status-block text-center'><span class='glyphicon glyphicon-eye-open'></span></div>";
+                                     echo "<div class='status-block text-center'><span class='open-eye glyphicon glyphicon-eye-open'></span></div>";
                                      break;
                                      case 1:
-                                     echo "<div class='status-block text-center'><span class='glyphicon glyphicon-ok'></span></div>";
+                                     echo "<div class='status-block text-center'><span class='ok glyphicon glyphicon-ok'></span></div>";
                                      break;
                                      case 2:
-                                     echo "<div class='status-block text-center'><span class='glyphicon glyphicon-remove '></span></div>";
+                                     echo "<div class='status-block text-center'><span class='remove glyphicon glyphicon-remove '></span></div>";
                                      break;
                                  }?>
                                 </td>
