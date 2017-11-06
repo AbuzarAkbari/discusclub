@@ -110,9 +110,6 @@ require_once("../../includes/components/nav.php");
 
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <div class="col-md-2">
-                            <img class="img" src="/images<?php echo $row['path']; ?>">
-                        </div>
                         <div class="col-md-10">
                             <p><?php echo html_entity_decode($row['content']); ?></p>
                         </div>
@@ -191,14 +188,17 @@ require_once("../../includes/components/nav.php");
                 }
 
 
-
+                $userSql = "SELECT * FROM user JOIN image ON user.profile_img = image.id WHERE user.id = ?";
+                $userResult = $dbc->prepare($userSql);
+                $userResult->bindParam(1, $row2['user_id']);
+                $userResult->execute();
+                $user = $userResult->fetch(PDO::FETCH_ASSOC);
                 ?>
-
                 <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
                     <div class="panel-body">
                         <div class="wrapper-box col-md-12">
                             <div class="col-md-2">
-                                <img class="img" src="/images<?php echo $row['path']; ?>">
+                                <img class="img" src="/images<?php echo $user['path']; ?>">
                             </div>
 
                             <div class="col-md-10">
@@ -208,16 +208,7 @@ require_once("../../includes/components/nav.php");
                 </div>
             </div>
             <div class="panel-footer">
-                <?php
-                    $userSql = "SELECT * FROM user WHERE id = ?";
-                    $userResult = $dbc->prepare($userSql);
-                    $userResult->bindParam(1, $row2['user_id']);
-                    $userResult->execute();
-                    $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
-                ?>
-                <?php foreach ($users as $user) : ?>
                     <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
-                <?php endforeach; ?>
                 op <?php echo $row2['created_at']; ?></h3>
 
                 <div class="pull-right">
