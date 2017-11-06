@@ -30,7 +30,7 @@ if($rows) {
     $subResult->execute();
     $subId = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql = "INSERT INTO view (topic_id, ip_id) VALUES (:id, :ip_id)";
+    $sql = "INSERT INTO view (topic_id, ip_id, created_at) VALUES (:id, :ip_id, NOW())";
     $result = $dbc->prepare($sql);
     $result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
 
@@ -91,6 +91,7 @@ require_once("../../includes/components/nav.php");
                 <li class="active"><?php echo $rows['title']; ?></li>
             </ol>
 
+            <?php if($_GET['pagina'] == 1) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading border-color-blue">
                     <h3 class="panel-title text-left"><?php echo $rows['title']; ?></h3>
@@ -148,6 +149,7 @@ require_once("../../includes/components/nav.php");
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 

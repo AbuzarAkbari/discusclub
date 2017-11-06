@@ -3,7 +3,7 @@ actieve, nieuwe en favoriete topics laatste bericht toevoegen
 about/news/view, album/view : alles checken en toevoegen (zelfde dingen moeten daar kunnen als op forum)
 
 
-pagination toevoegen: about/news, about/news/post-news, topics, actieve-favoriete-nieuwe topics, album, album/view, alles op admin  (achter elke query offset en limit)
+pagination toevoegen: about/news, about/news/post-news, actieve-favoriete-nieuwe topics, album, album/view, alles op admin  (achter elke query offset en limit)
 
 
 Berichtensysteem (Leon fixt het)
