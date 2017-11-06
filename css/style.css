@@ -432,6 +432,7 @@ li.dropdown:hover > .dropdown-menu {
     margin: 5px;
 }
 
+
 /*dit is het deel wat kaan heeft gedaan.. indien het alles opfockt haal het weg :)*/
 
 .album-ruimte {
@@ -524,7 +525,8 @@ li.dropdown:hover > .dropdown-menu {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    margin: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
 }
 
 .imgThumbnail2 {
@@ -549,6 +551,18 @@ li.dropdown:hover > .dropdown-menu {
     margin: 0 auto;
 }
 
-.danger {
-    background: red;
-    width: 100%;
+.profile_img {
+    margin-bottom: 25px !important;
+}
+
+.open-eye {
+    color: #F45713;
+}
+
+.ok {
+    color: #00A99D;
+}
+
+.remove {
+    color: #FF254A;
+}

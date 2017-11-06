@@ -52,25 +52,48 @@ require_once("../../includes/tools/security.php");
                         <table>
                             <tr>
                                 <th>Naam</th>
-                                <th>Laatste login</th>
-                                <th>Registratiedatum</th>
-                                <th>Rol</th>
+                                <th>IP Adres</th>
+                                <th>Rekeningnummer</th>
+                                <th>Telefoonnummer</th>
+                                <th>Postcode</th>
+                                <th>Adres</th>
+                                <th>Stad</th>
                             </tr>
                             <?php
-                                $sql = "SELECT *, user.id as user_id FROM user JOIN role ON user.role_id = role.id";
+                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM user LEFT JOIN ip ON ip.user_id = user.id";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
-
                             ?>
-                            <?php foreach ($rows as $user) : ?>
+                            <?php
+                            foreach ($rows as $ip) :
+                                ?>
                                 <tr>
-                                    <td><a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
-                                    <td><?php echo $user['last_changed']; ?></td>
-                                    <td><?php echo $user['created_at']; ?></td>
-                                    <td><?php echo $user    ['name']; ?></td>
+                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>"><?php
+                                     echo $ip['first_name'] . " " . $ip['last_name'];
+                                    ?></a></td>
+                                    <td><?php
+                                     echo $ip['ip_address'];
+                                    ?></td>
+                                    <td><?php
+                                     echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['phone'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['postal_code'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['address'],$ip['house_number'];
+                                    ?></td>
+                                    <td><?php
+                                     echo $ip['city'];
+                                    ?></td>
                                 </tr>
-                            <?php endforeach; ?>
+                            <?php
+                            endforeach;
+                            ?>
                         </table>
                     </div>
                 </div>

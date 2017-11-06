@@ -6,6 +6,18 @@ $categorieenSql = "SELECT * FROM category";
 $categorieenResult = $dbc->prepare($categorieenSql);
 $categorieenResult->execute();
 $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
+
+//Pagination variables
+$page = intval(isset($_GET['pagina']) ? $_GET['pagina'] : 1);
+$perPage = 10;
+$offset = $page * $perPage - $perPage;
+
+//Select query for sub_category, topics, users, replies and roles
+$sql = "SELECT *, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN user ON topic.user_id = user.id LEFT JOIN image ON user.profile_img = image.id LEFT JOIN role ON user.role_id = role.id WHERE topic.id = :id ORDER BY topic.last_changed";
+$result = $dbc->prepare($sql);
+$result->execute([":id" => $_GET["id"]]);
+$rows = $result->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,12 +69,12 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                         $results2 = $subResult->fetchAll(PDO::FETCH_ASSOC);
 
                         if($results2){
-                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id = 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC";
+                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id = 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"]]);
                             $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC";
+                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"]]);
                             $results3 = array_merge($results3, $result->fetchAll(PDO::FETCH_ASSOC));
@@ -166,6 +178,41 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </div>
+
+    <!-- Pagination system -->
+    <div class="col-xs-12">
+
+        <?php
+            $query = $dbc->prepare('SELECT COUNT(*) AS x FROM topic WHERE sub_category_id = :id AND topic.deleted_at IS NULL');
+            $query->execute([
+                ':id' => $_GET['id']
+            ]);
+            $results = $query->fetchAll()[0];
+            $count = ceil($results['x'] / $perPage);
+        ?>
+        <?php if ($results['x'] > $perPage) : ?>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
+                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
+                            <a href="/forum/topic/<?php echo $rows['topic_id']; ?>/<?php echo $x; ?>"><?php echo $x; ?></a>
+                        </li>
+                    <?php endfor; ?>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        <?php endif; ?>
+    </div>
+
     <?php if ($logged_in && $results2) : ?>
     <div class="row">
         <div class="col-md-12">

@@ -71,8 +71,8 @@
                                 <div class="box">
                                     <div class="col-md-12">
                                         <a href="/about/news/<?php echo $value['news_id']; ?>">
-                                            <div class="col-md-3"><img src="<?php  ?>"></div>
-                                            <div class="col-md-9">
+                                            <!-- <div class="col-md-3"><img src="<?php // echo ""  ?>"></div> -->
+                                            <div class="col-md-12">
                                                 <p class="title-box-color">
                                                     <b><?php echo $value["title"]; ?></b>
                                                 </p>

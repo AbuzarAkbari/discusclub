@@ -107,8 +107,9 @@
         $( "#datepicker" ).datepicker({
             changeMonth: true,
             changeYear: true,
-            yearRange: "-100:+0",
-            defaultDate: '01/01/1980'
+            yearRange: "-90:+0",
+            defaultDate: '01/01/1980',
+            dateFormat: 'dd-mm-yy'
         });
     } );
     $( function() {

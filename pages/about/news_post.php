@@ -111,9 +111,6 @@ require_once("../../includes/components/nav.php");
 
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <div class="col-md-2">
-                            <img class="img" src="/images<?php echo $row['path']; ?>">
-                        </div>
                         <div class="col-md-10">
                             <p><?php echo html_entity_decode($row['content']); ?></p>
                         </div>
@@ -186,14 +183,17 @@ require_once("../../includes/components/nav.php");
                 }
 
 
-
-                ?>
-                <?php
-                    $replySql = "SELECT COUNT(id) AS x_reply FROM news_reply WHERE user_id = ? AND deleted_at IS NULL";
-                    $replyResult = $dbc->prepare($replySql);
-                    $replyResult->bindParam(1, $reply['user_id']);
-                    $replyResult->execute();
-                    $replyCount = $replyResult->fetch(PDO::FETCH_ASSOC);
+                $userSql = "SELECT * FROM user JOIN image ON user.profile_img = image.id WHERE user.id = ?";
+                $userResult = $dbc->prepare($userSql);
+                $userResult->bindParam(1, $row2['user_id']);
+                $userResult->execute();
+                $user = $userResult->fetch(PDO::FETCH_ASSOC);
+                
+                $replySql = "SELECT COUNT(id) AS x_reply FROM news_reply WHERE user_id = ? AND deleted_at IS NULL";
+                $replyResult = $dbc->prepare($replySql);
+                $replyResult->bindParam(1, $reply['user_id']);
+                $replyResult->execute();
+                $replyCount = $replyResult->fetch(PDO::FETCH_ASSOC);
                 ?>
                  <div class="panel panel-primary" id="post-<?php echo $reply['id'] ?>">
                     <div class="panel-body">
