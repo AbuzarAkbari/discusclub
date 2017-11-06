@@ -141,7 +141,7 @@ if (isset($_POST['post_add_topic'])) {
                                 $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
                                 ?>
                                 <tr>
-                                    <td><a href="/news/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
+                                    <td><a href="/news/post/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
                                     <td><?php echo $amount; ?></td>
                                     <td><a href="categorie.php?id=<?php echo $value->cat_id; ?>"><?php echo $value->sub_name; ?></a></td>
                                     <td><?php echo $value->created_at; ?></td>
@@ -194,7 +194,7 @@ if (isset($_POST['post_add_topic'])) {
                         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                         foreach($res as $key => $value) : ?>
-                        <a href="/news/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 "><?php echo $value['title'] ?></a><br><?php echo $value['news_reply_created_at'] ?></div>
+                        <a href="/news/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 "><?php echo $value['title'] ?></a><br><?php echo $value['news_reply_created_at'] ?></div>
                         <?php endforeach; ?>
                 </div>
             </div>

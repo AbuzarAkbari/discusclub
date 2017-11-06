@@ -33,7 +33,6 @@
     </script>
     <?php
         require_once("includes/components/nav.php");
-        require('includes/components/slider.php');
 
         $result = $dbc->prepare("SELECT * FROM `topic` JOIN sub_category ON category_id JOIN user ON user_id WHERE state_id = 3");
         $result->execute();
@@ -70,7 +69,7 @@
                                 foreach($res as $key => $value) : ?>
                                 <div class="box">
                                     <div class="col-md-12">
-                                        <a href="/news_post/<?php echo $value['news_id']; ?>">
+                                        <a href="/news/post/<?php echo $value['news_id']; ?>">
                                             <!-- <div class="col-md-3"><img src="<?php // echo ""  ?>"></div> -->
                                             <div class="col-md-12">
                                                 <p class="title-box-color">
@@ -109,7 +108,7 @@
                                         <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : $value["content"];
                                          ?>
                                         <br><br>
-                                        <a href="/news/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
+                                        <a href="/news/post/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
                                         <br><br>
                                     </div>
                                     <br><div class="col-md-12"><br></div>
