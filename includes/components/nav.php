@@ -82,7 +82,7 @@
                     <li><a href='/contact'>Contact</a></li>
                     <?php if ($logged_in && in_array($current_level, $admin_levels)) { ?>
                         <li class='dropdown'>
-                            <a href='/admin' class='dropdown-toggle'>Admin</a>
+                            <a href='/admin/' class='dropdown-toggle'>Admin</a>
                                 <ul class='dropdown-menu'>
                                     <li><a href='/admin/ip-list'>IP Lijst</a></li>
                                     <li><a href='/admin/user-list'>Ledenlijst</a></li>
