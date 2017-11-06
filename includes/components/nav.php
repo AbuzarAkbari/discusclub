@@ -79,6 +79,14 @@
                             </ul>
                         <?php } ?>
                     </li>
+                    <li class='dropdown'>
+                        <a href='/aquarium/' class='dropdown-toggle'>Aquarium</a>
+                        <?php if ($logged_in) { ?>
+                            <ul class='dropdown-menu'>
+                                <li><a href='/aquarium/upload'>Aquarium</a></li>
+                            </ul>
+                        <?php } ?>
+                    </li>
                     <li><a href='/contact'>Contact</a></li>
                     <?php if ($logged_in && in_array($current_level, $admin_levels)) {
                         $sth = $dbc->prepare("SELECT count(*) as amount FROM sponsor WHERE approved = 0");
