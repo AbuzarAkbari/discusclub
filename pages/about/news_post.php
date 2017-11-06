@@ -118,15 +118,15 @@ require_once("../../includes/components/nav.php");
 
                 </div>
 
-                <div class="panel-footer"> 
+                <div class="panel-footer">
                     op <?php echo $row['created_at']; ?></h3>
                 </div>
+            </div>
                 <?php endif; ?>
                 <?php endforeach; ?>
                 <?php endif; ?>
 
 
-            </div>
 
             <?php
             $a = $page * $perPage - $perPage;
@@ -188,7 +188,7 @@ require_once("../../includes/components/nav.php");
                 $userResult->bindParam(1, $row2['user_id']);
                 $userResult->execute();
                 $user = $userResult->fetch(PDO::FETCH_ASSOC);
-                
+
                 $replySql = "SELECT COUNT(id) AS x_reply FROM news_reply WHERE user_id = ? AND deleted_at IS NULL";
                 $replyResult = $dbc->prepare($replySql);
                 $replyResult->bindParam(1, $reply['user_id']);
@@ -208,13 +208,13 @@ require_once("../../includes/components/nav.php");
                                 <br><b>Lid sinds: </b> <?php echo $reply['user_created_at']; ?><br><br>
                             </div>
                             </div>
-                          
+
                             <div class="col-md-9">
                                  <p><?php echo wordwrap($reply['news_reply_content'], 70, "<br>", true); ?></p>
                             </div>
 
                 </div>
-            
+
             </div>
             <div class="panel-footer">
                 <?php
