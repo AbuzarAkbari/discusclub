@@ -55,7 +55,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div></div>
             <div class="col-md-4">
                 <div class="userTab">
-                    <img src="/images/profiel/<?php echo $_SESSION["user"]->profile_img; ?>" class="imgUser imageStatic" />
+                    <img src="/images<?php echo $_SESSION["user"]->profile_img; ?>" class="imgUser imageStatic" />
                     <div class="username"><b> <?php echo $_SESSION["user"]->first_name . " " . $_SESSION["user"]->last_name; ?></b></div>
                 </div>
                 <div id="userTable" class="otherTab flexcroll">

@@ -88,7 +88,7 @@ if(isset($_GET["id"]) && isset($_GET["new"])) {
                                     ?>
                                     </td>
                                     <td>
-                                        <img class="sponsor_vak" src="/images/sponsor/<?php echo $sponsor['path'];?>" alt="">
+                                        <img class="sponsor_vak" src="/images<?php echo $sponsor['path'];?>" alt="">
                                     </td>
                                     <td>
                                         <a title="Blokeer" href="<?php echo  "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=2" class="btn btn-danger" name="button">

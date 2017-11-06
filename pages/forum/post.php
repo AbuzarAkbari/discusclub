@@ -97,7 +97,7 @@ require_once("../../includes/components/nav.php");
                     <div class="col-md-12 ">
                         <div class="col-md-3">
                             <div class="col-md-12">
-                                <img class="img" src="/images/profiel/<?php echo $rows['path']; ?>">
+                                <img class="img" src="/images<?php echo $rows['path']; ?>">
                             </div>
                             <?php
                             $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ? AND deleted_at IS NULL";
@@ -207,7 +207,7 @@ require_once("../../includes/components/nav.php");
                     <div class="wrapper-box col-xs-12">
                         <div class="col-md-3">
                             <div class="col-md-12">
-                                <img class="img" src="/images/profiel/<?php echo $reply['image_path']; ?>">
+                                <img class="img" src="/images<?php echo $reply['image_path']; ?>">
                             </div>
                             <?php
                                 $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ? AND deleted_at IS NULL";

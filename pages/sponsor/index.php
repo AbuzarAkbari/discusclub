@@ -65,7 +65,7 @@
               <div class="col-md-6 col-sm-12 ruimte">
                 <a  title="<?php echo $sponsor['name']; ?>" href="<?php echo $sponsor['url'] ?>">
                     <?php foreach ($images as $image) : ?>
-                <img class="sponsor_vak" src="/images/sponsor/<?php echo $image['path'] ?>">
+                <img class="sponsor_vak" src="/images<?php echo $image['path'] ?>">
                     <?php endforeach; ?>
                 </a>
               </div>
