@@ -50,7 +50,6 @@
                         <a href='/about/' class='dropdown-toggle'>Over ons</a>
                         <ul class='dropdown-menu'>
                             <li><a href='/about/origin'>Ontstaan Discus Club Holland</a></li>
-                            <li><a href='/about/news'>Nieuws</a></li>
                         </ul>
                     </li>
                     <li class='dropdown'>
@@ -96,7 +95,9 @@
                                     <li><a href="/phpmyadmin">phpmyadmin</a></li>
                                 </ul>
                         </li>
+
                     <?php } ?>
+                    <li><a href='/news'>Nieuws</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
