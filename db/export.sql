@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2017 at 03:28 PM
+-- Generation Time: Nov 06, 2017 at 04:00 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -77,6 +77,13 @@ CREATE TABLE `approval_signup` (
   `user_id` int(11) NOT NULL,
   `approved` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `approval_signup`
+--
+
+INSERT INTO `approval_signup` (`id`, `user_id`, `approved`) VALUES
+(1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -468,7 +475,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `first_name`, `last_name`, `username`, `password`, `role_id`, `created_at`, `last_changed`, `signature`, `birthdate`, `city`, `profile_img`, `news`, `messenger_img`, `deleted_at`, `address`, `postal_code`, `phone`, `iban`, `house_number`) VALUES
-(1, 'john_doe@example.com', 'john', 'doe', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5, '2017-11-06 15:25:47', '2017-11-06 15:28:03', NULL, NULL, NULL, 1, 0, 17, NULL, NULL, NULL, NULL, NULL, NULL),
+(1, 'john_doe@example.com', 'john', 'doe', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5, '2017-11-06 15:25:47', '2017-11-06 16:00:18', NULL, NULL, 'addawdasda', 1, 0, 17, NULL, 'asd', 'ASDAWD', 'wdasdawd', 'asdawdsa', 0),
 (2, 'jane_doe@example.com', 'jane', 'doe', 'bla', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5, '2017-11-06 15:25:47', '2017-11-06 15:25:47', NULL, NULL, NULL, 1, 0, 17, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -665,7 +672,7 @@ ALTER TABLE `album_reply`
 -- AUTO_INCREMENT for table `approval_signup`
 --
 ALTER TABLE `approval_signup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `aquarium`
