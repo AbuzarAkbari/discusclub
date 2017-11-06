@@ -5,6 +5,8 @@
 # turn engine on
 RewriteEngine on
 
+ErrorDocument 404 /404.php
+# ErrorDocument 500 /404
 
 # remove .php
 RewriteCond %{REQUEST_FILENAME}\.php -f
@@ -13,4 +15,5 @@ RewriteRule ^(.+)$ $1.php [NC,QSA]
 # if it doesn't exist redirect it to pages folder
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !^/?404
 RewriteRule ^(.+)$ /pages/$1 [NC]
