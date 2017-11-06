@@ -111,7 +111,7 @@ require_once("../../includes/components/nav.php");
                 <div class="panel-body">
                     <div class="col-md-12">
                         <div class="col-md-2">
-                            <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
+                            <img class="img" src="/images<?php echo $row['path']; ?>">
                         </div>
                         <div class="col-md-10">
                             <p><?php echo html_entity_decode($row['content']); ?></p>
@@ -198,7 +198,7 @@ require_once("../../includes/components/nav.php");
                     <div class="panel-body">
                         <div class="wrapper-box col-md-12">
                             <div class="col-md-2">
-                                <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
+                                <img class="img" src="/images<?php echo $row['path']; ?>">
                             </div>
 
                             <div class="col-md-10">

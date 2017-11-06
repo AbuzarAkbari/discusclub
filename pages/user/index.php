@@ -80,7 +80,7 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue"><?php echo $user_data->first_name.' '.$user_data->last_name; ?></div>
                         <div class="panel-body text-left">
                             <div class="text-center">
-                                <div style="background-image:url('/images/profiel/<?php echo isset($user_data->profile_img) ? $user_data->profile_img : " "; ?>')"; class="img "></div>
+                                <div style="background-image:url('/images<?php echo isset($user_data->profile_img) ? $user_data->profile_img : " "; ?>')"; class="img "></div>
                             </div>
                             <div class="col-md-12">
                                 <strong>Locatie</strong><br>
@@ -198,7 +198,7 @@ if($user_data == false){
                     $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                             <?php foreach($albums as $album): ?>
-                                <a href="/album/<?php echo $album['album_id']; ?>"><img src="/images/album/<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
+                                <a href="/album/<?php echo $album['album_id']; ?>"><img src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
                             <?php endforeach; ?>
                         </div>
                     </div>

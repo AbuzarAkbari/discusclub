@@ -95,7 +95,7 @@ if ($logged_in) {
 //                $time = time();
 //                $path = $target_dir.$time.'-'.$_FILES["profiel"]["name"];
                 $fragments = explode('.', $_FILES["profiel"]["name"]);
-                $path = $_SESSION["user"]->username . '.' . end($fragments);
+                $path = "/profile/".$_SESSION["user"]->username . '.' . end($fragments);
                 array_pop($fragments);
 
                 $extensions = [
@@ -113,7 +113,7 @@ if ($logged_in) {
 
 
 
-                if (move_uploaded_file($_FILES["profiel"]["tmp_name"], '../../images/profiel/'.$path)) {
+                if (move_uploaded_file($_FILES["profiel"]["tmp_name"], '../../images'.$path)) {
                     $sql = "INSERT INTO image (path) VALUES (?)";
                     $result = $dbc->prepare($sql);
                     $result->bindParam(1, $path);

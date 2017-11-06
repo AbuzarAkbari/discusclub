@@ -128,7 +128,7 @@
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                       foreach($res as $key => $value) : ?>
-                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img class="imgThumbnail2" src="/images/album/<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
+                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img class="imgThumbnail2" src="/images<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
                       <?php endforeach; ?>
               </div>
           </div>

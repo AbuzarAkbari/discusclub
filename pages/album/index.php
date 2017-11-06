@@ -75,7 +75,7 @@ require_once("../../includes/tools/security.php"); ?>
                                         Aantal foto's: <i><?php echo $album['aantal_fotos']; ?></i><br>
                                         Datum: <i><?php echo $album['created_at']; ?></i><br>
                                     </p>
-                                    <div class="text-center"><img class="text-center imgAlbum" src="/images/album/<?php echo $album['path'] ?>" alt=""></div><br><br>
+                                    <div class="text-center"><img class="text-center imgAlbum" src="/images<?php echo $album['path'] ?>" alt=""></div><br><br>
                                     <a href="<?php echo $album['album_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
                                 </div>
                             </div>

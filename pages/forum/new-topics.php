@@ -37,7 +37,7 @@
 
     <br><br>
 <?php
-   $sql = "SELECT * FROM topic WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at DESC";
+   $sql = "SELECT *, sub_category.id AS sub_category_id FROM topic JOIN sub_category ON topic.sub_category_id = sub_category.id WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at DESC";
    $result = $dbc->prepare($sql);
    $result->execute();
    $results = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -97,7 +97,7 @@
                             <tr>
                                 <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
                                 <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
-                                <td><a href="#"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
+                                <td><a href="/forum/topic/<?php echo $topic['sub_category_id']; ?>"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
                                 <td><a href="#"><?php echo $topic['user_id']; ?></a></td>
 
                                 <td><?php echo $results2[0]['i']; ?></td>

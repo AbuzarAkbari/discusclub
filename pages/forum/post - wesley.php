@@ -97,7 +97,7 @@ require_once("../../includes/components/nav.php");
                     <div class="col-md-12 ">
                         <div class="col-md-3">
                             <div class="col-md-12">
-                                <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
+                                <img class="img" src="/images<?php echo $row['path']; ?>">
                             </div>
                             <?php
                             $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ? AND deleted_at IS NULL";
@@ -229,7 +229,7 @@ while ($matches[1]) {
                         =======
                         <div class="col-md-3">
                             <div class="col-xs-12">
-                                <img class="img" src="/images/profiel/<?php echo $row['path']; ?>">
+                                <img class="img" src="/images<?php echo $row['path']; ?>">
                             </div>
                             <div class="col-xs-12">
                                 <br><b>Rol: </b><?php echo $row['name']; ?>

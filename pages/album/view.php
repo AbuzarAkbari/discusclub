@@ -76,7 +76,7 @@ require_once("../../includes/tools/security.php"); ?>
                                     <div class="carousel-inner">
                                         <?php foreach ($album as $key => $image) : ?>
                                             <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <img class="sliderImg" src="/images/album/<?php echo $image['path'] ?>"  alt="fishing">
+                                                <img class="sliderImg" src="/images<?php echo $image['path'] ?>"  alt="fishing">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -102,7 +102,7 @@ require_once("../../includes/tools/security.php"); ?>
 
                                 <!-- Images -->
                                 <?php foreach ($album as $key => $image) : ?>
-                                    <div class=" img" style="background-image:url('/images/album/<?php echo $image['path'] ?>')"; data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></div>
+                                    <div class=" img" style="background-image:url('/images<?php echo $image['path'] ?>')"; data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></div>
                                 <?php endforeach; ?>
                             </div>
                         </div>

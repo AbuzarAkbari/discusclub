@@ -6,23 +6,23 @@ INSERT INTO `role`(`name`) VALUES
 ('admin');
 
 INSERT INTO `image`(`path`) VALUES
-('http://via.placeholder.com/350x350'),
-('ESHA-Banner_NL_discus_03B15.gif'),
-('discusmania-toekan.gif'),
-('banner-HVP-Aqua.gif'),
-('Veldhuis-banner.jpg'),
-('Dicuscompleet-banner.jpg'),
-('discuspassi-banner-3.jpg'),
-('Discusshop-banner.jpg'),
-('Aqua-light-banner.jpg'),
-('Rockzolid-banner.jpg'),
-('osmoseapparaat-banner.jpg'),
-('Wesdijk-banner.jpg'),
-('Koidream-banner.jpg'),
-('DCH-banner-AquaVaria-2014.jpg'),
-('RUTO-banner.jpg'),
-('discusvistotaal.gif'),
-('/images/messenger_background/default.jpg');
+('/default.png'),
+('/sponsor/ESHA-Banner_NL_discus_03B15.gif'),
+('/sponsor/discusmania-toekan.gif'),
+('/sponsor/banner-HVP-Aqua.gif'),
+('/sponsor/Veldhuis-banner.jpg'),
+('/sponsor/Dicuscompleet-banner.jpg'),
+('/sponsor/discuspassi-banner-3.jpg'),
+('/sponsor/Discusshop-banner.jpg'),
+('/sponsor/Aqua-light-banner.jpg'),
+('/sponsor/Rockzolid-banner.jpg'),
+('/sponsor/osmoseapparaat-banner.jpg'),
+('/sponsor/Wesdijk-banner.jpg'),
+('/sponsor/Koidream-banner.jpg'),
+('/sponsor/DCH-banner-AquaVaria-2014.jpg'),
+('/sponsor/RUTO-banner.jpg'),
+('/sponsor/discusvistotaal.gif'),
+('/messenger_background/default.jpg');
 
 INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
 ('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5),
@@ -65,7 +65,7 @@ INSERT INTO `album_reply`(`content`, `user_id`, `album_id`) VALUES
 ('geile fotos jonge', 2, 1);
 
 INSERT INTO `image`(`path`, `album_id`) VALUES
-('http://via.placeholder.com/350x350', 1);
+('/default.png', 1);
 
 INSERT INTO `message`(`message`, `user_id_1`, `user_id_2`) VALUES
 ('bla', 1, 2),
