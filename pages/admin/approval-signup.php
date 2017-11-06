@@ -56,7 +56,6 @@ require_once("../../includes/tools/security.php"); ?>
                                 <th>Telefoonnummer</th>
                                 <th>Postcode</th>
                                 <th>Adres</th>
-                                <!-- <th>Geboortedatum</th> -->
                                 <th>Stad</th>
                                 <th>Tools</th>
                             </tr>
