@@ -70,7 +70,7 @@
                                 foreach($res as $key => $value) : ?>
                                 <div class="box">
                                     <div class="col-md-12">
-                                        <a href="/about/news/<?php echo $value['news_id']; ?>">
+                                        <a href="/news_post/<?php echo $value['news_id']; ?>">
                                             <!-- <div class="col-md-3"><img src="<?php // echo ""  ?>"></div> -->
                                             <div class="col-md-12">
                                                 <p class="title-box-color">
@@ -109,7 +109,7 @@
                                         <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : $value["content"];
                                          ?>
                                         <br><br>
-                                        <a href="/about/news/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
+                                        <a href="/news/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
                                         <br><br>
                                     </div>
                                     <br><div class="col-md-12"><br></div>

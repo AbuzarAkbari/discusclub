@@ -60,9 +60,9 @@ if (!isset($_SESSION["ip_id"])) {
     // if the ip isn't in the database insert it
     if (empty($res)) {
         if (isset($_SESSION["user"])) {
-            $sth = $dbc->prepare("INSERT INTO ip(ip_address, user_id) VALUES (:ip, :user_id)");
+            $sth = $dbc->prepare("INSERT INTO ip(ip_address, user_id, created_at) VALUES (:ip, :user_id, NOW())");
         } else {
-            $sth = $dbc->prepare("INSERT INTO ip(ip_address) VALUES (:ip)");
+            $sth = $dbc->prepare("INSERT INTO ip(ip_address, created_at) VALUES (:ip, NOW())");
         }
         $sth->execute($bindings);
         $res = ["id" => $dbc->lastInsertId()];

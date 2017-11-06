@@ -2,6 +2,19 @@
 $levels = ["lid", "gebruiker"];
 require_once("../../includes/tools/security.php");
 
+//var_dump($_GET);
+
+//Pagination variables
+$page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+if (false === intval($page)) {
+    exit;
+}
+$perPage = 10;
+
+//echo '<pre>';
+//print_r(
+//    $_GET);
+//exit;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +51,11 @@ require_once("../../includes/tools/security.php");
 
     <br><br>
     <?php
-    $sql = "SELECT *, user.id AS user_id, topic.id AS topic_id, sub_category.id AS sub_category_id FROM topic JOIN sub_category ON topic.sub_category_id = sub_category.id JOIN user ON topic.user_id = user.id WHERE topic.last_changed >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY topic.created_at DESC";
+    $aantal = $page * $perPage - $perPage;
+    $sql = "SELECT *, user.id AS user_id, topic.id AS topic_id, sub_category.id AS sub_category_id FROM topic JOIN sub_category ON topic.sub_category_id = sub_category.id JOIN user ON topic.user_id = user.id WHERE topic.last_changed >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY topic.created_at DESC LIMIT {$perPage} OFFSET {$aantal}";
     $result = $dbc->prepare($sql);
     $result->execute();
-    $results = $result->fetchAll(PDO::FETCH_ASSOC);
+    $result2 = $result->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <br><br>
@@ -71,7 +85,7 @@ require_once("../../includes/tools/security.php");
                             <th>Admin tools</th>
                             <?php endif; ?>
                         </tr>
-                        <?php foreach ($results as $topic) : ?>
+                        <?php foreach ($result2 as $topic) : ?>
                             <?php
                                 $id = 1;
 
@@ -119,6 +133,41 @@ require_once("../../includes/tools/security.php");
                         <?php endforeach; ?>
                     </div>
                 </table>
+            </div>
+            <!-- Pagination system -->
+            <div class="col-xs-12">
+
+                <?php
+
+                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM topic WHERE topic.last_changed >= DATE(NOW()) - INTERVAL 7 DAY AND deleted_at IS NULL');
+                $query->execute([
+                    ':id' => $page
+                ]);
+                $results = $query->fetchAll()[0];
+                $count = ceil($results['x'] / $perPage);
+                ?>
+
+                <?php if ($results['x'] > $perPage) : ?>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
+                                <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
+                                    <a href="/forum/active-topics/<?php echo $x; ?>"><?php echo $x; ?></a>
+                                </li>
+                            <?php endfor; ?>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                <?php endif; ?>
             </div>
         </div>
     </div>

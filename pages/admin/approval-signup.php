@@ -61,7 +61,8 @@ require_once("../../includes/tools/security.php"); ?>
                                 <th>Status</th>
                             </tr>
                             <?php
-                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM user LEFT JOIN ip ON ip.user_id = user.id";
+                                // $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM user LEFT JOIN ip ON ip.user_id = user.id";
+                                $sql = "SELECT * FROM approval_signup as app LEFT JOIN user as u JOIN ip ON u.id = ip.user_id ON u.id = app.user_id";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);

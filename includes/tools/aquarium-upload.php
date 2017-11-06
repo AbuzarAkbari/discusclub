@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['upload_album'])) {
+if (isset($_POST['upload_aquarium'])) {
     require_once("security.php");
 
 	// echo '<pre>';
@@ -7,25 +7,25 @@ if (isset($_POST['upload_album'])) {
 	// exit;
 
     if ($logged_in) {
-    		$album_name = $_POST['album_name'];
+    		$aquarium_name = $_POST['aquarium_name'];
 	        $id_poster = $_SESSION['user']->id;
     	if (isset($_FILES['files']) && $_FILES['files']['error'] !== 4) {
-	        $albumsql = "INSERT INTO album (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
-            $album_result = $dbc->prepare($albumsql);
-            // var_dump([':title' => $album_name, ':user_id' => $id_poster]);
-            $album_result->execute([':title' => $album_name, ':user_id' => $id_poster]);
-			$album_id = $dbc->lastInsertId();
+	        $aquariumsql = "INSERT INTO aquarium (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
+            $aquarium_result = $dbc->prepare($aquariumsql);
+            // var_dump([':title' => $aquarium_name, ':user_id' => $id_poster]);
+            $aquarium_result->execute([':title' => $aquarium_name, ':user_id' => $id_poster]);
+			$aquarium_id = $dbc->lastInsertId();
 
 	        for($x = 0; $x  < count($_FILES['files']['name']); $x++) {
-	        	$album_files = $_FILES['files'];
-	        	// var_dump($album_files);
-	            $target_dir = "/images/album/";
-	            $target_file = $target_dir . basename($album_files["name"][$x]);
+	        	$aquarium_files = $_FILES['files'];
+	        	// var_dump($aquarium_files);
+	            $target_dir = "/images/aquarium/";
+	            $target_file = $target_dir . basename($aquarium_files["name"][$x]);
 	            $uploadOk = 1;
 				$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
 				// Check if image file is a actual image or fake image
-	            $check = getimagesize($album_files["tmp_name"][$x]);
+	            $check = getimagesize($aquarium_files["tmp_name"][$x]);
 	            if ($check !== false) {
 	                $uploadOk = 1;
 	            } else {
@@ -40,7 +40,7 @@ if (isset($_POST['upload_album'])) {
 	            }
 
 	            // Check file size
-	            if ($album_files["size"][$x] > 500000) {
+	            if ($aquarium_files["size"][$x] > 500000) {
 	                echo "Sorry, your file is too large.";
 	                $uploadOk = 0;
 	            }
@@ -58,8 +58,8 @@ if (isset($_POST['upload_album'])) {
 
 	                // if everything is ok, try to upload file
 	            } else {
-	                $fragments = explode('.', $album_files["name"][$x]);
-					$path = "/album/" . strtotime(date("Y-m-d H:i:s")) . '-'.$x.'.' . end($fragments);
+	                $fragments = explode('.', $aquarium_files["name"][$x]);
+					$path = "/aquarium/" . strtotime(date("Y-m-d H:i:s")) . '-'.$x.'.' . end($fragments);
 
 	                $extensions = [
 	                    '.png',
@@ -76,10 +76,10 @@ if (isset($_POST['upload_album'])) {
 
 
 
-	                if (move_uploaded_file($album_files["tmp_name"][$x], '../../images'.$path)) {
-	                    $sql = "INSERT INTO image (path, album_id) VALUES (:path, :album_id)";
+	                if (move_uploaded_file($aquarium_files["tmp_name"][$x], '../../images'.$path)) {
+	                    $sql = "INSERT INTO image (path, aquarium_id, created_at) VALUES (:path, :aquarium_id, NOW())";
 	                    $result = $dbc->prepare($sql);
-						$result->execute([':path' => $path, ':album_id' => $album_id]);
+						$result->execute([':path' => $path, ':aquarium_id' => $aquarium_id]);
 
 					} else {
 	                    echo "Sorry, there was an error uploading your file.";
@@ -96,6 +96,6 @@ if (isset($_POST['upload_album'])) {
         // print_r($_FILES);
         // exit();
 
-        header("Location: /album/" . $album_id);
+        header("Location: /aquarium/" . $aquarium_id);
     }
 }
