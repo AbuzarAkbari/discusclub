@@ -60,7 +60,7 @@ if(isset($_GET["id"]) && isset($_GET["new"])) {
                                 <th>Inschrijfdatum</th>
                                 <th>Banner</th>
                                 <th>Tools</th>
-                                <th>Geaccepteerd</th>
+                                <th>Status</th>
                             </tr>
                             <?php
                                 $sql = "SELECT *, sponsor.id FROM sponsor JOIN image ON sponsor.image_id = image.id ORDER BY approved";
@@ -99,13 +99,13 @@ if(isset($_GET["id"]) && isset($_GET["new"])) {
                                  <td>  <?php
                                  switch ($sponsor['approved']) {
                                      case 0:
-                                     echo "<button class='btn btn-primary'><span class='glyphicon glyphicon-eye-open'></span></button>";
+                                     echo "<div class='status-block text-center'><span class='glyphicon glyphicon-eye-open'></span></div>";
                                      break;
                                      case 1:
-                                     echo "<button class='btn btn-success'><span class='glyphicon glyphicon-ok btn-success'></span></button>";
+                                     echo "<div class='status-block text-center'><span class='glyphicon glyphicon-ok'></span></div>";
                                      break;
                                      case 2:
-                                     echo "<button class='btn btn-danger'><span class='glyphicon glyphicon-remove '></span></button>";
+                                     echo "<div class='status-block text-center'><span class='glyphicon glyphicon-remove '></span></div>";
                                      break;
                                  }?>
                                 </td>
