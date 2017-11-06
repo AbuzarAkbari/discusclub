@@ -102,6 +102,7 @@ require_once("../../includes/components/nav.php");
                 <div class="message error">Deze pagina bestaat niet, <a href="/about/news"> ga terug</a></div></div>
             <?php else : ?>
             <?php foreach ($rows as $row) : ?>
+            <?php if($_GET['pagina'] == 1) :?>
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title text-left"><?php echo $row['title']; ?></h3>
@@ -120,20 +121,10 @@ require_once("../../includes/components/nav.php");
 
                 </div>
 
-                <div class="panel-footer">
-                    <?php
-                        $userSql = "SELECT * FROM user WHERE id = ?";
-                        $userResult = $dbc->prepare($userSql);
-                        $userResult->bindParam(1, $row['user_id']);
-                        $userResult->execute();
-                        $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
-                    <?php foreach ($users as $user) : ?>
-                        <b>Geplaatst door:</b> <i><a href="/user/<?php echo $user["id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
-                    <?php endforeach; ?>
+                <div class="panel-footer"> 
                     op <?php echo $row['created_at']; ?></h3>
                 </div>
-
+                <?php endif; ?>
                 <?php endforeach; ?>
                 <?php endif; ?>
 
@@ -142,13 +133,17 @@ require_once("../../includes/components/nav.php");
 
             <?php
             $a = $page * $perPage - $perPage;
-            $sql2 = "SELECT * FROM news_reply WHERE news_id = ? LIMIT {$perPage} OFFSET {$a}";
-            $result2 = $dbc->prepare($sql2);
-            $result2->bindParam(1, $_GET['id']);
-            $result2->execute();
-            $rows2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+            $replySql = "SELECT *, user.created_at AS user_created_at, news_reply.created_at AS reply_created_at, news_reply.content AS news_reply_content FROM news_reply JOIN news ON news_reply.news_id = news.id JOIN user ON news_reply.user_id = user.id JOIN role ON user.role_id = role.id JOIN image ON user.profile_img = image.id WHERE news.id = :id AND news_reply.deleted_at IS NULL ORDER BY news_reply.last_changed ASC LIMIT {$perPage} OFFSET {$a}";
+            $replyResult = $dbc->prepare($replySql);
+            $replyResult->execute([":id" => $_GET['id']]);
+            $replies = $replyResult->fetchAll(PDO::FETCH_ASSOC);
+
+                // echo '<pre>';
+                // print_r($replies);
+                // exit;
+
             ?>
-            <?php foreach ($rows2 as $row2) : ?>
+            <?php foreach ($replies as $reply) : ?>
                 <?php
 
                 $matches = [
@@ -157,7 +152,7 @@ require_once("../../includes/components/nav.php");
                 ];
 
                 while ($matches[1]) {
-                    preg_match_all('/\[quote\s(\d+)\]/', $row2['content'], $matches);
+                    preg_match_all('/\[quote\s(\d+)\]/', $reply['news_reply_content'], $matches);
 
                     foreach ($matches[1] as $match) {
                         $sql = "SELECT * FROM news_reply WHERE id = :id";
@@ -186,43 +181,57 @@ require_once("../../includes/components/nav.php");
                             $replace = $naam.' schreef:<br>'.$results[0]['content'];
                         }
 
-                        $row2['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $row2['content']);
+                        $reply['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $reply['content']);
                     }
                 }
 
 
 
                 ?>
-
-                <div class="panel panel-primary" id="post-<?php echo $row2['id'] ?>">
+                <?php
+                    $replySql = "SELECT COUNT(id) AS x_reply FROM news_reply WHERE user_id = ? AND deleted_at IS NULL";
+                    $replyResult = $dbc->prepare($replySql);
+                    $replyResult->bindParam(1, $reply['user_id']);
+                    $replyResult->execute();
+                    $replyCount = $replyResult->fetch(PDO::FETCH_ASSOC);
+                ?>
+                 <div class="panel panel-primary" id="post-<?php echo $reply['id'] ?>">
                     <div class="panel-body">
                         <div class="wrapper-box col-md-12">
-                            <div class="col-md-2">
-                                <img class="img" src="/images<?php echo $row['path']; ?>">
+                            <div class="col-md-3">
+                            <div class="col-md-12">
+                                <img class="img" src="/images<?php echo $reply['path']; ?>">
                             </div>
-
-                            <div class="col-md-10">
-                                 <p><?php echo wordwrap($row2['content'], 70, "<br>", true); ?></p>
+                            <div class="col-md-12">
+                                <br><b>Rol: </b><?php echo $reply['name']; ?>
+                                <br><b>Aantal berichten: </b><?php echo $replyCount['x_reply']; ?>
+                                <br><b>Lid sinds: </b> <?php echo $reply['user_created_at']; ?><br><br>
+                            </div>
+                            </div>
+                          
+                            <div class="col-md-9">
+                                 <p><?php echo wordwrap($reply['news_reply_content'], 70, "<br>", true); ?></p>
                             </div>
 
                 </div>
+            
             </div>
             <div class="panel-footer">
                 <?php
                     $userSql = "SELECT * FROM user WHERE id = ?";
                     $userResult = $dbc->prepare($userSql);
-                    $userResult->bindParam(1, $row2['user_id']);
+                    $userResult->bindParam(1, $reply['user_id']);
                     $userResult->execute();
                     $users = $userResult->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <?php foreach ($users as $user) : ?>
-                    <b>Geplaatst door:</b> <i><a href="#"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
+                    <b>Geplaatst door:</b> <i><a href="/user/<?php echo $reply['user_id']; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></i>
                 <?php endforeach; ?>
-                op <?php echo $row2['created_at']; ?></h3>
+                op <?php echo $reply['reply_created_at']; ?></h3>
 
                 <div class="pull-right">
 
-                    <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
+                    <button class="btn btn-primary quote-btn" data-id="<?php echo $reply['id']; ?>">
                         Quote deze post
                     </button>
                 </div>
