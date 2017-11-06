@@ -70,7 +70,7 @@
                                 foreach($res as $key => $value) : ?>
                                 <div class="box">
                                     <div class="col-md-12">
-                                        <a href="/about/news/<?php echo $value['news_id']; ?>">
+                                        <a href="/news/<?php echo $value['news_id']; ?>">
                                             <!-- <div class="col-md-3"><img src="<?php // echo ""  ?>"></div> -->
                                             <div class="col-md-12">
                                                 <p class="title-box-color">
