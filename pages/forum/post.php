@@ -1,6 +1,6 @@
 <?php
 //Levels var
-$levels = ["lid"];
+$levels = ["lid", "gebruiker"];
 
 //Security
 require_once("../../includes/tools/security.php");
