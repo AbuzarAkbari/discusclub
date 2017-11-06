@@ -107,8 +107,6 @@ if ($logged_in) {
 
                 // if everything is ok, try to upload file
             } else {
-//                $time = time();
-//                $path = $target_dir.$time.'-'.$_FILES["profiel"]["name"];
                 $fragments = explode('.', $_FILES["profiel"]["name"]);
                 $path = "/profile/".$_SESSION["user"]->username . '.' . end($fragments);
                 array_pop($fragments);
