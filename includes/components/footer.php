@@ -32,7 +32,7 @@
             </div>
             <br>
             <div class='col-md-12 text-center'>
-            <a href='#'>&copy; Discus Club Holland</a> | <a href='#'>Webdesign door Impact4ROI</a> | <a href='/gebruiksvoorwaarden'>Algemene voorwaarden</a>
+            <a href='/'>&copy; Discus Club Holland</a> | <a href='http://succes.media/'>Webdesign door Succes Media</a> | <a href='/gebruiksvoorwaarden'>Algemene voorwaarden</a>
             </div>
             <br><br>
         </div>
