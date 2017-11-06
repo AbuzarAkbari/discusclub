@@ -77,7 +77,7 @@ if (isset($_POST['upload_aquarium'])) {
 
 
 	                if (move_uploaded_file($aquarium_files["tmp_name"][$x], '../../images'.$path)) {
-	                    $sql = "INSERT INTO image (path, aquarium_id, created_at) VALUES (:path, :aquarium_id, NOW())";
+	                    $sql = "INSERT INTO image (path, aquarium_id) VALUES (:path, :aquarium_id)";
 	                    $result = $dbc->prepare($sql);
 						$result->execute([':path' => $path, ':aquarium_id' => $aquarium_id]);
 
