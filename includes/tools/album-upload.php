@@ -77,7 +77,7 @@ if (isset($_POST['upload_album'])) {
 
 
 	                if (move_uploaded_file($album_files["tmp_name"][$x], '../../images'.$path)) {
-	                    $sql = "INSERT INTO image (path, album_id, created_at) VALUES (:path, :album_id, NOW())";
+	                    $sql = "INSERT INTO image (path, album_id) VALUES (:path, :album_id)";
 	                    $result = $dbc->prepare($sql);
 						$result->execute([':path' => $path, ':album_id' => $album_id]);
 

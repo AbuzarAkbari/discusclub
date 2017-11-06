@@ -127,7 +127,7 @@ if ($logged_in) {
 
 
                 if (move_uploaded_file($_FILES["profiel"]["tmp_name"], '../../images'.$path)) {
-                    $sql = "INSERT INTO image (path, created_at) VALUES (?, NOW())";
+                    $sql = "INSERT INTO image (path) VALUES (?)";
                     $result = $dbc->prepare($sql);
                     $result->bindParam(1, $path);
                     $result->execute();
@@ -205,7 +205,7 @@ if ($logged_in) {
 
 
                 if (move_uploaded_file($_FILES["background"]["tmp_name"], '../../images'.$path)) {
-                    $sql = "INSERT INTO image (path, created_at) VALUES (?, NOW())";
+                    $sql = "INSERT INTO image (path) VALUES (?)";
                     $result = $dbc->prepare($sql);
                     $result->bindParam(1, $path);
                     $result->execute();

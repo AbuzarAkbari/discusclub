@@ -8,7 +8,7 @@ if (isset($_POST['post_add_topic'])) {
         $topicAuteur = $_SESSION['user']->id;
         $topicContent = htmlentities($_POST['add_topic_content']);
 
-        $sql = "INSERT INTO news (sub_category_id, title, content) VALUES (:subId, :topicTitle, :topicContent)";
+        $sql = "INSERT INTO news (sub_category_id, title, content, created_at) VALUES (:subId, :topicTitle, :topicContent, NOW())";
 
         $result = $dbc->prepare($sql);
 
