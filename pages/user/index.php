@@ -54,15 +54,14 @@ if($user_data == false){
         </script>
         <?php require_once("../../includes/components/nav.php"); ?>
         <br><br>
-        <div class="container">
-        <div class="">
-            <ol class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li class="active">Gebruiker</li>
-            </ol>
-        </div>
-        </div>
+
         <div class="container main">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Gebruiker</li>
+                </ol>
+            </div>
             <br>
             <!--        <div class="col-md-12">-->
             <!--            <div class="panel panel-primary border-color-blues">-->
@@ -75,12 +74,11 @@ if($user_data == false){
             <!--            </div>-->
             <div class="col-md-4">
 
-                <div class="col-md-12">
                     <div class="panel panel-primary border-color-blues">
                         <div class="panel-heading border-color-blue"><?php echo $user_data->first_name.' '.$user_data->last_name; ?></div>
                         <div class="panel-body text-left">
                             <div class="text-center">
-                                <div style="background-image:url('/images<?php echo isset($user_data->profile_img) ? $user_data->profile_img : " "; ?>')"; class="img "></div>
+                                <div style="background-image:url('/images<?php echo isset($user_data->profile_img) ? $user_data->profile_img : " "; ?>')"; class="img profile_img"></div>
                             </div>
                             <div class="col-md-12">
                                 <strong>Locatie</strong><br>
@@ -105,8 +103,6 @@ if($user_data == false){
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12">
                     <div class="panel panel-primary border-color-blues">
                         <div class="panel-heading border-color-blue">Statistieken</div>
                         <div class="panel-body text-left">
@@ -152,11 +148,9 @@ if($user_data == false){
                                 } ?><br>
                         </div>
                     </div>
-                </div>
             </div>
             <div class="col-md-8">
 
-                <div class="col-md-12">
                     <div class="panel panel-primary border-color-blues">
                         <div class="panel-heading border-color-blue">Laatste reacties op topics</div>
                         <div class="panel-body text-right paddingNone">
@@ -185,11 +179,9 @@ if($user_data == false){
                             </table>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12">
                     <div class="panel panel-primary border-color-blues">
                         <div class="panel-heading border-color-blue">Albums</div>
-                        <div class="panel-body text-center">
+                        <div class="panel-body">
                             <?php
                     $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at LIMIT 8";
                     $albumResult = $dbc->prepare($albumSql);
@@ -202,7 +194,6 @@ if($user_data == false){
                             <?php endforeach; ?>
                         </div>
                     </div>
-                </div>
             </div>
             <div class="col-md-12"></div>
 

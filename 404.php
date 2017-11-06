@@ -38,11 +38,10 @@
         $result->execute();
         $text = $result->fetch(PDO::FETCH_ASSOC);
       ?>
-    <div class="container">
+    <div class="container main">
         <div class="row">
             <br><br>
-            <div class="message danger">Deze pagina bestaat niet!</div>
-            <br><br>
+            <div class="message error">Deze pagina bestaat niet!</div>
         </div>
     </div>
     <footer>
