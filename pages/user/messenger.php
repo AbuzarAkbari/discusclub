@@ -2,6 +2,10 @@
 $levels = ["lid", "gebruiker"];
 require_once("../../includes/tools/security.php");
 
+// echo "<pre>";
+// var_dump($_POST);
+// echo "</pre>";
+
 if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
     $sth = $dbc->prepare("INSERT INTO message(message, user_id_1, user_id_2) VALUES (:message, :user_id_1, :user_id_2)");
     $sth->execute([":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message" => $_POST["message"]]);
@@ -60,13 +64,19 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
                 <div id="userTable" class="otherTab flexcroll">
                     <?php
+                    echo "<pre>";
+                    var_dump($_POST);
+                    echo "</pre>";
                     if(isset($_POST["user_search"])) {
-                        $sth = $dbc->prepare("SELECT DISTINCT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search AND u.id <> :id GROUP BY u.id ORDER BY m.created_at ASC");
+                        $query = 1;
+                        $sth = $dbc->prepare("SELECT * FROM user as u WHERE u.id <> :id AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search)");
                     } else {
+                        $query = 2;
                         $sth = $dbc->prepare("SELECT DISTINCT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE m.user_id_1 = :id OR m.user_id_2 = :id GROUP BY u.id ORDER BY m.created_at ASC");
                     }
                     $sth->execute([":id" => $_SESSION["user"]->id, ":search" => isset($_POST["user_search"]) ? "%" . $_POST["user_search"] . "%" : "%"]);
                     $res = $sth->fetchAll(PDO::FETCH_OBJ);
+
                     $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
                     foreach ($res as $value) : ?>
                         <?php
@@ -78,8 +88,16 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                         if ($value->user_id_2 === $id) {
                             $user = $value->first_name . " " . $value->last_name;
                         } ?>
-                        <?php if($value->user_id_1 === $_SESSION["user"]->id) :?>
+                        <?php if($value->user_id_1 === $_SESSION["user"]->id && $query === 2) :?>
                             <a href="/user/messenger/<?php echo $value->user_id_2; ?>">
+                                <div class="other">
+                                    <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
+                                    <div class="usernameTab"><b><?php echo $value->first_name . " " . $value->last_name; ?></b></div>
+                                    <div><?php echo substr($last_message, 0, 25) . "..."; ?></div>
+                                </div>
+                            </a>
+                        <?php else : ?>
+                            <a href="/user/messenger/<?php echo $value->id; ?>">
                                 <div class="other">
                                     <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
                                     <div class="usernameTab"><b><?php echo $value->first_name . " " . $value->last_name; ?></b></div>
@@ -107,7 +125,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
                 <div id="message" style="background-image: url('/images<?php echo $_SESSION["user"]->messenger_img; ?>');" class="imageBackgroundText flexcroll tab">
                     <?php foreach ($res as $value) : ?>
-                        <div class="<?php echo $value->user_id_1 === $_SESSION["user"]->id ? "messages" : "responses" ?>">
+                        <div class="messages <?php echo $value->user_id_1 === $_SESSION["user"]->id ? "right-message" : "left-message" ?>">
                             <div><?php echo $value->message; ?></div>
                         </div>
                     <?php endforeach; ?>
@@ -165,7 +183,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                       <!-- <button class="btn btn-secondary buttonHeight" type="button" type="file"><i class="glyphicon glyphicon-plus icon " ></i></button> -->
 
                       <div class="input-group inputWidth">
-                        <input type="text" class="form-control inputWidth" placeholder="">
+                        <input name="message" type="text" class="form-control inputWidth" placeholder="">
                         <span class="input-group-btn">
 
                             <div class="upload">
