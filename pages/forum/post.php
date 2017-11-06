@@ -116,8 +116,11 @@ require_once("../../includes/components/nav.php");
                             <p><?php echo html_entity_decode($rows['topic_content']); ?></p>
                             <p>
                             <hr>
-                            <br>
-                            <?php echo $rows['signature']; ?>
+                            <?php if($rows['signature'] != "") : ?>
+                                <?php echo $rows['signature']; ?>
+                            <?php else: ?>
+                                <span style="color: lightgray;">Geen handtekening</span>
+                            <?php endif; ?>
                             </p>
                         </div>
                     </div>
@@ -149,7 +152,7 @@ require_once("../../includes/components/nav.php");
 
     <?php
     $aantal = $page * $perPage - $perPage;
-    $replySql = "SELECT *, reply.id, reply.last_changed, reply.created_at FROM reply JOIN user as u ON u.id = reply.user_id WHERE topic_id = ? AND reply.deleted_at IS NULL ORDER BY reply.last_changed ASC LIMIT {$perPage} OFFSET {$aantal}";
+    $replySql = "SELECT *, image.path AS image_path, u.id AS user_id, u.created_at AS user_created_at, reply.id, reply.last_changed, reply.created_at FROM reply JOIN user as u ON u.id = reply.user_id JOIN role ON u.role_id = role.id JOIN image ON u.profile_img = image.id WHERE topic_id = ? AND reply.deleted_at IS NULL ORDER BY reply.last_changed ASC LIMIT {$perPage} OFFSET {$aantal}";
     $replyResult = $dbc->prepare($replySql);
     $replyResult->bindParam(1, $_GET['id']);
     $replyResult->execute();
@@ -202,14 +205,34 @@ require_once("../../includes/components/nav.php");
                 </div>
                 <div class="panel-body padding-padding ">
                     <div class="wrapper-box col-xs-12">
-                        <div class="col-md-2">
-                            <img src='http://via.placeholder.com/130x130' alt="x">
+                        <div class="col-md-3">
+                            <div class="col-md-12">
+                                <img class="img" src="/images/profiel/<?php echo $reply['image_path']; ?>">
+                            </div>
+                            <?php
+                                $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ? AND deleted_at IS NULL";
+                                $replyResult = $dbc->prepare($replySql);
+                                $replyResult->bindParam(1, $reply['user_id']);
+                                $replyResult->execute();
+                                $replyCount = $replyResult->fetch(PDO::FETCH_ASSOC);
+                            ?>
+                            <div class="col-md-12">
+                                <br><b>Rol: </b><?php echo $reply['name']; ?>
+                                <br><b>Aantal berichten: </b><?php echo $replyCount['x_reply']; ?>
+                                <br><b>Lid sinds: </b> <?php echo $reply['user_created_at']; ?><br><br>
+                            </div>
                         </div>
-
-                        <div class="col-md-10">
+                        <div class="col-md-9">
                             <p><?php echo wordwrap($reply["content"], 70, "<br>", true); ?></p>
+                            <p>
+                                <hr>
+                                <?php if($reply['signature'] != "") : ?>
+                                <?php echo $reply['signature']; ?>
+                                <?php else: ?>
+                                    <span style="color: lightgray;">Geen handtekening</span>
+                                <?php endif; ?>
+                            </p>
                         </div>
-
                     </div>
                 </div>
                 <div class="panel-footer">

@@ -9,10 +9,6 @@ if ($logged_in) {
         $userId = $_POST["user_id"];
         $bindings = [":userId" => $userId];
 
-//        echo '<pre>';
-//        print_r($_FILES);
-//        exit;
-
         //Nieuwsbrief
         if ($_POST['nieuwsbrief'] == "on") {
             $news = 1;

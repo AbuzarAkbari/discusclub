@@ -542,3 +542,9 @@ li.dropdown:hover > .dropdown-menu {
 .padding{
     padding: 3px;
 }
+
+.status-block {
+    font-size: 1.3em;
+    line-height: 40px;
+    margin: 0 auto;
+}

@@ -91,9 +91,9 @@ if(isset($_POST['sponsorverzend'])) {
                 exit();
             }
         }
-        header('Location: /sponsor/become');
 
     }
 
 
 }
+header('Location: /sponsor/become');
