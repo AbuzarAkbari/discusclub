@@ -1,0 +1,13 @@
+ErrorDocument 404 /404.php
+
+# remove .php
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [NC,QSA]
+
+# added id and pagination stuff to news_post
+# RewriteRule ^news/([0-9]+)/([0-9]+) news.php?id=$1&pagina=$2 [NC]
+# RewriteRule ^news/([0-9]+) news.php?id=$1&pagina=1 [NC]
+
+# added id and pagination stuff to news_post
+RewriteRule ^post/([0-9]+)/([0-9]+) news_post.php?id=$1&pagina=$2 [NC]
+RewriteRule ^post/([0-9]+) news_post.php?id=$1&pagina=1 [NC]
