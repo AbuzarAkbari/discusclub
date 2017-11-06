@@ -93,8 +93,7 @@ require_once("../../includes/components/nav.php");
             <?php if($rows) : ?>
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about/">Over ons</a></li>
-                    <li><a href="/about/news">Nieuws</a></li>
+                    <li><a href="/news">Nieuws</a></li>
                     <li class="active"><?php echo $rows[0]['title']; ?></li>
                 </ol>
             <?php endif; ?>

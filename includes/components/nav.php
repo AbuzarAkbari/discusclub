@@ -62,6 +62,7 @@
                                 </ul>
                             <?php } ?>
                     </li>
+                    <li><a href='/news/'>Nieuws</a></li>
                     <li><a href='/wordlid'>Word lid!</a></li>
                     <li class='dropdown'>
                         <a href='/sponsor/' class='dropdown-toggle'>Sponsoren</a>
@@ -105,7 +106,7 @@
                         </li>
 
                     <?php } ?>
-                    <li><a href='/news/'>Nieuws</a></li>
+                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
