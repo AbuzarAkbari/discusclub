@@ -38,7 +38,7 @@ require_once("../../includes/tools/security.php");
 
     <br><br>
     <?php
-    $sql = "SELECT * FROM topic WHERE last_changed >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at DESC";
+    $sql = "SELECT *, user.id AS user_id, topic.id AS topic_id, sub_category.id AS sub_category_id FROM topic JOIN sub_category ON topic.sub_category_id = sub_category.id JOIN user ON topic.user_id = user.id WHERE topic.last_changed >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY topic.created_at DESC";
     $result = $dbc->prepare($sql);
     $result->execute();
     $results = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -98,13 +98,14 @@ require_once("../../includes/tools/security.php");
 
                             <tr>
                                 <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
-                                <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
-                                <td><a href="#"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
-                                <td><a href="#"><?php echo $topic['user_id']; ?></a></td>
+                                <td><a href="/forum/post/<?php echo $topic['topic_id']; ?>"><?php echo $topic['title']; ?></a></td>
+                                <td><a href="/forum/topic/<?php echo $topic['sub_category_id']; ?>"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
+                                <td><a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
 
                                 <td><?php echo $results2[0]['i']; ?></td>
                                 <td><?php echo $x_bekeken['x']; ?></td>
-                                <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
+                                <!-- Hier laatste bericht nog aanpassen -->
+                                <td>1 dag geleden, <br> Door <a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
                                 <?php if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
                                     <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $sub_categorie_naam['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
