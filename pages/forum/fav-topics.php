@@ -36,7 +36,7 @@
 
     <br><br>
     <?php
-    $sql = "SELECT * FROM favorite as f JOIN topic as t ON f.topic_id = t.id WHERE f.user_id = :user_id";
+    $sql = "SELECT *, user.id AS user_id, sub_category.id AS sub_category_id FROM favorite as f JOIN topic as t ON f.topic_id = t.id JOIN user ON f.user_id = user.id JOIN sub_category ON t.sub_category_id = sub_category.id WHERE f.user_id = :user_id";
     $result = $dbc->prepare($sql);
     $result->execute([":user_id" => $_SESSION["user"]->id]);
     $results = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -95,9 +95,9 @@
 
                             <tr>
                                 <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
-                                <td><a href="/forum/topic/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
-                                <td><a href="#"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
-                                <td><a href="#"><?php echo $topic['user_id']; ?></a></td>
+                                <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
+                                <td><a href="/forum/topic/<?php echo $topic['sub_category_id']; ?>"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
+                                <td><a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
 
                                 <td><?php echo $results2[0]['i']; ?></td>
                                 <td><?php echo $x_bekeken['x']; ?></td>

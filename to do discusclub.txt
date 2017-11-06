@@ -7,8 +7,6 @@ about/news/view, album/view : alles checken en toevoegen (zelfde dingen moeten d
 
 wachtwoord aanpassen
 
-signature standaard tekst (als user geen signature invult): Geen handtekening(lichtere kleur)
-
 Berichtensysteem (Leon fixt het)
 
 
