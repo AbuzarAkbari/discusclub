@@ -58,6 +58,7 @@ require_once("../../includes/tools/security.php"); ?>
                                 <th>Adres</th>
                                 <th>Stad</th>
                                 <th>Tools</th>
+                                <th>Status</th>
                             </tr>
                             <?php
                                 // $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM user LEFT JOIN ip ON ip.user_id = user.id";
@@ -100,6 +101,25 @@ require_once("../../includes/tools/security.php"); ?>
                                         <a title="Deblokeer" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=2" class="btn btn-success" name="button">
                                          <i class="glyphicon glyphicon-ok"></i></a>
                                     </td>
+                                    <td>  <?php
+
+                                    $sql = "SELECT * FROM approval_signup";
+                                    $result = $dbc->prepare($sql);
+                                    $result->execute();
+                                    $status = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                                    switch ($status['approved']) {
+                                        case 0:
+                                        echo "<div class='status-block text-center'><span class='open-eye glyphicon glyphicon-eye-open'></span></div>";
+                                        break;
+                                        case 1:
+                                        echo "<div class='status-block text-center'><span class='ok glyphicon glyphicon-ok'></span></div>";
+                                        break;
+                                        case 2:
+                                        echo "<div class='status-block text-center'><span class='remove glyphicon glyphicon-remove '></span></div>";
+                                        break;
+                                    }?>
+                                   </td>
                                 </tr>
                             <?php
                             endforeach;
