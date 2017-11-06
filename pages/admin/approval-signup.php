@@ -103,12 +103,7 @@ require_once("../../includes/tools/security.php"); ?>
                                     </td>
                                     <td>  <?php
 
-                                    $sql = "SELECT * FROM approval_signup";
-                                    $result = $dbc->prepare($sql);
-                                    $result->execute();
-                                    $status = $result->fetchAll(PDO::FETCH_ASSOC);
-
-                                    switch ($status['approved']) {
+                                    switch ($ip['approved']) {
                                         case 0:
                                         echo "<div class='status-block text-center'><span class='open-eye glyphicon glyphicon-eye-open'></span></div>";
                                         break;
