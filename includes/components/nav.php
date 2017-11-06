@@ -82,7 +82,7 @@
                         <a href='/aquarium/' class='dropdown-toggle'>Aquarium</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
-                                <li><a href='/aquarium/upload'>Aquarium</a></li>
+                                <li><a href='/aquarium/upload'>Upload</a></li>
                             </ul>
                         <?php } ?>
                     </li>
