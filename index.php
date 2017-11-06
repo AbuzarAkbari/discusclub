@@ -33,6 +33,7 @@
     </script>
     <?php
         require_once("includes/components/nav.php");
+        require_once("includes/components/slider.php");
 
         $result = $dbc->prepare("SELECT * FROM `topic` JOIN sub_category ON category_id JOIN user ON user_id WHERE state_id = 3");
         $result->execute();
