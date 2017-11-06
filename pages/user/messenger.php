@@ -7,7 +7,7 @@ require_once("../../includes/tools/security.php");
 // echo "</pre>";
 
 if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
-    $sth = $dbc->prepare("INSERT INTO message(message, user_id_1, user_id_2) VALUES (:message, :user_id_1, :user_id_2)");
+    $sth = $dbc->prepare("INSERT INTO message(message, user_id_1, user_id_2, created_at) VALUES (:message, :user_id_1, :user_id_2, NOW())");
     $sth->execute([":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message" => $_POST["message"]]);
 }
 ?>

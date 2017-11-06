@@ -12,7 +12,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
 
-$sql = "INSERT INTO view (topic_id, ip_id) VALUES (:id, :ip_id)";
+$sql = "INSERT INTO view (topic_id, ip_id, created_at) VALUES (:id, :ip_id, NOW())";
 $result = $dbc->prepare($sql);
 $result->execute([":id" => $_GET["id"], ":ip_id" => $_SESSION["ip_id"]]);
 

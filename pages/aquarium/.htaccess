@@ -1,0 +1,8 @@
+ErrorDocument 404 /404.php
+
+# remove .php
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [NC,QSA]
+
+# album bekijken
+RewriteRule ^([0-9]+)$ view.php?id=$1 [NC]
