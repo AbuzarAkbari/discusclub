@@ -77,6 +77,10 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
 
                         <input type="hidden" name="nieuwsbrief" value="off">
                         <input type="checkbox" name="nieuwsbrief" id="nieuwsbrief" <?php echo $checked; ?>> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
+                        <label for="new_password">Nieuw wachtwoord</label><br>
+                        <input type="password" class="form-control" name="new_password" placeholder="Nieuw wachtwoord"><br>
+                        <label for="new_password_repeat">Nieuw wachtwoord herhalen</label><br>
+                        <input type="password" class="form-control" name="new_password_repeat" placeholder="Nieuw wachtwoord herhalen"><br>
                         <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Email"><br>
                         <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Herhaal e-mail"><br>
                         <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" value="<?php echo isset($user_data->birthdate) ? $user_data->birthdate : ''; ?>" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>

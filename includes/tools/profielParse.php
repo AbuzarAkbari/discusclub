@@ -20,6 +20,21 @@ if ($logged_in) {
             $bindings[":news"] = $news;
         }
 
+        //Nieuw wachtwoord
+        if(isset($_POST['new_password'])) {
+            if($_POST['new_password'] != $_POST['new_password_repeat']) {
+                echo "Wachtwoorden komen niet overeen.";
+                exit();
+            }
+            else
+            {
+                $new_password = $_POST['new_password'];
+                $password = password_hash($new_password, PASSWORD_BCRYPT);
+                $query .= ", password = :password";
+                $bindings[":password"] = $password;
+            }
+        }
+
         //Email
         if ($_POST['email'] === $_POST['repeat_email']) {
             $email = $_POST['email'];
