@@ -105,7 +105,7 @@
                         </li>
 
                     <?php } ?>
-                    <li><a href='/news'>Nieuws</a></li>
+                    <li><a href='/news/'>Nieuws</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
