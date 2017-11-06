@@ -11,3 +11,15 @@ RewriteRule ^post/([0-9]+) post.php?id=$1&pagina=1 [NC]
 # topic id
 RewriteRule ^topic/([0-9]+)/([0-9]+) topic.php?id=$1&pagina=$2 [NC]
 RewriteRule ^topic/([0-9]+) topic.php?id=$1 [NC]
+
+# active topic id
+RewriteRule ^active-topics/([0-9]+) active-topics.php?pagina=$1 [NC]
+RewriteRule ^active-topics$ active-topics.php?pagina=1 [NC]
+
+# new topic id
+RewriteRule ^new-topics/([0-9]+) new-topics.php?pagina=$1 [NC]
+RewriteRule ^new-topics$ new-topics.php?pagina=1 [NC]
+
+# fav topic id
+RewriteRule ^fav-topics/([0-9]+) fav-topics.php?pagina=$1 [NC]
+RewriteRule ^fav-topics$ fac-topics.php?pagina=1 [NC]

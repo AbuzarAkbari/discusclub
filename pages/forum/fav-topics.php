@@ -1,4 +1,10 @@
 <?php require_once("../../includes/tools/security.php");
+//Pagination variables
+$page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+if (false === intval($page)) {
+    exit;
+}
+$perPage = 10;
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +42,8 @@
 
     <br><br>
     <?php
-    $sql = "SELECT *, t.id AS topic_id, user.id AS user_id, sub_category.id AS sub_category_id FROM favorite as f JOIN topic as t ON f.topic_id = t.id JOIN user ON f.user_id = user.id JOIN sub_category ON t.sub_category_id = sub_category.id WHERE f.user_id = :user_id";
+    $aantal = $page * $perPage - $perPage;
+    $sql = "SELECT *, t.id AS topic_id, user.id AS user_id, sub_category.id AS sub_category_id FROM favorite as f JOIN topic as t ON f.topic_id = t.id JOIN user ON f.user_id = user.id JOIN sub_category ON t.sub_category_id = sub_category.id WHERE f.user_id = :user_id LIMIT {$perPage} OFFSET {$aantal}";
     $result = $dbc->prepare($sql);
     $result->execute([":user_id" => $_SESSION["user"]->id]);
     $results = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -116,6 +123,39 @@
                         <?php endforeach; ?>
                     </div>
                 </table>
+            </div>
+            <!-- Pagination system -->
+            <div class="col-xs-12">
+
+                <?php
+
+                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM favorite WHERE user_id = :user_id');
+                $query->execute([":user_id" => $_SESSION["user"]->id]);
+                $results = $query->fetchAll()[0];
+                $count = ceil($results['x'] / $perPage);
+                ?>
+
+                <?php if ($results['x'] > $perPage) : ?>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
+                                <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
+                                    <a href="/forum/new-topics/<?php echo $x; ?>"><?php echo $x; ?></a>
+                                </li>
+                            <?php endfor; ?>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                <?php endif; ?>
             </div>
             </div>
         </div>

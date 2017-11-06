@@ -91,6 +91,7 @@ require_once("../../includes/components/nav.php");
                 <li class="active"><?php echo $rows['title']; ?></li>
             </ol>
 
+            <?php if($_GET['pagina'] == 1) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading border-color-blue">
                     <h3 class="panel-title text-left"><?php echo $rows['title']; ?></h3>
@@ -148,6 +149,7 @@ require_once("../../includes/components/nav.php");
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 
