@@ -52,7 +52,6 @@
                         <?php echo $text['content']; ?>
                         <br><br> <?php echo ucfirst($text['first_name']) ." ".  ucfirst($text['last_name']); ?>
                         <br><br> <?php echo ucfirst($text['signature']); ?>
-                        <br><br>
                     </div>
                 </div>
                 <br><br>

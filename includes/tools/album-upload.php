@@ -24,7 +24,7 @@ if (isset($_POST['upload_album'])) {
 	            $uploadOk = 1;
 				$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-	            // Check if image file is a actual image or fake image
+				// Check if image file is a actual image or fake image
 	            $check = getimagesize($album_files["tmp_name"][$x]);
 	            if ($check !== false) {
 	                $uploadOk = 1;
@@ -59,7 +59,7 @@ if (isset($_POST['upload_album'])) {
 	                // if everything is ok, try to upload file
 	            } else {
 	                $fragments = explode('.', $album_files["name"][$x]);
-					$path = strtotime(date("Y-m-d H:i:s")) . '-'.$x.'.' . end($fragments);
+					$path = "/album/" . strtotime(date("Y-m-d H:i:s")) . '-'.$x.'.' . end($fragments);
 
 	                $extensions = [
 	                    '.png',
@@ -76,7 +76,7 @@ if (isset($_POST['upload_album'])) {
 
 
 
-	                if (move_uploaded_file($album_files["tmp_name"][$x], '../../images/album/'.$path)) {
+	                if (move_uploaded_file($album_files["tmp_name"][$x], '../../images'.$path)) {
 	                    $sql = "INSERT INTO image (path, album_id) VALUES (:path, :album_id)";
 	                    $result = $dbc->prepare($sql);
 						$result->execute([':path' => $path, ':album_id' => $album_id]);

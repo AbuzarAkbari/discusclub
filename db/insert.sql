@@ -6,23 +6,23 @@ INSERT INTO `role`(`name`) VALUES
 ('admin');
 
 INSERT INTO `image`(`path`) VALUES
-('http://via.placeholder.com/350x350'),
-('ESHA-Banner_NL_discus_03B15.gif'),
-('discusmania-toekan.gif'),
-('banner-HVP-Aqua.gif'),
-('Veldhuis-banner.jpg'),
-('Dicuscompleet-banner.jpg'),
-('discuspassi-banner-3.jpg'),
-('Discusshop-banner.jpg'),
-('Aqua-light-banner.jpg'),
-('Rockzolid-banner.jpg'),
-('osmoseapparaat-banner.jpg'),
-('Wesdijk-banner.jpg'),
-('Koidream-banner.jpg'),
-('DCH-banner-AquaVaria-2014.jpg'),
-('RUTO-banner.jpg'),
-('discusvistotaal.gif'),
-('/images/messenger_background/default.jpg');
+('/default.png'),
+('/sponsor/ESHA-Banner_NL_discus_03B15.gif'),
+('/sponsor/discusmania-toekan.gif'),
+('/sponsor/banner-HVP-Aqua.gif'),
+('/sponsor/Veldhuis-banner.jpg'),
+('/sponsor/Dicuscompleet-banner.jpg'),
+('/sponsor/discuspassi-banner-3.jpg'),
+('/sponsor/Discusshop-banner.jpg'),
+('/sponsor/Aqua-light-banner.jpg'),
+('/sponsor/Rockzolid-banner.jpg'),
+('/sponsor/osmoseapparaat-banner.jpg'),
+('/sponsor/Wesdijk-banner.jpg'),
+('/sponsor/Koidream-banner.jpg'),
+('/sponsor/DCH-banner-AquaVaria-2014.jpg'),
+('/sponsor/RUTO-banner.jpg'),
+('/sponsor/discusvistotaal.gif'),
+('/messenger_background/default.jpg');
 
 INSERT INTO `user` (`first_name`, `last_name`, `email`, `username`, `password`, `role_id`) VALUES
 ('john', 'doe', 'john_doe@example.com', 'test', '$2y$10$9UNJC27kiVGmXrn5WUeyPeSktXXF1uTRE2mX8bgOISy2GTLC57pBm', 5),
@@ -50,8 +50,10 @@ INSERT INTO `state` (`name`) VALUES
 ('closed'),
 ('pinned');
 
+INSERT INTO `topic` (`sub_category_id`, `title`, `user_id`, `content`, `created_at`, `last_changed`, `state_id`) VALUES
+(1, 'Nieuwe website DCH', 1, '\"Het Water Gala\" komt met rasse schreden dichterbij, binnen iets meer dan een maand is het zo ver!\r\n\r\nEen beurs als deze is niet mogelijk zonder eerst vele handjes te hebben die helpen om op te bouwen.\r\nEr zijn inmiddels een flink aantal mensen die het kunnen beamen: meehelpen aan het opbouwen van dergelijke grootse beurs is een flinke karwij, is lastig, maar het belangrijkste is misschien: het is zo fantastisch mensen achter de schermen te leren kennen, je leert er zelf dingen bij, je leert interessante mensen kennen die je op vlak van de hobby best wel nog kunt contacteren later.\r\n\r\nWelnu, wij hadden jullie er graag bij gehad om te helpen!\r\n\r\nHeb je interesse om te komen helpen op onderstaande data, dan kunnen wij garanderen dat jijzelf achteraf vol fier en trots zal kunnen zeggen: ik heb meegeholpen aan die mega beurs, wat de vele duizenden bezoekers gaan zien, welnu, dat is deels mijn werk!\r\n\r\n\r\nKunt u zich vrij maken op :\r\n\r\nMaandag 19 september (belangrijk)\r\ndinsdag 20 september (belangrijk)\r\nwoensdag 21 september\r\ndonderdag 22 september\r\nvrijdag 23 september\r\n\r\nmaandag 26 september (super belangrijk, de afbraak moet op één dag kunnen gebeuren, hier hebben we NOOIT handen teveel!!!)\r\n\r\nGraag dan een seintje naar iemand van het bestuur, hetzij hier, hetzij via privé bericht, sms, email, facebook ah, van ons part mogen jullie zelfs te tamtam en rooksignalen gebruiken, zolang wij maar weten dat wij op jullie kunnen rekenen!\r\n\r\nNiet alleen namens het ganse bestuur, maar vooral namens een paar duizend bezoekers danken wij jullie alvast van harte voor de hulp!!!!', '2017-10-16 14:35:24', '2017-10-16 14:35:24', 3);
+
 INSERT INTO `topic` (`sub_category_id`, `title`, `user_id`, `content`, `created_at`, `last_changed`) VALUES
-(1, 'Nieuwe website DCH', 1, '\"Het Water Gala\" komt met rasse schreden dichterbij, binnen iets meer dan een maand is het zo ver!\r\n\r\nEen beurs als deze is niet mogelijk zonder eerst vele handjes te hebben die helpen om op te bouwen.\r\nEr zijn inmiddels een flink aantal mensen die het kunnen beamen: meehelpen aan het opbouwen van dergelijke grootse beurs is een flinke karwij, is lastig, maar het belangrijkste is misschien: het is zo fantastisch mensen achter de schermen te leren kennen, je leert er zelf dingen bij, je leert interessante mensen kennen die je op vlak van de hobby best wel nog kunt contacteren later.\r\n\r\nWelnu, wij hadden jullie er graag bij gehad om te helpen!\r\n\r\nHeb je interesse om te komen helpen op onderstaande data, dan kunnen wij garanderen dat jijzelf achteraf vol fier en trots zal kunnen zeggen: ik heb meegeholpen aan die mega beurs, wat de vele duizenden bezoekers gaan zien, welnu, dat is deels mijn werk!\r\n\r\n\r\nKunt u zich vrij maken op :\r\n\r\nMaandag 19 september (belangrijk)\r\ndinsdag 20 september (belangrijk)\r\nwoensdag 21 september\r\ndonderdag 22 september\r\nvrijdag 23 september\r\n\r\nmaandag 26 september (super belangrijk, de afbraak moet op één dag kunnen gebeuren, hier hebben we NOOIT handen teveel!!!)\r\n\r\nGraag dan een seintje naar iemand van het bestuur, hetzij hier, hetzij via privé bericht, sms, email, facebook ah, van ons part mogen jullie zelfs te tamtam en rooksignalen gebruiken, zolang wij maar weten dat wij op jullie kunnen rekenen!\r\n\r\nNiet alleen namens het ganse bestuur, maar vooral namens een paar duizend bezoekers danken wij jullie alvast van harte voor de hulp!!!!', '2017-10-16 14:35:24', '2017-10-16 14:35:24'),
 (1, 'test topic', 1, "bla", '2017-10-18 10:57:41', '2017-10-18 10:57:41'),
 (1, 'Nieuw test topic', 1, '<p>fdsfsdfsdfsdfgsdfsd</p>', '2017-10-18 12:44:06', '2017-10-18 12:44:06'),
 (1, 'een nieuw test topic', 1, '<p><i>sdujfnsdipfpoakfdnfjksdnf</i></p>', '2017-10-18 12:44:42', '2017-10-18 12:44:42');
@@ -63,7 +65,7 @@ INSERT INTO `album_reply`(`content`, `user_id`, `album_id`) VALUES
 ('geile fotos jonge', 2, 1);
 
 INSERT INTO `image`(`path`, `album_id`) VALUES
-('http://via.placeholder.com/350x350', 1);
+('/default.png', 1);
 
 INSERT INTO `message`(`message`, `user_id_1`, `user_id_2`) VALUES
 ('bla', 1, 2),
