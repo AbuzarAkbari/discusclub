@@ -6,7 +6,7 @@ if (false === intval($page)) {
     exit;
 }
 $perPage = 10;
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +44,7 @@ $perPage = 10;
 
     <br><br>
 <?php
-    $aantal = $page * $perPage - $perPage;
+   $aantal = $page * $perPage - $perPage;
    $sql = "SELECT *, sub_category.id AS sub_category_id FROM topic JOIN sub_category ON topic.sub_category_id = sub_category.id WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at DESC LIMIT {$perPage} OFFSET {$aantal}";
    $result = $dbc->prepare($sql);
    $result->execute();
@@ -74,7 +74,7 @@ $perPage = 10;
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
                             <?php if (in_array($current_level, $admin_levels)) : ?>
-                            <th>Admin tools</th>
+                                <th>Admin tools</th>
                             <?php endif; ?>
                         </tr>
                         <?php foreach ($results as $topic) : ?>
@@ -130,13 +130,12 @@ $perPage = 10;
             <div class="col-xs-12">
 
                 <?php
-
-                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM topic WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at AND deleted_at IS NULL');
-                $results = $query->fetchAll()[0];
-                $count = ceil($results['x'] / $perPage);
+                    $query = $dbc->prepare('SELECT COUNT(*) AS x FROM topic WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at AND deleted_at IS NULL');
+                    $query->execute();
+                    $pageCount = $query->fetch();
+                    $count = ceil($pageCount['x'] / $perPage);
                 ?>
-
-                <?php if ($results['x'] > $perPage) : ?>
+                <?php if ($pageCount['x'] > $perPage) : ?>
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
                             <li>
