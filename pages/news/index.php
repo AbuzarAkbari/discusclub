@@ -145,6 +145,7 @@ if (isset($_POST['post_add_topic'])) {
                                     <td><a href="categorie.php?id=<?php echo $value->cat_id; ?>"><?php echo $value->sub_name; ?></a></td>
                                     <td><?php echo $value->created_at; ?></td>
                                 </tr>
+                             
                             <?php } ?>
                         </tbody>
                     </table>
