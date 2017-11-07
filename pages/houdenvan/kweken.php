@@ -1,4 +1,4 @@
-<?php require_once("includes/tools/security.php"); ?>
+<?php require_once("../../includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,13 +32,13 @@
         })(document, 'script', 'facebook-jssdk')
     </script>
     <?php
-        require_once("includes/components/nav.php");
+        require_once("../../includes/components/nav.php");
       ?>
     <div class="">
 
     </div>
     <footer>
-        <?php require 'includes/components/footer.php' ; ?>
+        <?php require_once('../../includes/components/footer.php') ; ?>
     </footer>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
