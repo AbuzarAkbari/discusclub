@@ -43,10 +43,21 @@ $perPage = 10;
     <br><br>
     <?php
     $aantal = $page * $perPage - $perPage;
-    $sql = "SELECT *, t.id AS topic_id, user.id AS user_id, sub_category.id AS sub_category_id FROM favorite as f JOIN topic as t ON f.topic_id = t.id JOIN user ON f.user_id = user.id JOIN sub_category ON t.sub_category_id = sub_category.id WHERE f.user_id = :user_id LIMIT {$perPage} OFFSET {$aantal}";
-    $result = $dbc->prepare($sql);
-    $result->execute([":user_id" => $_SESSION["user"]->id]);
-    $results = $result->fetchAll(PDO::FETCH_ASSOC);
+    // $sql = "SELECT *, t.id AS topic_id, user.id AS user_id, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM favorite as f JOIN topic as t ON f.topic_id = t.id JOIN user ON f.user_id = user.id JOIN sub_category ON t.sub_category_id = sub_category.id WHERE f.user_id = :user_id LIMIT {$perPage} OFFSET {$aantal}";
+    // $result = $dbc->prepare($sql);
+    // $result->execute([":user_id" => $_SESSION["user"]->id]);
+    // $results = $result->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "SELECT *, t.id AS topic_id, user.id AS user_id, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name, t.id, t.last_changed as topic_last_changed FROM favorite as f JOIN topic as t ON f.topic_id = t.id JOIN user ON f.user_id = user.id JOIN sub_category ON t.sub_category_id = sub_category.id WHERE f.user_id = :user_id AND t.deleted_at IS NULL AND state_id = 3 LIMIT {$perPage} OFFSET {$aantal}";
+    $sth = $dbc->prepare($sql);
+    $sth->execute([":user_id" => $_SESSION["user"]->id]);
+    $results = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "SELECT *, t.id AS topic_id, user.id AS user_id, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name, t.id, t.last_changed as topic_last_changed FROM favorite as f JOIN topic as t ON f.topic_id = t.id JOIN user ON f.user_id = user.id JOIN sub_category ON t.sub_category_id = sub_category.id WHERE f.user_id = :user_id AND t.deleted_at IS NULL AND state_id <> 3 LIMIT {$perPage} OFFSET {$aantal}";
+    $sth = $dbc->prepare($sql);
+    $sth->execute([":user_id" => $_SESSION["user"]->id]);
+
+    $results = array_merge($results, $sth->fetchAll(PDO::FETCH_ASSOC));
 ?>
 <br><br>
 <div class="container main">
@@ -77,21 +88,13 @@ $perPage = 10;
                         </tr>
                         <?php foreach ($results as $topic) : ?>
                             <?php
-                            $id = 1;
-
-                            $sql2 = "SELECT * FROM sub_category WHERE category_id = ?";
-                            $result2 = $dbc->prepare($sql2);
-                            $result2->bindParam(1, $id);
-                            $result2->execute();
-
-                            $sub_categorie_naam = $result2->fetchAll();
 
                             $sql3 = "SELECT COUNT(id) AS i FROM reply WHERE topic_id = ?";
                             $result3 = $dbc->prepare($sql3);
                             $result3->bindParam(1, $topic['id']);
                             $result3->execute();
 
-                            $results2 = $result3->fetchAll(PDO::FETCH_ASSOC);
+                            $results2 = $result3->fetch(PDO::FETCH_ASSOC);
 
                             $sql4 = "SELECT COUNT(*) AS x FROM view WHERE topic_id = ?";
                             $result4 = $dbc->prepare($sql4);
@@ -101,16 +104,39 @@ $perPage = 10;
                             ?>
 
                             <tr>
-                                <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
+                                <td>
+                                    <?php
+                                    switch ($topic['state_id']) {
+                                    case 1:
+                                        echo "<span class='glyphicon glyphicon-file'></span>";
+                                        break;
+                                    case 2:
+                                        echo "<span class='glyphicon glyphicon-lock'></span>";
+                                        break;
+                                    case 3:
+                                        echo "<span class='glyphicon glyphicon-pushpin'></span>";
+                                        break;
+                                    }
+                                    ?>
+                                </td>
                                 <td><a href="/forum/post/<?php echo $topic['topic_id']; ?>"><?php echo $topic['title']; ?></a></td>
-                                <td><a href="/forum/topic/<?php echo $topic['sub_category_id']; ?>"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
+                                <td><a href="/forum/topic/<?php echo $topic['sub_category_id']; ?>"><?php echo $topic['sub_category_name']; ?></a></td>
                                 <td><a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
 
-                                <td><?php echo $results2[0]['i']; ?></td>
+                                <td><?php echo $results2['i']; ?></td>
                                 <td><?php echo $x_bekeken['x']; ?></td>
-                                <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
-                                </td>
-                                <?php if (in_array($current_level, $admin_levels)) : ?>
+                                <?php
+                                $userResult = $dbc->prepare("SELECT *, u.id as user_id, r.last_changed FROM reply as r JOIN topic as t ON t.id = r.topic_id JOIN user as u ON u.id = r.user_id WHERE t.id = :id ORDER BY r.last_changed DESC LIMIT 1 ");
+                                $userResult->execute([":id" => $topic["id"]]);
+                                $user = $userResult->fetch(PDO::FETCH_ASSOC);
+                                if($user) :
+                                ?>
+                                    <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                <?php else : ?>
+                                    <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
+                                <?php
+                                endif;
+                                if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
                                     <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
                                     <a  title="Pinnen" href="/includes/tools/topic/pin.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
