@@ -144,23 +144,18 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
                                     ?>
                                 </td>
                                 <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
+                                <td><a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
+                                <td><?php echo $x_berichten; ?></td>
+                                <td><?php echo $x[0]['x']; ?></td>
                                 <?php
                                     $userResult = $dbc->prepare("SELECT *, u.id as user_id, r.last_changed FROM reply as r JOIN topic as t ON t.id = r.topic_id JOIN user as u ON u.id = r.user_id WHERE t.id = :id ORDER BY r.last_changed DESC LIMIT 1 ");
                                     $userResult->execute([":id" => $topic["id"]]);
                                     $user = $userResult->fetch(PDO::FETCH_ASSOC);
                                     if($user) :
                                 ?>
-                                    <td><a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
-                                    <td><?php echo $x_berichten; ?></td>
-                                    <td><?php echo $x[0]['x']; ?></td>
                                     <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                     <?php else : ?>
-                                    <td><a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
-                                    <td><?php echo $x_berichten; ?></td>
-                                    <td><?php echo $x[0]['x']; ?></td>
                                     <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
-
-
                                     <?php endif;if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
                                     <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>

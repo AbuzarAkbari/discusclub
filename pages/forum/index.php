@@ -1,11 +1,18 @@
 <?php
-$levels = ["lid", "gebruiker"];
-require_once("../../includes/tools/security.php");
+    $levels = ["lid", "gebruiker"];
+    require_once("../../includes/tools/security.php");
 
-$categorieenSql = "SELECT * FROM category";
-$categorieenResult = $dbc->prepare($categorieenSql);
-$categorieenResult->execute();
-$results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
+    $categorieenSql = "SELECT * FROM category";
+    $categorieenResult = $dbc->prepare($categorieenSql);
+    $categorieenResult->execute();
+    $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
+
+    if(isset($_POST['add_new_category']))
+    {
+        $sql = "INSERT INTO category (name) VALUES (:name)";
+        $query = $dbc->prepare($sql);
+        $query->execute([":name" => $_POST["new_category"]]);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,18 +54,42 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
             <li class="active">Forum</li>
         </ol>
         <br>
+        <?php if(in_array($current_level, $admin_levels)) : ?>
+            <div class="panel panel-primary">
+                <div class="panel-heading border-colors">Voeg een nieuwe categorie toe</div>
+                <div class="panel-body">
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+                        <label for="new_category">Nieuwe categorie naam</label>
+                        <input type="text" class="form-control" name="new_category">
+                        <br>
+                        <input type="submit" class="form-control btn btn-primary" name="add_new_category" value="Voeg toe">
+                    </form>
+                </div>
+            </div>
+        <?php endif; ?>
         <?php foreach ($results as $categorie) : ?>
             <?php
-            $id = $categorie['id'];
-            $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ?";
-            $subCategorieenResult = $dbc->prepare($subCategorieenSql);
-            $subCategorieenResult->bindParam(1, $id);
-            $subCategorieenResult->execute();
-            $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
+                $id = $categorie['id'];
+                $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ?";
+                $subCategorieenResult = $dbc->prepare($subCategorieenSql);
+                $subCategorieenResult->bindParam(1, $id);
+                $subCategorieenResult->execute();
+                $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors"><?php echo $categorie['name']; ?></div>
                 <div class="panel-body padding-padding table-responsive">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for="">add sub cat</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="submit" class="form-control btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
                     <table>
                         <thead>
                             <tr>
@@ -88,7 +119,6 @@ $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
                                 $query3->bindParam(1, $subCat['id']);
                                 $query3->execute();
                                 $topic_x = $query3->fetchAll(PDO::FETCH_ASSOC)[0];
-
                             ?>
                             <tr>
                                 <td> &#128193;</td>

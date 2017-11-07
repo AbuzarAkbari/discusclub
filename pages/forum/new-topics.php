@@ -45,10 +45,17 @@ $perPage = 10;
     <br><br>
 <?php
    $aantal = $page * $perPage - $perPage;
-   $sql = "SELECT *, sub_category.id AS sub_category_id FROM topic JOIN sub_category ON topic.sub_category_id = sub_category.id WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at DESC LIMIT {$perPage} OFFSET {$aantal}";
-   $result = $dbc->prepare($sql);
-   $result->execute();
-   $results = $result->fetchAll(PDO::FETCH_ASSOC);
+
+   $sql = "SELECT *, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name, topic.id, topic.last_changed as topic_last_changed FROM topic JOIN user ON user.id = topic.user_id JOIN sub_category ON topic.sub_category_id = sub_category.id WHERE topic.created_at >= DATE(NOW()) - INTERVAL 7 DAY AND topic.deleted_at IS NULL AND topic.state_id = 3 ORDER BY topic.created_at DESC LIMIT {$perPage} OFFSET {$aantal}";
+   $sth = $dbc->prepare($sql);
+   $sth->execute();
+   $results = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+   $sql = "SELECT *, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name, topic.id, topic.last_changed as topic_last_changed FROM topic JOIN user ON user.id = topic.user_id JOIN sub_category ON topic.sub_category_id = sub_category.id WHERE topic.created_at >= DATE(NOW()) - INTERVAL 7 DAY AND topic.deleted_at IS NULL AND topic.state_id <> 3 ORDER BY topic.created_at DESC LIMIT {$perPage} OFFSET {$aantal}";
+   $sth = $dbc->prepare($sql);
+   $sth->execute();
+
+   $results = array_merge($results, $sth->fetchAll(PDO::FETCH_ASSOC));
 ?>
 <br><br>
 <div class="container main">
@@ -79,44 +86,58 @@ $perPage = 10;
                         </tr>
                         <?php foreach ($results as $topic) : ?>
                             <?php
-                            $id = 1;
-
-                            $sql2 = "SELECT * FROM sub_category WHERE category_id = ?";
-                            $result2 = $dbc->prepare($sql2);
-                            $result2->bindParam(1, $id);
-                            $result2->execute();
-
-                            $sub_categorie_naam = $result2->fetchAll();
 
                             $sql3 = "SELECT COUNT(id) AS i FROM reply WHERE topic_id = ?";
                             $result3 = $dbc->prepare($sql3);
                             $result3->bindParam(1, $topic['id']);
                             $result3->execute();
 
-                            $results2 = $result3->fetchAll(PDO::FETCH_ASSOC);
+                            $results2 = $result3->fetch(PDO::FETCH_ASSOC)["i"];
 
                             $sql4 = "SELECT COUNT(*) AS x FROM view WHERE topic_id = ?";
                             $result4 = $dbc->prepare($sql4);
                             $result4->bindParam(1, $topic['id']);
                             $result4->execute();
-                            $x_bekeken = $result4->fetchAll()[0];
+                            $x_bekeken = $result4->fetch()["x"];
                             ?>
 
                             <tr>
-                                <td><?php echo "<span class='glyphicon glyphicon-file'></span>"; ?></td>
-                                <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
-                                <td><a href="/forum/topic/<?php echo $topic['sub_category_id']; ?>"><?php echo $sub_categorie_naam[0]['name']; ?></a></td>
-                                <td><a href="#"><?php echo $topic['user_id']; ?></a></td>
-
-                                <td><?php echo $results2[0]['i']; ?></td>
-                                <td><?php echo $x_bekeken['x']; ?></td>
-                                <td>1 dag geleden, <br> Door <a href="#"><?php echo 'John Doe'; ?></a></td>
-                                </td>
-                                <?php if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
-                                    <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
-                                    <a  title="Pinnen" href="/includes/tools/topic/pin.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
-                                    <a  title="Locken" href="/includes/tools/topic/lock.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
+                                <?php
+                                    switch ($topic['state_id']) {
+                                    case 1:
+                                        echo "<span class='glyphicon glyphicon-file'></span>";
+                                        break;
+                                    case 2:
+                                        echo "<span class='glyphicon glyphicon-lock'></span>";
+                                        break;
+                                    case 3:
+                                        echo "<span class='glyphicon glyphicon-pushpin'></span>";
+                                        break;
+                                    }
+                                ?>
+                                </td>
+                                <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
+                                <td><a href="/forum/topic/<?php echo $topic['sub_category_id']; ?>"><?php echo $topic['sub_category_name']; ?></a></td>
+                                <td><a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
+                                <td><?php echo $results2; ?></td>
+                                <td><?php echo $x_bekeken; ?></td>
+                                <?php
+                                $userResult = $dbc->prepare("SELECT *, u.id as user_id, r.last_changed FROM reply as r JOIN topic as t ON t.id = r.topic_id JOIN user as u ON u.id = r.user_id WHERE t.id = :id ORDER BY r.last_changed DESC LIMIT 1 ");
+                                $userResult->execute([":id" => $topic["id"]]);
+                                $user = $userResult->fetch(PDO::FETCH_ASSOC);
+                                if($user) :
+                                ?>
+                                    <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
+                                <?php else : ?>
+                                    <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
+                                <?php
+                                endif;
+                                if (in_array($current_level, $admin_levels)) : ?>
+                                <td>
+                                    <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $topic['sub_category_id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
+                                    <a  title="Pinnen" href="/includes/tools/topic/pin.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $topic['sub_category_id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
+                                    <a  title="Locken" href="/includes/tools/topic/lock.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $topic['sub_category_id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
                                     <a title="Bewerken" href="/includes/tools/topic/edit.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
                                     <a title="Verwijderen" href="/includes/tools/topic/del.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
                                 </td>

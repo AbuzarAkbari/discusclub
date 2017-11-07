@@ -138,7 +138,7 @@
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
                                     <li><a href='/forum/active-topics'>Actieve topics</a></li>
-                                    <li><a href='/forum/new-topics'>Nieuw topics</a></li>
+                                    <li><a href='/forum/new-topics'>Nieuwe topics</a></li>
                                     <li><a href='/forum/fav-topics'>Favoriete topics</a></li>
                                 </ul>
                             <?php } ?>
