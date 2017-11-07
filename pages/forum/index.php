@@ -9,9 +9,16 @@
 
     if(isset($_POST['add_new_category']))
     {
-        $sql = "INSERT INTO category (name) VALUES (:name)";
+        $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
         $query->execute([":name" => $_POST["new_category"]]);
+    }
+
+    if(isset($_POST['add_new_sub_category']))
+    {
+        $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
+        $query = $dbc->prepare($sql);
+        $query->execute([":name" => $_POST["new_sub_category"]]);
     }
 ?>
 <!DOCTYPE html>
@@ -79,14 +86,14 @@
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors"><?php echo $categorie['name']; ?></div>
                 <div class="panel-body padding-padding table-responsive">
-                    <form class="row" action="">
+                    <form class="row" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
                         <br>
-                        <label class="col-md-12" for="">Voeg hier een nieuwe categorie toe</label>
+                        <label class="col-md-12" for="">Nieuwe subcategorie naam</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control"><br>
+                                <input type="text" class="form-control" name="new_sub_category"><br>
                             </div>
                             <div class="col-md-3">
-                                <input type="submit" value="Toevoegen" class="form-control btn btn-primary"><br><br>
+                                <input type="submit" value="Toevoegen" name="add_new_sub_category" class="form-control btn btn-primary"><br><br>
                             </div>
                     </form>
                     <table>
@@ -97,6 +104,9 @@
                                 <th>Topics</th>
                                 <th>Berichten</th>
                                 <th>Laatste bericht</th>
+                                <?php if(in_array($current_level, $admin_levels)) : ?>
+                                    <th>Admin tools</th>
+                                <?php endif; ?>
                             </tr>
                         </thead>
 
@@ -140,6 +150,11 @@
                                                 <?php echo isset($laatsteBericht["reply_first_name"]) ? $laatsteBericht["reply_first_name"] . " " . $laatsteBericht["reply_last_name"] : $laatsteBericht["topic_first_name"] . " " . $laatsteBericht["topic_last_name"] ?>
                                             </a>
                                         </td>
+                                    <?php if(in_array($current_level, $admin_levels)) : ?>
+                                        <td>
+                                            <a  title="Delete" href="/includes/tools/sub-category/del.php?id=<?php echo $subCat['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
+                                        </td>
+                                    <?php endif; ?>
                                     <?php else : ?>
                                         <td>Niks gevonden</td>
                                 <?php endif; ?>
