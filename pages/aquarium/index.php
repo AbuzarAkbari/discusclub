@@ -65,12 +65,12 @@ require_once("../../includes/tools/security.php"); ?>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading border-color-blue">
-                            <h3 class="panel-title"><?php echo $aquarium['title']; ?></h3>
+                            <h2 class="col-md-9 col-sm-10 col-xs-9 panel-title aquarium-title"><?php echo $aquarium['title']; ?></h2> 165 <img class="like-vis" src="/images/favicon-wit.png" alt="">
                         </div>
                         <div class="panel-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $aquarium["user_id"]; ?>"><i> <?php echo $aquarium['first_name'].' '.$aquarium['last_name']; ?> </i></a></h4>
+                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $aquarium["user_id"]; ?>"><i><?php echo $aquarium['first_name'].' '.$aquarium['last_name']; ?> </i></a></h4>
                                     <p>
                                         Aantal foto's: <i><?php echo $aquarium['aantal_fotos']; ?></i><br>
                                         Datum: <i><?php echo $aquarium['created_at']; ?></i><br>

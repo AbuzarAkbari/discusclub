@@ -566,3 +566,32 @@ li.dropdown:hover > .dropdown-menu {
 .remove {
     color: #FF254A;
 }
+
+.like-vis {
+    height: 30px;
+    width: 30px;
+
+}
+
+.aquarium-title {
+    font-size: 1.5em !important;
+    line-height: 30px;
+}
+
+.nav-wrapper-mobile {
+    display: block;
+}
+
+.nav-wrapper-pc {
+    display: block;
+}
+
+@media screen and (min-width: 800px) {
+    .nav-wrapper-mobile {
+        display: none;
+    }
+
+    .nav-wrapper-pc {
+        display: block;
+    }
+}
