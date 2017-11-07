@@ -90,7 +90,7 @@ if (isset($_POST['post_add_topic'])) {
                         <h3 class="panel-title">Nieuws toevoegen</h3>
                     </div>
                     <div class="panel-body">
-                        <form class="form-horizontal" action="/news/news_search" method="post">
+                        <form class="form-horizontal" action="/news/" method="post">
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Titel (max. 50 tekens)">
@@ -138,8 +138,8 @@ if (isset($_POST['post_add_topic'])) {
                         <thead>
                             <tr>
                                 <th>Titel</th>
-                                <th>Reactie</th>
-                                <th>Catogorie</th>
+                                <th>Reacties</th>
+                                <th>Categorie</th>
                                 <th>Datum</th>
                             </tr>
                         </thead>
@@ -157,7 +157,7 @@ if (isset($_POST['post_add_topic'])) {
                                 <tr>
                                     <td><a href="/news/post/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
                                     <td><?php echo $amount; ?></td>
-                                    <td><a href="categorie.php?id=<?php echo $value->cat_id; ?>"><?php echo $value->sub_name; ?></a></td>
+                                    <td><a href="/forum/topic.php?id=<?php echo $value->cat_id; ?>"><?php echo $value->sub_name; ?></a></td>
                                     <td><?php echo $value->created_at; ?></td>
                                 </tr>
 
