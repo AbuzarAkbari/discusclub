@@ -47,15 +47,17 @@
                 <ul class='nav navbar-nav'>
                     <li><a href='/'>Home</a></li>
                     <li class='dropdown'>
-                        <a href='/about/' class='dropdown-toggle'>Over ons</a>
+                        <a class='dropdown-toggle'>Over ons</a>
                         <ul class='dropdown-menu'>
+                            <li><a href='/about/'>Over ons</a></li>
                             <li><a href='/about/origin'>Ontstaan Discus Club Holland</a></li>
                         </ul>
                     </li>
                     <li class='dropdown'>
-                        <a href='/forum/' class='dropdown-toggle'>Forum</a>
+                        <a class='dropdown-toggle'>Forum</a>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
+                                    <li><a href='/forum/'>Forum</a></li>
                                     <li><a href='/forum/active-topics'>Actieve topics</a></li>
                                     <li><a href='/forum/new-topics'>Nieuw topics</a></li>
                                     <li><a href='/forum/fav-topics'>Favoriete topics</a></li>
@@ -65,24 +67,27 @@
                     <li><a href='/news/'>Nieuws</a></li>
                     <li><a href='/wordlid'>Word lid!</a></li>
                     <li class='dropdown'>
-                        <a href='/sponsor/' class='dropdown-toggle'>Sponsoren</a>
+                        <a class='dropdown-toggle'>Sponsoren</a>
                         <ul class='dropdown-menu'>
+                            <li><a href='/sponsor/become'>Sponsoren</a></li>
                             <li><a href='/sponsor/become'>Ook sponsor worden?</a></li>
                             <li><a href='/sponsor'>Onze sponsoren</a></li>
                         </ul>
                     </li>
                     <li class='dropdown'>
-                        <a href='/album/' class='dropdown-toggle'>Albums</a>
+                        <a class='dropdown-toggle'>Albums</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
+                                <li><a href='/album/'>Albums</a></li>
                                 <li><a href='/album/upload'>Upload</a></li>
                             </ul>
                         <?php } ?>
                     </li>
                     <li class='dropdown'>
-                        <a href='/aquarium/' class='dropdown-toggle'>Aquarium</a>
+                        <a class='dropdown-toggle'>Aquarium</a>
                         <?php if ($logged_in) { ?>
                             <ul class='dropdown-menu'>
+                                <li><a href='/aquarium/'>Aquarium</a></li>
                                 <li><a href='/aquarium/upload'>Upload</a></li>
                             </ul>
                         <?php } ?>
@@ -95,8 +100,9 @@
                         $sth1->execute([":id" => $_SESSION["user"]->id]);
                          ?>
                         <li class='dropdown'>
-                            <a href='/admin/' class='dropdown-toggle'>Admin</a>
+                            <a href=class='dropdown-toggle'>Admin</a>
                                 <ul class='dropdown-menu'>
+                                    <li><a href='/admin/'>Admin</a></li>
                                     <li><a href='/admin/ip-list'>IP Lijst</a></li>
                                     <li><a href='/admin/user-list'>Ledenlijst</a></li>
                                     <li><a href='/admin/approval-signup'>Inschrijvingen(<?php echo $sth1->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
@@ -106,7 +112,7 @@
                         </li>
 
                     <?php } ?>
-                    
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
