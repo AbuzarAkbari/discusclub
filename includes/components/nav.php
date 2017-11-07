@@ -31,7 +31,6 @@
         </div>
     </div>
     <div class="container-fluid headerzijkant">
-
     </div>
   </div>
     <!-- Static navbar -->
@@ -55,6 +54,9 @@
                     </li>
                     <li class='dropdown'>
                         <a class='dropdown-toggle'>Forum</a>
+                        <ul class='dropdown-menu'>
+                            <li><a href='/forum/'>Forum</a></li>
+                        </ul>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
                                     <li><a href='/forum/'>Forum</a></li>
