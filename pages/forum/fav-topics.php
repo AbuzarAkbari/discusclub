@@ -128,11 +128,10 @@ $perPage = 10;
             <div class="col-xs-12">
 
                 <?php
-
-                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM favorite WHERE user_id = :user_id');
-                $query->execute([":user_id" => $_SESSION["user"]->id]);
-                $results = $query->fetchAll()[0];
-                $count = ceil($results['x'] / $perPage);
+                    $query = $dbc->prepare('SELECT COUNT(*) AS x FROM favorite WHERE user_id = :user_id');
+                    $query->execute([":user_id" => $_SESSION["user"]->id]);
+                    $results = $query->fetchAll()[0];
+                    $count = ceil($results['x'] / $perPage);
                 ?>
 
                 <?php if ($results['x'] > $perPage) : ?>
@@ -145,7 +144,7 @@ $perPage = 10;
                             </li>
                             <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
                                 <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
-                                    <a href="/forum/new-topics/<?php echo $x; ?>"><?php echo $x; ?></a>
+                                    <a href="/forum/fav-topics/<?php echo $x; ?>"><?php echo $x; ?></a>
                                 </li>
                             <?php endfor; ?>
                             <li>
