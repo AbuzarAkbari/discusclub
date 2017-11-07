@@ -58,9 +58,8 @@ if (isset($_POST['post_add_topic'])) {
 
     <br><br>
     <div class="container main">
+
       <div class="row columns">
-        <?php if ($logged_in && in_array($current_level, ["redacteur", "admin"])) :?>
-    <div class="row">
         <div class="col-md-12">
             <div class="col-md-12">
                 <ol class="breadcrumb">
@@ -70,7 +69,22 @@ if (isset($_POST['post_add_topic'])) {
             </div>
             <div class="col-md-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                <div class="panel-heading border-colors">
+                    <h3 class="panel-title">Zoek nieuws</h3>
+                </div>
+                    <div class="panel-body">
+                        <form method="post" action="/includes/tools/album-upload" enctype="multipart/form-data">
+                            <input type="text" class="form-control" name="album_name" placeholder='Zoek hier naar nieuwsartikelen' maxlength="155" required ><br>
+                            <button type="submit" name="search_news" class="form-control btn btn-primary">Zoek artikel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <?php if ($logged_in && in_array($current_level, ["redacteur", "admin"])) :?>
+    <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading border-colors">
                         <h3 class="panel-title">Nieuws toevoegen</h3>
                     </div>
                     <div class="panel-body">
@@ -102,7 +116,7 @@ if (isset($_POST['post_add_topic'])) {
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="submit" class="btn btn-primary" class="form-control" name="post_add_topic"
+                                <input type="submit" class="form-control btn btn-primary" class="form-control" name="post_add_topic"
                                 value="Toevoegen">
                             </div>
                         </div>
