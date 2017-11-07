@@ -82,7 +82,7 @@ $perPage = 10;
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
                             <?php if (in_array($current_level, $admin_levels)) : ?>
-                            <th>Admin tools</th>
+                                <th>Admin tools</th>
                             <?php endif; ?>
                         </tr>
                         <?php foreach ($result2 as $topic) : ?>
