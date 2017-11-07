@@ -25,10 +25,6 @@ if (isset($_POST['post_reply'])) {
     }
 }
 
-// $sql = "INSERT INTO view (user_id, ip_adres) VALUES (:user_id, :ip)";
-// $result = $dbc->prepare($sql);
-// $result->execute([":user_id" => $_SESSION["user"]->id, ":ip" => $_SESSION["ip_id"]]);
-
 $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 $perPage = 10;
 ?>
@@ -128,16 +124,11 @@ require_once("../../includes/components/nav.php");
 
 
             <?php
-            $a = $page * $perPage - $perPage;
-            $replySql = "SELECT *, user.created_at AS user_created_at, news_reply.created_at AS reply_created_at, news_reply.content AS news_reply_content FROM news_reply JOIN news ON news_reply.news_id = news.id JOIN user ON news_reply.user_id = user.id JOIN role ON user.role_id = role.id JOIN image ON user.profile_img = image.id WHERE news.id = :id AND news_reply.deleted_at IS NULL ORDER BY news_reply.last_changed ASC LIMIT {$perPage} OFFSET {$a}";
-            $replyResult = $dbc->prepare($replySql);
-            $replyResult->execute([":id" => $_GET['id']]);
-            $replies = $replyResult->fetchAll(PDO::FETCH_ASSOC);
-
-                // echo '<pre>';
-                // print_r($replies);
-                // exit;
-
+                $a = $page * $perPage - $perPage;
+                $replySql = "SELECT *, user.created_at AS user_created_at, news_reply.created_at AS reply_created_at, news_reply.content AS news_reply_content FROM news_reply JOIN news ON news_reply.news_id = news.id JOIN user ON news_reply.user_id = user.id JOIN role ON user.role_id = role.id JOIN image ON user.profile_img = image.id WHERE news.id = :id AND news_reply.deleted_at IS NULL ORDER BY news_reply.last_changed ASC LIMIT {$perPage} OFFSET {$a}";
+                $replyResult = $dbc->prepare($replySql);
+                $replyResult->execute([":id" => $_GET['id']]);
+                $replies = $replyResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <?php foreach ($replies as $reply) : ?>
                 <?php
@@ -248,10 +239,10 @@ require_once("../../includes/components/nav.php");
                 $query->execute([
                         ':id' => $_GET['id']
                 ]);
-                $results = $query->fetchAll()[0];
+                $results = $query->fetch();
                 $count = ceil($results['x'] / $perPage);
             ?>
-        <?php if($rows) : ?>
+            <?php if ($results['x'] > $perPage) : ?>
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
