@@ -21,6 +21,8 @@ if (isset($_POST['post_add_topic'])) {
     }
 }
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,8 +75,8 @@ if (isset($_POST['post_add_topic'])) {
                     <h3 class="panel-title">Zoek nieuws</h3>
                 </div>
                     <div class="panel-body">
-                        <form method="post" action="/includes/tools/album-upload" enctype="multipart/form-data">
-                            <input type="text" class="form-control" name="album_name" placeholder='Zoek hier naar nieuwsartikelen' maxlength="155" required ><br>
+                        <form method="post" action="/news/news_search">
+                            <input type="text" class="form-control" name="search_area" placeholder='Zoek hier naar nieuwsartikelen' maxlength="155" required ><br>
                             <button type="submit" name="search_news" class="form-control btn btn-primary">Zoek artikel</button>
                         </form>
                     </div>
@@ -88,7 +90,7 @@ if (isset($_POST['post_add_topic'])) {
                         <h3 class="panel-title">Nieuws toevoegen</h3>
                     </div>
                     <div class="panel-body">
-                        <form class="form-horizontal" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                        <form class="form-horizontal" action="/news/news_search" method="post">
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Titel (max. 50 tekens)">
