@@ -1,6 +1,16 @@
 <?php
-// $levels = ["lid", "gebruiker"];
-require_once("../../includes/tools/security.php"); ?>
+require_once("../../includes/tools/security.php");
+
+//echo "<pre>";
+//var_dump($_SERVER);
+//exit;
+
+$page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+if (false === intval($page)) {
+    exit;
+}
+$perPage = 6;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,11 +65,11 @@ require_once("../../includes/tools/security.php"); ?>
             </div>
 
             <?php
-              $haal_albums = "SELECT *, a.created_at AS album_created_at, count(i.album_id) as aantal_fotos, u.id as user_id, a.created_at as created_at FROM image as i JOIN album as a ON a.id = i.album_id JOIN user as u ON u.id = a.user_id WHERE i.album_id IS NOT NULL GROUP BY i.album_id ORDER BY album_created_at DESC";
-
-              $albumResult = $dbc->prepare($haal_albums);
-              $albumResult->execute();
-              $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
+                $a = $page * $perPage - $perPage;
+                $haal_albums = "SELECT *, a.created_at AS album_created_at, count(i.album_id) as aantal_fotos, u.id as user_id, a.created_at as created_at FROM image as i JOIN album as a ON a.id = i.album_id JOIN user as u ON u.id = a.user_id WHERE i.album_id IS NOT NULL GROUP BY i.album_id ORDER BY album_created_at DESC LIMIT {$perPage} OFFSET {$a}";
+                $albumResult = $dbc->prepare($haal_albums);
+                $albumResult->execute();
+                $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <?php foreach ($albums as $album) : ?>
                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -83,6 +93,37 @@ require_once("../../includes/tools/security.php"); ?>
                     </div>
                 </div>
             <?php endforeach; ?>
+        </div>
+        <!-- Pagination system -->
+        <div class="col-xs-12">
+
+            <?php
+                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM album WHERE deleted_at IS NULL');
+                $query->execute();
+                $results = $query->fetch();
+                $count = ceil($results['x'] / $perPage);
+            ?>
+            <?php if ($results['x'] > $perPage) : ?>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
+                            <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
+                                <a href="/aquarium/<?php echo $x; ?>"><?php echo $x; ?></a>
+                            </li>
+                        <?php endfor; ?>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            <?php endif; ?>
         </div>
     </div>
   </div>
