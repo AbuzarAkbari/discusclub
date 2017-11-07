@@ -6,3 +6,6 @@ RewriteRule ^(.+)$ $1.php [NC,QSA]
 
 # album bekijken
 RewriteRule ^([0-9]+)$ view.php?id=$1 [NC]
+
+# added id and pagination stuff to aquarium
+RewriteRule ^([0-9]+) index.php?pagina=$1 [NC,L]
