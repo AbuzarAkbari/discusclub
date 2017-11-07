@@ -21,7 +21,7 @@ if (isset($_POST['post_reply'])) {
         $result3->bindParam(':reply_auteur', $reply_auteur);
         $result3->bindParam(':reply_content', $reply_content);
         $result3->execute();
-        header("Location: /news/" . $bericht_id . "#post-" . $dbc->lastInsertId());
+        header("Location: /news/post/" . $bericht_id . "#post-" . $dbc->lastInsertId());
     }
 }
 
