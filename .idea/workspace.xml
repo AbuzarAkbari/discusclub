@@ -44,16 +44,16 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/forum/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="289">
               <caret line="63" column="28" lean-forward="true" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
               <folding>
-                <marker date="1510063605263" expanded="true" signature="121:143" ph="SELECT * FRO... category" />
-                <marker date="1510063605263" expanded="true" signature="366:408" ph="INSERT INTO category... " />
-                <marker date="1510063605263" expanded="true" signature="2740:2788" ph="SELECT * FRO... sub_category" />
-                <marker date="1510063605263" expanded="true" signature="4406:4501" ph="SELECT *, CO... topic" />
-                <marker date="1510063605263" expanded="true" signature="4808:5041" ph="SELECT COUNT... sub_category" />
-                <marker date="1510063605263" expanded="true" signature="5310:5399" ph="SELECT COUNT... topic" />
-                <marker date="1510063605263" expanded="true" signature="6191:6722" ph="SELECT *, r.... topic" />
+                <marker date="1510064567266" expanded="true" signature="121:143" ph="SELECT * FRO... category" />
+                <marker date="1510064567266" expanded="true" signature="366:408" ph="INSERT INTO category... " />
+                <marker date="1510064567266" expanded="true" signature="2736:2784" ph="SELECT * FRO... sub_category" />
+                <marker date="1510064567266" expanded="true" signature="4434:4529" ph="SELECT *, CO... topic" />
+                <marker date="1510064567266" expanded="true" signature="4836:5069" ph="SELECT COUNT... sub_category" />
+                <marker date="1510064567266" expanded="true" signature="5338:5427" ph="SELECT COUNT... topic" />
+                <marker date="1510064567266" expanded="true" signature="6219:6750" ph="SELECT *, r.... topic" />
               </folding>
             </state>
           </provider>
@@ -273,12 +273,12 @@
       <workItem from="1509818563825" duration="3589000" />
       <workItem from="1509962344266" duration="5085000" />
       <workItem from="1509969037552" duration="12942000" />
-      <workItem from="1510049423520" duration="12635000" />
+      <workItem from="1510049423520" duration="12941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223241000" />
+    <option name="totallyTimeSpent" value="223547000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -885,16 +885,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/forum/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="289">
           <caret line="63" column="28" lean-forward="true" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding>
-            <marker date="1510063605263" expanded="true" signature="121:143" ph="SELECT * FRO... category" />
-            <marker date="1510063605263" expanded="true" signature="366:408" ph="INSERT INTO category... " />
-            <marker date="1510063605263" expanded="true" signature="2740:2788" ph="SELECT * FRO... sub_category" />
-            <marker date="1510063605263" expanded="true" signature="4406:4501" ph="SELECT *, CO... topic" />
-            <marker date="1510063605263" expanded="true" signature="4808:5041" ph="SELECT COUNT... sub_category" />
-            <marker date="1510063605263" expanded="true" signature="5310:5399" ph="SELECT COUNT... topic" />
-            <marker date="1510063605263" expanded="true" signature="6191:6722" ph="SELECT *, r.... topic" />
+            <marker date="1510064567266" expanded="true" signature="121:143" ph="SELECT * FRO... category" />
+            <marker date="1510064567266" expanded="true" signature="366:408" ph="INSERT INTO category... " />
+            <marker date="1510064567266" expanded="true" signature="2736:2784" ph="SELECT * FRO... sub_category" />
+            <marker date="1510064567266" expanded="true" signature="4434:4529" ph="SELECT *, CO... topic" />
+            <marker date="1510064567266" expanded="true" signature="4836:5069" ph="SELECT COUNT... sub_category" />
+            <marker date="1510064567266" expanded="true" signature="5338:5427" ph="SELECT COUNT... topic" />
+            <marker date="1510064567266" expanded="true" signature="6219:6750" ph="SELECT *, r.... topic" />
           </folding>
         </state>
       </provider>

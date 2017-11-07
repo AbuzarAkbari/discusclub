@@ -62,7 +62,7 @@
                         <label for="new_category">Nieuwe categorie naam</label>
                         <input type="text" class="form-control" name="new_category">
                         <br>
-                        <input type="submit" class="form-control btn btn-primary" name="add_new_category" value="Voeg toe">
+                        <input type="submit" class="col-md-3 btn btn-primary" name="add_new_category" value="Voeg toe">
                     </form>
                 </div>
             </div>
