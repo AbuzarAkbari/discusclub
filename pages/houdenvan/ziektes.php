@@ -37,7 +37,7 @@
     <div class="container main">
         <br>
         <div class="row">
-            <h1>Welke ziektes kunnen die klote beesten hebben?</h1>
+            <h1>Titel komt hier<br></h1>
             <hr class="col-md-12">
             <div class="col-md-6">
                 You think water moves fast? You should see ice. It moves like it has a mind.

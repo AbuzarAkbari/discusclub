@@ -37,7 +37,7 @@
     <div class="container main">
         <br>
         <div class="row">
-            <h1>Iets over vissen ofzo!</h1>
+            <h1>Titel komt hier</h1>
             <hr class="col-md-12">
             <div class="col-md-6">
                 You think water moves fast? You should see ice. It moves like it has a mind.
