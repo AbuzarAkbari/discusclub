@@ -26,7 +26,6 @@
                       <input class='footer-mail' required type='email' name='email' value='' placeholder='Email'><br>
                       <textarea class='footer-message' name='bericht' placeholder='Uw bericht' style='resize: none;'></textarea><br>
                       <input class='lees-meer-btn footer-btn' type='submit' name='send' value='Verzenden'>
-                      <h5 class="FooterContactTekst"> Adres: Hoogstraat 7 3552 XJ Utrecht </h5>
                   </form>
               </div>
             </div>
