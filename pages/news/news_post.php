@@ -8,7 +8,7 @@ if (isset($_POST['post_reply'])) {
         $reply_content = $_POST['reply_content'];
         $bericht_id = $_POST['bericht_id'];
         $reply_auteur = $_SESSION['user']->id;
-        $sql3 = "INSERT INTO news_reply (news_id, user_id, content) VALUES (:bericht_id, :reply_auteur, :reply_content)";
+        $sql3 = "INSERT INTO news_reply (news_id, user_id, content, created_at) VALUES (:bericht_id, :reply_auteur, :reply_content, NOW())";
 
         $sql = "UPDATE news SET last_changed = NOW() WHERE id = :bericht_id";
         $result = $dbc->prepare($sql);
