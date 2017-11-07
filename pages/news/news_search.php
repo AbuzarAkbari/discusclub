@@ -1,10 +1,13 @@
-<?php require_once("../../includes/tools/security.php");
-
-
-
+<?php require_once("../../includes/tools/security.php"); ?>
+<?php
+$search = $_POST['search_area'];
+$sql = $dbc->prepare("SELECT * FROM news AS n JOIN news_reply AS nr ON n.id = nr.news_id WHERE n.title LIKE :search OR n.content LIKE :search OR nr.content LIKE :search");
+$sql->execute([":search" => isset($search) ? "%" . $search . "%" : "%"]);
+$res = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +16,7 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/nieuws.css">
+    <link rel="stylesheet" href="/css/overons.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- bootstrap style -->
@@ -38,34 +41,32 @@
 
     <br><br>
     <div class="container main">
-        <div class="row columns">
-        <div class="col-md-12">
-            <div class="col-md-12">
-                <ol class="breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/news/">Nieuws</a></li>
-                    <li class="active">Zoek nieuws</li>
-                </ol>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-primary">
-                <div class="panel-heading border-colors">
-                    <h3 class="panel-title">Zoek nieuws</h3>
-                </div>
-                    <div class="panel-body">
-                        <form method="post" action="/includes/tools/album-upload" enctype="multipart/form-data">
-                            <input type="text" class="form-control" name="album_name" placeholder='Zoek hier naar nieuwsartikelen' maxlength="155" required ><br>
-                            <button type="submit" name="search_news" class="form-control btn btn-primary">Zoek artikel</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+      <?php if ($logged_in) :?>
+      <div class="row columns">
+          <div class="col-md-12">
+              <ol class="breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/news/">Nieuws</a></li>
+                  <li class="active">Zoek nieuws</li>
+              </ol>
+          </div>
+      <div class="col-md-12">
+        <div class="panel panel-primary ">
+          <div class="panel-heading border-colors">Zoekresultaten</div>
+          <div class="panel-body padding-padding space">
+            <?php
+              echo '<pre>';
+              var_dump($res);
+              exit;
+            ?>
+          </div>
         </div>
+      </div>
+      <?php endif; ?>
     </div>
-</div>
-        <?php if ($logged_in && in_array($current_level, ["redacteur", "admin"])) :?>
+    </div>
     <footer>
-        <?php require_once("../../includes/components/footer.php") ; ?>
+<?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
