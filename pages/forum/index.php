@@ -82,6 +82,7 @@
                     <form action="">
                         <div class="row">
                             <div class="col-md-8">
+                                <label for="">add sub cat</label>
                                 <input type="text" class="form-control">
                             </div>
                             <div class="col-md-4">
