@@ -5,12 +5,12 @@ RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.+)$ $1.php [NC,QSA]
 
 # album bekijken
-RewriteRule ^([0-9]+)$ view.php?id=$1 [NC]
+#RewriteRule ^([0-9]+)$ view.php?id=$1 [NC]
 
 # added id and pagination stuff to news_post
 RewriteRule ^post/([0-9]+)/([0-9]+) view.php?id=$1&pagina=$2 [NC]
 RewriteRule ^post/([0-9]+) view.php?id=$1&pagina=1 [NC]
 
 # added id and pagination stuff to news_post
-RewriteRule ^([0-9]+) index.php?pagina=$1 [NC]
-RewriteRule ^(.+)$ index.php?pagina=1 [NC]
+RewriteRule ^([0-9]+) index.php?pagina=$1 [NC,L]
+#RewriteRule ^(.+)$ index.php?pagina=1 [NC]
