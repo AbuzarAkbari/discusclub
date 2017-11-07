@@ -58,11 +58,11 @@
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Voeg een nieuwe categorie toe</div>
                 <div class="panel-body">
-                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+                    <form action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
                         <label for="new_category">Nieuwe categorie naam</label>
                         <input type="text" class="form-control" name="new_category">
                         <br>
-                        <input type="submit" class="form-control btn btn-primary" name="add_new_category" value="Voeg toe">
+                        <input type="submit" class="col-md-3 btn btn-primary" name="add_new_category" value="Voeg toe">
                     </form>
                 </div>
             </div>
@@ -79,15 +79,15 @@
             <div class="panel panel-primary ">
                 <div class="panel-heading border-colors"><?php echo $categorie['name']; ?></div>
                 <div class="panel-body padding-padding table-responsive">
-                    <form action="">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <input type="text" class="form-control">
+                    <form class="row" action="">
+                        <br>
+                        <label class="col-md-12" for="">Voeg hier een nieuwe categorie toe</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control"><br>
                             </div>
-                            <div class="col-md-4">
-                                <input type="submit" class="form-control btn btn-primary">
+                            <div class="col-md-3">
+                                <input type="submit" value="Toevoegen" class="form-control btn btn-primary"><br><br>
                             </div>
-                        </div>
                     </form>
                     <table>
                         <thead>

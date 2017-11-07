@@ -103,7 +103,7 @@ $perPage = 10;
 
                             <tr>
                                 <td>
-                                <?php
+                                    <?php
                                     switch ($topic['state_id']) {
                                     case 1:
                                         echo "<span class='glyphicon glyphicon-file'></span>";
@@ -115,7 +115,7 @@ $perPage = 10;
                                         echo "<span class='glyphicon glyphicon-pushpin'></span>";
                                         break;
                                     }
-                                ?>
+                                    ?>
                                 </td>
                                 <td><a href="/forum/post/<?php echo $topic['id']; ?>"><?php echo $topic['title']; ?></a></td>
                                 <td><a href="/forum/topic/<?php echo $topic['sub_category_id']; ?>"><?php echo $topic['sub_category_name']; ?></a></td>

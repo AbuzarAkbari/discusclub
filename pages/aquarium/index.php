@@ -71,8 +71,10 @@ $perPage = 6;
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading border-color-blue row">
-                            <h2 class="col-md-9 col-sm-10 col-xs-9 panel-title aquarium-title"><?php echo $aquarium['title']; ?></h2>
-                            <div class="col-md-3 col-sm-2 col-xs-3">
+                            <div class="col-md-7 col-sm-8 col-xs-8">
+                                <h2 class="panel-title aquarium-title"><?php echo $aquarium['title']; ?></h2>
+                            </div>
+                            <div class="col-md-5 col-sm-4 col-xs-4 text-right">
                                 165 <img class="like-vis" src="/images/favicon-wit.png" alt="">
                             </div>
                         </div>
