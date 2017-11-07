@@ -251,7 +251,7 @@ require_once("../../includes/components/nav.php");
                         </a>
                     </li>
                     <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
-                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>><a href="/news/<?php echo $rows[0]['id']; ?>/<?php echo $x; ?>"><?php echo $x; ?></a></li>
+                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>><a href="/news/post/<?php echo $rows[0]['id']; ?>/<?php echo $x; ?>"><?php echo $x; ?></a></li>
                     <?php endfor; ?>
                     <li>
                         <a href="#" aria-label="Next">
