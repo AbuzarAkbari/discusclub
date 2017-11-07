@@ -70,8 +70,11 @@ $perPage = 6;
             <?php foreach ($aquariums as $aquarium) : ?>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="panel panel-primary">
-                        <div class="panel-heading border-color-blue">
-                            <h2 class="col-md-9 col-sm-10 col-xs-9 panel-title aquarium-title"><?php echo $aquarium['title']; ?></h2> 165 <img class="like-vis" src="/images/favicon-wit.png" alt="">
+                        <div class="panel-heading border-color-blue row">
+                            <h2 class="col-md-9 col-sm-10 col-xs-9 panel-title aquarium-title"><?php echo $aquarium['title']; ?></h2>
+                            <div class="col-md-3 col-sm-2 col-xs-3">
+                                165 <img class="like-vis" src="/images/favicon-wit.png" alt="">
+                            </div>
                         </div>
                         <div class="panel-body">
                             <div class="media">
