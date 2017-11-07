@@ -58,7 +58,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Voeg een nieuwe categorie toe</div>
                 <div class="panel-body">
-                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+                    <form action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
                         <label for="new_category">Nieuwe categorie naam</label>
                         <input type="text" class="form-control" name="new_category">
                         <br>
