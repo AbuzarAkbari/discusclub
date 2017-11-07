@@ -54,6 +54,39 @@
                             </ul>
                         </li>
                         <li class='dropdown'>
+                            <a class='dropdown-toggle'>Houdenvan</a>
+                            <ul class='dropdown-menu'>
+                                <li><a href='/houdenvan/'>Houdenvan</a></li>
+                            </ul>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/houdenvan/kweken'>Kweken</a></li>
+                                    <li><a href='/houdenvan/'>Houden van</a></li>
+                                    <li><a href='/houdenvan/ziektes'>Ziektes</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li><a href='/news/'>Nieuws</a></li>
+                        <li><a href='/wordlid'>Word lid!</a></li>
+                        <li class='dropdown'>
+                            <a class='dropdown-toggle'>Albums</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/album/'>Albums</a></li>
+                                    <li><a href='/album/upload'>Upload</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li class='dropdown'>
+                            <a class='dropdown-toggle'>Aquaria</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/album/'>Aquaria</a></li>
+                                    <li><a href='/album/upload'>Upload</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li class='dropdown'>
                             <a class='dropdown-toggle'>Forum</a>
                             <ul class='dropdown-menu'>
                                 <li><a href='/forum/'>Forum</a></li>
@@ -67,8 +100,6 @@
                                 </ul>
                             <?php } ?>
                         </li>
-                        <li><a href='/news/'>Nieuws</a></li>
-                        <li><a href='/wordlid'>Word lid!</a></li>
                         <li class='dropdown'>
                             <a class='dropdown-toggle'>Sponsoren</a>
                             <ul class='dropdown-menu'>
@@ -77,15 +108,7 @@
                                 <li><a href='/sponsor'>Onze sponsoren</a></li>
                             </ul>
                         </li>
-                        <li class='dropdown'>
-                            <a class='dropdown-toggle'>Albums</a>
-                            <?php if ($logged_in) { ?>
-                                <ul class='dropdown-menu'>
-                                    <li><a href='/album/'>Albums</a></li>
-                                    <li><a href='/album/upload'>Upload</a></li>
-                                </ul>
-                            <?php } ?>
-                        </li>
+
                         <li class='dropdown'>
                             <a class='dropdown-toggle'>Aquarium</a>
                             <?php if ($logged_in) { ?>
@@ -134,6 +157,34 @@
                             </ul>
                         </li>
                         <li class='dropdown'>
+                            <a href='/houdenvan/' class='dropdown-toggle'>Houden van</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/houdenvan/kweken'>Kweken</a></li>
+                                    <li><a href='/houdenvan/'>Houden van</a></li>
+                                    <li><a href='/houdenvan/ziektes'>Ziektes</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li><a href='/news/'>Nieuws</a></li>
+                        <li><a href='/wordlid'>Word lid!</a></li>
+                        <li class='dropdown'>
+                            <a href='/album/' class='dropdown-toggle'>Albums</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/album/upload'>Upload</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li class='dropdown'>
+                            <a href='/aquarium/' class='dropdown-toggle'>Aquaria</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/album/upload'>Upload</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li class='dropdown'>
                             <a href='/forum/' class='dropdown-toggle'>Forum</a>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
@@ -143,8 +194,7 @@
                                 </ul>
                             <?php } ?>
                         </li>
-                        <li><a href='/news/'>Nieuws</a></li>
-                        <li><a href='/wordlid'>Word lid!</a></li>
+
                         <li class='dropdown'>
                             <a  href='/sponsor/become' class='dropdown-toggle'>Sponsoren</a>
                             <ul class='dropdown-menu'>
@@ -152,14 +202,7 @@
                                 <li><a href='/sponsor'>Onze sponsoren</a></li>
                             </ul>
                         </li>
-                        <li class='dropdown'>
-                            <a href='/album/' class='dropdown-toggle'>Albums</a>
-                            <?php if ($logged_in) { ?>
-                                <ul class='dropdown-menu'>
-                                    <li><a href='/album/upload'>Upload</a></li>
-                                </ul>
-                            <?php } ?>
-                        </li>
+
                         <li class='dropdown'>
                             <a href='/aquarium/' class='dropdown-toggle'>Aquarium</a>
                             <?php if ($logged_in) { ?>
