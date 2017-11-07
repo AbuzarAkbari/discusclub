@@ -1,6 +1,12 @@
 <?php
-// $levels = ["lid", "gebruiker"];
-require_once("../../includes/tools/security.php"); ?>
+require_once("../../includes/tools/security.php");
+
+$page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+if (false === intval($page)) {
+    exit;
+}
+$perPage = 6;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,8 +61,8 @@ require_once("../../includes/tools/security.php"); ?>
             </div>
 
             <?php
-              $haal_aquariums = "SELECT *, a.created_at AS aquarium_created_at, count(i.aquarium_id) as aantal_fotos, u.id as user_id, a.created_at as created_at FROM image as i JOIN aquarium as a ON a.id = i.aquarium_id JOIN user as u ON u.id = a.user_id WHERE i.aquarium_id IS NOT NULL GROUP BY i.aquarium_id ORDER BY aquarium_created_at DESC";
-
+              $a = $page * $perPage - $perPage;
+              $haal_aquariums = "SELECT *, a.created_at AS aquarium_created_at, count(i.aquarium_id) as aantal_fotos, u.id as user_id, a.created_at as created_at FROM image as i JOIN aquarium as a ON a.id = i.aquarium_id JOIN user as u ON u.id = a.user_id WHERE i.aquarium_id IS NOT NULL GROUP BY i.aquarium_id ORDER BY aquarium_created_at DESC LIMIT {$perPage} OFFSET {$a}";
               $aquariumResult = $dbc->prepare($haal_aquariums);
               $aquariumResult->execute();
               $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
@@ -65,12 +71,12 @@ require_once("../../includes/tools/security.php"); ?>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading border-color-blue">
-                            <h3 class="panel-title"><?php echo $aquarium['title']; ?></h3>
+                            <h2 class="col-md-9 col-sm-10 col-xs-9 panel-title aquarium-title"><?php echo $aquarium['title']; ?></h2> 165 <img class="like-vis" src="/images/favicon-wit.png" alt="">
                         </div>
                         <div class="panel-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $aquarium["user_id"]; ?>"><i> <?php echo $aquarium['first_name'].' '.$aquarium['last_name']; ?> </i></a></h4>
+                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $aquarium["user_id"]; ?>"><i><?php echo $aquarium['first_name'].' '.$aquarium['last_name']; ?> </i></a></h4>
                                     <p>
                                         Aantal foto's: <i><?php echo $aquarium['aantal_fotos']; ?></i><br>
                                         Datum: <i><?php echo $aquarium['created_at']; ?></i><br>
@@ -83,6 +89,37 @@ require_once("../../includes/tools/security.php"); ?>
                     </div>
                 </div>
             <?php endforeach; ?>
+        </div>
+        <!-- Pagination system -->
+        <div class="col-xs-12">
+
+            <?php
+                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM aquarium WHERE deleted_at IS NULL');
+                $query->execute();
+                $results = $query->fetch();
+                $count = ceil($results['x'] / $perPage);
+            ?>
+            <?php if ($results['x'] > $perPage) : ?>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
+                            <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
+                                <a href="/album/<?php echo $x; ?>"><?php echo $x; ?></a>
+                            </li>
+                        <?php endfor; ?>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            <?php endif; ?>
         </div>
     </div>
   </div>
