@@ -23,3 +23,7 @@ RewriteRule ^new-topics$ new-topics.php?pagina=1 [NC]
 # fav topic id
 RewriteRule ^fav-topics/([0-9]+) fav-topics.php?pagina=$1 [NC]
 RewriteRule ^fav-topics$ fav-topics.php?pagina=1 [NC]
+
+# forum search id
+RewriteRule ^forum_search/([0-9]+)$ forum_search.php?pagina=$1 [NC]
+RewriteRule ^forum_search$ forum_search.php?pagina=1 [NC]
