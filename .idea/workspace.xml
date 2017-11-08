@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/form.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/db.mwb" afterPath="$PROJECT_DIR$/db/db.mwb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/db.mwb.bak" afterPath="$PROJECT_DIR$/db/db.mwb.bak" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/admin/contest.php" afterPath="$PROJECT_DIR$/pages/admin/contest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/.htaccess" afterPath="$PROJECT_DIR$/pages/forum/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/search.php" afterPath="$PROJECT_DIR$/pages/forum/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/.htaccess" afterPath="$PROJECT_DIR$/pages/news/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/index.php" afterPath="$PROJECT_DIR$/pages/news/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/pages/news/news_search.php" afterPath="$PROJECT_DIR$/pages/news/search.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,24 +52,22 @@
       <file leaf-file-name="contest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/admin/contest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+            <state relative-caret-position="942">
+              <caret line="111" column="14" lean-forward="false" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
               <folding>
-                <marker date="1510152182701" expanded="true" signature="285:332" ph="INSERT INTO contest... " />
-                <marker date="1510152182701" expanded="true" signature="285:342" ph="INSERT INTO contest... " />
-                <marker date="1510152182701" expanded="true" signature="285:344" ph="INSERT INTO contest... " />
-                <marker date="1510152182701" expanded="true" signature="285:351" ph="INSERT INTO contest... " />
-                <marker date="1510152182701" expanded="true" signature="491:1808" ph="..." />
-                <marker date="1510152182701" expanded="true" signature="499:518" ph="..." />
-                <marker date="1510152182701" expanded="true" signature="499:1412" ph="..." />
-                <marker date="1510152182701" expanded="true" signature="1420:1808" ph="..." />
-                <marker date="1510152182701" expanded="true" signature="1462:1808" ph="..." />
-                <marker date="1510152182701" expanded="true" signature="1492:1798" ph="{...}" />
-                <marker date="1510152182701" expanded="true" signature="2125:2328" ph="..." />
-                <marker date="1510152182701" expanded="true" signature="2367:2613" ph="..." />
-                <marker date="1510152182701" expanded="true" signature="2670:2694" ph="..." />
-                <marker date="1510152182701" expanded="true" signature="2670:2752" ph="..." />
-                <marker date="1510152182701" expanded="true" signature="3337:3349" ph="{...}" />
+                <marker date="1510153571262" expanded="true" signature="285:332" ph="INSERT INTO contest... " />
+                <marker date="1510153571262" expanded="true" signature="285:342" ph="INSERT INTO contest... " />
+                <marker date="1510153571262" expanded="true" signature="285:344" ph="INSERT INTO contest... " />
+                <marker date="1510153571262" expanded="true" signature="285:351" ph="INSERT INTO contest... " />
+                <marker date="1510153571262" expanded="true" signature="491:1808" ph="..." />
+                <marker date="1510153571262" expanded="true" signature="499:518" ph="..." />
+                <marker date="1510153571262" expanded="true" signature="499:1412" ph="..." />
+                <marker date="1510153571262" expanded="true" signature="1420:1808" ph="..." />
+                <marker date="1510153571262" expanded="true" signature="1462:1808" ph="..." />
+                <marker date="1510153571262" expanded="true" signature="1492:1798" ph="{...}" />
+                <marker date="1510153571262" expanded="true" signature="4597:4621" ph="..." />
+                <marker date="1510153571262" expanded="true" signature="4597:4679" ph="..." />
+                <marker date="1510153571262" expanded="true" signature="5264:5276" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -196,8 +201,8 @@
         <option value="$PROJECT_DIR$/includes/components/nav.php" />
         <option value="$PROJECT_DIR$/pages/.htaccess" />
         <option value="$PROJECT_DIR$/pages/houden-van.php" />
-        <option value="$PROJECT_DIR$/pages/admin/contest.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/pages/admin/contest.php" />
       </list>
     </option>
   </component>
@@ -308,12 +313,12 @@
       <workItem from="1509969037552" duration="12942000" />
       <workItem from="1510049423520" duration="18522000" />
       <workItem from="1510135688271" duration="2512000" />
-      <workItem from="1510138578569" duration="10850000" />
+      <workItem from="1510138578569" duration="10894000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242490000" />
+    <option name="totallyTimeSpent" value="242534000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -928,24 +933,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/admin/contest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state relative-caret-position="942">
+          <caret line="111" column="14" lean-forward="false" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
           <folding>
-            <marker date="1510152182701" expanded="true" signature="285:332" ph="INSERT INTO contest... " />
-            <marker date="1510152182701" expanded="true" signature="285:342" ph="INSERT INTO contest... " />
-            <marker date="1510152182701" expanded="true" signature="285:344" ph="INSERT INTO contest... " />
-            <marker date="1510152182701" expanded="true" signature="285:351" ph="INSERT INTO contest... " />
-            <marker date="1510152182701" expanded="true" signature="491:1808" ph="..." />
-            <marker date="1510152182701" expanded="true" signature="499:518" ph="..." />
-            <marker date="1510152182701" expanded="true" signature="499:1412" ph="..." />
-            <marker date="1510152182701" expanded="true" signature="1420:1808" ph="..." />
-            <marker date="1510152182701" expanded="true" signature="1462:1808" ph="..." />
-            <marker date="1510152182701" expanded="true" signature="1492:1798" ph="{...}" />
-            <marker date="1510152182701" expanded="true" signature="2125:2328" ph="..." />
-            <marker date="1510152182701" expanded="true" signature="2367:2613" ph="..." />
-            <marker date="1510152182701" expanded="true" signature="2670:2694" ph="..." />
-            <marker date="1510152182701" expanded="true" signature="2670:2752" ph="..." />
-            <marker date="1510152182701" expanded="true" signature="3337:3349" ph="{...}" />
+            <marker date="1510153571262" expanded="true" signature="285:332" ph="INSERT INTO contest... " />
+            <marker date="1510153571262" expanded="true" signature="285:342" ph="INSERT INTO contest... " />
+            <marker date="1510153571262" expanded="true" signature="285:344" ph="INSERT INTO contest... " />
+            <marker date="1510153571262" expanded="true" signature="285:351" ph="INSERT INTO contest... " />
+            <marker date="1510153571262" expanded="true" signature="491:1808" ph="..." />
+            <marker date="1510153571262" expanded="true" signature="499:518" ph="..." />
+            <marker date="1510153571262" expanded="true" signature="499:1412" ph="..." />
+            <marker date="1510153571262" expanded="true" signature="1420:1808" ph="..." />
+            <marker date="1510153571262" expanded="true" signature="1462:1808" ph="..." />
+            <marker date="1510153571262" expanded="true" signature="1492:1798" ph="{...}" />
+            <marker date="1510153571262" expanded="true" signature="4597:4621" ph="..." />
+            <marker date="1510153571262" expanded="true" signature="4597:4679" ph="..." />
+            <marker date="1510153571262" expanded="true" signature="5264:5276" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -551,6 +551,13 @@ li.dropdown:hover > .dropdown-menu {
     margin: 0 auto;
 }
 
+.status-block-pencil {
+    width: 40px;
+    font-size: 1.3em !important;
+    line-height: 21px !important;
+    margin: 0 auto;
+}
+
 .profile_img {
     margin-bottom: 25px !important;
 }
@@ -586,7 +593,7 @@ li.dropdown:hover > .dropdown-menu {
     display: block;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 768px) {
     .nav-wrapper-mobile {
         display: none;
     }
@@ -594,4 +601,8 @@ li.dropdown:hover > .dropdown-menu {
     .nav-wrapper-pc {
         display: block;
     }
+}
+
+.contest-box {
+    height: 42px;
 }

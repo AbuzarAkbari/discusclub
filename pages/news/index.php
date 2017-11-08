@@ -75,9 +75,9 @@ if (isset($_POST['post_add_topic'])) {
                     <h3 class="panel-title">Zoek nieuws</h3>
                 </div>
                     <div class="panel-body">
-                        <form method="post" action="/news/news_search">
-                            <input type="text" class="form-control" name="search_area" placeholder='Zoek in het nieuws..' maxlength="155" required ><br>
-                            <button type="submit" name="search_news" class="form-control btn btn-primary">Zoek nieuws</button>
+                        <form method="get" action="/news/search">
+                            <input type="text" class="form-control" name="q" placeholder='Zoek in het nieuws..' maxlength="155" required ><br>
+                            <button type="submit" class="form-control btn btn-primary">Zoek nieuws</button>
                         </form>
                     </div>
                 </div>

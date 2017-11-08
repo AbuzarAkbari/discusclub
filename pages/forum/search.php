@@ -9,14 +9,10 @@ $perPage = 10;
 <?php
 $aantal = $page * $perPage - $perPage;
 
-// if(isset($_POST['search_forum'])){
 $search = $_GET['q'];
 $sql = $dbc->prepare("SELECT * ,u.id AS user_created_topic ,sc.id AS sub_id , t.id , sc.name AS sub_name, t.created_at AS topic_created_at FROM topic AS t LEFT JOIN reply AS r ON t.id = r.topic_id JOIN user AS u ON t.user_id = u.id JOIN state AS s ON t.state_id = s.id JOIN sub_category AS sc ON t.sub_category_id = sc.id WHERE t.title LIKE :search OR t.content LIKE :search OR r.content LIKE :search GROUP BY t.id LIMIT {$perPage} OFFSET {$aantal};");
 $sql->execute([":search" => isset($search) ? "%" . $search . "%" : "%"]);
 $results = $sql->fetchAll(PDO::FETCH_OBJ);
-// } else{
-//   header('location: /forum/index.php');
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,9 +121,13 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
     <!-- Pagination system -->
             <div class="col-xs-12">
                 <?php 
-                $aantal = count($results);
-                $count = ceil($aantal / $perPage); ?>
-                <?php if ($aantal > $perPage) : ?>
+                $sth = $dbc->prepare("SELECT count(t.id) AS amount FROM topic AS t LEFT JOIN reply AS r ON t.id = r.topic_id JOIN user AS u ON t.user_id = u.id JOIN state AS s ON t.state_id = s.id JOIN sub_category AS sc ON t.sub_category_id = sc.id WHERE t.title LIKE :search OR t.content LIKE :search OR r.content LIKE :search");
+                $sth->execute([":search" => isset($search) ? "%" . $search . "%" : "%"]);
+                $a = $sth->fetch(PDO::FETCH_ASSOC)["amount"];
+                $count = ceil($a / $perPage);
+                ?>
+                <?php if ($a > $perPage) : ?>
+                  
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
                             <li>
@@ -135,9 +135,10 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
+                            
                             <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
                                 <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
-                                    <a href="/forum/forum_search/<?php echo $x; ?>"><?php echo $x; ?></a>
+                                    <a href="/forum/search/<?php echo $x; ?><?php echo isset($_GET['q']) ? '?q='.$_GET['q'] : '' ?>"><?php echo $x; ?></a>
                                 </li>
                             <?php endfor; ?>
                             <li>
