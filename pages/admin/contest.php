@@ -1,6 +1,18 @@
 <?php
 $levels = [];
-require_once("../../includes/tools/security.php"); ?>
+require_once("../../includes/tools/security.php");
+
+if(isset($_POST['start_contest']))
+{
+    $date = explode("-", $_POST['daterange']);
+    $begin = trim(date("Y-m-d H:i", strtotime($date[0])));
+    $end = trim(date("Y-m-d H:i", strtotime($date[1])));
+
+    $sql = "INSERT INTO contest (start_at, end_at) VALUES (:start_at, :end_at)";
+    $result = $dbc->prepare($sql);
+    $result->execute([":start_at" => $begin, ":end_at" => $end]);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,6 +56,7 @@ require_once("../../includes/tools/security.php"); ?>
     <br><br>
     <div class="container main">
         <div class="row">
+
             <div class="col-md-6">
                 <form class="" action="#" method="post">
                     <div class="col-md-12">
