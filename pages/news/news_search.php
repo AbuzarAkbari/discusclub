@@ -9,10 +9,6 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
   header('location: /news/index.php');
 }
 ?>
-
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,14 +73,19 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
                   $sth = $dbc->prepare("SELECT count(*) as amount FROM news_reply WHERE news_id = :id");
                   $sth->execute([":id" => $value->id]);
                   $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
-                ?>                
+                  if(!$value):
+                ?>     
+                  <tr>
+                    <td>Niks gevonden</td>
+                  </tr> 
+                  <?php else :?>          
                   <tr>
                     <td><a href="/news/post/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
                     <td><?php echo $amount; ?></td>
                     <td><a href="/forum/topic.php?id=<?php echo $value->sub_id; ?>"><?php echo $value->sub_name; ?></a></td>
                     <td><?php echo $value->news_created_at; ?></td>
                 </tr>
-
+                <?php endif; ?>
                 <?php endforeach; ?>
               </tbody>
             </table>
