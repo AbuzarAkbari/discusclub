@@ -74,8 +74,9 @@ require_once("../../includes/tools/security.php"); ?>
             timePicker: true,
             timePicker24Hour: true,
             timePickerIncrement: 5,
-            minDate: 0,
+            minDate: new Date(),
             applyClass: "btn-primary",
+            cancelClass: "btn-danger",
             locale: {
                 format: 'DD/MM/YYYY hh:mm',
             }
