@@ -82,6 +82,7 @@ if (isset($_POST['post_add_topic'])) {
                     </div>
                 </div>
             </div>
+        </div>
         <?php if ($logged_in && in_array($current_level, ["redacteur", "admin"])) :?>
     <div class="row">
             <div class="col-md-12">
