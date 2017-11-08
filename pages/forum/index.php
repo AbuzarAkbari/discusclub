@@ -16,9 +16,9 @@
 
     if(isset($_POST['add_new_sub_category']))
     {
-        $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
+        $sql = "INSERT INTO sub_category (category_id, name, created_at) VALUES (:category_id, :name, NOW())";
         $query = $dbc->prepare($sql);
-        $query->execute([":name" => $_POST["new_sub_category"]]);
+        $query->execute([":category_id" => $_POST['cat_id'], ":name" => $_POST["new_sub_category"]]);
     }
 ?>
 <!DOCTYPE html>
@@ -90,6 +90,7 @@
                         <br>
                         <label class="col-md-12" for="">Nieuwe subcategorie naam</label>
                             <div class="col-md-12">
+                                <input type="hidden" name="cat_id" value="<?php echo $categorie['id']; ?>">
                                 <input type="text" class="form-control" name="new_sub_category"><br>
                             </div>
                             <div class="col-md-3">
@@ -155,8 +156,9 @@
                                             <a  title="Delete" href="/includes/tools/sub-category/del.php?id=<?php echo $subCat['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
                                         </td>
                                     <?php endif; ?>
-                                    <?php else : ?>
-                                        <td>Niks gevonden</td>
+
+                                <?php else : ?>
+                                    <td>Niks gevonden</td>
                                 <?php endif; ?>
 
                             </tr>
