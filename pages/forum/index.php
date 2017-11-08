@@ -2,7 +2,7 @@
     $levels = ["lid", "gebruiker"];
     require_once("../../includes/tools/security.php");
 
-    $categorieenSql = "SELECT * FROM category";
+    $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
     $categorieenResult = $dbc->prepare($categorieenSql);
     $categorieenResult->execute();
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
@@ -16,9 +16,9 @@
 
     if(isset($_POST['add_new_sub_category']))
     {
-        $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
+        $sql = "INSERT INTO sub_category (category_id, name, created_at) VALUES (:category_id, :name, NOW())";
         $query = $dbc->prepare($sql);
-        $query->execute([":name" => $_POST["new_sub_category"]]);
+        $query->execute([":category_id" => $_POST['cat_id'], ":name" => $_POST["new_sub_category"]]);
     }
 ?>
 <!DOCTYPE html>
@@ -77,19 +77,27 @@
         <?php foreach ($results as $categorie) : ?>
             <?php
                 $id = $categorie['id'];
-                $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ?";
+                $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ? AND deleted_at IS NULL";
                 $subCategorieenResult = $dbc->prepare($subCategorieenSql);
                 $subCategorieenResult->bindParam(1, $id);
                 $subCategorieenResult->execute();
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <div class="panel panel-primary ">
-                <div class="panel-heading border-colors"><?php echo $categorie['name']; ?></div>
+                <div class="panel-heading border-colors">
+                    <?php echo $categorie['name']; ?>
+                    <?php if(in_array($current_level, $admin_levels)) : ?>
+                        <td>
+                            <a  title="Delete" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
+                        </td>
+                    <?php endif; ?>
+                </div>
                 <div class="panel-body padding-padding table-responsive">
                     <form class="row" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
                         <br>
                         <label class="col-md-12" for="">Nieuwe subcategorie naam</label>
                             <div class="col-md-12">
+                                <input type="hidden" name="cat_id" value="<?php echo $categorie['id']; ?>">
                                 <input type="text" class="form-control" name="new_sub_category"><br>
                             </div>
                             <div class="col-md-3">
@@ -150,17 +158,17 @@
                                                 <?php echo isset($laatsteBericht["reply_first_name"]) ? $laatsteBericht["reply_first_name"] . " " . $laatsteBericht["reply_last_name"] : $laatsteBericht["topic_first_name"] . " " . $laatsteBericht["topic_last_name"] ?>
                                             </a>
                                         </td>
-                                    <?php if(in_array($current_level, $admin_levels)) : ?>
-                                        <td>
-                                            <a  title="Delete" href="/includes/tools/sub-category/del.php?id=<?php echo $subCat['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
-                                        </td>
-                                    <?php endif; ?>
                                     <?php else : ?>
                                         <td>Niks gevonden</td>
                                 <?php endif; ?>
+                                    <?php if(in_array($current_level, $admin_levels)) : ?>
+                                        <td>
+                                            <a  title="Delete" href="/includes/tools/sub-category/del.php?id=<?php echo $categorie['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
+                                        </td>
+                                    <?php endif; ?>
 
-                            </tr>
-                        <?php endforeach; ?>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
 
                     </table>

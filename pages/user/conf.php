@@ -79,6 +79,10 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                         <input type="checkbox" name="nieuwsbrief" id="nieuwsbrief" <?php echo $checked; ?>> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
                         <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Email"><br>
                         <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Herhaal e-mail"><br>
+                        <label for="new_password">Nieuw wachtwoord</label><br>
+                        <input type="password" name="new_password" class="form-control"><br>
+                        <label for="new_password_repeat">Nieuw wachtwoord herhalen</label><br>
+                        <input type="password" name="new_password_repeat" class="form-control"><br>
                         <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" value="<?php echo isset($user_data->birthdate) ? $user_data->birthdate : ''; ?>" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>
                         <label for="city">Locatie</label><input id="city" class="form-control" type="text" name="city" value="<?php echo isset($user_data->city) ? $user_data->city : ''; ?>" placeholder="Locatie"><br>
                         <label for="file">Profielfoto aanpassen</label><input id="file" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="profiel" placeholder="Selecteer bestand"><br>
