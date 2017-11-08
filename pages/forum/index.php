@@ -156,7 +156,7 @@
                                 <?php endif; ?>
                                     <?php if(in_array($current_level, $admin_levels)) : ?>
                                         <td>
-                                            <a  title="Delete" href="/includes/tools/sub-category/del.php?id=<?php echo $subCat['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
+                                            <a  title="Delete" href="/includes/tools/sub-category/del.php?id=<?php echo $categorie['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
                                         </td>
                                     <?php endif; ?>
 
