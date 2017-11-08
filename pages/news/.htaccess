@@ -11,3 +11,7 @@ RewriteRule ^(.+)$ $1.php [NC,QSA]
 # added id and pagination stuff to news_post
 RewriteRule ^post/([0-9]+)/([0-9]+) news_post.php?id=$1&pagina=$2 [NC]
 RewriteRule ^post/([0-9]+) news_post.php?id=$1&pagina=1 [NC]
+
+# news search id
+RewriteRule ^search/([0-9]+) search.php?pagina=$1 [NC,QSA]
+RewriteRule ^search$ search.php?pagina=1 [NC]
