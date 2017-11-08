@@ -59,6 +59,11 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
           <div class="panel-heading border-colors">Zoekresultaten</div>
            <div class="panel-body padding-padding table-responsive">
             <table>
+              <?php if(sizeof($results) === 0):?>  
+                <tr>
+                    <td>Er zijn geen resultaten gevonden</td>
+                  </tr> 
+              <?php else : ?>
               <thead>
                 <tr>
                   <th>Titel</th>
@@ -68,24 +73,21 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
                 </tr>
               </thead>
               <tbody>
+                   
+                  
+                  <?php endif; ?>
                 <?php foreach ($results as $key => $value) : ?>
                 <?php
                   $sth = $dbc->prepare("SELECT count(*) as amount FROM news_reply WHERE news_id = :id");
                   $sth->execute([":id" => $value->id]);
                   $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
-                  if(!$value):
-                ?>     
-                  <tr>
-                    <td>Niks gevonden</td>
-                  </tr> 
-                  <?php else :?>          
+                  ?>   
                   <tr>
                     <td><a href="/news/post/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
                     <td><?php echo $amount; ?></td>
                     <td><a href="/forum/topic.php?id=<?php echo $value->sub_id; ?>"><?php echo $value->sub_name; ?></a></td>
                     <td><?php echo $value->news_created_at; ?></td>
                 </tr>
-                <?php endif; ?>
                 <?php endforeach; ?>
               </tbody>
             </table>

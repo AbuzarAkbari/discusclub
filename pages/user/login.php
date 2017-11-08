@@ -25,7 +25,7 @@ if (isset($_POST["send"])) {
     }
 }
 ?>
-<?php require("../../includes/tools/security.php"); ?>
+<?php //require("../../includes/tools/security.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
