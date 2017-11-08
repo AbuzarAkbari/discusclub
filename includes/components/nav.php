@@ -119,6 +119,7 @@
                                 <a class='dropdown-toggle'>Admin</a>
                                 <ul class='dropdown-menu'>
                                     <li><a href='/admin/'>Admin</a></li>
+                                    <li><a href='/admin/contest'>Contest</a></li>
                                     <li><a href='/admin/ip-list'>IP Lijst</a></li>
                                     <li><a href='/admin/user-list'>Ledenlijst</a></li>
                                     <li><a href='/admin/approval-signup'>Inschrijvingen(<?php echo $sth1->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
@@ -202,6 +203,7 @@
                                 <a href='/admin/' class='dropdown-toggle'>Admin</a>
                                 <ul class='dropdown-menu'>
                                     <li><a href='/admin/ip-list'>IP Lijst</a></li>
+                                    <li><a href='/admin/contest'>Contest</a></li>
                                     <li><a href='/admin/user-list'>Ledenlijst</a></li>
                                     <li><a href='/admin/approval-signup'>Inschrijvingen(<?php echo $sth1->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
                                     <li><a href='/admin/approval-sponsor'>Sponsoren(<?php echo $sth->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
