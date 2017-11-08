@@ -1,4 +1,19 @@
-<?php require_once("../../includes/tools/security.php"); ?>
+<?php
+    require_once("../../includes/tools/security.php");
+
+//    echo '<pre>';
+//    print_r($_SERVER);
+//    exit();
+
+    $sql = "SELECT * FROM page JOIN image ON page.image_id = image.id WHERE name = :name";
+    $result = $dbc->prepare($sql);
+    $result->execute([":name" => $_SERVER['REQUEST_URI']]);
+    $page = $result->fetch();
+
+    echo '<pre>';
+    var_dump($page);
+    exit();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,28 +52,13 @@
     <div class="container main">
         <br>
         <div class="row">
-            <h1>Titel komt hier</h1>
+            <h1><?php echo $page['name']; ?></h1>
             <hr class="col-md-12">
             <div class="col-md-6">
-                You think water moves fast? You should see ice. It moves like it has a mind.
-                Like it knows it killed the world once and got a taste for murder. After the avalanche,
-                it took us a week to climb out. Now, I don't know exactly when we turned on each other,
-                but I know that seven of us survived the slide... and only five made it out. Now we took an oath,
-                that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't.
-                Nature is lethal but it doesn't hold a candle to man.<br><br>
-                Like it knows it killed the world once and got a taste for murder. After the avalanche,
-                it took us a week to climb out. Now, I don't know exactly when we turned on each other,
-                but I know that seven of us survived the slide... and only five made it out. Now we took an oath,
-                that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't.
-                Nature is lethal but it doesn't hold a candle to man.<br><br>
-                Like it knows it killed the world once and got a taste for murder. After the avalanche,
-                it took us a week to climb out. Now, I don't know exactly when we turned on each other,
-                but I know that seven of us survived the slide... and only five made it out. Now we took an oath,
-                that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't.
-                Nature is lethal but it doesn't hold a candle to man.
+                <?php echo $page['content']; ?>
             </div>
             <div class="col-md-6">
-                <img src="/images/vis(1).jpg" alt="">
+                <img src="/images/<?php echo $page['path']; ?>" alt="">
             </div>
         </div>
         <br>
