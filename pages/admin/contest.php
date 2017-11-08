@@ -1,6 +1,18 @@
 <?php
 $levels = [];
-require_once("../../includes/tools/security.php"); ?>
+require_once("../../includes/tools/security.php");
+
+if(isset($_POST['start_contest']))
+{
+    $date = explode("-", $_POST['daterange']);
+    $begin = trim(date("Y-m-d H:i", strtotime($date[0])));
+    $end = trim(date("Y-m-d H:i", strtotime($date[1])));
+
+    $sql = "INSERT INTO contest (start_at, end_at) VALUES (:start_at, :end_at)";
+    $result = $dbc->prepare($sql);
+    $result->execute([":start_at" => $begin, ":end_at" => $end]);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +56,7 @@ require_once("../../includes/tools/security.php"); ?>
     <br><br>
     <div class="container main">
         <div class="row">
-            <form class="" action="#" method="post">
+            <form class="" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
                 <div class="col-md-12">
                     <h2>Selecteer een begin en eind datum</h2>
                     <h5>Dit word de begin en einddatum van de beste aquarium wedstrijd</h5>
@@ -53,7 +65,7 @@ require_once("../../includes/tools/security.php"); ?>
                 <div class="col-md-5">
                     <input type="text" class="form-control" name="daterange" value=""/>
                     <br>
-                    <input type="submit" class="btn btn-primary" name="send" value="Verzend!">
+                    <input type="submit" class="btn btn-primary" name="start_contest" value="Begin contest!">
                 </div>
             </form>
       </div>
