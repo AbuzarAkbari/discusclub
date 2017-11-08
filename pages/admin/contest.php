@@ -44,19 +44,56 @@ require_once("../../includes/tools/security.php"); ?>
     <br><br>
     <div class="container main">
         <div class="row">
-            <form class="" action="#" method="post">
-                <div class="col-md-12">
-                    <h2>Selecteer een begin en eind datum</h2>
-                    <h5>Dit word de begin en einddatum van de beste aquarium wedstrijd</h5>
-                    <br>
+            <div class="col-md-6">
+                <form class="" action="#" method="post">
+                    <div class="col-md-12">
+                        <h2>Selecteer een begin en eind datum</h2>
+                        <h5>Dit word de begin en einddatum van de beste aquarium wedstrijd</h5>
+                        <br>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" name="daterange" value=""/>
+                        <br>
+                        <input type="submit" class="btn btn-primary" name="send" value="Verzend!">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>Aankomende wedstijden</h2>
+                <hr>
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Aankomende wedstijden</h3>
+                  </div>
+                  <div class="panel-body">
+                      <table class="col-md-12">
+                          <tr>
+                              <th>Naam</th>
+                              <th>start/einddatum</th>
+                              <th>Opties</th>
+                          </tr>
+                          <tr class="contest-box">
+                              <td>lorem ipsum</td>
+                              <td>19-03-2017 tot 25-04-2017</td>
+                              <td>
+                                  <button class="status-block-pencil btn btn-primary" type="button" name="button"><span class="glyphicon glyphicon-pencil"></span></button>
+                                  <button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button>
+                              </td>
+                          </tr>
+                          <tr class="contest-box">
+                              <td>lorem ipsum</td>
+                              <td>19-03-2017 tot 25-04-2017</td>
+                              <td>
+                                  <button class="status-block-pencil btn btn-primary" type="button" name="button"><span class="glyphicon glyphicon-pencil"></span></button>
+                                  <button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
                 </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" name="daterange" value=""/>
-                    <br>
-                    <input type="submit" class="btn btn-primary" name="send" value="Verzend!">
-                </div>
-            </form>
-      </div>
+
+            </div>
+        </div>
     </div>
     <footer>
     <?php require_once("../../includes/components/footer.php") ; ?>
