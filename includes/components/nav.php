@@ -56,7 +56,7 @@
                         <li class='dropdown'>
                             <a class='dropdown-toggle'>Houdenvan</a>
                             <ul class='dropdown-menu'>
-                                <li><a href='/houdenvan/'>Houdenvan</a></li>
+                                <li><a href='/houden-van'>Houdenvan</a></li>
                             </ul>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
@@ -147,7 +147,7 @@
                             </ul>
                         </li>
                         <li class='dropdown'>
-                            <a href='/houdenvan/' class='dropdown-toggle'>Houden van</a>
+                            <a href='/houden-van' class='dropdown-toggle'>Houden van</a>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
                                     <li><a href='/houdenvan/kweken'>Kweken</a></li>
