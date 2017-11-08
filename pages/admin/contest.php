@@ -1,6 +1,18 @@
 <?php
 $levels = [];
-require_once("../../includes/tools/security.php"); ?>
+require_once("../../includes/tools/security.php");
+
+if(isset($_POST['start_contest']))
+{
+    $date = explode("-", $_POST['daterange']);
+    $begin = trim(date("Y-m-d H:i", strtotime($date[0])));
+    $end = trim(date("Y-m-d H:i", strtotime($date[1])));
+
+    $sql = "INSERT INTO contest (start_at, end_at) VALUES (:start_at, :end_at)";
+    $result = $dbc->prepare($sql);
+    $result->execute([":start_at" => $begin, ":end_at" => $end]);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,6 +56,7 @@ require_once("../../includes/tools/security.php"); ?>
     <br><br>
     <div class="container main">
         <div class="row">
+
             <div class="col-md-6">
                 <form class="" action="#" method="post">
                     <div class="col-md-12">
@@ -68,23 +81,26 @@ require_once("../../includes/tools/security.php"); ?>
                   <div class="panel-body">
                       <table class="col-md-12">
                           <tr>
-                              <th>Naam</th>
                               <th>start/einddatum</th>
                               <th>Opties</th>
                           </tr>
                           <tr class="contest-box">
-                              <td>lorem ipsum</td>
-                              <td>19-03-2017 tot 25-04-2017</td>
                               <td>
-                                  <button class="status-block-pencil btn btn-primary" type="button" name="button"><span class="glyphicon glyphicon-pencil"></span></button>
+                                  <form class="" action="#" method="post">
+                                      <input type="text" class="form-control" name="daterange" value=""/>
+                                  </form>
+                              </td>
+                              <td>
                                   <button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button>
                               </td>
                           </tr>
                           <tr class="contest-box">
-                              <td>lorem ipsum</td>
-                              <td>19-03-2017 tot 25-04-2017</td>
                               <td>
-                                  <button class="status-block-pencil btn btn-primary" type="button" name="button"><span class="glyphicon glyphicon-pencil"></span></button>
+                                  <form class="" action="#" method="post">
+                                      <input type="text" class="form-control" name="daterange" value=""/>
+                                  </form>
+                              </td>
+                              <td>
                                   <button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button>
                               </td>
                           </tr>

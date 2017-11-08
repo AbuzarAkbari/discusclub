@@ -12,6 +12,6 @@ if (isset($_POST['post_album_reply'])) {
         $result3->bindParam(':reply_auteur', $reply_auteur);
         $result3->bindParam(':reply_content', $reply_content);
         $result3->execute();
-        header("Location: /album/" . $album_id);
+        header("Location: /album/post/" . $album_id);
     }
 }

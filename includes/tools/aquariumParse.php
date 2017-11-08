@@ -12,6 +12,6 @@ if (isset($_POST['post_aquarium_reply'])) {
         $result3->bindParam(':reply_auteur', $reply_auteur);
         $result3->bindParam(':reply_content', $reply_content);
         $result3->execute();
-        header("Location: /aquarium/" . $aquarium_id);
+        header("Location: /aquarium/post/" . $aquarium_id);
     }
 }
