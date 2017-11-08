@@ -25,5 +25,5 @@ RewriteRule ^fav-topics/([0-9]+) fav-topics.php?pagina=$1 [NC]
 RewriteRule ^fav-topics$ fav-topics.php?pagina=1 [NC]
 
 # forum search id
-RewriteRule ^search/([0-9]+)$ search.php?pagina=$1 [NC]
+RewriteRule ^search/([0-9]+) search.php?pagina=$1 [NC,QSA]
 RewriteRule ^search$ search.php?pagina=1 [NC]
