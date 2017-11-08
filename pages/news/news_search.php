@@ -1,9 +1,17 @@
 <?php require_once("../../includes/tools/security.php"); ?>
 <?php
+if(isset($_POST['search_news'])){
 $search = $_POST['search_area'];
-$sql = $dbc->prepare("SELECT *, sc.name AS sub_name, t.id AS topic_id, n.id FROM news AS n LEFT JOIN news_reply AS nr ON n.id = nr.news_id JOIN sub_category as sc ON sc.id = n.sub_category_id JOIN topic AS t ON sc.id = t.sub_category_id WHERE n.title LIKE :search OR n.content LIKE :search OR nr.content LIKE :search GROUP BY n.id");
+$sql = $dbc->prepare("SELECT *, sc.id AS sub_id , sc.name AS sub_name, n.id, n.created_at AS news_created_at FROM news AS n LEFT JOIN news_reply AS nr ON n.id = nr.news_id JOIN sub_category as sc ON sc.id = n.sub_category_id  WHERE n.title LIKE :search OR n.content LIKE :search OR nr.content LIKE :search GROUP BY n.id");
 $sql->execute([":search" => isset($search) ? "%" . $search . "%" : "%"]);
 $results = $sql->fetchAll(PDO::FETCH_OBJ);
+} else{
+  header('location: /news/index.php');
+}
+?>
+
+<?php
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,8 +81,8 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
                   <tr>
                     <td><a href="/news/post/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
                     <td><?php echo $amount; ?></td>
-                    <td><a href="/forum/topic.php?id=<?php echo $value->topic_id; ?>"><?php echo $value->sub_name; ?></a></td>
-                    <td><?php echo $value->created_at; ?></td>
+                    <td><a href="/forum/topic.php?id=<?php echo $value->sub_id; ?>"><?php echo $value->sub_name; ?></a></td>
+                    <td><?php echo $value->news_created_at; ?></td>
                 </tr>
 
                 <?php endforeach; ?>
