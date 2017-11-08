@@ -60,9 +60,9 @@
                             </ul>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
-                                    <li><a href='/houdenvan/kweken'>Kweken</a></li>
-                                    <li><a href='/houdenvan/'>Houden van</a></li>
-                                    <li><a href='/houdenvan/ziektes'>Ziektes</a></li>
+                                    <li><a href='/houden-van/kweken'>Kweken</a></li>
+                                    <li><a href='/houden-van/'>Houden van</a></li>
+                                    <li><a href='/houden-van/ziektes'>Ziektes</a></li>
                                 </ul>
                             <?php } ?>
                         </li>
@@ -150,8 +150,8 @@
                             <a href='/houden-van' class='dropdown-toggle'>Houden van</a>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
-                                    <li><a href='/houdenvan/kweken'>Kweken</a></li>
-                                    <li><a href='/houdenvan/ziektes'>Ziektes</a></li>
+                                    <li><a href='/houden-van/kweken'>Kweken</a></li>
+                                    <li><a href='/houden-van/ziektes'>Ziektes</a></li>
                                 </ul>
                             <?php } ?>
                         </li>
