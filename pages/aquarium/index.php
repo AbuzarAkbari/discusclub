@@ -47,7 +47,7 @@ $perPage = 6;
                 <div class="">
                     <ol class="breadcrumb">
                         <li><a href="/">Home</a></li>
-                        <li class="active">Aquarium</li>
+                        <li class="active">Aquaria</li>
                     </ol>
                 </div>
                 <div class="panel panel-primary">
@@ -87,7 +87,7 @@ $perPage = 6;
                                         Datum: <i><?php echo $aquarium['created_at']; ?></i><br>
                                     </p>
                                     <div class="text-center"><img class="text-center imgAlbum" src="/images<?php echo $aquarium['path'] ?>" alt=""></div><br><br>
-                                    <a href="<?php echo $aquarium['aquarium_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
+                                    <a href="/aquarium/post/<?php echo $aquarium['aquarium_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
                                 </div>
                             </div>
                         </div>
