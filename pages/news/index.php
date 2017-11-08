@@ -1,3 +1,4 @@
+<?php $levels = ["lid", "gebruiker"]; ?>
 <?php require_once("../../includes/tools/security.php");
 
 if (isset($_POST['post_add_topic'])) {
@@ -60,8 +61,7 @@ if (isset($_POST['post_add_topic'])) {
 
     <br><br>
     <div class="container main">
-
-      <div class="row columns">
+    <div class="row columns">
         <div class="col-md-12">
             <div class="col-md-12">
                 <ol class="breadcrumb">
