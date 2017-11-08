@@ -59,6 +59,34 @@
             <br><br>
             <div class="">
                 <div class="col-md-6">
+                    <div class="panel panel-default">
+
+                        <div class="nieuws-box">
+                            <div class="panel-heading border-color-black">Ander nieuws</div>
+                            <div class="panel-body ">
+                                <?php
+                                $sth = $dbc->prepare("SELECT * FROM news");
+                                $sth->execute();
+                                $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+                                foreach($res as $key => $value) : ?>
+                                    <div class=" col-md-12 verticalLine">
+                                        <p><b><?php echo  $value['title']; ?></b></p>
+                                        <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : $value["content"];
+                                        ?>
+                                        <br><br>
+                                        <a href="/news/post/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
+                                        <br><br>
+                                    </div>
+                                    <br><div class="col-md-12"><br></div>
+
+                                <?php endforeach; ?>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="panel panel-default ">
                         <div class="panel-heading border-color-black">Nieuws reacties</div>
                         <div class="panel-body">
@@ -89,34 +117,6 @@
                                     </div>
                                 </div>
                                 <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-default">
-
-                        <div class="nieuws-box">
-                            <div class="panel-heading border-color-black">Ander nieuws</div>
-                            <div class="panel-body ">
-                                <?php
-                                    $sth = $dbc->prepare("SELECT * FROM news");
-                                    $sth->execute();
-                                    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-                                    foreach($res as $key => $value) : ?>
-                                    <div class=" col-md-12 verticalLine">
-                                        <p><b><?php echo  $value['title']; ?></b></p>
-                                        <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : $value["content"];
-                                         ?>
-                                        <br><br>
-                                        <a href="/news/post/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
-                                        <br><br>
-                                    </div>
-                                    <br><div class="col-md-12"><br></div>
-
-                                    <?php endforeach; ?>
-                                <br><br>
-                            </div>
                         </div>
                     </div>
                 </div>
