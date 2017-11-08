@@ -68,23 +68,26 @@ require_once("../../includes/tools/security.php"); ?>
                   <div class="panel-body">
                       <table class="col-md-12">
                           <tr>
-                              <th>Naam</th>
                               <th>start/einddatum</th>
                               <th>Opties</th>
                           </tr>
                           <tr class="contest-box">
-                              <td>lorem ipsum</td>
-                              <td>19-03-2017 tot 25-04-2017</td>
                               <td>
-                                  <button class="status-block-pencil btn btn-primary" type="button" name="button"><span class="glyphicon glyphicon-pencil"></span></button>
+                                  <form class="" action="#" method="post">
+                                      <input type="text" class="form-control" name="daterange" value=""/>
+                                  </form>
+                              </td>
+                              <td>
                                   <button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button>
                               </td>
                           </tr>
                           <tr class="contest-box">
-                              <td>lorem ipsum</td>
-                              <td>19-03-2017 tot 25-04-2017</td>
                               <td>
-                                  <button class="status-block-pencil btn btn-primary" type="button" name="button"><span class="glyphicon glyphicon-pencil"></span></button>
+                                  <form class="" action="#" method="post">
+                                      <input type="text" class="form-control" name="daterange" value=""/>
+                                  </form>
+                              </td>
+                              <td>
                                   <button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button>
                               </td>
                           </tr>
