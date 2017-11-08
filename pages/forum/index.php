@@ -61,6 +61,17 @@
             <li class="active">Forum</li>
         </ol>
         <br>
+        <div class="panel panel-primary">
+                <div class="panel-heading border-colors">
+                    <h3 class="panel-title">Zoek op forum</h3>
+                </div>
+                    <div class="panel-body">
+                        <form method="post" action="/forum/forum_search">
+                            <input type="text" class="form-control" name="search_area" placeholder='Zoek op het forum..' maxlength="155" required ><br>
+                            <button type="submit" name="search_forum" class="form-control btn btn-primary">Zoek op forum</button>
+                        </form>
+                    </div>
+                </div>
         <?php if(in_array($current_level, $admin_levels)) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Voeg een nieuwe categorie toe</div>

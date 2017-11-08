@@ -73,9 +73,7 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
                 </tr>
               </thead>
               <tbody>
-                   
-                  
-                  <?php endif; ?>
+              <?php endif; ?>
                 <?php foreach ($results as $key => $value) : ?>
                 <?php
                   $sth = $dbc->prepare("SELECT count(*) as amount FROM news_reply WHERE news_id = :id");
