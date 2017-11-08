@@ -36,14 +36,14 @@ INSERT INTO `category` (`name`) VALUES
 ('Handel'),
 ('Discus Club Holland');
 
-INSERT INTO `sub_category` (`category_id`, `name`, `description`) VALUES
-(1, 'Mededelingen', 'Hier worden mededelingen neergezet die betrekking hebben over de veranderingen en problemen met de website. Lees eerst hier voordat u berichten plaatst.'),
-(2, 'Algemene Discusvis vragen', 'Heeft U een vraag stel hem hier.'),
-(3, 'Off Topic', 'Hier kan alles geplaatst worden wat nergens anders onder valt.'),
-(4, 'Foto Album', 'Plaats hier uw aquarium foto\'s'),
-(5, 'Te Koop', 'Heeft u als particulier iets te koop, dan kunt u hier een advertentie plaatsen. Alle advertenties die alleen verwijzen naar een commerciële websites, niet bestaande URL\'s of ouder zijn dan een maand worden verwijderd!'),
-(6, 'Open Nederlands Kampioenschap Discusvissen 2013', 'Informatie en mededelingen over de Daphnia aquariumbeurs 2013 & Open Nederlands Kampioenschap Discusvissen 2013'),
-(1, 'Even voorstellen', 'Een plek waar U zich als medegebruiker van dit forum zichzelf kan voorstellen.');
+INSERT INTO `sub_category` (`category_id`, `name`) VALUES
+(1, 'Mededelingen'),
+(2, 'Algemene Discusvis vragen'),
+(3, 'Off Topic'),
+(4, 'Foto Album'),
+(5, 'Te Koop',
+(6, 'Open Nederlands Kampioenschap Discusvissen 2013'),
+(1, 'Even voorstellen');
 
 INSERT INTO `state` (`name`) VALUES
 ('open'),
