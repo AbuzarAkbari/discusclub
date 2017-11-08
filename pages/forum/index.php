@@ -2,7 +2,7 @@
     $levels = ["lid", "gebruiker"];
     require_once("../../includes/tools/security.php");
 
-    $categorieenSql = "SELECT * FROM category";
+    $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
     $categorieenResult = $dbc->prepare($categorieenSql);
     $categorieenResult->execute();
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
@@ -77,14 +77,21 @@
         <?php foreach ($results as $categorie) : ?>
             <?php
                 $id = $categorie['id'];
-                $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ?";
+                $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ? AND deleted_at IS NULL";
                 $subCategorieenResult = $dbc->prepare($subCategorieenSql);
                 $subCategorieenResult->bindParam(1, $id);
                 $subCategorieenResult->execute();
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <div class="panel panel-primary ">
-                <div class="panel-heading border-colors"><?php echo $categorie['name']; ?></div>
+                <div class="panel-heading border-colors">
+                    <?php echo $categorie['name']; ?>
+                    <?php if(in_array($current_level, $admin_levels)) : ?>
+                        <td>
+                            <a  title="Delete" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
+                        </td>
+                    <?php endif; ?>
+                </div>
                 <div class="panel-body padding-padding table-responsive">
                     <form class="row" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
                         <br>
@@ -160,8 +167,8 @@
                                         </td>
                                     <?php endif; ?>
 
-                            </tr>
-                        <?php endforeach; ?>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
 
                     </table>
