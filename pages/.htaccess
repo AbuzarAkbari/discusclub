@@ -1,1 +1,5 @@
-ErrorDocument 404 /404.php
+# houden van
+RewriteRule ^houden-van/(.+) houden-van.php?uri=$1 [NC]
+RewriteRule ^houden-van houden-van.php [NC]
+
+#RewriteRule ^houden-van houden-van.php?uri=houden-van [NC]
