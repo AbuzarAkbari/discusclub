@@ -3,7 +3,7 @@
 require_once("../../includes/tools/security.php");
 
 if ($logged_in) {
-    if (isset($_POST["profiel_parse"])) {
+    if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
         //Start query
         $query = "UPDATE user SET id = :userId";
         $userId = $_POST["user_id"];
@@ -21,7 +21,7 @@ if ($logged_in) {
         }
 
         //Nieuw wachtwoord
-        if(isset($_POST['new_password'])) {
+        if(isset($_POST['new_password']) && !empty($_POST["new_password"])) {
             if($_POST['new_password'] != $_POST['new_password_repeat']) {
                 echo "Wachtwoorden komen niet overeen.";
                 exit();
@@ -49,21 +49,21 @@ if ($logged_in) {
         }
 
         //Geboortedatum
-        if (isset($_POST['date'])) {
+        if (isset($_POST['date']) && !empty($_POST["date"])) {
             $date = $_POST['date'];
             $query .= ", birthdate = :birthdate";
             $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
         }
 
         //Locatie
-        if (isset($_POST['city'])) {
+        if (isset($_POST['city']) && !empty($_POST["city"])) {
             $city = $_POST['city'];
             $query .= ", city = :city";
             $bindings[":city"] = $city;
         }
 
         //Handtekening
-        if (isset($_POST['signature'])) {
+        if (isset($_POST['signature']) && !empty($_POST["signature"])) {
             $signature = $_POST['signature'];
             $query .= ", signature = :signature";
             $bindings[":signature"] = $signature;
@@ -225,7 +225,7 @@ if ($logged_in) {
         }
 
         //Wachtwoord
-        if(isset($_POST['wachtwoord'])) {
+        if(isset($_POST['wachtwoord']) && !empty($_POST["wachtwoord"])) {
             $wachtwoord = $_POST['wachtwoord'];
             $sql = "SELECT * FROM user WHERE id = ?";
             $result = $dbc->prepare($sql);
