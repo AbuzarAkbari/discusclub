@@ -10,6 +10,7 @@
 
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
     <!-- bootstrap style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -31,8 +32,12 @@
             fjs.parentNode.insertBefore(js, fjs)
         })(document, 'script', 'facebook-jssdk')
     </script>
+
+
+
     <?php
-        require_once("includes/components/nav.php");
+     require_once("includes/components/nav.php");
+
         require_once("includes/components/slider.php");
 
         $result = $dbc->prepare("SELECT * FROM `topic` JOIN sub_category ON category_id JOIN user ON user_id WHERE state_id = 3");
@@ -135,6 +140,7 @@
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
