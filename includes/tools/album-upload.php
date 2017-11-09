@@ -96,6 +96,6 @@ if (isset($_POST['upload_album'])) {
         // print_r($_FILES);
         // exit();
 
-        header("Location: /album/" . $album_id);
+        header("Location: /album/post/" . $album_id);
     }
 }

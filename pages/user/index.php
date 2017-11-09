@@ -277,6 +277,22 @@ if($user_data == false){
                             <?php endforeach; ?>
                         </div>
                     </div>
+
+                    <div class="panel panel-primary border-color-blues">
+                        <div class="panel-heading border-color-blue">Aquariums</div>
+                        <div class="panel-body">
+                            <?php
+                    $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE aquarium.user_id = ? ORDER BY created_at LIMIT 8";
+                    $aquariumResult = $dbc->prepare($aquariumSql);
+                    $aquariumResult->bindParam(1, $user_data->id);
+                    $aquariumResult->execute();
+                    $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
+                    ?>
+                            <?php foreach($aquariums as $aquarium): ?>
+                                <a href="/aquarium/<?php echo $aquarium['aquarium_id']; ?>"><img src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
             </div>
             <div class="col-md-12"></div>
 

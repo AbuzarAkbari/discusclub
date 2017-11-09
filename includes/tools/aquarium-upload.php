@@ -96,6 +96,6 @@ if (isset($_POST['upload_aquarium'])) {
         // print_r($_FILES);
         // exit();
 
-        header("Location: /aquarium/" . $aquarium_id);
+        header("Location: /aquarium/post/" . $aquarium_id);
     }
 }
