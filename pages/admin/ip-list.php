@@ -64,7 +64,7 @@ $perPage = 20;
                             </tr>
                             <?php
                                 $a = $page * $perPage - $perPage;
-                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM ip LEFT JOIN user ON ip.user_id = user.id LIMIT {$perPage} OFFSET {$a}";
+                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at, ip.created_at FROM ip LEFT JOIN user ON ip.user_id = user.id LIMIT {$perPage} OFFSET {$a}";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);

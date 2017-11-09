@@ -74,8 +74,14 @@ $perPage = 6;
                             <div class="col-md-7 col-sm-8 col-xs-8">
                                 <h2 class="panel-title aquarium-title"><?php echo $aquarium['title']; ?></h2>
                             </div>
+                            <?php
+                                $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";
+                                $result = $dbc->prepare($sql);
+                                $result->execute([":aid" => $aquarium['id']]);
+                                $like = $result->fetch();
+                            ?>
                             <div class="col-md-5 col-sm-4 col-xs-4 text-right">
-                                165 <img class="like-vis" src="/images/favicon-wit.png" alt="">
+                                <?php echo isset($like['x']) ? $like['x'] : '0'; ?> <a href="/includes/tools/aquarium/add-like?aid=<?php echo $aquarium['id']; ?>"><img class="like-vis" src="/images/favicon-wit.png" alt=""></a>
                             </div>
                         </div>
                         <div class="panel-body">

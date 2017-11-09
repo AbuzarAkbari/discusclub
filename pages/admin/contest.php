@@ -8,16 +8,31 @@ if(isset($_POST['start_contest']))
     $begin = $date[0];
     $end = $date[1];
 
-    $sql = "INSERT INTO contest (start_at, end_at) VALUES (:start_at, :end_at)";
-    $result = $dbc->prepare($sql);
-    $result->execute([":start_at" => $begin, ":end_at" => $end]);
+    $select = "SELECT * FROM contest WHERE start_at <= :begin AND end_at >= :end";
+    $result = $dbc->prepare($select);
+    $result->execute([":begin" => $begin, ":end" => $end]);
+    $aantal = $result->fetchAll(PDO::FETCH_ASSOC);
+
+    if(sizeof($aantal) === 0) {
+        $sql = "INSERT INTO contest (start_at, end_at) VALUES (:start_at, :end_at)";
+        $result = $dbc->prepare($sql);
+        $result->execute([":start_at" => $begin, ":end_at" => $end]);
+    }
+    else
+    {
+        echo "Tussen deze begin en eind datum is er al een contest!";
+        exit();
+    }
 }
 
-if(isset($_POST["daterange"]) && $_POST["id"]) {
+if(isset($_POST["daterange"]) && isset($_POST["id"])) {
     $id = $_POST['id'];
     $date = explode(" - ", $_POST['daterange']);
     $begin = $date[0];
     $end = $date[1];
+
+
+
     $sql = "UPDATE contest SET start_at = :start_at, end_at = :end_at WHERE id = :id";
     $result = $dbc->prepare($sql);
     $result->execute([":start_at" => $begin, ":end_at" => $end, ":id" => $id]);

@@ -5,13 +5,13 @@ RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.+)$ $1.php [NC,QSA]
 
 # added pagination stuff to ip list
-RewriteRule ^([0-9]+) ip-list.php?pagina=$1 [NC,L]
+RewriteRule ^ip-list/([0-9]+) ip-list.php?pagina=$1 [NC,L]
 
 # added pagination stuff to ledenlijst
-RewriteRule ^([0-9]+) user-list.php?pagina=$1 [NC,L]
+RewriteRule ^user-list/([0-9]+) user-list.php?pagina=$1 [NC,L]
 
 # added pagination stuff to inschrijvingen
-RewriteRule ^([0-9]+) approval-signup.php?pagina=$1 [NC,L]
+RewriteRule ^approval-signup/([0-9]+) approval-signup.php?pagina=$1 [NC,L]
 
 # added pagination stuff to sponsoren
-RewriteRule ^([0-9]+) approval-sponsor.php?pagina=$1 [NC,L]
+RewriteRule ^approval-sponsor/([0-9]+) approval-sponsor.php?pagina=$1 [NC,L]
