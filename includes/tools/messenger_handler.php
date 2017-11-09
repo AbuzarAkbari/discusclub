@@ -1,5 +1,10 @@
 <?php
 
+if(isset($_GET["id"])) {
+    $sth = $dbc->prepare("UPDATE message SET opened = 1 WHERE user_id_1 IN (:id) OR user_id_2 IN (:id)");
+    $sth->execute([":id" => $_GET["id"]]);
+}
+
 if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
     $bindings = [":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message" => $_POST["message"]];
   //Image check
@@ -44,7 +49,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
         // if everything is ok, try to upload file
     } else {
         $fragments = explode('.', $_FILES["upload"]["name"]);
-        $path = "/messenger/". date("Y-m-d_H:i:s") . '.' . end($fragments);
+        $path = "/messenger/". date("Y-m-d_H-i-s") . '.' . end($fragments);
         array_pop($fragments);
 
         $extensions = [
@@ -53,8 +58,6 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
             '.jpeg',
             '.gif'
         ];
-
-
 
         if (move_uploaded_file($_FILES["upload"]["tmp_name"], '../../images'.$path)) {
             $sql = "INSERT INTO image (path) VALUES (?)";

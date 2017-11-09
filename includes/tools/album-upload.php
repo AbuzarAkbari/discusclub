@@ -59,7 +59,7 @@ if (isset($_POST['upload_album'])) {
 	                // if everything is ok, try to upload file
 	            } else {
 	                $fragments = explode('.', $album_files["name"][$x]);
-					$path = "/album/" . strtotime(date("Y-m-d_H:i:s")) . '-'.$x.'.' . end($fragments);
+					$path = "/album/" . strtotime(date("Y-m-d_H-i-s")) . '-'.$x.'.' . end($fragments);
 
 	                $extensions = [
 	                    '.png',

@@ -1,7 +1,4 @@
 <div class="header">
-<div class="container-fluid headerzijkant">
-
-</div>
     <div class="header container">
         <?php if ($logged_in) { ?>
             <?php $name =  $_SESSION["user"]->first_name.' '.$_SESSION["user"]->last_name; ?>
@@ -30,8 +27,7 @@
             <a href="/"><img class="logo" src="/images/Discus_Club_Holland_Logo.png" alt="Discusclubholland"></a>
         </div>
     </div>
-    <div class="container-fluid headerzijkant">
-    </div>
+
   </div>
     <!-- Static navbar -->
     <div class="nav-wrapper-mobile">

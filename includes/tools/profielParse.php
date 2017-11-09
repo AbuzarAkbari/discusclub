@@ -2,6 +2,7 @@
 
 require_once("../../includes/tools/security.php");
 
+<<<<<<< HEAD
 //echo "<pre>";
 //var_dump($_POST, $_FILES);
 //echo "</pre>";
@@ -35,6 +36,42 @@ if ($logged_in && isset($_POST["profiel_parse"])) {
             $password = password_hash($new_password, PASSWORD_BCRYPT);
             $query .= ", password = :password";
             $bindings[":password"] = $password;
+=======
+if ($logged_in) {
+    if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
+        //Start query
+        $query = "UPDATE user SET id = :userId";
+        $userId = $_POST["user_id"];
+        $bindings = [":userId" => $userId];
+
+        //Nieuwsbrief
+        if ($_POST['nieuwsbrief'] == "on") {
+            $news = 1;
+            $query .= ", news = :news";
+            $bindings[":news"] = $news;
+        } else {
+            $news = 0;
+            $query .= ", news = :news";
+            $bindings[":news"] = $news;
+        }
+
+        //Nieuw wachtwoord
+        if(isset($_POST['new_password']) && !empty($_POST["new_password"])) {
+            if($_POST['new_password'] != $_POST['new_password_repeat']) {
+                echo "Wachtwoorden komen niet overeen.";
+                exit();
+            }
+            else
+            {
+                $new_password = $_POST['new_password'];
+                echo "<pre>";
+                var_dump($new_password);
+                echo "</pre>";
+                $password = password_hash($new_password, PASSWORD_BCRYPT);
+                $query .= ", password = :password";
+                $bindings[":password"] = $password;
+            }
+>>>>>>> b58440684cfa165dda9b952a1f8e5b83b9dd291b
         }
     }
 
@@ -85,6 +122,7 @@ if ($logged_in && isset($_POST["profiel_parse"])) {
             $uploadOk = 0;
         }
 
+<<<<<<< HEAD
         // Check if file already exists
         if (file_exists($target_file)) {
             echo "Sorry, file already exists.";
@@ -102,6 +140,27 @@ if ($logged_in && isset($_POST["profiel_parse"])) {
             && $imageFileType != "gif" ) {
             echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
+=======
+        //Geboortedatum
+        if (isset($_POST['date']) && !empty($_POST["date"])) {
+            $date = $_POST['date'];
+            $query .= ", birthdate = :birthdate";
+            $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
+        }
+
+        //Locatie
+        if (isset($_POST['city']) && !empty($_POST["city"])) {
+            $city = $_POST['city'];
+            $query .= ", city = :city";
+            $bindings[":city"] = $city;
+        }
+
+        //Handtekening
+        if (isset($_POST['signature']) && !empty($_POST["signature"])) {
+            $signature = $_POST['signature'];
+            $query .= ", signature = :signature";
+            $bindings[":signature"] = $signature;
+>>>>>>> b58440684cfa165dda9b952a1f8e5b83b9dd291b
         }
 
         // Check if $uploadOk is set to 0 by an error
@@ -214,16 +273,41 @@ if ($logged_in && isset($_POST["profiel_parse"])) {
                 $result->execute();
                 $id = $dbc->lastInsertId();
 
+<<<<<<< HEAD
                 //Update user table->profile_img
                 $query .= ", messenger_img = :messenger_background_image";
                 $bindings[":messenger_background_image"] = $id;
             } else {
                 echo "Sorry, there was an error uploading your file.";
+=======
+                    //Update user table->profile_img
+                    $query .= ", messenger_img = :messenger_background_image";
+                    $bindings[":messenger_background_image"] = $id;
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                    exit();
+                }
+            }
+        }
+
+        //Wachtwoord
+        if(isset($_POST['wachtwoord']) && !empty($_POST["wachtwoord"])) {
+            $wachtwoord = $_POST['wachtwoord'];
+            $sql = "SELECT * FROM user WHERE id = ?";
+            $result = $dbc->prepare($sql);
+            $result->bindParam(1, $_SESSION["user"]->id);
+            $result->execute();
+            $user = $result->fetch(PDO::FETCH_OBJ);
+
+            if(!password_verify($wachtwoord, $user->password)) {
+                header("Location: /");
+>>>>>>> b58440684cfa165dda9b952a1f8e5b83b9dd291b
                 exit();
             }
         }
     }
 
+<<<<<<< HEAD
     //Wachtwoord
     if(isset($_POST['wachtwoord'])) {
         $wachtwoord = $_POST['wachtwoord'];
@@ -237,6 +321,13 @@ if ($logged_in && isset($_POST["profiel_parse"])) {
             header("Location: /");
             exit();
         }
+=======
+        //End query
+        $query .= " WHERE id = :userId";
+        $result = $dbc->prepare($query);
+        $result->execute($bindings);
+         header("Location: /user/login?logout=true");
+>>>>>>> b58440684cfa165dda9b952a1f8e5b83b9dd291b
     }
 
     //End query
