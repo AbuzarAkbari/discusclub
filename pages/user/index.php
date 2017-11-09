@@ -136,6 +136,20 @@ if($user_data == false){
                                 $albumreplyResult->execute();
                                 $x_albumreply = $albumreplyResult->fetch(PDO::FETCH_OBJ);
 
+                                //Get number of aquaria from logged_in user
+                                $aquariumSql = "SELECT COUNT(id) AS a FROM aquarium WHERE user_id = ?";
+                                $aquariumResult = $dbc->prepare($aquariumSql);
+                                $aquariumResult->bindParam(1, $user_data->id);
+                                $aquariumResult->execute();
+                                $x_aquarium = $aquariumResult->fetch(PDO::FETCH_OBJ);
+
+                                // Get number of aquaria reply from logged_in user
+                                $aquariumreplySql = "SELECT COUNT(id) AS ar FROM aquarium_reply WHERE user_id = ?";
+                                $aquariumreplyResult = $dbc->prepare($aquariumreplySql);
+                                $aquariumreplyResult->bindParam(1, $user_data->id);
+                                $aquariumreplyResult->execute();
+                                $x_aquariumreply = $aquariumreplyResult->fetch(PDO::FETCH_OBJ);
+
                                 // Get number of news from logged_in user
                                 $newsSql = "SELECT COUNT(id) AS n FROM news WHERE id = ?";
                                 $newsResult = $dbc->prepare($newsSql);
@@ -144,7 +158,7 @@ if($user_data == false){
                                 $x_news = $newsResult->fetch(PDO::FETCH_OBJ);
 
                                 // Get number of news reply from logged_in user
-                                $newsreplySql = "SELECT COUNT(id) AS nr FROM news_reply WHERE id = ?";
+                                $newsreplySql = "SELECT COUNT(user_id) AS nr FROM news_reply WHERE user_id = ?";
                                 $newsreplyResult = $dbc->prepare($newsreplySql);
                                 $newsreplyResult->bindParam(1, $user_data->id);
                                 $newsreplyResult->execute();
@@ -163,15 +177,27 @@ if($user_data == false){
                                 }
 
                                 if ($x_album->a > 1) {
-                                    $x_album->a = $x_album->a.' berichten';
+                                    $x_album->a = $x_album->a.' albums';
                                 } else {
-                                    $x_album->a = $x_album->a.' bericht';
+                                    $x_album->a = $x_album->a.' album';
+                                }
+
+                                if ($x_aquarium->a > 1) {
+                                    $x_aquarium->a = $x_aquarium->a.' aquaria';
+                                } else {
+                                    $x_aquarium->a = $x_aquarium->a.' aquarium';
                                 }
 
                                 if ($x_albumreply->ar > 1) {
                                     $x_albumreply->ar = $x_albumreply->ar.' berichten';
                                 } else {
                                     $x_albumreply->ar = $x_albumreply->ar.' bericht';
+                                }
+
+                                if ($x_aquariumreply->ar > 1) {
+                                    $x_aquariumreply->ar = $x_aquariumreply->ar.' berichten';
+                                } else {
+                                    $x_aquariumreply->ar = $x_aquariumreply->ar.' bericht';
                                 }
 
                                 if ($x_news->n > 1) {
@@ -215,14 +241,21 @@ if($user_data == false){
                                     echo $x_albumreply->ar;
                                 } ?><br>
 
-                                <strong>Aantal news </strong><br>
-                                <?php if ($x_news->n == 0) {
-                                    echo 'Geen berichten';
+                                <strong>Aantal aquaria </strong><br>
+                                <?php if ($x_aquarium->a == 0) {
+                                    echo 'Geen aquaria';
                                 } else {
-                                    echo $x_news->n;
+                                    echo $x_aquarium->a;
                                 } ?><br>
 
-                                <strong>Aantal news reacties</strong><br>
+                                <strong>Aantal aquarium reacties</strong><br>
+                                <?php if ($x_aquariumreply->ar == 0) {
+                                    echo 'Geen berichten';
+                                } else {
+                                    echo $x_aquariumreply->ar;
+                                } ?><br>
+
+                                <strong>Aantal nieuws reacties</strong><br>
                                 <?php if ($x_newsreply->nr == 0) {
                                     echo 'Geen berichten';
                                 } else {
@@ -273,7 +306,7 @@ if($user_data == false){
                     $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                             <?php foreach($albums as $album): ?>
-                                <a href="/album/<?php echo $album['album_id']; ?>"><img src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
+                                <a href="/album/post/<?php echo $album['album_id']; ?>"><img src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -289,7 +322,7 @@ if($user_data == false){
                     $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                             <?php foreach($aquariums as $aquarium): ?>
-                                <a href="/aquarium/<?php echo $aquarium['aquarium_id']; ?>"><img src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
+                                <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>"><img src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
                             <?php endforeach; ?>
                         </div>
                     </div>

@@ -50,12 +50,18 @@
                         Categorie: <?php echo $text['name']; ?> | <?php echo $text['created_at']; ?>
                         <br><br>
                         <?php echo $text['content']; ?>
-                        <br><br> <?php echo ucfirst($text['first_name']) ." ".  ucfirst($text['last_name']); ?>
-                        <br><br> <?php echo ucfirst($text['signature']); ?>
                     </div>
                 </div>
                 <br><br>
             </div>
+            <br><br>
+            <div class="col-md-12">
+                    <div class="panel panel-default ">
+                        <div class="panel-heading border-color-black">Winnaar contest >> Hier de maand <<</div>
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
             <br><br>
             <div class="">
                 <div class="col-md-6">

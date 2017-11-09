@@ -63,7 +63,7 @@ if(isset($_POST['sponsorverzend'])) {
             // if everything is ok, try to upload file
         } else {
             $fragments = explode('.', $sponsor_file["name"]);
-			$path = "/sponsor/".strtotime(date("Y-m-d_H-i-s")) . '.' . end($fragments);
+			$path = "/sponsor/". (date("Y-m-d_H-i-s") . '.' . end($fragments);
 
             $extensions = [
                 '.png',
