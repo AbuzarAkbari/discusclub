@@ -1,7 +1,11 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
-
+/*navbar collapse*/
+.navbar-collapse.in {
+    overflow-y: unset !important;
+}
+/*navbar*/
 body {
     margin: 0;
     padding: 0;
@@ -432,7 +436,6 @@ li.dropdown:hover > .dropdown-menu {
     margin: 5px;
 }
 
-
 /*dit is het deel wat kaan heeft gedaan.. indien het alles opfockt haal het weg :)*/
 
 .album-ruimte {
@@ -541,7 +544,7 @@ li.dropdown:hover > .dropdown-menu {
     margin: 5px;
 }
 
-.padding{
+.padding {
     padding: 3px;
 }
 
@@ -563,21 +566,20 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 .open-eye {
-    color: #F45713;
+    color: #f45713;
 }
 
 .ok {
-    color: #00A99D;
+    color: #00a99d;
 }
 
 .remove {
-    color: #FF254A;
+    color: #ff254a;
 }
 
 .like-vis {
     height: 30px;
     width: 30px;
-
 }
 
 .aquarium-title {

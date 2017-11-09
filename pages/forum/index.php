@@ -77,10 +77,8 @@
                 <div class="panel-heading border-colors">Voeg een nieuwe categorie toe</div>
                 <div class="panel-body">
                     <form action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
-                        <label for="new_category">Nieuwe categorie naam</label>
-                        <input type="text" class="form-control" name="new_category">
-                        <br>
-                        <input type="submit" class="col-md-3 btn btn-primary" name="add_new_category" value="Voeg toe">
+                        <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="Vul hier de nieuwe categorienaam in.." name="new_category">
+                        <input style="width: 20%; float: left; margin-left: 3%;" type="submit" class="col-md-3 btn btn-primary" name="add_new_category" value="Toevoegen">
                     </form>
                 </div>
             </div>
@@ -99,20 +97,17 @@
                     <?php echo $categorie['name']; ?>
                     <?php if(in_array($current_level, $admin_levels)) : ?>
                         <td>
-                            <a  title="Delete" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
+                            <a  title="Delete" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" type="button" class="btn btn-primary" style="background-color: transparent; border: none;" name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
                         </td>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body padding-padding table-responsive">
                     <form class="row" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
                         <br>
-                        <label class="col-md-12" for="">Nieuwe subcategorie naam</label>
                             <div class="col-md-12">
                                 <input type="hidden" name="cat_id" value="<?php echo $categorie['id']; ?>">
-                                <input type="text" class="form-control" name="new_sub_category"><br>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="submit" value="Toevoegen" name="add_new_sub_category" class="form-control btn btn-primary"><br><br>
+                                <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="Vul hier de nieuwe subcategorienaam in.." name="new_sub_category">
+                                <input style="width: 20%; float: left; margin-left: 3%; margin-bottom: 1%;" type="submit" value="Toevoegen" name="add_new_sub_category" class="form-control btn btn-primary">
                             </div>
                     </form>
                     <table>
