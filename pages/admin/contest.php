@@ -4,16 +4,26 @@ require_once("../../includes/tools/security.php");
 
 if(isset($_POST['start_contest']))
 {
-    $date = explode("-", $_POST['daterange']);
-    $begin = trim(date("Y-m-d H:i", strtotime($date[0])));
-    $end = trim(date("Y-m-d H:i", strtotime($date[1])));
+    $date = explode(" - ", $_POST['daterange']);
+    $begin = $date[0];
+    $end = $date[1];
 
     $sql = "INSERT INTO contest (start_at, end_at) VALUES (:start_at, :end_at)";
     $result = $dbc->prepare($sql);
     $result->execute([":start_at" => $begin, ":end_at" => $end]);
 }
 
-    $stm = $dbc->prepare("SELECT * FROM contest");
+if(isset($_POST["daterange"]) && $_POST["id"]) {
+    $id = $_POST['id'];
+    $date = explode(" - ", $_POST['daterange']);
+    $begin = $date[0];
+    $end = $date[1];
+    $sql = "UPDATE contest SET start_at = :start_at, end_at = :end_at WHERE id = :id";
+    $result = $dbc->prepare($sql);
+    $result->execute([":start_at" => $begin, ":end_at" => $end, ":id" => $id]);
+}
+
+    $stm = $dbc->prepare("SELECT * FROM contest WHERE deleted_at IS NULL");
     $stm->execute();
     $contests = $stm->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -84,22 +94,30 @@ if(isset($_POST['start_contest']))
                   </div>
                   <div class="panel-body">
                       <table class="col-md-12">
-                          <tr>
-                              <th>start - einddatum</th>
-                              <th>Verwijder</th>
-                          </tr>
-                          <?php foreach($contests as $contest) : ?>
-                          <tr class="contest-box">
-                              <td>
-                                  <form class="" action="#" method="post">
-                                      <input type="text" id="contest-<?php echo $contest['id']; ?>" class="form-control" name="daterange" data-start="<?php echo date('d/m/Y H:i', strtotime($contest['start_at'])); ?>" data-end="<?php echo date( 'd/m/Y H:i', strtotime($contest['end_at'])); ?>"/>
-                                  </form>
-                              </td>
-                              <td>
-                                  <a href="/includes/tools/contest/del.php?contest_id=<?php echo $contest['id']; ?>"><button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button></a>
-                              </td>
-                          </tr>
-                          <?php endforeach; ?>
+                          <?php if(sizeof($contests) != 0) : ?>
+                              <tr>
+                                  <th>start - einddatum</th>
+                                  <th>Verwijder</th>
+                              </tr>
+                              <?php foreach($contests as $contest) : ?>
+                              <tr class="contest-box">
+                                  <td>
+                                      <form id="contest-form-<?php echo $contest['id']; ?>" class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
+                                          <input type="hidden" name="id" value="<?php echo $contest['id']; ?>">
+                                          <input type="text" id="contest-<?php echo $contest['id']; ?>" class="form-control" name="daterange" data-start="<?php echo date('d/m/Y H:i', strtotime($contest['start_at'])); ?>" data-end="<?php echo date( 'd/m/Y H:i', strtotime($contest['end_at'])); ?>"/>
+                                      </form>
+                                  </td>
+                                  <td>
+                                      <a href="/includes/tools/contest/del.php?contest_id=<?php echo $contest['id']; ?>"><button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button></a>
+                                  </td>
+                              </tr>
+                              <?php endforeach; ?>
+
+                          <?php else : ?>
+                                  <tr>
+                                      <td>Geen contest gestart</td>
+                                  </tr>
+                          <?php endif; ?>
                       </table>
                   </div>
                 </div>
@@ -127,7 +145,7 @@ if(isset($_POST['start_contest']))
                 applyClass: "btn-primary",
                 cancelClass: "btn-danger",
                 locale: {
-                    format: 'DD/MM/YYYY HH:mm',
+                    format: 'YYYY-MM-DD HH:mm',
                 },
             });
         });
@@ -141,12 +159,16 @@ if(isset($_POST['start_contest']))
                     applyClass: "btn-primary",
                     cancelClass: "btn-danger",
                     locale: {
-                        format: 'DD/MM/YYYY HH:mm',
+                        format: 'YYYY-MM-DD HH:mm',
                     },
-                    startDate: '<?php echo date('d/m/Y H:i', strtotime($contest['start_at'])); ?>',
-                    endDate: '<?php echo date('d/m/Y H:i', strtotime($contest['end_at'])); ?>'
+                    startDate: '<?php echo date('Y-m-d H:i', strtotime($contest['start_at'])); ?>',
+                    endDate: '<?php echo date('Y-m-d H:i', strtotime($contest['end_at'])); ?>'
+                });
+                $('#contest-<?php echo $contest['id']; ?>').on('apply.daterangepicker', function(ev, picker) {
+                    document.querySelector("#contest-form-<?php echo $contest['id']; ?>").submit();
                 });
             });
+
         <?php endforeach; ?>
     </script>
 </body>
