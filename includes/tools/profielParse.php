@@ -205,6 +205,6 @@ if ($logged_in) {
         $query .= " WHERE id = :userId";
         $result = $dbc->prepare($query);
         $result->execute($bindings);
-        // header("Location: /user/login?logout=true");
+        header("Location: /user/login?logout=true");
     }
 }
