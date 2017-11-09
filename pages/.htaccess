@@ -1,3 +1,7 @@
+# remove .php
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [NC,QSA]
+
 # houden van
 RewriteRule ^houden-van/(.+) houden-van.php?uri=$1 [NC]
 RewriteRule ^houden-van houden-van.php [NC]
