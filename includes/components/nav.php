@@ -77,8 +77,8 @@
                             <a class='dropdown-toggle'>Aquaria</a>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
-                                    <li><a href='/album/'>Aquaria</a></li>
-                                    <li><a href='/album/upload'>Upload</a></li>
+                                    <li><a href='/aquarium/'>Aquaria</a></li>
+                                    <li><a href='/aquarium/upload'>Upload</a></li>
                                 </ul>
                             <?php } ?>
                         </li>
@@ -166,7 +166,7 @@
                             <a href='/aquarium/' class='dropdown-toggle'>Aquaria</a>
                             <?php if ($logged_in) { ?>
                                 <ul class='dropdown-menu'>
-                                    <li><a href='/album/upload'>Upload</a></li>
+                                    <li><a href='/aquarium/upload'>Upload</a></li>
                                 </ul>
                             <?php } ?>
                         </li>
