@@ -91,7 +91,7 @@ $perPage = 6;
                                         Datum: <i><?php echo $album['created_at']; ?></i><br>
                                     </p>
                                     <div class="text-center"><img class="text-center imgAlbum" src="/images<?php echo $album['path'] ?>" alt=""></div><br><br>
-                                    <a href="<?php echo $album['album_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
+                                    <a href="/album/post/<?php echo $album['album_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
                                 </div>
                             </div>
                         </div>

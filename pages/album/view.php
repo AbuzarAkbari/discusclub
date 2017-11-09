@@ -111,7 +111,7 @@ require_once("../../includes/tools/security.php"); ?>
             </div>
             <?php endif; ?>
         <?php
-            $sql2 = "SELECT *, album_reply.created_at AS reply_created_at FROM album_reply JOIN user ON album_reply.user_id = user.id WHERE album_id = ?";
+            $sql2 = "SELECT *, album_reply.created_at AS reply_created_at FROM album_reply JOIN user ON album_reply.user_id = user.id JOIN image ON user.profile_img = image.id WHERE album_reply.album_id = ? ORDER BY reply_created_at ASC";
             $result2 = $dbc->prepare($sql2);
             $result2->bindParam(1, $_GET['id']);
             $result2->execute();
@@ -128,7 +128,7 @@ require_once("../../includes/tools/security.php"); ?>
                     <div class="panel-body">
                         <div class="wrapper-box col-xs-12  ">
                             <div class="col-xs-2">
-                                <img src='http://via.placeholder.com/130x130' alt="">
+                                <img class="img" src="/images<?php echo $row['path']; ?>">
                             </div>
                             <div class="col-xs-10 ">
                                 <p><?php echo html_entity_decode($row['content']); ?></p>

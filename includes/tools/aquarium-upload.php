@@ -59,7 +59,7 @@ if (isset($_POST['upload_aquarium'])) {
 	                // if everything is ok, try to upload file
 	            } else {
 	                $fragments = explode('.', $aquarium_files["name"][$x]);
-					$path = "/aquarium/" . strtotime(date("Y-m-d H:i:s")) . '-'.$x.'.' . end($fragments);
+					$path = "/aquarium/" . strtotime(date("Y-m-d_H:i:s")) . '-'.$x.'.' . end($fragments);
 
 	                $extensions = [
 	                    '.png',
@@ -96,6 +96,6 @@ if (isset($_POST['upload_aquarium'])) {
         // print_r($_FILES);
         // exit();
 
-        header("Location: /aquarium/" . $aquarium_id);
+        header("Location: /aquarium/post/" . $aquarium_id);
     }
 }
