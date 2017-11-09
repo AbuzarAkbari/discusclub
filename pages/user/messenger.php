@@ -2,14 +2,8 @@
 $levels = ["lid", "gebruiker"];
 require_once("../../includes/tools/security.php");
 
-// echo "<pre>";
-// var_dump($_POST);
-// echo "</pre>";
+require_once("../../includes/tools/messenger_handler.php");
 
-if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
-    $sth = $dbc->prepare("INSERT INTO message(message, user_id_1, user_id_2, created_at) VALUES (:message, :user_id_1, :user_id_2, NOW())");
-    $sth->execute([":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message" => $_POST["message"]]);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,47 +58,49 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div>
                 <div id="userTable" class="otherTab flexcroll">
                     <?php
-                    echo "<pre>";
-                    var_dump($_POST);
-                    echo "</pre>";
-                    if(isset($_POST["user_search"])) {
+                    $bindings = [":user_1" => $_SESSION["user"]->id];
+                    if(isset($_POST["user_search"]) && !empty($_POST["user_search"])) {
                         $query = 1;
-                        $sth = $dbc->prepare("SELECT * FROM user as u WHERE u.id <> :id AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search)");
+                        $bindings[":search"] = isset($_POST["user_search"]) ? "%" . $_POST["user_search"] . "%" : "%";
+                        $bindings[":user_2"] = isset($_GET["id"]) ? $_GET["id"] : $_SESSION["user"]->id;
+                        // $sth = $dbc->prepare("SELECT *, u.id FROM user AS u JOIN image AS i ON i.id = u.profile_img WHERE u.id <> :user_1 AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search)");
+                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, u.id AS user_1_id, u2.id AS user_2_id FROM message as m JOIN user as u ON u.id = m.user_id_1 JOIN user as u2 ON u2.id = m.user_id_2 JOIN image as i ON i.id = u.profile_img JOIN image as i2 ON i2.id = u2.profile_img WHERE u.id <> :user_1 AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search) GROUP BY u.id ORDER BY m.created_at DESC");
                     } else {
                         $query = 2;
-                        $sth = $dbc->prepare("SELECT DISTINCT *, m.message, m.id, m.created_at FROM message as m JOIN user as u ON u.id = m.user_id_2 WHERE m.user_id_1 = :id OR m.user_id_2 = :id GROUP BY u.id ORDER BY m.created_at ASC");
+                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM message AS m LEFT JOIN user AS u ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE m.user_id_1 IN (:user_1) OR m.user_id_2 IN (:user_1) GROUP BY m.user_id_1, m.user_id_2 ORDER BY m.created_at DESC");
                     }
-                    $sth->execute([":id" => $_SESSION["user"]->id, ":search" => isset($_POST["user_search"]) ? "%" . $_POST["user_search"] . "%" : "%"]);
+                    $sth->execute($bindings);
                     $res = $sth->fetchAll(PDO::FETCH_OBJ);
+                    // remove doubles
+                    $users = [];
+                    $res = array_filter($res, function($x) use (&$users) {
+                        $user = $_SESSION["user"]->id === $x->user_id_1;
+                        $username = $user ? $x->user_2_username : $x->user_1_username;
+                        if(isset($users[$username])) {
+                            return false;
+                        } else {
+                            $users[$username] = true;
+                            return true;
+                        }
+                    });
 
                     $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
                     foreach ($res as $value) : ?>
                         <?php
-
-                        $sth = $dbc->prepare("SELECT m.message FROM message as m WHERE user_id_1 = :id OR user_id_2 = :id ORDER BY m.created_at DESC LIMIT 1");
-                        $sth->execute([":id" => $id]);
+                        $user = $_SESSION["user"]->id === $value->user_id_1;
+                        $sth = $dbc->prepare("SELECT m.message FROM message as m WHERE user_id_1 IN (:user_1, :user_2) AND user_id_2 IN (:user_1, :user_2) ORDER BY m.created_at DESC LIMIT 1");
+                        $sth->execute([":user_1" => $_SESSION["user"]->id, ":user_2" => $user ? $value->user_2_id : $value->user_1_id]);
                         $last_message = $sth->fetch(PDO::FETCH_OBJ)->message;
-
-                        if ($value->user_id_2 === $id) {
-                            $user = $value->first_name . " " . $value->last_name;
-                        } ?>
-                        <?php if($value->user_id_1 === $_SESSION["user"]->id && $query === 2) :?>
-                            <a href="/user/messenger/<?php echo $value->user_id_2; ?>">
-                                <div class="other">
-                                    <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
-                                    <div class="usernameTab"><b><?php echo $value->first_name . " " . $value->last_name; ?></b></div>
+                        ?>
+                        <a href="/user/messenger/<?php echo $user ? $value->user_2_id : $value->user_1_id; ?>">
+                            <div class="other">
+                                <div><img src="/images<?php echo $user ? $value->user_2_path : $value->user_1_path; ?>" class="otherUsers imageStatic"></div>
+                                <div class="usernameTab"><b><?php echo $user ? $value->user_2_first_name . " " . $value->user_2_last_name : $value->user_1_first_name . " " . $value->user_1_last_name; ?></b></div>
+                                <?php if(!empty($last_message)) : ?>
                                     <div><?php echo substr($last_message, 0, 25) . "..."; ?></div>
-                                </div>
-                            </a>
-                        <?php else : ?>
-                            <a href="/user/messenger/<?php echo $value->id; ?>">
-                                <div class="other">
-                                    <div><img src="http://via.placeholder.com/350x150" class="otherUsers imageStatic"></div>
-                                    <div class="usernameTab"><b><?php echo $value->first_name . " " . $value->last_name; ?></b></div>
-                                    <div><?php echo substr($last_message, 0, 25) . "..."; ?></div>
-                                </div>
-                            </a>
-                        <?php endif; ?>
+                                <?php endif;  ?>
+                            </div>
+                        </a>
                     <?php endforeach; ?>
                 </div>
                 <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
@@ -114,19 +110,28 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </form>
             </div>
             <?php
-            $sth = $dbc->prepare("SELECT * FROM message as m JOIN user as u ON m.user_id_2 = u.id WHERE m.user_id_2 = :id OR m.user_id_1 = :id");
-            $sth->execute([":id" => $id]);
+            $sth = $dbc->prepare("SELECT *, mi.path AS message_image, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, u.id FROM message as m JOIN user as u ON m.user_id_1 = u.id JOIN image as i ON i.id = u.profile_img JOIN user as u2 ON m.user_id_2 = u2.id JOIN image as i2 ON i2.id = u2.profile_img LEFT JOIN image AS mi.id = m.image_id WHERE m.user_id_2 IN (:user_1, :user_2) AND m.user_id_1 IN (:user_1, :user_2)");
+            $sth->execute([":user_1" => $_SESSION["user"]->id, ":user_2" => $id]);
             $res = $sth->fetchAll(PDO::FETCH_OBJ);
+            $user = $_SESSION["user"]->id === $res[0]->user_id_2;
             ?>
             <div class="col-md-8">
                 <div class="userTab">
-                    <img src="http://via.placeholder.com/500x500" class="imgUser imageStatic" />
-                    <div class="username"><b> <?php echo $res[0]->first_name . " " . $res[0]->last_name ?></b></div>
+                    <img src="/images<?php echo $user ? $res[0]->user_1_path : $res[0]->user_2_path; ?>" class="imgUser imageStatic" />
+                    <div class="username"><b> <?php echo $user ? $res[0]->user_1_first_name . " " . $res[0]->user_1_last_name : $res[0]->user_2_first_name . " " . $res[0]->user_2_last_name; ?></b></div>
                 </div>
                 <div id="message" style="background-image: url('/images<?php echo $_SESSION["user"]->messenger_img; ?>');" class="imageBackgroundText flexcroll tab">
                     <?php foreach ($res as $value) : ?>
                         <div class="messages <?php echo $value->user_id_1 === $_SESSION["user"]->id ? "right-message" : "left-message" ?>">
                             <div><?php echo $value->message; ?></div>
+                            <?php
+                            echo "<pre>";
+                            var_dump($value->message_image);
+                            echo "</pre>";
+                            ?>
+                            <?php if(isset($value->message_image)) : ?>
+                            <div><img src="/images<?php $value->message_image; ?>" alt="afbeelding"></div>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                     <!-- <div class="responses ">
@@ -173,7 +178,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
                 </div> -->
                 </div>
                 <div class="searchUser">
-                    <form class="inputWidth" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
+                    <form enctype='multipart/form-data' class="inputWidth" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
                       <!-- <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
                       <span class="input-group-btn " id="basic-addon1">
                         <button class="btn btn-secondary buttonHeight" type="button">
