@@ -1,4 +1,15 @@
 <?php require_once("includes/tools/security.php"); ?>
+<?php
+    $likeSql = "SELECT * FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE deleted_at IS NOT NULL";
+    $likeResult = $dbc->prepare($likeSql);
+    $likeResult->execute();
+    $like = $likeResult->fetch();
+
+    $aquariumSql = "SELECT * FROM `like` WHERE aquarium_id = :aid";
+    $aquariumResult = $dbc->prepare($aquariumSql);
+    $aquariumResult->execute([":aid" => $aquarium['id']]);
+    $aquarium = $aquariumResult->fetch();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,6 +70,14 @@
                     <div class="panel panel-default ">
                         <div class="panel-heading border-color-black">Winnaar contest >> Hier de maand <<</div>
                         <div class="panel-body">
+                            Gefeliciteerd! John Doe<br> <!-- Hier komt user -->
+                            <?php
+                                $sql = "SELECT COUNT(*) FROM `like` WHERE aquarium_id = :aid";
+                                $result = $dbc->prepare($sql);
+                                $result->execute([":aid" => $aquarium['id']]);
+                            ?>
+                            Heeft <?php echo $aquarium[''] ?> <!-- Hier komt het aantal likes op aquarium die gewonnen heeft -->
+                            <img src="images/<?php echo $like['path']; ?>" alt="">
                         </div>
                     </div>
                 </div>
