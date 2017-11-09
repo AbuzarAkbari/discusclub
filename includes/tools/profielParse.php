@@ -29,6 +29,9 @@ if ($logged_in) {
             else
             {
                 $new_password = $_POST['new_password'];
+                echo "<pre>";
+                var_dump($new_password);
+                echo "</pre>";
                 $password = password_hash($new_password, PASSWORD_BCRYPT);
                 $query .= ", password = :password";
                 $bindings[":password"] = $password;
@@ -240,6 +243,6 @@ if ($logged_in) {
         $query .= " WHERE id = :userId";
         $result = $dbc->prepare($query);
         $result->execute($bindings);
-        header("Location: /user/login?logout=true");
+        // header("Location: /user/login?logout=true");
     }
 }
