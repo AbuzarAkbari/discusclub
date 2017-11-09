@@ -44,7 +44,7 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
         // if everything is ok, try to upload file
     } else {
         $fragments = explode('.', $_FILES["upload"]["name"]);
-        $path = "/messenger/". date("Y-m-d_H:i:s") . '.' . end($fragments);
+        $path = "/messenger/". date("Y-m-d_H-i-s") . '.' . end($fragments);
         array_pop($fragments);
 
         $extensions = [
@@ -53,8 +53,6 @@ if(isset($_POST["message"]) && isset($_POST["user_id_2"])) {
             '.jpeg',
             '.gif'
         ];
-
-
 
         if (move_uploaded_file($_FILES["upload"]["tmp_name"], '../../images'.$path)) {
             $sql = "INSERT INTO image (path) VALUES (?)";
