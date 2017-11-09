@@ -1,6 +1,12 @@
 <?php $levels = ["lid", "gebruiker"]; ?>
 <?php require_once("../../includes/tools/security.php");
 
+$page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+if (false === intval($page)) {
+    exit;
+}
+$perPage = 5;
+
 if (isset($_POST['post_add_topic'])) {
     if ($logged_in && in_array($current_level, ["redacteur", "admin"])) {
         $subId = $_POST['sub_category'];
@@ -130,7 +136,7 @@ if (isset($_POST['post_add_topic'])) {
     <?php endif; ?>
     <div class="col-md-7">
         <div class="col-md-12">
-            <div class="panel panel-primary ">
+            <div class="panel panel-primary" id="news">
                 <div class="panel-heading border-colors">Nieuws</div>
                 <div class="panel-body padding-padding table-responsive">
                     <table>
@@ -144,7 +150,8 @@ if (isset($_POST['post_add_topic'])) {
                         </thead>
                         <tbody>
                             <?php
-                            $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id");
+                            $a = $page * $perPage - $perPage;
+                            $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id LIMIT {$perPage} OFFSET {$a}");
                             $sth->execute();
                             $res = $sth->fetchAll(PDO::FETCH_OBJ);
                             foreach ($res as $key => $value) { ?>
@@ -163,7 +170,40 @@ if (isset($_POST['post_add_topic'])) {
                             <?php } ?>
                         </tbody>
                     </table>
+                        
                 </div>
+                <!-- Pagination system -->
+                        <div class="col-xs-12">
+
+                            <?php
+                                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM news WHERE deleted_at IS NULL');
+                                $query->execute();
+                                $results = $query->fetch();
+                                $count = ceil($results['x'] / $perPage);
+                            ?>
+                            <?php if ($results['x'] > $perPage) : ?>
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        <li>
+                                            <a href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
+                                            <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
+                                                <a href="/news/<?php echo $x; ?>#news"><?php echo $x; ?></a>
+                                            </li>
+                                        <?php endfor; ?>
+                                        <li>
+                                            <a href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            <?php endif; ?>
+                        </div>
+                        <!-- End pagination -->
             </div>
         </div>
         <div class="col-md-12">
