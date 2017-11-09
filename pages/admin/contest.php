@@ -76,24 +76,19 @@ if(isset($_POST['start_contest']))
                 </form>
             </div>
             <div class="col-md-6">
-                <h2>Aankomende wedstijden</h2>
+                <h2>Aankomende wedstrijden</h2>
                 <hr>
                 <div class="panel panel-primary">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Aankomende wedstijden</h3>
+                    <h3 class="panel-title">Aankomende wedstrijden</h3>
                   </div>
                   <div class="panel-body">
                       <table class="col-md-12">
                           <tr>
-                              <th>start/einddatum</th>
+                              <th>start - einddatum</th>
                               <th>Verwijder</th>
                           </tr>
                           <?php foreach($contests as $contest) : ?>
-                              <?php
-//                                $time = array(date('d/m/Y H:i', strtotime($contest['start_at'])), date( 'd/m/Y H:i', strtotime($contest['end_at'])));
-//                                $date = implode(' - ', $time);
-//                                echo "'".$date."'";
-                              ?>
                           <tr class="contest-box">
                               <td>
                                   <form class="" action="#" method="post">
@@ -101,7 +96,7 @@ if(isset($_POST['start_contest']))
                                   </form>
                               </td>
                               <td>
-                                  <button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button>
+                                  <a href="/includes/tools/contest/del.php?contest_id=<?php echo $contest['id']; ?>"><button class="status-block btn btn-danger" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button></a>
                               </td>
                           </tr>
                           <?php endforeach; ?>
@@ -143,7 +138,6 @@ if(isset($_POST['start_contest']))
                     timePicker: true,
                     timePicker24Hour: true,
                     timePickerIncrement: 5,
-    //            minDate: new Date(),
                     applyClass: "btn-primary",
                     cancelClass: "btn-danger",
                     locale: {

@@ -80,9 +80,6 @@ $perPage = 10;
                             <th>Berichten</th>
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
-                            <?php if (in_array($current_level, $admin_levels)) : ?>
-                                <th>Admin tools</th>
-                            <?php endif; ?>
                         </tr>
                         <?php foreach ($results as $topic) : ?>
                             <?php
@@ -131,16 +128,6 @@ $perPage = 10;
                                     <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $user["user_id"]; ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></a></td>
                                 <?php else : ?>
                                     <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
-                                <?php
-                                endif;
-                                if (in_array($current_level, $admin_levels)) : ?>
-                                <td>
-                                    <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $topic['sub_category_id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
-                                    <a  title="Pinnen" href="/includes/tools/topic/pin.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $topic['sub_category_id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
-                                    <a  title="Locken" href="/includes/tools/topic/lock.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $topic['sub_category_id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
-                                    <a title="Bewerken" href="/includes/tools/topic/edit.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
-                                    <a title="Verwijderen" href="/includes/tools/topic/del.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
-                                </td>
                                 <?php endif; ?>
                             </tr>
                         <?php endforeach; ?>

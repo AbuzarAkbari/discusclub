@@ -45,8 +45,8 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading border-color-blue">Over Discus Club Holland</div>
                     <div class="panel-body padding-padding space">
-                        <li class="overonsHover"><a href="/about">Het ontstaan van Discus Club Holland</a></li>
-                        <li class="overonsHover"><a href="/about/news">Nieuwsberichten​</a></li>
+                        <li class="overonsHover"><a href="/about/origin">Het ontstaan van Discus Club Holland</a></li>
+                        <li class="overonsHover"><a href="/news">Nieuwsberichten​</a></li>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                   $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                   foreach($res as $key => $value) : ?>
-                  <a href="/album/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
+                  <a href="/album/post/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
                   <?php endforeach; ?>
               </div>
       </div>
