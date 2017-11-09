@@ -110,7 +110,7 @@ require_once("../../includes/tools/messenger_handler.php");
                 </form>
             </div>
             <?php
-            $sth = $dbc->prepare("SELECT *, mi.path AS message_image, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, u.id FROM message as m JOIN user as u ON m.user_id_1 = u.id JOIN image as i ON i.id = u.profile_img JOIN user as u2 ON m.user_id_2 = u2.id JOIN image as i2 ON i2.id = u2.profile_img LEFT JOIN image AS mi.id = m.image_id WHERE m.user_id_2 IN (:user_1, :user_2) AND m.user_id_1 IN (:user_1, :user_2)");
+            $sth = $dbc->prepare("SELECT *, mi.path AS message_image, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, u.id FROM message as m JOIN user as u ON m.user_id_1 = u.id JOIN image as i ON i.id = u.profile_img JOIN user as u2 ON m.user_id_2 = u2.id JOIN image as i2 ON i2.id = u2.profile_img LEFT JOIN image AS mi ON mi.id = m.image_id WHERE m.user_id_2 IN (:user_1, :user_2) AND m.user_id_1 IN (:user_1, :user_2)");
             $sth->execute([":user_1" => $_SESSION["user"]->id, ":user_2" => $id]);
             $res = $sth->fetchAll(PDO::FETCH_OBJ);
             $user = $_SESSION["user"]->id === $res[0]->user_id_2;
@@ -124,13 +124,8 @@ require_once("../../includes/tools/messenger_handler.php");
                     <?php foreach ($res as $value) : ?>
                         <div class="messages <?php echo $value->user_id_1 === $_SESSION["user"]->id ? "right-message" : "left-message" ?>">
                             <div><?php echo $value->message; ?></div>
-                            <?php
-                            echo "<pre>";
-                            var_dump($value->message_image);
-                            echo "</pre>";
-                            ?>
                             <?php if(isset($value->message_image)) : ?>
-                            <div><img src="/images<?php $value->message_image; ?>" alt="afbeelding"></div>
+                            <div><img src="/images<?php echo $value->message_image; ?>" alt="afbeelding"></div>
                             <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
