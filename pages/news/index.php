@@ -22,8 +22,6 @@ if (isset($_POST['post_add_topic'])) {
     }
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
