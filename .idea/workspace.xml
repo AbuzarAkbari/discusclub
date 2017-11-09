@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/aquarium/-0.jpg" afterPath="$PROJECT_DIR$/images/aquarium/-0.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/about/index.php" afterPath="$PROJECT_DIR$/pages/about/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/about/origin.php" afterPath="$PROJECT_DIR$/pages/about/origin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/admin/contest.php" afterPath="$PROJECT_DIR$/pages/admin/contest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/active-topics.php" afterPath="$PROJECT_DIR$/pages/forum/active-topics.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/fav-topics.php" afterPath="$PROJECT_DIR$/pages/forum/fav-topics.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/new-topics.php" afterPath="$PROJECT_DIR$/pages/forum/new-topics.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/index.php" afterPath="$PROJECT_DIR$/pages/news/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/sponsor/become.php" afterPath="$PROJECT_DIR$/pages/sponsor/become.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/.htaccess" afterPath="$PROJECT_DIR$/pages/.htaccess" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,7 +40,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="contest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="contest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/admin/contest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="442">
@@ -63,6 +55,16 @@
                 <marker date="1510228374290" expanded="true" signature="4060:4096" ph="..." />
                 <marker date="1510228374290" expanded="true" signature="4060:4347" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -179,7 +181,6 @@
         <option value="$PROJECT_DIR$/pages/user/login.php" />
         <option value="$PROJECT_DIR$/pages/houdenvan/index.php" />
         <option value="$PROJECT_DIR$/includes/components/nav.php" />
-        <option value="$PROJECT_DIR$/pages/.htaccess" />
         <option value="$PROJECT_DIR$/pages/houden-van.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/pages/about/index.php" />
@@ -191,6 +192,7 @@
         <option value="$PROJECT_DIR$/pages/sponsor/become.php" />
         <option value="$PROJECT_DIR$/includes/tools/contest/del.php" />
         <option value="$PROJECT_DIR$/pages/admin/contest.php" />
+        <option value="$PROJECT_DIR$/pages/.htaccess" />
       </list>
     </option>
   </component>
@@ -332,12 +334,12 @@
       <workItem from="1510049423520" duration="18522000" />
       <workItem from="1510135688271" duration="2512000" />
       <workItem from="1510138578569" duration="14135000" />
-      <workItem from="1510221350696" duration="5343000" />
+      <workItem from="1510221350696" duration="5917000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251118000" />
+    <option name="totallyTimeSpent" value="251692000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -622,14 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -959,6 +953,14 @@
             <marker date="1510228374290" expanded="true" signature="4060:4096" ph="..." />
             <marker date="1510228374290" expanded="true" signature="4060:4347" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
