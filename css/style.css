@@ -741,7 +741,6 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 #primary_nav_wrap ul ul {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -778,7 +777,7 @@ li.dropdown:hover > .dropdown-menu {
 }
 @media screen and (max-width: 1200px) {
     #primary_nav_wrap ul li {
-        display: block;
+        display: none;
         float: none;
         margin-top: 10px;
     }
