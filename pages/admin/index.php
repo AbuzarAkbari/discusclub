@@ -47,8 +47,8 @@ require_once("../../includes/tools/security.php"); ?>
                 <div class="panel panel-primary">
                     <div class="panel-heading border-color-blue">Admin tools</div>
                     <div class="panel-body padding-padding space">
-                        <li class="overonsHover"><a href="/admin/contest">Contest</a></li>
                         <li class="overonsHover"><a href="/admin/ip-list">IP Lijst</a></li>
+                        <li class="overonsHover"><a href="/admin/contest">Contest</a></li>
                         <li class="overonsHover"><a href="/admin/user-list">Ledenlijst</a></li>
                         <li class="overonsHover"><a href="/admin/approval-signup">Inschrijvingen</a></li>
                         <li class="overonsHover"><a href="/admin/approval-sponsor">Sponsoren</a></li>
