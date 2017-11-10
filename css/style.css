@@ -770,7 +770,7 @@ li.dropdown:hover > .dropdown-menu {
     z-index: 1;
     color: white;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
     #primary_nav_wrap ul a {
         display: none;
     }
@@ -780,7 +780,7 @@ li.dropdown:hover > .dropdown-menu {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
     .topnav.responsive {
         position: relative;
     }
