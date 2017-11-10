@@ -65,7 +65,7 @@
               <div class="col-md-6 col-sm-12 ruimte">
                 <a  title="<?php echo $sponsor['name']; ?>" href="<?php echo $sponsor['url'] ?>">
                     <?php foreach ($images as $image) : ?>
-                <img class="sponsor_vak" src="/images<?php echo $image['path'] ?>">
+                <img alt="Sponsor" class="sponsor_vak" src="/images<?php echo $image['path'] ?>">
                     <?php endforeach; ?>
                 </a>
               </div>
@@ -78,7 +78,7 @@
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Advertentie</div>
               <div class="panel-body">
-                  <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img src="/images/ad/advertentie.jpg"></a> </div>
+                  <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img alt="Advertentie" src="/images/ad/advertentie.jpg"></a> </div>
               </div>
           </div>
       </div>

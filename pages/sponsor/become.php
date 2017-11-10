@@ -102,7 +102,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading border-colors">Advertentie</div>
                             <div class="panel-body">
-                                <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img src="/images/ad/advertentie.jpg"></div></a> </div>
+                                <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img alt="Advertentie" src="/images/ad/advertentie.jpg"></div></a> </div>
                             </div>
                         </div>
 
@@ -116,7 +116,7 @@
                                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                                       foreach($res as $key => $value) : ?>
-                                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><img class="imgThumbnail" src="/images<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
+                                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><img alt="Album-thumbnail" class="imgThumbnail" src="/images<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
                                     <?php endforeach; ?>
                               </div>
 

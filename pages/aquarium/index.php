@@ -127,7 +127,7 @@ $perPage = 6;
                         </li>
                         <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
                             <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
-                                <a href="/album/<?php echo $x; ?>"><?php echo $x; ?></a>
+                                <a href="/aquarium/<?php echo $x; ?>"><?php echo $x; ?></a>
                             </li>
                         <?php endfor; ?>
                         <li>
