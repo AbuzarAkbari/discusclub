@@ -104,9 +104,9 @@
     </div>
 </div>
 <script>
-    $(document).ready(function(){
-    $("icon").click(function(){
-        $("primary_nav_wrap").toggle();
-    });
+    document.querySelector("#icon").addEventListener("click", (e) => {
+      document.querySelectorAll("#primary_nav_wrap ul li").forEach((x) => {
+        x.classList.toggle("jan");
+      });
     });
 </script>
