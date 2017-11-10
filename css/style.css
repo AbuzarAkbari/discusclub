@@ -155,7 +155,6 @@ hr {
     }
 }
 
-
 .row {
     margin-right: 0px !important;
     margin-left: 0px !important;
@@ -691,6 +690,7 @@ li.dropdown:hover > .dropdown-menu {
     background: #0ba8ec;
     padding: 0;
     color: white;
+    display: none;
 }
 
 #primary_nav_wrap ul ul li {
