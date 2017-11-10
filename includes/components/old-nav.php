@@ -31,46 +31,59 @@
   </div>
 <div style="background: #000">
     <div class="container">
-        <div class="topnav" id="myTopnav">
-            <a href="/">Home</a>
-            <a href="/about/">Overons</a>
-            <a href='/about/origin'>Ontstaan Discus Club Holland</a>
-            <a href='/houden-van' class='dropdown-toggle'>Houden van</a>
-            <a href='/houden-van/kweken'>Kweken</a>
-            <a href='/houden-van/ziektes'>Ziektes</a>
-            <a href='/news/'>Nieuws</a>
-            <a href='/wordlid'>Word lid!</a>
-            <a href='/album/' class='dropdown-toggle'>Albums</a>
-            <a href='/album/upload'>Upload</a>
-            <a href='/aquarium/' class='dropdown-toggle'>Aquaria</a>
-            <a href='/aquarium/upload'>Upload</a>
-            <a href='/forum/' class='dropdown-toggle'>Forum</a>
-            <a href='/forum/active-topics'>Actieve topics</a>
-            <a href='/forum/new-topics'>Nieuwe topics</a>
-            <a href='/forum/fav-topics'>Favoriete topics</a>
-            <a href='/sponsor/become' class='dropdown-toggle'>Sponsoren</a>
-            <a href='/sponsor/become'>Ook sponsor worden?</a>
-            <a href='/sponsor'>Onze sponsoren</a>
-            <a href='/contact'>Contact</a>
-            <a href='/admin/' class='dropdown-toggle'>Admin</a>
-            <a href='/admin/ip-list'>IP Lijst</a>
-            <a href='/admin/contest'>Contest</a>
-            <a href='/admin/user-list'>Ledenlijst</a>
-            <a href='/admin/approval-signup'>Inschrijvingen</a>
-            <a href='/admin/approval-sponsor'>Sponsoren</a>
-            <a href="/phpmyadmin">phpmyadmin</a>
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
-        </div>
+
+        <nav id="primary_nav_wrap">
+        <ul>
+          <li><a href="/">Home</a>
+          </li>
+          <li><a href="/about/">Overons</a>
+            <ul>
+              <li><a href="/about/origin">Ontstaan Discus Club Holland</a></li>
+            </ul>
+          </li>
+          <li><a href="/houden-van">Houden van</a>
+            <ul>
+              <li><a href="/houden-van/kweken">Kweken</a></li>
+              <li><a href="/houden-van/ziektes">Ziektes</a></li>
+            </ul>
+          </li>
+          <li><a href="/news">Nieuws</a></li>
+          <li><a href="/wordlid">Word lid!</a></li>
+          <li><a href="/album">Albums</a>
+            <ul>
+              <li><a href="/album/upload">Upload</a></li>
+            </ul>
+          </li>
+          <li><a href="/aquarium">Aquaria</a>
+            <ul>
+              <li><a href="/aquarium/upload">Upload</a></li>
+            </ul>
+          </li>
+          <li><a href="/forum">Forum</a>
+            <ul>
+              <li><a href="/forum/active-topics">Actieve topics</a></li>
+              <li><a href="/forum/new-topics">Nieuwe topics</a></li>
+              <li><a href="/forum/fav-topics">Favoriete topics</a></li>
+            </ul>
+          </li>
+          <li><a href="/sponsor/become">Sponsoren</a>
+            <ul>
+              <li><a href="/sponsor/become">Ook sponsor worden?</a></li>
+              <li><a href="/sponsor">Onze sponsoren</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/admin/">Admin</a>
+            <ul>
+                <li><a href='/admin/ip-list'>IP Lijst</a></li>
+                <li><a href='/admin/contest'>Contest</a></li>
+                <li><a href='/admin/user-list'>Ledenlijst</a></li>
+                <li><a href='/admin/approval-signup'>Inschrijvingen</a></li>
+                <li><a href='/admin/approval-sponsor'>Sponsoren</a></li>
+                <li><a href="/phpmyadmin">phpmyadmin</a></li>
+            </ul>
+          </li>
+        </ul>
+        </nav>
     </div>
 </div>
-
-<script>
-function myFunction() {
-    var x = document.getElementById('myTopnav')
-    if (x.className === 'topnav') {
-        x.className += ' responsive'
-    } else {
-        x.className = 'topnav'
-    }
-}
-</script>
