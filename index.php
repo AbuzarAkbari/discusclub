@@ -1,14 +1,14 @@
 <?php require_once("includes/tools/security.php"); ?>
 <?php
-    $likeSql = "SELECT * FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE deleted_at IS NOT NULL";
-    $likeResult = $dbc->prepare($likeSql);
-    $likeResult->execute();
-    $like = $likeResult->fetch();
-
-    $aquariumSql = "SELECT * FROM `like` WHERE aquarium_id = :aid";
+    $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id JOIN user ON aquarium.user_id = user.id WHERE aquarium.deleted_at IS NOT NULL";
     $aquariumResult = $dbc->prepare($aquariumSql);
-    $aquariumResult->execute([":aid" => $aquarium['id']]);
+    $aquariumResult->execute();
     $aquarium = $aquariumResult->fetch();
+
+    $likeSql = "SELECT * FROM `like` WHERE aquarium_id = :aid";
+    $likeResult = $dbc->prepare($likeSql);
+    $likeResult->execute([":aid" => $aquarium['id']]);
+    $like = $likeResult->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,16 +73,20 @@
             <br><br>
             <div class="col-md-12">
                     <div class="panel panel-default ">
-                        <div class="panel-heading border-color-black">Winnaar contest >> Hier de maand <<</div>
+                        <div class="panel-heading border-color-black">Winnaar wedstrijd</div>
                         <div class="panel-body">
-                            Gefeliciteerd! John Doe<br> <!-- Hier komt user -->
+                            Gefeliciteerd <a href="/user/<?php echo $aquarium['user_id']; ?>"><?php echo $aquarium['first_name'].' '.$aquarium['last_name']; ?></a>, <br><br>
+                            Jij hebt deze wedstrijd gewonnen
                             <?php
-                                $sql = "SELECT COUNT(*) FROM `like` WHERE aquarium_id = :aid";
+                                $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";
                                 $result = $dbc->prepare($sql);
                                 $result->execute([":aid" => $aquarium['id']]);
+                                $likes = $result->fetch();
                             ?>
-                            Heeft <?php echo $aquarium[''] ?> <!-- Hier komt het aantal likes op aquarium die gewonnen heeft -->
-                            <img src="images/<?php echo $like['path']; ?>" alt="">
+                            met <?php echo $likes['x'] ?> visjes<br><br>
+                            <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>">
+                                <img src="images/<?php echo $aquarium['path']; ?>" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>
