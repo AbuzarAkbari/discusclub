@@ -62,7 +62,7 @@ $perPage = 6;
 
             <?php
               $a = $page * $perPage - $perPage;
-              $haal_aquariums = "SELECT *, a.created_at AS aquarium_created_at, count(i.aquarium_id) as aantal_fotos, u.id as user_id, a.created_at as created_at FROM image as i JOIN aquarium as a ON a.id = i.aquarium_id JOIN user as u ON u.id = a.user_id WHERE i.aquarium_id IS NOT NULL GROUP BY i.aquarium_id ORDER BY aquarium_created_at DESC LIMIT {$perPage} OFFSET {$a}";
+              $haal_aquariums = "SELECT *, a.created_at AS aquarium_created_at, count(i.aquarium_id) as aantal_fotos, u.id as user_id, a.created_at as created_at FROM image as i JOIN aquarium as a ON a.id = i.aquarium_id JOIN user as u ON u.id = a.user_id WHERE a.deleted_at IS NULL GROUP BY i.aquarium_id ORDER BY aquarium_created_at DESC LIMIT {$perPage} OFFSET {$a}";
               $aquariumResult = $dbc->prepare($haal_aquariums);
               $aquariumResult->execute();
               $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
@@ -77,11 +77,11 @@ $perPage = 6;
                             <?php
                                 $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";
                                 $result = $dbc->prepare($sql);
-                                $result->execute([":aid" => $aquarium['id']]);
+                                $result->execute([":aid" => $aquarium['aquarium_id']]);
                                 $like = $result->fetch();
                             ?>
                             <div class="col-md-5 col-sm-4 col-xs-4 text-right">
-                                <?php echo isset($like['x']) ? $like['x'] : '0'; ?> <a href="/includes/tools/aquarium/add-like?aid=<?php echo $aquarium['id']; ?>"><img class="like-vis" src="/images/favicon-wit.png" alt=""></a>
+                                <?php echo isset($like['x']) ? $like['x'] : '0'; ?> <a href="/includes/tools/aquarium/add-like?aid=<?php echo $aquarium['aquarium_id']; ?>"><img class="like-vis" src="/images/favicon-wit.png" alt=""></a>
                             </div>
                         </div>
                         <div class="panel-body">
