@@ -76,26 +76,27 @@ $perPage = 20;
                             foreach ($rows as $ip) :
                                 ?>
                                 <tr>
-                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>"><?php
-                                     echo $ip['first_name'] . " " . $ip['last_name'];
-                                    ?></a></td>
+                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>">
+                                        <?php $name = $ip['first_name'] . " " . $ip['last_name']; ?>
+                                        <?php echo isset($ip['first_name']) ? $name : 'Gast'; ?>
+                                    </a></td>
                                     <td><?php
-                                     echo $ip['ip_address'];
+                                     echo isset($ip['ip_address']) ? $ip['ip_address'] : 'Geen ip-adres bekend';
                                     ?></td>
                                     <td><?php
                                      echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
                                     ?></td>
                                     <td><?php
-                                     echo $ip['phone'];
+                                     echo isset($ip['phone']) ? $ip['phone'] : 'Geen telefoonnummer bekend';
                                     ?></td>
                                     <td><?php
-                                     echo $ip['postal_code'];
+                                     echo isset($ip['postal_code']) ? $ip['postal_code'] : 'Geen postcode bekend';
                                     ?></td>
                                     <td><?php
-                                     echo $ip['address'],$ip['house_number'];
+                                     echo isset($ip['address']) && isset($ip['house_number']) ? $ip['address'].''.$ip['house_number'] : 'Geen adres bekend';
                                     ?></td>
                                     <td><?php
-                                     echo $ip['city'];
+                                     echo isset($ip['city']) ? $ip['city'] : 'Geen stad bekend';
                                     ?></td>
                                 </tr>
                             <?php

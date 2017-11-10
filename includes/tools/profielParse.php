@@ -2,6 +2,8 @@
 require_once("../../includes/tools/security.php");
 if ($logged_in) {
     if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
+        $error = '';
+
         //Start query
         $query = "UPDATE user SET id = :userId";
         $userId = $_POST["user_id"];
@@ -19,15 +21,12 @@ if ($logged_in) {
         //Nieuw wachtwoord
         if(isset($_POST['new_password']) && !empty($_POST["new_password"])) {
             if($_POST['new_password'] != $_POST['new_password_repeat']) {
-                echo "Wachtwoorden komen niet overeen.";
+                $error = "Wachtwoorden komen niet overeen.";
                 exit();
             }
             else
             {
                 $new_password = $_POST['new_password'];
-                echo "<pre>";
-                var_dump($new_password);
-                echo "</pre>";
                 $password = password_hash($new_password, PASSWORD_BCRYPT);
                 $query .= ", password = :password";
                 $bindings[":password"] = $password;
@@ -39,7 +38,7 @@ if ($logged_in) {
             $query .= ", email = :email";
             $bindings[":email"] = $email;
         } else {
-            echo "Email adressen komen niet overeen";
+            $error =  "Email adressen komen niet overeen";
             exit();
         }
         //Geboortedatum
@@ -71,28 +70,30 @@ if ($logged_in) {
             if ($check !== false) {
                 $uploadOk = 1;
             } else {
-                echo "File is not an image.";
+                $error = "Sorry, geen fotobestand gevonden.";
                 $uploadOk = 0;
             }
             // Check if file already exists
             if (file_exists($target_file)) {
-                echo "Sorry, file already exists.";
+                $error = "Sorry, het bestand bestaat al.";
                 $uploadOk = 0;
             }
             // Check file size
             if ($_FILES["profiel"]["size"] > 500000) {
-                echo "Sorry, your file is too large.";
+                $error = "Sorry, het bestand is te groot";
                 $uploadOk = 0;
             }
             // Allow certain file formats
             if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif" ) {
-                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $error = "Sorry, alleen JPG, JPEG, PNG & GIF bestanden zijn toegestaan.";
                 $uploadOk = 0;
             }
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
-                echo "Sorry, your file was not uploaded.";
+                header("Location: /user/conf?error=".$error);
+                exit();
+
                 // if everything is ok, try to upload file
             } else {
                 $fragments = explode('.', $_FILES["profiel"]["name"]);
@@ -119,7 +120,7 @@ if ($logged_in) {
                     $query .= ", profile_img = :profile_image";
                     $bindings[":profile_image"] = $id;
                 } else {
-                    echo "Sorry, there was an error uploading your file.";
+                    $error = "Sorry, er ging iets mis met het uploaden.";
                     exit();
                 }
             }
@@ -135,7 +136,7 @@ if ($logged_in) {
             if ($check !== false) {
                 $uploadOk = 1;
             } else {
-                echo "File is not an image.";
+                $error = "Sorry, geen fotobestand gevonden.";
                 $uploadOk = 0;
             }
             // Check if file already exists
@@ -145,19 +146,20 @@ if ($logged_in) {
             }
             // Check file size
             if ($_FILES["background"]["size"] > 500000) {
-                echo "Sorry, your file is too large.";
+                $error = "Sorry, het bestand is te groot";
                 $uploadOk = 0;
             }
             // Allow certain file formats
             if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif" ) {
-                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $error = "Sorry, alleen JPG, JPEG, PNG & GIF bestanden zijn toegestaan.";
                 $uploadOk = 0;
             }
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
-                echo "Sorry, your file was not uploaded.";
-                // if everything is ok, try to upload file
+                header("Location: /user/conf?error=".$error);
+                exit();
+
             } else {
                 $fragments = explode('.', $_FILES["background"]["name"]);
                 $path = "/messenger_background/".$_SESSION["user"]->username . '.' . end($fragments);
@@ -183,7 +185,7 @@ if ($logged_in) {
                     $query .= ", messenger_img = :messenger_background_image";
                     $bindings[":messenger_background_image"] = $id;
                 } else {
-                    echo "Sorry, there was an error uploading your file.";
+                    $error = "Sorry, er ging iets mis met het uploaden.";
                     exit();
                 }
             }
