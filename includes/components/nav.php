@@ -37,10 +37,10 @@
           <li><a href="/">Home</a>
           </li>
           <li>
-            <a class="desktop" href="/about/">Overons</a>
-            <span class="mobile navItem">Overons</span>
+            <a class="desktop" href="/about/">Over ons</a>
+            <span class="mobile navItem">Over ons</span>
             <ul>
-              <li class="mobile"><a href="/about/">Overons</a></li>
+              <li class="mobile"><a href="/about/">Over ons</a></li>
               <li><a href="/about/origin">Ontstaan Discus Club Holland</a></li>
             </ul>
           </li>
