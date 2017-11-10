@@ -53,7 +53,7 @@ require_once("../../includes/tools/messenger_handler.php");
                 </div></div>
             <div class="col-md-4">
                 <div class="userTab">
-                    <img src="/images<?php echo $_SESSION["user"]->profile_img; ?>" class="imgUser imageStatic" />
+                    <img alt="Profielfoto" src="/images<?php echo $_SESSION["user"]->profile_img; ?>" class="imgUser imageStatic" />
                     <div class="username"><b> <?php echo $_SESSION["user"]->first_name . " " . $_SESSION["user"]->last_name; ?></b></div>
                 </div>
                 <div id="userTable" class="otherTab flexcroll">
@@ -94,7 +94,7 @@ require_once("../../includes/tools/messenger_handler.php");
                         ?>
                         <a href="/user/messenger/<?php echo $user ? $value->user_2_id : $value->user_1_id; ?>">
                             <div class="other">
-                                <div><img src="/images<?php echo $user ? $value->user_2_path : $value->user_1_path; ?>" class="otherUsers imageStatic"></div>
+                                <div><img alt="profielfoto" src="/images<?php echo $user ? $value->user_2_path : $value->user_1_path; ?>" class="otherUsers imageStatic"></div>
                                 <div class="usernameTab"><b><?php echo $user ? $value->user_2_first_name . " " . $value->user_2_last_name : $value->user_1_first_name . " " . $value->user_1_last_name; ?></b></div>
                                 <?php if(!empty($last_message)) : ?>
                                     <div><?php echo substr($last_message, 0, 25) . "..."; ?></div>
@@ -117,7 +117,7 @@ require_once("../../includes/tools/messenger_handler.php");
             ?>
             <div class="col-md-8">
                 <div class="userTab">
-                    <img src="/images<?php echo $user ? $res[0]->user_1_path : $res[0]->user_2_path; ?>" class="imgUser imageStatic" />
+                    <img alt="profielfoto" src="/images<?php echo $user ? $res[0]->user_1_path : $res[0]->user_2_path; ?>" class="imgUser imageStatic" />
                     <div class="username"><b> <?php echo $user ? $res[0]->user_1_first_name . " " . $res[0]->user_1_last_name : $res[0]->user_2_first_name . " " . $res[0]->user_2_last_name; ?></b></div>
                 </div>
                 <div id="message" style="background-image: url('/images<?php echo $_SESSION["user"]->messenger_img; ?>');" class="imageBackgroundText flexcroll tab">
