@@ -786,3 +786,7 @@ li.dropdown:hover > .dropdown-menu {
 .navItem:focus {
     color: white !important;
 }
+
+#primary_nav_wrap ul li:hover > span {
+    color: white;
+}
