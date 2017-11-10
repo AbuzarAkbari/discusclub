@@ -48,7 +48,7 @@
 
 
     <?php
-     require_once("includes/components/old-nav.php");
+     require_once("includes/components/nav.php");
 
         require_once("includes/components/slider.php");
 

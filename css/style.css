@@ -723,11 +723,8 @@ li.dropdown:hover > .dropdown-menu {
     #primary_nav_wrap ul li {
         display: none;
         float: none;
-        margin-top: 10px;
     }
-    #primary_nav_wrap ul {
-        margin-top: 50px;
-    }
+
     #primary_nav_wrap li.icon {
         display: block;
         float: right;
