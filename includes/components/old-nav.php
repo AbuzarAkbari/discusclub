@@ -99,6 +99,14 @@
           </li>
             <?php } ?>
         </ul>
+        <li class="icon" id="icon"><a><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
         </nav>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+    $("icon").click(function(){
+        $("primary_nav_wrap").toggle();
+    });
+    });
+</script>

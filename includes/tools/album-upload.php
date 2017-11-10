@@ -23,7 +23,7 @@ if (isset($_POST['upload_album'])) {
 	            if ($check !== false) {
 	                $uploadOk = 1;
 	            } else {
-	                $error = "File is not an image.";
+	                $error = "Sorry, geen fotobestand gevonden.";
 	                $uploadOk = 0;
 				}
 
@@ -41,7 +41,7 @@ if (isset($_POST['upload_album'])) {
 
 	            // Allow certain file formats
 	            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-	                && $imageFileType != "gif" ) {
+	                && $imageFileType != "gif"  && $imageFileType != "PNG" ) {
 	                 $error = "Sorry, alleen JPG, JPEG, PNG & GIF bestanden zijn toegestaan.";
 	                $uploadOk = 0;
 	            }
