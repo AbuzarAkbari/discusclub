@@ -755,6 +755,8 @@ li.dropdown:hover > .dropdown-menu {
 }
 #primary_nav_wrap li.icon {
     display: none;
+    padding: 15px;
+    font-size: 16px;
 }
 
 #primary_nav_wrap ul ul a {
@@ -777,13 +779,13 @@ li.dropdown:hover > .dropdown-menu {
     #primary_nav_wrap ul a {
         display: none;
     }
-    .#primary_nav_wrap li.icon {
+    #primary_nav_wrap li.icon {
         display: block;
         float: right;
     }
 }
 
-@media screen and (max-width: 1200px) {
+/*@media screen and (max-width: 1200px) {
     .topnav.responsive {
         position: relative;
     }
@@ -797,4 +799,4 @@ li.dropdown:hover > .dropdown-menu {
         display: block;
         text-align: left;
     }
-}
+}*/

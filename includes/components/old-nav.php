@@ -99,7 +99,7 @@
           </li>
             <?php } ?>
         </ul>
-        <li class="icon"><a href="/phpmyadmin"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
+        <li class="icon"><a href=""><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
         </nav>
     </div>
 </div>
