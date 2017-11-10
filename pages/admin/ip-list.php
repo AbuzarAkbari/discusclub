@@ -73,9 +73,12 @@ $perPage = 20;
                             foreach ($rows as $ip) :
                                 ?>
                                 <tr>
-                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>"><?php
-                                     echo $ip['first_name'] . " " . $ip['last_name'];
-                                    ?></a></td>
+                                    <td>
+                                        <a href="/user/<?php echo $ip["user_id"]; ?>">
+                                            <?php $name = $ip['first_name'] . " " . $ip['last_name']; ?>
+                                            <?php echo isset($ip['first_name']) ? $name : 'Gast'; ?>
+                                        </a>
+                                    </td>
                                     <td><?php
                                      echo $ip['ip_address'];
                                     ?></td>
