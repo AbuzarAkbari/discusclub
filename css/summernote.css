@@ -292,7 +292,7 @@
 }
 .note-editor.note-frame .note-editing-area .note-editable {
     padding: 20px;
-    min-height: 10em;
+    min-height: 14.5em;
     overflow: auto;
     color: #000;
     background-color: #fff;

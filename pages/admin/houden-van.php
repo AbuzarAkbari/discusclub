@@ -43,25 +43,27 @@ $perPage = 20;
     </script>
     <?php
         require_once("../../includes/components/nav.php");
+
+        $result = $dbc->prepare("SELECT * FROM `page` WHERE id = 1 ");
+        $result->execute();
+        $text = $result->fetch(PDO::FETCH_ASSOC);
     ?>
     <br><br>
     <div class="container main">
         <div class="row columns">
             <div class="col-md-12">
-                <div class="">
-                    <ol class="breadcrumb">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/admin">Admin</a></li>
-                        <li class="active">Houdenvan</li>
-                    </ol>
-                </div>
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                    <li class="active">Houdenvan</li>
+                </ol>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
             <form class="" action="houden-van" method="post">
                 <div class="col-md-12">
                     <label for="titel"><h3>Titel</h3></label>
-                    <input id="titel" type="text" class="form-control" name="title" value="" placeholder="<?php ?>">
+                    <input id="titel" type="text" class="form-control" name="title" value="" placeholder="<?php echo $text['name']; ?>">
                     <br>
                     <textarea required class="form-control editor" col="8" rows="8" name="reply_content" maxlength="50" placeholder="Uw bericht.."></textarea>
                 </div>
@@ -70,7 +72,7 @@ $perPage = 20;
                 </div>
             </form>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <label for="img-change text-center"><h3>Wijzig de afbeelding</h3></label>
             <label for="img-change" class="img-change text-center">Klik hier om een afbeelding te kiezen</label>
             <input id='img-change' accept="image/*" class="form-control" type="file" name="" value="">
