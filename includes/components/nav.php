@@ -38,7 +38,7 @@
           </li>
           <li>
             <a class="desktop" href="/about/">Overons</a>
-            <a class="mobile">Overons</a>
+            <span class="mobile">Overons</span>
             <ul>
               <li class="mobile"><a href="/about/">Overons</a></li>
               <li><a href="/about/origin">Ontstaan Discus Club Holland</a></li>
@@ -113,4 +113,10 @@
         x.classList.toggle("jan");
       });
     });
+    document.querySelectorAll("span.mobile").forEach((x, i) => {
+      x.addEventListener("click", (e) => {
+          e.target.nextElementSibling.classList.toggle("peter");
+      });
+    })
+
 </script>

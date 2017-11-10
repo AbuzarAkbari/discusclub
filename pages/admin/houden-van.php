@@ -63,7 +63,7 @@ $perPage = 20;
             <form class="" action="houden-van" method="post">
                 <div class="col-md-12">
                     <label for="titel"><h3>Titel</h3></label>
-                    <input id="titel" type="text" class="form-control" name="title" value="" placeholder="<?php echo $text['name']; ?>">
+                    <input id="titel" type="text" class="form-control" name="title" value="<?php echo $text['name']; ?>">
                     <br>
                     <textarea required class="form-control editor" col="8" rows="8" name="reply_content" maxlength="50" placeholder="Uw bericht.."></textarea>
                 </div>
