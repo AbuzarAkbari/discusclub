@@ -2,9 +2,9 @@
 $levels = ["gebruiker", "lid"];
 require_once("../../../includes/tools/security.php");
 
-$stm = "SELECT * FROM `like` WHERE user_id = :user_id";
+$stm = "SELECT * FROM `like` WHERE user_id = :user_id AND aquarium_id = :aquarium_id";
 $res = $dbc->prepare($stm);
-$res->execute([":user_id" => $_SESSION['user']->id]);
+$res->execute([":user_id" => $_SESSION['user']->id, ":aquarium_id" => $_GET["aid"]]);
 $user = $res->fetchAll(PDO::FETCH_ASSOC);
 
 $contestSql = "SELECT * FROM contest WHERE start_at <= NOW() AND end_at >= NOW()";
@@ -20,9 +20,9 @@ if(sizeof($user) === 0)
 }
 else
 {
-    $sql = "DELETE FROM `like` WHERE user_id = :user_id";
+    $sql = "DELETE FROM `like` WHERE user_id = :user_id AND aquarium_id = :aquarium_id";
     $result = $dbc->prepare($sql);
-    $result->execute([":user_id" => $_SESSION['user']->id]);
+    $result->execute([":user_id" => $_SESSION['user']->id, ":aquarium_id" => $_GET["aid"]]);
 }
 
 
