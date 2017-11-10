@@ -15,3 +15,6 @@ RewriteRule ^approval-signup/([0-9]+) approval-signup.php?pagina=$1 [NC,L]
 
 # added pagination stuff to sponsoren
 RewriteRule ^approval-sponsor/([0-9]+) approval-sponsor.php?pagina=$1 [NC,L]
+
+# page
+RewriteRule ^page/([0-9]+) page.php?id=$1 [NC,L]

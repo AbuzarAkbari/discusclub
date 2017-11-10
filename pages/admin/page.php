@@ -44,8 +44,8 @@ $perPage = 20;
     <?php
         require_once("../../includes/components/nav.php");
 
-        $result = $dbc->prepare("SELECT * FROM `page` WHERE id = 1 ");
-        $result->execute();
+        $result = $dbc->prepare("SELECT * FROM `page` WHERE id = :id");
+        $result->execute([":id" => isset($_GET["id"]) ? $_GET["id"] : 1]);
         $text = $result->fetch(PDO::FETCH_ASSOC);
     ?>
     <br><br>
@@ -59,6 +59,11 @@ $perPage = 20;
                 </ol>
             </div>
         </div>
+            <select id="page_select">
+                <option value="/admin/page/1" >pagina</option>
+                <option value="/admin/page/1" >houden van</option>
+                <option value="/admin/page/2" >kweken</option>
+            </select>
         <div class="col-md-7">
             <form class="" action="houden-van" method="post">
                 <div class="col-md-12">
@@ -106,6 +111,11 @@ $perPage = 20;
                 $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
             });
         });
+
+        document.querySelector("#page_select").addEventListener("change", e => {
+            location.assign(e.target.selectedOptions[0].value)
+        })
+
     </script>
 </body>
 
