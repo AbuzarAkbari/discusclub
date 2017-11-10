@@ -83,7 +83,11 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                         <input type="password" name="new_password" class="form-control"><br>
                         <label for="new_password_repeat">Nieuw wachtwoord herhalen</label><br>
                         <input type="password" name="new_password_repeat" class="form-control"><br>
-                        <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" value="<?php echo isset($user_data->birthdate) ? $user_data->birthdate : ''; ?>" size="30" type="date" name="date" placeholder="Geboortedatum"><br>
+
+                        <label for="datepicker">Geboortedatum</label>
+                        <input class="form-control" id="datepicker" value="" size="30" type="datetime" name="date" placeholder="Geboortedatum"><br>
+                        <!-- <label for="datepicker">Geboortedatum</label><input class="form-control" id="datepicker" value="<?php echo isset($user_data->birthdate) ? $user_data->birthdate : ''; ?>" size="30" type="date" name="date" placeholder="Geboortedatum"><br> -->
+
                         <label for="city">Locatie</label><input id="city" class="form-control" type="text" name="city" value="<?php echo isset($user_data->city) ? $user_data->city : ''; ?>" placeholder="Locatie (max. 35 tekens)" maxlength="35"><br>
                         <label for="file">Profielfoto aanpassen</label><input id="file" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="profiel" placeholder="Selecteer bestand"><br>
                         <label for="berichten">Berichten achtergrond aanpassen</label><input id="berichten" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="background" placeholder="Selecteer bestand"><br>
@@ -111,8 +115,8 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
         $( "#datepicker" ).datepicker({
             changeMonth: true,
             changeYear: true,
-            yearRange: "-100:+0",
-            defaultDate: '01/01/1980'
+            yearRange: "-90:+0",
+            defaultDate: '01/01/1980',
             dateFormat: 'dd-mm-yy'
         });
     } );
