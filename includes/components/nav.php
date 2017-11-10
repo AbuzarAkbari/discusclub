@@ -1,3 +1,4 @@
+
 <div class="header">
     <div class="header container">
         <?php if ($logged_in) { ?>
@@ -29,60 +30,188 @@
     </div>
 
   </div>
-<div style="background: #000">
-    <div class="container">
-        <div class="topnav" id="myTopnav">
-            <a href="/">Home</a>
-            <a href="/about/">Overons</a>
-                <a href='/about/origin'>Ontstaan Discus Club Holland</a>
+    <!-- Static navbar -->
+    <div class="nav-wrapper-mobile">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                    </button>
+                </div>
+                <div id='navbar' class='navbar-collapse collapse'>
+                    <ul class='nav navbar-nav'>
+                        <li><a href='/'>Home</a></li>
+                        <li class='dropdown'>
+                            <a class='dropdown-toggle'>Over ons</a>
+                            <ul class='dropdown-menu'>
+                                <li><a href='/about/'>Over ons</a></li>
+                                <li><a href='/about/origin'>Ontstaan Discus Club Holland</a></li>
+                            </ul>
+                        </li>
+                        <li class='dropdown'>
+                            <a class='dropdown-toggle'>Houdenvan</a>
+                            <ul class='dropdown-menu'>
+                                <li><a href='/houden-van'>Houdenvan</a></li>
+                            </ul>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/houden-van/kweken'>Kweken</a></li>
+                                    <li><a href='/houden-van/'>Houden van</a></li>
+                                    <li><a href='/houden-van/ziektes'>Ziektes</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li><a href='/news/'>Nieuws</a></li>
+                        <li><a href='/wordlid'>Word lid!</a></li>
+                        <li class='dropdown'>
+                            <a class='dropdown-toggle'>Albums</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/album/'>Albums</a></li>
+                                    <li><a href='/album/upload'>Upload</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li class='dropdown'>
+                            <a class='dropdown-toggle'>Aquaria</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/aquarium/'>Aquaria</a></li>
+                                    <li><a href='/aquarium/upload'>Upload</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li class='dropdown'>
+                            <a class='dropdown-toggle'>Forum</a>
+                            <ul class='dropdown-menu'>
+                                <li><a href='/forum/'>Forum</a></li>
+                            </ul>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/forum/'>Forum</a></li>
+                                    <li><a href='/forum/active-topics'>Actieve topics</a></li>
+                                    <li><a href='/forum/new-topics'>Nieuw topics</a></li>
+                                    <li><a href='/forum/fav-topics'>Favoriete topics</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li class='dropdown'>
+                            <a class='dropdown-toggle'>Sponsoren</a>
+                            <ul class='dropdown-menu'>
+                                <li><a href='/sponsor/become'>Sponsoren</a></li>
+                                <li><a href='/sponsor/become'>Ook sponsor worden?</a></li>
+                                <li><a href='/sponsor'>Onze sponsoren</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='/contact'>Contact</a></li>
+                        <?php if ($logged_in && in_array($current_level, $admin_levels)) {
+                            $sth = $dbc->prepare("SELECT count(*) as amount FROM sponsor WHERE approved = 0");
+                            $sth->execute([":id" => $_SESSION["user"]->id]);
+                            $sth1 = $dbc->prepare("SELECT count(*) as amount FROM approval_signup JOIN user on user.id = approval_signup.user_id");
+                            $sth1->execute([":id" => $_SESSION["user"]->id]);
+                            ?>
+                            <li class='dropdown'>
+                                <a class='dropdown-toggle'>Admin</a>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/admin/'>Admin</a></li>
+                                    <li><a href='/admin/contest'>Contest</a></li>
+                                    <li><a href='/admin/ip-list'>IP Lijst</a></li>
+                                    <li><a href='/admin/user-list'>Ledenlijst</a></li>
+                                    <li><a href='/admin/approval-signup'>Inschrijvingen(<?php echo $sth1->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
+                                    <li><a href='/admin/approval-sponsor'>Sponsoren(<?php echo $sth->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
+                                    <li><a href="/phpmyadmin">phpmyadmin</a></li>
+                                </ul>
+                            </li>
 
+                        <?php } ?>
 
-
-            <a href='/houden-van' class='dropdown-toggle'>Houden van</a>
-            <a href='/houden-van/kweken'>Kweken</a>
-            <a href='/houden-van/ziektes'>Ziektes</a>
-            <a href='/news/'>Nieuws</a>
-            <a href='/wordlid'>Word lid!</a>
-            <a href='/album/' class='dropdown-toggle'>Albums</a>
-            <a href='/album/upload'>Upload</a>
-            <a href='/aquarium/' class='dropdown-toggle'>Aquaria</a>
-            <a href='/aquarium/upload'>Upload</a>
-            <a href='/forum/' class='dropdown-toggle'>Forum</a>
-            <a href='/forum/active-topics'>Actieve topics</a>
-            <a href='/forum/new-topics'>Nieuwe topics</a>
-            <a href='/forum/fav-topics'>Favoriete topics</a>
-            <a href='/sponsor/become' class='dropdown-toggle'>Sponsoren</a>
-            <a href='/sponsor/become'>Ook sponsor worden?</a>
-            <a href='/sponsor'>Onze sponsoren</a>
-            <a href='/contact'>Contact</a>
-            <a href='/admin/' class='dropdown-toggle'>Admin</a>
-            <a href='/admin/ip-list'>IP Lijst</a>
-            <a href='/admin/contest'>Contest</a>
-            <a href='/admin/user-list'>Ledenlijst</a>
-            <a href='/admin/approval-signup'>Inschrijvingen</a>
-            <a href='/admin/approval-sponsor'>Sponsoren</a>
-            <a href="/phpmyadmin">phpmyadmin</a>
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
-        </div>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
     </div>
-</div>
+    <div class="nav-wrapper-pc">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div id='navbar' class='navbar-collapse collapse'>
+                    <ul class='nav navbar-nav'>
+                        <li><a href='/'>Home</a></li>
+                        <li class='dropdown'>
+                            <a href='/about/' class='dropdown-toggle'>Over ons</a>
+                            <ul class='dropdown-menu'>
+                                <li><a href='/about/origin'>Ontstaan Discus Club Holland</a></li>
+                            </ul>
+                        </li>
+                        <li class='dropdown'>
+                            <a href='/houden-van' class='dropdown-toggle'>Houden van</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/houden-van/kweken'>Kweken</a></li>
+                                    <li><a href='/houden-van/ziektes'>Ziektes</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li><a href='/news/'>Nieuws</a></li>
+                        <li><a href='/wordlid'>Word lid!</a></li>
+                        <li class='dropdown'>
+                            <a href='/album/' class='dropdown-toggle'>Albums</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/album/upload'>Upload</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li class='dropdown'>
+                            <a href='/aquarium/' class='dropdown-toggle'>Aquaria</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/aquarium/upload'>Upload</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
+                        <li class='dropdown'>
+                            <a href='/forum/' class='dropdown-toggle'>Forum</a>
+                            <?php if ($logged_in) { ?>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/forum/active-topics'>Actieve topics</a></li>
+                                    <li><a href='/forum/new-topics'>Nieuwe topics</a></li>
+                                    <li><a href='/forum/fav-topics'>Favoriete topics</a></li>
+                                </ul>
+                            <?php } ?>
+                        </li>
 
+                        <li class='dropdown'>
+                            <a  href='/sponsor/become' class='dropdown-toggle'>Sponsoren</a>
+                            <ul class='dropdown-menu'>
+                                <li><a href='/sponsor/become'>Ook sponsor worden?</a></li>
+                                <li><a href='/sponsor'>Onze sponsoren</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='/contact'>Contact</a></li>
+                        <?php if ($logged_in && in_array($current_level, $admin_levels)) {
+                            $sth = $dbc->prepare("SELECT count(*) as amount FROM sponsor WHERE approved = 0");
+                            $sth->execute([":id" => $_SESSION["user"]->id]);
+                            $sth1 = $dbc->prepare("SELECT count(*) as amount FROM approval_signup JOIN user on user.id = approval_signup.user_id");
+                            $sth1->execute([":id" => $_SESSION["user"]->id]);
+                            ?>
+                            <li class='dropdown'>
+                                <a href='/admin/' class='dropdown-toggle'>Admin</a>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='/admin/ip-list'>IP Lijst</a></li>
+                                    <li><a href='/admin/contest'>Contest</a></li>
+                                    <li><a href='/admin/user-list'>Ledenlijst</a></li>
+                                    <li><a href='/admin/approval-signup'>Inschrijvingen(<?php echo $sth1->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
+                                    <li><a href='/admin/approval-sponsor'>Sponsoren(<?php echo $sth->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
+                                    <li><a href="/phpmyadmin">phpmyadmin</a></li>
+                                </ul>
+                            </li>
 
+                        <?php } ?>
 
-
-
-
-
-
-
-
-<script>
-function myFunction() {
-    var x = document.getElementById('myTopnav')
-    if (x.className === 'topnav') {
-        x.className += ' responsive'
-    } else {
-        x.className = 'topnav'
-    }
-}
-</script>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+    </div>
