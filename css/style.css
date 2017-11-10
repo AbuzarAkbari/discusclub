@@ -659,7 +659,6 @@ li.dropdown:hover > .dropdown-menu {
     }
 }
 .dropbtn {
-    background-color: #4caf50;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -694,8 +693,4 @@ li.dropdown:hover > .dropdown-menu {
 
 .drop:hover .drop-content {
     display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
 }
