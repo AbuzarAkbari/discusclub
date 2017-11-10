@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/tools/contest/del.php" afterPath="$PROJECT_DIR$/includes/tools/contest/del.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/aquarium/index.php" afterPath="$PROJECT_DIR$/pages/aquarium/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,15 +43,15 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/aquarium/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="91" column="43" lean-forward="true" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
+            <state relative-caret-position="306">
+              <caret line="129" column="50" lean-forward="false" selection-start-line="129" selection-start-column="50" selection-end-line="129" selection-end-column="50" />
               <folding>
-                <marker date="1510315892636" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
-                <marker date="1510315892636" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
-                <marker date="1510315892636" expanded="true" signature="3654:3698" ph="SELECT * FRO... contest" />
-                <marker date="1510315892636" expanded="true" signature="3654:3732" ph="SELECT count... contest" />
-                <marker date="1510315892636" expanded="true" signature="3654:3734" ph="SELECT count... contest" />
-                <marker date="1510315892636" expanded="true" signature="5864:5923" ph="SELECT COUNT... aquarium" />
+                <marker date="1510316488375" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
+                <marker date="1510316488375" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
+                <marker date="1510316488375" expanded="true" signature="3654:3698" ph="SELECT * FRO... contest" />
+                <marker date="1510316488375" expanded="true" signature="3654:3732" ph="SELECT count... contest" />
+                <marker date="1510316488375" expanded="true" signature="3654:3734" ph="SELECT count... contest" />
+                <marker date="1510316488375" expanded="true" signature="5864:5923" ph="SELECT COUNT... aquarium" />
               </folding>
             </state>
           </provider>
@@ -341,12 +340,12 @@
       <workItem from="1510135688271" duration="2512000" />
       <workItem from="1510138578569" duration="14135000" />
       <workItem from="1510221350696" duration="19380000" />
-      <workItem from="1510304073382" duration="10148000" />
+      <workItem from="1510304073382" duration="10743000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275303000" />
+    <option name="totallyTimeSpent" value="275898000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -990,15 +989,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/aquarium/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="91" column="43" lean-forward="true" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
+        <state relative-caret-position="306">
+          <caret line="129" column="50" lean-forward="false" selection-start-line="129" selection-start-column="50" selection-end-line="129" selection-end-column="50" />
           <folding>
-            <marker date="1510315892636" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
-            <marker date="1510315892636" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
-            <marker date="1510315892636" expanded="true" signature="3654:3698" ph="SELECT * FRO... contest" />
-            <marker date="1510315892636" expanded="true" signature="3654:3732" ph="SELECT count... contest" />
-            <marker date="1510315892636" expanded="true" signature="3654:3734" ph="SELECT count... contest" />
-            <marker date="1510315892636" expanded="true" signature="5864:5923" ph="SELECT COUNT... aquarium" />
+            <marker date="1510316488375" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
+            <marker date="1510316488375" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
+            <marker date="1510316488375" expanded="true" signature="3654:3698" ph="SELECT * FRO... contest" />
+            <marker date="1510316488375" expanded="true" signature="3654:3732" ph="SELECT count... contest" />
+            <marker date="1510316488375" expanded="true" signature="3654:3734" ph="SELECT count... contest" />
+            <marker date="1510316488375" expanded="true" signature="5864:5923" ph="SELECT COUNT... aquarium" />
           </folding>
         </state>
       </provider>
