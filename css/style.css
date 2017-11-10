@@ -810,3 +810,7 @@ li.dropdown:hover > .dropdown-menu {
     border: 6px solid #F4F4F4;
     font-size: 1.3em;
 }
+
+#primary_nav_wrap ul li.jan {
+    display: block;
+}
