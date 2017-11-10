@@ -51,7 +51,10 @@ include_once("../../includes/tools/security.php"); ?>
             <div class="panel panel-primary">
                 <div class="panel-heading border-color-blue">
                     <h3 class="panel-title">Album uploaden</h3>
-                </div>
+                </div><br>
+                 <?php if(isset($_GET['error'])): ?>
+                    <div class="alert alert-danger" role="alert"><?php echo $_GET['error']; ?></div>
+                <?php endif; ?>
                 <div class="panel-body ">
                     <form method="post" action="/includes/tools/album-upload" enctype="multipart/form-data">
                         <input type="text" class="form-control" name="album_name" placeholder='Titel' maxlength="40" required ><br>

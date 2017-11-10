@@ -190,7 +190,7 @@ require_once("../../includes/components/nav.php");
                         <div class="wrapper-box col-md-12">
                             <div class="col-md-3">
                             <div class="col-md-12">
-                                <img class="img" src="/images<?php echo $reply['path']; ?>">
+                                <img alt="Profielfoto" class="img" src="/images<?php echo $reply['path']; ?>">
                             </div>
                             <div class="col-md-12">
                                 <br><b>Rol: </b><?php echo $reply['name']; ?>

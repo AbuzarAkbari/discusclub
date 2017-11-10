@@ -64,6 +64,10 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                 <div class="panel-heading border-color-blue">
                   <h3 class="panel-title">Profiel aanpassen</h3>
                 </div>
+                <br>
+                <?php if(isset($_GET['error'])): ?>
+                    <div class="alert alert-danger" role="alert"><?php echo $_GET['error']; ?></div>
+                <?php endif; ?>
                 <div class="panel-body">
                     <form enctype="multipart/form-data" action="/includes/tools/profielParse" method="post">
 

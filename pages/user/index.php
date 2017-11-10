@@ -306,7 +306,7 @@ if($user_data == false){
                     $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                             <?php foreach($albums as $album): ?>
-                                <a href="/album/post/<?php echo $album['album_id']; ?>"><img src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
+                                <a href="/album/post/<?php echo $album['album_id']; ?>"><img alt="Album-img" src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -322,7 +322,7 @@ if($user_data == false){
                     $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                             <?php foreach($aquariums as $aquarium): ?>
-                                <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>"><img src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
+                                <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>"><img alt="Aquarium-img" src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
