@@ -257,8 +257,22 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
 
     <!-- summernote js -->
     <script type="text/javascript" src="/js/summernote.min.js"></script>
+    <script src="/js/summernote-ext-emoji-min.js"></script>
+    <script>document.emojiSource = '/images/'; //relative path to emojis</script>
     <script>
         $('.editor').summernote({
+        	toolbar: [
+			    // [groupName, [list of button]]
+			    ['style', ['bold', 'italic', 'underline', 'clear']],
+			    ['font', ['strikethrough', 'superscript', 'subscript']],
+			    ['fontsize', ['fontsize']],
+			    ['color', ['color']],
+			    ['para', ['ul', 'ol', 'paragraph']],
+			    ['height', ['height']],
+			    ['misc', ['emoji']],
+				['code', ['codeview']]
+			  ],
+      
             disableResizeEditor: true,
             codemirror: {
                 theme: 'yeti'
