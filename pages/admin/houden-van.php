@@ -58,7 +58,7 @@ $perPage = 20;
             </div>
         </div>
         <div class="col-md-6">
-            <form class="" action="index.html" method="post">
+            <form class="" action="houden-van" method="post">
                 <div class="col-md-12">
                     <label for="titel"><h3>Titel</h3></label>
                     <input id="titel" type="text" class="form-control" name="title" value="" placeholder="<?php ?>">
