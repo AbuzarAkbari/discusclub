@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/tools/aquarium-upload.php" afterPath="$PROJECT_DIR$/includes/tools/aquarium-upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/aquarium/index.php" afterPath="$PROJECT_DIR$/pages/aquarium/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/aquarium/upload.php" afterPath="$PROJECT_DIR$/pages/aquarium/upload.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,7 +34,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/aquarium/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="293">
@@ -46,6 +43,19 @@
                 <marker date="1510307777647" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
                 <marker date="1510307777647" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
                 <marker date="1510307777647" expanded="true" signature="5355:5414" ph="SELECT COUNT... aquarium" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aquarium-upload.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/tools/aquarium-upload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="772">
+              <caret line="68" column="60" lean-forward="false" selection-start-line="68" selection-start-column="60" selection-end-line="68" selection-end-column="60" />
+              <folding>
+                <marker date="1510308445119" expanded="true" signature="2434:2516" ph="INSERT INTO aquarium... " />
+                <marker date="1510308445119" expanded="true" signature="2789:2855" ph="INSERT INTO image... " />
               </folding>
             </state>
           </provider>
@@ -149,8 +159,8 @@
         <option value="$PROJECT_DIR$/includes/tools/aquarium/add-like.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/pages/aquarium/upload.php" />
-        <option value="$PROJECT_DIR$/includes/tools/aquarium-upload.php" />
         <option value="$PROJECT_DIR$/pages/aquarium/index.php" />
+        <option value="$PROJECT_DIR$/includes/tools/aquarium-upload.php" />
       </list>
     </option>
   </component>
@@ -287,12 +297,12 @@
       <workItem from="1510135688271" duration="2512000" />
       <workItem from="1510138578569" duration="14135000" />
       <workItem from="1510221350696" duration="19380000" />
-      <workItem from="1510304073382" duration="3815000" />
+      <workItem from="1510304073382" duration="4346000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268970000" />
+    <option name="totallyTimeSpent" value="269501000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -866,17 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/tools/aquarium-upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="80" column="9" lean-forward="false" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
-          <folding>
-            <marker date="1510307628710" expanded="true" signature="314:396" ph="INSERT INTO aquarium... " />
-            <marker date="1510307628710" expanded="true" signature="2808:2874" ph="INSERT INTO image... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/aquarium/upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
@@ -926,6 +925,17 @@
             <marker date="1510307777647" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
             <marker date="1510307777647" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
             <marker date="1510307777647" expanded="true" signature="5355:5414" ph="SELECT COUNT... aquarium" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/tools/aquarium-upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="68" column="60" lean-forward="false" selection-start-line="68" selection-start-column="60" selection-end-line="68" selection-end-column="60" />
+          <folding>
+            <marker date="1510308445119" expanded="true" signature="2434:2516" ph="INSERT INTO aquarium... " />
+            <marker date="1510308445119" expanded="true" signature="2789:2855" ph="INSERT INTO image... " />
           </folding>
         </state>
       </provider>
