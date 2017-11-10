@@ -120,11 +120,13 @@ $perPage = 20;
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
-                                    <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
+                                    <?php
+                                    $current_page = (isset($_GET["pagina"]) ? intval($_GET["pagina"]) : 1);
+                                    for ($x = $current_page; $x < ($current_page < $count-5) ? $current_page + 5 : $current_page-5; $x++) : ?>
                                         <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
                                             <a href="/admin/user-list/<?php echo $x; ?>"><?php echo $x; ?></a>
                                         </li>
-                                    <?php endfor; ?>
+                                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         endfor; ?>
                                     <li>
                                         <a href="#" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
