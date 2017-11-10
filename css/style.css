@@ -155,63 +155,6 @@ hr {
     }
 }
 
-.navbar-default {
-    background-color: black !important;
-    color: #0ba8ec !important;
-}
-
-.navbar-default a {
-    color: #0ba8ec !important;
-}
-
-.dropdown-menu > ul {
-    background-color: black;
-}
-
-.dropdown-menu > li > a:hover {
-    background-color: #0ba8ec !important;
-}
-
-ul .dropdown-menu {
-    background-color: #0ba8ec !important;
-}
-
-.navbar-nav > li > .dropdown-menu {
-    border-color: #0ba8ec !important;
-    color: white !important;
-}
-
-.navbar-default .navbar-collapse {
-    border-color: #000 !important;
-}
-
-.navbar-default .navbar-toggle {
-    border-color: black !important;
-    font-size: 1.5em !important;
-}
-
-.dropdown-menu > li > a {
-    color: white !important;
-}
-
-.navbar-default .navbar-toggle:focus,
-.navbar-default .navbar-toggle:hover {
-    background-color: black !important;
-    border-color: black !important;
-}
-
-.navbar {
-    margin-bottom: 0px !important;
-    border: 0px solid black !important;
-    font-weight: bold;
-}
-
-.dropdown-menu > li > a:hover {
-    background: #0ba8ec !important;
-    color: #fff !important;
-    text-decoration: underline !important;
-}
-
 .row {
     margin-right: 0px !important;
     margin-left: 0px !important;
@@ -741,13 +684,13 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 #primary_nav_wrap ul ul {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background: #0ba8ec;
     padding: 0;
     color: white;
+    display: none;
 }
 
 #primary_nav_wrap ul ul li {
@@ -771,22 +714,61 @@ li.dropdown:hover > .dropdown-menu {
     color: white;
 }
 
-#primary_nav_wrap ul li:hover > ul {
+#primary_nav_wrap ul li:hover > ul, #primary_nav_wrap ul li:focus > ul {
     display: block;
     z-index: 1;
     color: white;
 }
+
+.desktop {
+    display: inherit !important;
+}
+.mobile {
+    display: none !important;
+}
+
 @media screen and (max-width: 1200px) {
     #primary_nav_wrap ul li {
-        display: block;
+        display: none;
         float: none;
-        margin-top: 10px;
     }
-    #primary_nav_wrap ul {
-        margin-top: 50px;
-    }
+
     #primary_nav_wrap li.icon {
         display: block;
         float: right;
     }
+
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: inherit !important;
+    }
+
 }
+
+#img-change {
+    display: none;
+}
+
+.img-change {
+    height: 300px;
+    width: 100%;
+    background: #efefef;
+    display: block;
+    line-height: 300px;
+    font-size: 1.2em;
+    border: 4px;
+    cursor: pointer;
+    transition: all 400ms;
+}
+
+.img-change:hover {
+    border: 6px solid #f4f4f4;
+    font-size: 1.3em;
+}
+
+#primary_nav_wrap ul li.jan {
+    display: block;
+}
+

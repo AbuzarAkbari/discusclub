@@ -306,8 +306,7 @@ require_once("../../includes/components/nav.php");
                     <form class="form-horizontal" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
-                                          style="resize: none;" maxlength="50" placeholder="Uw bericht.."></textarea>
+                                <textarea required class="form-control editor" col="8" rows="8" name="reply_content" style="resize: none;" maxlength="50" placeholder="Uw bericht.."></textarea>
                             </div>
                         </div>
                         <div class="form-group">

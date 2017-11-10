@@ -112,22 +112,39 @@ $perPage = 20;
                             $query->execute();
                             $results = $query->fetch();
                             $count = ceil($results['x'] / $perPage);
+                            if(($results['x'] % $perPage) > 0) {
+                                $count++;
+                            }
                         ?>
                         <?php if ($results['x'] > $perPage) : ?>
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
                                     <li>
-                                        <a href="#" aria-label="Previous">
+                                        <a href="/admin/user-list/1" aria-label="Previous">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
-                                    <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
+                                    <li>
+                                        <a href="/admin/user-list/<?php echo $page-1 <= 0 ? $page : $page-1; ?>" aria-label="Next">
+                                            <span aria-hidden="true"><</span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $diff = $count - $page;
+                                    $x = $diff < 5 ? ($page - (4-$diff)) : $page;
+                                    $y = (($page < $count-5) ? ($page + 5) : ($count+1));
+                                    for ($x = $x; $x < $y; $x++) : ?>
                                         <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
                                             <a href="/admin/user-list/<?php echo $x; ?>"><?php echo $x; ?></a>
                                         </li>
-                                    <?php endfor; ?>
+                                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         endfor; ?>
                                     <li>
-                                        <a href="#" aria-label="Next">
+                                        <a href="/admin/user-list/<?php echo $page+1 > $count ? $page : $page+1; ?>" aria-label="Next">
+                                            <span aria-hidden="true">></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/admin/user-list/<?php echo $count ?>" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
                                     </li>

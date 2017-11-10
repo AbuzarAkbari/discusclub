@@ -52,6 +52,7 @@ require_once("../../includes/tools/security.php"); ?>
                         <li class="overonsHover"><a href="/admin/user-list">Ledenlijst</a></li>
                         <li class="overonsHover"><a href="/admin/approval-signup">Inschrijvingen</a></li>
                         <li class="overonsHover"><a href="/admin/approval-sponsor">Sponsoren</a></li>
+                        <li class="overonsHover"><a href="/admin/houden-van">Houden van</a></li>
                     </div>
                 </div>
             </div>
