@@ -98,6 +98,8 @@
             </ul>
           </li>
             <?php } ?>
+            <li><i class="glyphicon glyphicon-menu-hamburger hamburger"></i></li>
+
         </ul>
         </nav>
     </div>

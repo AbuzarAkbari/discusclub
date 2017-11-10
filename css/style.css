@@ -704,6 +704,7 @@ li.dropdown:hover > .dropdown-menu {
     float: left;
     margin: 0;
     padding: 0;
+    display: block;
 }
 
 #primary_nav_wrap ul a {
@@ -770,7 +771,7 @@ li.dropdown:hover > .dropdown-menu {
     color: white;
 }
 @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {
+    #primary_nav_wrap ul a {
         display: none;
     }
     .topnav a.icon {
