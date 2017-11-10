@@ -791,7 +791,7 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 #img-change {
-    display: none
+    display: none;
 }
 
 .img-change {
@@ -807,7 +807,7 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 .img-change:hover {
-    border: 6px solid #F4F4F4;
+    border: 6px solid #f4f4f4;
     font-size: 1.3em;
 }
 
