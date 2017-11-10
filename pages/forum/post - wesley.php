@@ -97,7 +97,7 @@ require_once("../../includes/components/nav.php");
                     <div class="col-md-12 ">
                         <div class="col-md-3">
                             <div class="col-md-12">
-                                <img class="img" src="/images<?php echo $row['path']; ?>">
+                                <img alt="" class="img" src="/images<?php echo $row['path']; ?>">
                             </div>
                             <?php
                             $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ? AND deleted_at IS NULL";

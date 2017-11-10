@@ -46,15 +46,15 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="/images/vissen1.jpg" alt="fishing">
+                        <img alt='vissen' src="/images/vissen1.jpg" alt="fishing">
                     </div>
 
                     <div class="item">
-                        <img src="/images/vissen2.jpg" alt="fishing">
+                        <img alt='vissen' src="/images/vissen2.jpg" alt="fishing">
                     </div>
 
                     <div class="item">
-                        <img src="/images/vissen3.jpg" alt="vissen">
+                        <img alt='vissen' src="/images/vissen3.jpg" alt="vissen">
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                 <div class="panel-body">
                     <div class="wrapper-box col-md-12">
                         <div class="col-md-2">
-                            <img src='http://via.placeholder.com/130x130' alt="">
+                            <img alt='' src='http://via.placeholder.com/130x130' alt="">
                         </div>
                         <div class="col-md-10">
                             <p>

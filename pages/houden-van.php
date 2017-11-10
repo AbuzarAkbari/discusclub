@@ -51,7 +51,7 @@ require_once("../includes/components/nav.php");
             <?php echo $page['content']; ?>
         </div>
         <div class="col-md-6">
-            <img src="/images/<?php echo $page['path']; ?>" alt="">
+            <img src="/images/<?php echo $page['path']; ?>" alt="Afbeelding">
         </div>
     </div>
     <br>

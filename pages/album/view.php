@@ -122,13 +122,13 @@ require_once("../../includes/tools/security.php"); ?>
                  <div class="col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading border-color-blue">
-<h3 class="panel-title text-left"><?php echo "Geplaatst door: <b><a style='color: white;' href='/user/".$row['user_id']."'>". $row['first_name'].' '.$row['last_name'].'</a></b>';?></h3>
+                        <h3 class="panel-title text-left"><?php echo "Geplaatst door: <b><a style='color: white;' href='/user/".$row['user_id']."'>". $row['first_name'].' '.$row['last_name'].'</a></b>';?></h3>
                     </div>
 
                     <div class="panel-body">
                         <div class="wrapper-box col-xs-12  ">
                             <div class="col-xs-2">
-                                <img class="img" src="/images<?php echo $row['path']; ?>">
+                                <img alt='Album-img' class="img" src="/images<?php echo $row['path']; ?>">
                             </div>
                             <div class="col-xs-10 ">
                                 <p><?php echo html_entity_decode($row['content']); ?></p>
@@ -136,11 +136,7 @@ require_once("../../includes/tools/security.php"); ?>
                         </div>
 
                     </div>
-
-
                     <div class="panel-footer">
-
-
                 <i>op
                     <?php echo $row['reply_created_at']; ?>
                 </i>
