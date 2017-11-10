@@ -18,6 +18,7 @@ if($user_data == false){
 
 //      die($user_data->id);
 
+
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -277,18 +278,24 @@ if($user_data == false){
                                     <th class="col-md-4 col-xs-4">Forum</th>
                                     <th class="col-md-4 col-xs-4">Datum</th>
                                     <?php
-                                        $sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, reply.created_at AS reply_created_at, topic.created_at as topic_created_at FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON topic.id = reply.topic_id WHERE reply.user_id = :id OR topic.user_id = :id ORDER BY reply_created_at DESC, topic_created_at DESC LIMIT 10";
+                                        $sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = :id OR reply.user_id IS NULL AND topic.user_id = :id GROUP BY topic.id";
                                         $result = $dbc->prepare($sql);
                                         $result->bindParam(":id", $user_data->id);
                                         $result->execute();
                                         $topics = $result->fetchAll(PDO::FETCH_OBJ);
+
+                                    usort($topics, function ($a, $b) {
+                                        $t1 = strtotime($a->reply_created_at ?: $a->topic_created_at);
+                                        $t2 = strtotime($b->reply_created_at ?: $b->topic_created_at);
+                                        return $t1 - $t2;
+                                    });
                                     ?>
                                     <?php foreach($topics as $info) : ?>
                                         <tr>
                                             <td class="col-md-4 col-xs-4"><a href="/forum/post/<?php echo $info->topic_id; ?>"><?php echo $info->title; ?></a></td>
                                             <td class="col-md-4 col-xs-4"><a href="/forum/topic/<?php echo $info->sub_category_id; ?>"><?php echo $info->name; ?></a></td>
                                             <td class="col-md-4 col-xs-4">
-                                                <?php echo isset($info->reply_created_at) ? $info->reply_created_at : $info->topic_created_at; ?>
+                                                <?php echo $info->topic_created_at; ?>
                                             </td>
                                         </tr>
                                 <?php endforeach; ?>
