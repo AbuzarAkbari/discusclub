@@ -794,3 +794,24 @@ li.dropdown:hover > .dropdown-menu {
         text-align: left;
     }
 }
+
+#img-change {
+    display: none
+}
+
+.img-change {
+    height: 300px;
+    width: 100%;
+    background: #efefef;
+    display: block;
+    line-height: 300px;
+    font-size: 1.2em;
+    border: 4px;
+    cursor: pointer;
+    transition: all 400ms;
+}
+
+.img-change:hover {
+    border: 6px solid #F4F4F4;
+    font-size: 1.3em;
+}
