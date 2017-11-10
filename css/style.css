@@ -691,6 +691,7 @@ li.dropdown:hover > .dropdown-menu {
     padding: 0;
     color: white;
     display: none;
+    border-radius: 0px 5px 5px 5px;
 }
 
 #primary_nav_wrap ul ul li {
