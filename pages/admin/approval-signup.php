@@ -69,7 +69,7 @@ $perPage = 20;
                             </tr>
                             <?php
                                 $a = $page * $perPage - $perPage;
-                                $sql = "SELECT * FROM approval_signup as app LEFT JOIN user as u JOIN ip ON u.id = ip.user_id ON u.id = app.user_id LIMIT {$perPage} OFFSET {$a}";
+                                $sql = "SELECT * FROM approval_signup as app LEFT JOIN user as u LEFT JOIN ip ON u.id = ip.user_id ON u.id = app.user_id LIMIT {$perPage} OFFSET {$a}";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -136,9 +136,6 @@ $perPage = 20;
                             $query->execute();
                             $results = $query->fetch();
                             $count = ceil($results['x'] / $perPage);
-                            if(($results['x'] % $perPage) > 0) {
-                                $count++;
-                            }
                         ?>
                         <?php if ($results['x'] > $perPage) : ?>
                             <nav aria-label="Page navigation">
@@ -157,7 +154,7 @@ $perPage = 20;
                                     $diff = $count - $page;
                                     $x = $diff < 5 ? ($page - (4-$diff)) : $page;
                                     $y = (($page < $count-5) ? ($page + 5) : ($count+1));
-                                    echo $diff;
+                                    $x = $x < 1 ? 1 : $x;
                                     for ($x = $x; $x < $y; $x++) : ?>
                                         <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
                                             <a href="/admin/approval-signup/<?php echo $x; ?>"><?php echo $x; ?></a>

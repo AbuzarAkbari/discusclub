@@ -112,9 +112,6 @@ $perPage = 20;
                             $query->execute();
                             $results = $query->fetch();
                             $count = ceil($results['x'] / $perPage);
-                            if(($results['x'] % $perPage) > 0) {
-                                $count++;
-                            }
                         ?>
                         <?php if ($results['x'] > $perPage) : ?>
                             <nav aria-label="Page navigation">
@@ -133,6 +130,7 @@ $perPage = 20;
                                     $diff = $count - $page;
                                     $x = $diff < 5 ? ($page - (4-$diff)) : $page;
                                     $y = (($page < $count-5) ? ($page + 5) : ($count+1));
+                                    $x = $x < 1 ? 1 : $x;
                                     for ($x = $x; $x < $y; $x++) : ?>
                                         <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
                                             <a href="/admin/user-list/<?php echo $x; ?>"><?php echo $x; ?></a>
