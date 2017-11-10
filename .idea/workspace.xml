@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/tools/aquarium/add-like.php" afterPath="$PROJECT_DIR$/includes/tools/aquarium/add-like.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/tools/contest/del.php" afterPath="$PROJECT_DIR$/includes/tools/contest/del.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/aquarium/index.php" afterPath="$PROJECT_DIR$/pages/aquarium/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,37 +30,63 @@
         <item name="forum@localhost" type="e3449647:DbNodeDescriptor" />
         <item name="forum" type="e3449647:DbNodeDescriptor" />
       </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="forum@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="forum" type="e3449647:DbNodeDescriptor" />
+        <item name="contest" type="e3449647:DbNodeDescriptor" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/aquarium/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="67" column="71" lean-forward="true" selection-start-line="67" selection-start-column="71" selection-end-line="67" selection-end-column="71" />
+            <state relative-caret-position="374">
+              <caret line="91" column="43" lean-forward="true" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
               <folding>
-                <marker date="1510307777647" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
-                <marker date="1510307777647" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
-                <marker date="1510307777647" expanded="true" signature="5355:5414" ph="SELECT COUNT... aquarium" />
+                <marker date="1510315892636" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
+                <marker date="1510315892636" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
+                <marker date="1510315892636" expanded="true" signature="3654:3698" ph="SELECT * FRO... contest" />
+                <marker date="1510315892636" expanded="true" signature="3654:3732" ph="SELECT count... contest" />
+                <marker date="1510315892636" expanded="true" signature="3654:3734" ph="SELECT count... contest" />
+                <marker date="1510315892636" expanded="true" signature="5864:5923" ph="SELECT COUNT... aquarium" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add-like.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/includes/tools/aquarium/add-like.php">
+      <file leaf-file-name="contest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/admin/contest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+            <state relative-caret-position="791">
+              <caret line="111" column="53" lean-forward="true" selection-start-line="111" selection-start-column="53" selection-end-line="111" selection-end-column="53" />
               <folding>
-                <marker date="1510309881870" expanded="true" signature="101:177" ph="SELECT * FRO... like" />
-                <marker date="1510309881870" expanded="true" signature="352:417" ph="SELECT * FRO... contest" />
-                <marker date="1510309881870" expanded="true" signature="567:641" ph="INSERT INTO like... " />
-                <marker date="1510309881870" expanded="true" signature="567:665" ph="INSERT INTO like... " />
-                <marker date="1510309881870" expanded="true" signature="831:874" ph="DELETE FROM " />
-                <marker date="1510309881870" expanded="true" signature="831:905" ph="DELETE FROM " />
+                <marker date="1510238044523" expanded="true" signature="218:246" ph="SELECT * FRO... contest" />
+                <marker date="1510238044523" expanded="true" signature="218:283" ph="SELECT * FRO... contest" />
+                <marker date="1510238044523" expanded="true" signature="484:531" ph="INSERT INTO contest... " />
+                <marker date="1510238044523" expanded="true" signature="484:541" ph="INSERT INTO contest... " />
+                <marker date="1510238044523" expanded="true" signature="484:543" ph="INSERT INTO contest... " />
+                <marker date="1510238044523" expanded="true" signature="484:550" ph="INSERT INTO contest... " />
+                <marker date="1510238044523" expanded="true" signature="966:1038" ph="UPDATE conte... " />
+                <marker date="1510238044523" expanded="true" signature="1185:1206" ph="SELECT * FRO... contest" />
+                <marker date="1510238044523" expanded="true" signature="1185:1231" ph="SELECT * FRO... contest" />
+                <marker date="1510238044523" expanded="true" signature="4395:4494" ph="..." />
+                <marker date="1510238044523" expanded="true" signature="5095:5135" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="del.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/tools/contest/del.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+              <folding>
+                <marker date="1510315665352" expanded="true" signature="83:135" ph="UPDATE conte... " />
               </folding>
             </state>
           </provider>
@@ -70,7 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gepla</find>
       <find>star</find>
       <find>ge</find>
       <find>geplaa</find>
@@ -100,6 +125,7 @@
       <find>bekijken</find>
       <find>user</find>
       <find>img</find>
+      <find>contest</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -155,7 +181,6 @@
         <option value="$PROJECT_DIR$/pages/forum/new-topics.php" />
         <option value="$PROJECT_DIR$/pages/sponsor/become.php" />
         <option value="$PROJECT_DIR$/pages/.htaccess" />
-        <option value="$PROJECT_DIR$/includes/tools/contest/del.php" />
         <option value="$PROJECT_DIR$/includes/tools/profielParse.php" />
         <option value="$PROJECT_DIR$/pages/user/conf.php" />
         <option value="$PROJECT_DIR$/pages/admin/contest.php" />
@@ -164,8 +189,9 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/pages/aquarium/upload.php" />
         <option value="$PROJECT_DIR$/includes/tools/aquarium-upload.php" />
-        <option value="$PROJECT_DIR$/pages/aquarium/index.php" />
         <option value="$PROJECT_DIR$/includes/tools/aquarium/add-like.php" />
+        <option value="$PROJECT_DIR$/includes/tools/contest/del.php" />
+        <option value="$PROJECT_DIR$/pages/aquarium/index.php" />
       </list>
     </option>
   </component>
@@ -223,6 +249,30 @@
               <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="tools" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="aquarium" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tools" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="contest" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="aquarium" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -291,12 +341,12 @@
       <workItem from="1510135688271" duration="2512000" />
       <workItem from="1510138578569" duration="14135000" />
       <workItem from="1510221350696" duration="19380000" />
-      <workItem from="1510304073382" duration="5774000" />
+      <workItem from="1510304073382" duration="10148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270929000" />
+    <option name="totallyTimeSpent" value="275303000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -709,13 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/tools/contest/del.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="49" lean-forward="true" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/tools/profielParse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -751,13 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/admin/contest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/tools/security.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -778,6 +814,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="76" lean-forward="true" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -785,6 +822,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="70" column="63" lean-forward="true" selection-start-line="70" selection-start-column="63" selection-end-line="70" selection-end-column="63" />
+          <folding>
+            <marker date="1510059488477" expanded="true" signature="2648:2780" ph="SELECT * FRO... approval_signup" />
+            <marker date="1510059488477" expanded="true" signature="6434:6475" ph="SELECT COUNT... approval_signup" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -792,6 +833,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="73" column="18" lean-forward="true" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
+          <folding>
+            <marker date="1510059522235" expanded="true" signature="144:193" ph="UPDATE spons... " />
+            <marker date="1510059522235" expanded="true" signature="2686:2804" ph="SELECT *, sp... sponsor" />
+            <marker date="1510059522235" expanded="true" signature="5910:5943" ph="SELECT COUNT... sponsor" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -799,6 +845,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="98" column="42" lean-forward="false" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -806,6 +853,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="66" column="8" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
+          <folding>
+            <marker date="1510238610993" expanded="true" signature="2390:2548" ph="SELECT *, ip... ip" />
+            <marker date="1510238610993" expanded="true" signature="4490:4545" ph="SELECT COUNT... user" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -856,47 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/aquarium/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="88" column="32" lean-forward="false" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
-          <folding>
-            <marker date="1510305054889" expanded="true" signature="80:208" ph="SELECT * FRO... aquarium" />
-            <marker date="1510305054889" expanded="true" signature="80:254" ph="SELECT * FRO... aquarium" />
-            <marker date="1510305054889" expanded="true" signature="399:444" ph="SELECT * FRO... like" />
-            <marker date="1510305054889" expanded="true" signature="621:640" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="1985:2079" ph="SELECT * FRO... topic" />
-            <marker date="1510305054889" expanded="true" signature="3284:3341" ph="SELECT COUNT... like" />
-            <marker date="1510305054889" expanded="true" signature="3994:4730" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="4033:4730" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="4087:4730" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="4137:4730" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="4284:4730" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="4378:4396" ph="SELECT * FRO... news" />
-            <marker date="1510305054889" expanded="true" signature="4664:4730" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="5574:6408" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="5629:6408" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="5770:6408" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="5860:6025" ph="SELECT *, ne... news_reply" />
-            <marker date="1510305054889" expanded="true" signature="6269:6408" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="6329:6408" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="6606:7442" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="6682:6825" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="6877:7083" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="7086:7436" ph="..." />
-            <marker date="1510305054889" expanded="true" signature="7761:7784" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/tools/aquarium-upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1156">
@@ -904,18 +914,6 @@
           <folding>
             <marker date="1510308445119" expanded="true" signature="2434:2516" ph="INSERT INTO aquarium... " />
             <marker date="1510308445119" expanded="true" signature="2789:2855" ph="INSERT INTO image... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/aquarium/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="67" column="71" lean-forward="true" selection-start-line="67" selection-start-column="71" selection-end-line="67" selection-end-column="71" />
-          <folding>
-            <marker date="1510307777647" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
-            <marker date="1510307777647" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
-            <marker date="1510307777647" expanded="true" signature="5355:5414" ph="SELECT COUNT... aquarium" />
           </folding>
         </state>
       </provider>
@@ -931,6 +929,76 @@
             <marker date="1510309881870" expanded="true" signature="567:665" ph="INSERT INTO like... " />
             <marker date="1510309881870" expanded="true" signature="831:874" ph="DELETE FROM " />
             <marker date="1510309881870" expanded="true" signature="831:905" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/aquarium/upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="88" column="32" lean-forward="false" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+          <folding>
+            <marker date="1510305054889" expanded="true" signature="80:208" ph="SELECT * FRO... aquarium" />
+            <marker date="1510305054889" expanded="true" signature="80:254" ph="SELECT * FRO... aquarium" />
+            <marker date="1510305054889" expanded="true" signature="399:444" ph="SELECT * FRO... like" />
+            <marker date="1510305054889" expanded="true" signature="621:640" ph="..." />
+            <marker date="1510305054889" expanded="true" signature="1985:2079" ph="SELECT * FRO... topic" />
+            <marker date="1510305054889" expanded="true" signature="3284:3341" ph="SELECT COUNT... like" />
+            <marker date="1510305054889" expanded="true" signature="4378:4396" ph="SELECT * FRO... news" />
+            <marker date="1510305054889" expanded="true" signature="5860:6025" ph="SELECT *, ne... news_reply" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/tools/contest/del.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <marker date="1510315665352" expanded="true" signature="83:135" ph="UPDATE conte... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/admin/contest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="111" column="53" lean-forward="true" selection-start-line="111" selection-start-column="53" selection-end-line="111" selection-end-column="53" />
+          <folding>
+            <marker date="1510238044523" expanded="true" signature="218:246" ph="SELECT * FRO... contest" />
+            <marker date="1510238044523" expanded="true" signature="218:283" ph="SELECT * FRO... contest" />
+            <marker date="1510238044523" expanded="true" signature="484:531" ph="INSERT INTO contest... " />
+            <marker date="1510238044523" expanded="true" signature="484:541" ph="INSERT INTO contest... " />
+            <marker date="1510238044523" expanded="true" signature="484:543" ph="INSERT INTO contest... " />
+            <marker date="1510238044523" expanded="true" signature="484:550" ph="INSERT INTO contest... " />
+            <marker date="1510238044523" expanded="true" signature="966:1038" ph="UPDATE conte... " />
+            <marker date="1510238044523" expanded="true" signature="1185:1206" ph="SELECT * FRO... contest" />
+            <marker date="1510238044523" expanded="true" signature="1185:1231" ph="SELECT * FRO... contest" />
+            <marker date="1510238044523" expanded="true" signature="4395:4494" ph="..." />
+            <marker date="1510238044523" expanded="true" signature="5095:5135" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/aquarium/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="91" column="43" lean-forward="true" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
+          <folding>
+            <marker date="1510315892636" expanded="true" signature="2275:2606" ph="SELECT *, a.... image" />
+            <marker date="1510315892636" expanded="true" signature="3337:3394" ph="SELECT COUNT... like" />
+            <marker date="1510315892636" expanded="true" signature="3654:3698" ph="SELECT * FRO... contest" />
+            <marker date="1510315892636" expanded="true" signature="3654:3732" ph="SELECT count... contest" />
+            <marker date="1510315892636" expanded="true" signature="3654:3734" ph="SELECT count... contest" />
+            <marker date="1510315892636" expanded="true" signature="5864:5923" ph="SELECT COUNT... aquarium" />
           </folding>
         </state>
       </provider>

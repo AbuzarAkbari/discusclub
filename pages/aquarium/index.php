@@ -79,10 +79,17 @@ $perPage = 6;
                                 $result = $dbc->prepare($sql);
                                 $result->execute([":aid" => $aquarium['aquarium_id']]);
                                 $like = $result->fetch();
+
+                                $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca";
+                                $contestResult = $dbc->prepare($contestSql);
+                                $contestResult->execute([":aca" => $aquarium["aquarium_created_at"]]);
+                                $contest = $contestResult->fetch();
                             ?>
-                            <div class="col-md-5 col-sm-4 col-xs-4 text-right">
-                                <?php echo isset($like['x']) ? $like['x'] : '0'; ?> <a href="/includes/tools/aquarium/add-like?aid=<?php echo $aquarium['aquarium_id']; ?>"><img alt='like-btn' class="like-vis" src="/images/favicon-wit.png" alt=""></a>
-                            </div>
+                            <?php if(intval($contest["amount"]) > 0) : ?>
+                                <div class="col-md-5 col-sm-4 col-xs-4 text-right">
+                                    <?php echo isset($like['x']) ? $like['x'] : '0'; ?> <a href="/includes/tools/aquarium/add-like?aid=<?php echo $aquarium['aquarium_id']; ?>"><img alt="like-vis" class="like-vis" src="/images/favicon-wit.png" alt=""></a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                         <div class="panel-body">
                             <div class="media">
