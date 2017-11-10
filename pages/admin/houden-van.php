@@ -43,25 +43,27 @@ $perPage = 20;
     </script>
     <?php
         require_once("../../includes/components/nav.php");
+
+        $result = $dbc->prepare("SELECT * FROM `page` WHERE name = 'houden van' ");
+        $result->execute();
+        $text = $result->fetchAll(PDO::FETCH_ASSOC);
     ?>
     <br><br>
     <div class="container main">
         <div class="row columns">
             <div class="col-md-12">
-                <div class="">
-                    <ol class="breadcrumb">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/admin">Admin</a></li>
-                        <li class="active">Houdenvan</li>
-                    </ol>
-                </div>
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                    <li class="active">Houdenvan</li>
+                </ol>
             </div>
         </div>
         <div class="col-md-6">
             <form class="" action="houden-van" method="post">
                 <div class="col-md-12">
                     <label for="titel"><h3>Titel</h3></label>
-                    <input id="titel" type="text" class="form-control" name="title" value="" placeholder="<?php ?>">
+                    <input id="titel" type="text" class="form-control" name="title" value="" placeholder="<?php $text[''] ?>">
                     <br>
                     <textarea required class="form-control editor" col="8" rows="8" name="reply_content" maxlength="50" placeholder="Uw bericht.."></textarea>
                 </div>
