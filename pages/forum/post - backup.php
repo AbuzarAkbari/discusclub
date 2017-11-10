@@ -82,7 +82,7 @@
                         <div class="col-md-12 ">
                             <div class="col-md-3">
                                 <div class="col-md-12">
-                                    <img class="img" src="/images<?php echo $rows['path']; ?>">
+                                    <img alt="post" class="img" src="/images<?php echo $rows['path']; ?>">
                                 </div>
                                 <?php
                                     $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ? AND deleted_at IS NULL";
@@ -191,7 +191,7 @@
                 <div class="panel-body padding-padding ">
                     <div class="wrapper-box col-xs-12">
                         <div class="col-md-2">
-                            <img src='http://via.placeholder.com/130x130' alt="x">
+                            <img alt="post" src='http://via.placeholder.com/130x130' alt="x">
                         </div>
 
                         <div class="col-md-10">

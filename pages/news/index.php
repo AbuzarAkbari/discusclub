@@ -170,7 +170,7 @@ if (isset($_POST['post_add_topic'])) {
                             <?php } ?>
                         </tbody>
                     </table>
-                        
+
                 </div>
                 <!-- Pagination system -->
                         <div class="col-xs-12">
@@ -257,7 +257,7 @@ if (isset($_POST['post_add_topic'])) {
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Advertentie</div>
                 <div class="panel-body">
-                   <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img src="/images/ad/advertentie.jpg"></div></a>
+                   <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img alt="Advertentie" src="/images/ad/advertentie.jpg"></div></a>
                 </div>
             </div>
         </div>

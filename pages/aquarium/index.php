@@ -81,7 +81,7 @@ $perPage = 6;
                                 $like = $result->fetch();
                             ?>
                             <div class="col-md-5 col-sm-4 col-xs-4 text-right">
-                                <?php echo isset($like['x']) ? $like['x'] : '0'; ?> <a href="/includes/tools/aquarium/add-like?aid=<?php echo $aquarium['aquarium_id']; ?>"><img class="like-vis" src="/images/favicon-wit.png" alt=""></a>
+                                <?php echo isset($like['x']) ? $like['x'] : '0'; ?> <a href="/includes/tools/aquarium/add-like?aid=<?php echo $aquarium['aquarium_id']; ?>"><img alt='like-btn' class="like-vis" src="/images/favicon-wit.png" alt=""></a>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -92,7 +92,7 @@ $perPage = 6;
                                         Aantal foto's: <i><?php echo $aquarium['aantal_fotos']; ?></i><br>
                                         Datum: <i><?php echo $aquarium['created_at']; ?></i><br>
                                     </p>
-                                    <div class="text-center"><img class="text-center imgAlbum" src="/images<?php echo $aquarium['path'] ?>" alt=""></div><br><br>
+                                    <div class="text-center"><img alt='Album-img' class="text-center imgAlbum" src="/images<?php echo $aquarium['path'] ?>" alt=""></div><br><br>
                                     <a href="/aquarium/post/<?php echo $aquarium['aquarium_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
                                 </div>
                             </div>

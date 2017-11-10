@@ -76,7 +76,7 @@ require_once("../../includes/tools/security.php"); ?>
                                     <div class="carousel-inner">
                                         <?php foreach ($aquarium as $key => $image) : ?>
                                             <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <img class="sliderImg" src="/images<?php echo $image['path'] ?>"  alt="fishing">
+                                                <img alt='Album-img' class="sliderImg" src="/images<?php echo $image['path'] ?>"  alt="fishing">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -128,7 +128,7 @@ require_once("../../includes/tools/security.php"); ?>
                     <div class="panel-body">
                         <div class="wrapper-box col-xs-12  ">
                             <div class="col-xs-2">
-                               <img class="img" src="/images<?php echo $row['path']; ?>">
+                               <img alt='Album-img' class="img" src="/images<?php echo $row['path']; ?>">
                             </div>
                             <div class="col-xs-10 ">
                                 <p><?php echo html_entity_decode($row['content']); ?></p>

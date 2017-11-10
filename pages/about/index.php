@@ -61,7 +61,7 @@
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                       foreach($res as $key => $value) : ?>
-                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img alt='Vissen' class="imgThumbnail" src="/images<?php echo $value['path']; ?> ></a><br><?php echo $value['created_at']?></div>
+                      <div class="col-md-4 col-sm-4 ruimte"><a href="/album/<?php echo $value["album_id"]; ?>"><img alt='Vissen' class="imgThumbnail" src="/images<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
                       <?php endforeach; ?>
               </div>
       </div>
@@ -83,7 +83,7 @@
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Advertentie</div>
               <div class="panel-body">
-                  <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img src="/images/ad/advertentie.jpg"></div></a>
+                  <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img alt='Advertentie' src="/images/ad/advertentie.jpg"></div></a>
               </div>
           </div>
       </div>
