@@ -98,9 +98,8 @@
             </ul>
           </li>
             <?php } ?>
-            <li><i class="glyphicon glyphicon-menu-hamburger hamburger"></i></li>
-
         </ul>
+        <li class="icon"><a href="/phpmyadmin"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
         </nav>
     </div>
 </div>

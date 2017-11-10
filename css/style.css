@@ -753,6 +753,9 @@ li.dropdown:hover > .dropdown-menu {
     float: none;
     width: 200px;
 }
+#primary_nav_wrap li.icon {
+    display: none;
+}
 
 #primary_nav_wrap ul ul a {
     line-height: 120%;
@@ -774,9 +777,9 @@ li.dropdown:hover > .dropdown-menu {
     #primary_nav_wrap ul a {
         display: none;
     }
-    .topnav a.icon {
-        float: right;
+    .#primary_nav_wrap li.icon {
         display: block;
+        float: right;
     }
 }
 
