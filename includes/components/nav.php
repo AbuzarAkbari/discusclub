@@ -54,7 +54,7 @@
             </ul>
             <?php } ?>
           </li>
-          <li><a href="/news">Nieuws</a></li>
+          <li><a href="/news/">Nieuws</a></li>
           <li><a href="/wordlid">Word lid!</a></li>
           <li><a class="desktop" href="/album">Albums</a>
               <span class="mobile navItem">Albums</span>
