@@ -85,8 +85,8 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
             $result->execute([":id" => $id]);
             $text = $result->fetch(PDO::FETCH_ASSOC);
         ?>
-        <div class="col-md-7">
-            <form class="" action="houden-van" method="post">
+        <form class="" action="/includes/tools/houden-van.php" method="post" enctype="multipart/form-data">
+            <div class="col-md-7">
                 <div class="col-md-12">
                     <label for="titel"><h3>Titel</h3></label>
                     <input id="titel" type="text" class="form-control" name="title"  value="<?php echo $text['name']; ?>">
@@ -98,13 +98,14 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
                 <div class="col-md-12">
                     <input class="btn btn-primary" type="submit" name="send" value="Wijzig"><br><br><br>
                 </div>
-            </form>
-        </div>
-        <div class="col-md-5">
-            <label for="img-change text-center"><h3>Wijzig de afbeelding</h3></label>
-            <label for="img-change" class="img-change text-center">Klik hier om een afbeelding te kiezen</label>
-            <input id='img-change' accept="image/*" class="form-control" type="file" name="image" value="">
-        </div>
+            </div>
+            <div class="col-md-5">
+                <label for="img-change text-center"><h3>Wijzig de afbeelding</h3></label>
+                <label for="img-change" class="img-change text-center">Klik hier om een afbeelding te kiezen</label>
+                <input id='img-change' accept="image/*" class="form-control" type="file" name="image" value="">
+                <br>
+            </div>
+        </form>
     </div>
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>
