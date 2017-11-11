@@ -79,12 +79,7 @@
               <span class="mobile navItem">Forum</span>
               <li class="mobile"><a href="/forum/">Forum</a></li>
               <?php if ($logged_in) { ?>
-<<<<<<< HEAD
             <ul>
-=======
-                <ul>
-                  <li class="mobile"><a href="/forum/">Forum</a></li>
->>>>>>> 1db510877ba7c2a4360c7203d7d413e6df2c4887
               <li><a href="/forum/active-topics">Actieve topics</a></li>
               <li><a href="/forum/new-topics">Nieuwe topics</a></li>
               <li><a href="/forum/fav-topics">Favoriete topics</a></li>
@@ -120,7 +115,7 @@
                 <li><a href="/admin/page">Houden van bewerken</a></li>
                 <li><a href="/phpmyadmin">phpmyadmin</a></li>
             </ul>
-          </li>
+        </li>
             <?php } ?>
         </ul>
         <li class="icon" id="icon"><a><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
