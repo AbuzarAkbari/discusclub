@@ -99,37 +99,11 @@ $perPage = 6;
                 </div>
             <?php endforeach; ?>
         </div>
-        <!-- Pagination system -->
-        <div class="col-xs-12">
-
-            <?php
-                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM album WHERE deleted_at IS NULL');
-                $query->execute();
-                $results = $query->fetch();
-                $count = ceil($results['x'] / $perPage);
-            ?>
-            <?php if ($results['x'] > $perPage) : ?>
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
-                            <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
-                                <a href="/album/<?php echo $x; ?>"><?php echo $x; ?></a>
-                            </li>
-                        <?php endfor; ?>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            <?php endif; ?>
-        </div>
+        <?php
+        $path = "/album/:page";
+        $sql = "SELECT COUNT(*) AS x FROM album WHERE deleted_at IS NULL";
+        require_once("../../includes/components/pagination.php");
+        ?>
     </div>
   </div>
 </div>
