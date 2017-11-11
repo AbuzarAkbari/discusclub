@@ -1,11 +1,19 @@
 /* Summernote emoji plugin */
 .m-0-l { margin-left: 0; }
 .m-0-r { margin-right: 0; }
+
 .emoji-dialog {
-    width: 300px;
+    /*width: 300px;
     padding: 10px;
     left: calc(50% - 150px);
-    top: calc(50% - 1px);
+    top: calc(50% - 1px);*/
+
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 100vw;
+    padding: 10px !important;
+    /*left: calc(19.3% - 150px) !important;*/
+    top: 56% !important;
 }
 .emoji-icon {
     display: inline-block;
