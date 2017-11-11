@@ -134,37 +134,11 @@ $perPage = 10;
                     </div>
                 </table>
             </div>
-            <!-- Pagination system -->
-            <div class="col-xs-12">
-
-                <?php
-                    $query = $dbc->prepare('SELECT COUNT(*) AS x FROM topic WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at AND deleted_at IS NULL');
-                    $query->execute();
-                    $pageCount = $query->fetch();
-                    $count = ceil($pageCount['x'] / $perPage);
-                ?>
-                <?php if ($pageCount['x'] > $perPage) : ?>
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
-                                <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
-                                    <a href="/forum/new-topics/<?php echo $x; ?>"><?php echo $x; ?></a>
-                                </li>
-                            <?php endfor; ?>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                <?php endif; ?>
-            </div>
+            <?php
+            $path = "/forum/active-topics/:page";
+            $sql = "SELECT COUNT(*) AS x FROM topic WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at AND deleted_at IS NULL";
+            require_once("../../includes/components/pagination.php");
+            ?>
         </div>
     </div>
 </div>

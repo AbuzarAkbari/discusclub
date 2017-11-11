@@ -104,52 +104,11 @@ $perPage = 20;
                             ?>
                         </table>
                     </div>
-                    <!-- Pagination system -->
-                    <div class="col-xs-12">
-
-                        <?php
-                            $query = $dbc->prepare('SELECT COUNT(*) AS x FROM user WHERE deleted_at IS NULL');
-                            $query->execute();
-                            $results = $query->fetch();
-                            $count = ceil($results['x'] / $perPage);
-                        ?>
-                        <?php if ($results['x'] > $perPage) : ?>
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="/admin/user-list/1" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/admin/user-list/<?php echo $page-1 <= 0 ? $page : $page-1; ?>" aria-label="Next">
-                                            <span aria-hidden="true"><</span>
-                                        </a>
-                                    </li>
-                                    <?php
-                                    $diff = $count - $page;
-                                    $x = $diff < 5 ? ($page - (4-$diff)) : $page;
-                                    $y = (($page < $count-5) ? ($page + 5) : ($count+1));
-                                    $x = $x < 1 ? 1 : $x;
-                                    for ($x = $x; $x < $y; $x++) : ?>
-                                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
-                                            <a href="/admin/user-list/<?php echo $x; ?>"><?php echo $x; ?></a>
-                                        </li>
-                                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         endfor; ?>
-                                    <li>
-                                        <a href="/admin/user-list/<?php echo $page+1 > $count ? $page : $page+1; ?>" aria-label="Next">
-                                            <span aria-hidden="true">></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/admin/user-list/<?php echo $count ?>" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        <?php endif; ?>
-                    </div>
+                    <?php
+                    $path = "/admin/user-list/:page";
+                    $sql = "SELECT COUNT(*) AS x FROM user WHERE deleted_at IS NULL";
+                    require_once("../../includes/components/pagination.php");
+                    ?>
                 </div>
             </div>
         </div>

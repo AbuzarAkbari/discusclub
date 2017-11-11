@@ -137,38 +137,12 @@ $perPage = 10;
                     </div>
                 </table>
             </div>
-            <!-- Pagination system -->
-            <div class="col-xs-12">
-
-                <?php
-                    $query = $dbc->prepare('SELECT COUNT(*) AS x FROM favorite WHERE user_id = :user_id');
-                    $query->execute([":user_id" => $_SESSION["user"]->id]);
-                    $results = $query->fetchAll()[0];
-                    $count = ceil($results['x'] / $perPage);
-                ?>
-
-                <?php if ($results['x'] > $perPage) : ?>
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
-                                <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
-                                    <a href="/forum/fav-topics/<?php echo $x; ?>"><?php echo $x; ?></a>
-                                </li>
-                            <?php endfor; ?>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                <?php endif; ?>
-            </div>
+            <?php
+            $path = "/forum/fav-topics/:page";
+            $sql = "SELECT COUNT(*) AS x FROM favorite WHERE user_id = :user_id";
+            $pagination_bindings = [":user_id" => $_SESSION["user"]->id];
+            require_once("../../includes/components/pagination.php");
+            ?>
             </div>
         </div>
     </div>

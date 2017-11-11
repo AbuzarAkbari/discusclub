@@ -2,11 +2,6 @@
 $levels = [];
 require_once("../../includes/tools/security.php");
 
-$page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
-if (false === intval($page)) {
-    exit;
-}
-$perPage = 20;
 $id = isset($_GET["id"]) ? $_GET["id"] : 1;
 ?>
 <!DOCTYPE html>

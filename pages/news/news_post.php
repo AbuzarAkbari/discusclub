@@ -231,37 +231,12 @@ require_once("../../includes/components/nav.php");
 
      </div>
             <?php endforeach; ?>
-        <div class="col-md-12">
-
             <?php
-
-                $query = $dbc->prepare('SELECT COUNT(*) AS x FROM news_reply WHERE news_id = :id');
-                $query->execute([
-                        ':id' => $_GET['id']
-                ]);
-                $results = $query->fetch();
-                $count = ceil($results['x'] / $perPage);
+            $path = "/news/post/".$_GET["id"]."/:page";
+            $sql = "SELECT COUNT(*) AS x FROM news_reply WHERE news_id = :id";
+            $pagination_bindings = [":id" => $_GET["id"]];
+            require_once("../../includes/components/pagination.php");
             ?>
-            <?php if ($results['x'] > $perPage) : ?>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
-                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>><a href="/news/post/<?php echo $rows[0]['id']; ?>/<?php echo $x; ?>"><?php echo $x; ?></a></li>
-                    <?php endfor; ?>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        <?php endif; ?>
-        </div>
         </div>
     <?php if ($logged_in && $rows) : ?>
     <div class="col-md-12">
