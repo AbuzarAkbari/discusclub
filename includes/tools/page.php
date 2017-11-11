@@ -6,8 +6,6 @@
         $content = $_POST['content'];
         $img = $_POST['image'];
 
-
-
         $insert = "INSERT INTO `image`('path') VALUES (:path)";
         $result = $dbc->prepare($insert);
         $result->execute(['path' => $img]);

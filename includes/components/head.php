@@ -18,7 +18,7 @@ if(preg_match('/about|admin/', $_SERVER["REQUEST_URI"])) {
 if(preg_match('/album/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/albums.css">';
 }
-if(preg_match('/album-upload/', $_SERVER["REQUEST_URI"])) {
+if(preg_match('/upload/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/album-upload.css">';
 }
 if(preg_match('/user/', $_SERVER["REQUEST_URI"])) {

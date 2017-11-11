@@ -66,7 +66,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
             $result->execute([":id" => $id]);
             $text = $result->fetch(PDO::FETCH_ASSOC);
         ?>
-        <form class="" action="/includes/tools/houden-van.php" method="post" enctype="multipart/form-data">
+        <form class="" action="/includes/tools/page.php" method="post" enctype="multipart/form-data">
             <div class="col-md-7">
                 <div class="col-md-12">
                     <label for="titel"><h3>Titel</h3></label>
