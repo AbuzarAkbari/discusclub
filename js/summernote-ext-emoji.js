@@ -54,7 +54,7 @@
                 });
                 $(document).on('click', '.selectEmoji', function(){
                     var img = new Image();
-                    img.src = '/assets/images/summernote/pngs/'+$(this).attr('data-value')+'.png';
+                    img.src = document.emojiSource+$(this).attr('data-value')+'.png';
                     img.alt = $(this).attr('data-value');
                     img.className = 'emoji-icon-inline';
                     context.invoke('editor.insertNode', img);

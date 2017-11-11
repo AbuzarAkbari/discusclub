@@ -84,9 +84,7 @@ $perPage = 10;
                                      echo $sponsor['name'];
                                     ?></a></td>
                                     <td>
-                                    <?php
-                                     echo $sponsor['url'];
-                                    ?>
+                                    <a target="_blank" href="<?php echo $sponsor['url'];?>"><?php echo $sponsor['url'];?></a>
                                     </td>
                                     <td>
                                     <?php
