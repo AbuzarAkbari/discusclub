@@ -9,22 +9,22 @@
 <link rel="stylesheet" href="/css/summernote.css">
 
 <?php
-if(strpos($_SERVER["REQUEST_URI"], "news") > 0) {
+if(preg_match('/news|forum/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/nieuws.css">';
 }
-if(strpos($_SERVER["REQUEST_URI"], "about") > 0) {
+if(preg_match('/about|admin/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/overons.css">';
 }
-if(strpos($_SERVER["REQUEST_URI"], "album") > 0) {
+if(preg_match('/album/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/albums.css">';
 }
-if(strpos($_SERVER["REQUEST_URI"], "album-upload") > 0) {
+if(preg_match('/album-upload/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/album-upload.css">';
 }
-if(strpos($_SERVER["REQUEST_URI"], "user") > 0) {
+if(preg_match('/user/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/gebruiker.css">';
 }
-if(strpos($_SERVER["REQUEST_URI"], "messen") > 0) {
+if(preg_match('/messen/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/message.css">';
 }
 ?>
