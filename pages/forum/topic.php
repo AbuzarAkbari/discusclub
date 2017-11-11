@@ -163,7 +163,7 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
 
     <?php
     $path = "/forum/topic/".$_GET["id"]."/:page";
-    $sql = "SELECT COUNT(*) AS x FROM topic WHERE sub_category_id = :id AND topic.deleted_at IS NULL";
+    $sql = "SELECT COUNT(*) as x FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC";
     $pagination_bindings = [":id" => $_GET["id"]];
     require_once("../../includes/components/pagination.php");
     ?>
