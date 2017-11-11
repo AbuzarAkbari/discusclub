@@ -23,6 +23,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
 
     <!-- summernote css -->
     <link rel="stylesheet" href="/css/summernote.css">
+    <link rel="stylesheet" href="/css/summernote-emoji.css">
 </head>
 
 <body>
@@ -85,7 +86,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
                     <label for="titel"><h3>Titel</h3></label>
                     <input id="titel" type="text" class="form-control" name="title"  value="<?php echo $text['name']; ?>">
                     <br>
-                    <textarea required class="form-control editor" col="8" rows="8" value="" maxlength="50" placeholder="">
+                    <textarea name="content" required class="form-control editor" col="8" rows="8" value="" maxlength="50" placeholder="">
                         <?php echo $text['content']; ?>
                     </textarea>
                 </div>
@@ -97,7 +98,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
         <div class="col-md-5">
             <label for="img-change text-center"><h3>Wijzig de afbeelding</h3></label>
             <label for="img-change" class="img-change text-center">Klik hier om een afbeelding te kiezen</label>
-            <input id='img-change' accept="image/*" class="form-control" type="file" name="" value="">
+            <input id='img-change' accept="image/*" class="form-control" type="file" name="image" value="">
         </div>
     </div>
     <footer>
@@ -109,17 +110,20 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
 
     <!-- summernote js -->
     <script type="text/javascript" src="/js/summernote.min.js"></script>
+    <script src="/js/summernote-ext-emoji.js" charset="utf-8"></script>
     <script>
+        document.emojiSource = '/images/emoji/';
         $('.editor').summernote({
             disableResizeEditor: true,
             toolbar: [
-                // [groupName, [list of button]]
                 ['style', ['bold', 'italic', 'underline', 'clear']],
                 ['font', ['strikethrough', 'superscript', 'subscript']],
                 ['fontsize', ['fontsize']],
                 ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']]
+                ['height', ['height']],
+                ['misc', ['emoji']],
+                ['code', ['codeview']]
             ]
         });
 
@@ -134,6 +138,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
         })
 
     </script>
+
 </body>
 
 </html>
