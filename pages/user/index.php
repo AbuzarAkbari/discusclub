@@ -24,19 +24,8 @@ if($user_data == false){
     <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="shortcut icon" href="/favicon.ico" />
         <title>Discusclub Holland</title>
-
-        <!-- custom css -->
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/gebruiker.css">
-        <!-- font -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <!-- bootstrap style -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <?php require_once("../../includes/components/head.php"); ?>
     </head>
 
     <body>
@@ -279,9 +268,9 @@ if($user_data == false){
                                     <th class="col-md-4 col-xs-4">Datum</th>
                                     <?php
                                         $sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = :id OR reply.user_id IS NULL AND topic.user_id = :id GROUP BY topic.id";
-                                        
+
                                         // SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = 3499 OR reply.user_id IS NULL AND topic.user_id = 3499 GROUP BY topic.id ORDER BY reply.created_at + topic.created_at
-                                        
+
                                         $result = $dbc->prepare($sql);
                                         $result->bindParam(":id", $user_data->id);
                                         $result->execute();

@@ -5,25 +5,8 @@ require_once("../../includes/tools/security.php"); ?>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/favicon.ico" />
     <title>Discusclub Holland</title>
-
-    <!-- Slider  -->
-        <!-- Add the slick-theme.css if you want default styling -->
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
-    <!-- custom css -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/nieuws.css">
-    <link rel="stylesheet" href="/css/view.css">
-    <link rel="stylesheet" href="/css/summernote.css">
-
-    <!-- font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- bootstrap style -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <?php require_once("../../includes/components/head.php"); ?>
 </head>
 
 <body>
