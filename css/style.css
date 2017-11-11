@@ -791,3 +791,8 @@ li.dropdown:hover > .dropdown-menu {
 #primary_nav_wrap ul li:hover > span {
     color: white;
 }
+
+
+#primary_nav_wrap li a:hover {
+    text-decoration: underline;
+}
