@@ -7,6 +7,7 @@ if (false === intval($page)) {
     exit;
 }
 $perPage = 20;
+$id = isset($_GET["id"]) ? $_GET["id"] : 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +46,7 @@ $perPage = 20;
         require_once("../../includes/components/nav.php");
 
         $result = $dbc->prepare("SELECT * FROM `page` WHERE id = :id");
-        $result->execute([":id" => isset($_GET["id"]) ? $_GET["id"] : 1]);
+        $result->execute([":id" => $id]);
         $text = $result->fetch(PDO::FETCH_ASSOC);
     ?>
     <br><br>
@@ -55,25 +56,46 @@ $perPage = 20;
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li><a href="/admin">Admin</a></li>
-                    <li class="active">Houdenvan</li>
+                    <li class="active">page</li>
                 </ol>
             </div>
         </div>
-            <select id="page_select">
-                <option value="/admin/page/1" >pagina</option>
-                <option value="/admin/page/1" >houden van</option>
-                <option value="/admin/page/2" >kweken</option>
-            </select>
+        <?php
+            $result = $dbc->prepare("SELECT * FROM `page`");
+            $result->execute();
+            $text = $result->fetchAll(PDO::FETCH_ASSOC);
+         ?>
+         <div class="col-md-12">
+
+             <div class="col-md-12 ">
+                 <label for="page_select">Selecteer de pagina die u wilt bewerken</label>
+                 <select class="form-control" id="page_select">
+                     <?php foreach ($text as $nummer ) : ?>
+                         <option <?php echo $id === $nummer["id"] ? "selected" : null; ?> value="/admin/page/<?php echo $nummer['id']; ?>" ><?php echo $nummer['name'];  ?></option>
+                     <?php endforeach; ?>
+
+                     <!-- <option value="/admin/page/1" >houden van</option>
+                     <option value="/admin/page/2" >kweken</option> -->
+                 </select>
+             </div>
+         </div>
+        <?php
+            $result = $dbc->prepare("SELECT * FROM `page` WHERE id = :id");
+            $result->execute([":id" => $id]);
+            $text = $result->fetch(PDO::FETCH_ASSOC);
+        ?>
         <div class="col-md-7">
             <form class="" action="houden-van" method="post">
                 <div class="col-md-12">
                     <label for="titel"><h3>Titel</h3></label>
-                    <input id="titel" type="text" class="form-control" name="title" value="<?php echo $text['name']; ?>">
+                    <input id="titel" type="text" class="form-control" name="title"  value="<?php echo $text['name']; ?>">
                     <br>
-                    <textarea required class="form-control editor" col="8" rows="8" name="reply_content" maxlength="50" placeholder="Uw bericht.."></textarea>
+                    <textarea required class="form-control editor" col="8" rows="8" value="" maxlength="50" placeholder="">
+                        <?php echo $text['content']; ?>
+                    </textarea>
                 </div>
                 <div class="col-md-12">
-                    <input class="btn btn-primary" type="submit" name="" value="Wijzig"><br><br><br>
+                    <input class="btn btn-primary" type="submit" name="send" value="Wijzig"><br><br><br>
                 </div>
             </form>
         </div>
