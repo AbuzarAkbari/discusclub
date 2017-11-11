@@ -80,8 +80,8 @@
               <span class="mobile navItem">Forum</span>
 
               <?php if ($logged_in) { ?>
-            <ul>
-                <li class="mobile"><a href="/forum/">Forum</a></li>
+                <ul>
+                  <li class="mobile"><a href="/forum/">Forum</a></li>
               <li><a href="/forum/active-topics">Actieve topics</a></li>
               <li><a href="/forum/new-topics">Nieuwe topics</a></li>
               <li><a href="/forum/fav-topics">Favoriete topics</a></li>

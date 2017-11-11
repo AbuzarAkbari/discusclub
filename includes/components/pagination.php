@@ -1,5 +1,4 @@
 <!-- Pagination system -->
-<!-- 123 -->
 <?php
     // $sql = 'SELECT COUNT(*) AS x FROM approval_signup';
     $query = $dbc->prepare($sql);
