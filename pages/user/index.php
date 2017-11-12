@@ -276,20 +276,20 @@ if($user_data == false){
                                         $result->execute();
                                         $topics = $result->fetchAll(PDO::FETCH_OBJ);
 
-                                    usort($topics, function ($a, $b) {
-                                        $t1 = strtotime($a->reply_created_at ?: $a->topic_created_at);
-                                        $t2 = strtotime($b->reply_created_at ?: $b->topic_created_at);
-                                        return $t1 - $t2;
-                                    });
+                                        usort($topics, function ($a, $b) {
+                                            $t1 = strtotime($a->reply_created_at ?: $a->topic_created_at);
+                                            $t2 = strtotime($b->reply_created_at ?: $b->topic_created_at);
+                                            return $t1 - $t2;
+                                        });
                                     ?>
-                                    <?php foreach($topics as $info) : ?>
-                                        <tr>
-                                            <td class="col-md-4 col-xs-4"><a href="/forum/post/<?php echo $info->topic_id; ?>"><?php echo $info->title; ?></a></td>
-                                            <td class="col-md-4 col-xs-4"><a href="/forum/topic/<?php echo $info->sub_category_id; ?>"><?php echo $info->name; ?></a></td>
-                                            <td class="col-md-4 col-xs-4">
-                                                <?php echo $info->topic_created_at; ?>
-                                            </td>
-                                        </tr>
+                                <?php foreach($topics as $info) : ?>
+                                    <tr>
+                                        <td class="col-md-4 col-xs-4"><a href="/forum/post/<?php echo $info->topic_id; ?>"><?php echo $info->title; ?></a></td>
+                                        <td class="col-md-4 col-xs-4"><a href="/forum/topic/<?php echo $info->sub_category_id; ?>"><?php echo $info->name; ?></a></td>
+                                        <td class="col-md-4 col-xs-4">
+                                            <?php echo $info->topic_created_at; ?>
+                                        </td>
+                                    </tr>
                                 <?php endforeach; ?>
                             </table>
                         </div>
@@ -298,12 +298,12 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue">Albums</div>
                         <div class="panel-body">
                             <?php
-                    $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at LIMIT 8";
-                    $albumResult = $dbc->prepare($albumSql);
-                    $albumResult->bindParam(1, $user_data->id);
-                    $albumResult->execute();
-                    $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
+                                $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at LIMIT 8";
+                                $albumResult = $dbc->prepare($albumSql);
+                                $albumResult->bindParam(1, $user_data->id);
+                                $albumResult->execute();
+                                $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
+                            ?>
                             <?php foreach($albums as $album): ?>
                                 <a href="/album/post/<?php echo $album['album_id']; ?>"><img alt="Album-img" src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
                             <?php endforeach; ?>
@@ -314,12 +314,12 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue">Aquariums</div>
                         <div class="panel-body">
                             <?php
-                    $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE aquarium.user_id = ? ORDER BY created_at LIMIT 8";
-                    $aquariumResult = $dbc->prepare($aquariumSql);
-                    $aquariumResult->bindParam(1, $user_data->id);
-                    $aquariumResult->execute();
-                    $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
+                                $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE aquarium.user_id = ? ORDER BY created_at LIMIT 8";
+                                $aquariumResult = $dbc->prepare($aquariumSql);
+                                $aquariumResult->bindParam(1, $user_data->id);
+                                $aquariumResult->execute();
+                                $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
+                            ?>
                             <?php foreach($aquariums as $aquarium): ?>
                                 <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>"><img alt="Aquarium-img" src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
                             <?php endforeach; ?>
