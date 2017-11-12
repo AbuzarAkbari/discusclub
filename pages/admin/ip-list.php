@@ -12,18 +12,8 @@ $perPage = 20;
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/favicon.ico" />
     <title>Discusclub Holland</title>
-
-    <!-- custom css -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/nieuws.css">
-    <!-- font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- bootstrap style -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <?php require_once("../../includes/components/head.php"); ?>
 </head>
 
 <body>
@@ -97,37 +87,11 @@ $perPage = 20;
                             ?>
                         </table>
                     </div>
-                    <!-- Pagination system -->
-                    <div class="col-xs-12">
-
-                        <?php
-                            $query = $dbc->prepare('SELECT COUNT(*) AS x FROM user WHERE deleted_at IS NULL');
-                            $query->execute();
-                            $results = $query->fetch();
-                            $count = ceil($results['x'] / $perPage);
-                        ?>
-                        <?php if ($results['x'] > $perPage) : ?>
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
-                                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
-                                            <a href="/admin/ip-list/<?php echo $x; ?>"><?php echo $x; ?></a>
-                                        </li>
-                                    <?php endfor; ?>
-                                    <li>
-                                        <a href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        <?php endif; ?>
-                    </div>
+                    <?php
+                    $path = "/admin/ip-list/:page";
+                    $sql = "SELECT COUNT(*) AS x FROM ip";
+                    require_once("../../includes/components/pagination.php");
+                    ?>
                 </div>
             </div>
         </div>

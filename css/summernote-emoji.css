@@ -1,0 +1,32 @@
+/* Summernote emoji plugin */
+.m-0-l { margin-left: 0; }
+.m-0-r { margin-right: 0; }
+
+.emoji-dialog {
+    /*width: 300px;
+    padding: 10px;
+    left: calc(50% - 150px);
+    top: calc(50% - 1px);*/
+
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 100vw;
+    padding: 10px !important;
+    /*left: calc(19.3% - 150px) !important;*/
+    top: 48% !important;
+}
+.emoji-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+}
+.emoji-icon-inline {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+.emoji-list {
+    height: 200px;
+    overflow-y: scroll;
+}

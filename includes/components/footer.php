@@ -6,12 +6,12 @@
               <div class='col-md-4'>
                   <h3 class='footer-title'><b>Vind ons leuk!</b></h3>
                   <br>
-                  <div class="fb-page" data-href="https://www.facebook.com/DiscusClubHolland/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/DiscusClubHolland/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/DiscusClubHolland/">Discus Club Holland</a></blockquote></div>
+                  <div class="fb-page" data-href="https://www.facebook.com/DiscusClubHolland/?ref=br_rs" data-tabs="timeline" data-height="376" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/DiscusClubHolland/?ref=br_rs" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/DiscusClubHolland/?ref=br_rs">Discus Club Holland</a></blockquote></div>
               </div>
               <div class='col-md-4'>
                   <h3 class='footer-title'><b>Volg ons op Twitter!</b></h3>
                     <br>
-                  <a class='twitter-timeline col-md-3' href='https://twitter.com/DiscusHolland?ref_src=twsrc%5Etfw'   data-width='380' data-height='480' >Tweets by DiscusHolland</a> <script async src='//platform.twitter.com/widgets.js' charset='utf-8'></script>
+                  <a class='twitter-timeline col-md-3' href='https://twitter.com/DiscusHolland?ref_src=twsrc%5Etfw' data-width='380' data-height='376' >Tweets by DiscusHolland</a> <script async src='//platform.twitter.com/widgets.js' charset='utf-8'></script>
               </div>
               <div class='col-md-4'>
                   <h3 class='footer-title'><b>Contact</b></h3>

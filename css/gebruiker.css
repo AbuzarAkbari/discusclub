@@ -4,13 +4,13 @@ table {
     width: 100%;
 }
 
-th {
+tr.border-color-black th {
     background: black;
     color: white !important;
 }
 
 td,
-th {
+tr.border-color-black th {
     border-bottom: 1px solid #dddddd;
     text-align: left;
     color: black;

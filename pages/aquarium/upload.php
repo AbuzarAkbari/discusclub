@@ -5,22 +5,8 @@ include_once("../../includes/tools/security.php"); ?>
 <html lang="en" class="no-js">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/favicon.ico" />
     <title>Discusclub Holland</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400" />
-    <!-- custom css -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/album-upload.css">
-    <link rel="canonical" href="https://css-tricks.com/examples/DragAndDropFileUploading/">
-    <!-- font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- bootstrap style -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="/css/dropzone.css">
-<script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
+    <?php require_once("../../includes/components/head.php"); ?>
 </head>
 
 <body>
@@ -84,6 +70,7 @@ include_once("../../includes/tools/security.php"); ?>
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 
     <script src="/js/drag-drop.js" charset="utf-8"></script>
 </body>

@@ -12,18 +12,8 @@ $perPage = 20;
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/favicon.ico" />
     <title>Discusclub Holland</title>
-
-    <!-- custom css -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/nieuws.css">
-    <!-- font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- bootstrap style -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <?php require_once("../../includes/components/head.php"); ?>
 </head>
 
 <body>
@@ -128,52 +118,11 @@ $perPage = 20;
                             ?>
                         </table>
                     </div>
-                    <!-- Pagination system -->
-                    <div class="col-xs-12">
-
-                        <?php
-                            $query = $dbc->prepare('SELECT COUNT(*) AS x FROM approval_signup');
-                            $query->execute();
-                            $results = $query->fetch();
-                            $count = ceil($results['x'] / $perPage);
-                        ?>
-                        <?php if ($results['x'] > $perPage) : ?>
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="/admin/approval-signup/1" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/admin/approval-signup/<?php echo $page-1 <= 0 ? $page : $page-1; ?>" aria-label="Next">
-                                            <span aria-hidden="true"><</span>
-                                        </a>
-                                    </li>
-                                    <?php
-                                    $diff = $count - $page;
-                                    $x = $diff < 5 ? ($page - (4-$diff)) : $page;
-                                    $y = (($page < $count-5) ? ($page + 5) : ($count+1));
-                                    $x = $x < 1 ? 1 : $x;
-                                    for ($x = $x; $x < $y; $x++) : ?>
-                                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>>
-                                            <a href="/admin/approval-signup/<?php echo $x; ?>"><?php echo $x; ?></a>
-                                        </li>
-                                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         endfor; ?>
-                                    <li>
-                                        <a href="/admin/approval-signup/<?php echo $page+1 > $count ? $page : $page+1; ?>" aria-label="Next">
-                                            <span aria-hidden="true">></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/admin/approval-signup/<?php echo $count ?>" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        <?php endif; ?>
-                    </div>
+                    <?php
+                    $path = "/admin/approval-signup/:page";
+                    $sql = "SELECT COUNT(*) AS x FROM approval_signup";
+                    require_once("../../includes/components/pagination.php");
+                    ?>
                 </div>
             </div>
         </div>

@@ -46,47 +46,45 @@
           </li>
           <li><a class="desktop" href="/houden-van">Houden van</a>
               <span class="mobile navItem">Houden van</span>
+              <ul>
+                  <li class="mobile"><a href="/houden-van">Houden van</a></li>
               <?php if ($logged_in) { ?>
-            <ul>
-                <li class="mobile"><a href="/houden-van">Houden van</a></li>
               <li><a href="/houden-van/kweken">Kweken</a></li>
               <li><a href="/houden-van/ziektes">Ziektes</a></li>
-            </ul>
             <?php } ?>
+            </ul>
           </li>
-          <li><a href="/news">Nieuws</a></li>
+          <li><a href="/news/">Nieuws</a></li>
           <li><a href="/wordlid">Word lid!</a></li>
           <li><a class="desktop" href="/album">Albums</a>
               <span class="mobile navItem">Albums</span>
-
+              <ul>
+                  <li class="mobile"><a href="/album/">Albums</a></li>
               <?php if ($logged_in) { ?>
-            <ul>
-                <li class="mobile"><a href="/album/">Albums</a></li>
               <li><a href="/album/upload">Upload</a></li>
-            </ul>
             <?php } ?>
+        </ul>
           </li>
           <li><a class="desktop" href="/aquarium">Aquaria</a>
               <span class="mobile navItem">Aquaria</span>
-
+              <ul>
+                  <li class="mobile"><a href="/aquarium/">Aquaria</a></li>
               <?php if ($logged_in) { ?>
-            <ul>
-                <li class="mobile"><a href="/aquarium/">Aquaria</a></li>
               <li><a href="/aquarium/upload">Upload</a></li>
-            </ul>
             <?php } ?>
+        </ul>
           </li>
           <li><a class="desktop" href="/forum">Forum</a>
               <span class="mobile navItem">Forum</span>
 
+              <ul>
+                  <li class="mobile"><a href="/forum/">Forum</a></li>
               <?php if ($logged_in) { ?>
-            <ul>
-                <li class="mobile"><a href="/forum/">Forum</a></li>
               <li><a href="/forum/active-topics">Actieve topics</a></li>
               <li><a href="/forum/new-topics">Nieuwe topics</a></li>
               <li><a href="/forum/fav-topics">Favoriete topics</a></li>
-            </ul>
             <?php } ?>
+        </ul>
           </li>
           <li><a class="desktop" href="/sponsor/become">Sponsoren</a>
               <span class="mobile navItem">Sponsoren</span>

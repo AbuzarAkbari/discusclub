@@ -43,21 +43,8 @@ require_once("../../includes/tools/berichtParse.php");
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/favicon.ico"/>
     <title>Discusclub Holland</title>
-
-    <!-- custom css -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/bericht.css">
-    <!-- font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- bootstrap style -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- summernote css -->
-    <link rel="stylesheet" href="/css/summernote.css">
+    <?php require_once("../../includes/components/head.php"); ?>
 </head>
 
 <body>
@@ -258,41 +245,12 @@ require_once("../../includes/components/nav.php");
     <?php endforeach; ?>
 
 
-    <!-- Pagination system -->
-    <div class="col-xs-12">
-
-        <?php
-
-        $query = $dbc->prepare('SELECT COUNT(*) AS x FROM reply WHERE topic_id = :id AND reply.deleted_at IS NULL');
-        $query->execute([
-            ':id' => $_GET['id']
-        ]);
-        $results = $query->fetchAll()[0];
-        $count = ceil($results['x'] / $perPage);
-        ?>
-
-        <?php if ($results['x'] > $perPage) : ?>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <?php for ($x = ($count - 4 < 1 ? 1 : $count - 4); $x < ($count + 1); $x++) : ?>
-                        <li<?php echo ($x == $page) ? ' class="active"' : ''; ?>><a
-                                    href="/forum/post/<?php echo $rows['topic_id']; ?>/<?php echo $x; ?>"><?php echo $x; ?></a>
-                        </li>
-                    <?php endfor; ?>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        <?php endif; ?>
-    </div>
+    <?php
+    $path = "/forum/post/".$_GET["id"]."/:page";
+    $sql = "SELECT COUNT(*) AS x FROM reply WHERE topic_id = :id AND reply.deleted_at IS NULL";
+    $pagination_bindings = [":id" => $_GET["id"]];
+    require_once("../../includes/components/pagination.php");
+    ?>
 
     <?php if ($logged_in) : ?>
 

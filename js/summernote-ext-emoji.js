@@ -54,7 +54,7 @@
                 });
                 $(document).on('click', '.selectEmoji', function(){
                     var img = new Image();
-                    img.src = '/assets/images/summernote/pngs/'+$(this).attr('data-value')+'.png';
+                    img.src = document.emojiSource+$(this).attr('data-value')+'.png';
                     img.alt = $(this).attr('data-value');
                     img.className = 'emoji-icon-inline';
                     context.invoke('editor.insertNode', img);
@@ -66,12 +66,12 @@
                 var emoList = '';
                 /*limit list to 24 images*/
                 var emojis = emojis;
-                var chunks = chunk(emojis, 4);
+                var chunks = chunk(emojis, 12);
                 for (j = 0; j < chunks.length; j++) {
                     emoList += '<div class="row m-0-l m-0-r">';
                     for (var i = 0; i < chunks[j].length; i++) {
                         var emo = chunks[j][i];
-                        emoList += '<div class="col-xs-3">' +
+                        emoList += '<div class="col-xs-1">' +
                             '<a href="javascript:void(0)" class="selectEmoji closeEmoji" data-value="' + emo + '"><span class="emoji-icon" style="background-image: url(\'' + document.emojiSource + emo + '.png\');"></span></a>' +
                             '</div>';
                     }
