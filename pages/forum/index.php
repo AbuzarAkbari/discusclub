@@ -3,7 +3,7 @@
     require_once("../../includes/tools/security.php");
 
     if(isset($_POST['add_new_category']) && !empty($_POST['new_category']))
-    {	
+    {
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
         $query->execute([":name" => $_POST["new_category"]]);
@@ -51,16 +51,16 @@
         </ol>
         <br>
         <div class="panel panel-primary">
-                <div class="panel-heading border-colors">
-                    <h3 class="panel-title">Zoek op forum</h3>
-                </div>
-                    <div class="panel-body">
-                        <form method="get" action="/forum/search">
-                            <input type="text" class="form-control" name="q" placeholder='Zoek op het forum..' maxlength="155" required ><br>
-                            <button type="submit" class="form-control btn btn-primary">Zoek op forum</button>
-                        </form>
-                    </div>
-                </div>
+            <div class="panel-heading border-colors">
+                <h3 class="panel-title">Zoek op forum</h3>
+            </div>
+            <div class="panel-body">
+                <form method="get" action="/forum/search">
+                    <input type="text" class="form-control" name="q" placeholder='Zoek op het forum..' maxlength="155" required ><br>
+                    <button type="submit" class="form-control btn btn-primary">Zoek op forum</button>
+                </form>
+            </div>
+        </div>
         <?php if(in_array($current_level, $admin_levels)) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Voeg een nieuwe categorie toe</div>
@@ -81,7 +81,7 @@
                 $subCategorieenResult->execute();
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
-            <div class="panel panel-primary ">
+            <div class="panel panel-primary">
                 <div class="panel-heading border-colors">
                     <?php echo $categorie['name']; ?>
                     <?php if(in_array($current_level, $admin_levels)) : ?>
@@ -170,12 +170,9 @@
                 </div>
             </div>
 
-        <?php endforeach; ?>
-
-    </div>
-    <div class="col-md-12 col-sm-12 text-center">
-        <img src="http://via.placeholder.com/400x100" alt="banner">
-    </div>
+    <?php require ('../../includes/components/advertentie.php'); ?>
+<?php endforeach; ?>
+</div>
 </div>
 
 <footer>

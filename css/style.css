@@ -796,3 +796,8 @@ li.dropdown:hover > .dropdown-menu {
 #primary_nav_wrap li a:hover {
     text-decoration: underline;
 }
+
+.advertentie {
+    width: 100%;
+    height: auto;
+}
