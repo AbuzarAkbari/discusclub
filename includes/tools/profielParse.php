@@ -55,7 +55,7 @@ if ($logged_in) {
         }
         //Nieuwsbrief
         if (isset($_POST['news']) && !empty($_POST["news"])) {
-            $news = $_POST['news'];
+            $news = $_POST['news'] == "on" ? 1 : 0;
             $query .= ", news = :news";
             $bindings[": news"] = $news;
 
