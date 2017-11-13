@@ -58,8 +58,10 @@ include_once("../../includes/tools/security.php"); ?>
                     </form>
                 </div>
             </div>
-            <br>
+    
         </div>
+        <?php require ('../../includes/components/advertentie.php'); ?>
+
     </div>
     <!-- <div class="conainter-fluid"></div> -->
     <footer>

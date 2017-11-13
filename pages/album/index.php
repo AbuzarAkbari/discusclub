@@ -95,10 +95,9 @@ $perPage = 6;
         ?>
     </div>
   </div>
+  <?php require ('../../includes/components/advertentie.php'); ?>
 </div>
-  <br>
-  <br>
-  <br>
+
     <footer>
     <?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
