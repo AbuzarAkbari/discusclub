@@ -44,6 +44,8 @@
                       <input class="form-control" required type="password" name="repeat_password" id="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
                       <label for="email" >E-mailadres</label>
                       <input class="form-control" required type="email" name="email" id="email" value="" placeholder="E-mailadres"><br>
+                      <input type="checkbox" name="nieuwsbrief" id="news"> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
+
                       Als u registreert gaat u akkoord met onze <a href="/gebruiksvoorwaarden">gebruiksvoorwaarden</a>.<br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
