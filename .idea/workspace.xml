@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/tools/album-upload.php" afterPath="$PROJECT_DIR$/includes/tools/album-upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/album/view.php" afterPath="$PROJECT_DIR$/pages/album/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/aquarium/view.php" afterPath="$PROJECT_DIR$/pages/aquarium/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/post.php" afterPath="$PROJECT_DIR$/pages/forum/post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/topic.php" afterPath="$PROJECT_DIR$/pages/forum/topic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/user/index.php" afterPath="$PROJECT_DIR$/pages/user/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +33,27 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="87" column="31" lean-forward="true" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
+              <folding>
+                <marker date="1510582965971" expanded="true" signature="80:208" ph="SELECT * FRO... aquarium" />
+                <marker date="1510582965971" expanded="true" signature="80:254" ph="SELECT * FRO... aquarium" />
+                <marker date="1510582965971" expanded="true" signature="399:444" ph="SELECT * FRO... like" />
+                <marker date="1510582965971" expanded="true" signature="1337:1430" ph="SELECT * FRO... topic" />
+                <marker date="1510582965971" expanded="true" signature="1337:1431" ph="SELECT * FRO... topic" />
+                <marker date="1510582965971" expanded="true" signature="2924:2981" ph="SELECT COUNT... like" />
+                <marker date="1510582965971" expanded="true" signature="4050:4068" ph="SELECT * FRO... news" />
+                <marker date="1510582965971" expanded="true" signature="5532:5697" ph="SELECT *, ne... news_reply" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -133,7 +147,6 @@
         <option value="$PROJECT_DIR$/js/summernote-ext-emoji.js" />
         <option value="$PROJECT_DIR$/pages/admin/ip-list.php" />
         <option value="$PROJECT_DIR$/pages/admin/user-list.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/components/head.php" />
         <option value="$PROJECT_DIR$/pages/album/index.php" />
         <option value="$PROJECT_DIR$/pages/user/login.php" />
@@ -146,6 +159,7 @@
         <option value="$PROJECT_DIR$/pages/album/view.php" />
         <option value="$PROJECT_DIR$/pages/aquarium/view.php" />
         <option value="$PROJECT_DIR$/pages/forum/post.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -254,12 +268,12 @@
       <workItem from="1510138578569" duration="14135000" />
       <workItem from="1510221350696" duration="19380000" />
       <workItem from="1510304073382" duration="22286000" />
-      <workItem from="1510566391753" duration="11683000" />
+      <workItem from="1510566391753" duration="12581000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="299124000" />
+    <option name="totallyTimeSpent" value="300022000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -272,8 +286,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15565032" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15565032" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21956521" sideWeight="0.5042644" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19402985" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -446,10 +461,10 @@
         <state relative-caret-position="255">
           <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding>
-            <marker date="1510319233564" expanded="true" signature="206:234" ph="UPDATE user " />
-            <marker date="1510319233564" expanded="true" signature="4058:4093" ph="INSERT INTO image... " />
-            <marker date="1510319233564" expanded="true" signature="6773:6808" ph="INSERT INTO image... " />
-            <marker date="1510319233564" expanded="true" signature="7435:7466" ph="SELECT * FRO... user" />
+            <marker date="1510582381431" expanded="true" signature="206:234" ph="UPDATE user " />
+            <marker date="1510582381431" expanded="true" signature="4058:4093" ph="INSERT INTO image... " />
+            <marker date="1510582381431" expanded="true" signature="6773:6808" ph="INSERT INTO image... " />
+            <marker date="1510582381431" expanded="true" signature="7435:7466" ph="SELECT * FRO... user" />
           </folding>
         </state>
       </provider>
@@ -617,22 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="41" column="49" lean-forward="true" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
-          <folding>
-            <marker date="1510517008476" expanded="true" signature="80:208" ph="SELECT * FRO... aquarium" />
-            <marker date="1510517008476" expanded="true" signature="80:254" ph="SELECT * FRO... aquarium" />
-            <marker date="1510517008476" expanded="true" signature="399:444" ph="SELECT * FRO... like" />
-            <marker date="1510517008476" expanded="true" signature="1337:1431" ph="SELECT * FRO... topic" />
-            <marker date="1510517008476" expanded="true" signature="2636:2693" ph="SELECT COUNT... like" />
-            <marker date="1510517008476" expanded="true" signature="3730:3748" ph="SELECT * FRO... news" />
-            <marker date="1510517008476" expanded="true" signature="5212:5377" ph="SELECT *, ne... news_reply" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/components/head.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -690,9 +689,9 @@
         <state relative-caret-position="282">
           <caret line="97" column="3" lean-forward="true" selection-start-line="97" selection-start-column="3" selection-end-line="126" selection-end-column="13" />
           <folding>
-            <marker date="1510517008499" expanded="true" signature="813:848" ph="SELECT * FRO... page" />
-            <marker date="1510517008499" expanded="true" signature="1369:1389" ph="SELECT * FRO... page" />
-            <marker date="1510517008499" expanded="true" signature="2267:2302" ph="SELECT * FRO... page" />
+            <marker date="1510582381437" expanded="true" signature="813:848" ph="SELECT * FRO... page" />
+            <marker date="1510582381437" expanded="true" signature="1369:1389" ph="SELECT * FRO... page" />
+            <marker date="1510582381437" expanded="true" signature="2267:2302" ph="SELECT * FRO... page" />
           </folding>
         </state>
       </provider>
@@ -792,14 +791,14 @@
         <state relative-caret-position="111">
           <caret line="68" column="107" lean-forward="false" selection-start-line="68" selection-start-column="105" selection-end-line="68" selection-end-column="107" />
           <folding>
-            <marker date="1510570680556" expanded="true" signature="197:258" ph="INSERT INTO category... " />
-            <marker date="1510570680556" expanded="true" signature="474:566" ph="INSERT INTO sub_category... " />
-            <marker date="1510570680556" expanded="true" signature="739:786" ph="SELECT * FRO... category" />
-            <marker date="1510570680556" expanded="true" signature="3365:3436" ph="SELECT * FRO... sub_category" />
-            <marker date="1510570680556" expanded="true" signature="5932:6027" ph="SELECT *, CO... topic" />
-            <marker date="1510570680556" expanded="true" signature="6334:6567" ph="SELECT COUNT... sub_category" />
-            <marker date="1510570680556" expanded="true" signature="6836:6925" ph="SELECT COUNT... topic" />
-            <marker date="1510570680556" expanded="true" signature="7717:8248" ph="SELECT *, r.... topic" />
+            <marker date="1510582381442" expanded="true" signature="197:258" ph="INSERT INTO category... " />
+            <marker date="1510582381442" expanded="true" signature="474:566" ph="INSERT INTO sub_category... " />
+            <marker date="1510582381442" expanded="true" signature="739:786" ph="SELECT * FRO... category" />
+            <marker date="1510582381442" expanded="true" signature="3356:3427" ph="SELECT * FRO... sub_category" />
+            <marker date="1510582381442" expanded="true" signature="5923:6018" ph="SELECT *, CO... topic" />
+            <marker date="1510582381442" expanded="true" signature="6325:6558" ph="SELECT COUNT... sub_category" />
+            <marker date="1510582381442" expanded="true" signature="6827:6916" ph="SELECT COUNT... topic" />
+            <marker date="1510582381442" expanded="true" signature="7708:8239" ph="SELECT *, r.... topic" />
           </folding>
         </state>
       </provider>
@@ -819,6 +818,23 @@
           <folding>
             <marker date="1510580503060" expanded="true" signature="298:377" ph="INSERT INTO album... " />
             <marker date="1510580503060" expanded="true" signature="3076:3136" ph="INSERT INTO image... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="87" column="31" lean-forward="true" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
+          <folding>
+            <marker date="1510582965971" expanded="true" signature="80:208" ph="SELECT * FRO... aquarium" />
+            <marker date="1510582965971" expanded="true" signature="80:254" ph="SELECT * FRO... aquarium" />
+            <marker date="1510582965971" expanded="true" signature="399:444" ph="SELECT * FRO... like" />
+            <marker date="1510582965971" expanded="true" signature="1337:1430" ph="SELECT * FRO... topic" />
+            <marker date="1510582965971" expanded="true" signature="1337:1431" ph="SELECT * FRO... topic" />
+            <marker date="1510582965971" expanded="true" signature="2924:2981" ph="SELECT COUNT... like" />
+            <marker date="1510582965971" expanded="true" signature="4050:4068" ph="SELECT * FRO... news" />
+            <marker date="1510582965971" expanded="true" signature="5532:5697" ph="SELECT *, ne... news_reply" />
           </folding>
         </state>
       </provider>
