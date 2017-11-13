@@ -2,14 +2,14 @@
     $levels = ["lid", "gebruiker"];
     require_once("../../includes/tools/security.php");
 
-    if(isset($_POST['add_new_category']))
-    {
+    if(isset($_POST['add_new_category']) && !empty($_POST['new_category']))
+    {	
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
         $query->execute([":name" => $_POST["new_category"]]);
     }
 
-    if(isset($_POST['add_new_sub_category']))
+    if(isset($_POST['add_new_sub_category']) && !empty($_POST['new_sub_category']))
     {
         $sql = "INSERT INTO sub_category (category_id, name, created_at) VALUES (:category_id, :name, NOW())";
         $query = $dbc->prepare($sql);
@@ -66,7 +66,7 @@
                 <div class="panel-heading border-colors">Voeg een nieuwe categorie toe</div>
                 <div class="panel-body">
                     <form action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
-                        <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="Vul hier de nieuwe categorienaam in.." name="new_category">
+                        <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="Vul hier de nieuwe categorienaam in.." name="new_category" minlength="3" maxlength="85">
                         <input style="width: 20%; float: left; margin-left: 3%;" type="submit" class="col-md-3 btn btn-primary" name="add_new_category" value="Toevoegen">
                     </form>
                 </div>
@@ -95,7 +95,7 @@
                         <br>
                             <div class="col-md-12">
                                 <input type="hidden" name="cat_id" value="<?php echo $categorie['id']; ?>">
-                                <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="Vul hier de nieuwe subcategorienaam in.." name="new_sub_category">
+                                <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="Vul hier de nieuwe subcategorienaam in.." name="new_sub_category" minlength="3" maxlength="83">
                                 <input style="width: 20%; float: left; margin-left: 3%; margin-bottom: 1%;" type="submit" value="Toevoegen" name="add_new_sub_category" class="form-control btn btn-primary">
                             </div>
                     </form>
