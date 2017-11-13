@@ -44,7 +44,7 @@
                       <input class="form-control" required type="password" name="repeat_password" id="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
                       <label for="email" >E-mailadres</label>
                       <input class="form-control" required type="email" name="email" id="email" value="" placeholder="E-mailadres"><br>
-                      <input type="checkbox" name="news" id="news" value="<?php if (isset($_POST['news'] = 1 ? 1 : 0));?>" ><label for="news"> Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
+                      <input type="checkbox" name="news" id="news"><label for="news"> Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
                       Als u registreert gaat u akkoord met onze <a href="/gebruiksvoorwaarden">gebruiksvoorwaarden</a>.<br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
@@ -63,7 +63,7 @@
                                                                   (:first_name, :last_name, :username, :password, :email, NOW(), :news)");
 
                             $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
-                                ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"], ":news" => $_POST["news"]]);
+                                ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"], ":news" => $_POST["news"] === "on" ? 1 : 0]);
                             require("../../includes/tools/mailer.php");
                             ?>
                             <div class="message gelukt">Het account is aangemaakt, <a href="/user/login">login.</a></div>
