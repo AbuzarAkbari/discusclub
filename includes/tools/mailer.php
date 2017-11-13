@@ -22,6 +22,3 @@ $result = file_get_contents($url, false, $context);
 if ($result === FALSE) {
 
 }
-echo "<pre>";
-var_dump(json_decode($result));
-echo "</pre>";
