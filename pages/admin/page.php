@@ -38,7 +38,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li><a href="/admin">Admin</a></li>
-                    <li class="active">page</li>
+                    <li class="active">Bewerk houden van</li>
                 </ol>
             </div>
         </div>
