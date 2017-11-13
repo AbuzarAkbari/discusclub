@@ -51,7 +51,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
 
              <div class="col-md-12 ">
                  <label for="page_select">Selecteer de pagina die u wilt bewerken</label>
-                 <select class="form-control" id="page_select">
+                 <select class="form-control" id="page_select" name="selector">
                      <?php foreach ($text as $nummer ) : ?>
                          <option <?php echo $id === $nummer["id"] ? "selected" : null; ?> value="/admin/page/<?php echo $nummer['id']; ?>" ><?php echo $nummer['name'];  ?></option>
                      <?php endforeach; ?>
@@ -86,6 +86,8 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
                 <input id='img-change' accept="image/*" class="form-control" type="file" name="image" value="">
                 <br>
             </div>
+            <input type="hidden" name="slug" value="<?php echo $text['uri']; ?>">
+            <input type="hidden" name="id" value="<?php echo $_GET['pagina']; ?>">
         </form>
     </div>
     <footer>
