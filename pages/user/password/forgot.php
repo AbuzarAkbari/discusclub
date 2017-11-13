@@ -30,6 +30,9 @@
               <div class="panel-heading panel-heading1">
                   <h4>Wachtwoord vergeten</h4></div>
                 <div class="panel-body">
+                    <?php if(isset($_GET['err'])) : ?>
+                        <div class="alert alert-danger" role="alert"><?php echo $_GET['err']; ?></div>
+                    <?php endif; ?>
                   <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
 
                       <p>U zal een e-mail met uw naam ontvangen. Wij zullen nooit uw wachtwoord toezenden, want die weten wij ook niet (ter beveiliging). De e-mail bevat in plaats daarvan een link waarmee u uw wachtwoord kan wijzigen.</p>

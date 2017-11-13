@@ -5,3 +5,4 @@
 .idea/discusclub.iml
 overzetten/node_modules/
 overzetten/dhc.json
+includes/tools/keys.php
