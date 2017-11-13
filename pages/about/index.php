@@ -105,8 +105,10 @@
                 </div>
             </div>
         </div>
-        <?php require '/includes/components/advertentie.php'; ?>
-        
+        <?php
+        $ad_in_row = true;
+        require_once('../../includes/components/advertentie.php'); ?>
+
     </div>
   </div>
     <footer>
