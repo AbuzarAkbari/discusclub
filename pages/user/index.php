@@ -267,9 +267,9 @@ if($user_data == false){
                                     <th class="col-md-4 col-xs-4">Forum</th>
                                     <th class="col-md-4 col-xs-4">Datum</th>
                                     <?php
-                                        $sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = :id OR reply.user_id IS NULL AND topic.user_id = :id GROUP BY topic.id";
+                                        //$sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = :id OR reply.user_id IS NULL AND topic.user_id = :id GROUP BY topic.id";
 
-                                        // SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = 3499 OR reply.user_id IS NULL AND topic.user_id = 3499 GROUP BY topic.id ORDER BY reply.created_at + topic.created_at
+                                        $sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = :id OR reply.user_id IS NULL AND topic.user_id = :id GROUP BY topic.id ORDER BY reply.created_at + topic.created_at LIMIT 10";
 
                                         $result = $dbc->prepare($sql);
                                         $result->bindParam(":id", $user_data->id);

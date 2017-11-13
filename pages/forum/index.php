@@ -2,11 +2,6 @@
     $levels = ["lid", "gebruiker"];
     require_once("../../includes/tools/security.php");
 
-    $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
-    $categorieenResult = $dbc->prepare($categorieenSql);
-    $categorieenResult->execute();
-    $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
-
     if(isset($_POST['add_new_category']))
     {
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
@@ -20,6 +15,11 @@
         $query = $dbc->prepare($sql);
         $query->execute([":category_id" => $_POST['cat_id'], ":name" => $_POST["new_sub_category"]]);
     }
+
+    $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
+    $categorieenResult = $dbc->prepare($categorieenSql);
+    $categorieenResult->execute();
+    $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +86,7 @@
                     <?php echo $categorie['name']; ?>
                     <?php if(in_array($current_level, $admin_levels)) : ?>
                         <td>
-                            <a  title="Delete" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" type="button" class="btn btn-primary" style="background-color: transparent; border: none;" name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
+                            <a  title="Delete" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" type="button" class="btn btn-primary" name="button"> <i class="glyphicon glyphicon-remove-sign"></i></a>
                         </td>
                     <?php endif; ?>
                 </div>
