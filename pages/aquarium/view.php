@@ -193,17 +193,20 @@ require_once("../../includes/tools/security.php"); ?>
     <!-- summer note -->
     <!-- summernote js -->
     <script type="text/javascript" src="/js/summernote.min.js"></script>
+    <script src="/js/summernote-ext-emoji.js" charset="utf-8"></script>
     <script>
+        document.emojiSource = '/images/emoji/';
         $('.editor').summernote({
             disableResizeEditor: true,
             toolbar: [
-                // [groupName, [list of button]]
                 ['style', ['bold', 'italic', 'underline', 'clear']],
                 ['font', ['strikethrough', 'superscript', 'subscript']],
                 ['fontsize', ['fontsize']],
                 ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']]
+                ['height', ['height']],
+                ['misc', ['emoji']],
+                ['code', ['codeview']]
             ]
         });
 
@@ -212,6 +215,7 @@ require_once("../../includes/tools/security.php"); ?>
                 $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
             });
         });
+
     </script>
 </body>
 </html>

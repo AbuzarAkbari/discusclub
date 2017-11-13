@@ -192,7 +192,7 @@ require_once("../../includes/components/nav.php");
                                     href="/user/<?php echo $reply["user_id"]; ?>"><?php echo $naam; ?></a></b>
                     </h3>
                     <?php if (in_array($current_level, $admin_levels)) : ?>
-                        <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/includes/tools/reply/del.php?topic_id=<?php echo $_GET["id"]; ?>&id=<?php echo $reply['id']; ?>" type="button" class="btn" name="button" style="color: #fff;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
+                        <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/includes/tools/reply/del.php?topic_id=<?php echo $_GET["id"]; ?>&id=<?php echo $reply['id']; ?>" type="button" class="btn btn-primary" name="button" style="color: #fff; background-color: #0ba8ec;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body padding-padding ">
@@ -297,17 +297,20 @@ require_once("../../includes/components/nav.php");
 
 <!-- summernote js -->
 <script type="text/javascript" src="/js/summernote.min.js"></script>
+<script src="/js/summernote-ext-emoji.js" charset="utf-8"></script>
 <script>
+    document.emojiSource = '/images/emoji/';
     $('.editor').summernote({
         disableResizeEditor: true,
         toolbar: [
-            // [groupName, [list of button]]
             ['style', ['bold', 'italic', 'underline', 'clear']],
             ['font', ['strikethrough', 'superscript', 'subscript']],
             ['fontsize', ['fontsize']],
             ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
-            ['height', ['height']]
+            ['height', ['height']],
+            ['misc', ['emoji']],
+            ['code', ['codeview']]
         ]
     });
 
@@ -316,6 +319,7 @@ require_once("../../includes/components/nav.php");
             $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
         });
     });
+
 </script>
 </body>
 
