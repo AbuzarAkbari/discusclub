@@ -38,7 +38,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li><a href="/admin">Admin</a></li>
-                    <li class="active">page</li>
+                    <li class="active">Bewerk houden van</li>
                 </ol>
             </div>
         </div>
@@ -50,7 +50,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
          <div class="col-md-12">
 
              <div class="col-md-12 ">
-                 <label for="page_select">Selecteer de pagina die u wilt bewerken</label>
+                 <label for="page_select"><h3>Selecteer de pagina die u wilt bewerken</h3></label>
                  <select class="form-control" id="page_select" name="selector">
                      <?php foreach ($text as $nummer ) : ?>
                          <option <?php echo $id === $nummer["id"] ? "selected" : null; ?> value="/admin/page/<?php echo $nummer['id']; ?>" ><?php echo $nummer['name'];  ?></option>
@@ -62,7 +62,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
              </div>
          </div>
         <?php
-            $result = $dbc->prepare("SELECT * FROM `page` WHERE id = :id");
+            $result = $dbc->prepare("SELECT * FROM `page` JOIN image ON page.image_id = image.id WHERE page.id = :id");
             $result->execute([":id" => $id]);
             $text = $result->fetch(PDO::FETCH_ASSOC);
         ?>
@@ -82,7 +82,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
             </div>
             <div class="col-md-5">
                 <label for="img-change text-center"><h3>Wijzig de afbeelding</h3></label>
-                <label for="img-change" class="img-change text-center">Klik hier om een afbeelding te kiezen</label>
+                <label for="img-change" class="img-change text-center" style="background-image: url('/images<?php echo $text['path'] ;?>'); background-position: center; background-size: cover;">Klik hier om een afbeelding te kiezen</label>
                 <input id='img-change' accept="image/*" class="form-control" type="file" name="image" value="">
                 <br>
             </div>

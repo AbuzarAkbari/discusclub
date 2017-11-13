@@ -37,25 +37,34 @@
 
         require_once("includes/components/slider.php");
 
-        $result = $dbc->prepare("SELECT * FROM `topic` JOIN sub_category ON category_id JOIN user ON user_id WHERE state_id = 3");
+        $result = $dbc->prepare("SELECT * FROM `topic` JOIN sub_category ON category_id JOIN user ON user_id WHERE state_id = 1");
         $result->execute();
         $text = $result->fetch(PDO::FETCH_ASSOC);
+
+        echo '<pre>';
+        print_r($aquarium);
+        exit();
       ?>
     <div class="container main">
         <div class="row">
+            <?php if(sizeof($text) != '') : ?>
             <br><br>
+
             <h1><?php echo $text['title']; ?></h1>
 
             <div class="col-md-12 ">
-                <div class="verticalLine ">
-                    <div class="verticalLineRuimte">
-                        Categorie: <?php echo $text['name']; ?> | <?php echo $text['created_at']; ?>
-                        <br><br>
-                        <?php echo $text['content']; ?>
+
+                    <div class="verticalLine ">
+                        <div class="verticalLineRuimte">
+                            Categorie: <?php echo isset($text['name']) ? $text['name'] : ''; ?> | <?php echo isset($text['created_at']) ? $text['created_at'] : ''; ?>
+                            <br><br>
+                            <?php echo $text['content']; ?>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
                 <br><br>
             </div>
+            <?php if(sizeof($aquarium) != ''): ?>
             <br><br>
             <div class="col-md-12">
                     <div class="panel panel-default ">
@@ -76,6 +85,7 @@
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
             <br><br>
             <div class="">
                 <div class="col-md-6">

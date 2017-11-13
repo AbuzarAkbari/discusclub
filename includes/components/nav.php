@@ -112,7 +112,7 @@
                 <li><a href='/admin/user-list'>Ledenlijst</a></li>
                 <li><a href='/admin/approval-signup'>Inschrijvingen(<?php echo $sth1->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
                 <li><a href='/admin/approval-sponsor'>Sponsoren(<?php echo $sth->fetch(PDO::FETCH_OBJ)->amount; ?>)</a></li>
-                <li><a href="/admin/page">Houden van bewerken</a></li>
+                <li><a href="/admin/page">Bewerk houden van</a></li>
                 <li><a href="/phpmyadmin">phpmyadmin</a></li>
             </ul>
           </li>

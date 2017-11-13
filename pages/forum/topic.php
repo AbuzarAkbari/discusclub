@@ -217,30 +217,29 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
 
     <!-- summernote js -->
     <script type="text/javascript" src="/js/summernote.min.js"></script>
-    <script src="/js/summernote-ext-emoji.js"></script>
+    <script src="/js/summernote-ext-emoji.js" charset="utf-8"></script>
     <script>
-        document.emojiSource = '/images/emoji/'; //relative path to emojis
-    </script>
-    <script>
+        document.emojiSource = '/images/emoji/';
         $('.editor').summernote({
-        	toolbar: [
-			    // [groupName, [list of button]]
-			    ['style', ['bold', 'italic', 'underline', 'clear']],
-			    ['font', ['strikethrough', 'superscript', 'subscript']],
-			    ['fontsize', ['fontsize']],
-			    ['color', ['color']],
-			    ['para', ['ul', 'ol', 'paragraph']],
-			    ['height', ['height']],
-			    ['misc', ['emoji']],
-				['code', ['codeview']]
-			  ],
-
             disableResizeEditor: true,
-            codemirror: {
-                theme: 'yeti'
-            }
-
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['misc', ['emoji']],
+                ['code', ['codeview']]
+            ]
         });
+
+        $(document).ready(function () {
+            $('.quote-btn').on('click', function () {
+                $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
+            });
+        });
+
     </script>
 </body>
 </html>
