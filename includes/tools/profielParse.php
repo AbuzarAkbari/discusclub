@@ -53,6 +53,14 @@ if ($logged_in) {
             $query .= ", city = :city";
             $bindings[":city"] = $city;
         }
+        //Nieuwsbrief
+        if (isset($_POST['news']) && !empty($_POST["news"])) {
+            $news = $_POST['news'];
+            $query .= ", news = :news";
+            $bindings[": news"] = $news;
+
+            require 'mailer.php';
+        }
         //Handtekening
         if (isset($_POST['signature']) && !empty($_POST["signature"])) {
             $signature = $_POST['signature'];
