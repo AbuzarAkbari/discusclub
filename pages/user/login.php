@@ -10,6 +10,10 @@ if (isset($_POST["send"])) {
     $res = $sth->fetch(PDO::FETCH_OBJ);
 
     if (!empty($res)) {
+        if(empty($res->password)) {
+            header("Location: /user/password/forgot.php?err=Vanwege de nieuwe website moet u een nieuw wachtwoord maken");
+            exit();
+        }
         if (password_verify($_POST["password"], $res->password)) {
             $_SESSION["user"] = $res;
             if (isset($_GET["redirect"])) {
