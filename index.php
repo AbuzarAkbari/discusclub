@@ -1,6 +1,7 @@
 <?php require_once("includes/tools/security.php"); ?>
 <?php
-    $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id JOIN user ON aquarium.user_id = user.id WHERE aquarium.deleted_at IS NOT NULL";
+//$aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id JOIN user ON aquarium.user_id = user.id WHERE aquarium.deleted_at IS NULL";
+    $aquariumSql = "SELECT *, count(l.aquarium_id) as amount_of_likes FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.start_at < NOW() GROUP BY c.start_at, l.aquarium_id ORDER BY amount_of_likes DESC, c.end_at DESC LIMIT 1";
     $aquariumResult = $dbc->prepare($aquariumSql);
     $aquariumResult->execute();
     $aquarium = $aquariumResult->fetch();
@@ -41,9 +42,9 @@
         $result->execute();
         $text = $result->fetch(PDO::FETCH_ASSOC);
 
-        echo '<pre>';
-        print_r($aquarium);
-        exit();
+//        echo '<pre>';
+//        print_r($aquarium);
+//        exit();
       ?>
     <div class="container main">
         <div class="row">
@@ -72,13 +73,7 @@
                         <div class="panel-body">
                             Gefeliciteerd <a href="/user/<?php echo $aquarium['user_id']; ?>"><?php echo $aquarium['first_name'].' '.$aquarium['last_name']; ?></a>, <br><br>
                             Jij hebt deze wedstrijd gewonnen
-                            <?php
-                                $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";
-                                $result = $dbc->prepare($sql);
-                                $result->execute([":aid" => $aquarium['id']]);
-                                $likes = $result->fetch();
-                            ?>
-                            met <?php echo $likes['x'] ?> visjes<br><br>
+                            met <?php echo $aquarium['amount_of_likes']; ?> <?php echo ($aquarium['amount_of_likes'] > 1) ? 'visjes' : 'visje' ; ?><br><br>
                             <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>">
                                 <img src="images/<?php echo $aquarium['path']; ?>" alt="">
                             </a>

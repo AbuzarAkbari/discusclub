@@ -69,7 +69,7 @@ $perPage = 6;
                                 $result->execute([":aid" => $aquarium['aquarium_id']]);
                                 $like = $result->fetch();
 
-                                $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca";
+                                $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca AND start_at <= NOW() AND end_at >= NOW()";
                                 $contestResult = $dbc->prepare($contestSql);
                                 $contestResult->execute([":aca" => $aquarium["aquarium_created_at"]]);
                                 $contest = $contestResult->fetch();
