@@ -691,6 +691,7 @@ li.dropdown:hover > .dropdown-menu {
     padding: 0;
     color: white;
     display: none;
+    border: 1px solid #0a8ac2;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -791,7 +792,6 @@ li.dropdown:hover > .dropdown-menu {
 #primary_nav_wrap ul li:hover > span {
     color: white;
 }
-
 
 #primary_nav_wrap li a:hover {
     text-decoration: underline;
