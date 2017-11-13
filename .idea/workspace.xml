@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,18 +37,18 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="147" column="31" lean-forward="false" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+            <state relative-caret-position="221">
+              <caret line="67" column="21" lean-forward="false" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
               <folding>
-                <marker date="1510587866629" expanded="true" signature="78:206" ph="SELECT * FRO... aquarium" />
-                <marker date="1510587866629" expanded="true" signature="78:248" ph="SELECT * FRO... aquarium" />
-                <marker date="1510587866629" expanded="true" signature="271:325" ph="SELECT * FRO... contest" />
-                <marker date="1510587866629" expanded="true" signature="271:638" ph="SELECT *, co... like" />
-                <marker date="1510587866629" expanded="true" signature="783:828" ph="SELECT * FRO... like" />
-                <marker date="1510587866629" expanded="true" signature="1721:1814" ph="SELECT * FRO... topic" />
-                <marker date="1510587866629" expanded="true" signature="1721:1815" ph="SELECT * FRO... topic" />
-                <marker date="1510587866629" expanded="true" signature="4157:4175" ph="SELECT * FRO... news" />
-                <marker date="1510587866629" expanded="true" signature="5639:5804" ph="SELECT *, ne... news_reply" />
+                <marker date="1510588159648" expanded="true" signature="78:206" ph="SELECT * FRO... aquarium" />
+                <marker date="1510588159648" expanded="true" signature="78:248" ph="SELECT * FRO... aquarium" />
+                <marker date="1510588159648" expanded="true" signature="271:325" ph="SELECT * FRO... contest" />
+                <marker date="1510588159648" expanded="true" signature="271:638" ph="SELECT *, co... like" />
+                <marker date="1510588159648" expanded="true" signature="783:828" ph="SELECT * FRO... like" />
+                <marker date="1510588159648" expanded="true" signature="1721:1814" ph="SELECT * FRO... topic" />
+                <marker date="1510588159648" expanded="true" signature="1721:1815" ph="SELECT * FRO... topic" />
+                <marker date="1510588159648" expanded="true" signature="4143:4161" ph="SELECT * FRO... news" />
+                <marker date="1510588159648" expanded="true" signature="5625:5790" ph="SELECT *, ne... news_reply" />
               </folding>
             </state>
           </provider>
@@ -305,12 +304,12 @@
       <workItem from="1510221350696" duration="19380000" />
       <workItem from="1510304073382" duration="22286000" />
       <workItem from="1510566391753" duration="12693000" />
-      <workItem from="1510583399047" duration="4462000" />
+      <workItem from="1510583399047" duration="4755000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304596000" />
+    <option name="totallyTimeSpent" value="304889000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -743,18 +742,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="147" column="31" lean-forward="false" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+        <state relative-caret-position="221">
+          <caret line="67" column="21" lean-forward="false" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
           <folding>
-            <marker date="1510587866629" expanded="true" signature="78:206" ph="SELECT * FRO... aquarium" />
-            <marker date="1510587866629" expanded="true" signature="78:248" ph="SELECT * FRO... aquarium" />
-            <marker date="1510587866629" expanded="true" signature="271:325" ph="SELECT * FRO... contest" />
-            <marker date="1510587866629" expanded="true" signature="271:638" ph="SELECT *, co... like" />
-            <marker date="1510587866629" expanded="true" signature="783:828" ph="SELECT * FRO... like" />
-            <marker date="1510587866629" expanded="true" signature="1721:1814" ph="SELECT * FRO... topic" />
-            <marker date="1510587866629" expanded="true" signature="1721:1815" ph="SELECT * FRO... topic" />
-            <marker date="1510587866629" expanded="true" signature="4157:4175" ph="SELECT * FRO... news" />
-            <marker date="1510587866629" expanded="true" signature="5639:5804" ph="SELECT *, ne... news_reply" />
+            <marker date="1510588159648" expanded="true" signature="78:206" ph="SELECT * FRO... aquarium" />
+            <marker date="1510588159648" expanded="true" signature="78:248" ph="SELECT * FRO... aquarium" />
+            <marker date="1510588159648" expanded="true" signature="271:325" ph="SELECT * FRO... contest" />
+            <marker date="1510588159648" expanded="true" signature="271:638" ph="SELECT *, co... like" />
+            <marker date="1510588159648" expanded="true" signature="783:828" ph="SELECT * FRO... like" />
+            <marker date="1510588159648" expanded="true" signature="1721:1814" ph="SELECT * FRO... topic" />
+            <marker date="1510588159648" expanded="true" signature="1721:1815" ph="SELECT * FRO... topic" />
+            <marker date="1510588159648" expanded="true" signature="4143:4161" ph="SELECT * FRO... news" />
+            <marker date="1510588159648" expanded="true" signature="5625:5790" ph="SELECT *, ne... news_reply" />
           </folding>
         </state>
       </provider>
