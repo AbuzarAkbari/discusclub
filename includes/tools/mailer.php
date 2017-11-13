@@ -1,12 +1,19 @@
 <?php
-$url = 'https://us17.api.mailchimp.com/3.0/lists/d2917eb993/members/' . md5(strtolower("shadew69@gmail.com"));
-$data = array('email_address' => 'shadew69@gmail.com', 'status' => "subscribed", 'status_if_new' => "subscribed");
+require("keys.php");
+$sub = "subscribed";
+echo $_POST["news"];
+if($_POST["news"] != "on") {
+    $sub = "unsubscribed";
+}
+
+$url = 'https://us17.api.mailchimp.com/3.0/lists/d2917eb993/members/' . md5(strtolower($_POST['email']));
+$data = array('email_address' => $_POST['email'], 'status' => $sub, 'status_if_new' => $sub, 'merge_fields' => ["FNAME" => isset($_POST["first_name"]) ? $_POST["first_name"] : $user_data->first_name, "LNAME" => isset($_POST["last_name"]) ? $_POST["last_name"] : $user_data->last_name]);
 
 // use key 'http' even if you send the request to https://...
 $options = array(
     'http' => array(
         'method'  => 'PUT',
-        'header'  => "Content-type: application/json\r\nAuthorization: apikey dfc849ee3d8f11035667a7b6921f214a-us17\r\n",
+        'header'  => "Content-type: application/json\r\nAuthorization: apikey $mailchimp \r\n",
         'content' => json_encode($data)
     )
 );
@@ -15,6 +22,3 @@ $result = file_get_contents($url, false, $context);
 if ($result === FALSE) {
 
 }
-echo "<pre>";
-var_dump(json_decode($result));
-echo "</pre>";

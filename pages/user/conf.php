@@ -1,8 +1,9 @@
 <?php
+$levels = ["lid", "gebruiker"];
 require_once("../../includes/tools/security.php");
-
+require_once("../../includes/tools/const.php");
 if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
-    $sth = $dbc->prepare("SELECT u.id, u.email, u.first_name, u.last_name, u.username, u.password, r.name as role_name, u.created_at, u.last_changed, u.signature, u.birthdate, u.city, i.path as profile_img, u.profile_img as profile_img_ida, news FROM user as u JOIN role as r ON r.id = u.role_id JOIN image as i ON u.profile_img = i.id WHERE u.id = :id");
+    $sth = $dbc->prepare("$USER_SELECT WHERE u.id = :id");
     $sth->execute([":id" => $_GET["id"]]);
 
     $user_data = $sth->fetch(PDO::FETCH_OBJ);
@@ -65,8 +66,8 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                             }
                         ?>
 
-                        <input type="hidden" name="nieuwsbrief" value="off">
-                        <input type="checkbox" name="nieuwsbrief" id="nieuwsbrief" <?php echo $checked; ?>> <label for="nieuwsbrief">Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
+                        <input type="hidden" name="news" value="off">
+                        <input type="checkbox" name="news" id="news" <?php echo $checked; ?>> <label for="news">Ik wil de DCH news ontvangen </label> <br><br>
                         <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Email"><br>
                         <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Herhaal e-mail"><br>
                         <label for="new_password">Nieuw wachtwoord</label><br>
