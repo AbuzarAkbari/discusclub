@@ -137,6 +137,8 @@
       <div class="col-md-8"></div>
       <div class="col-md-8"></div>
     </div>
+
+        <?php require ('../../includes/components/advertentie.php'); ?>
   </div>
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>

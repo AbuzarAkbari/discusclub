@@ -9,7 +9,7 @@ if(!isset($ad_in_row)) {
 }
 ?>
 <div class='<?php echo $ad_in_row ? "col-md-12" : null; ?>text-center'>
-    <a>
+    <a target="_blank" href="<?php echo $rows[0]['url'];?>">
         <img alt='Banner' class='sponsor_vak' src='/images<?php echo $rows[0]['path']; ?>' alt=''>
     </a>
 </div>
