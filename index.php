@@ -17,7 +17,7 @@
 <head>
     <title>Discusclub Holland</title>
     <?php require_once("includes/components/head.php"); ?>
-</head> 
+</head>
 
 <body>
     <div id="fb-root"></div>
@@ -145,9 +145,9 @@
                         </div>
                     </div>
                 </div>
-                <?php require 'includes/components/advertentie.php'; ?>
             </div>
         </div>
+        <?php require '/includes/components/advertentie.php'; ?>
     </div>
     <footer>
         <?php require 'includes/components/footer.php' ; ?>
@@ -155,6 +155,8 @@
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Discus Club Holland -->
 
 </body>
 
