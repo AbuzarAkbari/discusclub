@@ -25,7 +25,7 @@ if (isset($_POST['upload_album'])) {
 
                 // Check if file already exists
                 if (file_exists($target_file)) {
-                    $error = "Sorry, geen fotobestand gevonden.";
+                    $error = "Sorry, het bestand bestaat al.";
                     $uploadOk = 0;
                 }
 

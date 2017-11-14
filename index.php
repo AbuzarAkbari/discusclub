@@ -1,7 +1,7 @@
 <?php require_once("includes/tools/security.php"); ?>
 <?php
 //$aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id JOIN user ON aquarium.user_id = user.id WHERE aquarium.deleted_at IS NULL";
-    $aquariumSql = "SELECT *, count(l.aquarium_id) as amount_of_likes FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.start_at >= NOW() AND c.end_at <= NOW() GROUP BY c.start_at, l.aquarium_id ORDER BY c.end_at DESC, amount_of_likes DESC LIMIT 1";
+    $aquariumSql = "SELECT *, count(l.aquarium_id) as amount_of_likes FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.end_at <= NOW() GROUP BY c.start_at, l.aquarium_id ORDER BY c.end_at DESC, amount_of_likes DESC LIMIT 1";
     $aquariumResult = $dbc->prepare($aquariumSql);
     $aquariumResult->execute();
     $aquarium = $aquariumResult->fetch();
