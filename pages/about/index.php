@@ -36,7 +36,6 @@
                     <div class="panel-heading border-color-blue">Over Discus Club Holland</div>
                     <div class="panel-body padding-padding space">
                         <li class="overonsHover"><a href="/about/origin">Het ontstaan van Discus Club Holland</a></li>
-                        <li class="overonsHover"><a href="/news">Nieuwsberichten​</a></li>
                     </div>
                 </div>
             </div>
