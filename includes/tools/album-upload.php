@@ -60,8 +60,11 @@ if (isset($_POST['upload_album'])) {
                 }
             }
 
-            for ($x = 0; $x < count($_FILES['files']['name']); $x++) {
-
+//          echo "<pre>";
+//	        var_dump($_FILES['files']['name'], $album_files["tmp_name"], sizeof($_FILES['files']['name']));
+//	        exit();
+            for ($x = 0; $x < sizeof($_FILES['files']['name']); $x++) {
+                $album_files = $_FILES['files'];
                 if (move_uploaded_file($album_files["tmp_name"][$x], '../../images' . $path)) {
 
                     $albumsql = "INSERT INTO album (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
@@ -79,6 +82,6 @@ if (isset($_POST['upload_album'])) {
                 }
             }
         }
-        header("Location: /album/post/" . $album_id);
+       header("Location: /album/post/" . $album_id);
     }
 }

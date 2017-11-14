@@ -39,13 +39,13 @@
           <div class="panel-body">
               <form action="/includes/tools/verwerk" method="post">
                 <label for="fname">Naam</label>
-                <input id="fname" type="text" class="form-control" name="naam" placeholder="Uw naam">
+                <input id="fname" type="text" class="form-control" name="naam" placeholder="Uw naam" required>
                 <br>
                 <label for="email">E-mail</label>
-                <input id="email" type="text" class="form-control" name="email" placeholder="Uw e-mail">
+                <input id="email" type="text" class="form-control" name="email" placeholder="Uw e-mail" required>
                 <br>
                 <label for="subject">Bericht</label>
-                <textarea id="subject" name="bericht" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;"></textarea>
+                <textarea id="subject" name="bericht" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;" required></textarea>
                 <br>
                 <input type="submit" class="btn btn-primary" value="Verstuur">
               </form>
