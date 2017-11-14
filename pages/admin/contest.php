@@ -8,7 +8,7 @@ if(isset($_POST['start_contest']))
     $begin = $date[0];
     $end = $date[1];
 
-    $select = "SELECT * FROM contest WHERE start_at <= :begin AND end_at >= :end";
+    $select = "SELECT * FROM contest WHERE start_at < :begin AND end_at > :end";
     $result = $dbc->prepare($select);
     $result->execute([":begin" => $begin, ":end" => $end]);
     $aantal = $result->fetchAll(PDO::FETCH_ASSOC);

@@ -1,9 +1,9 @@
 <?php
 require("keys.php");
-$sub = "subscribed";
+$sub = "unsubscribed";
 
-if($_POST["news"] != "on") {
-    $sub = "unsubscribed";
+if(isset($_POST["news"]) && $_POST["news"] == "on") {
+    $sub = "subscribed";
 }
 
 $url = 'https://us17.api.mailchimp.com/3.0/lists/d2917eb993/members/' . md5(strtolower($_POST['email']));
