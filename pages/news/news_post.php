@@ -188,7 +188,7 @@ require_once("../../includes/components/nav.php");
                             </div>
 
                             <div class="col-md-9">
-                                 <p><?php echo wordwrap($reply['news_reply_content'], 70, "<br>", true); ?></p>
+                                 <p><?php echo wordwrap(html_entity_decode($reply['news_reply_content']), 70, "<br>", true); ?></p>
                             </div>
 
                 </div>
