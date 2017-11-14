@@ -110,7 +110,8 @@ function custom_echo($x, $length){
         </div>
         <?php
         $path = "/aquarium/:page";
-        $sql = "SELECT COUNT(*) AS x FROM aquarium WHERE deleted_at IS NULL";
+        // $sql = "SELECT COUNT(*) AS x FROM aquarium WHERE deleted_at IS NULL";
+        $sql = "SELECT DISTINCT COUNT(aquarium.id) as x FROM aquarium WHERE id IN (SELECT aquarium_id FROM image)";
         require_once("../../includes/components/pagination.php");
         ?>
     </div>
