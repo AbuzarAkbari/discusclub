@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/album/2017-11-14_13-51-01-0.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/album/2017-11-14_13-58-46-0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/album/2017-11-14_14-24-28-0.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/album/2017-11-14_14-28-28-8.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/aquarium/2017-11-14_13-55-00-0.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/tools/album-upload.php" afterPath="$PROJECT_DIR$/includes/tools/album-upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/tools/sponsor-worden.php" afterPath="$PROJECT_DIR$/includes/tools/sponsor-worden.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/overzetten/index.js" afterPath="$PROJECT_DIR$/overzetten/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/album/index.php" afterPath="$PROJECT_DIR$/pages/album/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/album/view.php" afterPath="$PROJECT_DIR$/pages/album/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/index.php" afterPath="$PROJECT_DIR$/pages/forum/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/index.php" afterPath="$PROJECT_DIR$/pages/news/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news/news_post.php" afterPath="$PROJECT_DIR$/pages/news/news_post.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,20 +54,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+              <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
               <folding>
-                <marker date="1510667445013" expanded="true" signature="78:206" ph="SELECT * FRO... aquarium" />
-                <marker date="1510667445013" expanded="true" signature="78:248" ph="SELECT * FRO... aquarium" />
-                <marker date="1510667445013" expanded="true" signature="271:637" ph="SELECT *, co... like" />
-                <marker date="1510667445013" expanded="true" signature="782:827" ph="SELECT * FRO... like" />
-                <marker date="1510667445013" expanded="true" signature="1720:1813" ph="SELECT * FRO... topic" />
-                <marker date="1510667445013" expanded="true" signature="1720:1814" ph="SELECT * FRO... topic" />
-                <marker date="1510667445013" expanded="true" signature="4147:4165" ph="SELECT * FRO... news" />
-                <marker date="1510667445013" expanded="true" signature="5629:5794" ph="SELECT *, ne... news_reply" />
+                <marker date="1510667855464" expanded="true" signature="78:206" ph="SELECT * FRO... aquarium" />
+                <marker date="1510667855464" expanded="true" signature="78:248" ph="SELECT * FRO... aquarium" />
+                <marker date="1510667855464" expanded="true" signature="271:637" ph="SELECT *, co... like" />
+                <marker date="1510667855464" expanded="true" signature="782:827" ph="SELECT * FRO... like" />
+                <marker date="1510667855464" expanded="true" signature="1721:1815" ph="SELECT * FRO... topic" />
+                <marker date="1510667855464" expanded="true" signature="4148:4166" ph="SELECT * FRO... news" />
+                <marker date="1510667855464" expanded="true" signature="5668:5833" ph="SELECT *, ne... news_reply" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sponsor-worden.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/tools/sponsor-worden.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="87" column="9" lean-forward="true" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+              <folding>
+                <marker date="1510668027484" expanded="true" signature="2313:2414" ph="..." />
+                <marker date="1510668027484" expanded="true" signature="2508:2547" ph="INSERT INTO image... " />
+                <marker date="1510668027484" expanded="true" signature="2632:2740" ph="INSERT INTO sponsor... " />
               </folding>
             </state>
           </provider>
@@ -66,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/pages/admin/contest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+              <caret line="10" column="53" lean-forward="false" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
               <folding>
                 <marker date="1510654321164" expanded="true" signature="218:281" ph="SELECT * FRO... contest" />
                 <marker date="1510654321164" expanded="true" signature="482:548" ph="INSERT INTO contest... " />
@@ -182,9 +206,9 @@
         <option value="$PROJECT_DIR$/pages/aquarium/index.php" />
         <option value="$PROJECT_DIR$/includes/tools/aquarium-upload.php" />
         <option value="$PROJECT_DIR$/includes/tools/album-upload.php" />
-        <option value="$PROJECT_DIR$/includes/tools/sponsor-worden.php" />
         <option value="$PROJECT_DIR$/pages/admin/contest.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/includes/tools/sponsor-worden.php" />
       </list>
     </option>
   </component>
@@ -231,6 +255,12 @@
               <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
               <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tools" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
@@ -311,12 +341,12 @@
       <workItem from="1510304073382" duration="22286000" />
       <workItem from="1510566391753" duration="12693000" />
       <workItem from="1510583399047" duration="5294000" />
-      <workItem from="1510652545638" duration="12848000" />
+      <workItem from="1510652545638" duration="13336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="318276000" />
+    <option name="totallyTimeSpent" value="318764000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -768,21 +798,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/tools/sponsor-worden.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="14" />
-          <folding>
-            <marker date="1510666332699" expanded="true" signature="2507:2546" ph="INSERT INTO image... " />
-            <marker date="1510666332699" expanded="true" signature="2631:2739" ph="INSERT INTO sponsor... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/admin/contest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+          <caret line="10" column="53" lean-forward="false" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
           <folding>
             <marker date="1510654321164" expanded="true" signature="218:281" ph="SELECT * FRO... contest" />
             <marker date="1510654321164" expanded="true" signature="482:548" ph="INSERT INTO contest... " />
@@ -795,16 +814,27 @@
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
-            <marker date="1510667445013" expanded="true" signature="78:206" ph="SELECT * FRO... aquarium" />
-            <marker date="1510667445013" expanded="true" signature="78:248" ph="SELECT * FRO... aquarium" />
-            <marker date="1510667445013" expanded="true" signature="271:637" ph="SELECT *, co... like" />
-            <marker date="1510667445013" expanded="true" signature="782:827" ph="SELECT * FRO... like" />
-            <marker date="1510667445013" expanded="true" signature="1720:1813" ph="SELECT * FRO... topic" />
-            <marker date="1510667445013" expanded="true" signature="1720:1814" ph="SELECT * FRO... topic" />
-            <marker date="1510667445013" expanded="true" signature="4147:4165" ph="SELECT * FRO... news" />
-            <marker date="1510667445013" expanded="true" signature="5629:5794" ph="SELECT *, ne... news_reply" />
+            <marker date="1510667855464" expanded="true" signature="78:206" ph="SELECT * FRO... aquarium" />
+            <marker date="1510667855464" expanded="true" signature="78:248" ph="SELECT * FRO... aquarium" />
+            <marker date="1510667855464" expanded="true" signature="271:637" ph="SELECT *, co... like" />
+            <marker date="1510667855464" expanded="true" signature="782:827" ph="SELECT * FRO... like" />
+            <marker date="1510667855464" expanded="true" signature="1721:1815" ph="SELECT * FRO... topic" />
+            <marker date="1510667855464" expanded="true" signature="4148:4166" ph="SELECT * FRO... news" />
+            <marker date="1510667855464" expanded="true" signature="5668:5833" ph="SELECT *, ne... news_reply" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/tools/sponsor-worden.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="87" column="9" lean-forward="true" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+          <folding>
+            <marker date="1510668027484" expanded="true" signature="2313:2414" ph="..." />
+            <marker date="1510668027484" expanded="true" signature="2508:2547" ph="INSERT INTO image... " />
+            <marker date="1510668027484" expanded="true" signature="2632:2740" ph="INSERT INTO sponsor... " />
           </folding>
         </state>
       </provider>

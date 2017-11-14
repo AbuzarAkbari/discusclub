@@ -5,7 +5,7 @@ const conn = mysql.createPool({
   user: 'test',
   password: 'test',
   database: 'forum',
-  connectionLimit: 100,
+  connectionLimit: 10,
 })
 
 const dhc = mysql.createPool({
@@ -15,6 +15,8 @@ const dhc = mysql.createPool({
   database: 'dhc',
   connectionLimit: 10,
 })
+
+const topicIds = {}
 
 dhc
   .query('SELECT * FROM users')
@@ -99,9 +101,44 @@ dhc
             'INSERT INTO topic(user_id, title, sub_category_id, created_at, last_changed, state_id, content) VALUES (?, ?, ?, ?, ?, ?, ?)',
             [x.profile_id, x.title, x.forum_id, x.created, x.modified, state, res[0].content_cache]
           ).catch(e => console.log(e)) : Promise.reject("no content found")
-        ).catch(e => console.log(e))
+        ).then(res => conn.query("SELECT id FROM topic WHERE user_id = ? AND created_at = ?", [x.profile_id, x.created])).catch(e => console.log(e))
+         .then(res => {
+            console.log(res, x)
+            if(res.length > 0) {
+             const id = {dhc: x.id, conn: res[0].id}
+            } else {
+              const id = false;
+            }
+            return new Promise((res, rej) => {
+              if(id) {
+                res(id)
+              } else {
+                rej()
+              }
+            })
+         }).catch(e => console.log(e))
       )
     })
     return Promise.all(queries)
+  })
+  .then(res => {
+    console.log(res)
+    res.forEach((x, i) => {
+      if(x) {
+        topicIds[x.dhc] = x.conn;
+      }
+    })
+    console.log(topicIds)
+    return dhc.query("SELECT * FROM forum_posts")
+  })
+  .then(res => {
+    const queries = []
+    res.forEach((x, i) => {
+      queries.push(
+        conn.query("INSERT INTO reply(user_id, content, topic_id, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
+                   [x.profile_id, x.content_cache, 1, x.created, x.modified]).catch(e => console.log(e))
+      )
+    })
+    return Promise.all(queries);
   })
   .catch(e => console.log(e))

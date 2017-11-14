@@ -17,7 +17,7 @@
 <head>
     <title>Discusclub Holland</title>
     <?php require_once("includes/components/head.php"); ?>
-</head>
+</head> 
 
 <body>
     <div id="fb-root"></div>
@@ -96,8 +96,8 @@
 
                                 foreach($res as $key => $value) : ?>
                                     <div class=" col-md-12 verticalLine">
-                                        <p><b><?php echo  $value['title']; ?></b></p>
-                                        <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : $value["content"];
+                                        <p><b><?php echo html_entity_decode($value['title']);?></b></p>
+                                        <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,200) . "..." : html_entity_decode($value["content"]);
                                         ?>
                                         <br><br>
                                         <a href="/news/post/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
@@ -127,10 +127,10 @@
                                             <!-- <div class="col-md-3"><img src="<?php // echo ""  ?>"></div> -->
                                             <div class="col-md-12">
                                                 <p class="title-box-color">
-                                                    <b><?php echo $value["title"]; ?></b>
+                                                    <b><?php echo html_entity_decode($value["title"]); ?></b>
                                                 </p>
                                                 <p>
-                                                <?php echo strlen($value["content"]) > 45 ? substr($value["content"], 0, 45) . "..." : $value["content"]; ?>
+                                                <?php echo strlen($value["content"]) > 45 ? substr($value["content"], 0, 45) . "..." : html_entity_decode($value["content"]); ?>
                                                 <p>
                                                 <?php
                                                     if(sizeof($res)-1 != $key) {

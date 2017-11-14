@@ -10,7 +10,7 @@ $perPage = 5;
 if (isset($_POST['post_add_topic'])) {
     if ($logged_in && in_array($current_level, ["redacteur", "admin"])) {
         $subId = $_POST['sub_category'];
-        $topicTitle = $_POST['add_topic_title'];
+        $topicTitle = html_entity_decode($_POST['add_topic_title']);
         $topicAuteur = $_SESSION['user']->id;
         $topicContent = htmlentities($_POST['add_topic_content']);
 

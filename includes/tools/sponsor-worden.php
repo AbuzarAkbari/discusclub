@@ -75,6 +75,7 @@ if(isset($_POST['sponsorverzend'])) {
 //            exit();
 
             if (move_uploaded_file($sponsor_file["tmp_name"], '../../images'.$path)) {
+
                 $result = $dbc->prepare("INSERT INTO image (path) VALUES (:path)");
 				$result->execute([':path' => $path]);
 
