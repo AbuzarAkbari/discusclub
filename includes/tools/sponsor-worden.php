@@ -29,8 +29,8 @@ if(isset($_POST['sponsorverzend'])) {
         $height = $check[1];
 
         if ($width < 480 || $height < 70){
-            $error = "Sorry, het bestand bestaat al.";
-            $uploadOk = 0;
+            $error = "Sorry, het bestand is te groot";
+            unlink($sponsor_file["tmp_name"]);
         }
 
         // Check if file already exists
