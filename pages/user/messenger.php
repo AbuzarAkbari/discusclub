@@ -29,7 +29,7 @@ require_once("../../includes/tools/messenger_handler.php");
     <?php
     require_once("../../includes/components/nav.php");
     ?>
-    <br><br><br><br>
+    <br><br>
     <div class="container main">
         <div class="row">
             <div class="col-md-12">
@@ -189,8 +189,10 @@ require_once("../../includes/tools/messenger_handler.php");
                 </div>
                 </div>
             </div>
+            <br>
+            <?php require ('../../includes/components/advertentie.php'); ?>
         </div>
-    <br>    <br>
+
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
