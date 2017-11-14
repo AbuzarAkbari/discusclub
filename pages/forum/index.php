@@ -86,7 +86,7 @@
                     <?php echo $categorie['name']; ?>
                     <?php if(in_array($current_level, $admin_levels)) : ?>
                         <td>
-                            <a title="Delete" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" type="button" class="btn btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="glyphicon glyphicon-remove-sign"></i></a>
+                            <a title="Delete" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="glyphicon glyphicon-remove-sign"></i></a>
                         </td>
                     <?php endif; ?>
                 </div>

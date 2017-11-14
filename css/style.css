@@ -801,3 +801,7 @@ li.dropdown:hover > .dropdown-menu {
     width: 100%;
     height: auto;
 }
+
+.buttonDelete {
+    float: right;
+}
