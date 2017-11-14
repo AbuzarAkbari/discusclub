@@ -6,6 +6,18 @@ if (false === intval($page)) {
     exit;
 }
 $perPage = 6;
+function custom_echo($x, $length)
+{
+  if(strlen($x)<=$length)
+  {
+    echo $x;
+  }
+  else
+  {
+    $y=substr($x,0,$length) . '...';
+    echo $y;
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +73,7 @@ $perPage = 6;
                     <div class="panel panel-primary">
                         <div class="panel-heading border-color-blue row">
                             <div class="col-md-7 col-sm-8 col-xs-8">
-                                <h2 class="panel-title aquarium-title"><?php echo $aquarium['title']; ?></h2>
+                                <h3 class="panel-title"><?php echo $aquarium['title']; ?></h3>
                             </div>
                             <?php
                                 $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";

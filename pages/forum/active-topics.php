@@ -129,7 +129,9 @@ $perPage = 10;
             $sql = "SELECT COUNT(*) AS x FROM topic WHERE created_at >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY created_at AND deleted_at IS NULL";
             require_once("../../includes/components/pagination.php");
             ?>
-        </div>
+        </div>    <?php
+            // $ad_in_row = true;
+            require_once('../../includes/components/advertentie.php'); ?>
     </div>
 </div>
 </div>

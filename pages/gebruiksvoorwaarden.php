@@ -64,6 +64,9 @@ U gaat ermee Akkoord.</p>
 
               </div>
           </div>
+          <?php
+          // $ad_in_row = true;
+          require_once('../includes/components/advertentie.php'); ?>
         </div>
     </div>
     <footer>

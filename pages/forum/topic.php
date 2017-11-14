@@ -203,6 +203,9 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
                     </form>
                 </div>
             </div>
+            <?php
+            // $ad_in_row = true;
+            require_once('../../includes/components/advertentie.php'); ?>
         </div>
     </div>
     <?php endif; ?>
