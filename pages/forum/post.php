@@ -192,7 +192,7 @@ require_once("../../includes/components/nav.php");
                                     href="/user/<?php echo $reply["user_id"]; ?>"><?php echo $naam; ?></a></b>
                     </h3>
                     <?php if (in_array($current_level, $admin_levels)) : ?>
-                        <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/includes/tools/reply/del.php?topic_id=<?php echo $_GET["id"]; ?>&id=<?php echo $reply['id']; ?>" type="button" class="btn btn-primary" name="button" style="color: #fff; background-color: #0ba8ec;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
+                        <span style="float: right; margin-top: -23px;"><a title="Verwijderen" href="/includes/tools/reply/del.php?topic_id=<?php echo $_GET["id"]; ?>&id=<?php echo $reply['id']; ?>" class=" btn-primary"  style="color: #fff; background-color: #0ba8ec;"> <i class="glyphicon glyphicon-remove-sign" ></i></a></span>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body padding-padding ">
