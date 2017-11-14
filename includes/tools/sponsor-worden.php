@@ -63,7 +63,7 @@ if(isset($_POST['sponsorverzend'])) {
             // if everything is ok, try to upload file
         } else {
             $fragments = explode('.', $sponsor_file["name"]);
-			$path = "/sponsor/". (date("Y-m-d_H-i-s") . '.' . end($fragments);
+			$path = "/sponsor/". date("Y-m-d_H-i-s") . '.' . end($fragments);
 
             $extensions = [
                 '.png',
@@ -80,7 +80,7 @@ if(isset($_POST['sponsorverzend'])) {
 
 
 
-            if (move_uploaded_file($sponsor_file["tmp_name"], __DIR__ . '/../../images'.$path)) {
+            if (move_uploaded_file($sponsor_file["tmp_name"],  '../../images'.$path)) {
                 $result = $dbc->prepare("INSERT INTO image (path) VALUES (:path)");
 				$result->execute([':path' => $path]);
 
