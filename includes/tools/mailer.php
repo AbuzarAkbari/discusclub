@@ -1,7 +1,7 @@
 <?php
 require("keys.php");
 $sub = "subscribed";
-echo $_POST["news"];
+
 if($_POST["news"] != "on") {
     $sub = "unsubscribed";
 }
