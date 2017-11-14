@@ -134,6 +134,9 @@ $perPage = 10;
             require_once("../../includes/components/pagination.php");
             ?>
             </div>
+            <?php
+            // $ad_in_row = true;
+            require_once('../../includes/components/advertentie.php'); ?>
         </div>
     </div>
 </div>
