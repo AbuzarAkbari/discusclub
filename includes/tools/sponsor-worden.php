@@ -28,9 +28,7 @@ if(isset($_POST['sponsorverzend'])) {
         $width = $check[0];
         $height = $check[1];
 
-        if ($width > 468 || $height > 60){
-            echo "nice";
-        } else {
+        if ($width < 480 || $height < 70){
             $error = "Sorry, het bestand is te groot";
             unlink($sponsor_file["tmp_name"]);
         }
