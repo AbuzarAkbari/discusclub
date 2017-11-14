@@ -93,6 +93,8 @@ if($user_data == false){
                             </div>
                         </div>
                     </div>
+                    <?php require ('../../includes/components/advertentie.php'); ?>
+
                     <div class="panel panel-primary border-color-blues">
                         <div class="panel-heading border-color-blue">Statistieken</div>
                         <div class="panel-body text-left">

@@ -257,6 +257,8 @@ require_once("../../includes/components/nav.php");
         </div>
         <?php endif; ?>
     </div>
+    <?php require ('../../includes/components/advertentie.php'); ?>
+
     </div>
 </div>
 

@@ -45,6 +45,9 @@ require_once("../includes/components/nav.php");
         </div>
     </div>
     <br>
+    <?php
+    // $ad_in_row = true;
+    require_once('../includes/components/advertentie.php'); ?>
 </div>
 <footer>
     <?php require_once('../includes/components/footer.php') ; ?>
