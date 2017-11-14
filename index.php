@@ -17,7 +17,7 @@
 <head>
     <title>Discusclub Holland</title>
     <?php require_once("includes/components/head.php"); ?>
-</head>
+</head> 
 
 <body>
     <div id="fb-root"></div>
