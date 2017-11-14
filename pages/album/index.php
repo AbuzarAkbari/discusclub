@@ -11,10 +11,18 @@ if (false === intval($page)) {
 }
 $perPage = 6;
 
-//echo "<pre>";
-//print_r($_SERVER);
-//exit;
-
+function custom_echo($x, $length)
+{
+  if(strlen($x)<=$length)
+  {
+    echo $x;
+  }
+  else
+  {
+    $y=substr($x,0,$length) . '...';
+    echo $y;
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,12 +77,12 @@ $perPage = 6;
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading border-color-blue">
-                            <h3 class="panel-title"><?php echo $album['title']; ?></h3>
+                            <h3 class="panel-title"><?php custom_echo($album['title'], 10); ?></h3>
                         </div>
                         <div class="panel-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $album["user_id"]; ?>"><i> <?php echo $album['first_name'].' '.$album['last_name']; ?> </i></a></h4>
+                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $album["user_id"]; ?>"><i> <?php custom_echo($album['first_name'], 10) .' '?> <?php echo $album['last_name']; ?> </i></a></h4>
                                     <p>
                                         Aantal foto's: <i><?php echo $album['aantal_fotos']; ?></i><br>
                                         Datum: <i><?php echo $album['created_at']; ?></i><br>

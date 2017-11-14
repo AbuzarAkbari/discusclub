@@ -6,8 +6,7 @@ if (false === intval($page)) {
     exit;
 }
 $perPage = 6;
-function custom_echo($x, $length)
-{
+function custom_echo($x, $length){
   if(strlen($x)<=$length)
   {
     echo $x;
