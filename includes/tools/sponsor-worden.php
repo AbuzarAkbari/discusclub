@@ -19,30 +19,28 @@ if(isset($_POST['sponsorverzend'])) {
         if ($check !== false) {
             $uploadOk = 1;
         } else {
-            $error = "Sorry, geen fotobestand gevonden.";
+            $error = "Sorry, geen fotobestand1 gevonden.";
             $uploadOk = 0;
 		}
 
         // image height width checken eeey
-        $check = $check[0];
-        $check = $check[1];
+        $width = $check[0];
+        $height = $check[1];
 
-        if ($check > 470 || $check > 60){
-            echo "nice";
-        } else {
-            $error = "Sorry, het bestand is te groot";
+        if ($width < 480 || $height < 70){
+            $error = "Sorry, het bestand2 is te groot";
             unlink($sponsor_file["tmp_name"]);
         }
 
         // Check if file already exists
         if (file_exists($target_file)) {
-            $error = "Sorry, het bestand bestaat al.";
+            $error = "Sorry, het bestand3 bestaat al.";
             $uploadOk = 0;
         }
 
         // Check file size
         if ($sponsor_file["size"] > 500000) {
-            $error = "Sorry, het bestand is te groot";
+            $error = "Sorry, het bestand4 is te groot";
             $uploadOk = 0;
         }
 
@@ -55,7 +53,7 @@ if(isset($_POST['sponsorverzend'])) {
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            header("Location: /sponsor/become?error=" . $error);
+            // header("Location: /sponsor/become?error=" . $error);
             exit();
 
             // if everything is ok, try to upload file
@@ -91,4 +89,4 @@ if(isset($_POST['sponsorverzend'])) {
 
 
 }
-header('Location: /sponsor/become');
+// header('Location: /sponsor/become');
