@@ -63,7 +63,7 @@
                                                                   (:first_name, :last_name, :username, :password, :email, NOW(), :news)");
 
                             $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
-                                ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"], ":news" => $_POST["news"] === "on" ? 1 : 0]);
+                                ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"], ":news" => isset($_POST["news"]) && $_POST["news"] === "on" ? 1 : 0]);
                             require("../../includes/tools/mailer.php");
                             ?>
                             <div class="message gelukt">Het account is aangemaakt, <a href="/user/login">login.</a></div>

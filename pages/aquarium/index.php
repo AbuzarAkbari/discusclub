@@ -6,8 +6,7 @@ if (false === intval($page)) {
     exit;
 }
 $perPage = 6;
-function custom_echo($x, $length)
-{
+function custom_echo($x, $length){
   if(strlen($x)<=$length)
   {
     echo $x;
@@ -73,7 +72,7 @@ function custom_echo($x, $length)
                     <div class="panel panel-primary">
                         <div class="panel-heading border-color-blue row">
                             <div class="col-md-7 col-sm-8 col-xs-8">
-                                <h3 class="panel-title"><?php echo $aquarium['title']; ?></h3>
+                                <h3 class="panel-title"><?php custom_echo($aquarium['title'], 10);  ?></h3>
                             </div>
                             <?php
                                 $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";
@@ -95,7 +94,7 @@ function custom_echo($x, $length)
                         <div class="panel-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $aquarium["user_id"]; ?>"><i><?php echo $aquarium['first_name'].' '.$aquarium['last_name']; ?> </i></a></h4>
+                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $aquarium["user_id"]; ?>"><i><?php custom_echo($aquarium['first_name'], 8).' '?> <?php echo $aquarium['last_name']; ?> </i></a></h4>
                                     <p>
                                         Aantal foto's: <i><?php echo $aquarium['aantal_fotos']; ?></i><br>
                                         Datum: <i><?php echo $aquarium['created_at']; ?></i><br>
