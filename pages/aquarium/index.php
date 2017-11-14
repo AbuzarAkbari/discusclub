@@ -95,7 +95,7 @@ function custom_echo($x, $length)
                         <div class="panel-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $aquarium["user_id"]; ?>"><i><?php custom_echo($aquarium['first_name'], 6).' '?> <?php echo $aquarium['last_name']; ?> </i></a></h4>
+                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $aquarium["user_id"]; ?>"><i><?php custom_echo($aquarium['first_name'], 8).' '?> <?php echo $aquarium['last_name']; ?> </i></a></h4>
                                     <p>
                                         Aantal foto's: <i><?php echo $aquarium['aantal_fotos']; ?></i><br>
                                         Datum: <i><?php echo $aquarium['created_at']; ?></i><br>
