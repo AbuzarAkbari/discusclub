@@ -93,7 +93,7 @@ require_once("../../includes/tools/security.php"); ?>
                 </div>
             </div>
             <?php require ('../../includes/components/advertentie.php'); ?>
-            
+
             <?php endif; ?>
         <?php
             $sql2 = "SELECT *, album_reply.created_at AS reply_created_at, user.id AS user_id FROM album_reply JOIN user ON album_reply.user_id = user.id JOIN image ON user.profile_img = image.id WHERE album_reply.album_id = ? ORDER BY reply_created_at ASC";
