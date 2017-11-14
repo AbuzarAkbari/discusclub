@@ -104,7 +104,7 @@ require_once("../../includes/components/nav.php");
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <p><?php echo wordwrap(html_entity_decode($rows["topic_content"]), 70, "<br>", true); ?></p>
+                            <p><?php echo wordwrap(html_entity_decode($rows["topic_content"]), 120, "<br>", true); ?></p>
                             <p>
                             <hr>
                             <?php if($rows['signature'] != "") : ?>
