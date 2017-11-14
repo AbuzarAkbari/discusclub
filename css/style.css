@@ -809,3 +809,10 @@ li.dropdown:hover > .dropdown-menu {
 .buttonDelete:hover {
     color: #a7a2a9;
 }
+
+.slider {
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
