@@ -90,7 +90,7 @@ $perPage = 6;
         </div>
         <?php
         $path = "/album/:page";
-        $sql = "SELECT COUNT(*) AS x FROM album JOIN image as i ON i.album_id = album.id WHERE deleted_at IS NULL GROUP BY album.id";
+        $sql = "SELECT count(*) as x FROM image as i JOIN album as a ON a.id = i.album_id JOIN user as u ON u.id = a.user_id WHERE i.album_id IS NOT NULL GROUP BY i.album_id";
         require_once("../../includes/components/pagination.php");
         ?>
     </div>

@@ -5,7 +5,7 @@ const conn = mysql.createPool({
   user: 'test',
   password: 'test',
   database: 'forum',
-  connectionLimit: 25,
+  connectionLimit: 100,
 })
 
 const dhc = mysql.createPool({
@@ -13,7 +13,7 @@ const dhc = mysql.createPool({
   user: 'test',
   password: 'test',
   database: 'dhc',
-  connectionLimit: 25,
+  connectionLimit: 10,
 })
 
 dhc
@@ -93,15 +93,15 @@ dhc
       // const content = ""
       // console.log(content)
       queries.push(
-        dhc.query("SELECT * FROM forum_posts WHERE profile_id = ? ORDER BY created DESC LIMIT 1", [x.profile_id]).then(res =>
+        dhc.query("SELECT * FROM forum_posts WHERE profile_id = ? AND forum_id = ? AND created < (? + INTERVAL 1 MINUTE) AND created > (? - INTERVAL 1 MINUTE) ORDER BY created DESC LIMIT 1", [x.profile_id, x.forum_id, x.created, x.created]).then(res =>
+          res.length > 0 ?
           conn.query(
             'INSERT INTO topic(user_id, title, sub_category_id, created_at, last_changed, state_id, content) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            [x.profile_id, x.title, x.forum_id, x.created, x.modified, state, res.length > 0 ? res[0].content_cache : ""]
-          ).catch(e => console.log(e))
+            [x.profile_id, x.title, x.forum_id, x.created, x.modified, state, res[0].content_cache]
+          ).catch(e => console.log(e)) : Promise.reject("no content found")
         ).catch(e => console.log(e))
       )
     })
     return Promise.all(queries)
   })
   .catch(e => console.log(e))
-  1049,
