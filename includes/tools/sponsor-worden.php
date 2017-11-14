@@ -1,8 +1,8 @@
 <?php
 require_once("security.php");
 if(isset($_POST['sponsorverzend'])) {
-    $bedrijf = ucfirst($_POST['naam']);
-    $url = $_POST['url'];
+    $bedrijf = html_entity_decode(ucfirst($_POST['naam']));
+    $url = html_entity_decode($_POST['url']);
     $opties = $_POST['optie'];
 
 	if (isset($_FILES['afbeelding']) && $_FILES['afbeelding']['error'] !== 4) {
