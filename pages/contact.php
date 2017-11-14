@@ -19,7 +19,7 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <?php
-    require_once("../includes/components/nav.php");
+        require_once("../includes/components/nav.php");
     ?>
 
     <br><br>
@@ -78,9 +78,7 @@
           </div>
         </div>
       </div>
-      <?php
-      // $ad_in_row = true;
-      require_once('../includes/components/advertentie.php'); ?>
+      <?php require_once('../includes/components/advertentie.php'); ?>
     </div>
   </div>
   <footer>

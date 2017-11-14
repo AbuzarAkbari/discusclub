@@ -94,20 +94,23 @@ dhc
       // const content = bla.length > 0 ? bla[0].content_cache : ''
       // const content = ""
       // console.log(content)
+      let forum_topic_id = null;
       queries.push(
-        dhc.query("SELECT * FROM forum_posts WHERE profile_id = ? AND forum_id = ? AND created < (? + INTERVAL 1 MINUTE) AND created > (? - INTERVAL 1 MINUTE) ORDER BY created DESC LIMIT 1", [x.profile_id, x.forum_id, x.created, x.created]).then(res =>
-          res.length > 0 ?
-          conn.query(
-            'INSERT INTO topic(user_id, title, sub_category_id, created_at, last_changed, state_id, content) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            [x.profile_id, x.title, x.forum_id, x.created, x.modified, state, res[0].content_cache]
-          ).catch(e => console.log(e)) : Promise.reject("no content found")
-        ).then(res => conn.query("SELECT id FROM topic WHERE user_id = ? AND created_at = ?", [x.profile_id, x.created])).catch(e => console.log(e))
+        dhc.query("SELECT * FROM forum_posts WHERE profile_id = ? AND forum_id = ? AND created < (? + INTERVAL 1 MINUTE) AND created > (? - INTERVAL 1 MINUTE) ORDER BY created DESC LIMIT 1", [x.profile_id, x.forum_id, x.created, x.created]).then(res => {
+          if(res.length > 0) {
+            forum_topic_id = res[0].forum_topic_id
+            return conn.query(
+              'INSERT INTO topic(user_id, title, sub_category_id, created_at, last_changed, state_id, content) VALUES (?, ?, ?, ?, ?, ?, ?)',
+              [x.profile_id, x.title, x.forum_id, x.created, x.modified, state, res[0].content_cache]
+            ).catch(e => console.log(e))
+          } else {
+            return Promise.reject("no content found")
+          }
+        }).then(res => conn.query("SELECT id FROM topic WHERE user_id = ? AND created_at = ?", [x.profile_id, x.created])).catch(e => console.log(e))
          .then(res => {
-            console.log(res, x)
+            let id = false;
             if(res.length > 0) {
-             const id = {dhc: x.id, conn: res[0].id}
-            } else {
-              const id = false;
+              id = {dhc: forum_topic_id, conn: res[0].id}
             }
             return new Promise((res, rej) => {
               if(id) {
@@ -134,9 +137,10 @@ dhc
   .then(res => {
     const queries = []
     res.forEach((x, i) => {
+      console.log(topicIds[x.forum_topic_id], x.forum_topic_id)
       queries.push(
         conn.query("INSERT INTO reply(user_id, content, topic_id, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
-                   [x.profile_id, x.content_cache, 1, x.created, x.modified]).catch(e => console.log(e))
+                   [x.profile_id, x.content_cache, topicIds[x.forum_topic_id], x.created, x.modified]).catch(e => console.log(e))
       )
     })
     return Promise.all(queries);
