@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/contact.php" afterPath="$PROJECT_DIR$/pages/contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/add-topic.php" afterPath="$PROJECT_DIR$/pages/forum/add-topic.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/post.php" afterPath="$PROJECT_DIR$/pages/forum/post.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,19 +53,26 @@
       <file leaf-file-name="post.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/forum/post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="223" column="92" lean-forward="true" selection-start-line="223" selection-start-column="92" selection-end-line="223" selection-end-column="92" />
+            <state relative-caret-position="197">
+              <caret line="105" column="46" lean-forward="false" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
               <folding>
-                <marker date="1510673312189" expanded="true" signature="325:807" ph="SELECT *, us... topic" />
-                <marker date="1510673312189" expanded="true" signature="1068:1107" ph="SELECT * FRO... sub_category" />
-                <marker date="1510673312189" expanded="true" signature="1286:1360" ph="INSERT INTO view... " />
-                <marker date="1510673312189" expanded="true" signature="3520:3599" ph="SELECT COUNT... reply" />
-                <marker date="1510673312189" expanded="true" signature="5316:5388" ph="SELECT * FRO... favorite" />
-                <marker date="1510673312189" expanded="true" signature="6333:6692" ph="SELECT *, im... reply" />
-                <marker date="1510673312189" expanded="true" signature="7191:7309" ph="SELECT *, re... reply" />
-                <marker date="1510673312189" expanded="true" signature="7905:7970" ph="..." />
-                <marker date="1510673312189" expanded="true" signature="9557:9636" ph="SELECT COUNT... reply" />
-                <marker date="1510673312189" expanded="true" signature="11573:11654" ph="SELECT COUNT... reply" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#b#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1510673386428" expanded="true" signature="325:807" ph="SELECT *, us... topic" />
+                <marker date="1510673386428" expanded="true" signature="1068:1107" ph="SELECT * FRO... sub_category" />
+                <marker date="1510673386428" expanded="true" signature="1286:1360" ph="INSERT INTO view... " />
+                <marker date="1510673386428" expanded="true" signature="3520:3599" ph="SELECT COUNT... reply" />
+                <marker date="1510673386428" expanded="true" signature="5316:5388" ph="SELECT * FRO... favorite" />
+                <marker date="1510673386428" expanded="true" signature="6333:6692" ph="SELECT *, im... reply" />
+                <marker date="1510673386428" expanded="true" signature="7191:7309" ph="SELECT *, re... reply" />
+                <marker date="1510673386428" expanded="true" signature="7905:7970" ph="..." />
+                <marker date="1510673386428" expanded="true" signature="9527:9606" ph="SELECT COUNT... reply" />
+                <marker date="1510673386428" expanded="true" signature="11543:11624" ph="SELECT COUNT... reply" />
+                <marker date="1510673386428" expanded="false" signature="12399:12412" ph="..." />
               </folding>
             </state>
           </provider>
@@ -363,12 +366,12 @@
       <workItem from="1510566391753" duration="12693000" />
       <workItem from="1510583399047" duration="5294000" />
       <workItem from="1510652545638" duration="15720000" />
-      <workItem from="1510670457658" duration="2873000" />
+      <workItem from="1510670457658" duration="2918000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324021000" />
+    <option name="totallyTimeSpent" value="324066000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -825,19 +828,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/forum/post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="223" column="92" lean-forward="true" selection-start-line="223" selection-start-column="92" selection-end-line="223" selection-end-column="92" />
+        <state relative-caret-position="197">
+          <caret line="105" column="46" lean-forward="false" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
           <folding>
-            <marker date="1510673312189" expanded="true" signature="325:807" ph="SELECT *, us... topic" />
-            <marker date="1510673312189" expanded="true" signature="1068:1107" ph="SELECT * FRO... sub_category" />
-            <marker date="1510673312189" expanded="true" signature="1286:1360" ph="INSERT INTO view... " />
-            <marker date="1510673312189" expanded="true" signature="3520:3599" ph="SELECT COUNT... reply" />
-            <marker date="1510673312189" expanded="true" signature="5316:5388" ph="SELECT * FRO... favorite" />
-            <marker date="1510673312189" expanded="true" signature="6333:6692" ph="SELECT *, im... reply" />
-            <marker date="1510673312189" expanded="true" signature="7191:7309" ph="SELECT *, re... reply" />
-            <marker date="1510673312189" expanded="true" signature="7905:7970" ph="..." />
-            <marker date="1510673312189" expanded="true" signature="9557:9636" ph="SELECT COUNT... reply" />
-            <marker date="1510673312189" expanded="true" signature="11573:11654" ph="SELECT COUNT... reply" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#b#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1510673386428" expanded="true" signature="325:807" ph="SELECT *, us... topic" />
+            <marker date="1510673386428" expanded="true" signature="1068:1107" ph="SELECT * FRO... sub_category" />
+            <marker date="1510673386428" expanded="true" signature="1286:1360" ph="INSERT INTO view... " />
+            <marker date="1510673386428" expanded="true" signature="3520:3599" ph="SELECT COUNT... reply" />
+            <marker date="1510673386428" expanded="true" signature="5316:5388" ph="SELECT * FRO... favorite" />
+            <marker date="1510673386428" expanded="true" signature="6333:6692" ph="SELECT *, im... reply" />
+            <marker date="1510673386428" expanded="true" signature="7191:7309" ph="SELECT *, re... reply" />
+            <marker date="1510673386428" expanded="true" signature="7905:7970" ph="..." />
+            <marker date="1510673386428" expanded="true" signature="9527:9606" ph="SELECT COUNT... reply" />
+            <marker date="1510673386428" expanded="true" signature="11543:11624" ph="SELECT COUNT... reply" />
+            <marker date="1510673386428" expanded="false" signature="12399:12412" ph="..." />
           </folding>
         </state>
       </provider>
