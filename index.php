@@ -140,7 +140,7 @@
                 </div>
             </div>
         </div>
-        <?php require '/includes/components/advertentie.php'; ?>
+        <?php require 'includes/components/advertentie.php'; ?>
     </div>
     <footer>
         <?php require 'includes/components/footer.php' ; ?>

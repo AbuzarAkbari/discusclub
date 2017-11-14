@@ -104,7 +104,7 @@ require_once("../../includes/components/nav.php");
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <p><?php echo wordwrap(html_entity_decode($rows["topic_content"]), 70, "<br>", true); ?></p>
+                            <p><?php echo $rows["topic_content"]; ?></p>
                             <p>
                             <hr>
                             <?php if($rows['signature'] != "") : ?>
@@ -215,7 +215,7 @@ require_once("../../includes/components/nav.php");
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <p><?php echo wordwrap(html_entity_decode($reply["content"]), 70, "<br>", true); ?></p>
+                            <p><?php echo $reply["content"]; ?></p>
                             <p>
                                 <hr>
                                 <?php if($reply['signature'] != "") : ?>
