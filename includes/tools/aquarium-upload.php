@@ -5,18 +5,13 @@ if (isset($_POST['upload_aquarium'])) {
     if ($logged_in) {
     		$aquarium_name = $_POST['aquarium_name'];
 	        $id_poster = $_SESSION['user']->id;
+
     	if (isset($_FILES['files']) && $_FILES['files']['error'] !== 4) {
-    		$aquariumsql = "INSERT INTO aquarium (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
-            $aquarium_result = $dbc->prepare($aquariumsql);
-            $aquarium_result->execute([':title' => $aquarium_name, ':user_id' => $id_poster]);
-            $aquarium_id = $dbc->lastInsertId();
 
     	    $error = '';
 
-
 	        for($x = 0; $x  < count($_FILES['files']['name']); $x++) {
 	        	$aquarium_files = $_FILES['files'];
-	        	// var_dump($aquarium_files);
 	            $target_dir = "/images/aquarium/";
 	            $target_file = $target_dir . basename($aquarium_files["name"][$x]);
 	            $uploadOk = 1;
@@ -55,7 +50,7 @@ if (isset($_POST['upload_aquarium'])) {
                     header("Location: /aquarium/upload?error=".$error);
                     exit();
 
-	                // if everything is ok, try to upload file
+	            // if everything is ok, try to upload file
 	            } else {
 	                $fragments = explode('.', $aquarium_files["name"][$x]);
 					$path = "/aquarium/" . date("Y-m-d_H-i-s") . '-'.$x.'.' . end($fragments);
@@ -66,20 +61,26 @@ if (isset($_POST['upload_aquarium'])) {
 	                    '.jpeg',
 	                    '.gif'
 	                ];
-
-	                if (move_uploaded_file($aquarium_files["tmp_name"][$x], '../../images'.$path)) {
-                        
-	                    $sql = "INSERT INTO image (path, aquarium_id) VALUES (:path, :aquarium_id)";
-	                    $result = $dbc->prepare($sql);
-						$result->execute([':path' => $path, ':aquarium_id' => $aquarium_id]);
-
-					} else {
-                        $error = "Sorry, er ging iets mis met het uploaden.";
-	                    exit();
-	                }
 	            }
 	        }
 
+            for($x = 0; $x  < count($_FILES['files']['name']); $x++) {
+                if (move_uploaded_file($aquarium_files["tmp_name"][$x], '../../images' . $path)) {
+
+                    $aquariumsql = "INSERT INTO aquarium (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
+                    $aquarium_result = $dbc->prepare($aquariumsql);
+                    $aquarium_result->execute([':title' => $aquarium_name, ':user_id' => $id_poster]);
+                    $aquarium_id = $dbc->lastInsertId();
+
+                    $sql = "INSERT INTO image (path, aquarium_id) VALUES (:path, :aquarium_id)";
+                    $result = $dbc->prepare($sql);
+                    $result->execute([':path' => $path, ':aquarium_id' => $aquarium_id]);
+
+                } else {
+                    $error = "Sorry, er ging iets mis met het uploaden.";
+                    exit();
+                }
+            }
         }
         header("Location: /aquarium/post/" . $aquarium_id);
     }
