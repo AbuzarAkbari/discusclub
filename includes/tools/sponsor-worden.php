@@ -27,9 +27,12 @@ if(isset($_POST['sponsorverzend'])) {
         $width = $check[0];
         $height = $check[1];
 
-        if ($width < 480 || $height < 70){
+        $ratio = 480 / 70;
+
+        if (($width / $height) === $ratio){
             $error = "Sorry, het bestand2 is te groot";
             unlink($sponsor_file["tmp_name"]);
+            $uploadOk = 0;
         }
 
         // Check if file already exists
@@ -53,7 +56,7 @@ if(isset($_POST['sponsorverzend'])) {
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            // header("Location: /sponsor/become?error=" . $error);
+            header("Location: /sponsor/become?error=" . $error);
             exit();
 
             // if everything is ok, try to upload file
@@ -72,7 +75,7 @@ if(isset($_POST['sponsorverzend'])) {
 //            var_dump($sponsor_file);
 //            exit();
 
-            if (move_uploaded_file($sponsor_file["tmp_name"], '../../images'.$path)) {
+            if (move_uploaded_file($sponsor_file["tmp_name"], __DIR__ . '/../../images'.$path)) {
 
                 $result = $dbc->prepare("INSERT INTO image (path) VALUES (:path)");
 				$result->execute([':path' => $path]);
@@ -89,4 +92,4 @@ if(isset($_POST['sponsorverzend'])) {
 
 
 }
-// header('Location: /sponsor/become');
+header('Location: /sponsor/become');
