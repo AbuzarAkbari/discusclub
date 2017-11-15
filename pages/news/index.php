@@ -139,7 +139,7 @@ if (isset($_POST['post_add_topic'])) {
                         <tbody>
                             <?php
                             $a = $page * $perPage - $perPage;
-                            $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id LIMIT {$perPage} OFFSET {$a}");
+                            $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id  ORDER BY n.created_at DESC LIMIT {$perPage} OFFSET {$a}");
                             $sth->execute();
                             $res = $sth->fetchAll(PDO::FETCH_OBJ);
                             foreach ($res as $key => $value) { ?>
