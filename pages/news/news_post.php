@@ -88,14 +88,14 @@ require_once("../../includes/components/nav.php");
             <?php if($_GET['pagina'] == 1) :?>
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title text-left"><?php echo html_entity_decode($row['title']); ?></h3>
+                    <h3 class="panel-title text-left"><?php echo $row['title']; ?></h3>
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="panel-body">
                     <div class="col-md-12">
                         <div class="col-md-10 content">
-                            <p><?php echo htmlentities($row['content']); ?></p>
+                            <p><?php echo $row['content']; ?></p>
                         </div>
                     </div>
 

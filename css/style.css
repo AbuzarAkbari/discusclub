@@ -813,3 +813,10 @@ li.dropdown:hover > .dropdown-menu {
 .content {
     word-wrap: break-word;
 }
+
+.slider {
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
