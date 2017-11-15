@@ -72,7 +72,7 @@ function custom_echo($x, $length){
                     <div class="panel panel-primary">
                         <div class="panel-heading border-color-blue row">
                             <div class="col-md-7 col-sm-8 col-xs-8">
-                                <h3 class="panel-title"><?php custom_echo($aquarium['title'], 10);  ?></h3>
+                                <h3 class="panel-title"><?php custom_echo($aquarium['title'], 25);  ?></h3>
                             </div>
                             <?php
                                 $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";

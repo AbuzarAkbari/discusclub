@@ -810,6 +810,10 @@ li.dropdown:hover > .dropdown-menu {
     color: #a7a2a9;
 }
 
+.content {
+    word-wrap: break-word;
+}
+
 .slider {
     position: relative;
     white-space: nowrap;

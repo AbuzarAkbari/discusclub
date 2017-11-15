@@ -77,7 +77,7 @@ function custom_echo($x, $length)
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading border-color-blue">
-                            <h3 class="panel-title"><?php custom_echo($album['title'], 10); ?></h3>
+                            <h3 class="panel-title"><?php custom_echo($album['title'], 25); ?></h3>
                         </div>
                         <div class="panel-body">
                             <div class="media">

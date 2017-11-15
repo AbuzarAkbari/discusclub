@@ -104,7 +104,7 @@ require_once("../../includes/components/nav.php");
                                 <br><b>Lid sinds: </b> <?php echo $rows['user_created_at']; ?><br><br>
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 content">
                             <p><?php echo $rows["topic_content"]; ?></p>
                             <p>
                             <hr>
@@ -215,7 +215,7 @@ require_once("../../includes/components/nav.php");
                                 <br><b>Lid sinds: </b> <?php echo $reply['user_created_at']; ?><br><br>
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 content">
                             <p><?php echo $reply["content"]; ?></p>
                             <p>
                                 <hr>

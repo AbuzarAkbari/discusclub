@@ -3,7 +3,7 @@ if (isset($_POST['upload_aquarium'])) {
     require_once("security.php");
 
     if ($logged_in) {
-    		$aquarium_name = $_POST['aquarium_name'];
+    		$aquarium_name = htmlentities($_POST['aquarium_name'];
 	        $id_poster = $_SESSION['user']->id;
 
     	if (isset($_FILES['files']) && $_FILES['files']['error'] !== 4) {
