@@ -2,7 +2,7 @@
 if (isset($_POST['upload_album'])) {
     require_once("security.php");
     if ($logged_in) {
-    		$album_name = $_POST['album_name'];
+    		$album_name = htmlentities($_POST['album_name']);
 	        $id_poster = $_SESSION['user']->id;
     	if (isset($_FILES['files']) && $_FILES['files']['error'] !== 4) {
     		$error = '';
