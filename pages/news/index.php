@@ -12,7 +12,7 @@ if (isset($_POST['post_add_topic'])) {
         $subId = $_POST['sub_category'];
         $topicTitle = htmlentities($_POST['add_topic_title']);
         $topicAuteur = $_SESSION['user']->id;
-        $topicContent = $_POST['content'];
+        $topicContent = $_POST['add_topic_content'];
 
         $sql = "INSERT INTO news (sub_category_id, title, content, created_at) VALUES (:subId, :topicTitle, :topicContent, NOW())";
 
@@ -106,9 +106,8 @@ if (isset($_POST['post_add_topic'])) {
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <?php require_once('../../includes/components/summernote.php') ?>
+                                    <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content" style="resize: none;" maxlength="50" placeholder="Uw bericht.."></textarea>
                                 </div>
-
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
@@ -249,6 +248,10 @@ if (isset($_POST['post_add_topic'])) {
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <?php require_once("../../includes/components/summernote.php"); ?>
 
 </body>
 </html>
