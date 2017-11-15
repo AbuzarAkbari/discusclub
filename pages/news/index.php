@@ -12,7 +12,7 @@ if (isset($_POST['post_add_topic'])) {
         $subId = $_POST['sub_category'];
         $topicTitle = htmlentities($_POST['add_topic_title']);
         $topicAuteur = $_SESSION['user']->id;
-        $topicContent = $_POST['add_topic_content'];
+        $topicContent = $_POST['content'];
 
         $sql = "INSERT INTO news (sub_category_id, title, content, created_at) VALUES (:subId, :topicTitle, :topicContent, NOW())";
 
