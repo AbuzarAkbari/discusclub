@@ -59,7 +59,7 @@ require_once("../../includes/tools/security.php"); ?>
                                     <div class="carousel-inner">
                                         <?php foreach ($album as $key => $image) : ?>
                                             <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <img class="sliderImg" src="/images<?php echo $image['path'] ?>"  alt="fishing">
+                                                <div class="sliderImg"  style="background-image:url('/images<?php echo $image['path'] ?>')"  alt="fishing"></div>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -195,30 +195,7 @@ require_once("../../includes/tools/security.php"); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
     <!-- summer note -->
     <!-- summernote js -->
-    <script type="text/javascript" src="/js/summernote.min.js"></script>
-    <script src="/js/summernote-ext-emoji.js" charset="utf-8"></script>
-    <script>
-        document.emojiSource = '/images/emoji/';
-        $('.editor').summernote({
-            disableResizeEditor: true,
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['misc', ['emoji']],
-                ['code', ['codeview']]
-            ]
-        });
+    <?php require_once("../../includes/components/summernote.php"); ?>
 
-        $(document).ready(function () {
-            $('.quote-btn').on('click', function () {
-                $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
-            });
-        });
-
-    </script>
 </body>
 </html>
