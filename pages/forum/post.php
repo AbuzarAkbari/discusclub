@@ -284,9 +284,7 @@ require_once("../../includes/components/nav.php");
             </div>
         </div>
         <?php else : ?>
-        <div class="col-md-3"></div>
-        <div class="col-md-6">Topic gesloten</div>
-        <div class="col-md-3"></div>
+        <div class="col-md-12 text-center warning message">Topic gesloten</div>
         <?php endif; ?>
 <?php endif; ?>
 </div>
