@@ -284,7 +284,9 @@ require_once("../../includes/components/nav.php");
             </div>
         </div>
         <?php else : ?>
-        <div class="col-md-12 text-center border-color-blue message">Topic gesloten</div>
+        <div class="col-md-12 text-center border-color-blue message">Dit topic is gesloten, u kunt niet meer reageren. 
+            Keer terug naar het <a href="/forum/topic/<?php echo $rows['sub_category_id']; ?>">forum</a>
+        </div>
         <?php endif; ?>
 <?php endif; ?>
 </div>
