@@ -25,5 +25,4 @@ else
     $result->execute([":user_id" => $_SESSION['user']->id, ":aquarium_id" => $_GET["aid"]]);
 }
 
-
-header("Location: ../../../aquarium/");
+header("Location: $_SERVER[HTTP_REFERER]");

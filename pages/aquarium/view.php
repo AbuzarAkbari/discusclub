@@ -49,8 +49,35 @@ require_once("../../includes/tools/security.php"); ?>
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?php echo $aquarium[0]['title'] . ' | <i> Geplaatst door: </i> &nbsp; <a href="/user/'. $user_id .'">' . $aquarium[0]['first_name'].' '.
-                        $aquarium[0]['last_name'] . '</a>  <span style="float: right;"> Geplaatst op: '.$aquarium[0]['aquarium_created_at'].'</span>'  ;?></h3>
+                        <?php
+
+
+
+                            $haal_aquariums = "SELECT *, a.created_at AS aquarium_created_at, count(i.aquarium_id) as aantal_fotos, u.id as user_id, a.created_at as created_at FROM image as i JOIN aquarium as a ON a.id = i.aquarium_id JOIN user as u ON u.id = a.user_id WHERE a.deleted_at IS NULL GROUP BY i.aquarium_id ORDER BY aquarium_created_at DESC";
+                            $aquariumResult = $dbc->prepare($haal_aquariums);
+                            $aquariumResult->execute();
+                            $aquariumpje = $aquariumResult->fetch(PDO::FETCH_ASSOC);
+
+                            $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";
+                            $result = $dbc->prepare($sql);
+                            $result->execute([":aid" => $aquariumpje['aquarium_id']]);
+                            $like = $result->fetch();
+
+                            $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca AND start_at <= NOW() AND end_at >= NOW()";
+                            $contestResult = $dbc->prepare($contestSql);
+                            $contestResult->execute([":aca" => $aquariumpje["aquarium_created_at"]]);
+                            $contest = $contestResult->fetch();
+                        ?>
+
+                        <div class="panel-title col-md-6"><?php echo $aquarium[0]['title'] . ' | <i> Geplaatst door: </i> &nbsp; <a href="/user/'. $user_id .'">' . $aquarium[0]['first_name'].' '.
+                            $aquarium[0]['last_name'] . '</a>' ;?>
+                        </div>
+                        <?php if(intval($contest["amount"]) > 0) : ?>
+                            <div class="text-right col-md-6">
+                                <?php echo isset($like['x']) ? $like['x'] : '0'; ?> <a href="/includes/tools/aquarium/add-like?aid=<?php echo $aquariumpje['aquarium_id']; ?>"><img alt="like-vis" class="like-vis" src="/images/favicon-wit.png" alt=""></a>
+                            </div>
+                        <?php endif; ?>
+                        <br>
                     </div>
                     <div class="panel-body">
                         <div class="container-fluid">
@@ -85,10 +112,14 @@ require_once("../../includes/tools/security.php"); ?>
 
                                 <!-- Images -->
                                 <?php foreach ($aquarium as $key => $image) : ?>
+
                                     <div class=" img" style="background-image:url('/images<?php echo $image['path'] ?>')"; data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <span class="text-right"> Geplaatst op: <?php echo $aquarium[0]['aquarium_created_at']; ?></span>
                     </div>
                 </div>
             </div>
