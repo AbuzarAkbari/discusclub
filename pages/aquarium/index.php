@@ -5,7 +5,7 @@ $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 if (false === intval($page)) {
     exit;
 }
-$perPage = 6;
+$perPage = 9;
 function custom_echo($x, $length){
   if(strlen($x)<=$length)
   {
@@ -67,23 +67,26 @@ function custom_echo($x, $length){
               $aquariumResult->execute();
               $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
-            <?php foreach ($aquariums as $aquarium) : ?>
+            <?php
+            $arr = array_chunk($aquariums, 3);
+                 foreach($arr as $araq) :?>
                 <div class="col-md-4 col-sm-6 col-xs-12">
+                <?php foreach($araq as $aquarium) :?>
                     <div class="panel panel-primary">
                         <div class="panel-heading border-color-blue row">
                             <div class="col-md-7 col-sm-8 col-xs-8">
                                 <h3 class="panel-title"><?php custom_echo($aquarium['title'], 25);  ?></h3>
                             </div>
                             <?php
-                                $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";
-                                $result = $dbc->prepare($sql);
-                                $result->execute([":aid" => $aquarium['aquarium_id']]);
-                                $like = $result->fetch();
+                            $sql = "SELECT COUNT(*) AS x FROM `like` WHERE aquarium_id = :aid";
+                            $result = $dbc->prepare($sql);
+                            $result->execute([":aid" => $aquarium['aquarium_id']]);
+                            $like = $result->fetch();
 
-                                $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca AND start_at <= NOW() AND end_at >= NOW()";
-                                $contestResult = $dbc->prepare($contestSql);
-                                $contestResult->execute([":aca" => $aquarium["aquarium_created_at"]]);
-                                $contest = $contestResult->fetch();
+                            $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca AND start_at <= NOW() AND end_at >= NOW()";
+                            $contestResult = $dbc->prepare($contestSql);
+                            $contestResult->execute([":aca" => $aquarium["aquarium_created_at"]]);
+                            $contest = $contestResult->fetch();
                             ?>
                             <?php if(intval($contest["amount"]) > 0) : ?>
                                 <div class="col-md-5 col-sm-4 col-xs-4 text-right">
@@ -105,6 +108,7 @@ function custom_echo($x, $length){
                             </div>
                         </div>
                     </div>
+                <?php endforeach; ?>
                 </div>
             <?php endforeach; ?>
         </div>
