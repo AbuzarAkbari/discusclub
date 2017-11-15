@@ -300,31 +300,8 @@ require_once('../../includes/components/advertentie.php'); ?>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- summernote js -->
-<script type="text/javascript" src="/js/summernote.min.js"></script>
-<script src="/js/summernote-ext-emoji.js" charset="utf-8"></script>
-<script>
-    document.emojiSource = '/images/emoji/';
-    $('.editor').summernote({
-        disableResizeEditor: true,
-        toolbar: [
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['strikethrough', 'superscript', 'subscript']],
-            ['fontsize', ['fontsize']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['height', ['height']],
-            ['misc', ['emoji']],
-            ['code', ['codeview']]
-        ]
-    });
+<?php require_once("../../includes/components/summernote.php"); ?>
 
-    $(document).ready(function () {
-        $('.quote-btn').on('click', function () {
-            $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
-        });
-    });
-
-</script>
 </body>
 
 </html>
