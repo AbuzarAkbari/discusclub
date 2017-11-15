@@ -820,8 +820,3 @@ li.dropdown:hover > .dropdown-menu {
     overflow-x: auto;
     overflow-y: hidden;
 }
-
-.sliderImg {
-    background-position: center;
-    background-repeat: no-repeat;
-}

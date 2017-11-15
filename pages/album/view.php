@@ -58,8 +58,8 @@ require_once("../../includes/tools/security.php"); ?>
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <?php foreach ($album as $key => $image) : ?>
-                                            <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <div class="sliderImg"  style="background-image:url('/images<?php echo $image['path'] ?>')"  alt="fishing"></div>
+                                            <div style="width: 100% !important; text-align: center !important;" class="item<?php echo $key == 0 ? " active" : null ?>">
+                                                <img src="/images<?php echo $image['path'] ?>" class="sliderImg"  style="height: auto !important; width: 100% !important; display:inline-block !important;"  alt="fishing">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
