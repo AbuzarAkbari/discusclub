@@ -6,14 +6,14 @@
     {
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
-        $query->execute([":name" => $_POST["new_category"]]);
+        $query->execute([":name" => htmlentities($_POST["new_category"])]);
     }
 
     if(isset($_POST['add_new_sub_category']) && !empty($_POST['new_sub_category']))
     {
         $sql = "INSERT INTO sub_category (category_id, name, created_at) VALUES (:category_id, :name, NOW())";
         $query = $dbc->prepare($sql);
-        $query->execute([":category_id" => $_POST['cat_id'], ":name" => $_POST["new_sub_category"]]);
+        $query->execute([":category_id" => $_POST['cat_id'], ":name" => htmlentities($_POST["new_sub_category"])]);
     }
 
     $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
