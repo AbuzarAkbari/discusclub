@@ -59,7 +59,7 @@ require_once("../../includes/tools/security.php"); ?>
                                     <div class="carousel-inner">
                                         <?php foreach ($album as $key => $image) : ?>
                                             <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <img class="sliderImg" src="/images<?php echo $image['path'] ?>"  alt="fishing">
+                                                <div class="sliderImg"  style="background-image:url('/images<?php echo $image['path'] ?>')"  alt="fishing"></div>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
