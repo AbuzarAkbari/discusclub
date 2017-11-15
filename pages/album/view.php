@@ -82,10 +82,7 @@ require_once("../../includes/tools/security.php"); ?>
                                         <span class="sr-only">Next</span>
                                     </a>
                                 </div>
-                                <div style="position: relative;
-                                            white-space: nowrap;
-                                            overflow-x: auto;
-                                            overflow-y: hidden;">
+                                <div class="slider">
                                     <!-- Images -->
                                     <?php foreach ($album as $key => $image) : ?>
                                         <div class="img" style="background-image:url('/images<?php echo $image['path'] ?>');overflow: hidden;
