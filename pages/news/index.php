@@ -106,8 +106,7 @@ if (isset($_POST['post_add_topic'])) {
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content"
-                                    style="resize: none !important;" placeholder="Uw bericht.."></textarea>
+                                        <textarea required class="form-control editor" col="8" rows="8" name="reply_content" style="resize: none;" maxlength="50" placeholder="Uw bericht.."></textarea>
                                 </div>
 
                             </div>
@@ -173,14 +172,14 @@ if (isset($_POST['post_add_topic'])) {
           <div class="panel panel-primary">
             <div class="panel-heading border-colors">Laatste reacties op albums</div>
             <div class="panel-body">
-                  <?php
-                  $sth = $dbc->prepare("SELECT *, album_reply.created_at AS album_reply_created_at FROM album_reply JOIN album ON album_reply.album_id = album.id ORDER BY album_reply.created_at DESC LIMIT 5");
-                  $sth->execute();
-                  $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+                <?php
+                $sth = $dbc->prepare("SELECT *, album_reply.created_at AS album_reply_created_at FROM album_reply JOIN album ON album_reply.album_id = album.id ORDER BY album_reply.created_at DESC LIMIT 5");
+                $sth->execute();
+                $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-                  foreach($res as $key => $value) : ?>
-                  <a href="/album/post/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
-                  <?php endforeach; ?>
+                foreach($res as $key => $value) : ?>
+                <a href="/album/post/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
+                <?php endforeach; ?>
           </div>
           </div>
         </div>
@@ -250,5 +249,31 @@ if (isset($_POST['post_add_topic'])) {
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- summernote js -->
+    <script type="text/javascript" src="/js/summernote.min.js"></script>
+    <script src="/js/summernote-ext-emoji.js" charset="utf-8"></script>
+    <script>
+    document.emojiSource = '/images/emoji/';
+    $('.editor').summernote({
+        disableResizeEditor: true,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['misc', ['emoji']],
+            ['code', ['codeview']]
+        ]
+    });
+
+    $(document).ready(function () {
+        $('.quote-btn').on('click', function () {
+            $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
+        });
+    });
+
+    </script>
 </body>
 </html>
