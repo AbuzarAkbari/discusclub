@@ -94,7 +94,7 @@ require_once("../../includes/components/nav.php");
 
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <div class="col-md-10">
+                        <div class="col-md-10 content">
                             <p><?php echo $row['content']; ?></p>
                         </div>
                     </div>
@@ -187,8 +187,8 @@ require_once("../../includes/components/nav.php");
                             </div>
                             </div>
 
-                            <div class="col-md-9">
-                                 <p><?php echo wordwrap(html_entity_decode($reply['news_reply_content']), 70, "<br>", true); ?></p>
+                            <div class="col-md-9 content">
+                                 <p><?php echo $reply['news_reply_content']; ?></p>
                             </div>
 
                 </div>
