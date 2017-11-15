@@ -12,7 +12,7 @@ if (isset($_POST['post_add_topic'])) {
         $subId = $_POST['sub_category'];
         $topicTitle = htmlentities($_POST['add_topic_title']);
         $topicAuteur = $_SESSION['user']->id;
-        $topicContent = $_POST['content'];
+        $topicContent = $_POST['add_topic_content'];
 
         $sql = "INSERT INTO news (sub_category_id, title, content, created_at) VALUES (:subId, :topicTitle, :topicContent, NOW())";
 
@@ -88,7 +88,7 @@ if (isset($_POST['post_add_topic'])) {
                             <form class="form-horizontal" action="/news/" method="post">
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Titel (max. 50 tekens)">
+                                        <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Titel (max. 50 tekens)" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -106,9 +106,8 @@ if (isset($_POST['post_add_topic'])) {
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <?php require_once('../../includes/components/summernote.php') ?>
+                                    <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content" style="resize: none;" maxlength="50" placeholder="Uw bericht.."></textarea>
                                 </div>
-
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
@@ -140,7 +139,7 @@ if (isset($_POST['post_add_topic'])) {
                         <tbody>
                             <?php
                             $a = $page * $perPage - $perPage;
-                            $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id LIMIT {$perPage} OFFSET {$a}");
+                            $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id  ORDER BY n.created_at DESC LIMIT {$perPage} OFFSET {$a}");
                             $sth->execute();
                             $res = $sth->fetchAll(PDO::FETCH_OBJ);
                             foreach ($res as $key => $value) { ?>
@@ -249,6 +248,10 @@ if (isset($_POST['post_add_topic'])) {
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <?php require_once("../../includes/components/summernote.php"); ?>
 
 </body>
 </html>
