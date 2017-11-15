@@ -253,7 +253,7 @@ require_once("../../includes/components/nav.php");
     require_once("../../includes/components/pagination.php");
     ?>
 
-    <?php if ($logged_in) : ?>
+    <?php if ($logged_in && $rows["state_id"] != 2) : ?>
 
         <!-- Add reply -->
         <div class="col-xs-12">
@@ -283,8 +283,12 @@ require_once("../../includes/components/nav.php");
                 </div>
             </div>
         </div>
-    <?php endif; ?>
-    <?php endif; ?>
+        <?php else : ?>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">Topic gesloten</div>
+        <div class="col-md-3"></div>
+        <?php endif; ?>
+<?php endif; ?>
 </div>
 <?php
 // $ad_in_row = true;
