@@ -1,5 +1,5 @@
 <?php
-$levels = ["gebruiker"];
+$levels = ["gebruiker", "lid"];
 include_once("../../includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">

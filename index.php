@@ -45,15 +45,29 @@
             <?php if($text): ?>
             <br><br>
 
-            <h1><?php echo $text['title']; ?></h1>
+            <h1>Welkom
+                <?php
+                // echo $text['title']; ?>
+            </h1>
 
             <div class="col-md-12 ">
 
                     <div class="verticalLine ">
                         <div class="verticalLineRuimte">
-                            Categorie: <?php echo isset($text['name']) ? $text['name'] : ''; ?> | <?php echo isset($text['created_at']) ? $text['created_at'] : ''; ?>
-                            <br><br>
-                            <?php echo html_entity_decode($text['content']); ?>
+                            <?php
+                            // echo isset($text['name']) ? $text['name'] : ''; ?>  <?php
+                            // echo isset($text['created_at']) ? $text['created_at'] : ''; ?>
+                            <?php
+                            // echo html_entity_decode($text['content']); ?>
+                            <p>Goed dat u even komt kijken of u wat wijzer kunt worden over het houden van discusvissen.<br>
+                            Onze vereniging DCH is opgezet om kennis te verzamelen rond de discusvis en deze te verspreiden onder de liefhebbers/hobbyisten. Maar ook om de discussie aan te gaan hoe het misschien beter of anders kan. Hierdoor ontstaat er een mooi naslagwerk waar je van beginner tot professional je kennis kunt vergaren.<br>
+                            Zaken die aan onder andere de orde komen zijn:<br>
+                            Het inrichten van de biotoop,<br>
+                            Waterwaarden,<br>
+                            Visverzorging,<br>
+                            Kweek.<br>
+                            We hopen dat u bij ons een stuk wijzer kan worden en dagen u uit actief deel te nemen aan de ontwikkeling van de kennis rondom het houden van discusvissen.<br>
+                        </p>
                         </div>
                     </div>
                 <?php endif; ?>

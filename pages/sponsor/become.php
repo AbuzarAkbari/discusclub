@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="panel panel-primary ">
-                        <div class="panel-heading border-colors">Sponsor worden</div>
+                        <div class="panel-heading border-color-blue">Sponsor worden</div>
                         <div class="panel-body padding-padding space">
                             <h4>Beste,</h4> Discus Club Holland is zonder twijfel de grootste discusvereniging van Nederland en ook Europees gezien zijn wij een zwaargewicht. Zo organiseren wij bijvoorbeeld het Wereld Kampioenschap discussen, wat duidelijk maakt dat
                             wij als vereniging toch wel héél prominent aanwezig zijn in de aquariumwereld.
@@ -104,7 +104,7 @@
                 <div class="col-md-5">
                     <div class="col-md-12">
                         <div class="panel panel-primary">
-                            <div class="panel-heading border-colors">Advertentie</div>
+                            <div class="panel-heading border-color-blue">Advertentie</div>
                             <div class="panel-body">
                                 <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img alt="Advertentie" src="/images/ad/advertentie.jpg"></div></a> </div>
                             </div>
@@ -112,7 +112,7 @@
 
                         <div class="col-md-12">
                             <div class="panel panel-primary">
-                                <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
+                                <div class="panel-heading border-color-blue">Bekijk de nieuwste albums</div>
                                 <div class="panel-body">
                                     <?php
                                       $sth = $dbc->prepare("SELECT *, album.id AS album_id FROM album JOIN image ON image.album_id = album.id ORDER BY created_at DESC LIMIT 6");
@@ -120,15 +120,15 @@
                                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                                       foreach($res as $key => $value) : ?>
-                                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><img alt="Album-thumbnail" class="imgThumbnail" src="/images<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
-                                    <?php endforeach; ?>
+                                      <div class=" col-md-6 col-sm-6 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><div  title="image album" class="imgThumbnail" style="background-image: url('/images<?php echo $value['path']?>');" src=""></div></a><br><?php echo $value['created_at']?></div>
+                                  <?php endforeach; ?>
                               </div>
 
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="panel panel-primary">
-                                <div class="panel-heading border-colors">Laatste reacties op albums</div>
+                                <div class="panel-heading border-color-blue">Laatste reacties op albums</div>
                                 <div class="panel-body">
                                       <?php
                                       $sth = $dbc->prepare("SELECT *, album_reply.created_at AS album_reply_created_at FROM album_reply JOIN album ON album_reply.album_id = album.id ORDER BY album_reply.created_at DESC LIMIT 5");
@@ -144,7 +144,7 @@
 
                         <div class="col-md-12">
                             <div class="panel panel-primary">
-                                <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
+                                <div class="panel-heading border-color-blue">Laatste reacties op nieuws</div>
                                 <div class="panel-body">
                                     <?php
                                         $sth = $dbc->prepare("SELECT *, news_reply.created_at AS news_reply_created_at FROM news_reply JOIN news ON news_reply.news_id = news.id ORDER BY news_reply.created_at DESC LIMIT 5");
@@ -159,7 +159,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="panel panel-primary">
-                                <div class="panel-heading border-colors">Laatste reacties op topics</div>
+                                <div class="panel-heading border-color-blue">Laatste reacties op topics</div>
                                 <div class="panel-body">
                                     <?php
                                     $sth = $dbc->prepare("SELECT * FROM topic ORDER BY created_at DESC LIMIT 5");

@@ -6,14 +6,14 @@
     {
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
-        $query->execute([":name" => $_POST["new_category"]]);
+        $query->execute([":name" => htmlentities($_POST["new_category"])]);
     }
 
     if(isset($_POST['add_new_sub_category']) && !empty($_POST['new_sub_category']))
     {
         $sql = "INSERT INTO sub_category (category_id, name, created_at) VALUES (:category_id, :name, NOW())";
         $query = $dbc->prepare($sql);
-        $query->execute([":category_id" => $_POST['cat_id'], ":name" => $_POST["new_sub_category"]]);
+        $query->execute([":category_id" => $_POST['cat_id'], ":name" => htmlentities($_POST["new_sub_category"])]);
     }
 
     $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
@@ -81,6 +81,14 @@
                 $subCategorieenResult->execute();
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
+            
+            <?php 
+                // $notshowcategorieSql = "SELECT *, category.id AS cat_id, sub_category.category_id AS sub_cat_id FROM category JOIN sub_category ON category.id = sub_category.category_id";
+                // $notshowcategorieResult = $dbc->prepare($notshowcategorieSql);
+                // $notshowcategorieResult->execute();
+                // $result_categorie = $notshowcategorieResult->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            <?php if (sizeof($results2) > 0 || in_array($current_level, $admin_levels)) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">
                     <?php echo $categorie['name']; ?>
@@ -171,6 +179,7 @@
             </div>
 
     <?php require ('../../includes/components/advertentie.php'); ?>
+<?php endif; ?>
 <?php endforeach; ?>
 </div>
 </div>

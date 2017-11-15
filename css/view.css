@@ -18,9 +18,8 @@
 .sliderImg {
     position: relative;
     float: left;
-    width: 150px !important;
-    height: 150px !important;
-    background-position: 50% 50%;
+    width: 100%;
+    min-height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

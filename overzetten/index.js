@@ -125,13 +125,11 @@ dhc
     return Promise.all(queries)
   })
   .then(res => {
-    console.log(res)
     res.forEach((x, i) => {
       if(x) {
         topicIds[x.dhc] = x.conn;
       }
     })
-    console.log(topicIds)
     return dhc.query("SELECT * FROM forum_posts")
   })
   .then(res => {
@@ -144,5 +142,9 @@ dhc
       )
     })
     return Promise.all(queries);
+  })
+  .then(res => dhc.query("SELECT * FROM news"))
+  .then(res => {
+
   })
   .catch(e => console.log(e))

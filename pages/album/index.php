@@ -9,7 +9,7 @@ $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 if (false === intval($page)) {
     exit;
 }
-$perPage = 6;
+$perPage = 9;
 
 function custom_echo($x, $length)
 {
@@ -73,26 +73,32 @@ function custom_echo($x, $length)
                 $albumResult->execute();
                 $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
-            <?php foreach ($albums as $album) : ?>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading border-color-blue">
-                            <h3 class="panel-title"><?php custom_echo($album['title'], 10); ?></h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="media">
-                                <div class="media-body">
-                                    <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $album["user_id"]; ?>"><i> <?php custom_echo($album['first_name'], 10) .' '?> <?php echo $album['last_name']; ?> </i></a></h4>
-                                    <p>
-                                        Aantal foto's: <i><?php echo $album['aantal_fotos']; ?></i><br>
-                                        Datum: <i><?php echo $album['created_at']; ?></i><br>
-                                    </p>
-                                    <div class="text-center"><img alt='album-img' class="text-center imgAlbum" src="/images<?php echo $album['path'] ?>" alt=""></div><br><br>
-                                    <a href="/album/post/<?php echo $album['album_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
+            <?php
+            $arr = array_chunk($albums, 3);
+            foreach($arr as $alb) : ?>
+                <div class="col-md-4 col-sm-6 col-xs-12 row">
+                <?php foreach ($alb as $album) : ?>
+                    <div class="col-xs-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading border-color-blue">
+                                <h3 class="panel-title"><?php custom_echo($album['title'], 25); ?></h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><b>Geplaatst door: </b><a href="/user/<?php echo $album["user_id"]; ?>"><i> <?php custom_echo($album['first_name'], 10) .' '?> <?php echo $album['last_name']; ?> </i></a></h4>
+                                        <p>
+                                            Aantal foto's: <i><?php echo $album['aantal_fotos']; ?></i><br>
+                                            Datum: <i><?php echo $album['created_at']; ?></i><br>
+                                        </p>
+                                        <div class="text-center"><img alt='album-img' class="text-center imgAlbum" src="/images<?php echo $album['path'] ?>" alt=""></div><br><br>
+                                        <a href="/album/post/<?php echo $album['album_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                <?php endforeach; ?>
                 </div>
             <?php endforeach; ?>
         </div>

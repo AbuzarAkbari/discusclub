@@ -3,13 +3,13 @@ if (isset($_POST['upload_aquarium'])) {
     require_once("security.php");
 
     if ($logged_in) {
-    		$aquarium_name = $_POST['aquarium_name'];
+    		$aquarium_name = htmlentities($_POST['aquarium_name']);
 	        $id_poster = $_SESSION['user']->id;
 
     	if (isset($_FILES['files']) && $_FILES['files']['error'] !== 4) {
 
     	    $error = '';
-
+			$paths = [];
 	        for($x = 0; $x  < count($_FILES['files']['name']); $x++) {
 	        	$aquarium_files = $_FILES['files'];
 	            $target_dir = "/images/aquarium/";
@@ -60,21 +60,23 @@ if (isset($_POST['upload_aquarium'])) {
 	                    '.jpg',
 	                    '.jpeg',
 	                    '.gif'
-	                ];
+					];
+
+					$paths[] = $path;
+
 	            }
 	        }
 
+			$aquariumsql = "INSERT INTO aquarium (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
+			$aquarium_result = $dbc->prepare($aquariumsql);
+			$aquarium_result->execute([':title' => $aquarium_name, ':user_id' => $id_poster]);
+			$aquarium_id = $dbc->lastInsertId();
             for($x = 0; $x  < count($_FILES['files']['name']); $x++) {
-                if (move_uploaded_file($aquarium_files["tmp_name"][$x], '../../images' . $path)) {
-
-                    $aquariumsql = "INSERT INTO aquarium (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
-                    $aquarium_result = $dbc->prepare($aquariumsql);
-                    $aquarium_result->execute([':title' => $aquarium_name, ':user_id' => $id_poster]);
-                    $aquarium_id = $dbc->lastInsertId();
+                if (move_uploaded_file($aquarium_files["tmp_name"][$x], '../../images' . $paths[$x])) {
 
                     $sql = "INSERT INTO image (path, aquarium_id) VALUES (:path, :aquarium_id)";
                     $result = $dbc->prepare($sql);
-                    $result->execute([':path' => $path, ':aquarium_id' => $aquarium_id]);
+                    $result->execute([':path' => $paths[$x], ':aquarium_id' => $aquarium_id]);
 
                 } else {
                     $error = "Sorry, er ging iets mis met het uploaden.";

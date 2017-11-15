@@ -13,7 +13,8 @@ $perPage = 10;
 $offset = $page * $perPage - $perPage;
 
 //Select query for sub_category, topics, users, replies and roles
-$sql = "SELECT *, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN user ON topic.user_id = user.id LEFT JOIN image ON user.profile_img = image.id LEFT JOIN role ON user.role_id = role.id WHERE topic.id = :id ORDER BY topic.last_changed";
+$sql = "SELECT *, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id
+AS sub_category_id, sub_category.name AS sub_category_name FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN user ON topic.user_id = user.id LEFT JOIN image ON user.profile_img = image.id LEFT JOIN role ON user.role_id = role.id WHERE topic.id = :id ORDER BY topic.last_changed";
 $result = $dbc->prepare($sql);
 $result->execute([":id" => $_GET["id"]]);
 $rows = $result->fetch(PDO::FETCH_ASSOC);
@@ -145,7 +146,7 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
                                     <td><?php echo $topic['topic_last_changed']; ?>, <br> Door <a href="/user/<?php echo $topic["user_id"]; ?>"><?php echo $topic['first_name'].' '.$topic['last_name']; ?></a></td>
                                     <?php endif;if (in_array($current_level, $admin_levels)) : ?>
                                 <td>
-                                    <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-file"></i></a>
+                                    <a  title="Open" href="/includes/tools/topic/default.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary" name="button"><i class="glyphicon glyphicon-file"></i></a>
                                     <a  title="Pinnen" href="/includes/tools/topic/pin.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-pushpin"></i></a>
                                     <a  title="Locken" href="/includes/tools/topic/lock.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
                                     <a title="Bewerken" href="/includes/tools/topic/edit.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
@@ -219,30 +220,7 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- summernote js -->
-    <script type="text/javascript" src="/js/summernote.min.js"></script>
-    <script src="/js/summernote-ext-emoji.js" charset="utf-8"></script>
-    <script>
-        document.emojiSource = '/images/emoji/';
-        $('.editor').summernote({
-            disableResizeEditor: true,
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['misc', ['emoji']],
-                ['code', ['codeview']]
-            ]
-        });
+    <?php require_once("../../includes/components/summernote.php"); ?>
 
-        $(document).ready(function () {
-            $('.quote-btn').on('click', function () {
-                $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
-            });
-        });
-
-    </script>
 </body>
 </html>

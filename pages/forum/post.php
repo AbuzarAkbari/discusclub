@@ -13,7 +13,8 @@ if (false === intval($page)) {
 $perPage = 10;
 
 //Select query for sub_category, topics, users, replies and roles
-$sql = "SELECT *, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN user ON topic.user_id = user.id LEFT JOIN image ON user.profile_img = image.id LEFT JOIN role ON user.role_id = role.id WHERE topic.id = ?";
+$sql = "SELECT *, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic LEFT JOIN sub_category
+ON topic.sub_category_id = sub_category.id LEFT JOIN user ON topic.user_id = user.id LEFT JOIN image ON user.profile_img = image.id LEFT JOIN role ON user.role_id = role.id WHERE topic.id = ?";
 $result = $dbc->prepare($sql);
 $result->bindParam(1, $_GET['id']);
 $result->execute();
@@ -103,7 +104,7 @@ require_once("../../includes/components/nav.php");
                                 <br><b>Lid sinds: </b> <?php echo $rows['user_created_at']; ?><br><br>
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 content">
                             <p><?php echo $rows["topic_content"]; ?></p>
                             <p>
                             <hr>
@@ -214,7 +215,7 @@ require_once("../../includes/components/nav.php");
                                 <br><b>Lid sinds: </b> <?php echo $reply['user_created_at']; ?><br><br>
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 content">
                             <p><?php echo $reply["content"]; ?></p>
                             <p>
                                 <hr>
@@ -252,7 +253,7 @@ require_once("../../includes/components/nav.php");
     require_once("../../includes/components/pagination.php");
     ?>
 
-    <?php if ($logged_in) : ?>
+    <?php if ($logged_in && $rows["state_id"] != 2) : ?>
 
         <!-- Add reply -->
         <div class="col-xs-12">
@@ -282,8 +283,12 @@ require_once("../../includes/components/nav.php");
                 </div>
             </div>
         </div>
-    <?php endif; ?>
-    <?php endif; ?>
+        <?php else : ?>
+        <div class="col-md-12 text-center border-color-blue message">Dit topic is gesloten, u kunt niet meer reageren. 
+            Keer terug naar het <a href="/forum/topic/<?php echo $rows['sub_category_id']; ?>">forum</a>
+        </div>
+        <?php endif; ?>
+<?php endif; ?>
 </div>
 <?php
 // $ad_in_row = true;
@@ -299,31 +304,8 @@ require_once('../../includes/components/advertentie.php'); ?>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- summernote js -->
-<script type="text/javascript" src="/js/summernote.min.js"></script>
-<script src="/js/summernote-ext-emoji.js" charset="utf-8"></script>
-<script>
-    document.emojiSource = '/images/emoji/';
-    $('.editor').summernote({
-        disableResizeEditor: true,
-        toolbar: [
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['strikethrough', 'superscript', 'subscript']],
-            ['fontsize', ['fontsize']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['height', ['height']],
-            ['misc', ['emoji']],
-            ['code', ['codeview']]
-        ]
-    });
+<?php require_once("../../includes/components/summernote.php"); ?>
 
-    $(document).ready(function () {
-        $('.quote-btn').on('click', function () {
-            $('.editor').summernote('insertText', '[quote ' + ($(this).attr('data-id')) + ']')//.disabled = true
-        });
-    });
-
-</script>
 </body>
 
 </html>

@@ -2,12 +2,12 @@
 if (isset($_POST['upload_album'])) {
     require_once("security.php");
     if ($logged_in) {
-    		$album_name = $_POST['album_name'];
+    		$album_name = htmlentities($_POST['album_name']);
 	        $id_poster = $_SESSION['user']->id;
     	if (isset($_FILES['files']) && $_FILES['files']['error'] !== 4) {
     		$error = '';
 
-
+            $paths = [];
 	        for($x = 0; $x  < count($_FILES['files']['name']); $x++) {
                 $album_files = $_FILES['files'];
                 $target_dir = "/images/album/";
@@ -57,24 +57,28 @@ if (isset($_POST['upload_album'])) {
                         '.jpeg',
                         '.gif'
                     ];
+
+                    $paths[] = $path;
+
+
                 }
             }
 
 //          echo "<pre>";
 //	        var_dump($_FILES['files']['name'], $album_files["tmp_name"], sizeof($_FILES['files']['name']));
 //	        exit();
+            $albumsql = "INSERT INTO album (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
+            $album_result = $dbc->prepare($albumsql);
+            $album_result->execute([':title' => $album_name, ':user_id' => $id_poster]);
+            $album_id = $dbc->lastInsertId();
             for ($x = 0; $x < sizeof($_FILES['files']['name']); $x++) {
                 $album_files = $_FILES['files'];
-                if (move_uploaded_file($album_files["tmp_name"][$x], '../../images' . $path)) {
+                if (move_uploaded_file($album_files["tmp_name"][$x], '../../images' . $paths[$x])) {
 
-                    $albumsql = "INSERT INTO album (title, user_id, created_at) VALUES (:title, :user_id, NOW())";
-                    $album_result = $dbc->prepare($albumsql);
-                    $album_result->execute([':title' => $album_name, ':user_id' => $id_poster]);
-                    $album_id = $dbc->lastInsertId();
 
                     $sql = "INSERT INTO image (path, album_id) VALUES (:path, :album_id)";
                     $result = $dbc->prepare($sql);
-                    $result->execute([':path' => $path, ':album_id' => $album_id]);
+                    $result->execute([':path' => $paths[$x], ':album_id' => $album_id]);
 
                 } else {
                     $error = "Sorry, er ging iets mis met het uploaden.";

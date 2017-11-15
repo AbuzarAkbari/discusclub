@@ -88,7 +88,7 @@ if (isset($_POST['post_add_topic'])) {
                             <form class="form-horizontal" action="/news/" method="post">
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Titel (max. 50 tekens)">
+                                        <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Titel (max. 50 tekens)" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -106,10 +106,8 @@ if (isset($_POST['post_add_topic'])) {
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content"
-                                    style="resize: none !important;" placeholder="Uw bericht.."></textarea>
+                                    <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content" style="resize: none;" maxlength="50" placeholder="Uw bericht.."></textarea>
                                 </div>
-
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
@@ -141,7 +139,7 @@ if (isset($_POST['post_add_topic'])) {
                         <tbody>
                             <?php
                             $a = $page * $perPage - $perPage;
-                            $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id LIMIT {$perPage} OFFSET {$a}");
+                            $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id  ORDER BY n.created_at DESC LIMIT {$perPage} OFFSET {$a}");
                             $sth->execute();
                             $res = $sth->fetchAll(PDO::FETCH_OBJ);
                             foreach ($res as $key => $value) { ?>
@@ -173,14 +171,14 @@ if (isset($_POST['post_add_topic'])) {
           <div class="panel panel-primary">
             <div class="panel-heading border-colors">Laatste reacties op albums</div>
             <div class="panel-body">
-                  <?php
-                  $sth = $dbc->prepare("SELECT *, album_reply.created_at AS album_reply_created_at FROM album_reply JOIN album ON album_reply.album_id = album.id ORDER BY album_reply.created_at DESC LIMIT 5");
-                  $sth->execute();
-                  $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+                <?php
+                $sth = $dbc->prepare("SELECT *, album_reply.created_at AS album_reply_created_at FROM album_reply JOIN album ON album_reply.album_id = album.id ORDER BY album_reply.created_at DESC LIMIT 5");
+                $sth->execute();
+                $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-                  foreach($res as $key => $value) : ?>
-                  <a href="/album/post/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
-                  <?php endforeach; ?>
+                foreach($res as $key => $value) : ?>
+                <a href="/album/post/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
+                <?php endforeach; ?>
           </div>
           </div>
         </div>
@@ -234,7 +232,7 @@ if (isset($_POST['post_add_topic'])) {
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                       foreach($res as $key => $value) : ?>
-                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><img alt="Album-thumbnail" class="imgThumbnail2" src="/images<?php echo $value['path']; ?>"></a><br><?php echo $value['created_at']?></div>
+                      <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><div  title="image album" class="imgThumbnail" style="background-image: url('/images<?php echo $value['path']?>');"></div></a><br><?php echo $value['created_at']?></div>
                       <?php endforeach; ?>
               </div>
             </div>
@@ -250,5 +248,10 @@ if (isset($_POST['post_add_topic'])) {
     <!-- bootstrap script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <?php require_once("../../includes/components/summernote.php"); ?>
+
 </body>
 </html>
