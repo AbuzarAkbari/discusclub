@@ -53,10 +53,10 @@ require_once("../../includes/tools/messenger_handler.php");
                         $bindings[":search"] = isset($_POST["user_search"]) ? "%" . $_POST["user_search"] . "%" : "%";
                         $bindings[":user_2"] = isset($_GET["id"]) ? $_GET["id"] : $_SESSION["user"]->id;
                         // $sth = $dbc->prepare("SELECT *, u.id FROM user AS u JOIN image AS i ON i.id = u.profile_img WHERE u.id <> :user_1 AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search)");
-                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM user as u LEFT JOIN message as m ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image as i ON i.id = u.profile_img LEFT JOIN image as i2 ON i2.id = u2.profile_img WHERE u.id <> :user_2 AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search) GROUP BY u.id ORDER BY m.created_at DESC");
+                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM user as u LEFT JOIN message as m ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image as i ON i.id = u.profile_img LEFT JOIN image as i2 ON i2.id = u2.profile_img WHERE u.id <> :user_2 AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search) GROUP BY u.id ORDER BY m.created_at ASC");
                     } else {
                         $query = 2;
-                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM message AS m LEFT JOIN user AS u ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE u.id IN (:user_1) OR u2.id IN (:user_1) GROUP BY u.id, u2.id ORDER BY m.created_at DESC");
+                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM message AS m LEFT JOIN user AS u ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE u.id IN (:user_1) OR u2.id IN (:user_1) GROUP BY u.id, u2.id ORDER BY m.created_at ASC");
                     }
                     $sth->execute($bindings);
                     $res = $sth->fetchAll(PDO::FETCH_OBJ);
@@ -75,15 +75,18 @@ require_once("../../includes/tools/messenger_handler.php");
                     $id = isset($res[0]) ? $res[0]->user_id_2 : 0;
                     $id = isset($_GET["id"]) ? $_GET["id"] : $id;
                     $found = false;
+                    $ids = [];
                     foreach($res as $r) {
-                        if($r->user_id_1 == $id || $r->user_id_2 == $id) {
+                        if($r->user_1_id == $id || $r->user_2_id == $id) {
                             $found = true;
                         }
+                        $ids[] = $r->user_1_id;
+                        $ids[] = $r->user_2_id;
                     }
 
                     if((sizeof($res) === 0 && $query === 2 && $id != 0) || !$found) {
-                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM user AS u LEFT JOIN message AS m ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE u.id IN (:user_1) OR u2.id IN (:user_1) GROUP BY m.user_id_1, m.user_id_2 ORDER BY m.created_at DESC");
-                        $sth->execute(["user_1" => $id]);
+                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM user AS u LEFT JOIN message AS m ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE (u.id IN (:user_1) OR u2.id IN (:user_1)) AND u.id NOT IN (:notIn) AND u2.id NOT IN (:notIn) GROUP BY u.id, u2.id ORDER BY m.created_at DESC");
+                        $sth->execute(["user_1" => $id, ":notIn" => implode($ids)]);
                         $res = array_merge($sth->fetchAll(PDO::FETCH_OBJ), $res);
                     }
                     $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
