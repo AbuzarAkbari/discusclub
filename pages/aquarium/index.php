@@ -68,7 +68,7 @@ function custom_echo($x, $length){
               $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <?php
-            $arr = array_chunk($aquariums, 3);
+            $arr = array_chunk($aquariums,(int)ceil(count($aquariums)/4));
                  foreach($arr as $araq) :?>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                 <?php foreach($araq as $aquarium) :?>

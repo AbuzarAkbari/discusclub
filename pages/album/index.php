@@ -74,11 +74,10 @@ function custom_echo($x, $length)
                 $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <?php
-            $arr = array_chunk($albums, 3);
+            $arr = array_chunk($albums,(int)ceil(count($albums)/4));
             foreach($arr as $alb) : ?>
-                <div class="col-md-4 col-sm-6 col-xs-12 row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                 <?php foreach ($alb as $album) : ?>
-                    <div class="col-xs-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading border-color-blue">
                                 <h3 class="panel-title"><?php custom_echo($album['title'], 25); ?></h3>
@@ -97,7 +96,6 @@ function custom_echo($x, $length)
                                 </div>
                             </div>
                         </div>
-                    </div>
                 <?php endforeach; ?>
                 </div>
             <?php endforeach; ?>
