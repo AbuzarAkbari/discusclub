@@ -1,5 +1,13 @@
 <?php
 $levels = ["lid", "gebruiker"];
+
+//Pagination variables
+$page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+if (false === intval($page)) {
+    exit;
+}
+$perPage = 10;
+
 require_once("../../includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +109,8 @@ require_once("../../includes/tools/security.php"); ?>
 
             <?php endif; ?>
         <?php
-            $sql2 = "SELECT *, album_reply.created_at AS reply_created_at, user.id AS user_id FROM album_reply JOIN user ON album_reply.user_id = user.id JOIN image ON user.profile_img = image.id WHERE album_reply.album_id = ? ORDER BY reply_created_at ASC";
+            $aantal = $page * $perPage - $perPage;
+            $sql2 = "SELECT *, album_reply.created_at AS reply_created_at, user.id AS user_id FROM album_reply JOIN user ON album_reply.user_id = user.id JOIN image ON user.profile_img = image.id WHERE album_reply.album_id = ? ORDER BY reply_created_at ASC LIMIT {$perPage} OFFSET {$aantal}";
             $result2 = $dbc->prepare($sql2);
             $result2->bindParam(1, $_GET['id']);
             $result2->execute();
@@ -143,10 +152,14 @@ require_once("../../includes/tools/security.php"); ?>
             </div>
             </div>
 
-                    <?php endforeach; ?>
+             <?php endforeach; ?>
 
-
-
+                <?php
+                    $path = "/album/post/".$_GET["id"]."/:page";
+                    $sql = "SELECT COUNT(*) AS x FROM album_reply WHERE album_id = :id AND album_reply.deleted_at IS NULL";
+                    $pagination_bindings = [":id" => $_GET["id"]];
+                    require_once("../../includes/components/pagination.php");
+                ?>
 
 
 

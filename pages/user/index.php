@@ -207,28 +207,28 @@ if($user_data == false){
                                 ?>
                                 <strong>Aantal forum topics</strong><br>
                                 <?php if ($x_topic->t == 0) {
-                                    echo 'Geen topics';
+                                    echo 'Geen forum topics';
                                 } else {
                                     echo $x_topic->t;
                                 } ?><br>
 
                                 <strong>Aantal forum berichten</strong><br>
                                 <?php if ($x_reply->r == 0) {
-                                    echo 'Geen berichten';
+                                    echo 'Geen forum berichten';
                                 } else {
                                     echo $x_reply->r;
                                 } ?><br>
 
                                 <strong>Aantal albums </strong><br>
                                 <?php if ($x_album->a == 0) {
-                                    echo 'Geen berichten';
+                                    echo 'Geen albums';
                                 } else {
                                     echo $x_album->a;
                                 } ?><br>
 
                                 <strong>Aantal album reacties</strong><br>
                                 <?php if ($x_albumreply->ar == 0) {
-                                    echo 'Geen berichten';
+                                    echo 'Geen album reacties';
                                 } else {
                                     echo $x_albumreply->ar;
                                 } ?><br>
@@ -242,14 +242,14 @@ if($user_data == false){
 
                                 <strong>Aantal aquarium reacties</strong><br>
                                 <?php if ($x_aquariumreply->ar == 0) {
-                                    echo 'Geen berichten';
+                                    echo 'Geen aquarium reacties';
                                 } else {
                                     echo $x_aquariumreply->ar;
                                 } ?><br>
 
                                 <strong>Aantal nieuws reacties</strong><br>
                                 <?php if ($x_newsreply->nr == 0) {
-                                    echo 'Geen berichten';
+                                    echo 'Geen nieuws reacties';
                                 } else {
                                     echo $x_newsreply->nr;
                                 } ?><br>
@@ -314,7 +314,7 @@ if($user_data == false){
                                         <tr>
                                             <td>Geen reacties</td>
                                         </tr>
-                                <?php endif; ?>
+                                    <?php endif; ?>
                             </table>
                         </div>
                     </div>
