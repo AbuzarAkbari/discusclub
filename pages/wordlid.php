@@ -57,7 +57,7 @@
                             <li>....</li>
                         </ul>
                         <br>
-                        Dit alles voor €25,00 per jaar. Voor die contributie krijgt u in ruil alle bovenstaande en kunt u met trots zeggen dat u ook de status “clublid van DCH” heeft, u behoort tot een uiterst toonaangevende vereniging op internationaal discus-vla
+                        Dit alles voor €25,00 per jaar. Voor die contributie krijgt u in ruil al het bovenstaande en kunt u met trots zeggen dat u ook de status “clublid van DCH” heeft, u behoort tot een uiterst toonaangevende vereniging op internationaal discus-vlak.
                         <br><br>
                         Gezinsleden zijn gratis lid.
                         Op het invulformulier hieronder kunt u zich opgeven als lid.
