@@ -48,7 +48,7 @@ require_once("../../includes/tools/security.php"); ?>
                     </ol>
                 </div>
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading heading-padding">
                         <h3 class="panel-title"><?php echo $album[0]['title'] . ' | <i> Geplaatst door: </i> &nbsp; <a href="/user/'. $user_id .'">' . $album[0]['first_name'].' '.
                         $album[0]['last_name'] . '</a>  <span style="float: right;"> Geplaatst op: '.$album[0]['album_created_at'].'</span>'  ;?></h3>
                     </div>
@@ -111,7 +111,7 @@ require_once("../../includes/tools/security.php"); ?>
              <?php foreach ($rows as $row) : ?>
                  <div class="col-xs-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading border-color-blue">
+                    <div class="panel-heading border-color-blue ">
                         <h3 class="panel-title text-left"><?php echo "Geplaatst door: <b><a style='color: white;' href='/user/".$row['user_id']."'>". $row['first_name'].' '.$row['last_name'].'</a></b>';?></h3>
                     </div>
 

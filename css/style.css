@@ -58,6 +58,9 @@ hr {
 .panel-heading1 {
     background: #0ba8ec !important;
 }
+.heading-padding {
+    padding-bottom: 20px !important;
+}
 
 .title {
     padding-left: 15px;
@@ -99,10 +102,9 @@ hr {
 .img-responsive,
 .thumbnail a > img,
 .thumbnail > img {
-    display: block;
-    width: 100%;
+    width: auto;
     height: auto;
-    object-fit: cover;
+    margin: 0 auto;
 }
 
 .footer-name {

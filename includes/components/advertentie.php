@@ -16,13 +16,15 @@ if(rand(0, 1)) :
     </a>
 </div>
 <?php else: ?>
+    <div style="padding-bottom: 15px;">
 <ins
     class="adsbygoogle"
-     style="display:block"
+     style="display:block; "
      data-ad-client="ca-pub-3271020881230164"
      data-ad-slot="6824529582"
      data-ad-format="auto">
  </ins>
+</div>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

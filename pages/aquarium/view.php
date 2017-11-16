@@ -48,7 +48,7 @@ require_once("../../includes/tools/security.php"); ?>
                     </ol>
                 </div>
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading heading-padding">
                         <?php
 
 
