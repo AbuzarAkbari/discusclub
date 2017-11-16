@@ -113,7 +113,7 @@ require_once("../../includes/components/nav.php");
 
             <?php
                 $a = $page * $perPage - $perPage;
-                $replySql = "SELECT *, user.created_at AS user_created_at, news_reply.created_at AS reply_created_at, news_reply.content AS news_reply_content FROM news_reply JOIN news ON news_reply.news_id = news.id JOIN user ON news_reply.user_id = user.id JOIN role ON user.role_id = role.id JOIN image ON user.profile_img = image.id WHERE news.id = :id AND news_reply.deleted_at IS NULL ORDER BY news_reply.last_changed ASC LIMIT {$perPage} OFFSET {$a}";
+                $replySql = "SELECT *, user.created_at AS user_created_at, news_reply.created_at AS reply_created_at, news.content AS news_content, news_reply.content AS news_reply_content FROM news_reply JOIN news ON news_reply.news_id = news.id JOIN user ON news_reply.user_id = user.id JOIN role ON user.role_id = role.id JOIN image ON user.profile_img = image.id WHERE news.id = :id AND news_reply.deleted_at IS NULL ORDER BY news_reply.last_changed ASC LIMIT {$perPage} OFFSET {$a}";
                 $replyResult = $dbc->prepare($replySql);
                 $replyResult->execute([":id" => $_GET['id']]);
                 $replies = $replyResult->fetchAll(PDO::FETCH_ASSOC);
@@ -135,13 +135,9 @@ require_once("../../includes/components/nav.php");
                         $query->execute([
                             ':id' => $match
                         ]);
-                        $results = $query->fetchAll();
+                        $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
-                        $id = $rows[0]['user_id'];
-
-//                        echo '<pre>';
-//                        print_r($rows[0]['user_id']);
-//                        exit;
+                        $id = $results[0]['user_id'];
 
                         $userIdSql = "SELECT * FROM user WHERE id = ?";
                         $userIdResult = $dbc->prepare($userIdSql);
@@ -149,14 +145,14 @@ require_once("../../includes/components/nav.php");
                         $userIdResult->execute();
                         $userId = $userIdResult->fetchAll(PDO::FETCH_ASSOC);
 
-                        if (!isset($results[0])) {
+                        if (!isset($results)) {
                             $replace = 'Oops, deze post bestaat niet meer';
                         } else {
                             $naam = $userId[0]['first_name'].' '.$userId[0]['last_name'];
                             $replace = $naam.' schreef:<br>'.$results[0]['content'];
                         }
 
-                        $reply['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $reply['content']);
+                        $reply['news_content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $reply['news_content']);
                     }
                 }
 
