@@ -57,8 +57,8 @@ require_once("../../includes/tools/security.php"); ?>
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading heading-padding">
-                        <h3 class="panel-title"><?php echo $album[0]['title'] . ' | <i> Geplaatst door: </i> &nbsp; <a href="/user/'. $user_id .'">' . $album[0]['first_name'].' '.
-                        $album[0]['last_name'] . '</a>  <span style="float: right;"> Geplaatst op: '.$album[0]['album_created_at'].'</span>'  ;?></h3>
+                        <h3 class="panel-title"><?php echo $album[0]['title'] . ' | Geplaatst door: &nbsp; <a href="/user/'. $user_id .'">' . $album[0]['first_name'].' '.
+                        $album[0]['last_name'] . '</a>  <span style="float: right;"> Geplaatst op: <i>'.$album[0]['album_created_at'].'</i></span>'  ;?></h3>
                     </div>
                     <div class="panel-body">
                         <div class="container-fluid">
