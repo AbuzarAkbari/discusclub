@@ -10,7 +10,7 @@ $perPage = 10;
 $aantal = $page * $perPage - $perPage;
 
 $search = $_GET['q'];
-$sql = $dbc->prepare("SELECT *, sc.id AS sub_id , sc.name AS sub_name, n.id, n.created_at AS news_created_at FROM news AS n LEFT JOIN news_reply AS nr ON n.id = nr.news_id JOIN sub_category as sc ON sc.id = n.sub_category_id  WHERE n.title LIKE :search OR n.content LIKE :search OR nr.content LIKE :search GROUP BY n.id LIMIT {$perPage} OFFSET {$aantal};");
+$sql = $dbc->prepare("SELECT *, sc.id AS sub_id , sc.name AS sub_name, n.id, n.created_at AS news_created_at FROM news AS n LEFT JOIN news_reply AS nr ON n.id = nr.news_id JOIN sub_category as sc ON sc.id = n.sub_category_id  WHERE n.title LIKE :search OR n.content LIKE :search OR nr.content LIKE :search GROUP BY n.id ORDER BY nr.created_at DESC, n.created_at DESC LIMIT {$perPage} OFFSET {$aantal};");
 $sql->execute([":search" => isset($search) ? "%" . $search . "%" : "%"]);
 $results = $sql->fetchAll(PDO::FETCH_OBJ);
 ?>
