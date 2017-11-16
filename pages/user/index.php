@@ -322,7 +322,7 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue">Albums</div>
                         <div class="panel-body">
                             <?php
-                                $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at DESC LIMIT 8";
+                                $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? GROUP BY album.id ORDER BY created_at DESC LIMIT 8";
                                 $albumResult = $dbc->prepare($albumSql);
                                 $albumResult->bindParam(1, $user_data->id);
                                 $albumResult->execute();
@@ -342,7 +342,7 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue">Aquariums</div>
                         <div class="panel-body">
                             <?php
-                                $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE aquarium.user_id = ? ORDER BY created_at DESC LIMIT 8";
+                                $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE aquarium.user_id = ? GROUP BY aquarium_id ORDER BY created_at DESC LIMIT 8";
                                 $aquariumResult = $dbc->prepare($aquariumSql);
                                 $aquariumResult->bindParam(1, $user_data->id);
                                 $aquariumResult->execute();
