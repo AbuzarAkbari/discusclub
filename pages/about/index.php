@@ -86,7 +86,8 @@
               </div>
           </div>
       </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
+                <?php require_once('../../includes/components/advertentie.php'); ?>
               <div class="panel panel-primary">
                   <div class="panel-heading border-colors">Laatste reacties op albums</div>
                   <div class="panel-body">
@@ -130,7 +131,8 @@
                     <a href="/forum/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['created_at'] ?></div>
                     <?php endforeach; ?>
                 </div>
-          </div>
+            </div>
+            <?php require_once('../../includes/components/advertentie.php'); ?>
         </div>
       </div>
       <div class="col-md-8"></div>

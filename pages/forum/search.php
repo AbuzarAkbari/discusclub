@@ -113,7 +113,7 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
     </div>
     <?php
         $path = "/forum/search/:page";
-        $sql = "SELECT count(t.id) AS amount FROM topic AS t LEFT JOIN reply AS r ON t.id = r.topic_id JOIN user AS u ON t.user_id = u.id JOIN state AS s ON t.state_id = s.id JOIN sub_category AS sc ON t.sub_category_id = sc.id WHERE t.title LIKE :search OR t.content LIKE :search OR r.content LIKE :search";
+        $sql = "SELECT count(t.id) AS x FROM topic AS t LEFT JOIN reply AS r ON t.id = r.topic_id JOIN user AS u ON t.user_id = u.id JOIN state AS s ON t.state_id = s.id JOIN sub_category AS sc ON t.sub_category_id = sc.id WHERE t.title LIKE :search OR t.content LIKE :search OR r.content LIKE :search";
         $pagination_bindings = [":search" => isset($search) ? "%" . $search . "%" : "%"];
         require_once("../../includes/components/pagination.php");
     ?>

@@ -58,8 +58,10 @@ hr {
 .panel-heading1 {
     background: #0ba8ec !important;
 }
-.heading-padding {
-    padding-bottom: 20px !important;
+@media screen and (max-width: 990px) {
+    .heading-padding {
+        padding-bottom: 20px !important;
+    }
 }
 
 .title {
@@ -83,8 +85,8 @@ hr {
 }
 
 .lees-meer-btn:hover {
-    color: #f45713;
-    background: white;
+    color: #fff;
+    background: #dd4402;
 }
 
 .footer-wrapper {
@@ -437,7 +439,7 @@ li.dropdown:hover > .dropdown-menu {
     margin-bottom: 6%;
     border: 1px solid black;
     margin-top: 2%;
-    display: block;
+    display: inline-block;
     height: 50px;
     width: 400px;
     background-repeat: no-repeat;
@@ -833,5 +835,21 @@ li.dropdown:hover > .dropdown-menu {
     background-repeat: no-repeat !important;
     background-position: center !important;
     width: auto;
-    height: 60vh;
+    height: 70vh;
+}
+
+.sliderTekst {
+    top: 80px;
+    left: 220px;
+    background: white;
+    overflow: hidden;
+    padding: 16px 16px 12px 18px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    border-radius: 3px;
+    max-width: 300px;
+    min-height: 20px;
+    position: relative;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
 }

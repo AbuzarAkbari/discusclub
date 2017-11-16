@@ -35,14 +35,9 @@
     <?php
         require_once("includes/components/nav.php");
         require_once("includes/components/slider.php");
-
-        $result = $dbc->prepare("SELECT * FROM `topic` JOIN sub_category ON category_id JOIN user ON user_id WHERE state_id = 1");
-        $result->execute();
-        $text = $result->fetch(PDO::FETCH_ASSOC);
       ?>
     <div class="container main">
         <div class="row">
-            <?php if($text): ?>
             <br><br>
 
             <h1>Welkom
@@ -70,7 +65,6 @@
                         </p>
                         </div>
                     </div>
-                <?php endif; ?>
                 <br><br>
             </div>
             <?php if($aquarium): ?>
@@ -98,14 +92,14 @@
                             <div class="panel-heading border-color-black">Ander nieuws</div>
                             <div class="panel-body ">
                                 <?php
-                                $sth = $dbc->prepare("SELECT * FROM news");
+                                $sth = $dbc->prepare("SELECT * FROM news ORDER BY news.created_at LIMIT 5");
                                 $sth->execute();
                                 $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                                 foreach($res as $key => $value) : ?>
                                     <div class=" col-md-12 verticalLine">
-                                        <p><b><?php echo html_entity_decode($value['title']);?></b></p>
-                                        <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,55) . "..." : html_entity_decode($value["content"]);
+                                        <p><b><?php echo strip_tags($value['title']);?></b></p>
+                                        <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,55) . "..." : strip_tags($value["content"]);
                                         ?>
                                         <br><br>
                                         <a href="/news/post/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>

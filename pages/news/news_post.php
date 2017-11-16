@@ -113,7 +113,7 @@ require_once("../../includes/components/nav.php");
 
             <?php
                 $a = $page * $perPage - $perPage;
-                $replySql = "SELECT *, user.created_at AS user_created_at, news_reply.created_at AS reply_created_at, news.content AS news_content, news_reply.content AS news_reply_content FROM news_reply JOIN news ON news_reply.news_id = news.id JOIN user ON news_reply.user_id = user.id JOIN role ON user.role_id = role.id JOIN image ON user.profile_img = image.id WHERE news.id = :id AND news_reply.deleted_at IS NULL ORDER BY news_reply.last_changed ASC LIMIT {$perPage} OFFSET {$a}";
+                $replySql = "SELECT *, user.created_at AS user_created_at, news_reply.created_at AS reply_created_at, news.content AS news_content, news_reply.content AS news_reply_content, news_reply.id AS news_reply_id FROM news_reply JOIN news ON news_reply.news_id = news.id JOIN user ON news_reply.user_id = user.id JOIN role ON user.role_id = role.id JOIN image ON user.profile_img = image.id WHERE news.id = :id AND news_reply.deleted_at IS NULL ORDER BY news_reply.last_changed ASC LIMIT {$perPage} OFFSET {$a}";
                 $replyResult = $dbc->prepare($replySql);
                 $replyResult->execute([":id" => $_GET['id']]);
                 $replies = $replyResult->fetchAll(PDO::FETCH_ASSOC);
@@ -135,9 +135,9 @@ require_once("../../includes/components/nav.php");
                         $query->execute([
                             ':id' => $match
                         ]);
-                        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+                        $results = $query->fetch(PDO::FETCH_ASSOC);
 
-                        $id = $results[0]['user_id'];
+                        $id = $results['user_id'];
 
                         $userIdSql = "SELECT * FROM user WHERE id = ?";
                         $userIdResult = $dbc->prepare($userIdSql);
@@ -149,10 +149,10 @@ require_once("../../includes/components/nav.php");
                             $replace = 'Oops, deze post bestaat niet meer';
                         } else {
                             $naam = $userId[0]['first_name'].' '.$userId[0]['last_name'];
-                            $replace = $naam.' schreef:<br>'.$results[0]['content'];
+                            $replace = $naam.' schreef:<br>'.$results['content'];
                         }
-
-                        $reply['news_content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $reply['news_content']);
+                        var_dump($match);
+                        $reply['news_reply_content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">'.$replace.'</div>', $reply['news_reply_content']);
                     }
                 }
 
@@ -205,7 +205,7 @@ require_once("../../includes/components/nav.php");
 
                 <div class="pull-right">
 
-                    <button class="btn btn-primary quote-btn" data-id="<?php echo $reply['id']; ?>">
+                    <button class="btn btn-primary quote-btn" data-id="<?php echo $reply['news_reply_id']; ?>">
                         Quote deze post
                     </button>
                 </div>
@@ -261,31 +261,9 @@ require_once("../../includes/components/nav.php");
 <footer>
     <?php require_once("../../includes/components/footer.php"); ?>
 </footer>
-<!-- bootstrap script -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!-- summernote js -->
-<script type="text/javascript" src="/js/summernote.min.js"></script>
-<script>
-    $('.editor').summernote({
-        toolbar: [
-            // [groupName, [list of button]]
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['strikethrough', 'superscript', 'subscript']],
-            ['fontsize', ['fontsize']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['height', ['height']]
-        ]
-    });
+<?php require_once("../../includes/components/summernote.php"); ?>
 
-    $(document).ready(function () {
-        $('.quote-btn').on('click', function () {
-            $('.editor').summernote('insertText', '[quote '+($(this).attr('data-id'))+']')//.disabled = true
-        });
-    });
-</script>
 </body>
 
 </html>
