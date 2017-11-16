@@ -98,7 +98,7 @@
 
                                 foreach($res as $key => $value) : ?>
                                     <div class=" col-md-12 verticalLine">
-                                        <p><b><?php echo html_entity_decode($value['title']);?></b></p>
+                                        <p><b><?php echo strip_tags($value['title']);?></b></p>
                                         <?php echo strlen($value["content"]) > 200 ? substr($value['content'],0 ,55) . "..." : strip_tags($value["content"]);
                                         ?>
                                         <br><br>
