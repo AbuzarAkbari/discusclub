@@ -848,4 +848,6 @@ li.dropdown:hover > .dropdown-menu {
     max-width: 300px;
     min-height: 20px;
     position: relative;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
 }
