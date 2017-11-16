@@ -8,7 +8,12 @@ if(!isset($ad_in_row)) {
     $ad_in_row = false;
 }
 
-if(rand(0, 1) && isset($row)) :
+if(!isset($ad_count)) {
+    $ad_count = 0;
+}
+
+
+if((rand(0, 1) && isset($row)) || $ad_count >= 3) :
 ?>
 <div class='<?php echo $ad_in_row ? "col-md-12" : null; ?>text-center'>
     <a target="_blank" href="<?php echo $row['url'];?>">
@@ -16,6 +21,7 @@ if(rand(0, 1) && isset($row)) :
     </a>
 </div>
 <?php else: ?>
+    <?php $ad_count++; ?>
     <div style="padding-bottom: 15px;" class="col-md-12">
 <ins
     class="adsbygoogle"

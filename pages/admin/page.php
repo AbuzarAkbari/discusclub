@@ -90,6 +90,9 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
             <input type="hidden" name="id" value="<?php echo $_GET['pagina']; ?>">
         </form>
     </div>
+    <div class="col-md-12">
+        <?php require_once('../../includes/components/advertentie.php'); ?>
+    </div>
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
