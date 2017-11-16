@@ -16,7 +16,7 @@ if(rand(0, 1)) :
     </a>
 </div>
 <?php else: ?>
-    <div style="padding-bottom: 15px;">
+    <div style="padding-bottom: 15px;" class="col-md-12">
 <ins
     class="adsbygoogle"
      style="display:block; "

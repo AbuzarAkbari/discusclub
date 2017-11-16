@@ -822,3 +822,10 @@ li.dropdown:hover > .dropdown-menu {
     overflow-x: auto;
     overflow-y: hidden;
 }
+.sliderHome {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    width: auto;
+    height: 40vh;
+}
