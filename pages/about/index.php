@@ -77,6 +77,7 @@
           </div>
       </div>
             <div class="col-md-4">
+                <?php require_once('../../includes/components/advertentie.php'); ?>
               <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
                 <div class="panel-body">
@@ -103,6 +104,7 @@
                     <?php endforeach; ?>
                 </div>
             </div>
+            <?php require_once('../../includes/components/advertentie.php'); ?>
         </div>
         <?php
         // $ad_in_row = true;
