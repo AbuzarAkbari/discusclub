@@ -180,13 +180,13 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
                     <form class="form-horizontal" action="/forum/add-topic" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Topic Titel (max. 50 tekens)">
+                                <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Topic Titel (max. 50 tekens)" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content"
-                                          style="resize: none !important;" placeholder="Uw bericht.."></textarea>
+                                          style="resize: none !important;" placeholder="Uw bericht.." required></textarea>
                             </div>
 
                         </div>

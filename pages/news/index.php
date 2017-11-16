@@ -88,7 +88,7 @@ if (isset($_POST['post_add_topic'])) {
                             <form class="form-horizontal" action="/news/" method="post">
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="50" placeholder="Titel (max. 50 tekens)" required>
+                                        <input type="text" class="form-control" name="add_topic_title" minlength="3" maxlength="35" placeholder="Titel (max. 35 tekens)" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
