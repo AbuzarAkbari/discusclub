@@ -94,7 +94,7 @@ $perPage = 10;
                                     <div class="carousel-inner">
                                         <?php foreach ($aquarium as $key => $image) : ?>
                                             <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <img alt='Album-img' class="sliderImg" src="/images<?php echo $image['path'] ?>"  alt="fishing">
+                                                <img alt='Album-img' class="slider" src="/images<?php echo $image['path'] ?>"  alt="fishing">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
