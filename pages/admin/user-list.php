@@ -10,7 +10,7 @@ $perPage = 20;
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<link rel="stylesheet" href="/css/nieuws.css">
 <head>
     <title>Discusclub Holland</title>
     <?php require_once("../../includes/components/head.php"); ?>

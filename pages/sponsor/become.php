@@ -35,7 +35,7 @@
                 <div class="col-md-7">
                     <div class="panel panel-primary ">
                         <div class="panel-heading border-color-blue">Sponsor worden</div>
-                        <div class="panel-body padding-padding space">
+                        <div class="panel-body  space">
                             <h4>Beste,</h4> Discus Club Holland is zonder twijfel de grootste discusvereniging van Nederland en ook Europees gezien zijn wij een zwaargewicht. Zo organiseren wij bijvoorbeeld het Wereld Kampioenschap discussen, wat duidelijk maakt dat
                             wij als vereniging toch wel héél prominent aanwezig zijn in de aquariumwereld.
                             <br><br> Een vereniging als de onze is steeds op zoek naar vooruitgang. We beseffen echter dat die vooruitgang er, ondanks onze sterke ambities, niet kan komen zonder dat wij een aantal goeie sponsoren hebben. Sponsoren die
@@ -55,23 +55,7 @@
                             naar vragen en antwoorden over discussen, dus een héél doelgericht publiek! We hebben daarmee een groot bereik en dat is ongetwijfeld interessant voor u als adverteerder. Maar ook onze facebook pagina kent een steeds groter
                             wordende aanhang, er wordt steeds actiever gereageerd op onze facebook pagina wat ook hier de zichtbaarheid van u als bedrijf ten goede komt.
                             <br><br> Wij hebben dan ook gezocht naar een aantrekkelijke combinatie van deze drie items en denken U hiermee een interessante aanbieding te kunnen doen. Wij bieden u de volgende opties:
-                            <br><br> Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor.
-                             Aenean massa.
-                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                             Nulla consequat massa quis enim.
-                             Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                             In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                             Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
-                             Cras dapibus. Vivamus elementum semper nisi.
-                             Aenean vulputate eleifend tellus. Aenean leo ligula,
-                             porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                             Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-                             Aenean imperdiet. Etiam ultricies nisi vel augue.
-                             Curabitur ullamcorper ultricies nisi.
-                             Nam eget dui.
-
+                            <br><br>
                             <strong>Optie 1</strong><br>
                             <li> Een banner welke rouleert op alle pagina’s van onze website en ons forum.</li>
                             <li>Een advertentie ter grootte van een hele pagina full colour A4 formaat in ons clubblad gedurende een vol jaar voor de prijs van € 275,00 excl. btw. (totaal 4.000 oplagen)</li>
