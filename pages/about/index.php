@@ -86,7 +86,7 @@
               </div>
           </div>
       </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <?php require_once('../../includes/components/advertentie.php'); ?>
               <div class="panel panel-primary">
                   <div class="panel-heading border-colors">Laatste reacties op albums</div>
