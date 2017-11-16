@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/404.php" afterPath="$PROJECT_DIR$/404.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/admin/approval-signup.php" afterPath="$PROJECT_DIR$/pages/admin/approval-signup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/album/index.php" afterPath="$PROJECT_DIR$/pages/album/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/album/view.php" afterPath="$PROJECT_DIR$/pages/album/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/user/index.php" afterPath="$PROJECT_DIR$/pages/user/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/wordlid.php" afterPath="$PROJECT_DIR$/pages/wordlid.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/aquarium/index.php" afterPath="$PROJECT_DIR$/pages/aquarium/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,19 +67,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/album/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="158" column="97" lean-forward="false" selection-start-line="158" selection-start-column="97" selection-end-line="158" selection-end-column="97" />
+            <state relative-caret-position="299">
+              <caret line="161" column="18" lean-forward="false" selection-start-line="161" selection-start-column="18" selection-end-line="161" selection-end-column="18" />
               <folding>
-                <marker date="1510835005610" expanded="true" signature="955:1105" ph="SELECT * , a... image" />
-                <marker date="1510835005610" expanded="true" signature="2148:2154" ph=" " />
-                <marker date="1510835005610" expanded="true" signature="2288:2301" ph="..." />
-                <marker date="1510835005610" expanded="true" signature="5602:5837" ph="SELECT *, al... album_reply" />
-                <marker date="1510835005610" expanded="true" signature="5602:5862" ph="SELECT *, al... album_reply" />
-                <marker date="1510835005610" expanded="true" signature="6376:6389" ph="..." />
-                <marker date="1510835005610" expanded="true" signature="7717:7810" ph="SELECT COUNT... album_reply" />
+                <marker date="1510835091562" expanded="true" signature="955:1105" ph="SELECT * , a... image" />
+                <marker date="1510835091562" expanded="true" signature="2148:2154" ph=" " />
+                <marker date="1510835091562" expanded="true" signature="2288:2301" ph="..." />
+                <marker date="1510835091562" expanded="true" signature="5602:5837" ph="SELECT *, al... album_reply" />
+                <marker date="1510835091562" expanded="true" signature="5602:5862" ph="SELECT *, al... album_reply" />
+                <marker date="1510835091562" expanded="true" signature="6376:6389" ph="..." />
+                <marker date="1510835091562" expanded="true" signature="7717:7810" ph="SELECT COUNT... album_reply" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="approval-signup.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/admin/approval-signup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="121" column="46" lean-forward="false" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
+              <folding>
+                <marker date="1510835595243" expanded="true" signature="2145:2282" ph="SELECT * FRO... approval_signup" />
+                <marker date="1510835595243" expanded="true" signature="6136:6177" ph="SELECT COUNT... approval_signup" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="404.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/404.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+              <folding>
+                <marker date="1510835781903" expanded="true" signature="755:849" ph="SELECT * FRO... topic" />
               </folding>
             </state>
           </provider>
@@ -115,7 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$sql</find>
       <find>$a</find>
       <find>form</find>
       <find>INSERT</find>
@@ -145,6 +171,7 @@
       <find>verwij</find>
       <find>de</find>
       <find>stat</find>
+      <find>arra</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -161,7 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pages/forum/post - wesley.php" />
         <option value="$PROJECT_DIR$/includes/tools/reply/del.php" />
         <option value="$PROJECT_DIR$/includes/tools/user-un-favorite.php" />
         <option value="$PROJECT_DIR$/pages/news/news_post.php" />
@@ -169,7 +195,6 @@
         <option value="$PROJECT_DIR$/pages/forum/.htaccess" />
         <option value="$PROJECT_DIR$/pages/album/.htaccess" />
         <option value="$PROJECT_DIR$/pages/aquarium/.htaccess" />
-        <option value="$PROJECT_DIR$/pages/admin/approval-signup.php" />
         <option value="$PROJECT_DIR$/includes/tools/category/del.php" />
         <option value="$PROJECT_DIR$/includes/tools/sub-category/del.php" />
         <option value="$PROJECT_DIR$/pages/houdenvan/index.php" />
@@ -192,13 +217,11 @@
         <option value="$PROJECT_DIR$/pages/admin/ip-list.php" />
         <option value="$PROJECT_DIR$/pages/admin/user-list.php" />
         <option value="$PROJECT_DIR$/includes/components/head.php" />
-        <option value="$PROJECT_DIR$/pages/album/index.php" />
         <option value="$PROJECT_DIR$/pages/user/login.php" />
         <option value="$PROJECT_DIR$/pages/user/password/forgot.php" />
         <option value="$PROJECT_DIR$/js/custom_error_required.js" />
         <option value="$PROJECT_DIR$/pages/forum/index.php" />
         <option value="$PROJECT_DIR$/pages/forum/topic.php" />
-        <option value="$PROJECT_DIR$/pages/aquarium/index.php" />
         <option value="$PROJECT_DIR$/includes/tools/aquarium-upload.php" />
         <option value="$PROJECT_DIR$/pages/admin/contest.php" />
         <option value="$PROJECT_DIR$/includes/tools/sponsor-worden.php" />
@@ -212,6 +235,10 @@
         <option value="$PROJECT_DIR$/pages/user/index.php" />
         <option value="$PROJECT_DIR$/pages/wordlid.php" />
         <option value="$PROJECT_DIR$/pages/album/view.php" />
+        <option value="$PROJECT_DIR$/pages/aquarium/index.php" />
+        <option value="$PROJECT_DIR$/pages/album/index.php" />
+        <option value="$PROJECT_DIR$/pages/admin/approval-signup.php" />
+        <option value="$PROJECT_DIR$/404.php" />
       </list>
     </option>
   </component>
@@ -256,19 +283,24 @@
             <path>
               <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
               <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
               <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="album" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="discusclub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="discusclub" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="forum" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -343,12 +375,12 @@
       <workItem from="1510670457658" duration="4323000" />
       <workItem from="1510739836741" duration="6797000" />
       <workItem from="1510773040998" duration="6718000" />
-      <workItem from="1510824510614" duration="7815000" />
+      <workItem from="1510824510614" duration="8588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346801000" />
+    <option name="totallyTimeSpent" value="347574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -421,13 +453,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pages/forum/fav-topics.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="83" column="52" lean-forward="false" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/forum/new-topics.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -492,13 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/admin/approval-signup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="70" column="63" lean-forward="true" selection-start-line="70" selection-start-column="63" selection-end-line="70" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/admin/approval-sponsor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -559,13 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/album/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="92" column="131" lean-forward="false" selection-start-line="92" selection-start-column="131" selection-end-line="92" selection-end-column="131" />
         </state>
       </provider>
     </entry>
@@ -711,13 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/aquarium/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="80" column="32" lean-forward="false" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/tools/aquarium/add-like.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -729,6 +733,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="78" column="39" lean-forward="false" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -819,18 +824,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/album/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="77" column="51" lean-forward="false" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
+          <folding>
+            <marker date="1510835227617" expanded="true" signature="1910:2225" ph="SELECT *, a.... image" />
+            <marker date="1510835227617" expanded="true" signature="4335:4423" ph="SELECT DISTI... album" />
+            <marker date="1510835227617" expanded="true" signature="4396:4422" ph="SELECT album... image" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/aquarium/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding>
+            <marker date="1510835201179" expanded="true" signature="1870:2201" ph="SELECT *, a.... image" />
+            <marker date="1510835201179" expanded="true" signature="3091:3148" ph="SELECT COUNT... like" />
+            <marker date="1510835201179" expanded="true" signature="3392:3514" ph="SELECT count... contest" />
+            <marker date="1510835201179" expanded="true" signature="5744:5841" ph="SELECT DISTI... aquarium" />
+            <marker date="1510835201179" expanded="true" signature="5811:5840" ph="SELECT aquar... image" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/album/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="158" column="97" lean-forward="false" selection-start-line="158" selection-start-column="97" selection-end-line="158" selection-end-column="97" />
+        <state relative-caret-position="299">
+          <caret line="161" column="18" lean-forward="false" selection-start-line="161" selection-start-column="18" selection-end-line="161" selection-end-column="18" />
           <folding>
-            <marker date="1510835005610" expanded="true" signature="955:1105" ph="SELECT * , a... image" />
-            <marker date="1510835005610" expanded="true" signature="2148:2154" ph=" " />
-            <marker date="1510835005610" expanded="true" signature="2288:2301" ph="..." />
-            <marker date="1510835005610" expanded="true" signature="5602:5837" ph="SELECT *, al... album_reply" />
-            <marker date="1510835005610" expanded="true" signature="5602:5862" ph="SELECT *, al... album_reply" />
-            <marker date="1510835005610" expanded="true" signature="6376:6389" ph="..." />
-            <marker date="1510835005610" expanded="true" signature="7717:7810" ph="SELECT COUNT... album_reply" />
+            <marker date="1510835091562" expanded="true" signature="955:1105" ph="SELECT * , a... image" />
+            <marker date="1510835091562" expanded="true" signature="2148:2154" ph=" " />
+            <marker date="1510835091562" expanded="true" signature="2288:2301" ph="..." />
+            <marker date="1510835091562" expanded="true" signature="5602:5837" ph="SELECT *, al... album_reply" />
+            <marker date="1510835091562" expanded="true" signature="5602:5862" ph="SELECT *, al... album_reply" />
+            <marker date="1510835091562" expanded="true" signature="6376:6389" ph="..." />
+            <marker date="1510835091562" expanded="true" signature="7717:7810" ph="SELECT COUNT... album_reply" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/admin/approval-signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="121" column="46" lean-forward="false" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
+          <folding>
+            <marker date="1510835595243" expanded="true" signature="2145:2282" ph="SELECT * FRO... approval_signup" />
+            <marker date="1510835595243" expanded="true" signature="6136:6177" ph="SELECT COUNT... approval_signup" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/404.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding>
+            <marker date="1510835781903" expanded="true" signature="755:849" ph="SELECT * FRO... topic" />
           </folding>
         </state>
       </provider>

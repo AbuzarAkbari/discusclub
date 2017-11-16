@@ -64,6 +64,7 @@ $perPage = 20;
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             ?>
+                            <?php if(!empty($rows)) : ?>
                             <?php
                             foreach ($rows as $ip) :
                                 ?>
@@ -116,6 +117,11 @@ $perPage = 20;
                             <?php
                             endforeach;
                             ?>
+                        <?php else : ?>
+                            <tr>
+                                <td>Geen leden</td>
+                            </tr>
+                        <?php endif; ?>
                         </table>
                     </div>
                     <?php

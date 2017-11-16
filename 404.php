@@ -4,7 +4,7 @@
 
 <head>
     <title>Discusclub Holland</title>
-    <?php require_once("/includes/components/head.php"); ?>
+    <?php require_once("includes/components/head.php"); ?>
 </head>
 
 <body>

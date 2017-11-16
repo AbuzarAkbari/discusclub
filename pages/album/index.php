@@ -74,7 +74,8 @@ function custom_echo($x, $length)
                 $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <?php
-            $arr = array_chunk($albums,(int)ceil(count($albums)/4));
+            $a = (int)ceil(count($albums)/4);
+            $arr = array_chunk($albums, $a ? $a : 1);
             foreach($arr as $alb) : ?>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                 <?php foreach ($alb as $album) : ?>

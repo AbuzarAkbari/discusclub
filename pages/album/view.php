@@ -161,8 +161,6 @@ require_once("../../includes/tools/security.php"); ?>
                     require_once("../../includes/components/pagination.php");
                 ?>
 
-
-
                 <?php if ($logged_in && $album) : ?>
                     <div class="col-xs-12">
                         <div class="panel panel-primary">
