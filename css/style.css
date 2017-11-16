@@ -58,8 +58,10 @@ hr {
 .panel-heading1 {
     background: #0ba8ec !important;
 }
-.heading-padding {
-    padding-bottom: 20px !important;
+@media screen and (max-width: 990px) {
+    .heading-padding {
+        padding-bottom: 20px !important;
+    }
 }
 
 .title {
@@ -833,7 +835,7 @@ li.dropdown:hover > .dropdown-menu {
     background-repeat: no-repeat !important;
     background-position: center !important;
     width: auto;
-    height: 60vh;
+    height: 70vh;
 }
 
 .sliderTekst {
