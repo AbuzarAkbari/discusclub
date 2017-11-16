@@ -83,7 +83,7 @@ $perPage = 10;
                                     ?>
                                     </td>
                                     <td>
-                                        <img alt='Banner' class="sponsor_vak" src="/images<?php echo $sponsor['path'];?>" alt="">
+                                        <div alt='Banner' class="sponsor_vak" style="background-image: url(/images<?php echo $sponsor['path'];?>);" ></div>
                                     </td>
                                     <td>
                                         <a title="Blokeer" href="<?php echo  "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=2" class="btn btn-danger" name="button">

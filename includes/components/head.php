@@ -22,7 +22,7 @@ if(preg_match('/album/', $_SERVER["REQUEST_URI"])) {
 if(preg_match('/upload/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/album-upload.css">';
 }
-if(preg_match('/user/', $_SERVER["REQUEST_URI"]) && !preg_match("/conf|register/", $_SERVER["REQUEST_URI"])) {
+if(preg_match('/user/', $_SERVER["REQUEST_URI"]) && !preg_match("/conf|register|user-list/", $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/gebruiker.css">';
 }
 if(preg_match('/messen/', $_SERVER["REQUEST_URI"])) {

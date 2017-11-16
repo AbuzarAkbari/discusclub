@@ -17,6 +17,7 @@ const dhc = mysql.createPool({
 })
 
 const topicIds = {}
+const newsCats = {}
 
 dhc
   .query('SELECT * FROM users')
@@ -143,8 +144,23 @@ dhc
     })
     return Promise.all(queries);
   })
-  .then(res => dhc.query("SELECT * FROM news"))
+  .then(res => dhc.query("SELECT * FROM newscategories"))
+  .then(res => Promise.all(res.map(x => conn.query(
+    "INSERT INTO sub_category(category_id, name, created_at) VALUES(?, ?, NOW())",
+    [1, x.name]
+  ).catch(e => console.log(e)).then(res => conn.query("SELECT id FROM sub_category WHERE name = ?", [x.name])).then(res => Promise.resolve({conn: res[0].id, dhc: x.id})).catch(e => console.log(e)))))
   .then(res => {
-
+    res.forEach((x, i) => {
+      newsCats[x.dhc] = x.conn;
+    })
+    console.log(newsCats)
+    return dhc.query("SELECT * FROM news");
   })
+  .then(res => {
+    const queries = []
+    res.forEach(x => queries.push(conn.query("INSERT INTO news(sub_category_id, title, content, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
+                                             [newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
+    return Promise.all(queries)
+  })
+  .then(res => console.log("finished"))
   .catch(e => console.log(e))
