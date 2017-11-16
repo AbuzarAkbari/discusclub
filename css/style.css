@@ -99,8 +99,10 @@ hr {
 .img-responsive,
 .thumbnail a > img,
 .thumbnail > img {
+    display: block;
     width: 100%;
     height: auto;
+    object-fit: cover;
 }
 
 .footer-name {
@@ -810,4 +812,11 @@ li.dropdown:hover > .dropdown-menu {
 
 .content {
     word-wrap: break-word;
+}
+
+.slider {
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
