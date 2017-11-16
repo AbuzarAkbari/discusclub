@@ -108,14 +108,47 @@ require_once("../../includes/tools/security.php"); ?>
             <?php require ('../../includes/components/advertentie.php'); ?>
 
             <?php endif; ?>
-        <?php
-            $aantal = $page * $perPage - $perPage;
-            $sql2 = "SELECT *, album_reply.created_at AS reply_created_at, user.id AS user_id FROM album_reply JOIN user ON album_reply.user_id = user.id JOIN image ON user.profile_img = image.id WHERE album_reply.album_id = ? ORDER BY reply_created_at ASC LIMIT {$perPage} OFFSET {$aantal}";
-            $result2 = $dbc->prepare($sql2);
-            $result2->bindParam(1, $_GET['id']);
-            $result2->execute();
-            $rows = $result2->fetchAll(PDO::FETCH_ASSOC);
-        ?>
+
+            <!-- Quoting system -->
+            <?php
+                $aantal = $page * $perPage - $perPage;
+                $sql2 = "SELECT *, album_reply.content AS reply_content, album_reply.created_at AS reply_created_at, user.id AS user_id FROM album_reply JOIN user ON album_reply.user_id = user.id JOIN image ON user.profile_img = image.id WHERE album_reply.album_id = ? ORDER BY reply_created_at ASC LIMIT {$perPage} OFFSET {$aantal}";
+                $result2 = $dbc->prepare($sql2);
+                $result2->bindParam(1, $_GET['id']);
+                $result2->execute();
+                $rows = $result2->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            <?php
+            $matches = [
+                [],
+                [1]
+            ];
+            while ($matches[1]) {
+                preg_match_all('/\[quote\s(\d+)\]/', $rows[0]['reply_content'], $matches);
+
+                foreach ($matches[1] as $match) {
+                    $sql = "SELECT *, reply.id FROM reply JOIN user as u ON u.id = reply.user_id WHERE reply.id = :id AND reply.deleted_at IS NULL";
+                    $query = $dbc->prepare($sql);
+                    $query->execute([
+                        ':id' => $match
+                    ]);
+                    $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                    $naam = $results["first_name"] . " " . $results["last_name"];
+
+                    if (!isset($results)) {
+                        $replace = 'Oops, deze post bestaat niet meer';
+                    } else {
+                        $replace = $naam . ' schreef:<br>' . $results['content'];
+                    }
+
+                    $rows['content'] = str_replace('[quote ' . $match . ']', '<div style="background-color: lightgray; padding: 10px;border:1px solid black">' . $replace . '</div>', $rows['content']);
+                }
+            }
+            ?>
+
+
+
 
              <?php foreach ($rows as $row) : ?>
                  <div class="col-xs-12">
@@ -142,7 +175,7 @@ require_once("../../includes/tools/security.php"); ?>
                 </h3>
                 <div class="pull-right">
 
-                    <button class="btn btn-primary quote-btn" data-id="<?php echo $row2['id']; ?>">
+                    <button class="btn btn-primary quote-btn" data-id="<?php echo $row['id']; ?>">
                         Quote deze post
                     </button>
                 </div>
