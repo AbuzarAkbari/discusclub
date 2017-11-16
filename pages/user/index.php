@@ -269,30 +269,52 @@ if($user_data == false){
                                     <th class="col-md-4 col-xs-4">Forum</th>
                                     <th class="col-md-4 col-xs-4">Datum</th>
                                     <?php
-                                        //$sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = :id OR reply.user_id IS NULL AND topic.user_id = :id GROUP BY topic.id";
-
                                         $sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = :id OR reply.user_id IS NULL AND topic.user_id = :id GROUP BY topic.id ORDER BY reply.created_at + topic.created_at LIMIT 9";
 
                                         $result = $dbc->prepare($sql);
                                         $result->bindParam(":id", $user_data->id);
                                         $result->execute();
                                         $topics = $result->fetchAll(PDO::FETCH_OBJ);
+                                        $sortedTopicArray = [];
+                                        foreach ($topics as $topic) {
+                                            if($topic->reply_created_at){
+                                                $date =$topic->reply_created_at;
+                                                $sortedTopicArray[] = [
+                                                    'date' => strtotime($date),
+                                                    'data' => $topic
+                                                ];
+                                            } else {
+                                                $date = $topic->topic_created_at;
+                                                $sortedTopicArray[] = [
+                                                    'date' => strtotime($date),
+                                                    'data' => $topic
+                                                ];
+                                            }
+                                        }
 
-                                        usort($topics, function ($a, $b) {
-                                            $t1 = strtotime($a->reply_created_at ?: $a->topic_created_at);
-                                            $t2 = strtotime($b->reply_created_at ?: $b->topic_created_at);
-                                            return $t1 - $t2;
-                                        });
-                                    ?>
-                                <?php foreach($topics as $info) : ?>
-                                    <tr>
-                                        <td class="col-md-4 col-xs-4"><a href="/forum/post/<?php echo $info->topic_id; ?>"><?php echo $info->title; ?></a></td>
-                                        <td class="col-md-4 col-xs-4"><a href="/forum/topic/<?php echo $info->sub_category_id; ?>"><?php echo $info->name; ?></a></td>
-                                        <td class="col-md-4 col-xs-4">
-                                            <?php echo $info->topic_created_at; ?>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
+                                        function sortTopics($a, $b)
+                                        {
+                                            if ($a == $b) {
+                                                return 0;
+                                            }
+                                            return ($a > $b) ? -1 : 1;
+                                        }
+
+                                        usort($sortedTopicArray, "sortTopics");
+
+                                    if(!empty($sortedTopicArray)) :
+                                        foreach ($sortedTopicArray as $key => $value) : ?>
+                                            <tr>
+                                                <td class="col-md-4 col-xs-4"><a href="/forum/post/<?php echo $value['data']->topic_id; ?>"><?php echo $value['data']->title; ?></a></td>
+                                                <td class="col-md-4 col-xs-4"><a href="/forum/topic/<?php echo $value['data']->sub_category_id; ?>"><?php echo $value['data']->name; ?></a></td>
+                                                <td class="col-md-4 col-xs-4"><?php echo isset($value['data']->reply_created_at) ? $value['data']->reply_created_at : $value['data']->topic_created_at; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <tr>
+                                            <td>Geen reacties</td>
+                                        </tr>
+                                <?php endif; ?>
                             </table>
                         </div>
                     </div>
@@ -300,15 +322,19 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue">Albums</div>
                         <div class="panel-body">
                             <?php
-                                $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at LIMIT 8";
+                                $albumSql = "SELECT *, album.id AS album_id FROM album JOIN image ON album.id = image.album_id WHERE album.user_id = ? ORDER BY created_at DESC LIMIT 8";
                                 $albumResult = $dbc->prepare($albumSql);
                                 $albumResult->bindParam(1, $user_data->id);
                                 $albumResult->execute();
                                 $albums = $albumResult->fetchAll(PDO::FETCH_ASSOC);
                             ?>
-                            <?php foreach($albums as $album): ?>
-                                <a href="/album/post/<?php echo $album['album_id']; ?>"><img alt="Album-img" src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
-                            <?php endforeach; ?>
+                            <?php if(!empty($albums)) : ?>
+                                <?php foreach($albums as $album): ?>
+                                    <a href="/album/post/<?php echo $album['album_id']; ?>"><img alt="Album-img" src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
+                                <?php endforeach; ?>
+                            <?php else : ?>
+                                Geen albums
+                            <?php endif; ?>
                         </div>
                     </div>
 
@@ -316,15 +342,19 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue">Aquariums</div>
                         <div class="panel-body">
                             <?php
-                                $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE aquarium.user_id = ? ORDER BY created_at LIMIT 8";
+                                $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE aquarium.user_id = ? ORDER BY created_at DESC LIMIT 8";
                                 $aquariumResult = $dbc->prepare($aquariumSql);
                                 $aquariumResult->bindParam(1, $user_data->id);
                                 $aquariumResult->execute();
                                 $aquariums = $aquariumResult->fetchAll(PDO::FETCH_ASSOC);
                             ?>
-                            <?php foreach($aquariums as $aquarium): ?>
-                                <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>"><img alt="Aquarium-img" src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
-                            <?php endforeach; ?>
+                            <?php if(!empty($aquariums)) : ?>
+                                <?php foreach($aquariums as $aquarium): ?>
+                                    <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>"><img alt="Aquarium-img" src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
+                                <?php endforeach; ?>
+                            <?php else : ?>
+                                Geen aquariums
+                            <?php endif; ?>
                         </div>
                     </div>
             </div>
