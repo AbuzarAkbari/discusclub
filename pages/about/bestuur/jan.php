@@ -31,31 +31,15 @@
                   <li><a href="/">Home</a></li>
                   <li><a href="/about/">Over ons</a></li>
                   <li><a href="/about/bestuur">Het bestuur</a></li>
-                  <li class="active">NAAM LID</li>
+                  <li class="active">Jan Verkaik</li>
               </ol>
           </div>
       <div class="col-md-12">
         <div class="panel panel-primary ">
-          <div class="panel-heading border-colors">NAAM LID</div>
+          <div class="panel-heading border-colors">Jan Verkaik</div>
           <div class="panel-body padding-padding space">
-                  <!-- start slipsum code -->
-
-                <h3>I'm serious as a heart attack</h3>
-                <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb. </p>
-
-                <h3>Are you ready for the truth?</h3>
-                <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb. </p>
-
-                <h3>Hold on to your butts</h3>
-                <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.  </p>
-
-                <h3>I can do that</h3>
-                <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.  </p>
-
-                <h3>We happy?</h3>
-                <p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass. </p>
-
-                <!-- end slipsum code -->
+                <h4>Image with align="left":</h4>
+              <p>This is some text. <img src="images/bestuur/jan.PNG" width="42" height="42" align="left"> This is some text.</p>
           </div>
         </div>
       </div>

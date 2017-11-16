@@ -6,7 +6,9 @@
     $results = $query->fetch();
     $count = ceil($results['x'] / $perPage);
     function makePath($page, $path) {
-        return str_replace(":page", $page, $path);
+        $query = $_GET;
+        unset($query["pagina"]);
+        return str_replace(":page", $page, $path . "?" . http_build_query($query));
     }
 ?>
 <?php if ($results['x'] > $perPage) : ?>
