@@ -437,6 +437,12 @@ li.dropdown:hover > .dropdown-menu {
     margin-bottom: 6%;
     border: 1px solid black;
     margin-top: 2%;
+    display: block;
+    height: 50px;
+    width: 400px;
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-size: cover;
 }
 
 .imgAlbum {
