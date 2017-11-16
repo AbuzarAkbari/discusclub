@@ -83,8 +83,8 @@ hr {
 }
 
 .lees-meer-btn:hover {
-    color: #f45713;
-    background: white;
+    color: #fff;
+    background: #dd4402;
 }
 
 .footer-wrapper {
@@ -437,7 +437,7 @@ li.dropdown:hover > .dropdown-menu {
     margin-bottom: 6%;
     border: 1px solid black;
     margin-top: 2%;
-    display: block;
+    display: inline-block;
     height: 50px;
     width: 400px;
     background-repeat: no-repeat;
@@ -834,4 +834,20 @@ li.dropdown:hover > .dropdown-menu {
     background-position: center !important;
     width: auto;
     height: 60vh;
+}
+
+.sliderTekst {
+    top: 80px;
+    left: 220px;
+    background: white;
+    overflow: hidden;
+    padding: 16px 16px 12px 18px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    border-radius: 3px;
+    max-width: 300px;
+    min-height: 20px;
+    position: relative;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
 }
