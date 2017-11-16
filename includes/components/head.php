@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="/css/dropzone.css">
 <link rel="stylesheet" href="/css/view.css">
 <link rel="stylesheet" href="/css/summernote.css">
+<link rel="stylesheet" href="/css/gebruiker.css">
+<link rel="stylesheet" href="/css/nieuws.css">
 
 <?php
 if(preg_match('/news|forum/', $_SERVER["REQUEST_URI"])) {
