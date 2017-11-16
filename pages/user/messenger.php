@@ -53,10 +53,10 @@ require_once("../../includes/tools/messenger_handler.php");
                         $bindings[":search"] = isset($_POST["user_search"]) ? "%" . $_POST["user_search"] . "%" : "%";
                         $bindings[":user_2"] = isset($_GET["id"]) ? $_GET["id"] : $_SESSION["user"]->id;
                         // $sth = $dbc->prepare("SELECT *, u.id FROM user AS u JOIN image AS i ON i.id = u.profile_img WHERE u.id <> :user_1 AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search)");
-                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, u.id AS user_1_id, u2.id AS user_2_id FROM message as m JOIN user as u ON u.id = m.user_id_1 JOIN user as u2 ON u2.id = m.user_id_2 JOIN image as i ON i.id = u.profile_img JOIN image as i2 ON i2.id = u2.profile_img WHERE u.id <> :user_1 AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search) GROUP BY u.id ORDER BY m.created_at DESC");
+                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM user as u LEFT JOIN message as m ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image as i ON i.id = u.profile_img LEFT JOIN image as i2 ON i2.id = u2.profile_img WHERE u.id <> :user_2 AND (u.first_name LIKE :search OR u.last_name LIKE :search OR u.username LIKE :search) GROUP BY u.id ORDER BY m.created_at DESC");
                     } else {
                         $query = 2;
-                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM message AS m LEFT JOIN user AS u ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE m.user_id_1 IN (:user_1) OR m.user_id_2 IN (:user_1) GROUP BY m.user_id_1, m.user_id_2 ORDER BY m.created_at DESC");
+                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM message AS m LEFT JOIN user AS u ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE u.id IN (:user_1) OR u2.id IN (:user_1) GROUP BY u.id, u2.id ORDER BY m.created_at DESC");
                     }
                     $sth->execute($bindings);
                     $res = $sth->fetchAll(PDO::FETCH_OBJ);
@@ -72,8 +72,27 @@ require_once("../../includes/tools/messenger_handler.php");
                             return true;
                         }
                     });
+                    $id = isset($res[0]) ? $res[0]->user_id_2 : 0;
+                    $id = isset($_GET["id"]) ? $_GET["id"] : $id;
+                    $found = false;
+                    foreach($res as $r) {
+                        if($r->user_id_1 == $id || $r->user_id_2 == $id) {
+                            $found = true;
+                        }
+                    }
 
+                    if((sizeof($res) === 0 && $query === 2 && $id != 0) || !$found) {
+                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM user AS u LEFT JOIN message AS m ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE u.id IN (:user_1) OR u2.id IN (:user_1) GROUP BY m.user_id_1, m.user_id_2 ORDER BY m.created_at DESC");
+                        $sth->execute(["user_1" => $id]);
+                        $res = array_merge($sth->fetchAll(PDO::FETCH_OBJ), $res);
+                    }
                     $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
+
+                    $amount_of_items = false;
+                    if(sizeof($res) > 0) {
+                        $amount_of_items = true;
+                    }
+
                     foreach ($res as $value) : ?>
                         <?php
                         $user = $_SESSION["user"]->id === $value->user_id_1;
@@ -99,24 +118,37 @@ require_once("../../includes/tools/messenger_handler.php");
                 </form>
             </div>
             <?php
-            $sth = $dbc->prepare("SELECT *, mi.path AS message_image, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, u.id FROM message as m JOIN user as u ON m.user_id_1 = u.id JOIN image as i ON i.id = u.profile_img JOIN user as u2 ON m.user_id_2 = u2.id JOIN image as i2 ON i2.id = u2.profile_img LEFT JOIN image AS mi ON mi.id = m.image_id WHERE m.user_id_2 IN (:user_1, :user_2) AND m.user_id_1 IN (:user_1, :user_2)");
+            $sth = $dbc->prepare("SELECT *, mi.path AS message_image, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, u.id FROM user as u JOIN message as m ON m.user_id_1 = u.id JOIN image as i ON i.id = u.profile_img JOIN user as u2 ON m.user_id_2 = u2.id JOIN image as i2 ON i2.id = u2.profile_img LEFT JOIN image AS mi ON mi.id = m.image_id WHERE u.id IN (:user_1, :user_2) AND u2.id IN (:user_1, :user_2)");
             $sth->execute([":user_1" => $_SESSION["user"]->id, ":user_2" => $id]);
             $res = $sth->fetchAll(PDO::FETCH_OBJ);
-            $user = $_SESSION["user"]->id === $res[0]->user_id_2;
+            if(!$res) {
+                $sth = $dbc->prepare("SELECT *, i.path as user_1_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u.id FROM user as u JOIN image as i ON i.id = u.profile_img WHERE u.id IN (:user_1)");
+                $sth->execute([":user_1" => $id]);
+                $res = $sth->fetchAll(PDO::FETCH_OBJ);
+            }
+            if(isset($res[0]->user_id_2)) {
+                $user = $_SESSION["user"]->id === $res[0]->user_id_2;
+            } else {
+                $user = true;
+            }
             ?>
             <div class="col-md-8">
+                <?php if($amount_of_items) :  ?>
                 <div class="userTab">
                     <img alt="profielfoto" src="/images<?php echo $user ? $res[0]->user_1_path : $res[0]->user_2_path; ?>" class="imgUser imageStatic" />
                     <div class="username"><b> <?php echo $user ? $res[0]->user_1_first_name . " " . $res[0]->user_1_last_name : $res[0]->user_2_first_name . " " . $res[0]->user_2_last_name; ?></b></div>
                 </div>
-                <div id="message" style="background-image: url('/images<?php echo $_SESSION["user"]->messenger_img; ?>');" class="imageBackgroundText flexcroll tab">
+                <?php endif; ?>
+                <div id="message" style="background-image: url('/images<?php echo $_SESSION["user"]->messenger_img; ?>');<?php echo !$amount_of_items ? "height: 590px; max-height: 590px;" : null; ?>" class="imageBackgroundText flexcroll tab">
                     <?php foreach ($res as $value) : ?>
-                        <div class="messages <?php echo $value->user_id_1 === $_SESSION["user"]->id ? "right-message" : "left-message" ?>">
-                            <div><?php echo $value->message; ?></div>
-                            <?php if(isset($value->message_image)) : ?>
-                            <div><img src="/images<?php echo $value->message_image; ?>" alt="afbeelding"></div>
-                            <?php endif; ?>
-                        </div>
+                        <?php if(isset($value->message)) : ?>
+                            <div class="messages <?php echo $value->user_id_1 === $_SESSION["user"]->id ? "right-message" : "left-message" ?>">
+                                <div><?php echo $value->message; ?></div>
+                                <?php if(isset($value->message_image)) : ?>
+                                <div><img src="/images<?php echo $value->message_image; ?>" alt="afbeelding"></div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                     <!-- <div class="responses ">
                         <p>
@@ -161,6 +193,7 @@ require_once("../../includes/tools/messenger_handler.php");
                     <div><img src="http://chimpmania.com/forum/attachment.php?attachmentid=33425&d=1369770301&thumb=1" class="messageImage"></div>
                 </div> -->
                 </div>
+                <?php if($amount_of_items) : ?>
                 <div class="searchUser">
                     <form enctype='multipart/form-data' class="inputWidth" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
                       <!-- <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
@@ -187,6 +220,7 @@ require_once("../../includes/tools/messenger_handler.php");
                       <input type="hidden" name="user_id_2" value="<?php echo $id; ?>" />
                     </form>
                 </div>
+                <?php endif; ?>
                 </div>
             </div>
             <br>
