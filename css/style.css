@@ -83,8 +83,8 @@ hr {
 }
 
 .lees-meer-btn:hover {
-    color: #f45713;
-    background: white;
+    color: #fff;
+    background: #dd4402;
 }
 
 .footer-wrapper {
@@ -437,7 +437,7 @@ li.dropdown:hover > .dropdown-menu {
     margin-bottom: 6%;
     border: 1px solid black;
     margin-top: 2%;
-    display: block;
+    display: inline-block;
     height: 50px;
     width: 400px;
     background-repeat: no-repeat;
