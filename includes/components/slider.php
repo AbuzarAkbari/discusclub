@@ -13,9 +13,9 @@
                 <div class="item active">
                     <div class="sliderHome" style="background: url(/images/discusvis1.jpg)" alt="fishing">
                         <div class="sliderTekst">
-                            Now that there is the Tec-9, a crappy spray gun from South Miami.<br>
-                            This gun is advertised as the most popular gun in American crime...<br>
-                            <button class="lees-meer-btn pull-right " type="button" name="button">Lees meer</button>
+                            <h3>houden van pagina</h3>
+                            <p>alles over houd van</p><br>
+                            <a class="lees-meer-btn pull-left " href="/houden-van/" type="button" name="button">Lees meer</a>
                         </div>
                     </div>
                 </div>
@@ -23,10 +23,9 @@
                 <div class="item">
                     <div class="sliderHome" style="background: url(/images/discusvis2.jpg)" alt="fishing">
                         <div class="sliderTekst">
-                            Your bones don't break, mine do. That's clear.<br>
-                            Your cells react to bacteria and viruses differently than mine.<br>
-                            You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water...<br>
-                            <button class="lees-meer-btn pull-right" type="button" name="button">Lees meer</button>
+                            <h3>hier vind u alles over ziektes</h3>
+                            <p>alles over ziektes </p> <br>
+                            <a class="lees-meer-btn pull-left" href="/houden-van/ziektes" type="button" name="button">Lees meer</a>
                         </div>
                     </div>
                 </div>
@@ -34,12 +33,10 @@
                 <div class="item">
                     <div class="sliderHome" style="background: url(/images/discusvis3.jpg)" alt="vissen">
                         <div class="sliderTekst">
-                            Do you see any Teletubbies in here?<br>
-                            Do you see a slender plastic tag clipped to my shirt with my name printed on it?<br>
-                            Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter
-                            that shakes when you put quarters in it? No?..<br>
+                            <h3>hier vind u alles over kweken</h3>
+                            <p>alles over kweken</p> <br>
 
-                            <button class="lees-meer-btn pull-right" type="button" name="button">Lees meer</button>
+                            <a class="lees-meer-btn pull-left" href="/houden-van/kweken" type="button" name="button">Lees meer</a>
                         </div>
                     </div>
                 </div>
