@@ -66,7 +66,7 @@ $perPage = 10;
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             ?>
-                            <?php
+                            <?php if(!empty($rows)) :
                             foreach ($rows as $sponsor) :
                                 ?>
                                 <tr>
@@ -108,6 +108,9 @@ $perPage = 10;
                             <?php
                             endforeach;
                             ?>
+                            <?php else : ?>
+                            <tr><td>Geen sponsoren gevonden</td></tr>
+                            <?php endif ;?>
                         </table>
                     </div>
                     <?php

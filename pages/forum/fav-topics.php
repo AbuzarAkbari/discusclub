@@ -73,6 +73,8 @@ $perPage = 10;
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
                         </tr>
+
+                        <?php if(!empty($results)) : ?>
                         <?php foreach ($results as $topic) : ?>
                             <?php
 
@@ -124,6 +126,9 @@ $perPage = 10;
                                 <?php endif; ?>
                             </tr>
                         <?php endforeach; ?>
+                        <?php else : ?>
+                        <tr><td>Geen favoriete topics gevonden</td></tr>
+                        <?php endif ;?>
                     </div>
                 </table>
             </div>

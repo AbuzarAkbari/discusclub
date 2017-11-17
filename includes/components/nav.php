@@ -44,8 +44,9 @@
               <li><a href="/about/bestuur">Het bestuur</a>           
                 <ul>
                 <li><a href="/about/bestuur/jan">Jan Verkaik</a></li>
-                 <li><a href="/about/bestuur/karel">Naam bestuurslid 2</a></li>
-                <li><a href="/about/bestuur/peter">Naam bestuurslid 3</a></li>
+                <!-- Tijdelijk eruit, want we weten de rest van de leden niet :) -->
+                 <!-- <li><a href="/about/bestuur/karel">Naam bestuurslid 2</a></li>
+                 <li><a href="/about/bestuur/peter">Naam bestuurslid 3</a></li> -->
                 </ul>
               </li>
             </ul>
