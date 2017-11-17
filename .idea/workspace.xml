@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/user/index.php" afterPath="$PROJECT_DIR$/pages/user/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/pages/user/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1360">
-              <caret line="336" column="43" lean-forward="true" selection-start-line="336" selection-start-column="43" selection-end-line="336" selection-end-column="43" />
+              <caret line="336" column="43" lean-forward="false" selection-start-line="336" selection-start-column="43" selection-end-line="336" selection-end-column="43" />
               <folding>
                 <marker date="1510916143453" expanded="true" signature="4943:4993" ph="SELECT COUNT... topic" />
                 <marker date="1510916143453" expanded="true" signature="5402:5452" ph="SELECT COUNT... reply" />
@@ -60,13 +59,13 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="78" column="163" lean-forward="false" selection-start-line="78" selection-start-column="163" selection-end-line="78" selection-end-column="163" />
+            <state relative-caret-position="476">
+              <caret line="79" column="155" lean-forward="true" selection-start-line="79" selection-start-column="155" selection-end-line="79" selection-end-column="155" />
               <folding>
-                <marker date="1510920450655" expanded="true" signature="80:446" ph="SELECT *, co... like" />
-                <marker date="1510920450655" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
-                <marker date="1510920450655" expanded="true" signature="4850:4901" ph="SELECT * FRO... news" />
-                <marker date="1510920450655" expanded="true" signature="6401:6566" ph="SELECT *, ne... news_reply" />
+                <marker date="1510920705069" expanded="true" signature="80:446" ph="SELECT *, co... like" />
+                <marker date="1510920705069" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
+                <marker date="1510920705069" expanded="true" signature="4850:4901" ph="SELECT * FRO... news" />
+                <marker date="1510920705069" expanded="true" signature="6401:6566" ph="SELECT *, ne... news_reply" />
               </folding>
             </state>
           </provider>
@@ -306,12 +305,12 @@
       <workItem from="1510739836741" duration="6797000" />
       <workItem from="1510773040998" duration="6718000" />
       <workItem from="1510824510614" duration="19762000" />
-      <workItem from="1510906683728" duration="5792000" />
+      <workItem from="1510906683728" duration="6071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="364540000" />
+    <option name="totallyTimeSpent" value="364819000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -802,7 +801,7 @@
     <entry file="file://$PROJECT_DIR$/pages/user/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
-          <caret line="336" column="43" lean-forward="true" selection-start-line="336" selection-start-column="43" selection-end-line="336" selection-end-column="43" />
+          <caret line="336" column="43" lean-forward="false" selection-start-line="336" selection-start-column="43" selection-end-line="336" selection-end-column="43" />
           <folding>
             <marker date="1510916143453" expanded="true" signature="4943:4993" ph="SELECT COUNT... topic" />
             <marker date="1510916143453" expanded="true" signature="5402:5452" ph="SELECT COUNT... reply" />
@@ -821,13 +820,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="78" column="163" lean-forward="false" selection-start-line="78" selection-start-column="163" selection-end-line="78" selection-end-column="163" />
+        <state relative-caret-position="476">
+          <caret line="79" column="155" lean-forward="true" selection-start-line="79" selection-start-column="155" selection-end-line="79" selection-end-column="155" />
           <folding>
-            <marker date="1510920450655" expanded="true" signature="80:446" ph="SELECT *, co... like" />
-            <marker date="1510920450655" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
-            <marker date="1510920450655" expanded="true" signature="4850:4901" ph="SELECT * FRO... news" />
-            <marker date="1510920450655" expanded="true" signature="6401:6566" ph="SELECT *, ne... news_reply" />
+            <marker date="1510920705069" expanded="true" signature="80:446" ph="SELECT *, co... like" />
+            <marker date="1510920705069" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
+            <marker date="1510920705069" expanded="true" signature="4850:4901" ph="SELECT * FRO... news" />
+            <marker date="1510920705069" expanded="true" signature="6401:6566" ph="SELECT *, ne... news_reply" />
           </folding>
         </state>
       </provider>
