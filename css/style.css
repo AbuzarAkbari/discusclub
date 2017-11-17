@@ -983,8 +983,3 @@ li.dropdown:hover > .dropdown-menu {
 .modal-body {
     padding: 40px !important;
 }
-
-.form-input {
-    float: left;
-    width: 70%;
-}
