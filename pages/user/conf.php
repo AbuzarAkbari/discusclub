@@ -82,6 +82,28 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                         <label for="file">Profielfoto aanpassen</label><input id="file" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="profiel" placeholder="Selecteer bestand"><br>
                         <label for="berichten">Berichten achtergrond aanpassen</label><input id="berichten" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="background" placeholder="Selecteer bestand"><br>
                         <label for="signature">Handtekening</label><input id="signature" class="form-control" type="text" name="signature" value="<?php echo isset($user_data->signature) ? $user_data->signature : ''; ?>" placeholder="Handtekening (max. 35 tekens)" maxlength="35"><br>
+                        <label for="city">Locatie</label><input id="city" class="form-control" type="text" name="city" value="<?php echo isset($user_data->city) ? $user_data->city : ''; ?>" placeholder="Locatie (max. 35 tekens)" maxlength="35"><br>
+
+                        <?php if(isset($user_data->address)) : ?>
+                        <label for="address">Adres</label>
+                        <input type="text" class="form-control" id="address" name="address" value="<?php echo $user_data->address; ?>"><br>
+                        <?php endif; ?>
+                        <?php if(isset($user_data->postal_code)) : ?>
+                        <label for="postal_code">Huisnummer</label>
+                        <input type="number" class="form-control" id="postal_code" name="postal_code" value="<?php echo $user_data->postal_code; ?>"><br>
+                        <?php endif; ?>
+                        <?php if(isset($user_data->house_number)) : ?>
+                        <label for="house_number">Huisnummer</label>
+                        <input type="number" class="form-control" id="house_number" name="house_number" value="<?php echo $user_data->house_number; ?>"><br>
+                        <?php endif; ?>
+                        <?php if(isset($user_data->phone)) : ?>
+                        <label for="phone">Telefoonnummer</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo $user_data->phone; ?>"><br>
+                        <?php endif; ?>
+                        <?php if(isset($user_data->iban)) : ?>
+                        <label for="iban">Rekeningnummer</label>
+                        <input type="text" class="form-control" id="iban" name="iban" value="<?php echo $user_data->iban; ?>"><br>
+                        <?php endif; ?>
                         <label for="wachtwoord">Wachtwoord</label><input required id="wachtwoord" class="form-control" type="password" name="wachtwoord" value="" placeholder="Wachtwoord ter bevestiging"><br>
                         <input type="hidden" value="<?php echo $user_data->id; ?>" name="user_id">
                         <input type="hidden" value="<?php echo $user_data->profile_img_id; ?>" name="profile_img_id">

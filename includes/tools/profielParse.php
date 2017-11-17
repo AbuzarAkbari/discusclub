@@ -67,6 +67,42 @@ if ($logged_in) {
             $query .= ", signature = :signature";
             $bindings[":signature"] = $signature;
         }
+
+        //address
+        if (isset($_POST['address']) && !empty($_POST["address"])) {
+            $address = $_POST['address'];
+            $query .= ", address = :address";
+            $bindings[":address"] = $address;
+        }
+
+        //postal_code
+        if (isset($_POST['postal_code']) && !empty($_POST["postal_code"])) {
+            $postal_code = $_POST['postal_code'];
+            $query .= ", postal_code = :postal_code";
+            $bindings[":postal_code"] = $postal_code;
+        }
+
+        //house_number
+        if (isset($_POST['house_number']) && !empty($_POST["house_number"])) {
+            $house_number = $_POST['house_number'];
+            $query .= ", house_number = :house_number";
+            $bindings[":house_number"] = $house_number;
+        }
+
+        //phone
+        if (isset($_POST['phone']) && !empty($_POST["phone"])) {
+            $phone = $_POST['phone'];
+            $query .= ", phone = :phone";
+            $bindings[":phone"] = $phone;
+        }
+
+        //iban
+        if (isset($_POST['iban']) && !empty($_POST["iban"])) {
+            $iban = $_POST['iban'];
+            $query .= ", iban = :iban";
+            $bindings[":iban"] = $iban;
+        }
+
         //Image check
         if (isset($_FILES['profiel']) && $_FILES['profiel']['error'] !== 4) {
             $target_dir = "/images/profiel/";
