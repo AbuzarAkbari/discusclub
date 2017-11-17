@@ -9,6 +9,8 @@
     $likeResult = $dbc->prepare($likeSql);
     $likeResult->execute([":aid" => $aquarium['id']]);
     $like = $likeResult->fetch();
+
+    setlocale(LC_TIME, "nl_NL");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +58,7 @@
                             // echo html_entity_decode($text['content']); ?>
                             <p>Goed dat u even komt kijken of u wat wijzer kunt worden over het houden van discusvissen.<br>
                             Onze vereniging DCH is opgezet om kennis te verzamelen rond de discusvis en deze te verspreiden onder de liefhebbers/hobbyisten. Maar ook om de discussie aan te gaan hoe het misschien beter of anders kan. Hierdoor ontstaat er een mooi naslagwerk waar je van beginner tot professional je kennis kunt vergaren.<br>
-                            Zaken die aan onder andere de orde komen zijn:<br>
+                            Zaken die onder andere aan de orde komen zijn:<br>
                             Het inrichten van de biotoop,<br>
                             Waterwaarden,<br>
                             Visverzorging,<br>
@@ -74,7 +76,7 @@
                         <div class="panel-heading border-color-black">Winnaar wedstrijd</div>
                         <div class="panel-body">
                             Gefeliciteerd <a href="/user/<?php echo $aquarium['user_id']; ?>"><?php echo $aquarium['first_name'].' '.$aquarium['last_name']; ?></a>, <br><br>
-                            Jij hebt deze wedstrijd gewonnen
+                            Jij hebt de wedstrijd van <?php echo strftime("%A-%B-%Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A-%B-%Y %T", strtotime($aquarium['end_at'])); ?> gewonnen
                             met <?php echo $aquarium['amount_of_likes']; ?> <?php echo ($aquarium['amount_of_likes'] > 1) ? 'visjes' : 'visje' ; ?><br><br>
                             <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>">
                                 <img src="images/<?php echo $aquarium['path']; ?>" alt="">

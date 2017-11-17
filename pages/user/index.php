@@ -342,7 +342,7 @@ if($user_data == false){
                         <div class="panel-heading border-color-blue">Aquariums</div>
                         <div class="panel-body">
                             <?php
-                                $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE aquarium.user_id = ? GROUP BY aquarium_id ORDER BY created_at DESC LIMIT 8";
+                                $aquariumSql = "SELECT *, aquarium.id AS aquarium_id FROM aquarium JOIN image ON aquarium.id = image.aquarium_id WHERE aquarium.user_id = ? GROUP BY image.aquarium_id ORDER BY created_at DESC LIMIT 8";
                                 $aquariumResult = $dbc->prepare($aquariumSql);
                                 $aquariumResult->bindParam(1, $user_data->id);
                                 $aquariumResult->execute();
