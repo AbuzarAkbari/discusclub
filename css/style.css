@@ -872,3 +872,8 @@ li.dropdown:hover > .dropdown-menu {
         display: none;
     }
 }
+
+.form-input {
+    float: left;
+    width: 70%;
+}
