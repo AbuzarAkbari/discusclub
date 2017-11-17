@@ -44,23 +44,23 @@
         </div>
       </div>
       <div class="col-md-6">
-              <div class="panel panel-primary">
-                  <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
-                  <div class="panel-body">
-                      <?php
-                      $sth = $dbc->prepare("SELECT *, album.id AS album_id FROM album JOIN image ON image.album_id = album.id ORDER BY created_at DESC LIMIT 6");
-                      $sth->execute();
-                      $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+        <div class="panel panel-primary">
+            <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
+            <div class="panel-body">
+            <?php
+            $sth = $dbc->prepare("SELECT *, album.id AS album_id FROM album JOIN image ON image.album_id = album.id ORDER BY created_at DESC LIMIT 6");
+            $sth->execute();
+            $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-                      if(!empty($res)) :
-                          foreach($res as $key => $value) : ?>
-                          <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><div  title="image album" class="imgThumbnail" style="background-image: url('/images<?php echo $value['path']?>');"></div></a><br><?php echo $value['created_at']?></div>
-                      <?php endforeach; ?>
-                  <?php else : ?>
-                      <tr><td>Geen albums gevonden</td></tr>
-                  <?php endif ;?>
-              </div>
-          </div>
+            if(!empty($res)) :
+              foreach($res as $key => $value) : ?>
+              <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><div  title="image album" class="imgThumbnail" style="background-image: url('/images<?php echo $value['path']?>');"></div></a><br><?php echo $value['created_at']?></div>
+            <?php endforeach; ?>
+            <?php else : ?>
+            <tr><td>Geen albums gevonden</td></tr>
+        <?php endif ;?>
+        </div>
+        </div>
         <div class="panel panel-primary">
             <div class="panel-heading border-colors">Laatste reacties op topics</div>
             <div class="panel-body">

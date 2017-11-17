@@ -63,10 +63,10 @@
         </div>
         <?php if($logged_in && in_array($current_level, $admin_levels)) : ?>
             <div class="panel panel-primary">
-                <div class="panel-heading border-colors">Voeg een nieuwe categorie toe</div>
+                <div class="panel-heading border-colors">nieuwe categorie</div>
                 <div class="panel-body">
                     <form action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
-                        <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="Vul hier de nieuwe categorienaam in.." name="new_category" minlength="3" maxlength="85" required>
+                        <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="nieuwe categorienaam" name="new_category" minlength="3" maxlength="85" required>
                         <input style="width: 20%; float: left; margin-left: 3%;" type="submit" class="col-md-3 btn btn-primary" name="add_new_category" value="Toevoegen">
                     </form>
                 </div>
@@ -102,11 +102,14 @@
                     <?php if($logged_in && in_array($current_level, $admin_levels)) : ?>
                         <form class="row" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
                             <br>
-                                <div class="col-md-12">
-                                    <input type="hidden" name="cat_id" value="<?php echo $categorie['id']; ?>">
-                                    <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="Vul hier de nieuwe subcategorienaam in.." name="new_sub_category" minlength="3" maxlength="83" required>
-                                    <input style="width: 20%; float: left; margin-left: 3%; margin-bottom: 1%;" type="submit" value="Toevoegen" name="add_new_sub_category" class="form-control btn btn-primary" required>
-                                </div>
+                            <div class="col-md-9 col-sm-8 col-xs-7">
+                                <input type="hidden" name="cat_id" value="<?php echo $categorie['id']; ?>">
+                                <input type="text" class="form-control form-input" placeholder="nieuwe subcategorienaam in.." name="new_sub_category" minlength="3" maxlength="83" required>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-5">
+                                <input type="submit" value="Toevoegen" name="add_new_sub_category" class="form-btn form-control btn btn-primary" required>
+                            </div>
+                            <br><br>
                         </form>
                     <?php endif; ?>
                     <table>
