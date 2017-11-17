@@ -37,7 +37,7 @@
         <div class="panel panel-primary ">
             <div class="panel-heading border-colors">Jan Verkaik</div>
             <div class="panel-body padding-padding space">
-                <p class="col-md-6">
+                <p class="col-md-8">
                     Het was in 1998 dat een paar mensen bij elkaar zijn gaan zitten om eens na te denken over het opzetten van een vereniging bedoeld voor discusvissen liefhebbers.
                     Het doel wat we toen stelden was zoveel mogelijk informatie verzamelen over de discusvis en vooral delen met andere liefhebbers. De oprichting was op 9 mei in café Den Engh in ‘t Goy. En ik was een van die oprichters.
                     In eerste instantie werd ik secretaris. Tot dat een paar leden vonden dat zij beter leiding konden geven aan de vereniging. Zo stapten wij als geheel bestuur op.
@@ -46,6 +46,11 @@
                     Er waren toen nog maar krap 200 leden over. Het heeft ons dus 150 leden gekost die grappenmakerij.
                     Vanaf 2004 is toen het oude bestuur onder leiding van Karel van de Heiden als voorzitter opnieuw aangesteld en werd ik, Jan Verkaik, penningmeester en ledenbeheerder.
                 </p>
+                <div class="col-md-4">
+                    <img src="/images/bestuur/jan.PNG">
+                </div>
+                <p class="col-md-12">
+                    <br><br>
                     De schade aan onze vereniging bleek groter dan gedacht en het heeft lang geduurd voordat er weer vertrouwen was in het bestuur.
                     Dus vanaf begin 2004 tot aan nu toe heb ik, met veel plezier, mijn taken uitgevoerd en gemoderniseerd.
                     Wat voorheen nog met een acceptgiro ging is nu een automatische incasso geworden en dat scheelt enorm veel werk en na controles op wie er nu wel en wie er nu nog niet zijn contributie voldaan heeft.
@@ -56,9 +61,7 @@
                     Adresveranderingen doorvoeren en mensen nabellen omdat ik hun post terug gestuurd heb gekregen. Die waren vergeten hun verhuizing aan mij door te geven.
                     Kortom er is altijd wat te doen. Daarom heb ik in huis een vaste plek. Zie foto.
                 </p>
-                <div class="">
-                    <img src="/images/bestuur/jan.PNG">
-                </div>
+
             </div>
         </div>
       </div>
