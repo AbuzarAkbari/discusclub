@@ -142,6 +142,7 @@ if (isset($_POST['post_add_topic'])) {
                             $sth = $dbc->prepare("SELECT n.id, sc.id as cat_id, sc.name as sub_name, n.title, n.created_at FROM news as n JOIN sub_category as sc ON n.sub_category_id = sc.id  ORDER BY n.created_at DESC LIMIT {$perPage} OFFSET {$a}");
                             $sth->execute();
                             $res = $sth->fetchAll(PDO::FETCH_OBJ);
+                            if(!empty($res)) :
                             foreach ($res as $key => $value) { ?>
                                 <?php
                                 $sth = $dbc->prepare("SELECT count(*) as amount FROM news_reply WHERE news_id = :id");
@@ -156,6 +157,9 @@ if (isset($_POST['post_add_topic'])) {
                                 </tr>
 
                             <?php } ?>
+                            <?php else : ?>
+                            <tr><td>Geen nieuws gevonden</td></tr>
+                            <?php endif ;?>
                         </tbody>
                     </table>
 
@@ -175,10 +179,13 @@ if (isset($_POST['post_add_topic'])) {
                 $sth = $dbc->prepare("SELECT *, album_reply.created_at AS album_reply_created_at FROM album_reply JOIN album ON album_reply.album_id = album.id ORDER BY album_reply.created_at DESC LIMIT 5");
                 $sth->execute();
                 $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-
+                if(!empty($res)) :
                 foreach($res as $key => $value) : ?>
                 <a href="/album/post/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
                 <?php endforeach; ?>
+                <?php else : ?>
+                <tr><td>Geen reacties op albums gevonden</td></tr>
+                <?php endif ;?>
           </div>
           </div>
         </div>
@@ -191,9 +198,13 @@ if (isset($_POST['post_add_topic'])) {
                 $sth->execute();
                 $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
+                if(!empty($res)) :
                 foreach($res as $key => $value) : ?>
                 <a href="/forum/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 "><?php echo $value['title'] ?></a><br><?php echo $value['created_at'] ?></div>
                 <?php endforeach; ?>
+                <?php else : ?>
+                <tr><td>Geen reacties op topics gevonden</td></tr>
+                <?php endif ;?>
             </div>
           </div>
         </div>
@@ -208,9 +219,13 @@ if (isset($_POST['post_add_topic'])) {
                         $sth->execute();
                         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
+                        if(!empty($res)) :
                         foreach($res as $key => $value) : ?>
                         <a href="/news/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 "><?php echo $value['title'] ?></a><br><?php echo $value['news_reply_created_at'] ?></div>
                         <?php endforeach; ?>
+                        <?php else : ?>
+                        <tr><td>Geen reacties op nieuws gevonden</td></tr>
+                        <?php endif ;?>
                 </div>
             </div>
         </div>
@@ -231,9 +246,13 @@ if (isset($_POST['post_add_topic'])) {
                       $sth->execute();
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
+                      if(!empty($res)) :
                       foreach($res as $key => $value) : ?>
                       <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><div  title="image album" class="imgThumbnail" style="background-image: url('/images<?php echo $value['path']?>');"></div></a><br><?php echo $value['created_at']?></div>
                       <?php endforeach; ?>
+                      <?php else : ?>
+                        <tr><td>Geen albums gevonden</td></tr>
+                        <?php endif ;?>
               </div>
             </div>
         </div>

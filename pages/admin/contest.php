@@ -120,7 +120,7 @@ if(isset($_POST["daterange"]) && isset($_POST["id"])) {
 
                           <?php else : ?>
                                   <tr>
-                                      <td>Geen contest gestart</td>
+                                      <td>Geen contest gevonden</td>
                                   </tr>
                           <?php endif; ?>
                       </table>
