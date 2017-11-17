@@ -6,3 +6,4 @@
 overzetten/node_modules/
 overzetten/dhc.json
 includes/tools/keys.php
+db/export.sql
