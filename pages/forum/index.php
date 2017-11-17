@@ -66,8 +66,8 @@
                 <div class="panel-heading border-colors">Voeg een nieuwe categorie toe</div>
                 <div class="panel-body">
                     <form action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
-                        <input type="text" class="form-control" placeholder="Vul hier de nieuwe categorienaam in.." name="new_category" minlength="3" maxlength="85" required><br>
-                        <input type="submit" class=" btn btn-primary" name="add_new_category" value="Toevoegen">
+                        <input style="width: 75%; float: left;" type="text" class="form-control" placeholder="Vul hier de nieuwe categorienaam in.." name="new_category" minlength="3" maxlength="85" required>
+                        <input style="width: 20%; float: left; margin-left: 3%;" type="submit" class="col-md-3 btn btn-primary" name="add_new_category" value="Toevoegen">
                     </form>
                 </div>
             </div>

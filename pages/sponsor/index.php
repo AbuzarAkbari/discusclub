@@ -35,7 +35,7 @@
       <div class="col-md-8">
 
         <div class="panel panel-primary">
-          <div class="panel-heading border-colors">Sponsoren</div>
+          <div class="panel-heading border-color-blue">Sponsoren</div>
           <div class="panel-body padding-padding">
             <?php
               $haal_sponsor = "SELECT * FROM sponsor WHERE approved = 1";
@@ -70,7 +70,7 @@
 
       <div class="col-md-4">
           <div class="panel panel-primary">
-              <div class="panel-heading border-colors">Advertentie</div>
+              <div class="panel-heading border-color-blue">Advertentie</div>
               <div class="panel-body">
                   <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img alt="Advertentie" src="/images/ad/advertentie.jpg"></a> </div>
               </div>

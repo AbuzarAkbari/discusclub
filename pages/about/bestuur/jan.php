@@ -31,12 +31,12 @@
                   <li><a href="/">Home</a></li>
                   <li><a href="/about/">Over ons</a></li>
                   <li><a href="/about/bestuur">Het bestuur</a></li>
-                  <li class="active">NAAM LID</li>
+                  <li class="active">Jan Verkaik</li>
                 </ol>
             </div>
             <div class="col-md-12">
                 <div class="panel panel-primary ">
-                    <div class="panel-heading border-colors">NAAM LID</div>
+                    <div class="panel-heading border-colors">Jan Verkaik</div>
                     <div class="panel-body padding-padding space">
                         <p class="col-md-8">
                         Het was in 1998 dat een paar mensen bij elkaar zijn gaan zitten om eens na te denken over het opzetten van een vereniging bedoeld voor discusvissen liefhebbers.
@@ -48,7 +48,7 @@
                         Vanaf 2004 is toen het oude bestuur onder leiding van Karel van de Heiden als voorzitter opnieuw aangesteld en werd ik, Jan Verkaik, penningmeester en ledenbeheerder.
                         </p>
                         <div class="col-md-4">
-                            <img src="/images/bestuur/jan.PNG">
+                            <img src="/images/bestuur/jan.PNG" class="jan">
                         </div>
                         <p class="col-md-12">
                             <br>
@@ -69,12 +69,6 @@
 
         </div>
     </div>
-<<<<<<< HEAD
-  </div>
-</div>
-      </div>
-=======
->>>>>>> e2fdce00882139003c269f6b98958a9e4a738ba9
 
     <footer>
 <?php require_once("../../../includes/components/footer.php") ; ?>
