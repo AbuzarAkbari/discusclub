@@ -79,7 +79,7 @@
                             Jij hebt de wedstrijd van <?php echo strftime("%A %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php var_dump( strftime("%A %B %Y %T", strtotime($aquarium['end_at']))); ?> gewonnen
                             met <?php echo $aquarium['amount_of_likes']; ?> <?php echo ($aquarium['amount_of_likes'] > 1) ? 'visjes' : 'visje' ; ?><br><br>
                             <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>">
-                                <img src="images/<?php echo $aquarium['path']; ?>" alt="">
+                                <img src="images/<?php echo $aquarium['path']; ?>" class="contest_winnaar" alt="">
                             </a>
                         </div>
                     </div>

@@ -25,3 +25,15 @@
     background-position: center;
     margin: 5px;
 }
+
+.contest_winnaar {
+    width: 50%;
+    height: auto;
+}
+
+@media screen and (max-width: 678px) {
+    .contest_winnaar {
+        width: 100%;
+        height: auto;
+    }
+}
