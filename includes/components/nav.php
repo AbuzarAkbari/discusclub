@@ -2,20 +2,25 @@
     <div class="header container">
         <?php if ($logged_in) { ?>
             <?php $name =  $_SESSION["user"]->first_name.' '.$_SESSION["user"]->last_name; ?>
-      <div class='inlog'>
-        <div class='dropdown'>
-          <a href="/user/" class='dropbtn'><?php echo $name; ?></a>
-          <div class='dropdown-content'>
-            <a href='/user/messenger'>Berichten(<?php
-                $sth = $dbc->prepare("SELECT count(*) as amount FROM message WHERE user_id_2 = :id AND opened = 0");
-                $sth->execute([":id" => $_SESSION["user"]->id]);
-                echo $sth->fetch(PDO::FETCH_OBJ)->amount;
-            ?>)</a>
-            <a href='/user/conf'>Profiel aanpassen</a>
+              <div class='inlog'>
+              <div class="desktop pull-left">
+                <div class='dropdown'>
+                  <a href="/user/" class='dropbtn'><?php echo $name; ?></a>
+                  <div class='dropdown-content'>
+                    <a href='/user/messenger'>Berichten(<?php
+                        $sth = $dbc->prepare("SELECT count(*) as amount FROM message WHERE user_id_2 = :id AND opened = 0");
+                        $sth->execute([":id" => $_SESSION["user"]->id]);
+                        echo $sth->fetch(PDO::FETCH_OBJ)->amount;
+                    ?>)</a>
+                    <a href='/user/conf'>Profiel aanpassen</a>
+                  </div>
+              </div>
           </div>
-      </div>
-        <a href="/?logout=true">Uitloggen</a>
-      </div>
+                <a href="/?logout=true">Uitloggen</a>
+              </div>
+
+
+
         <?php } else { ?>
             <div class='inlog'>
                 <a href='/user/login'>Inloggen</a>
@@ -41,7 +46,7 @@
             <span class="mobile navItem">Over ons</span>
             <ul>
               <li class="mobile"><a href="/about/">Over ons</a></li>
-              <li><a href="/about/bestuur">Het bestuur</a>           
+              <li><a href="/about/bestuur">Het bestuur</a>
                 <ul>
                 <li><a href="/about/bestuur/jan">Jan Verkaik</a></li>
                 <!-- Tijdelijk eruit, want we weten de rest van de leden niet :) -->
@@ -63,7 +68,7 @@
           </li>
           <li><a href="/news/">Nieuws</a></li>
           <li><a href="/wordlid">Word lid!</a></li>
-          <li><a class="desktop" href="/album">Albums</a>
+          <li><a class="desktop" href="/album/">Albums</a>
               <span class="mobile navItem">Albums</span>
               <ul>
                   <li class="mobile"><a href="/album/">Albums</a></li>
@@ -72,7 +77,7 @@
             <?php } ?>
         </ul>
           </li>
-          <li><a class="desktop" href="/aquarium">Aquaria</a>
+          <li><a class="desktop" href="/aquarium/">Aquaria</a>
               <span class="mobile navItem">Aquaria</span>
               <ul>
                   <li class="mobile"><a href="/aquarium/">Aquaria</a></li>
@@ -81,7 +86,7 @@
             <?php } ?>
         </ul>
           </li>
-          <li><a class="desktop" href="/forum">Forum</a>
+          <li><a class="desktop" href="/forum/">Forum</a>
               <span class="mobile navItem">Forum</span>
 
               <ul>

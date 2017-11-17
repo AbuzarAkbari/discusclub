@@ -69,6 +69,12 @@
 
         </div>
     </div>
+<<<<<<< HEAD
+  </div>
+</div>
+      </div>
+=======
+>>>>>>> e2fdce00882139003c269f6b98958a9e4a738ba9
 
     <footer>
 <?php require_once("../../../includes/components/footer.php") ; ?>
