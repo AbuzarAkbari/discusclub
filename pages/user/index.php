@@ -312,7 +312,7 @@ if($user_data == false){
                                         <?php endforeach; ?>
                                     <?php else : ?>
                                         <tr>
-                                            <td>Geen reacties</td>
+                                            <td>Geen reacties op topics gevonden</td>
                                         </tr>
                                     <?php endif; ?>
                             </table>
@@ -333,7 +333,7 @@ if($user_data == false){
                                     <a href="/album/post/<?php echo $album['album_id']; ?>"><img alt="Album-img" src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
                                 <?php endforeach; ?>
                             <?php else : ?>
-                                Geen albums
+                                Geen albums gevonden
                             <?php endif; ?>
                         </div>
                     </div>
@@ -353,7 +353,7 @@ if($user_data == false){
                                     <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>"><img alt="Aquarium-img" src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
                                 <?php endforeach; ?>
                             <?php else : ?>
-                                Geen aquariums
+                                Geen aquariums gevonden
                             <?php endif; ?>
                         </div>
                     </div>
