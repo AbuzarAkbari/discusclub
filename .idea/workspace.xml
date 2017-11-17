@@ -59,13 +59,13 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="79" column="155" lean-forward="true" selection-start-line="79" selection-start-column="155" selection-end-line="79" selection-end-column="155" />
+            <state relative-caret-position="323">
+              <caret line="19" column="58" lean-forward="true" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
               <folding>
-                <marker date="1510920705069" expanded="true" signature="80:446" ph="SELECT *, co... like" />
-                <marker date="1510920705069" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
-                <marker date="1510920705069" expanded="true" signature="4850:4901" ph="SELECT * FRO... news" />
-                <marker date="1510920705069" expanded="true" signature="6401:6566" ph="SELECT *, ne... news_reply" />
+                <marker date="1510921802398" expanded="true" signature="80:446" ph="SELECT *, co... like" />
+                <marker date="1510921802398" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
+                <marker date="1510921802398" expanded="true" signature="4853:4904" ph="SELECT * FRO... news" />
+                <marker date="1510921802398" expanded="true" signature="6404:6569" ph="SELECT *, ne... news_reply" />
               </folding>
             </state>
           </provider>
@@ -305,12 +305,12 @@
       <workItem from="1510739836741" duration="6797000" />
       <workItem from="1510773040998" duration="6718000" />
       <workItem from="1510824510614" duration="19762000" />
-      <workItem from="1510906683728" duration="6071000" />
+      <workItem from="1510906683728" duration="7152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="364819000" />
+    <option name="totallyTimeSpent" value="365900000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -820,13 +820,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="79" column="155" lean-forward="true" selection-start-line="79" selection-start-column="155" selection-end-line="79" selection-end-column="155" />
+        <state relative-caret-position="323">
+          <caret line="19" column="58" lean-forward="true" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
           <folding>
-            <marker date="1510920705069" expanded="true" signature="80:446" ph="SELECT *, co... like" />
-            <marker date="1510920705069" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
-            <marker date="1510920705069" expanded="true" signature="4850:4901" ph="SELECT * FRO... news" />
-            <marker date="1510920705069" expanded="true" signature="6401:6566" ph="SELECT *, ne... news_reply" />
+            <marker date="1510921802398" expanded="true" signature="80:446" ph="SELECT *, co... like" />
+            <marker date="1510921802398" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
+            <marker date="1510921802398" expanded="true" signature="4853:4904" ph="SELECT * FRO... news" />
+            <marker date="1510921802398" expanded="true" signature="6404:6569" ph="SELECT *, ne... news_reply" />
           </folding>
         </state>
       </provider>
