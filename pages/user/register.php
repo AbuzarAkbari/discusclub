@@ -89,13 +89,7 @@
         <?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
     <!-- bootstrap script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <?php require_once("../../includes/components/summernote.php"); ?>
-    <script src="/js/password.js"></script>
+    <?php require_once("../../includes/components/datepicker.php"); ?>
 </body>
 
 </html>

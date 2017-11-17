@@ -29,7 +29,6 @@ if(preg_match('/messen/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/message.css">';
 }
 ?>
-
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <!-- <link rel="canonical" href="https://css-tricks.com/examples/DragAndDropFileUploading/"> -->
