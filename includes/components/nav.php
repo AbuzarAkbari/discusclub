@@ -62,7 +62,7 @@
           </li>
           <li><a href="/news/">Nieuws</a></li>
           <li><a href="/wordlid">Word lid!</a></li>
-          <li><a class="desktop" href="/album">Albums</a>
+          <li><a class="desktop" href="/album/">Albums</a>
               <span class="mobile navItem">Albums</span>
               <ul>
                   <li class="mobile"><a href="/album/">Albums</a></li>
@@ -71,7 +71,7 @@
             <?php } ?>
         </ul>
           </li>
-          <li><a class="desktop" href="/aquarium">Aquaria</a>
+          <li><a class="desktop" href="/aquarium/">Aquaria</a>
               <span class="mobile navItem">Aquaria</span>
               <ul>
                   <li class="mobile"><a href="/aquarium/">Aquaria</a></li>
@@ -80,7 +80,7 @@
             <?php } ?>
         </ul>
           </li>
-          <li><a class="desktop" href="/forum">Forum</a>
+          <li><a class="desktop" href="/forum/">Forum</a>
               <span class="mobile navItem">Forum</span>
 
               <ul>
