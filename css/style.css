@@ -831,17 +831,18 @@ li.dropdown:hover > .dropdown-menu {
     overflow-y: hidden;
 }
 .sliderHome {
-    background-size: 100% 100% !important;
+    background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     width: auto;
     height: 70vh;
+    object-fit: cover;
 }
 
 .sliderTekst {
     top: 50%;
     left: 50%;
-    transform: translate(-110%, -100%);
+    transform: translate(-50%, -50%);
     background: white;
     overflow: hidden;
     padding: 16px 16px 12px 18px;
@@ -851,7 +852,7 @@ li.dropdown:hover > .dropdown-menu {
     max-width: 300px;
     min-height: 20px;
     position: absolute;
-    opacity: 0.9;
+    opacity: 0.95;
     filter: alpha(opacity=90);
 }
 
