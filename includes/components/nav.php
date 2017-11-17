@@ -24,13 +24,18 @@
                             </li>
                     </ul>
                     <li><a href="/?logout=true">Uitloggen</a></li>
+                </ul>
                   </nav>
               </div>
         <?php } else { ?>
             <div class='inlog'>
-                <a href='/user/login'>Inloggen</a>
-                <a href='/user/register'>Registreer</a>
-                <a href='/user/password/forgot'>Wachtwoord vergeten?</a>
+                <nav id="nav-bar">
+                    <ul>
+                  <li><a href='/user/login'>Inloggen</a></li>
+                  <li><a href='/user/register'>Registreer</a></li>
+                  <li><a href='/user/password/forgot'>Wachtwoord vergeten?</a></li>
+                  </ul>
+                </nav>
             </div>
         <?php } ?>
         <div class="col-xs-6">
