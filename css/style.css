@@ -839,8 +839,9 @@ li.dropdown:hover > .dropdown-menu {
 }
 
 .sliderTekst {
-    top: 80px;
-    left: 220px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-110%, -100%);
     background: white;
     overflow: hidden;
     padding: 16px 16px 12px 18px;
@@ -849,7 +850,13 @@ li.dropdown:hover > .dropdown-menu {
     border-radius: 3px;
     max-width: 300px;
     min-height: 20px;
-    position: relative;
+    position: absolute;
     opacity: 0.9;
     filter: alpha(opacity=90);
+}
+
+@media  screen and (max-width: 900px) {
+    .sliderTekst {
+        transform: translate(-50%, -50%);
+    }
 }
