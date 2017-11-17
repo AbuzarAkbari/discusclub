@@ -60,7 +60,7 @@ $perPage = 20;
                             </tr>
                             <?php
                                 $a = $page * $perPage - $perPage;
-                                $sql = "SELECT * FROM approval_signup as app LEFT JOIN user as u LEFT JOIN ip ON u.id = ip.user_id ON u.id = app.user_id LIMIT {$perPage} OFFSET {$a}";
+                                $sql = "SELECT * FROM approval_signup as app LEFT JOIN user as u LEFT JOIN ip ON u.id = ip.user_id ON u.id = app.user_id ORDER BY app.approved LIMIT {$perPage} OFFSET {$a}";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);

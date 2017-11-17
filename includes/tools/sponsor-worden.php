@@ -3,6 +3,9 @@ require_once("security.php");
 if(isset($_POST['sponsorverzend'])) {
     $bedrijf = htmlentities(ucfirst($_POST['naam']));
     $url = htmlentities($_POST['url']);
+    $email = htmlentities($_POST['email']);
+    $phone = htmlentities($_POST['phone']);
+    $iban = htmlentities($_POST['iban']);
     $opties = $_POST['optie'];
 
 	if (isset($_FILES['afbeelding']) && $_FILES['afbeelding']['error'] !== 4) {
@@ -80,10 +83,11 @@ if(isset($_POST['sponsorverzend'])) {
                 $result = $dbc->prepare("INSERT INTO image (path) VALUES (:path)");
 				$result->execute([':path' => $path]);
 
-                $sth = $dbc->prepare("INSERT INTO sponsor(image_id, name, url, option, created_at) VALUES (:image_id, :name, :url, :option, NOW())");
-                $sth->execute([":image_id" => $dbc->lastInsertId(), ":name" => $bedrijf, ":url" => $url, ":option" => $opties]);
+                $sth = $dbc->prepare("INSERT INTO sponsor(image_id, name, url, option, created_at, phone, iban, email) VALUES (:image_id, :name, :url, :option, NOW(), :phone, :iban, :email)");
+                $sth->execute([":image_id" => $dbc->lastInsertId(), ":name" => $bedrijf, ":url" => $url, ":option" => $opties, ":phone" => $phone, ":iban" => $iban, ":email" => $email]);
 			} else {
                 $error = "Sorry, er ging iets mis met het uploaden.";
+                header("Location: /sponsor/become?error=" . $error);
                 exit();
             }
         }

@@ -185,14 +185,17 @@
                         <div class="panel-body">
                             <form class="" action="/includes/tools/sponsor-worden" method="post" enctype="multipart/form-data">
                                 <input required class="form-control" type="text" name="naam" placeholder="Naam van uw bedrijf"><br>
-                                <input required class="form-control" type="file" accept="" name="afbeelding" placeholder="Afbeelding toevoegen"><br>
+                                <input required class="form-control" type="email" name="email" placeholder="Email"><br>
+                                <input required class="form-control" type="tel" name="phone" placeholder="Telefoonnummer"><br>
+                                <input required class="form-control" type="text" name="iban" placeholder="Iban"><br>
                                 <input required class="form-control" type="url" name="url" placeholder="Url"><br>
+                                <input required class="form-control" type="file" accept="" name="afbeelding" placeholder="Afbeelding toevoegen"><br>
                                 <select required class="form-control" name="optie">
-                            <option value="1">Optie 1</option>
-                            <option value="2">Optie 2</option>
-                            <option value="3">Optie 3</option>
-                            <option value="4">Optie 4</option>
-                        </select><br>
+                                    <option value="1">Optie 1</option>
+                                    <option value="2">Optie 2</option>
+                                    <option value="3">Optie 3</option>
+                                    <option value="4">Optie 4</option>
+                                </select><br>
                                 <input class="btn btn-primary" type="submit" name="sponsorverzend" value="Meld je aan!"><br>
 
                             </form>
