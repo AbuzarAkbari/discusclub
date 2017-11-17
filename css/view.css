@@ -26,6 +26,12 @@
     margin: 5px;
 }
 
+.bestuur {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
 .contest_winnaar {
     width: 50%;
     height: auto;
