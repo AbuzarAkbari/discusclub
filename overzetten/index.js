@@ -19,6 +19,19 @@ const dhc = mysql.createPool({
 const topicIds = {}
 const newsCats = {}
 
+const replaceIcons = (str) => {
+  let newStr = str;
+  if((newStr.indexOf(".gif") - newStr.indexOf("/img/icons/icon_")) < 36) {
+    newStr = newStr.replace("/img/icons/icon_", "/images/emoji/")
+    newStr = newStr.replace(".gif", ".png")
+  }
+  if((newStr.indexOf(".gif") - newStr.indexOf("/img/icons/")) < 36) {
+    newStr = newStr.replace("/img/icons/", "/images/emoji/")
+    newStr = newStr.replace(".gif", ".png")
+  }
+  return newStr;
+}
+
 dhc
   .query('SELECT * FROM users')
   .then(res => {
@@ -102,7 +115,7 @@ dhc
             forum_topic_id = res[0].forum_topic_id
             return conn.query(
               'INSERT INTO topic(user_id, title, sub_category_id, created_at, last_changed, state_id, content) VALUES (?, ?, ?, ?, ?, ?, ?)',
-              [x.profile_id, x.title, x.forum_id, x.created, x.modified, state, res[0].content_cache]
+              [x.profile_id, x.title, x.forum_id, x.created, x.modified, state, replaceIcons(res[0].content_cache)]
             ).catch(e => console.log(e))
           } else {
             return Promise.reject("no content found")
@@ -139,7 +152,7 @@ dhc
       queries.push(
         conn.query("SELECT * FROM topic WHERE created_at < (? + INTERVAL 5 SECOND) AND created_at > (? - INTERVAL 5 SECOND) AND user_id = ? AND sub_category_id = ?", [x.created, x.created, x.profile_id, x.forum_id])
         .then(res => res.length === 0 ? conn.query("INSERT INTO reply(user_id, content, topic_id, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
-                                        [x.profile_id, x.content_cache, topicIds[x.forum_topic_id], x.created, x.modified]).catch(e => console.log(e))
+                                        [x.profile_id, replaceIcons(x.content_cache), topicIds[x.forum_topic_id], x.created, x.modified]).catch(e => console.log(e))
                                       : Promise.reject("double!")).catch(e => console.log(e))
       )
     })

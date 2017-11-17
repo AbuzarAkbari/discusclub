@@ -94,7 +94,7 @@ require_once("../../includes/components/nav.php");
                             <?php
                             $replySql = "SELECT COUNT(id) AS x_reply FROM reply WHERE user_id = ? AND deleted_at IS NULL";
                             $replyResult = $dbc->prepare($replySql);
-                            $replyResult->bindParam(1, $_SESSION['user']->id);
+                            $replyResult->bindParam(1, $rows["user_id"]);
                             $replyResult->execute();
                             $replyCount = $replyResult->fetch(PDO::FETCH_ASSOC);
                             ?>
@@ -145,7 +145,7 @@ require_once("../../includes/components/nav.php");
 
     <?php
     $aantal = $page * $perPage - $perPage;
-    $replySql = "SELECT *, image.path AS image_path, u.id AS user_id, u.created_at AS user_created_at, reply.id, reply.last_changed, reply.created_at FROM reply JOIN user as u ON u.id = reply.user_id JOIN role ON u.role_id = role.id JOIN image ON u.profile_img = image.id WHERE topic_id = ? AND reply.deleted_at IS NULL ORDER BY reply.last_changed ASC LIMIT {$perPage} OFFSET {$aantal}";
+    $replySql = "SELECT *, image.path AS image_path, u.id AS user_id, u.created_at AS user_created_at, reply.id, reply.last_changed, reply.created_at FROM reply JOIN user as u ON u.id = reply.user_id JOIN role ON u.role_id = role.id JOIN image ON u.profile_img = image.id WHERE topic_id = ? AND reply.deleted_at IS NULL ORDER BY reply.created_at ASC, reply.last_changed ASC LIMIT {$perPage} OFFSET {$aantal}";
     $replyResult = $dbc->prepare($replySql);
     $replyResult->bindParam(1, $_GET['id']);
     $replyResult->execute();
