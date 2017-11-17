@@ -136,31 +136,30 @@ dhc
   .then(res => {
     const queries = []
     res.forEach((x, i) => {
-      console.log(topicIds[x.forum_topic_id], x.forum_topic_id)
       queries.push(
-        conn.query("INSERT INTO reply(user_id, content, topic_id, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
-                   [x.profile_id, x.content_cache, topicIds[x.forum_topic_id], x.created, x.modified]).catch(e => console.log(e))
+        conn.query("SELECT * FROM topic WHERE created_at = ? AND user_id = ? AND sub_category_id = ?", [x.created, x.profile_id, x.forum_id]).then(res => res.length === 0 ? conn.query("INSERT INTO reply(user_id, content, topic_id, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
+                   [x.profile_id, x.content_cache, topicIds[x.forum_topic_id], x.created, x.modified]).catch(e => console.log(e)) : Promise.reject("double!")).catch(e => console.log(e))
       )
     })
     return Promise.all(queries);
   })
-  .then(res => dhc.query("SELECT * FROM newscategories"))
-  .then(res => Promise.all(res.map(x => conn.query(
-    "INSERT INTO sub_category(category_id, name, created_at) VALUES(?, ?, NOW())",
-    [1, x.name]
-  ).catch(e => console.log(e)).then(res => conn.query("SELECT id FROM sub_category WHERE name = ?", [x.name])).then(res => Promise.resolve({conn: res[0].id, dhc: x.id})).catch(e => console.log(e)))))
-  .then(res => {
-    res.forEach((x, i) => {
-      newsCats[x.dhc] = x.conn;
-    })
-    console.log(newsCats)
-    return dhc.query("SELECT * FROM news");
-  })
-  .then(res => {
-    const queries = []
-    res.forEach(x => queries.push(conn.query("INSERT INTO news(sub_category_id, title, content, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
-                                             [newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
-    return Promise.all(queries)
-  })
+  // .then(res => dhc.query("SELECT * FROM newscategories"))
+  // .then(res => Promise.all(res.map(x => conn.query(
+  //   "INSERT INTO sub_category(category_id, name, created_at) VALUES(?, ?, NOW())",
+  //   [1, x.name]
+  // ).catch(e => console.log(e)).then(res => conn.query("SELECT id FROM sub_category WHERE name = ?", [x.name])).then(res => Promise.resolve({conn: res[0].id, dhc: x.id})).catch(e => console.log(e)))))
+  // .then(res => {
+  //   res.forEach((x, i) => {
+  //     newsCats[x.dhc] = x.conn;
+  //   })
+  //   console.log(newsCats)
+  //   return dhc.query("SELECT * FROM news");
+  // })
+  // .then(res => {
+  //   const queries = []
+  //   res.forEach(x => queries.push(conn.query("INSERT INTO news(sub_category_id, title, content, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
+  //                                            [newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
+  //   return Promise.all(queries)
+  // })
   .then(res => console.log("finished"))
   .catch(e => console.log(e))
