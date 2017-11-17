@@ -120,7 +120,7 @@ $perPage = 20;
                             ?>
                         <?php else : ?>
                             <tr>
-                                <td>Geen leden</td>
+                                <td>Geen leden gevonden</td>
                             </tr>
                         <?php endif; ?>
                         </table>

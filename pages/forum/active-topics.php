@@ -59,7 +59,7 @@ $perPage = 10;
                 </ol>
             </div>
             <div class="panel panel-primary ">
-                <div class="panel-heading border-colors">Nieuwe topics</div>
+                <div class="panel-heading border-colors">Actieve topics</div>
                 <div class="panel-body padding-padding table-responsive">
                     <table>
                         <tr>
@@ -71,6 +71,8 @@ $perPage = 10;
                             <th>Bekeken</th>
                             <th>Laatste bericht</th>
                         </tr>
+
+                         <?php if(!empty($results)) : ?>
                         <?php foreach ($results as $topic) : ?>
                             <?php
 
@@ -121,6 +123,9 @@ $perPage = 10;
                                 <?php endif;?>
                             </tr>
                         <?php endforeach; ?>
+                        <?php else : ?>
+                        <tr><td>Geen actieve topics gevonden</td></tr>
+                        <?php endif ;?>
                     </div>
                 </table>
             </div>

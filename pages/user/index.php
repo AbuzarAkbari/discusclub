@@ -269,50 +269,50 @@ if($user_data == false){
                                     <th class="col-md-4 col-xs-4">Forum</th>
                                     <th class="col-md-4 col-xs-4">Datum</th>
                                     <?php
-                                        $sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at, reply.created_at AS reply_created_at FROM topic LEFT JOIN reply ON topic.id = reply.topic_id JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE reply.user_id = :id OR reply.user_id IS NULL AND topic.user_id = :id GROUP BY topic.id ORDER BY reply.created_at + topic.created_at LIMIT 9";
-
+                                        //$sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at FROM topic JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE topic.user_id = :id GROUP BY topic.id ORDER BY topic.last_changed DESC LIMIT 9";
+                                        $sql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, t.created_at AS topic_created_at, r.created_at AS reply_created_at, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name, sc.name AS sub_cat_name FROM topic AS t LEFT JOIN reply AS r ON r.topic_id = t.id LEFT JOIN user AS u ON u.id = r.user_id LEFT JOIN user AS u2 ON u2.id = t.user_id LEFT JOIN sub_category AS sc ON sc.id = t.sub_category_id WHERE (t.user_id = :id OR r.user_id = :id) AND t.deleted_at IS NULL GROUP BY t.id ORDER BY r.created_at DESC, t.created_at DESC LIMIT 9";
                                         $result = $dbc->prepare($sql);
                                         $result->bindParam(":id", $user_data->id);
                                         $result->execute();
                                         $topics = $result->fetchAll(PDO::FETCH_OBJ);
-                                        $sortedTopicArray = [];
-                                        foreach ($topics as $topic) {
-                                            if($topic->reply_created_at){
-                                                $date =$topic->reply_created_at;
-                                                $sortedTopicArray[] = [
-                                                    'date' => strtotime($date),
-                                                    'data' => $topic
-                                                ];
-                                            } else {
-                                                $date = $topic->topic_created_at;
-                                                $sortedTopicArray[] = [
-                                                    'date' => strtotime($date),
-                                                    'data' => $topic
-                                                ];
-                                            }
-                                        }
+//                                        $sortedTopicArray = [];
+//                                        foreach ($topics as $topic) {
+//                                            if($topic->reply_created_at){
+//                                                $date =$topic->reply_created_at;
+//                                                $sortedTopicArray[] = [
+//                                                    'date' => strtotime($date),
+//                                                    'data' => $topic
+//                                                ];
+//                                            } else {
+//                                                $date = $topic->topic_created_at;
+//                                                $sortedTopicArray[] = [
+//                                                    'date' => strtotime($date),
+//                                                    'data' => $topic
+//                                                ];
+//                                            }
+//                                        }
+//
+//                                        function sortTopics($a, $b)
+//                                        {
+//                                            if ($a == $b) {
+//                                                return 0;
+//                                            }
+//                                            return ($a > $b) ? -1 : 1;
+//                                        }
+//
+//                                        usort($sortedTopicArray, "sortTopics");
 
-                                        function sortTopics($a, $b)
-                                        {
-                                            if ($a == $b) {
-                                                return 0;
-                                            }
-                                            return ($a > $b) ? -1 : 1;
-                                        }
-
-                                        usort($sortedTopicArray, "sortTopics");
-
-                                    if(!empty($sortedTopicArray)) :
-                                        foreach ($sortedTopicArray as $key => $value) : ?>
+                                    if(!empty($topics)) :
+                                        foreach ($topics as $key => $value) : ?>
                                             <tr>
-                                                <td class="col-md-4 col-xs-4"><a href="/forum/post/<?php echo $value['data']->topic_id; ?>"><?php echo $value['data']->title; ?></a></td>
-                                                <td class="col-md-4 col-xs-4"><a href="/forum/topic/<?php echo $value['data']->sub_category_id; ?>"><?php echo $value['data']->name; ?></a></td>
-                                                <td class="col-md-4 col-xs-4"><?php echo isset($value['data']->reply_created_at) ? $value['data']->reply_created_at : $value['data']->topic_created_at; ?></td>
+                                                <td class="col-md-4 col-xs-4"><a href="/forum/post/<?php echo $value->topic_id; ?>"><?php echo $value->title; ?></a></td>
+                                                <td class="col-md-4 col-xs-4"><a href="/forum/topic/<?php echo $value->sub_category_id; ?>"><?php echo $value->sub_cat_name; ?></a></td>
+                                                <td class="col-md-4 col-xs-4"><?php echo isset($value->reply_created_at) ? $value->reply_created_at : $value->topic_created_at; ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php else : ?>
                                         <tr>
-                                            <td>Geen reacties</td>
+                                            <td>Geen reacties op topics gevonden</td>
                                         </tr>
                                     <?php endif; ?>
                             </table>
@@ -333,7 +333,7 @@ if($user_data == false){
                                     <a href="/album/post/<?php echo $album['album_id']; ?>"><img alt="Album-img" src="/images<?php echo $album['path']; ?>" alt="<?php echo $album['title']; ?>" class="img padding"></a>
                                 <?php endforeach; ?>
                             <?php else : ?>
-                                Geen albums
+                                Geen albums gevonden
                             <?php endif; ?>
                         </div>
                     </div>
@@ -353,7 +353,7 @@ if($user_data == false){
                                     <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>"><img alt="Aquarium-img" src="/images<?php echo $aquarium['path']; ?>" alt="<?php echo $aquarium['title']; ?>" class="img padding"></a>
                                 <?php endforeach; ?>
                             <?php else : ?>
-                                Geen aquariums
+                                Geen aquariums gevonden
                             <?php endif; ?>
                         </div>
                     </div>

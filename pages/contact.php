@@ -35,7 +35,7 @@
     </div>
       <div class="col-md-8">
         <div class="panel panel-primary ">
-          <div class="panel-heading border-colors">Stel uw vraag</div>
+          <div class="panel-heading border-color-blue">Stel uw vraag</div>
           <div class="panel-body">
               <form action="/includes/tools/verwerk" method="post">
                 <label for="fname">Naam</label>
@@ -55,7 +55,7 @@
 
       <div class="col-md-4">
         <div class="panel panel-primary">
-          <div class="panel-heading border-colors">Contactgegevens</div>
+          <div class="panel-heading border-color-blue">Contactgegevens</div>
           <div class="panel-body">
             Inschrijvingen
             <br>

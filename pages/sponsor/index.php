@@ -43,6 +43,7 @@
               $sponsorResult->execute();
               $sponsoren = $sponsorResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
+            <?php if(!empty($sponsoren)) : ?>
             <?php foreach ($sponsoren as $sponsor) : ?>
             <?php
               $image_id = $sponsor['image_id'];
@@ -60,6 +61,9 @@
                 </a>
               </div>
             <?php endforeach; ?>
+            <?php else : ?>
+            <tr><td>Geen sponsoren gevonden</td></tr>
+            <?php endif ;?>
         </div>
       </div>
       </div>

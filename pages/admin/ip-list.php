@@ -61,7 +61,7 @@ $perPage = 20;
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             ?>
-                            <?php
+                            <?php if(!empty($rows)) :
                             foreach ($rows as $ip) :
                                 ?>
                                 <tr>
@@ -87,6 +87,9 @@ $perPage = 20;
                             <?php
                             endforeach;
                             ?>
+                            <?php else : ?>
+                            <tr><td>Geen ip's gevonden</td></tr>
+                            <?php endif; ?>
                         </table>
                     </div>
                     <?php
