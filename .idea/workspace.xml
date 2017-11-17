@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,13 +60,13 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="78" column="65" lean-forward="false" selection-start-line="78" selection-start-column="65" selection-end-line="78" selection-end-column="65" />
+            <state relative-caret-position="238">
+              <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
               <folding>
-                <marker date="1510927919156" expanded="true" signature="80:446" ph="SELECT *, co... like" />
-                <marker date="1510927919156" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
-                <marker date="1510927919156" expanded="true" signature="4871:4922" ph="SELECT * FRO... news" />
-                <marker date="1510927919156" expanded="true" signature="6640:6805" ph="SELECT *, ne... news_reply" />
+                <marker date="1510928373817" expanded="true" signature="80:446" ph="SELECT *, co... like" />
+                <marker date="1510928373817" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
+                <marker date="1510928373817" expanded="true" signature="4908:4959" ph="SELECT * FRO... news" />
+                <marker date="1510928373817" expanded="true" signature="6677:6842" ph="SELECT *, ne... news_reply" />
               </folding>
             </state>
           </provider>
@@ -389,12 +389,12 @@
       <workItem from="1510739836741" duration="6797000" />
       <workItem from="1510773040998" duration="6718000" />
       <workItem from="1510824510614" duration="19762000" />
-      <workItem from="1510906683728" duration="13189000" />
+      <workItem from="1510906683728" duration="13659000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371937000" />
+    <option name="totallyTimeSpent" value="372407000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -902,10 +902,10 @@
         <state relative-caret-position="401">
           <caret line="127" column="74" lean-forward="true" selection-start-line="127" selection-start-column="74" selection-end-line="127" selection-end-column="74" />
           <folding>
-            <marker date="1510927087964" expanded="true" signature="1974:2088" ph="SELECT *, al... album" />
-            <marker date="1510927087964" expanded="true" signature="3101:3267" ph="SELECT *, al... album_reply" />
-            <marker date="1510927087964" expanded="true" signature="4217:4375" ph="SELECT *, ne... news_reply" />
-            <marker date="1510927087964" expanded="true" signature="5338:5390" ph="SELECT * FRO... topic" />
+            <marker date="1510927941918" expanded="true" signature="1983:2097" ph="SELECT *, al... album" />
+            <marker date="1510927941918" expanded="true" signature="3110:3276" ph="SELECT *, al... album_reply" />
+            <marker date="1510927941918" expanded="true" signature="4226:4384" ph="SELECT *, ne... news_reply" />
+            <marker date="1510927941918" expanded="true" signature="5347:5399" ph="SELECT * FRO... topic" />
           </folding>
         </state>
       </provider>
@@ -1003,9 +1003,9 @@
         <state relative-caret-position="2142">
           <caret line="126" column="13" lean-forward="true" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
           <folding>
-            <marker date="1510927088407" expanded="true" signature="443:518" ph="SELECT count... message" />
-            <marker date="1510927088407" expanded="true" signature="4484:4541" ph="SELECT count... sponsor" />
-            <marker date="1510927088407" expanded="true" signature="4645:4738" ph="SELECT count... approval_signup" />
+            <marker date="1510927941907" expanded="true" signature="443:518" ph="SELECT count... message" />
+            <marker date="1510927941907" expanded="true" signature="4651:4708" ph="SELECT count... sponsor" />
+            <marker date="1510927941907" expanded="true" signature="4812:4905" ph="SELECT count... approval_signup" />
           </folding>
         </state>
       </provider>
@@ -1033,13 +1033,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="78" column="65" lean-forward="false" selection-start-line="78" selection-start-column="65" selection-end-line="78" selection-end-column="65" />
+        <state relative-caret-position="238">
+          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
           <folding>
-            <marker date="1510927919156" expanded="true" signature="80:446" ph="SELECT *, co... like" />
-            <marker date="1510927919156" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
-            <marker date="1510927919156" expanded="true" signature="4871:4922" ph="SELECT * FRO... news" />
-            <marker date="1510927919156" expanded="true" signature="6640:6805" ph="SELECT *, ne... news_reply" />
+            <marker date="1510928373817" expanded="true" signature="80:446" ph="SELECT *, co... like" />
+            <marker date="1510928373817" expanded="true" signature="591:636" ph="SELECT * FRO... like" />
+            <marker date="1510928373817" expanded="true" signature="4908:4959" ph="SELECT * FRO... news" />
+            <marker date="1510928373817" expanded="true" signature="6677:6842" ph="SELECT *, ne... news_reply" />
           </folding>
         </state>
       </provider>

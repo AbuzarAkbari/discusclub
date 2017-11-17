@@ -10,7 +10,7 @@
     $likeResult->execute([":aid" => $aquarium['id']]);
     $like = $likeResult->fetch();
 
-    setlocale(LC_ALL,'nl_NL.utf8');
+    setlocale(LC_ALL,'nl_NL.UTF-8', 'Dutch_Netherlands', 'Netherlands');
 ?>
 <!DOCTYPE html>
 <html lang="en">
