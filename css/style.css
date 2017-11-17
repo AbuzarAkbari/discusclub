@@ -982,3 +982,7 @@ li.dropdown:hover > .dropdown-menu {
 .submenu:hover {
     text-decoration: underline;
 }
+
+.modal-body {
+    padding: 40px !important;
+}
