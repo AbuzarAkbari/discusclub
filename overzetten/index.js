@@ -137,8 +137,10 @@ dhc
     const queries = []
     res.forEach((x, i) => {
       queries.push(
-        conn.query("SELECT * FROM topic WHERE created_at = ? AND user_id = ? AND sub_category_id = ?", [x.created, x.profile_id, x.forum_id]).then(res => res.length === 0 ? conn.query("INSERT INTO reply(user_id, content, topic_id, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
-                   [x.profile_id, x.content_cache, topicIds[x.forum_topic_id], x.created, x.modified]).catch(e => console.log(e)) : Promise.reject("double!")).catch(e => console.log(e))
+        conn.query("SELECT * FROM topic WHERE created_at < (? + INTERVAL 5 SECOND) AND created_at > (? - INTERVAL 5 SECOND) AND user_id = ? AND sub_category_id = ?", [x.created, x.created, x.profile_id, x.forum_id])
+        .then(res => res.length === 0 ? conn.query("INSERT INTO reply(user_id, content, topic_id, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
+                                        [x.profile_id, x.content_cache, topicIds[x.forum_topic_id], x.created, x.modified]).catch(e => console.log(e))
+                                      : Promise.reject("double!")).catch(e => console.log(e))
       )
     })
     return Promise.all(queries);
