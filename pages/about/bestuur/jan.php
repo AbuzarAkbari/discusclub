@@ -72,7 +72,6 @@
 </div>
       </div>
   </div>
-    <?php require '../../../includes/components/advertentie.php'; ?>
     <footer>
 <?php require_once("../../../includes/components/footer.php") ; ?>
     </footer>
