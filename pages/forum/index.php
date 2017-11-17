@@ -2,14 +2,14 @@
     $levels = ["lid", "gebruiker"];
     require_once("../../includes/tools/security.php");
 
-    if(isset($_POST['add_new_category']) && !empty($_POST['new_category']))
+    if(isset($_POST['add_new_category']) && !empty($_POST['new_category']) && $logged_in && in_array($current_level, $admin_levels))
     {
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
         $query->execute([":name" => htmlentities($_POST["new_category"])]);
     }
 
-    if(isset($_POST['add_new_sub_category']) && !empty($_POST['new_sub_category']))
+    if(isset($_POST['add_new_sub_category']) && !empty($_POST['new_sub_category']) && $logged_in && in_array($current_level, $admin_levels))
     {
         $sql = "INSERT INTO sub_category (category_id, name, created_at) VALUES (:category_id, :name, NOW())";
         $query = $dbc->prepare($sql);
@@ -61,7 +61,7 @@
                 </form>
             </div>
         </div>
-        <?php if(in_array($current_level, $admin_levels)) : ?>
+        <?php if($logged_in && in_array($current_level, $admin_levels)) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">nieuwe categorie</div>
                 <div class="panel-body">
@@ -101,17 +101,19 @@
                     <?php endif; ?>
                 </div>
                 <div class="panel-body padding-padding table-responsive">
-                    <form class="row" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
-                        <br>
-                        <div class="col-md-9 col-sm-8 col-xs-7">
-                            <input type="hidden" name="cat_id" value="<?php echo $categorie['id']; ?>">
-                            <input type="text" class="form-control" placeholder="nieuwe subcategorienaam" name="new_sub_category" minlength="3" maxlength="83" required>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-5">
-                            <input type="submit" value="Toevoegen" name="add_new_sub_category" class="form-btn form-control btn btn-primary" required>
-                        </div>
-                        <br><br>
-                    </form>
+                    <?php if($logged_in && in_array($current_level, $admin_levels)) : ?>
+                        <form class="row" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="POST">
+                            <br>
+                            <div class="col-md-9 col-sm-8 col-xs-7">
+                                <input type="hidden" name="cat_id" value="<?php echo $categorie['id']; ?>">
+                                <input type="text" class="form-control form-input" placeholder="nieuwe subcategorienaam in.." name="new_sub_category" minlength="3" maxlength="83" required>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-5">
+                                <input type="submit" value="Toevoegen" name="add_new_sub_category" class="form-btn form-control btn btn-primary" required>
+                            </div>
+                            <br><br>
+                        </form>
+                    <?php endif; ?>
                     <table>
                         <thead>
                             <tr>
@@ -169,7 +171,7 @@
                                     <?php else : ?>
                                         <td>Niks gevonden</td>
                                 <?php endif; ?>
-                                    <?php if(in_array($current_level, $admin_levels)) : ?>
+                                    <?php if($logged_in && in_array($current_level, $admin_levels)) : ?>
                                         <td>
                                             <a title="Delete" href="/includes/tools/sub-category/del.php?id=<?php echo $categorie['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
                                         </td>
