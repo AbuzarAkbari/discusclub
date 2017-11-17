@@ -48,6 +48,7 @@ $perPage = 20;
                     <div class="panel-body padding-padding table-responsive">
                         <table>
                             <tr>
+                                <th>Status</th>
                                 <th>Naam</th>
                                 <th>IP Adres</th>
                                 <th>Rekeningnummer</th>
@@ -56,7 +57,6 @@ $perPage = 20;
                                 <th>Adres</th>
                                 <th>Stad</th>
                                 <th>Tools</th>
-                                <th>Status</th>
                             </tr>
                             <?php
                                 $a = $page * $perPage - $perPage;
@@ -70,6 +70,20 @@ $perPage = 20;
                             foreach ($rows as $ip) :
                                 ?>
                                 <tr>
+                                    <td>  <?php
+
+                                        switch ($ip['approved']) {
+                                            case 0:
+                                            echo "<div class='status-block text-center'><span class='open-eye glyphicon glyphicon-eye-open'></span></div>";
+                                            break;
+                                            case 1:
+                                            echo "<div class='status-block text-center'><span class='ok glyphicon glyphicon-ok'></span></div>";
+                                            break;
+                                            case 2:
+                                            echo "<div class='status-block text-center'><span class='remove glyphicon glyphicon-remove '></span></div>";
+                                            break;
+                                        }?>
+                                   </td>
                                     <td><a href="/user/<?php echo $ip["user_id"]; ?>"><?php
                                      echo $ip['first_name'] . " " . $ip['last_name'];
                                     ?></a></td>
@@ -100,20 +114,6 @@ $perPage = 20;
                                         <a title="Accepteer" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=3" class="btn btn-success" name="button">
                                          <i class="glyphicon glyphicon-ok"></i></a>
                                     </td>
-                                    <td>  <?php
-
-                                    switch ($ip['approved']) {
-                                        case 0:
-                                        echo "<div class='status-block text-center'><span class='open-eye glyphicon glyphicon-eye-open'></span></div>";
-                                        break;
-                                        case 1:
-                                        echo "<div class='status-block text-center'><span class='ok glyphicon glyphicon-ok'></span></div>";
-                                        break;
-                                        case 2:
-                                        echo "<div class='status-block text-center'><span class='remove glyphicon glyphicon-remove '></span></div>";
-                                        break;
-                                    }?>
-                                   </td>
                                 </tr>
                             <?php
                             endforeach;

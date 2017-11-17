@@ -52,12 +52,16 @@ $perPage = 10;
                     <div class="panel-body padding-padding table-responsive">
                         <table>
                             <tr>
+                                <th>Status</th>
                                 <th>Naam</th>
-                                <th>Url</th>
+                                <th>Email</th>
+                                <th>Tel.</th>
+                                <!-- <th>Url</th> -->
                                 <th>Inschrijfdatum</th>
                                 <th>Banner</th>
+                                <th>Optie</th>
+                                <th>Iban</th>
                                 <th>Tools</th>
-                                <th>Status</th>
                             </tr>
                             <?php
                                 $a = $page * $perPage - $perPage;
@@ -71,39 +75,56 @@ $perPage = 10;
                                 ?>
                                 <tr>
                                     <td>
-                                    <?php
-                                     echo $sponsor['name'];
-                                    ?></a></td>
-                                    <td>
-                                    <a target="_blank" href="<?php echo $sponsor['url'];?>"><?php echo $sponsor['url'];?></a>
+                                        <?php
+                                        switch ($sponsor['approved']) {
+                                            case 0:
+                                            echo "<div class='status-block text-center'><span class='open-eye glyphicon glyphicon-eye-open'></span></div>";
+                                            break;
+                                            case 1:
+                                            echo "<div class='status-block text-center'><span class='ok glyphicon glyphicon-ok'></span></div>";
+                                            break;
+                                            case 2:
+                                            echo "<div class='status-block text-center'><span class='remove glyphicon glyphicon-remove '></span></div>";
+                                            break;
+                                        }?>
                                     </td>
+                                    <td>
+                                        <a target="_blank" href="<?php echo $sponsor['url']; ?>">
+                                            <?php echo $sponsor['name']; ?>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <?php echo $sponsor["email"]; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $sponsor["phone"]; ?>
+                                    </td>
+                                    <!-- <td>
+                                    <a target="_blank" href="<?php //echo $sponsor['url'];?>"><?php //echo $sponsor['url'];?></a>
+                                    </td> -->
                                     <td>
                                     <?php
                                      echo $sponsor['created_at'];
                                     ?>
                                     </td>
                                     <td>
-                                        <div alt='Banner' class="sponsor_vak" style="background-image: url(/images<?php echo $sponsor['path'];?>);" ></div>
+                                        <!-- <div alt='Banner' class="sponsor_vak" style="background-image: url(/images<?php //echo $sponsor['path'];?>);" ></div> -->
+                                        <a target="_blank" href="/images<?php echo $sponsor['path'];?>">
+                                            <i class="glyphicon glyphicon-picture"></i>
+                                        </a>
                                     </td>
                                     <td>
-                                        <a title="Blokeer" href="<?php echo  "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=2" class="btn btn-danger" name="button">
+                                        <?php echo $sponsor["option"]; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $sponsor["iban"]; ?>
+                                    </td>
+                                    <td>
+                                        <a title="wijs af" href="<?php echo  "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=2" class="btn btn-danger" name="button">
                                              <i class="glyphicon glyphicon-remove"></i></a>
-                                        <a title="Deblokeer" href="<?php echo "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=1" class="btn btn-success" name="button">
+                                        <a title="accepteer" href="<?php echo "/admin/approval-sponsor?id=" . $sponsor["id"]; ?>&new=1" class="btn btn-success" name="button">
                                          <i class="glyphicon glyphicon-ok"></i></a>
                                     </td>
-                                 <td>  <?php
-                                 switch ($sponsor['approved']) {
-                                     case 0:
-                                     echo "<div class='status-block text-center'><span class='open-eye glyphicon glyphicon-eye-open'></span></div>";
-                                     break;
-                                     case 1:
-                                     echo "<div class='status-block text-center'><span class='ok glyphicon glyphicon-ok'></span></div>";
-                                     break;
-                                     case 2:
-                                     echo "<div class='status-block text-center'><span class='remove glyphicon glyphicon-remove '></span></div>";
-                                     break;
-                                 }?>
-                                </td>
                                 </tr>
                             <?php
                             endforeach;

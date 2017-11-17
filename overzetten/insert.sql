@@ -29,22 +29,22 @@ INSERT INTO `state` (`name`) VALUES
 ('closed'),
 ('pinned');
 
-INSERT INTO `sponsor`(`image_id`, `name`, `url`, `created_at`) VALUES
-(2, 'eSHa Aquariumproducten', 'http://www.eshalabs.eu/nederlands/', NOW()),
-(3, 'discus mania', 'http://discusmania.nl/', NOW()),
-(4, 'hvp aqua', 'http://www.hvpaqua.nl/', NOW()),
-(5, 'aquaria veldhuis', 'https://www.aquariaveldhuis.nl/nl/', NOW()),
-(7, 'discus passie', 'http://www.discuspassie.nl/', NOW()),
-(8, 'discusshop', 'https://discusshop.nl/', NOW()),
-(9, 'jmd aqua light', 'http://www.jmbaqualight.nl/', NOW()),
-(10, 'rock zolid', 'http://www.rockzolid.nl/', NOW()),
-(11, 'osmose apparaat', 'https://www.osmoseapparaat.nl/', NOW()),
-(12, 'Wesdijk', 'https://www.wesdijk.nl/', NOW()),
-(13, 'koidream', 'https://www.koidream.com/', NOW()),
-(14, 'daphnia boxtel', 'http://www.daphniaboxtel.nl/', NOW()),
-(15, 'ruto', 'https://www.ruto.nl/', NOW()),
-(16, 'discus vis totaal', 'http://www.discusvistotaal.nl/', NOW()),
-(6, 'Discuscompleet', 'http://www.discuscompleet.nl/', NOW());
+INSERT INTO `sponsor`(`image_id`, `name`, `url`, `created_at`, `iban`, `email`, `phone`) VALUES
+(2, 'eSHa Aquariumproducten', 'http://www.eshalabs.eu/nederlands/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(3, 'discus mania', 'http://discusmania.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(4, 'hvp aqua', 'http://www.hvpaqua.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(5, 'aquaria veldhuis', 'https://www.aquariaveldhuis.nl/nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(7, 'discus passie', 'http://www.discuspassie.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(8, 'discusshop', 'https://discusshop.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(9, 'jmd aqua light', 'http://www.jmbaqualight.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(10, 'rock zolid', 'http://www.rockzolid.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(11, 'osmose apparaat', 'https://www.osmoseapparaat.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(12, 'Wesdijk', 'https://www.wesdijk.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(13, 'koidream', 'https://www.koidream.com/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(14, 'daphnia boxtel', 'http://www.daphniaboxtel.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(15, 'ruto', 'https://www.ruto.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(16, 'discus vis totaal', 'http://www.discusvistotaal.nl/', NOW(), "vervang in db", "example@example.com", "0123456789"),
+(6, 'Discuscompleet', 'http://www.discuscompleet.nl/', NOW(), "vervang in db", "example@example.com", "0123456789");
 
 INSERT INTO `page`(`uri`, `name`, `content`, `image_id`) VALUES
 ("houden-van", "houden van", "<p>You think water moves fast? You should see ice. It moves like it has a mind.
