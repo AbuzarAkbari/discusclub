@@ -80,7 +80,8 @@
                             <input id="adres" type="text" name="adres" class="form-control" placeholder="Adres"/>
                             <span class="input-group-addon"></span>
                             <input type="text" name="huisnummer" class="form-control" placeholder="Huisnummer"/>
-                        </div><br>
+                        </div>
+                        <br>
                         <label for="postcode">Postcode *</label>
                         <input id="postcode" class="form-control" required type="text" name="postcode" value="" placeholder="Postcode "><br>
                         <label for="stad">Stad *</label>
