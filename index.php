@@ -76,7 +76,7 @@
                         <div class="panel-heading border-color-black">Winnaar wedstrijd</div>
                         <div class="panel-body">
                             Gefeliciteerd <a href="/user/<?php echo $aquarium['user_id']; ?>"><?php echo $aquarium['first_name'].' '.$aquarium['last_name']; ?></a>, <br><br>
-                            Jij hebt de wedstrijd van <?php echo strftime("%A-%B-%Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A-%B-%Y %T", strtotime($aquarium['end_at'])); ?> gewonnen
+                            Jij hebt de wedstrijd van <?php echo strftime("%A %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A %B %Y %T", strtotime($aquarium['end_at'])); ?> gewonnen
                             met <?php echo $aquarium['amount_of_likes']; ?> <?php echo ($aquarium['amount_of_likes'] > 1) ? 'visjes' : 'visje' ; ?><br><br>
                             <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>">
                                 <img src="images/<?php echo $aquarium['path']; ?>" alt="">
