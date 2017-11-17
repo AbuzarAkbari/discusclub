@@ -65,15 +65,11 @@
                     </div>
                 </div>
             </div>
-            <?php require 'includes/components/advertentie.php'; ?>
+            <?php require '../../../includes/components/advertentie.php'; ?>
+
         </div>
     </div>
-</div>
-      </div>
-      <div class="col-md-8"></div>
-      <div class="col-md-8"></div>
-    </div>
-  </div>
+
     <footer>
 <?php require_once("../../../includes/components/footer.php") ; ?>
     </footer>
