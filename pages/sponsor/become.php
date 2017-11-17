@@ -99,7 +99,7 @@
                                 <div class="panel-heading border-color-blue">Bekijk de nieuwste albums</div>
                                 <div class="panel-body">
                                     <?php
-                                      $sth = $dbc->prepare("SELECT *, album.id AS album_id FROM album JOIN image ON image.album_id = album.id ORDER BY created_at DESC LIMIT 6");
+                                      $sth = $dbc->prepare("SELECT *, album.id AS album_id FROM album JOIN image ON image.album_id = album.id GROUP BY image.album_id ORDER BY created_at DESC LIMIT 6");
                                       $sth->execute();
                                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
