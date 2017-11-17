@@ -855,8 +855,20 @@ li.dropdown:hover > .dropdown-menu {
     filter: alpha(opacity=90);
 }
 
-@media  screen and (max-width: 900px) {
+@media screen and (max-width: 900px) {
     .sliderTekst {
         transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (min-width: 990px) {
+    .mobiel {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .computer {
+        display: none;
     }
 }
