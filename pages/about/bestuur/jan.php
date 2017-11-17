@@ -50,7 +50,7 @@
                     <img src="/images/bestuur/jan.PNG">
                 </div>
                 <p class="col-md-12">
-                    <br><br>
+                    <br>
                     De schade aan onze vereniging bleek groter dan gedacht en het heeft lang geduurd voordat er weer vertrouwen was in het bestuur.
                     Dus vanaf begin 2004 tot aan nu toe heb ik, met veel plezier, mijn taken uitgevoerd en gemoderniseerd.
                     Wat voorheen nog met een acceptgiro ging is nu een automatische incasso geworden en dat scheelt enorm veel werk en na controles op wie er nu wel en wie er nu nog niet zijn contributie voldaan heeft.
