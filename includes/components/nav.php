@@ -43,7 +43,7 @@
               <li class="mobile"><a href="/about/">Over ons</a></li>
               <li><a href="/about/bestuur">Het bestuur</a>           
                 <ul>
-                <li><a href="/about/bestuur/jan">Naam bestuurslid 1</a></li>
+                <li><a href="/about/bestuur/jan">Jan Verkaik</a></li>
                  <li><a href="/about/bestuur/karel">Naam bestuurslid 2</a></li>
                 <li><a href="/about/bestuur/peter">Naam bestuurslid 3</a></li>
                 </ul>
