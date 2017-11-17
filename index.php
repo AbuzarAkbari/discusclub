@@ -1,14 +1,9 @@
 <?php require_once("includes/tools/security.php"); ?>
 <?php
-    $aquariumSql = "SELECT *, count(l.aquarium_id) as amount_of_likes FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.end_at <= NOW() AND c.deleted_at IS NULL GROUP BY c.start_at, l.aquarium_id ORDER BY c.end_at DESC, amount_of_likes DESC LIMIT 1";
+    $aquariumSql = "SELECT *, (SELECT COUNT(*) AS amount_of_likes FROM `like`) as amount_of_likes FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.end_at <= NOW() AND c.deleted_at IS NULL GROUP BY c.start_at, l.aquarium_id ORDER BY c.end_at DESC, amount_of_likes DESC LIMIT 1";
     $aquariumResult = $dbc->prepare($aquariumSql);
     $aquariumResult->execute();
     $aquarium = $aquariumResult->fetch();
-
-    $likeSql = "SELECT * FROM `like` WHERE aquarium_id = :aid";
-    $likeResult = $dbc->prepare($likeSql);
-    $likeResult->execute([":aid" => $aquarium['id']]);
-    $like = $likeResult->fetch();
 
     setlocale(LC_ALL,'nl_NL.UTF-8', 'Dutch_Netherlands', 'Netherlands');
 ?>

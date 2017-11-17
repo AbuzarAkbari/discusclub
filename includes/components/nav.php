@@ -3,29 +3,39 @@
         <?php if ($logged_in) { ?>
             <?php $name =  $_SESSION["user"]->first_name.' '.$_SESSION["user"]->last_name; ?>
               <div class='inlog'>
-              <div class="desktop pull-left">
-                <div class='dropdown'>
-                  <a href="/user/" class='dropbtn'><?php echo $name; ?></a>
-                  <div class='dropdown-content'>
-                    <a href='/user/messenger'>Berichten(<?php
-                        $sth = $dbc->prepare("SELECT count(*) as amount FROM message WHERE user_id_2 = :id AND opened = 0");
-                        $sth->execute([":id" => $_SESSION["user"]->id]);
-                        echo $sth->fetch(PDO::FETCH_OBJ)->amount;
-                    ?>)</a>
-                    <a href='/user/conf'>Profiel aanpassen</a>
-                  </div>
+                  <nav id="nav-bar">
+                      <ul>
+                        <li><a class="desktop" href="/user/"><?php echo $name; ?>
+                        </a>
+                        <span class="mobile navItemUser"><?php echo $name; ?></span>
+                            <ul>
+                                <li class="mobile">
+                                    <a href="/user/"><?php echo $name; ?></a>
+                                </li>
+                                <li>
+                                    <a href='/user/messenger'>Berichten(<?php
+                                    $sth = $dbc->prepare("SELECT count(*) as amount FROM message WHERE user_id_2 = :id AND opened = 0");
+                                    $sth->execute([":id" => $_SESSION["user"]->id]);
+                                    echo $sth->fetch(PDO::FETCH_OBJ)->amount;
+                                    ?>)
+                                    </a>
+                                    <a href='/user/conf'>Profiel aanpassen</a>
+                                </li>
+                            </li>
+                    </ul>
+                    <li><a href="/?logout=true">Uitloggen</a></li>
+                </ul>
+                  </nav>
               </div>
-          </div>
-                <a href="/?logout=true">Uitloggen</a>
-              </div>
-
-
-
         <?php } else { ?>
             <div class='inlog'>
-                <a href='/user/login'>Inloggen</a>
-                <a href='/user/register'>Registreer</a>
-                <a href='/user/password/forgot'>Wachtwoord vergeten?</a>
+                <nav id="nav-bar">
+                    <ul>
+                  <li><a href='/user/login'>Inloggen</a></li>
+                  <li><a href='/user/register'>Registreer</a></li>
+                  <li><a href='/user/password/forgot'>Wachtwoord vergeten?</a></li>
+                  </ul>
+                </nav>
             </div>
         <?php } ?>
         <div class="col-xs-6">
@@ -46,9 +56,11 @@
             <span class="mobile navItem">Over ons</span>
             <ul>
               <li class="mobile"><a href="/about/">Over ons</a></li>
-              <li><a href="/about/bestuur">Het bestuur</a>
+              <li>
+                  <a class="desktop" href="/about/">Bestuur</a>
+                  <span class="mobile submenu">Bestuur</span>
                 <ul>
-                <li><a href="/about/bestuur/jan">Jan Verkaik</a></li>
+                <li><a class="" href="/about/bestuur/jan">Jan Verkaik</a></li>
                 <!-- Tijdelijk eruit, want we weten de rest van de leden niet :) -->
                  <!-- <li><a href="/about/bestuur/karel">Naam bestuurslid 2</a></li>
                  <li><a href="/about/bestuur/peter">Naam bestuurslid 3</a></li> -->

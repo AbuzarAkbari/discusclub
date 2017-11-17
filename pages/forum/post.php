@@ -229,7 +229,7 @@ require_once("../../includes/components/nav.php");
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <b>Geplaatst op </b><?php echo $reply['last_changed']; ?>
+                    <b>Geplaatst op </b><?php echo $reply['created_at']; ?>
 
                     <div class="pull-right">
 
@@ -284,7 +284,7 @@ require_once("../../includes/components/nav.php");
             </div>
         </div>
         <?php else : ?>
-        <div class="col-md-12 text-center border-color-blue message">Dit topic is gesloten, u kunt niet meer reageren. 
+        <div class="col-md-12 text-center border-color-blue message">Dit topic is gesloten, u kunt niet meer reageren.
             Keer terug naar het <a href="/forum/topic/<?php echo $rows['sub_category_id']; ?>">forum</a>
         </div>
         <?php endif; ?>

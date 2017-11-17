@@ -91,7 +91,7 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
     </div>
     <?php
     $path = "/news/search/:page";
-    $sql = "SELECT count(n.id) AS amount, sc.id AS sub_id, sc.name AS sub_name, n.id, n.created_at AS news_created_at FROM news AS n LEFT JOIN news_reply AS nr ON n.id = nr.news_id JOIN sub_category as sc ON sc.id = n.sub_category_id  WHERE n.title LIKE :search OR n.content LIKE :search OR nr.content LIKE :search";
+    $sql = "SELECT count(n.id) AS x, sc.id AS sub_id, sc.name AS sub_name, n.id, n.created_at AS news_created_at FROM news AS n LEFT JOIN news_reply AS nr ON n.id = nr.news_id JOIN sub_category as sc ON sc.id = n.sub_category_id  WHERE n.title LIKE :search OR n.content LIKE :search OR nr.content LIKE :search";
     $pagination_bindings = [":search" => isset($search) ? "%" . $search . "%" : "%"];
     require_once("../../includes/components/pagination.php");
     ?>
