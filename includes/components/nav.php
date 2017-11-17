@@ -57,9 +57,10 @@
             <ul>
               <li class="mobile"><a href="/about/">Over ons</a></li>
               <li>
-                  <a class="desktop" href="/about/">Bestuur</a>
+                  <a class="desktop" href="/about/bestuur">Bestuur</a>
                   <span class="mobile submenu">Bestuur</span>
                 <ul>
+                <li><a class="" href="/about/bestuur/">bestuur </a></li>
                 <li><a class="" href="/about/bestuur/jan">Jan Verkaik</a></li>
                 <!-- Tijdelijk eruit, want we weten de rest van de leden niet :) -->
                  <!-- <li><a href="/about/bestuur/karel">Naam bestuurslid 2</a></li>

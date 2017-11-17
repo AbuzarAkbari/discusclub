@@ -260,7 +260,7 @@ if($user_data == false){
             <div class="col-md-8">
 
                     <div class="panel panel-primary border-color-blues">
-                        <div class="panel-heading border-color-blue">Laatste reacties op topics</div>
+                        <div class="panel-heading border-color-blue">Laatste activiteit op het forum</div>
                         <div class="panel-body text-right paddingNone">
 
                             <table>
@@ -270,7 +270,7 @@ if($user_data == false){
                                     <th class="col-md-4 col-xs-4">Datum</th>
                                     <?php
                                         //$sql = "SELECT *, topic.id AS topic_id, sub_category.id AS sub_category_id, topic.created_at AS topic_created_at FROM topic JOIN sub_category ON sub_category.id = topic.sub_category_id WHERE topic.user_id = :id GROUP BY topic.id ORDER BY topic.last_changed DESC LIMIT 9";
-                                        $sql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, t.created_at AS topic_created_at, r.created_at AS reply_created_at, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name, sc.name AS sub_cat_name, t.id AS topic_id FROM topic AS t LEFT JOIN reply AS r ON r.topic_id = t.id LEFT JOIN user AS u ON u.id = r.user_id LEFT JOIN user AS u2 ON u2.id = t.user_id LEFT JOIN sub_category AS sc ON sc.id = t.sub_category_id WHERE (t.user_id = :id OR r.user_id = :id) AND t.deleted_at IS NULL GROUP BY t.id ORDER BY r.created_at ASC, t.created_at ASC LIMIT 9";
+                                        $sql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, t.created_at AS topic_created_at, r.created_at AS reply_created_at, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name, sc.name AS sub_cat_name, t.id AS topic_id FROM topic AS t LEFT JOIN reply AS r ON r.topic_id = t.id LEFT JOIN user AS u ON u.id = r.user_id LEFT JOIN user AS u2 ON u2.id = t.user_id LEFT JOIN sub_category AS sc ON sc.id = t.sub_category_id WHERE (t.user_id = :id OR r.user_id = :id) AND t.deleted_at IS NULL ORDER BY reply_created_at DESC, topic_created_at DESC LIMIT 9";
                                         $result = $dbc->prepare($sql);
                                         $result->bindParam(":id", $user_data->id);
                                         $result->execute();
