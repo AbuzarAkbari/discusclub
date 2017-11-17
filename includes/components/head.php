@@ -25,6 +25,9 @@ if(preg_match('/upload/', $_SERVER["REQUEST_URI"])) {
 if(preg_match('/user/', $_SERVER["REQUEST_URI"]) && !preg_match("/conf|register|user-list/", $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/gebruiker.css">';
 }
+if(preg_match('/user/', $_SERVER["REQUEST_URI"])) {
+  echo '<link rel="stylesheet" href="/css/datepicker.css">';
+}
 if(preg_match('/messen/', $_SERVER["REQUEST_URI"])) {
   echo '<link rel="stylesheet" href="/css/message.css">';
 }
