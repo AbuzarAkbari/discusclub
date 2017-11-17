@@ -13,7 +13,8 @@
                 <div class="item active">
                     <div class="sliderHome" style="background: url(/images/discusvis1.jpg)" alt="fishing">
                         <div class="sliderTekst">
-                            houden van pagina <br>
+                            <h3>houden van pagina</h3>
+                            <p>alles over houd van</p><br>
                             <a class="lees-meer-btn pull-left " href="/houden-van/" type="button" name="button">Lees meer</a>
                         </div>
                     </div>
@@ -22,7 +23,8 @@
                 <div class="item">
                     <div class="sliderHome" style="background: url(/images/discusvis2.jpg)" alt="fishing">
                         <div class="sliderTekst">
-                            hier vind u alles over ziektes <br>
+                            <h3>hier vind u alles over ziektes</h3>
+                            <p>alles over ziektes </p> <br>
                             <a class="lees-meer-btn pull-left" href="/houden-van/ziektes" type="button" name="button">Lees meer</a>
                         </div>
                     </div>
@@ -31,7 +33,8 @@
                 <div class="item">
                     <div class="sliderHome" style="background: url(/images/discusvis3.jpg)" alt="vissen">
                         <div class="sliderTekst">
-                            hier vind u alles over kweken <br>
+                            <h3>hier vind u alles over kweken</h3>
+                            <p>alles over kweken</p> <br>
 
                             <a class="lees-meer-btn pull-left" href="/houden-van/kweken" type="button" name="button">Lees meer</a>
                         </div>
