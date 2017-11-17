@@ -71,9 +71,6 @@
   </div>
 </div>
       </div>
-      <div class="col-md-8"></div>
-      <div class="col-md-8"></div>
-    </div>
   </div>
     <footer>
 <?php require_once("../../../includes/components/footer.php") ; ?>

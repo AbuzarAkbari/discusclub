@@ -3,7 +3,7 @@
 $sql = "SELECT *, sponsor.id FROM sponsor JOIN image ON sponsor.image_id = image.id WHERE approved = 1 ORDER BY RAND() LIMIT 1";
 $result = $dbc->prepare($sql);
 $result->execute();
-$rows = $result->fetch(PDO::FETCH_ASSOC);
+$row = $result->fetch(PDO::FETCH_ASSOC);
 if(!isset($ad_in_row)) {
     $ad_in_row = false;
 }
@@ -13,7 +13,7 @@ if(!isset($ad_count)) {
 }
 
 
-if((rand(0, 1) && isset($row)) || $ad_count >= 3) :
+if((rand(0, 1) && isset($row)) || ($ad_count >= 3 && isset($row))) :
 ?>
 <div class='<?php echo $ad_in_row ? "col-md-12" : null; ?>text-center'>
     <a target="_blank" href="<?php echo $row['url'];?>">
