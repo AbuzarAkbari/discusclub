@@ -62,6 +62,8 @@
             </div>
         </div>
       </div>
+      <?php require '../../../includes/components/advertentie.php'; ?>
+
     </div>
   </div>
 </div>

@@ -10,7 +10,7 @@
     $likeResult->execute([":aid" => $aquarium['id']]);
     $like = $likeResult->fetch();
 
-    setlocale(LC_TIME, "nl_NL");
+    setlocale(LC_ALL,'nl_NL.utf8');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,7 +79,7 @@
                             Jij hebt de wedstrijd van <?php echo strftime("%A %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A %B %Y %T", strtotime($aquarium['end_at'])); ?> gewonnen
                             met <?php echo $aquarium['amount_of_likes']; ?> <?php echo ($aquarium['amount_of_likes'] > 1) ? 'visjes' : 'visje' ; ?><br><br>
                             <a href="/aquarium/post/<?php echo $aquarium['aquarium_id']; ?>">
-                                <img src="images/<?php echo $aquarium['path']; ?>" alt="">
+                                <img src="images/<?php echo $aquarium['path']; ?>" class="contest_winnaar" alt="">
                             </a>
                         </div>
                     </div>
@@ -91,13 +91,14 @@
                     <div class="panel panel-default">
 
                         <div class="nieuws-box">
-                            <div class="panel-heading border-color-black">Ander nieuws</div>
+                            <div class="panel-heading border-color-black">Nieuws</div>
                             <div class="panel-body ">
                                 <?php
                                 $sth = $dbc->prepare("SELECT * FROM news ORDER BY news.created_at LIMIT 5");
                                 $sth->execute();
                                 $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
+                                if(!empty($res)) :
                                 foreach($res as $key => $value) : ?>
                                     <div class=" col-md-12 verticalLine">
                                         <p><b><?php echo strip_tags($value['title']);?></b></p>
@@ -110,6 +111,9 @@
                                     <br><div class="col-md-12"><br></div>
 
                                 <?php endforeach; ?>
+                                <?php else : ?>
+                                <tr><td>Geen nieuws gevonden</td></tr>
+                                <?php endif ;?>
                                 <br><br>
                             </div>
                         </div>
@@ -124,6 +128,7 @@
                                 $sth->execute();
                                 $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
+                                if(!empty($res)) :
                                 foreach($res as $key => $value) : ?>
                                 <div class="box">
                                     <div class="col-md-12">
@@ -145,6 +150,9 @@
                                     </div>
                                 </div>
                                 <?php endforeach; ?>
+                                 <?php else : ?>
+                                <tr><td>Geen reacties gevonden</td></tr>
+                                <?php endif ;?>
                         </div>
                     </div>
                 </div>

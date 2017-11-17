@@ -52,9 +52,13 @@
                       $sth->execute();
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
+                      if(!empty($res)) :
                       foreach($res as $key => $value) : ?>
                       <div class=" col-md-4 col-sm-4 ruimte"><a href="/album/post/<?php echo $value["album_id"]; ?>"><div  title="image album" class="imgThumbnail" style="background-image: url('/images<?php echo $value['path']?>');"></div></a><br><?php echo $value['created_at']?></div>
                       <?php endforeach; ?>
+                      <?php else : ?>
+                      <tr><td>Geen albums gevonden</td></tr>
+                      <?php endif ;?>
               </div>
           </div>
       </div>
@@ -67,9 +71,13 @@
                       $sth->execute();
                       $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
+                       if(!empty($res)) :
                       foreach($res as $key => $value) : ?>
                       <a href="/album/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
                     <?php endforeach; ?>
+                    <?php else : ?>
+                    <tr><td>Geen reacties op albums gevonden</td></tr>
+                    <?php endif ;?>
                   </div>
               </div>
             </div>
@@ -83,9 +91,13 @@
                         $sth->execute();
                         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
+                         if(!empty($res)) :
                         foreach($res as $key => $value) : ?>
                         <a href="/news/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['news_reply_created_at'] ?></div>
                         <?php endforeach; ?>
+                        <?php else : ?>
+                        <tr><td>Geen reacties op nieuws gevonden</td></tr>
+                        <?php endif ;?>
                 </div>
             </div>
         </div>
@@ -98,9 +110,13 @@
                     $sth->execute();
                     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
+                    if(!empty($res)) :
                     foreach($res as $key => $value) : ?>
                     <a href="/forum/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['created_at'] ?></div>
                     <?php endforeach; ?>
+                    <?php else : ?>
+                    <tr><td>Geen reacties op topics gevonden</td></tr>
+                    <?php endif ;?>
                 </div>
           </div>
         </div>
