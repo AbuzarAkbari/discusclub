@@ -33,7 +33,7 @@ const replaceIcons = (str) => {
 }
 
 dhc
-  .query('SELECT * FROM users')
+  .query('SELECT *, profiles.id FROM profiles JOIN users ON profiles.user_id = users.id')
   .then(res => {
     const queries = []
     res.forEach((x, i) => {
@@ -46,7 +46,7 @@ dhc
       queries.push(
         conn
           .query(
-            'INSERT INTO user(id, email, first_name, last_name, username, created_at, last_changed, role_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)',
+            'INSERT INTO user(id, email, first_name, last_name, username, created_at, last_changed, role_id, city, news, birthdate, signature) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [
               x.id,
               x.email,
@@ -64,6 +64,10 @@ dhc
               x.created,
               x.modified,
               role_id,
+              x.location,
+              x.newsletter,
+              x.birthdate,
+              x.signature_cache
             ]
           )
           .catch(e => console.log(e))
