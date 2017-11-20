@@ -32,6 +32,41 @@ const replaceIcons = (str) => {
   return newStr;
 }
 
+/**
+ * (c) 2012 Steven Levithan <http://slevithan.com/>
+ * MIT license
+ */
+if (!String.prototype.codePointAt) {
+  String.prototype.codePointAt = function (pos) {
+      pos = isNaN(pos) ? 0 : pos;
+      var str = String(this),
+          code = str.charCodeAt(pos),
+          next = str.charCodeAt(pos + 1);
+      // If a surrogate pair
+      if (0xD800 <= code && code <= 0xDBFF && 0xDC00 <= next && next <= 0xDFFF) {
+          return ((code - 0xD800) * 0x400) + (next - 0xDC00) + 0x10000;
+      }
+      return code;
+  };
+}
+
+/**
+* Encodes special html characters
+* @param string
+* @return {*}
+*/
+function html_encode(string) {
+  var ret_val = '';
+  for (var i = 0; i < string.length; i++) {
+      if (string.codePointAt(i) > 127) {
+          ret_val += '&#' + string.codePointAt(i) + ';';
+      } else {
+          ret_val += string.charAt(i);
+      }
+  }
+  return ret_val;
+}
+
 dhc
   .query('SELECT *, profiles.id FROM profiles JOIN users ON profiles.user_id = users.id')
   .then(res => {
@@ -50,21 +85,21 @@ dhc
             [
               x.id,
               x.email,
-              x.username
+              html_encode(x.username
                 .split(' ')
                 .slice(0, 1)
                 .join('')
-                .trim(),
-              x.username
+                .trim()),
+              html_encode(x.username
                 .split(' ')
                 .slice(1)
                 .join(' ')
-                .trim(),
-              x.username,
+                .trim()),
+              html_encode(x.username),
               x.created,
               x.modified,
               role_id,
-              x.location,
+              html_encode(x.location),
               x.newsletter,
               x.birthdate,
               x.signature_cache
