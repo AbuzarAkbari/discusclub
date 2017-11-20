@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6064a8f-015a-4bf9-ac3a-c9a33e518287" name="Default" comment="">
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/index.php" afterPath="$PROJECT_DIR$/pages/forum/index.php" />
+=======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/components/advertentie.php" afterPath="$PROJECT_DIR$/includes/components/advertentie.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/about/index.php" afterPath="$PROJECT_DIR$/pages/about/index.php" />
@@ -9,6 +12,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/forum/index.php" afterPath="$PROJECT_DIR$/pages/forum/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/sponsor/become.php" afterPath="$PROJECT_DIR$/pages/sponsor/become.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/sponsor/index.php" afterPath="$PROJECT_DIR$/pages/sponsor/index.php" />
+>>>>>>> 7b570a4643b3489460b532f4d09865c8136f10e5
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,6 +40,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/forum/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="84" column="14" lean-forward="true" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
+              <folding>
+                <marker date="1511185578521" expanded="true" signature="253:314" ph="INSERT INTO category... " />
+                <marker date="1511185578521" expanded="true" signature="601:693" ph="INSERT INTO sub_category... " />
+                <marker date="1511185578521" expanded="true" signature="880:927" ph="SELECT * FRO... category" />
+                <marker date="1511185578521" expanded="true" signature="3475:3546" ph="SELECT * FRO... sub_category" />
+                <marker date="1511185578521" expanded="true" signature="6664:6759" ph="SELECT *, CO... topic" />
+                <marker date="1511185578521" expanded="true" signature="7066:7299" ph="SELECT COUNT... sub_category" />
+                <marker date="1511185578521" expanded="true" signature="7568:7657" ph="SELECT COUNT... topic" />
+                <marker date="1511185578521" expanded="true" signature="8449:8980" ph="SELECT *, r.... topic" />
+=======
       <file leaf-file-name="become.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/sponsor/become.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -46,6 +66,7 @@
                 <marker date="1511188211062" expanded="true" signature="10531:10697" ph="SELECT *, al... album_reply" />
                 <marker date="1511188211062" expanded="true" signature="12035:12193" ph="SELECT *, ne... news_reply" />
                 <marker date="1511188211062" expanded="true" signature="13444:13496" ph="SELECT * FRO... topic" />
+>>>>>>> 7b570a4643b3489460b532f4d09865c8136f10e5
               </folding>
             </state>
           </provider>
@@ -123,7 +144,11 @@
         <option value="$PROJECT_DIR$/includes/components/head.php" />
         <option value="$PROJECT_DIR$/pages/user/login.php" />
         <option value="$PROJECT_DIR$/js/custom_error_required.js" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/pages/forum/topic.php" />
+=======
         <option value="$PROJECT_DIR$/pages/forum/index.php" />
+>>>>>>> 7b570a4643b3489460b532f4d09865c8136f10e5
         <option value="$PROJECT_DIR$/includes/tools/aquarium-upload.php" />
         <option value="$PROJECT_DIR$/includes/tools/sponsor-worden.php" />
         <option value="$PROJECT_DIR$/includes/tools/album-upload.php" />
@@ -154,11 +179,15 @@
         <option value="$PROJECT_DIR$/pages/user/password/change.php" />
         <option value="$PROJECT_DIR$/pages/user/register.php" />
         <option value="$PROJECT_DIR$/pages/user/password/forgot.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/pages/forum/index.php" />
+=======
         <option value="$PROJECT_DIR$/pages/album/index.php" />
         <option value="$PROJECT_DIR$/includes/components/advertentie.php" />
         <option value="$PROJECT_DIR$/pages/forum/topic.php" />
         <option value="$PROJECT_DIR$/pages/sponsor/index.php" />
         <option value="$PROJECT_DIR$/pages/sponsor/become.php" />
+>>>>>>> 7b570a4643b3489460b532f4d09865c8136f10e5
       </list>
     </option>
   </component>
@@ -310,13 +339,21 @@
       <workItem from="1510773040998" duration="6718000" />
       <workItem from="1510824510614" duration="19762000" />
       <workItem from="1510906683728" duration="18520000" />
+<<<<<<< HEAD
+      <workItem from="1511173378007" duration="8151000" />
+=======
       <workItem from="1511173378007" duration="6591000" />
       <workItem from="1511187095384" duration="1117000" />
+>>>>>>> 7b570a4643b3489460b532f4d09865c8136f10e5
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="385419000" />
+=======
     <option name="totallyTimeSpent" value="384976000" />
+>>>>>>> 7b570a4643b3489460b532f4d09865c8136f10e5
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -742,6 +779,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/pages/user/register.php">
+=======
     <entry file="file://$PROJECT_DIR$/pages/forum/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -760,13 +800,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/components/advertentie.php">
+>>>>>>> 7b570a4643b3489460b532f4d09865c8136f10e5
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
           <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
           <folding>
+<<<<<<< HEAD
+            <marker date="1511184610683" expanded="true" signature="959:1036" ph="SELECT email... user" />
+            <marker date="1511184610683" expanded="true" signature="1277:1504" ph="INSERT INTO user... " />
+            <marker date="1511184610683" expanded="true" signature="4864:4950" ph="..." />
+            <marker date="1511184610683" expanded="true" signature="4879:4935" ph="..." />
+            <marker date="1511184610683" expanded="true" signature="4991:5050" ph="..." />
+=======
             <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ins#0;n#div#1;n#!!top" expanded="true" />
             <marker date="1511187699514" expanded="true" signature="15:133" ph="SELECT *, sp... sponsor" />
+>>>>>>> 7b570a4643b3489460b532f4d09865c8136f10e5
           </folding>
         </state>
       </provider>
@@ -809,6 +858,30 @@
             <marker date="1511188211062" expanded="true" signature="10531:10697" ph="SELECT *, al... album_reply" />
             <marker date="1511188211062" expanded="true" signature="12035:12193" ph="SELECT *, ne... news_reply" />
             <marker date="1511188211062" expanded="true" signature="13444:13496" ph="SELECT * FRO... topic" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/9a7938ec/c2714b1e-d91c-4c54-a3e6-c032f40ede5e/forum.role">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/forum/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="84" column="14" lean-forward="true" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
+          <folding>
+            <marker date="1511185578521" expanded="true" signature="253:314" ph="INSERT INTO category... " />
+            <marker date="1511185578521" expanded="true" signature="601:693" ph="INSERT INTO sub_category... " />
+            <marker date="1511185578521" expanded="true" signature="880:927" ph="SELECT * FRO... category" />
+            <marker date="1511185578521" expanded="true" signature="3475:3546" ph="SELECT * FRO... sub_category" />
+            <marker date="1511185578521" expanded="true" signature="6664:6759" ph="SELECT *, CO... topic" />
+            <marker date="1511185578521" expanded="true" signature="7066:7299" ph="SELECT COUNT... sub_category" />
+            <marker date="1511185578521" expanded="true" signature="7568:7657" ph="SELECT COUNT... topic" />
+            <marker date="1511185578521" expanded="true" signature="8449:8980" ph="SELECT *, r.... topic" />
           </folding>
         </state>
       </provider>
