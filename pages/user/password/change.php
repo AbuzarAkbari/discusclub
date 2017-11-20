@@ -28,7 +28,7 @@
           <br><br>
           <div class="panel panel-primary">
                 <div class="panel-heading panel-heading1">
-                  <h4>Wachtwoord wijzigen van GebruikerId</h4>
+                  <h4>Wachtwoord wijzigen</h4>
                 </div>
                 <div class="panel-body">
                     <?php
