@@ -22,16 +22,20 @@ if((rand(0, 1) && isset($row)) || ($ad_count >= 3 && isset($row))) :
 </div>
 <?php else: ?>
     <?php $ad_count++; ?>
-    <div style="padding-bottom: 15px;" class="col-md-12">
-<ins
-    class="adsbygoogle"
-     style="display:block; "
-     data-ad-client="ca-pub-3271020881230164"
-     data-ad-slot="6824529582"
-     data-ad-format="auto">
- </ins>
-</div>
+    <div style="padding-bottom: 15px; " class="col-md-12">
+
+        <ins
+            class="adsbygoogle"
+             style="display:block; "
+             data-ad-client="ca-pub-3271020881230164"
+             data-ad-slot="6824529582"
+             data-ad-format="auto">
+         </ins>
+
+    </div>
+    <div class="clearfix"></div>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <?php endif; ?>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
