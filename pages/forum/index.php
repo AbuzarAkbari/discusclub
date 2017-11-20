@@ -96,7 +96,9 @@
                     <?php echo $categorie['name']; ?>
                     <?php if(in_array($current_level, $admin_levels)) : ?>
                         <td>
-                            <a title="Delete" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-remove-sign"></i></a>
+                            <a title="Wijzig permissie" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-pencil"></i></a>
+
+                            <a title="Verwijder" href="/includes/tools/category/wijzig.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-remove-sign"></i></a>
                         </td>
                     <?php endif; ?>
                 </div>
@@ -173,7 +175,9 @@
                                 <?php endif; ?>
                                     <?php if($logged_in && in_array($current_level, $admin_levels)) : ?>
                                         <td>
-                                            <a title="Delete" href="/includes/tools/sub-category/del.php?id=<?php echo $categorie['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
+                                            <a title="Verwijder" href="/includes/tools/sub-category/del.php?id=<?php echo $categorie['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
+
+                                            <a title="Wijzig permissie" href="/includes/tools/sub-category/wijzig.php?id=<?php echo $categorie['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-pencil"></i></a>
                                         </td>
                                     <?php endif; ?>
 
