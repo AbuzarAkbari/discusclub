@@ -136,12 +136,12 @@
                                 $query2 = $dbc->prepare('SELECT COUNT(reply.id) as x FROM sub_category LEFT JOIN topic ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON reply.topic_id = topic.id WHERE sub_category.id = ? AND reply.deleted_at IS NULL AND topic.deleted_at IS NULL');
                                 $query2->bindParam(1, $subCat['id']);
                                 $query2->execute();
-                                $berichten = $query2->fetchAll(PDO::FETCH_ASSOC)[0];
+                                $berichten = $query2->fetch(PDO::FETCH_ASSOC);
 
                                 $query3 = $dbc->prepare('SELECT COUNT(topic.id) as x FROM `topic` WHERE sub_category_id = ? AND deleted_at IS NULL');
                                 $query3->bindParam(1, $subCat['id']);
                                 $query3->execute();
-                                $topic_x = $query3->fetchAll(PDO::FETCH_ASSOC)[0];
+                                $topic_x = $query3->fetch(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
                                 <td> &#128193;</td>
