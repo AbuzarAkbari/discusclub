@@ -12,5 +12,6 @@ if (isset($_POST['send'])) {
     // send email
     mail("kaani@live.nl","Bericht van " . htmlentities($_POST['naam']), $msg , $headers);
 
-    header('Location: /');
 }
+
+header('Location: /');
