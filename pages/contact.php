@@ -47,7 +47,7 @@
                 <label for="subject">Bericht</label>
                 <textarea id="subject" name="bericht" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;" required></textarea>
                 <br>
-                <input type="submit" class="btn btn-primary" value="Verstuur">
+                <input type="submit" class="btn btn-primary" value="send">
               </form>
           </div>
         </div>
