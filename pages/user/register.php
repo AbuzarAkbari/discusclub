@@ -26,21 +26,26 @@
     <div class="container main">
         <div class="row">
           <br><br>
-          <div class="panel panel-primary">
-              <?php
-              if (isset($_POST["send"])) {
-                  $sth = $dbc->prepare("SELECT email, username FROM user WHERE email = :email OR username = :username");
+          <?php
+          if (isset($_POST["send"])) {
+              $sth = $dbc->prepare("SELECT email, username FROM user WHERE email = :email OR username = :username");
 
-                  $sth->execute([":email" => $_POST["email"], ":username" => $_POST["username"]]);
+              $sth->execute([":email" => $_POST["email"], ":username" => $_POST["username"]]);
 
-                  $res = $sth->fetch(PDO::FETCH_OBJ);
+              $res = $sth->fetch(PDO::FETCH_OBJ);
 
-                  if (empty($res)) {
-                      $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email, created_at, news) VALUES
-                                                                  (:first_name, :last_name, :username, :password, :email, NOW(), :news)");
+              if (empty($res)) {
+                  $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email, created_at,birthdate, news) VALUES
+                  (:first_name, :last_name, :username, :password, :email, NOW(),:birthdate, :news, )");
 
-                      $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
-                          ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"], ":news" => isset($_POST["news"]) && $_POST["news"] === "on" ? 1 : 0]);
+                  $sth->execute([
+                      ":first_name" => $_POST["first_name"],
+                      ":last_name" => $_POST["last_name"],
+                      ":username" => $_POST["username"],
+                      ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT),
+                      ":email" => $_POST["email"],
+                      ":birthdate" => $_POST["birthdate"],
+                      ":news" => isset($_POST["news"]) && $_POST["news"] === "on" ? 1 : 0]);
                       require("../../includes/tools/mailer.php");
                       ?>
                       <div class="message gelukt">Het account is aangemaakt, <a href="/user/login">login.</a></div>
@@ -58,6 +63,7 @@
                   }
               }
               ?>
+          <div class="panel panel-primary">
               <div class="panel-heading panel-heading1">
                   <h4>Registreren</h4></div>
                 <div class="panel-body">
@@ -68,7 +74,7 @@
                       <input class="form-control" required type="text" name="last_name" id="last_name" value="" placeholder="Achternaam "><br>
                       <label for="username" >Gebruikersnaam</label>
                       <input class="form-control" required type="text" name="username" id="username" value="" placeholder="Gebruikersnaam "><br>
-                      <label for="datepicker">Geboortedatum</label><input autocomplete="<?php echo date("d-m-Y");  ?>" class="form-control" id="datepicker" value="" size="30" type="datetime" name="date" placeholder="Geboortedatum" autocomplete="off"><br>
+                      <label for="datepicker">Geboortedatum</label><input autocomplete="<?php echo date("d-m-Y");  ?>" class="form-control" id="datepicker" value="" size="30" type="datetime" name="birthdate" placeholder="Geboortedatum" autocomplete="off"><br>
                       <label for="password" >Wachtwoord</label>
                       <input class="form-control" required type="password" name="password" id="password" value="" placeholder="Wachtwoord"><br>
                       <label for="repeat_password" >Herhaal wachtwoord</label>
