@@ -107,8 +107,8 @@ function custom_echo($x, $length)
         require_once("../../includes/components/pagination.php");
         ?>
     </div>
+    <?php require ('../../includes/components/advertentie.php'); ?>
   </div>
-  <?php require ('../../includes/components/advertentie.php'); ?>
 </div>
 
     <footer>

@@ -188,8 +188,8 @@
                     </table>
                 </div>
             </div>
+            <?php require ('../../includes/components/advertentie.php'); ?>
 
-    <?php require ('../../includes/components/advertentie.php'); ?>
 <?php endif; ?>
 <?php endforeach; ?>
 </div>
