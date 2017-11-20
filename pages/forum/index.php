@@ -84,12 +84,6 @@
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
-            <?php
-                // $notshowcategorieSql = "SELECT *, category.id AS cat_id, sub_category.category_id AS sub_cat_id FROM category JOIN sub_category ON category.id = sub_category.category_id";
-                // $notshowcategorieResult = $dbc->prepare($notshowcategorieSql);
-                // $notshowcategorieResult->execute();
-                // $result_categorie = $notshowcategorieResult->fetchAll(PDO::FETCH_ASSOC);
-            ?>
             <?php if (sizeof($results2) > 0 || in_array($current_level, $admin_levels)) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">
