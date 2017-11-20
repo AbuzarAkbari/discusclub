@@ -60,7 +60,7 @@
                   <a class="desktop" href="/about/bestuur">Bestuur</a>
                   <span class="mobile submenu">Bestuur</span>
                 <ul>
-                <li><a class="desktop" href="/about/bestuur/jan">Jan Verkaik</a></li>
+                <li class="desktop"><a  href="/about/bestuur/jan">Jan Verkaik</a></li>
                 <!-- Tijdelijk eruit, want we weten de rest van de leden niet :) -->
                  <!-- <li><a href="/about/bestuur/karel">Naam bestuurslid 2</a></li>
                  <li><a href="/about/bestuur/peter">Naam bestuurslid 3</a></li> -->
@@ -70,45 +70,45 @@
           </li>
           <li><a class="desktop" href="/houden-van">Houden van</a>
               <span class="mobile navItem">Houden van</span>
+              <?php if ($logged_in) { ?>
               <ul>
                   <li class="mobile"><a href="/houden-van">Houden van</a></li>
-              <?php if ($logged_in) { ?>
               <li><a href="/houden-van/kweken">Kweken</a></li>
               <li><a href="/houden-van/ziektes">Ziektes</a></li>
-            <?php } ?>
             </ul>
+        <?php } ?>
           </li>
           <li><a href="/news/">Nieuws</a></li>
           <li><a href="/wordlid">Word lid!</a></li>
           <li><a class="desktop" href="/album/">Albums</a>
               <span class="mobile navItem">Albums</span>
+              <?php if ($logged_in) { ?>
               <ul>
                   <li class="mobile"><a href="/album/">Albums</a></li>
-              <?php if ($logged_in) { ?>
               <li><a href="/album/upload">Upload</a></li>
-            <?php } ?>
         </ul>
+    <?php } ?>
           </li>
           <li><a class="desktop" href="/aquarium/">Aquaria</a>
               <span class="mobile navItem">Aquaria</span>
+              <?php if ($logged_in) { ?>
               <ul>
                   <li class="mobile"><a href="/aquarium/">Aquaria</a></li>
-              <?php if ($logged_in) { ?>
               <li><a href="/aquarium/upload">Upload</a></li>
-            <?php } ?>
         </ul>
+    <?php } ?>
           </li>
           <li><a class="desktop" href="/forum/">Forum</a>
               <span class="mobile navItem">Forum</span>
 
+              <?php if ($logged_in) { ?>
               <ul>
                   <li class="mobile"><a href="/forum/">Forum</a></li>
-              <?php if ($logged_in) { ?>
               <li><a href="/forum/active-topics">Actieve topics</a></li>
               <li><a href="/forum/new-topics">Nieuwe topics</a></li>
               <li><a href="/forum/fav-topics">Favoriete topics</a></li>
-            <?php } ?>
         </ul>
+    <?php } ?>
           </li>
           <li><a class="desktop" href="/sponsor/become">Sponsoren</a>
               <span class="mobile navItem">Sponsoren</span>
