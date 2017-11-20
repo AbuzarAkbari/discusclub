@@ -128,11 +128,14 @@
                                       <a href="/album/post/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
                                       <?php endforeach; ?>
                                       <?php else : ?>
+                                      <?php else : ?>
                                     <tr><td>Geen reacties op albums gevonden</td></tr>
                                     <?php endif ;?>
                                 </div>
                             </div>
-                        </div>
+                    <?php require_once('../../includes/components/advertentie.php'); ?>
+
+                </div>
 
                         <div class="col-md-12">
                             <div class="panel panel-primary">

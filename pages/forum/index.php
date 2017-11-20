@@ -90,13 +90,6 @@
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
-            <?php
-                // $notshowcategorieSql = "SELECT *, category.id AS cat_id, sub_category.category_id AS sub_cat_id FROM category JOIN sub_category ON category.id = sub_category.category_id";
-                // $notshowcategorieResult = $dbc->prepare($notshowcategorieSql);
-                // $notshowcategorieResult->execute();
-                // $result_categorie = $notshowcategorieResult->fetchAll(PDO::FETCH_ASSOC);
-            ?>
-
             <?php if (sizeof($results2) > 0 || in_array($current_level, $admin_levels)) : ?>
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">
@@ -156,12 +149,12 @@
                                 $query2 = $dbc->prepare('SELECT COUNT(reply.id) as x FROM sub_category LEFT JOIN topic ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON reply.topic_id = topic.id WHERE sub_category.id = ? AND reply.deleted_at IS NULL AND topic.deleted_at IS NULL');
                                 $query2->bindParam(1, $subCat['id']);
                                 $query2->execute();
-                                $berichten = $query2->fetchAll(PDO::FETCH_ASSOC)[0];
+                                $berichten = $query2->fetch(PDO::FETCH_ASSOC);
 
                                 $query3 = $dbc->prepare('SELECT COUNT(topic.id) as x FROM `topic` WHERE sub_category_id = ? AND deleted_at IS NULL');
                                 $query3->bindParam(1, $subCat['id']);
                                 $query3->execute();
-                                $topic_x = $query3->fetchAll(PDO::FETCH_ASSOC)[0];
+                                $topic_x = $query3->fetch(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
                                 <td> &#128193;</td>
@@ -202,8 +195,8 @@
                     </table>
                 </div>
             </div>
+            <?php require ('../../includes/components/advertentie.php'); ?>
 
-    <?php require ('../../includes/components/advertentie.php'); ?>
 <?php endif; ?>
 <?php endforeach; ?>
 </div>

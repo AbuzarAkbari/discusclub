@@ -87,12 +87,12 @@ dhc
         queries.push(conn.query(
           'INSERT INTO category(id, name, created_at) VALUES(?, ?, NOW())',
           [x.id, x.title]
-        ).catch(e => console.log(e)))
+        ).then(res => conn.query("INSERT INTO category_permission(role_id, category_id) VALUES (?, ?), (?, ?), (?, ?), (?, ?), (?, ?)", [1, x.id, 2, x.id, 3, x.id, 4, x.id, 5, x.id])).catch(e => console.log(e)))
       } else {
         queries.push(conn.query(
           'INSERT INTO sub_category(id, name, created_at, category_id) VALUES(?, ?, NOW(), ?)',
           [x.id, x.title, x.parent_id]
-        ).catch(e => console.log(e)))
+        ).then(res => conn.query("INSERT INTO sub_category_permission(role_id, sub_category_id) VALUES (?, ?), (?, ?), (?, ?), (?, ?), (?, ?)", [1, x.id, 2, x.id, 3, x.id, 4, x.id, 5, x.id])).catch(e => console.log(e)))
       }
     })
     return Promise.all(queries)
@@ -153,12 +153,15 @@ dhc
   .then(res => {
     const queries = []
     res.forEach((x, i) => {
+      conn.query("INSERT INTO topic_permission(role_id, topic_id) VALUES (?, ?), (?, ?), (?, ?), (?, ?), (?, ?)", [1, topicIds[x.forum_topic_id], 2, topicIds[x.forum_topic_id], 3, topicIds[x.forum_topic_id], 4, topicIds[x.forum_topic_id], 5, topicIds[x.forum_topic_id]]).then(res =>
+        console.log("")
+      ).catch(e => console.log(e))
       queries.push(
         conn.query("SELECT * FROM topic WHERE created_at < (? + INTERVAL 5 SECOND) AND created_at > (? - INTERVAL 5 SECOND) AND user_id = ? AND sub_category_id = ?", [x.created, x.created, x.profile_id, x.forum_id])
         .then(res => res.length === 0 ? conn.query("INSERT INTO reply(user_id, content, topic_id, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
                                         [x.profile_id, replaceIcons(x.content_cache), topicIds[x.forum_topic_id], x.created, x.modified]).catch(e => console.log(e))
-                                      : Promise.reject("double!")).catch(e => console.log(e))
-      )
+                                      : Promise.reject("double!").catch(e => console.log(e))
+      ))
     })
     return Promise.all(queries);
   })

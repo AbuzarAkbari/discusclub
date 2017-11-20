@@ -62,6 +62,8 @@
         Het voornemen is hiervoor 150 wedstrijd bakken voor te laten aanrukken en, zo als het er nu uitziet, zes klassen. Deze getallen zijn voorlopig definitief, maar kunnen nog veranderen. Daarnaast zal ook De NVC en de NBAT het een en ander gaan organiseren en aanschuiven op AquaVaria. Het wordt leuk!!!!
           </div>
         </div>
+        <?php require_once('../../includes/components/advertentie.php'); ?>
+
       </div>
       <div class="col-md-5">
           <div class="panel panel-primary">
@@ -70,8 +72,6 @@
                     <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img alt='Advertentie' src="/images/ad/advertentie.jpg"></div></a>
                 </div>
           </div>
-      </div>
-      <div class="col-md-5">
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
               <div class="panel-body">
@@ -88,9 +88,6 @@
                       <?php endif ;?>
               </div>
           </div>
-      </div>
-            <div class="col-md-5">
-                <?php require_once('../../includes/components/advertentie.php'); ?>
               <div class="panel panel-primary">
                   <div class="panel-heading border-colors">Laatste reacties op albums</div>
                   <div class="panel-body">
@@ -108,9 +105,7 @@
                     <?php endif ;?>
                   </div>
               </div>
-            </div>
 
-      <div class="col-md-5">
         <div class="panel panel-primary">
             <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
             <div class="panel-body">
@@ -128,8 +123,6 @@
                         <?php endif ;?>
                 </div>
             </div>
-        </div>
-        <div class="col-md-5">
           <div class="panel panel-primary">
               <div class="panel-heading border-colors">Laatste reacties op topics</div>
               <div class="panel-body">
@@ -147,14 +140,10 @@
                     <?php endif ;?>
                 </div>
             </div>
-            <?php require_once('../../includes/components/advertentie.php'); ?>
-        </div>
       </div>
-      <div class="col-md-8"></div>
-      <div class="col-md-8"></div>
+    </div>
     </div>
 
-        <?php require ('../../includes/components/advertentie.php'); ?>
   </div>
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>

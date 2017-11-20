@@ -75,9 +75,11 @@
                   <div class="col-md-12 col-sm-12 ruimte"><a href="/wordlid"><img alt="Advertentie" src="/images/ad/advertentie.jpg"></a> </div>
               </div>
           </div>
+          <?php require_once('../../includes/components/advertentie.php'); ?>
+
+      </div>
       </div>
     </div>
-  </div>
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>
     </footer>
