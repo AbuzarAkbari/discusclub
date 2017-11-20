@@ -27,6 +27,37 @@
         <div class="row">
           <br><br>
           <div class="panel panel-primary">
+              <?php
+              if (isset($_POST["send"])) {
+                  $sth = $dbc->prepare("SELECT email, username FROM user WHERE email = :email OR username = :username");
+
+                  $sth->execute([":email" => $_POST["email"], ":username" => $_POST["username"]]);
+
+                  $res = $sth->fetch(PDO::FETCH_OBJ);
+
+                  if (empty($res)) {
+                      $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email, created_at, news) VALUES
+                                                                  (:first_name, :last_name, :username, :password, :email, NOW(), :news)");
+
+                      $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
+                          ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"], ":news" => isset($_POST["news"]) && $_POST["news"] === "on" ? 1 : 0]);
+                      require("../../includes/tools/mailer.php");
+                      ?>
+                      <div class="message gelukt">Het account is aangemaakt, <a href="/user/login">login.</a></div>
+                      <?php
+                  } else {
+                      if ($res->email === $_POST["email"]) {
+                          ?>
+                          <div class="message error">Email is al in gebruik. <a href="/user/password/forgot">Wijzig wachtwoord.</a></div>
+                          <?php
+                      } else {
+                          ?>
+                          <div class="message error">Gebruikersnaam is al in gebruik, kies een andere gebruikersnaam.</div>
+                          <?php
+                      }
+                  }
+              }
+              ?>
               <div class="panel-heading panel-heading1">
                   <h4>Registreren</h4></div>
                 <div class="panel-body">
@@ -50,37 +81,7 @@
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
 
                   </form>
-                    <?php
-                    if (isset($_POST["send"])) {
-                        $sth = $dbc->prepare("SELECT email, username FROM user WHERE email = :email OR username = :username");
 
-                        $sth->execute([":email" => $_POST["email"], ":username" => $_POST["username"]]);
-
-                        $res = $sth->fetch(PDO::FETCH_OBJ);
-
-                        if (empty($res)) {
-                            $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email, created_at, news) VALUES
-                                                                  (:first_name, :last_name, :username, :password, :email, NOW(), :news)");
-
-                            $sth->execute([":first_name" => $_POST["first_name"], ":last_name" => $_POST["last_name"], ":username" => $_POST["username"],
-                                ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT), ":email" => $_POST["email"], ":news" => isset($_POST["news"]) && $_POST["news"] === "on" ? 1 : 0]);
-                            require("../../includes/tools/mailer.php");
-                            ?>
-                            <div class="message gelukt">Het account is aangemaakt, <a href="/user/login">login.</a></div>
-                            <?php
-                        } else {
-                            if ($res->email === $_POST["email"]) {
-                                ?>
-                                <div class="message error">Email is al in gebruik. <a href="/user/password/forgot">Wijzig wachtwoord.</a></div>
-                                <?php
-                            } else {
-                                ?>
-                                <div class="message error">Gebruikersnaam is al in gebruik, kies een andere gebruikersnaam.</div>
-                                <?php
-                            }
-                        }
-                    }
-                    ?>
               </div>
           </div>
         </div>
