@@ -145,7 +145,7 @@ if(isset($_POST["daterange"]) && isset($_POST["id"])) {
             $('#create').daterangepicker({
                 timePicker: true,
                 timePicker24Hour: true,
-                timePickerIncrement: 5,
+                timePickerIncrement: 1,
                 minDate: new Date(),
                 applyClass: "btn-primary",
                 cancelClass: "btn-danger",
@@ -160,7 +160,7 @@ if(isset($_POST["daterange"]) && isset($_POST["id"])) {
                 $('#contest-<?php echo $contest['id']; ?>').daterangepicker({
                     timePicker: true,
                     timePicker24Hour: true,
-                    timePickerIncrement: 5,
+                    timePickerIncrement: 1,
                     applyClass: "btn-primary",
                     cancelClass: "btn-danger",
                     locale: {
