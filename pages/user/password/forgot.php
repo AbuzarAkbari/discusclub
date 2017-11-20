@@ -56,11 +56,10 @@
                         if($res) {
                             $token = md5(microtime (true)*100000);
                             $sth = $dbc->prepare("INSERT INTO forgot(token, user_id, created_at) VALUES (:token, :user_id, NOW())");
-                            echo "bla";
                             $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
 
                             // TODO:: add mailing thingy, add this link and username
-                            $message =  $_SERVER['host']."/user/password/change?token=$token&id=".$dbc->lastInsertId();
+                            $message =  $_SERVER['HTTP_REFERER']."user/password/change?token=$token&id=".$dbc->lastInsertId();
 
                             $headers =  'From: webmaster@example.com' . "\r\n" .
                                         'X-Mailer: PHP/' . phpversion();
