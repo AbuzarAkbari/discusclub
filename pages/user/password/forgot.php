@@ -60,10 +60,7 @@
                             $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
 
                             // TODO:: add mailing thingy, add this link and username
-                            $message =  "/user/password/change?token=$token&id=".$dbc->lastInsertId();
-                            echo $message;
-
-                            $message = "";
+                            $message =  $_SERVER['host']."/user/password/change?token=$token&id=".$dbc->lastInsertId();
 
                             $headers =  'From: webmaster@example.com' . "\r\n" .
                                         'X-Mailer: PHP/' . phpversion();
