@@ -6,12 +6,14 @@ if (isset($_POST['send'])) {
 
     $msg = wordwrap($msg, 70, "\r\n");
 
-    $headers =  'From: example@example.nl' . "\r\n" .
+    $headers =  'From: ' . $_POST['email'] . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
 
     // send email
     mail("kaani@live.nl","Bericht van " . htmlentities($_POST['naam']), $msg , $headers);
 
+} else {
+    
 }
 
 header('Location: /');
