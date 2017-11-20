@@ -20,6 +20,12 @@
     $categorieenResult = $dbc->prepare($categorieenSql);
     $categorieenResult->execute();
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
+
+    // $wijzigpermissieSQL = "UPDATE";
+    // $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+    // $wijzigpermissieResult->execute();
+    // $resultpermissie = $wijzigpermissieResult->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,10 +95,17 @@
                 <div class="panel-heading border-colors">
                     <?php echo $categorie['name']; ?>
                     <?php if(in_array($current_level, $admin_levels)) : ?>
+                        <?php $id = $categorie['id']; ?>
                         <td>
-                            <a title="Wijzig permissie" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-pencil"></i></a>
+                            <!-- <a title="Wijzig permissie" href="/includes/tools/category/wijzig.php?id=<?php //echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-pencil"></i></a> -->
 
-                            <a title="Verwijder" href="/includes/tools/category/wijzig.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-remove-sign"></i></a>
+                            <!-- Button trigger modal -->
+                            <button type="button" data-id="<?php echo $id ;?>" class="btn btn-primary btn-lg change-button">
+                              <i class="buttonDelete glyphicon glyphicon-pencil"></i>
+                            </button>
+
+
+                            <a title="Verwijder" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-remove-sign"></i></a>
                         </td>
                     <?php endif; ?>
                 </div>
@@ -136,12 +149,12 @@
                                 $query2 = $dbc->prepare('SELECT COUNT(reply.id) as x FROM sub_category LEFT JOIN topic ON topic.sub_category_id = sub_category.id LEFT JOIN reply ON reply.topic_id = topic.id WHERE sub_category.id = ? AND reply.deleted_at IS NULL AND topic.deleted_at IS NULL');
                                 $query2->bindParam(1, $subCat['id']);
                                 $query2->execute();
-                                $berichten = $query2->fetchAll(PDO::FETCH_ASSOC)[0];
+                                $berichten = $query2->fetch(PDO::FETCH_ASSOC);
 
                                 $query3 = $dbc->prepare('SELECT COUNT(topic.id) as x FROM `topic` WHERE sub_category_id = ? AND deleted_at IS NULL');
                                 $query3->bindParam(1, $subCat['id']);
                                 $query3->execute();
-                                $topic_x = $query3->fetchAll(PDO::FETCH_ASSOC)[0];
+                                $topic_x = $query3->fetch(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
                                 <td> &#128193;</td>
@@ -195,6 +208,24 @@
 <!-- bootstrap script -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(".change-button").on("click", function () {
+         var id = $(this).data('id');
+         $('#myModal').modal('show');
+
+        fetch(`/includes/tools/category/wijzig?id=${id}`)
+            .then(res => res.text())
+            .then(res => $(".modal-dialog").html(res))
+    });
+</script>
 </body>
 
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+   
+  </div>
+</div>
+
