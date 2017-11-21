@@ -182,9 +182,10 @@ dhc
   // })
   .then(res => dhc.query("SELECT * FROM gallery_pictures JOIN galleries ON galleries.id = gallery_pictures.gallery_id"))
   .then(res => {
-    const queries = res.map(x => conn.query("INSERT INTO album(title, created_at, user_id) VALUES(?, ?, ?)", [x.title, x.created, x.profile_id])
-    .then(res => conn.query("INSERT INTO image"))
-    .catch(e => console.log(e))
+    const queries = res.map(x => conn.query("INSERT INTO album(id, title, created_at, user_id) VALUES(?, ?, ?, ?)", [x.gallery_id, x.title, x.created, x.profile_id])
+    .then(res => conn.query("INSERT INTO image(path, album_id) VALUES(?, ?)", [`/images/album/${x.uuid}.${x.extension}`, x.gallery_id]))
+    .catch(e => console.log(e)))
+    return Promise.all(queries);
   })
   .then(res => console.log("finished"))
   .catch(e => console.log(e))
