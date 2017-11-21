@@ -180,6 +180,11 @@ dhc
   //                                            [newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
   //   return Promise.all(queries)
   // })
-  .then(res => dhc.query("SELECT * FROM galleries"))
+  .then(res => dhc.query("SELECT * FROM gallery_pictures JOIN galleries ON galleries.id = gallery_pictures.gallery_id"))
+  .then(res => {
+    const queries = res.map(x => conn.query("INSERT INTO album(title, created_at, user_id) VALUES(?, ?, ?)", [x.title, x.created, x.profile_id])
+    .then(res => conn.query("INSERT INTO image"))
+    .catch(e => console.log(e))
+  })
   .then(res => console.log("finished"))
   .catch(e => console.log(e))
