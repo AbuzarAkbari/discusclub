@@ -20,7 +20,7 @@ if (isset($_POST['upload_album'])) {
                     $uploadOk = 1;
                 } else {
                     $error = "Sorry, geen fotobestand gevonden.";
-                    $uploadOk = $uploadOk = 0;
+                    $uploadOk = 0;
                 }
 
                 // Check if file already exists

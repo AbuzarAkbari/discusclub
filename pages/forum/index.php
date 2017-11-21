@@ -7,6 +7,11 @@
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
         $query->execute([":name" => htmlentities($_POST["new_category"])]);
+        $id = $query->last_insert_id();
+
+        $categoryPermissionSql = "INSERT INTO category_permission (category_id, role_id) SELECT :id, id FROM role";
+        $categoryPermissionQuery = $dbc->prepare($categoryPermissionSql);
+        $categoryPermissionQuery->execute([":id" => $id]);
     }
 
     if(isset($_POST['add_new_sub_category']) && !empty($_POST['new_sub_category']) && $logged_in && in_array($current_level, $admin_levels))
@@ -236,7 +241,6 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-
+      
   </div>
 </div>
-
