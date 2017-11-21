@@ -68,13 +68,10 @@
               ?>
               <?php
               // starting the session
-              session_start();
               if (isset($_POST['send'])) {
                   $_SESSION['first_name'] = $_POST['first_name'];
                   $_SESSION['last_name'] = $_POST['last_name'];
                   $_SESSION['username'] = $_POST['username'];
-                  $_SESSION['password'] = $_POST['password'];
-                  $_SESSION['repeat_password'] = $_POST['repeat_password'];
                   $_SESSION['email'] = $_POST['email'];
               }
               ?>
