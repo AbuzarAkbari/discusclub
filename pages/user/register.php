@@ -32,7 +32,7 @@
           if (isset($_POST["send"])) {
               $date = strtotime($_POST["birthdate"]);
               if ($date === false) {
-                  echo "<div class='message error'>Email is al in gebruik.</div>";
+                  echo "<div class='message error'>Geboortedatum is geen datum of verkeerd opgegeven.</div>";
               }
               else{
               $sth = $dbc->prepare("SELECT email, username FROM user WHERE email = :email OR username = :username");
