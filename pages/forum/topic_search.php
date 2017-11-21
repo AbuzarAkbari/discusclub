@@ -46,6 +46,7 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
               <ol class="breadcrumb">
                   <li><a href="/">Home</a></li>
                   <li><a href="/forum/">Forum</a></li>
+                  <li><a href="/forum/topic/<?php echo $_GET['name']; ?>"><?php echo $_GET['name']; ?></a></li>
                   <li class="active">Zoek op topics</li>
               </ol>
           </div>
@@ -74,7 +75,7 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
 
                 <?php foreach ($results as $key => $value) : ?>
                 <?php
-                  $sth = $dbc->prepare("SELECT count(*) as amount FROM topic WHERE id = :id");
+                  $sth = $dbc->prepare("SELECT count(*) as amount FROM reply WHERE topic_id = :id");
                   $sth->execute([":id" => $value->id]);
                   $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
                 ?>
