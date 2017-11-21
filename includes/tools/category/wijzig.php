@@ -11,8 +11,6 @@
  $getPermissionsResult = $dbc->prepare($getPermissionsSql);
  $getPermissionsResult->execute([":id" => $_GET['id']]);
  $getPermissionsResult = $getPermissionsResult->fetchAll(PDO::FETCH_ASSOC);
-
-
  ?>
 
  <div class="modal-content">
