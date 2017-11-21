@@ -70,7 +70,10 @@
                                         'X-Mailer: PHP/' . phpversion();
 
                             mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
+
                         }
+                        echo "<div class='message gelukt'>Mail is verstuurt </div>";
+
                     }
                     ?>
 
