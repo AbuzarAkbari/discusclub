@@ -28,7 +28,7 @@
           <br><br>
 
             <?php
-
+            $error = false;
           if (isset($_POST["send"])) {
               $sth = $dbc->prepare("SELECT email, username FROM user WHERE email = :email OR username = :username");
 
@@ -53,6 +53,7 @@
                       <div class="message gelukt">Het account is aangemaakt, <a href="/user/login">login.</a></div>
                       <?php
                   } else {
+                      $error = true;
                       if ($res->email === $_POST["email"]) {
                           ?>
                           <div class="message error">Email is al in gebruik. <a href="/user/password/forgot">Wijzig wachtwoord.</a></div>
@@ -68,7 +69,7 @@
             ?>
             <?php
                 $firstName = $lastName = $userName = $email =  "";
-                if (isset($_POST["send"])) {
+                if (isset($_POST["send"]) && $error) {
                     $firstName = input($_POST["first_name"]);
                     $lastName = input($_POST["last_name"]);
                     $userName = input($_POST["username"]);
@@ -77,7 +78,6 @@
                 function input($data) {
                     $data = trim($data);
                     $data = stripslashes($data);
-                    $data = htmlspecialchars($data);
                     return $data;
                 }
               // if (isset($_POST['send'])) {
