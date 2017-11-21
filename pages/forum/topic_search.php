@@ -66,7 +66,6 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
                   <th>Titel</th>
                   <th>Auteur</th>
                   <th>Berichten</th>
-                  <th>Categorie</th>
                   <th>Laatste bericht</th>
                 </tr>
               </thead>
@@ -98,7 +97,6 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
                     <td><a href="/forum/post/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
                     <td><a href="/user/<?php echo $value->user_created_topic; ?>"><?php echo $value->first_name .' '. $value->last_name; ?></a></td>
                     <td><?php echo $amount + 1; ?></td>
-                    <td><a href="/forum/topic.php?id=<?php echo $value->sub_id; ?>"><?php echo $value->sub_name; ?></a></td>
                     <td><?php echo $value->topic_created_at; ?></td>
                 </tr>
                 <?php endforeach; ?>
