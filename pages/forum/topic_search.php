@@ -10,7 +10,7 @@ $perPage = 10;
 $aantal = $page * $perPage - $perPage;
 
 $search = $_GET['q'];
-$sql = $dbc->prepare("SELECT * ,u.id AS user_created_topic ,sc.id AS sub_id , t.id , sc.name AS sub_name, t.created_at AS topic_created_at FROM topic AS t JOIN topic_permission AS tp ON tp.topic_id = topic.id LEFT JOIN reply AS r ON t.id = r.topic_id JOIN user AS u ON t.user_id = u.id JOIN state AS s ON t.state_id = s.id JOIN sub_category AS sc ON t.sub_category_id = sc.id WHERE tp.role_id = :role_id AND t.sub_category_id = :sub_id AND t.title LIKE :search OR t.content LIKE :search OR r.content LIKE :search GROUP BY t.id ORDER BY r.created_at DESC, t.created_at DESC LIMIT {$perPage} OFFSET {$aantal};");
+$sql = $dbc->prepare("SELECT * ,u.id AS user_created_topic ,sc.id AS sub_id , t.id , sc.name AS sub_name, t.created_at AS topic_created_at FROM topic AS t JOIN topic_permission AS tp ON tp.topic_id = t.id LEFT JOIN reply AS r ON t.id = r.topic_id JOIN user AS u ON t.user_id = u.id JOIN state AS s ON t.state_id = s.id JOIN sub_category AS sc ON t.sub_category_id = sc.id WHERE tp.role_id = :role_id AND t.sub_category_id = :sub_id AND t.title LIKE :search OR t.content LIKE :search OR r.content LIKE :search GROUP BY t.id ORDER BY r.created_at DESC, t.created_at DESC LIMIT {$perPage} OFFSET {$aantal};");
 $sql->execute([":search" => isset($search) ? "%" . $search . "%" : "%", ":role_id" => $_SESSION['user']->role_id, ":sub_id" => $_GET['page']]);
 $results = $sql->fetchAll(PDO::FETCH_OBJ);
 ?>
