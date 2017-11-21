@@ -35,7 +35,6 @@
             $bindings[":role_$key"] = $role;
         }
         $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
-        var_dump($bindings, $wijzigpermissieSQL);
         $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
         $wijzigpermissieResult->execute($bindings);
     }
