@@ -49,7 +49,7 @@
 
                     <?php
                     if (isset($_POST["send"])) {
-                        $sth = $dbc->prepare("SELECT id, email FROM user WHERE email = :email");
+                        $sth = $dbc->prepare("SELECT id, email, first_name, last_name, username FROM user WHERE email = :email");
                         $sth->execute([":email" => $_POST["email"]]);
                         $res = $sth->fetch(PDO::FETCH_OBJ);
 
@@ -60,7 +60,9 @@
 
                             // TODO:: add mailing thingy, add this link and username
                             $url = "discus.ricardokamerman.com/" ."user/password/change?token=$token&id=".$dbc->lastInsertId();
-
+                            $username = $res->username;
+                            $first_name = $res->first_name;
+                            $last_name = $res->last_name;
                             ob_start();
                             require_once("wachtwoord-vergeten.php");
                             $message = ob_get_clean();

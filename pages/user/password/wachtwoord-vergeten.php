@@ -606,11 +606,15 @@
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; font-size: 16px;">
 
+                            <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:14px"><span style="color:#000000"><strong> <?php $first_name . $last_name ?>  <br> <?php $username ?></strong></span></span></span></div>
+
+
                             <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:14px"><span style="color:#000000"><strong>Geen nood,&nbsp;we zijn hier om je te helpen!</strong></span></span></span></div>
 
 <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:13px"><font color="#000000">Klik op de onderstaande URL om een nieuw wachtwoord te maken.</font><br>
 <br>
 <a href="<?php echo $url; ?>" target="_blank"><span style="color:#0000FF"><?php echo $url; ?></span></a></span></span></div>
+
 
                         </td>
                     </tr>
