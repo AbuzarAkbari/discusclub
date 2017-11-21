@@ -21,6 +21,7 @@
     $categorieenResult->execute();
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
+
     if(!empty($_POST['role'])) {
         foreach($_POST['role'] as $role){
             $wijzigpermissieSQL = "UPDATE category_permission SET category_id = :id AND role_id = :role_id";
@@ -29,9 +30,8 @@
             $resultpermissie = $wijzigpermissieResult->fetchAll(PDO::FETCH_ASSOC);
         }
     }
-   
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
