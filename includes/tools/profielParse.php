@@ -47,6 +47,7 @@ if ($logged_in) {
             $query .= ", birthdate = :birthdate";
             $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
         }
+
         //Locatie
         if (isset($_POST['city']) && !empty($_POST["city"])) {
             $city = $_POST['city'];
