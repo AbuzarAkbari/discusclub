@@ -86,7 +86,6 @@
                       Als u registreert gaat u akkoord met onze <a href="/gebruiksvoorwaarden">gebruiksvoorwaarden</a>.<br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
-
                   </form>
 
               </div>
