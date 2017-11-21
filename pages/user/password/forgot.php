@@ -47,7 +47,7 @@
 
                   </form>
                     <?php if (isset($_POST["send"])) {
-                    echo "<div class='message gelukt'>Mail is verstuurt </div>}"
+                    echo "<div class='message gelukt'>Mail is verstuurd </div>}"
                     ?>
 
                     <?php
