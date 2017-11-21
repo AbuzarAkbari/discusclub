@@ -51,7 +51,7 @@
                       ":username" => $_POST["username"],
                       ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT),
                       ":email" => $_POST["email"],
-                      ":birthdate" => date('d-m-y', strtotime($_POST["birthdate"])),
+                      ":birthdate" => date('Y-m-d', strtotime($_POST["birthdate"])),
                       ":news" => isset($_POST["news"]) && $_POST["news"] === "on" ? 1 : 0]);
                       require("../../includes/tools/mailer.php");
                       ?>
