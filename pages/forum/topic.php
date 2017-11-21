@@ -79,6 +79,7 @@ $offset = $page * $perPage - $perPage;
                 <div class="panel-body">
                     <form method="get" action="/forum/topic_search">
                         <input type="text" class="form-control" name="q" placeholder='Zoek op topics..' maxlength="155" required ><br>
+                        <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
                         <button type="submit" class="form-control btn btn-primary">Zoek op topics</button>
                     </form>
                 </div>
