@@ -10,7 +10,7 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
 } else {
     $user_data = $_SESSION["user"];
 }
-
+ var_dump($_SERVER)
 ?>
 <!DOCTYPE html>
 <html lang="en">
