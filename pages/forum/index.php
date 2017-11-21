@@ -21,11 +21,6 @@
     $categorieenResult->execute();
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
-    // $wijzigpermissieSQL = "UPDATE category_permission SET category_id = :id AND role_id = :role_id";
-    // $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
-    // $wijzigpermissieResult->execute([':id' => $_GET['id'], ':role_id' => ['']]);
-    // $resultpermissie = $wijzigpermissieResult->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
