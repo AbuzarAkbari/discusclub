@@ -31,7 +31,7 @@
             $error = false;
           if (isset($_POST["send"])) {
               $date = strtotime($_POST["birthdate"]);
-              if ($date === false) {
+                  if ($date === false) {
                   echo "<div class='message error'>Geboortedatum is geen datum of verkeerd opgegeven.</div>";
               }
               else{
