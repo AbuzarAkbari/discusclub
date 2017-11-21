@@ -62,12 +62,13 @@
                       }
                   }
               }
+
               ?>
           <div class="panel panel-primary">
               <div class="panel-heading panel-heading1">
                   <h4>Registreren</h4></div>
                 <div class="panel-body">
-                  <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post" autocomplete="off">
+                  <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post" autocomplete="false" >
                       <label for="first_name" >Voornaam</label>
                       <input class="form-control" required type="text" name="first_name" id="first_name" value="" placeholder="Voornaam "><br>
                       <label for="last_name" >Achternaam</label>

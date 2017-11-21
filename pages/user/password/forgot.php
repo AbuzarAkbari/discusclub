@@ -59,16 +59,15 @@
                             $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
 
                             // TODO:: add mailing thingy, add this link and username
-                            $message =  $_SERVER['HTTP_REFERER']."user/password/change?token=$token&id=".$dbc->lastInsertId();
-
+                            $url = $_SERVER['HTTP_REFERER']."user/password/change?token=$token&id=".$dbc->lastInsertId();
+                            $message = require_once("wachtwoord-vergeten.php");
                             $headers =  'From: webmaster@example.com' . "\r\n" .
+                                        'Content-Type: text/html; charset=utf-8'. "\r\n" .
                                         'X-Mailer: PHP/' . phpversion();
 
                             mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
-
                         }
                     }
-
                     ?>
 
               </div>
