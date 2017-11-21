@@ -72,6 +72,17 @@ $offset = $page * $perPage - $perPage;
                     <li class="active"><?php echo $results2[0]['name']; ?></li>
                 <?php endif; ?>
             </ol>
+            <div class="panel panel-primary">
+                <div class="panel-heading border-colors">
+                    <h3 class="panel-title">Zoek op topics</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="get" action="/forum/topic_search">
+                        <input type="text" class="form-control" name="q" placeholder='Zoek op topics..' maxlength="155" required ><br>
+                        <button type="submit" class="form-control btn btn-primary">Zoek op topics</button>
+                    </form>
+                </div>
+            </div>
             <div class="panel panel-primary ">
                 <?php foreach ($results2 as $subRow) : ?>
                 <div class="panel-heading border-colors"><?php echo $subRow['name']; ?></div>
