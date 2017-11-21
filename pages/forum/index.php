@@ -16,20 +16,25 @@
         $query->execute([":category_id" => $_POST['cat_id'], ":name" => htmlentities($_POST["new_sub_category"])]);
     }
 
+    //Categorieen
     $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
     $categorieenResult = $dbc->prepare($categorieenSql);
     $categorieenResult->execute();
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
-
     if(!empty($_POST['role'])) {
-        foreach($_POST['role'] as $role){
-//            $wijzigpermissieSQL = "UPDATE category_permission SET category_id = :id AND role_id = :role_id";
-//            $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
-//            $wijzigpermissieResult->execute([':id' => $_GET['id'], ':role_id' => $role]);
-//            $resultpermissie = $wijzigpermissieResult->fetchAll(PDO::FETCH_ASSOC);
-                echo $role;
+
+        $wijzigpermissieSQL = "DELETE FROM category_permission WHERE category_id = :id";
+        $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+        $wijzigpermissieResult->execute([':id' => $_GET['id']]);
+        $bindings = [':id' => $_GET['id']];
+        $wijzigpermissieSQL = "INSERT INTO category_permission (category_id, role_id) VALUES";
+        foreach ($_POST['role'] as $key => $role) {
+            $wijzigpermissieSQL .= "(:id, :role_$key)";
+            $bindings[":role_$key"] = $role;
         }
+        $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+        $wijzigpermissieResult->execute($bindings);
     }
 ?>
 
@@ -109,7 +114,6 @@
                             <button type="button" data-id="<?php echo $id ;?>" class="btn btn-primary btn-lg change-button">
                               <i class="buttonDelete glyphicon glyphicon-pencil"></i>
                             </button>
-
 
                             <a title="Verwijder" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-remove-sign"></i></a>
                         </td>

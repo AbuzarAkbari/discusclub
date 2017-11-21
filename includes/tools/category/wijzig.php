@@ -5,6 +5,14 @@
  $query = $dbc->prepare($sql);
  $query->execute([":id" => $_GET['id']]);
  $categorie = $query->fetch(PDO::FETCH_ASSOC);
+
+ //Permissions
+ $getPermissionsSql = "SELECT *, role.id as role_id, cp.role_id as perm_role_id FROM category_permission as cp FULL JOIN role ON role.id = cp.role_id WHERE category_id = :id";
+ $getPermissionsResult = $dbc->prepare($getPermissionsSql);
+ $getPermissionsResult->execute([":id" => $_GET['id']]);
+ $getPermissionsResult = $getPermissionsResult->fetchAll(PDO::FETCH_ASSOC);
+
+
  ?>
 
  <div class="modal-content">
@@ -13,11 +21,15 @@
     <h4 class="modal-title" id="myModalLabel">Wijzig permissie van: <?php echo $categorie['name']?></h4>
   </div>
   <div class="modal-body">
+    <?php
+    echo "<pre>";
+    var_dump($getPermissionsResult);
+    echo "</pre>";
+    ?>
     <form method="POST" action="/forum/index.php">
-	    <label for="gebruiker">Gebruiker</label> <input name="role[]" value="gebruiker" id="gebruiker" type="checkbox"> 
-    	<label for="lid">Lid</label><input name="role[]" value="lid" id="lid" type="checkbox"> 
-    	<label for="redacteur">Redacteur</label><input name="role[]" value="redacteur" id="redacteur" type="checkbox"> 
-    	<label for="admin">Admin</label><input name="role[]" value="admin" id="admin" type="checkbox"> 
+        <?php foreach($getPermissionsResult as $perm) : ?>
+	    <label for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label> <input name="role[]" value="<?php echo $perm["role_id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo isset($perm["perm_role_id"]) ? "checked=\"checked\"" : null ?> type="checkbox">
+        <?php endforeach; ?>
     	<input class="pull-right" type="submit" name="bevestig" value="Bevestig">
     </form>
   </div>
