@@ -132,7 +132,9 @@
                                     <?php endif ;?>
                                 </div>
                             </div>
-                        </div>
+                    <?php require_once('../../includes/components/advertentie.php'); ?>
+
+                </div>
 
                         <div class="col-md-12">
                             <div class="panel panel-primary">
