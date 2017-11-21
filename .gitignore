@@ -7,3 +7,13 @@ overzetten/node_modules/
 overzetten/dhc.json
 includes/tools/keys.php
 db/export.sql
+images/album/
+images/ad/
+images/aquarium/
+images/bestuur/
+images/messenger/
+images/messenger_background/
+images/page/
+images/profile/
+images/sponsor/
+images/upload/
