@@ -7,7 +7,7 @@
  $categorie = $query->fetch(PDO::FETCH_ASSOC);
 
  //Permissions
- $getPermissionsSql = "SELECT *, role.id as role_id, cp.role_id as perm_role_id FROM category_permission as cp LEFT JOIN role ON role.id = cp.role_id WHERE category_id = :id";
+ $getPermissionsSql = "SELECT *, role.id as role_id, cp.role_id as perm_role_id FROM category_permission as cp FULL JOIN role ON role.id = cp.role_id WHERE category_id = :id";
  $getPermissionsResult = $dbc->prepare($getPermissionsSql);
  $getPermissionsResult->execute([":id" => $_GET['id']]);
  $getPermissionsResult = $getPermissionsResult->fetchAll(PDO::FETCH_ASSOC);
