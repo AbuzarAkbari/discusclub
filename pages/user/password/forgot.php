@@ -59,7 +59,7 @@
                             $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
 
                             // TODO:: add mailing thingy, add this link and username
-                            $url = $_SERVER['HTTP_REFERER']."user/password/change?token=$token&id=".$dbc->lastInsertId();
+                            $url = discus.ricardokamerman.com."user/password/change?token=$token&id=".$dbc->lastInsertId();
 
                             ob_start();
                             require_once("wachtwoord-vergeten.php");
