@@ -10,7 +10,7 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
 } else {
     $user_data = $_SESSION["user"];
 }
- var_dump($_SERVER)
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +82,6 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                         <label for="file">Profielfoto aanpassen</label><input id="file" class="form-control form-control-file" accept=".gif,.jpg,.jpeg,.png" type="file" name="profiel" placeholder="Selecteer bestand"><br>
                         <label for="berichten">Berichten achtergrond aanpassen</label><input id="berichten" class="form-control" accept=".gif,.jpg,.jpeg,.png" type="file" name="background" placeholder="Selecteer bestand"><br>
                         <label for="signature">Handtekening</label><input id="signature" class="form-control" type="text" name="signature" value="<?php echo isset($user_data->signature) ? $user_data->signature : ''; ?>" placeholder="Handtekening (max. 35 tekens)" maxlength="35"><br>
-                        <label for="city">Locatie</label><input id="city" class="form-control" type="text" name="city" value="<?php echo isset($user_data->city) ? $user_data->city : ''; ?>" placeholder="Locatie (max. 35 tekens)" maxlength="35"><br>
 
                         <?php if(isset($user_data->address)) : ?>
                         <label for="address">Adres</label>
