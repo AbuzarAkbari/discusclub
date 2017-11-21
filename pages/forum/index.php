@@ -30,8 +30,8 @@
         $bindings = [':id' => $_GET['id']];
         $wijzigpermissieSQL = "INSERT INTO category_permission (category_id, role_id) VALUES";
         foreach ($_POST['role'] as $key => $role) {
-            $wijzigpermissieSQL .= "(:id, ?)";
-            $bindings[$key] = $role;
+            $wijzigpermissieSQL .= "(:id, :role_$key)";
+            $bindings[":role_$key"] = $role;
         }
         $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
         $wijzigpermissieResult->execute($bindings);
@@ -114,7 +114,6 @@
                             <button type="button" data-id="<?php echo $id ;?>" class="btn btn-primary btn-lg change-button">
                               <i class="buttonDelete glyphicon glyphicon-pencil"></i>
                             </button>
-
 
                             <a title="Verwijder" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-remove-sign"></i></a>
                         </td>
