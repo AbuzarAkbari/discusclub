@@ -13,7 +13,7 @@
 		<meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>*|MC:SUBJECT|*</title>
+		<title>Wachtwoord vergeten | DiscusClubHolland</title>
 
     <style type="text/css">
 		p{
@@ -610,7 +610,7 @@
 
 <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:13px"><font color="#000000">Klik op de onderstaande URL om een nieuw wachtwoord te maken.</font><br>
 <br>
-<a href="http://Hier komt de link!!!" target="_blank"><span style="color:#0000FF"><?php echo $url; ?></span></a></span></span></div>
+<a href="<?php echo $url; ?>" target="_blank"><span style="color:#0000FF"><?php echo $url; ?></span></a></span></span></div>
 
                         </td>
                     </tr>
