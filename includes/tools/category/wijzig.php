@@ -19,6 +19,11 @@
     <h4 class="modal-title" id="myModalLabel">Wijzig permissie van: <?php echo $categorie['name']?></h4>
   </div>
   <div class="modal-body">
+    <?php
+    echo "<pre>";
+    var_dump($getPermissionsResult);
+    echo "</pre>";
+    ?>
     <form method="POST" action="/forum/index.php">
         <?php foreach($getPermissionsResult as $perm) : ?>
 	    <label for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label> <input name="role[]" value="<?php echo $perm["role_id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo isset($perm["perm_role_id"]) ? "checked=\"checked\"" : null ?> type="checkbox">
