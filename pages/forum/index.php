@@ -26,13 +26,16 @@
 
         $wijzigpermissieSQL = "DELETE FROM category_permission WHERE category_id = :id";
         $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
-        $wijzigpermissieResult->execute([':id' => $_GET['id']]);
-        $bindings = [':id' => $_GET['id']];
-        $wijzigpermissieSQL = "INSERT INTO category_permission (category_id, role_id) VALUES";
+        $wijzigpermissieResult->execute([':id' => $_POST['id']]);
+        $bindings = [':id' => $_POST['id']];
+        $wijzigpermissieSQL = "INSERT INTO category_permission (category_id, role_id) VALUES ";
+        $wijzigpermissieSQLS = [];
         foreach ($_POST['role'] as $key => $role) {
-            $wijzigpermissieSQL .= "(:id, :role_$key)";
+            $wijzigpermissieSQLS[] .= "(:id, :role_$key)";
             $bindings[":role_$key"] = $role;
         }
+        $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
+        var_dump($bindings, $wijzigpermissieSQL);
         $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
         $wijzigpermissieResult->execute($bindings);
     }

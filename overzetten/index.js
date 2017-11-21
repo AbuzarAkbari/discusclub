@@ -180,5 +180,6 @@ dhc
   //                                            [newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
   //   return Promise.all(queries)
   // })
+  .then(res => dhc.query("SELECT * FROM galleries"))
   .then(res => console.log("finished"))
   .catch(e => console.log(e))
