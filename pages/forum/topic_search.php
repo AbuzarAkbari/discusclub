@@ -74,7 +74,7 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
 
                 <?php foreach ($results as $key => $value) : ?>
                 <?php
-                  $sth = $dbc->prepare("SELECT count(*) as amount FROM topic WHERE topic_id = :id");
+                  $sth = $dbc->prepare("SELECT count(*) as amount FROM topic WHERE id = :id");
                   $sth->execute([":id" => $value->id]);
                   $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
                 ?>
