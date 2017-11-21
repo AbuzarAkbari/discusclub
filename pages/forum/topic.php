@@ -2,22 +2,10 @@
 $levels = ["gebruiker", "lid"];
 require_once("../../includes/tools/security.php");
 
-$categorieenSql = "SELECT * FROM category";
-$categorieenResult = $dbc->prepare($categorieenSql);
-$categorieenResult->execute();
-$results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
-
 //Pagination variables
 $page = intval(isset($_GET['pagina']) ? $_GET['pagina'] : 1);
 $perPage = 10;
 $offset = $page * $perPage - $perPage;
-
-//Select query for sub_category, topics, users, replies and roles
-$sql = "SELECT *, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id
-AS sub_category_id, sub_category.name AS sub_category_name FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN user ON topic.user_id = user.id LEFT JOIN image ON user.profile_img = image.id LEFT JOIN role ON user.role_id = role.id WHERE topic.id = :id ORDER BY topic.last_changed";
-$result = $dbc->prepare($sql);
-$result->execute([":id" => $_GET["id"]]);
-$rows = $result->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -65,9 +53,9 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
                                 $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
                             }
 
-                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
+                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN topic_permission AS tp ON tp.topic_id = topic.id JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL AND tp.role_id = :role_id ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
                             $result = $dbc->prepare($sql);
-                            $result->execute([":id" => $_GET["id"]]);
+                            $result->execute([":id" => $_GET["id"], ":role_id" => $_SESSION['user']->role_id]);
                             $results3 = array_merge($results3, $result->fetchAll(PDO::FETCH_ASSOC));
                         }
                     ?>
@@ -84,6 +72,17 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
                     <li class="active"><?php echo $results2[0]['name']; ?></li>
                 <?php endif; ?>
             </ol>
+            <div class="panel panel-primary">
+                <div class="panel-heading border-colors">
+                    <h3 class="panel-title">Zoek op topics</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="get" action="/forum/topic_search">
+                        <input type="text" class="form-control" name="q" placeholder='Zoek op topics..' maxlength="155" required ><br>
+                        <button type="submit" class="form-control btn btn-primary">Zoek op topics</button>
+                    </form>
+                </div>
+            </div>
             <div class="panel panel-primary ">
                 <?php foreach ($results2 as $subRow) : ?>
                 <div class="panel-heading border-colors"><?php echo $subRow['name']; ?></div>

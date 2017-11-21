@@ -17,22 +17,24 @@
     }
 
     //Categorieen
-    $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
+    $categorieenSql = "SELECT * FROM category JOIN category_permission AS cp ON cp.category_id = category.id WHERE deleted_at IS NULL AND cp.role_id = :role_id";
     $categorieenResult = $dbc->prepare($categorieenSql);
-    $categorieenResult->execute();
+    $categorieenResult->execute([":role_id" => $_SESSION['user']->role_id]);
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
     if(!empty($_POST['role'])) {
 
         $wijzigpermissieSQL = "DELETE FROM category_permission WHERE category_id = :id";
         $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
-        $wijzigpermissieResult->execute([':id' => $_GET['id']]);
-        $bindings = [':id' => $_GET['id']];
-        $wijzigpermissieSQL = "INSERT INTO category_permission (category_id, role_id) VALUES";
+        $wijzigpermissieResult->execute([':id' => $_POST['id']]);
+        $bindings = [':id' => $_POST['id']];
+        $wijzigpermissieSQL = "INSERT INTO category_permission (category_id, role_id) VALUES ";
+        $wijzigpermissieSQLS = [];
         foreach ($_POST['role'] as $key => $role) {
-            $wijzigpermissieSQL .= "(:id, :role_$key)";
+            $wijzigpermissieSQLS[] .= "(:id, :role_$key)";
             $bindings[":role_$key"] = $role;
         }
+        $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
         $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
         $wijzigpermissieResult->execute($bindings);
     }
@@ -94,10 +96,9 @@
         <?php foreach ($results as $categorie) : ?>
             <?php
                 $id = $categorie['id'];
-                $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ? AND deleted_at IS NULL";
+                $subCategorieenSql = "SELECT * FROM sub_category JOIN sub_category_permission as scp ON scp.sub_category_id = sub_category.id WHERE category_id = :topic_id AND deleted_at IS NULL AND scp.role_id = :role_id";
                 $subCategorieenResult = $dbc->prepare($subCategorieenSql);
-                $subCategorieenResult->bindParam(1, $id);
-                $subCategorieenResult->execute();
+                $subCategorieenResult->execute(["role_id" => $_SESSION["user"]->role_id, ":topic_id" => $id]);
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
@@ -235,7 +236,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-   
+
   </div>
 </div>
 

@@ -1,34 +1,36 @@
  <?php
  require_once("../../tools/security.php");
 
- $sql = 'SELECT * FROM category WHERE id = :id';
+ $sql = 'SELECT *, category.name, role.name AS role_name FROM category LEFT JOIN category_permission AS cp ON cp.category_id = category.id LEFT JOIN role ON role.id = cp.role_id WHERE category.id = :id';
  $query = $dbc->prepare($sql);
  $query->execute([":id" => $_GET['id']]);
- $categorie = $query->fetch(PDO::FETCH_ASSOC);
+ $categorie = $query->fetchAll(PDO::FETCH_ASSOC);
 
- //Permissions
- $getPermissionsSql = "SELECT *, role.id as role_id, cp.role_id as perm_role_id FROM category_permission as cp FULL JOIN role ON role.id = cp.role_id WHERE category_id = :id";
- $getPermissionsResult = $dbc->prepare($getPermissionsSql);
- $getPermissionsResult->execute([":id" => $_GET['id']]);
- $getPermissionsResult = $getPermissionsResult->fetchAll(PDO::FETCH_ASSOC);
-
-
+ $sth = $dbc->prepare("SELECT * FROM role");
+ $sth->execute();
+ $res = $sth->fetchAll(PDO::FETCH_ASSOC);
  ?>
 
  <div class="modal-content">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title" id="myModalLabel">Wijzig permissie van: <?php echo $categorie['name']?></h4>
+    <h4 class="modal-title" id="myModalLabel">Wijzig permissie van: <?php echo isset($categorie[0]) ? $categorie[0]['name'] : "niet gevonden"; ?></h4>
   </div>
   <div class="modal-body">
-    <?php
-    echo "<pre>";
-    var_dump($getPermissionsResult);
-    echo "</pre>";
-    ?>
     <form method="POST" action="/forum/index.php">
-        <?php foreach($getPermissionsResult as $perm) : ?>
-	    <label for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label> <input name="role[]" value="<?php echo $perm["role_id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo isset($perm["perm_role_id"]) ? "checked=\"checked\"" : null ?> type="checkbox">
+        <?php foreach($res as $perm) : ?>
+        <?php
+        $in = array_filter($categorie, function($x) use($perm) {
+          return $x["role_id"] == $perm["id"];
+        });
+        if(sizeof($in) > 0) {
+          $in = true;
+        } else {
+          $in = false;
+        }
+        ?>
+	        <label for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label> <input name="role[]" value="<?php echo $perm["id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox">
+          <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
         <?php endforeach; ?>
     	<input class="pull-right" type="submit" name="bevestig" value="Bevestig">
     </form>
