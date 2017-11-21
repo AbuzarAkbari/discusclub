@@ -29,10 +29,10 @@
           $in = false;
         }
         ?>
-	        <label for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label> <input name="role[]" value="<?php echo $perm["id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox">
+	        <label class="form-check-label" for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label> <input class="form-check-input" name="role[]" value="<?php echo $perm["id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox"><br>
           <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
         <?php endforeach; ?>
-    	<input class="pull-right" type="submit" name="bevestig" value="Bevestig">
+    	<input class="pull-right btn btn-primary" type="submit" name="bevestig" value="Bevestig">
     </form>
   </div>
 </div>
