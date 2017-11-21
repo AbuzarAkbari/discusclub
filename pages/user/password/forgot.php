@@ -46,10 +46,13 @@
                       <p>Houd in gedachten dat deze functionaliteit altijd zegt dat u uw e-mail moet nakijken. Het geeft geen enkele indicatie of het e-mail adres goed of fout is.</p>
 
                   </form>
+                    <?php if (isset($_POST["send"])) {
+                    echo "<div class='message gelukt'>Mail is verstuurt </div>}"
+                    ?>
 
                     <?php
                     if (isset($_POST["send"])) {
-                        $sth = $dbc->prepare("SELECT id, email, first_name, last_name, username FROM user WHERE email = :email");
+                        $sth = $dbc->prepare("SELECT id, email,usernanme,first_name,last_name FROM user WHERE email = :email");
                         $sth->execute([":email" => $_POST["email"]]);
                         $res = $sth->fetch(PDO::FETCH_OBJ);
 
@@ -72,10 +75,7 @@
                                         'X-Mailer: PHP/' . phpversion();
 
                             mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
-
                         }
-                        echo "<div class='message gelukt'>Mail is verstuurt </div>";
-
                     }
                     ?>
 
