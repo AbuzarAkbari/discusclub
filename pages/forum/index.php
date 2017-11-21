@@ -17,9 +17,9 @@
     }
 
     //Categorieen
-    $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
+    $categorieenSql = "SELECT * FROM category JOIN category_permission AS cp ON cp.category_id = category.id WHERE deleted_at IS NULL AND cp.role_id = :role_id";
     $categorieenResult = $dbc->prepare($categorieenSql);
-    $categorieenResult->execute();
+    $categorieenResult->execute([":role_id" => $_SESSION['user']->role_id]);
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
     if(!empty($_POST['role'])) {
@@ -94,9 +94,10 @@
         <?php foreach ($results as $categorie) : ?>
             <?php
                 $id = $categorie['id'];
-                $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ? AND deleted_at IS NULL";
+                $subCategorieenSql = "SELECT * FROM sub_category JOIN sub_category_permission as scp ON scp.sub_category_id = sub_category.id WHERE category_id = ? AND deleted_at IS NULL AND scp.role_id = :role_id";
                 $subCategorieenResult = $dbc->prepare($subCategorieenSql);
                 $subCategorieenResult->bindParam(1, $id);
+                $subCategorieenResult->bindParam(":role_id", $_SESSION["user"]->role_id);
                 $subCategorieenResult->execute();
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>

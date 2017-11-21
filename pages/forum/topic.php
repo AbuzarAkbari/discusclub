@@ -65,9 +65,9 @@ $rows = $result->fetch(PDO::FETCH_ASSOC);
                                 $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
                             }
 
-                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
+                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN topic_permission AS tp ON tp.topic_id AS topic.id JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL AND tp.role_id = :role_id ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
                             $result = $dbc->prepare($sql);
-                            $result->execute([":id" => $_GET["id"]]);
+                            $result->execute([":id" => $_GET["id"], ":role_id" => $_SESSION['user']->role_id]);
                             $results3 = array_merge($results3, $result->fetchAll(PDO::FETCH_ASSOC));
                         }
                     ?>

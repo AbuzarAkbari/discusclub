@@ -28,7 +28,7 @@
           <br><br>
 
             <?php
-
+            $error = false;
           if (isset($_POST["send"])) {
               $sth = $dbc->prepare("SELECT email, username FROM user WHERE email = :email OR username = :username");
 
@@ -53,6 +53,7 @@
                       <div class="message gelukt">Het account is aangemaakt, <a href="/user/login">login.</a></div>
                       <?php
                   } else {
+                      $error = true;
                       if ($res->email === $_POST["email"]) {
                           ?>
                           <div class="message error">Email is al in gebruik. <a href="/user/password/forgot">Wijzig wachtwoord.</a></div>
@@ -65,15 +66,30 @@
                   }
               }
 
-              ?>
-              <?php
-              // starting the session
-              if (isset($_POST['send'])) {
-                  $_SESSION['first_name'] = $_POST['first_name'];
-                  $_SESSION['last_name'] = $_POST['last_name'];
-                  $_SESSION['username'] = $_POST['username'];
-                  $_SESSION['email'] = $_POST['email'];
-              }
+            ?>
+            <?php
+                $firstName = $lastName = $userName = $email =  "";
+                if (isset($_POST["send"]) && $error) {
+                    $firstName = input($_POST["first_name"]);
+                    $lastName = input($_POST["last_name"]);
+                    $userName = input($_POST["username"]);
+                    $email = input($_POST["email"]);
+                };
+                function input($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    return $data;
+                }
+              // if (isset($_POST['send'])) {
+              //     $_SESSION['first_name'] = $_POST['first_name'];
+              //     $_SESSION['last_name'] = $_POST['last_name'];
+              //     $_SESSION['username'] = $_POST['username'];
+              //     $_SESSION['email'] = $_POST['email'];
+              // }
+              //
+              // $_SESSION['post'] = $_POST;
+              //
+
               ?>
           <div class="panel panel-primary">
               <div class="panel-heading panel-heading1">
@@ -81,24 +97,25 @@
                 <div class="panel-body">
                   <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post" autocomplete="false" >
                       <label for="first_name" >Voornaam</label>
-                      <input class="form-control" required type="text" name="first_name" id="first_name" value="<?php $_SESSION['first_name'] ?>" placeholder="Voornaam "><br>
+                      <input class="form-control" required type="text" name="first_name" id="first_name" value="<?php echo $firstName; ?>" placeholder="Voornaam "><br>
                       <label for="last_name" >Achternaam</label>
-                      <input class="form-control" required type="text" name="last_name" id="last_name" value="<?php $_SESSION['last_name'] ?>" placeholder="Achternaam "><br>
+                      <input class="form-control" required type="text" name="last_name" id="last_name" value="<?php echo $lastName; ?>" placeholder="Achternaam "><br>
                       <label for="username" >Gebruikersnaam</label>
-                      <input class="form-control" required type="text" name="username" id="username" value="<?php $_SESSION['username'] ?>" placeholder="Gebruikersnaam "><br>
+                      <input class="form-control" required type="text" name="username" id="username" value="<?php echo $userName; ?>" placeholder="Gebruikersnaam "><br>
                       <label for="datepicker">Geboortedatum</label>
                       <input autocomplete="off" class="form-control" id="datepicker" value="" size="30" type="datetime" name="birthdate" placeholder="Geboortedatum" autocomplete="off"><br>
                       <label for="password" >Wachtwoord</label>
-                      <input class="form-control" required type="password" name="password" id="password" value="<?php $_SESSION['password'] ?>" placeholder="Wachtwoord"><br>
+                      <input class="form-control" required type="password" name="password" id="password" value="" placeholder="Wachtwoord"><br>
                       <label for="repeat_password" >Herhaal wachtwoord</label>
-                      <input class="form-control" required type="password" name="repeat_password" id="repeat_password" value="<?php $_SESSION['repeat_password'] ?>" placeholder="Herhaal wachtwoord"><br>
+                      <input class="form-control" required type="password" name="repeat_password" id="repeat_password" value="" placeholder="Herhaal wachtwoord"><br>
                       <label for="email" >E-mailadres</label>
-                      <input class="form-control" required type="email" name="email" id="email" value="<?php $_SESSION['email'] ?>" placeholder="E-mailadres"><br>
+                      <input class="form-control" required type="email" name="email" id="email" value="<?php echo $email;?>" placeholder="E-mailadres"><br>
                       <input type="checkbox" name="news" id="news"><label for="news"> Ik wil de DCH nieuwsbrief ontvangen </label> <br><br>
                       Als u registreert gaat u akkoord met onze <a href="/gebruiksvoorwaarden">gebruiksvoorwaarden</a>.<br><br>
 
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
                   </form>
+
               </div>
           </div>
         </div>

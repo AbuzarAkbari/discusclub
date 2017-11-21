@@ -59,10 +59,9 @@ require_once("../../includes/components/nav.php");
     <div class="row">
         <div class="col-md-12">
             <?php
-            $sql = "SELECT * FROM news WHERE id = ?";
+            $sql = "SELECT * FROM news JOIN news_permission AS np ON np.news_id = news.id WHERE id = :id AND np.role_id = :role_id";
             $result = $dbc->prepare($sql);
-            $result->bindParam(1, $_GET['id']);
-            $result->execute();
+            $result->execute([":id" => $_GET['id'], ":role_id" => $_SESSION['user']->role_id]);
             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
             if($rows){
