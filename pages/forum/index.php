@@ -16,20 +16,29 @@
         $query->execute([":category_id" => $_POST['cat_id'], ":name" => htmlentities($_POST["new_sub_category"])]);
     }
 
+    //Categorieen
     $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
     $categorieenResult = $dbc->prepare($categorieenSql);
     $categorieenResult->execute();
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
+    if(in_array('lid', $_POST['role'])) {
+
+    }
 
     if(!empty($_POST['role'])) {
-        foreach($_POST['role'] as $role){
-//            $wijzigpermissieSQL = "UPDATE category_permission SET category_id = :id AND role_id = :role_id";
-//            $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
-//            $wijzigpermissieResult->execute([':id' => $_GET['id'], ':role_id' => $role]);
-//            $resultpermissie = $wijzigpermissieResult->fetchAll(PDO::FETCH_ASSOC);
-                echo $role;
+
+        $wijzigpermissieSQL = "DELETE FROM category_permission WHERE category_id = :id";
+        $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+        $wijzigpermissieResult->execute([':id' => $_GET['id']]);
+        $bindings = [':id' => $_GET['id']];
+        $wijzigpermissieSQL = "INSERT INTO category_permission (category_id, role_id) VALUES";
+        foreach ($_POST['role'] as $key => $role) {
+            $wijzigpermissieSQL .= "(:id, ?)";
+            $bindings[$key] = $role;
         }
+        $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+        $wijzigpermissieResult->execute($bindings);
     }
 ?>
 
