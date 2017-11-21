@@ -6,6 +6,7 @@
     $aquarium = $aquariumResult->fetch();
 
     setlocale(LC_ALL,'nl_NL.UTF-8', 'Dutch_Netherlands', 'Netherlands');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
