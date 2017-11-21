@@ -60,7 +60,11 @@
 
                             // TODO:: add mailing thingy, add this link and username
                             $url = $_SERVER['HTTP_REFERER']."user/password/change?token=$token&id=".$dbc->lastInsertId();
-                            $message = require_once("wachtwoord-vergeten.php");
+
+                            ob_start();
+                            require_once("wachtwoord-vergeten.php");
+                            $message = ob_get_clean();
+
                             $headers =  'From: webmaster@example.com' . "\r\n" .
                                         'Content-Type: text/html; charset=utf-8'. "\r\n" .
                                         'X-Mailer: PHP/' . phpversion();
