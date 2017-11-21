@@ -36,7 +36,7 @@
 
               if (empty($res)) {
                   $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email, created_at,birthdate, news) VALUES
-                  (:first_name, :last_name, :username, :password, :email, NOW(),:birthdate, :news, )");
+                  (:first_name, :last_name, :username, :password, :email, NOW(),:birthdate, :news )");
 
                   $sth->execute([
                       ":first_name" => $_POST["first_name"],
@@ -44,7 +44,7 @@
                       ":username" => $_POST["username"],
                       ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT),
                       ":email" => $_POST["email"],
-                      ":birthdate" => $_POST["birthdate"],
+                      ":birthdate" => date('Y-m-d', strtotime($_POST["birthdate"])),
                       ":news" => isset($_POST["news"]) && $_POST["news"] === "on" ? 1 : 0]);
                       require("../../includes/tools/mailer.php");
                       ?>
@@ -75,7 +75,8 @@
                       <input class="form-control" required type="text" name="last_name" id="last_name" value="" placeholder="Achternaam "><br>
                       <label for="username" >Gebruikersnaam</label>
                       <input class="form-control" required type="text" name="username" id="username" value="" placeholder="Gebruikersnaam "><br>
-                      <label for="datepicker">Geboortedatum</label><input autocomplete="<?php echo date("d-m-Y");  ?>" class="form-control" id="datepicker" value="" size="30" type="datetime" name="birthdate" placeholder="Geboortedatum" autocomplete="off"><br>
+                      <label for="datepicker">Geboortedatum</label>
+                      <input autocomplete="off" class="form-control" id="datepicker" value="" size="30" type="datetime" name="birthdate" placeholder="Geboortedatum" autocomplete="off"><br>
                       <label for="password" >Wachtwoord</label>
                       <input class="form-control" required type="password" name="password" id="password" value="" placeholder="Wachtwoord"><br>
                       <label for="repeat_password" >Herhaal wachtwoord</label>

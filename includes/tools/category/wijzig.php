@@ -14,10 +14,10 @@
   </div>
   <div class="modal-body">
     <form method="POST" action="/forum/index.php">
-	    <label for="gebruiker">Gebruiker</label> <input name="gebruiker" id="gebruiker" type="checkbox"> 
-    	<label for="lid">Lid</label><input name="lid" id="lid" type="checkbox"> 
-    	<label for="redacteur">Redacteur</label><input name="redacteur" id="redacteur" type="checkbox"> 
-    	<label for="admin">Admin</label><input name="admin" id="admin" type="checkbox"> 
+	    <label for="gebruiker">Gebruiker</label> <input name="role[]" value="gebruiker" id="gebruiker" type="checkbox"> 
+    	<label for="lid">Lid</label><input name="role[]" value="lid" id="lid" type="checkbox"> 
+    	<label for="redacteur">Redacteur</label><input name="role[]" value="redacteur" id="redacteur" type="checkbox"> 
+    	<label for="admin">Admin</label><input name="role[]" value="admin" id="admin" type="checkbox"> 
     	<input class="pull-right" type="submit" name="bevestig" value="Bevestig">
     </form>
   </div>
