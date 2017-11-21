@@ -31,8 +31,8 @@
             $error = false;
           if (isset($_POST["send"])) {
               $date = strtotime($_POST["birthdate"]);
-              if ($date === false) {
-                  echo "<div class='message error'>Email is al in gebruik.</div>";
+              if (!$date) {
+                  echo "<div class='message error'>Geboortedatum is geen datum of verkeerd opgegeven.</div>";
               }
               else{
               $sth = $dbc->prepare("SELECT email, username FROM user WHERE email = :email OR username = :username");
@@ -51,7 +51,7 @@
                       ":username" => $_POST["username"],
                       ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT),
                       ":email" => $_POST["email"],
-                      ":birthdate" => date('d-m-y', strtotime($_POST["birthdate"])),
+                      ":birthdate" => date('Y-m-d', strtotime($_POST["birthdate"])),
                       ":news" => isset($_POST["news"]) && $_POST["news"] === "on" ? 1 : 0]);
                       require("../../includes/tools/mailer.php");
                       ?>
