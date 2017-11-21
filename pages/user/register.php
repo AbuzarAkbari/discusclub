@@ -125,6 +125,7 @@
     </footer>
     <!-- bootstrap script -->
     <?php require_once("../../includes/components/datepicker.php"); ?>
+    <script src="/js/password.js"></script>
 </body>
 
 </html>

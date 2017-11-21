@@ -94,11 +94,9 @@
         <?php foreach ($results as $categorie) : ?>
             <?php
                 $id = $categorie['id'];
-                $subCategorieenSql = "SELECT * FROM sub_category JOIN sub_category_permission as scp ON scp.sub_category_id = sub_category.id WHERE category_id = ? AND deleted_at IS NULL AND scp.role_id = :role_id";
+                $subCategorieenSql = "SELECT * FROM sub_category JOIN sub_category_permission as scp ON scp.sub_category_id = sub_category.id WHERE category_id = :topic_id AND deleted_at IS NULL AND scp.role_id = :role_id";
                 $subCategorieenResult = $dbc->prepare($subCategorieenSql);
-                $subCategorieenResult->bindParam(1, $id);
-                $subCategorieenResult->bindParam(":role_id", $_SESSION["user"]->role_id);
-                $subCategorieenResult->execute();
+                $subCategorieenResult->execute(["role_id" => $_SESSION["user"]->role_id, ":topic_id" => $id]);
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
@@ -236,7 +234,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-   
+
   </div>
 </div>
 
