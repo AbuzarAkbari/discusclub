@@ -67,13 +67,13 @@ require_once("../../includes/tools/security.php"); ?>
                                     <div class="carousel-inner">
                                         <?php foreach ($album as $key => $image) : ?>
                                             <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <img src="/images<?php echo $image['path'] ?>" class="slider"    alt="fishing">
+                                                <img src="/images<?php echo $image['path'] ?>" class="slider"    alt="<?php echo $album[0]['title']; ?>">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
 
                                     <!-- Indicators -->
-                                
+
 
                                     <!-- Left and right controls -->
                                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
