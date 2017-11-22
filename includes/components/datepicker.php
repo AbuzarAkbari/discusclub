@@ -8,7 +8,8 @@
           changeYear: true,
           yearRange: "-90:+0",
           defaultDate: '01-01-1980',
-          dateFormat: 'dd-mm-yy'
+          dateFormat: 'dd-mm-yy',
+          maxDate: '0'
       });
   } );
   $( function() {

@@ -119,7 +119,7 @@
                       <label for="username" >Gebruikersnaam</label>
                       <input class="form-control" required type="text" name="username" id="username" value="<?php echo $userName; ?>" placeholder="Gebruikersnaam "><br>
                       <label for="datepicker">Geboortedatum</label>
-                      <input autocomplete="off" class="form-control" id="datepicker" value="" size="30" type="datetime" name="birthdate" placeholder="Geboortedatum" autocomplete="off"><br>
+                      <input readonly autocomplete="off" class="form-control" id="datepicker" value="" size="30" type="datetime" name="birthdate" placeholder="Geboortedatum" autocomplete="off"><br>
                       <label for="password" >Wachtwoord</label>
                       <input class="form-control" required type="password" name="password" id="password" value="" placeholder="Wachtwoord"><br>
                       <label for="repeat_password" >Herhaal wachtwoord</label>
