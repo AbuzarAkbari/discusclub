@@ -118,11 +118,11 @@ require_once("../../includes/tools/messenger_handler.php");
                 </form>
             </div>
             <?php
-            $sth = $dbc->prepare("SELECT *, mi.path AS message_image, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, u.id FROM user as u JOIN message as m ON m.user_id_1 = u.id JOIN image as i ON i.id = u.profile_img JOIN user as u2 ON m.user_id_2 = u2.id JOIN image as i2 ON i2.id = u2.profile_img LEFT JOIN image AS mi ON mi.id = m.image_id WHERE u.id IN (:user_1, :user_2) AND u2.id IN (:user_1, :user_2)");
+            $sth = $dbc->prepare("SELECT *, mi.path AS message_image, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, u.id FROM user as u JOIN message as m ON m.user_id_1 = u.id JOIN image as i ON i.id = u.profile_img JOIN user as u2 ON m.user_id_2 = u2.id JOIN image as i2 ON i2.id = u2.profile_img LEFT JOIN image AS mi ON mi.id = m.image_id WHERE u.id IN (:user_1, :user_2) AND u2.id IN (:user_1, :user_2) ORDER BY m.created_at");
             $sth->execute([":user_1" => $_SESSION["user"]->id, ":user_2" => $id]);
             $res = $sth->fetchAll(PDO::FETCH_OBJ);
             if(!$res) {
-                $sth = $dbc->prepare("SELECT *, i.path as user_1_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u.id FROM user as u JOIN image as i ON i.id = u.profile_img WHERE u.id IN (:user_1)");
+                $sth = $dbc->prepare("SELECT *, i.path as user_1_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u.id FROM user as u JOIN image as i ON i.id = u.profile_img WHERE u.id IN (:user_1) ORDER BY m.created_at");
                 $sth->execute([":user_1" => $id]);
                 $res = $sth->fetchAll(PDO::FETCH_OBJ);
             }
@@ -159,6 +159,13 @@ require_once("../../includes/tools/messenger_handler.php");
                         <span class="input-group-btn">
 
                             <div class="upload">
+                                <label for="file"></label>
+                                <input id="file" type="file" name="upload" />
+                            </div>
+                        </span>
+                        <span class="input-group-btn">
+
+                            <div class="upload-arrow">
                                 <label for="file"></label>
                                 <input id="file" type="file" name="upload" />
                             </div>
