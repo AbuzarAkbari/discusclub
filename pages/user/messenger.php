@@ -163,6 +163,13 @@ require_once("../../includes/tools/messenger_handler.php");
                                 <input id="file" type="file" name="upload" />
                             </div>
                         </span>
+                        <span class="input-group-btn">
+
+                            <div class="upload-arrow">
+                                <label for="file"></label>
+                                <input id="file" type="file" name="upload" />
+                            </div>
+                        </span>
                       </div>
                       <input type="hidden" name="user_id_2" value="<?php echo $id; ?>" />
                     </form>
