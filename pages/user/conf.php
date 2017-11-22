@@ -54,6 +54,14 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                 <?php if(isset($_GET['error'])): ?>
                     <div class="alert alert-danger" role="alert"><?php echo $_GET['error']; ?></div>
                 <?php endif; ?>
+                <?php if (isset($_POST["opslaan"])) {
+                    $date = strtotime($_POST["date"]);
+                    if (!$date) {
+                        echo "<div class='message error'>Geboortedatum is geen datum of verkeerd opgegeven.</div>";
+                    }
+                }
+                    ?>
+
                 <div class="panel-body">
                     <form enctype="multipart/form-data" action="/includes/tools/profielParse" method="post">
 
@@ -88,7 +96,7 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                         <input type="text" class="form-control" id="address" name="address" value="<?php echo $user_data->address; ?>"><br>
                         <?php endif; ?>
                         <?php if(isset($user_data->postal_code)) : ?>
-                        <label for="postal_code">Huisnummer</label>
+                        <label for="postal_code">Postcode</label>
                         <input type="number" class="form-control" id="postal_code" name="postal_code" value="<?php echo $user_data->postal_code; ?>"><br>
                         <?php endif; ?>
                         <?php if(isset($user_data->house_number)) : ?>

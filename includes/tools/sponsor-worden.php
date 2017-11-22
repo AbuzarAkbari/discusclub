@@ -17,6 +17,12 @@ if(isset($_POST['sponsorverzend'])) {
         $uploadOk = 1;
 		$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
+        // var_dump([
+        //     $sponsor_file["name"],
+        //     $_FILES
+        // ]);
+        // exit;
+
         // Check if image file is a actual image or fake image
         $check = getimagesize($sponsor_file["tmp_name"]);
         if ($check !== false) {
@@ -33,26 +39,25 @@ if(isset($_POST['sponsorverzend'])) {
         $ratio = 480 / 70;
 
         if (($width / $height) === $ratio){
-            $error = "Sorry, het bestand2 is te groot";
+            $error = "Sorry, het bestand is te groot";
             unlink($sponsor_file["tmp_name"]);
             $uploadOk = 0;
         }
 
         // Check if file already exists
         if (file_exists($target_file)) {
-            $error = "Sorry, het bestand3 bestaat al.";
+            $error = "Sorry, het bestand bestaat al.";
             $uploadOk = 0;
         }
 
         // Check file size
         if ($sponsor_file["size"] > 500000) {
-            $error = "Sorry, het bestand4 is te groot";
+            $error = "Sorry, het bestand is te groot";
             $uploadOk = 0;
         }
 
         // Allow certain file formats
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif" ) {
+        if (strpos('image/', $sponsor_file['type']) !== 0) {
            $error = "Sorry, alleen JPG, JPEG, PNG & GIF bestanden zijn toegestaan.";
             $uploadOk = 0;
         }
@@ -66,17 +71,6 @@ if(isset($_POST['sponsorverzend'])) {
         } else {
             $fragments = explode('.', $sponsor_file["name"]);
 			$path = "/sponsor/". (date("Y-m-d_H-i-s") . '.' . end($fragments));
-
-            $extensions = [
-                '.png',
-                '.jpg',
-                '.jpeg',
-                '.gif'
-            ];
-
-//            echo '<pre>';
-//            var_dump($sponsor_file);
-//            exit();
 
             if (move_uploaded_file($sponsor_file["tmp_name"], __DIR__ . '/../../images'.$path)) {
 
@@ -96,4 +90,4 @@ if(isset($_POST['sponsorverzend'])) {
 
 
 }
-header('Location: /sponsor/become');
+// header('Location: /sponsor/become');
