@@ -1,3 +1,0 @@
-To do :
-------------------------------------------------------------------
-bericht.php : geplaatst door ... (werkt pas als login klaar is)
