@@ -141,8 +141,8 @@
                                 <div class="panel-heading border-color-blue">Laatste reacties op nieuws</div>
                                 <div class="panel-body">
                                     <?php
-                                        $sth = $dbc->prepare("SELECT *, news_reply.created_at AS news_reply_created_at FROM news_reply JOIN news ON news_reply.news_id = news.id ORDER BY news_reply.created_at DESC LIMIT 5");
-                                        $sth->execute();
+                                        $sth = $dbc->prepare("SELECT *, news_reply.created_at AS news_reply_created_at FROM news_reply JOIN news ON news_reply.news_id = news.id JOIN news_permission AS np ON np.news_id = news.id WHERE np.role_id = :role_id ORDER BY news_reply.created_at DESC LIMIT 5");
+                                        $sth->execute([":role_id" => $_SESSION['user']->role_id]);
                                         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                                          if(!empty($res)) :
@@ -160,8 +160,8 @@
                                 <div class="panel-heading border-color-blue">Laatste reacties op topics</div>
                                 <div class="panel-body">
                                     <?php
-                                    $sth = $dbc->prepare("SELECT * FROM topic ORDER BY created_at DESC LIMIT 5");
-                                    $sth->execute();
+                                    $sth = $dbc->prepare("SELECT * FROM topic JOIN news_permission AS np ON np.news_id = news.id WHERE np.role_id = :role_id ORDER BY created_at DESC LIMIT 5");
+                                    $sth->execute([":role_id" => $_SESSION['user']->role_id]);
                                     $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                                     if(!empty($res)) :
