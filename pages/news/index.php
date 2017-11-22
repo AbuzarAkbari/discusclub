@@ -33,7 +33,6 @@ if (isset($_POST['post_add_topic'])) {
 
         if(!empty($_POST['role'])) {
 
-
             $wijzigpermissieSQL = "DELETE FROM news_permission WHERE news_id = :id";
             $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
             $wijzigpermissieResult->execute([':id' => $_POST['id']]);
@@ -316,3 +315,10 @@ if (isset($_POST['post_add_topic'])) {
     </script>
 </body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+
+    </div>
+</div>
