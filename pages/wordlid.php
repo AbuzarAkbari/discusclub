@@ -77,9 +77,9 @@
                     <form class="" action="/includes/tools/wordlidInsert.php" method="post">
                         <label for="adres">Adres *</label>
                         <div class="input-group">
-                            <input id="adres" type="text" name="adres" class="form-control" placeholder="Adres"/>
+                            <input required id="adres" type="text" name="adres" class="form-control" placeholder="Adres"/>
                             <span class="input-group-addon"></span>
-                            <input type="text" name="huisnummer" class="form-control" placeholder="Huisnummer"/>
+                            <input required type="text" name="huisnummer" class="form-control" placeholder="Huisnummer"/>
                         </div>
                         <br>
                         <label for="postcode">Postcode *</label>

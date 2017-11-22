@@ -1,5 +1,6 @@
 * {
-    font-family: 'open sans', sans-serif;
+    /*font-family: 'sans-serif', sans-serif;*/
+    font-family: 'Raleway', sans-serif;
 }
 
 /*navbar collapse*/
@@ -665,7 +666,7 @@ li.dropdown:hover > .dropdown-menu {
     display: block;
     color: #0ba8ec;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
     line-height: 32px;
     padding: 0 15px;
