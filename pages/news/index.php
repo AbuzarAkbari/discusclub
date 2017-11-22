@@ -30,24 +30,27 @@ if (isset($_POST['post_add_topic'])) {
         $newsPermissionSql = "INSERT INTO news_permission (news_id, role_id) SELECT :id, id FROM role";
         $newsPermissionQuery = $dbc->prepare($newsPermissionSql);
         $newsPermissionQuery->execute([":id" => $lastId]);
-
-        if(!empty($_POST['role'])) {
-
-            $wijzigpermissieSQL = "DELETE FROM news_permission WHERE news_id = :id";
-            $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
-            $wijzigpermissieResult->execute([':id' => $_POST['id']]);
-            $bindings = [':id' => $_POST['id']];
-            $wijzigpermissieSQL = "INSERT INTO news_permission (news_id, role_id) VALUES ";
-            $wijzigpermissieSQLS = [];
-            foreach ($_POST['role'] as $key => $role) {
-                $wijzigpermissieSQLS[] .= "(:id, :role_$key)";
-                $bindings[":role_$key"] = $role;
-            }
-            $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
-            $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
-            $wijzigpermissieResult->execute($bindings);
-        }
     }
+
+}
+if(!empty($_POST['role'])) {
+
+    $wijzigpermissieSQL = "DELETE FROM news_permission WHERE news_id = :id";
+    $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+    $wijzigpermissieResult->execute([':id' => $_POST['id']]);
+    $bindings = [':id' => $_POST['id']];
+    $wijzigpermissieSQL = "INSERT INTO news_permission (news_id, role_id) VALUES ";
+    $wijzigpermissieSQLS = [];
+    foreach ($_POST['role'] as $key => $role) {
+        $wijzigpermissieSQLS[] .= "(:id, :role_$key)";
+        $bindings[":role_$key"] = $role;
+    }
+    $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
+    echo "<pre>";
+    var_dump($wijzigpermissieSQL, $bindings);
+    exit;
+    $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+    $wijzigpermissieResult->execute($bindings);
 }
 
 ?>
@@ -181,14 +184,14 @@ if (isset($_POST['post_add_topic'])) {
                                     <td><?php echo $value->created_at; ?></td>
                                     <?php if($logged_in && in_array($current_level, $admin_levels)) : ?>
                                         <td>
-<!--                                        <a title="Verwijder" href="/includes/tools/news/del.php?id=--><?php //echo $value->id; ?><!--" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>-->
+                                        <a title="Verwijder" href="/includes/tools/news/del.php?id=<?php echo $value->id; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
 
                                             <!-- Button trigger modal -->
-                                            <button type="button" data-id="<?php echo $id;?>" class="btn btn-primary btn-lg change-button">
+                                            <button type="button" data-id="<?php echo $value->id;?>" class="btn btn-primary btn-lg change-button">
                                                 <i class="buttonDelete glyphicon glyphicon-pencil"></i>
                                             </button>
 
-                                            <a title="Wijzig permissie" href="/includes/tools/news/wijzig.php?id=<?php echo $value->id; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-pencil"></i></a>
+<!--                                            <a title="Wijzig permissie" href="/includes/tools/news/wijzig.php?id=--><?php //echo $value->id; ?><!--" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-pencil"></i></a>-->
                                         </td>
                                     <?php endif; ?>
                                 </tr>
