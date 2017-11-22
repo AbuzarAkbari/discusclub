@@ -103,7 +103,7 @@ function custom_echo($x, $length){
                                         Aantal foto's: <i><?php echo $aquarium['aantal_fotos']; ?></i><br>
                                         Datum: <i><?php echo $aquarium['created_at']; ?></i><br>
                                     </p>
-                                    <div class="text-center"><img alt='Album-img' class="text-center imgAlbum" src="/images<?php echo $aquarium['path'] ?>" alt=""></div><br><br>
+                                    <div class="text-center"><img alt='Aquaria-img' class="text-center imgAlbum" src="/images<?php echo $aquarium['path'] ?>" alt=""></div><br><br>
                                     <a href="/aquarium/post/<?php echo $aquarium['aquarium_id'] ?>"><button type="button" class="btn btn-primary" name="button">Bekijken</button></b></a>
                                 </div>
                             </div>
