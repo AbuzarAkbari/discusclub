@@ -2,7 +2,7 @@
 require_once("../../includes/tools/security.php");
 if ($logged_in) {
     if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
-        if (isset($_POST["date"]) && !strtotime($_POST["date"])) {
+        if (isset($_POST["date"]) && !strtotime($_POST["date"]) && strtotime($_POST["date"]) > time() && strtotime($_POST["date"]) <  strtotime('1927-01-01')) {
             $error = "Geboortedatum is verkeerd";
         }
         else {
@@ -62,10 +62,6 @@ if ($logged_in) {
             $query .= ", news = :news";
             $bindings[": news"] = $news;
 
-                if (!$datum)  {
-                    $error = "Geboortedatum is geen datum";
-                    exit();
-                }
             }
 
 
