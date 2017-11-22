@@ -201,7 +201,7 @@ if(!empty($_POST['role'])) {
                 </div>
                 <?php
                 $path = "/news/:page";
-                $sql = "SELECT COUNT(*) AS x FROM news WHERE deleted_at IS NULL";
+                $sql = "SELECT COUNT(*) AS x FROM news as n JOIN news_permission AS np ON np.news_id = n.id JOIN sub_category as sc ON n.sub_category_id = sc.id WHERE np.role_id = :role_id ORDER BY n.created_at DESC";
                 require_once("../../includes/components/pagination.php");
                 ?>
             </div>
@@ -229,7 +229,7 @@ if(!empty($_POST['role'])) {
             <div class="panel-heading border-colors">Laatste reacties op topics</div>
             <div class="panel-body">
                 <?php
-                $sth = $dbc->prepare("SELECT * FROM topic JOIN news_permission AS np ON np.news_id = news.id WHERE np.role_id = :role_id ORDER BY created_at DESC LIMIT 5");
+                $sth = $dbc->prepare("SELECT * FROM topic JOIN topic_permission AS tp ON tp.topic_id = topic.id WHERE tp.role_id = :role_id ORDER BY last_changed DESC LIMIT 5");
                 $sth->execute([":role_id" => $_SESSION['user']->role_id]);
                 $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
