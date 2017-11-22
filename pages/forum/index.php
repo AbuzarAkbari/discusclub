@@ -7,7 +7,7 @@
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
         $query->execute([":name" => htmlentities($_POST["new_category"])]);
-        $id = $query->last_insert_id();
+        $id = $dbc->lastInsertId();
 
         $categoryPermissionSql = "INSERT INTO category_permission (category_id, role_id) SELECT :id, id FROM role";
         $categoryPermissionQuery = $dbc->prepare($categoryPermissionSql);

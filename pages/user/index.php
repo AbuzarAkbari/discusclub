@@ -275,32 +275,6 @@ if($user_data == false){
                                         $result->bindParam(":id", $user_data->id);
                                         $result->execute();
                                         $topics = $result->fetchAll(PDO::FETCH_OBJ);
-//                                        $sortedTopicArray = [];
-//                                        foreach ($topics as $topic) {
-//                                            if($topic->reply_created_at){
-//                                                $date =$topic->reply_created_at;
-//                                                $sortedTopicArray[] = [
-//                                                    'date' => strtotime($date),
-//                                                    'data' => $topic
-//                                                ];
-//                                            } else {
-//                                                $date = $topic->topic_created_at;
-//                                                $sortedTopicArray[] = [
-//                                                    'date' => strtotime($date),
-//                                                    'data' => $topic
-//                                                ];
-//                                            }
-//                                        }
-//
-//                                        function sortTopics($a, $b)
-//                                        {
-//                                            if ($a == $b) {
-//                                                return 0;
-//                                            }
-//                                            return ($a > $b) ? -1 : 1;
-//                                        }
-//
-//                                        usort($sortedTopicArray, "sortTopics");
 
                                     if(!empty($topics)) :
                                         foreach ($topics as $key => $value) : ?>
