@@ -46,6 +46,9 @@ if(!empty($_POST['role'])) {
         $bindings[":role_$key"] = $role;
     }
     $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
+    echo "<pre>";
+    var_dump($wijzigpermissieSQL, $bindings);
+    exit;
     $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
     $wijzigpermissieResult->execute($bindings);
 }
