@@ -264,13 +264,17 @@ if ($logged_in) {
             $user = $result->fetch(PDO::FETCH_OBJ);
             if (!password_verify($wachtwoord, $user->password)) {
                 header("Location: /");
-                exit();
             }
+
+        }
+        if(empty($error)) {
             //End query
             $query .= " WHERE id = :userId";
             $result = $dbc->prepare($query);
             $result->execute($bindings);
             header("Location: /user/login?logout=true");
+        } else {
+            header("Location: /user/conf?error=".$error);
         }
     }
 }
