@@ -191,7 +191,7 @@
                                 <input required class="form-control" type="tel" name="phone" placeholder="Telefoonnummer"><br>
                                 <input required class="form-control" type="text" name="iban" placeholder="Rekeningnummer"><br>
                                 <input required class="form-control" type="url" name="url" placeholder="Url"><br>
-                                <input required class="form-control" type="file" accept="" name="afbeelding" placeholder="Afbeelding toevoegen"><br>
+                                <input required class="form-control" type="file" accept="image/*" name="afbeelding" placeholder="Afbeelding toevoegen"><br>
                                 <select required class="form-control" name="optie">
                                     <option value="1">Optie 1</option>
                                     <option value="2">Optie 2</option>
