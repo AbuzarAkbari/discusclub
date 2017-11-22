@@ -24,10 +24,11 @@
 
     if(!empty($_POST['role'])) {
         foreach($_POST['role'] as $role){
-            $wijzigpermissieSQL = "UPDATE category_permission SET category_id = :id AND role_id = :role_id";
-            $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
-            $wijzigpermissieResult->execute([':id' => $_GET['id'], ':role_id' => $role]);
-            $resultpermissie = $wijzigpermissieResult->fetchAll(PDO::FETCH_ASSOC);
+            // $wijzigpermissieSQL = "UPDATE category_permission SET category_id = :id AND role_id = :role_id";
+            // $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+            // $wijzigpermissieResult->execute([':id' => $_GET['id'], ':role_id' => $role]);
+            // $resultpermissie = $wijzigpermissieResult->fetchAll(PDO::FETCH_ASSOC);
+            echo $role;
         }
     }
 ?>
