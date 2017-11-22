@@ -67,18 +67,13 @@ require_once("../../includes/tools/security.php"); ?>
                                     <div class="carousel-inner">
                                         <?php foreach ($album as $key => $image) : ?>
                                             <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <img src="/images<?php echo $image['path'] ?>" class="slider"    alt="fishing">
+                                                <img src="/images<?php echo $image['path'] ?>" class="slider"    alt="<?php echo $album[0]['title']; ?>">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
 
                                     <!-- Indicators -->
-                                    <ol class="carousel-indicators">
-                                        <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-                                    <?php foreach ($album as $key => $image) : ?>
-                                        <li class="<?php echo $key == 0 ? "active" : null; ?> " data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></li>
-                                    <?php endforeach; ?>
-                                    </ol>
+
 
                                     <!-- Left and right controls -->
                                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
