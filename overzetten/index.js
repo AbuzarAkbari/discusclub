@@ -44,7 +44,7 @@ dhc
         role_id = 4
       }
       queries.push(
-        (x.uuid ? conn.query("INSERT INTO image(path) VALUES(?)", [`/profile/${x.id}-${x.uuid}.${x.extension}`]) : new Promise(res => res())).then(res =>
+        (x.uuid ? conn.query("INSERT INTO image(path) VALUES(?)", [`/profile/${x.id}-${x.uuid}.${x.extension}`]).catch(e => console.log(e)) : new Promise(res => res())).then(res =>
         conn
           .query(
             'INSERT INTO user(id, email, first_name, last_name, username, created_at, last_changed, role_id, city, news, birthdate, signature, profile_img) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, (SELECT id FROM image WHERE path = ?))',
@@ -69,7 +69,7 @@ dhc
               x.newsletter,
               x.birthdate,
               x.signature_cache,
-              x.uuid ? `/profile/${x.id}-${x.uuid}.${x.extension}` : `/default.png`
+              x.uuid ? `/profile/${x.id}-${x.uuid}.${x.extension}` : `/default.jpg`
             ]
           )
           .catch(e => console.log(e))
@@ -182,7 +182,7 @@ dhc
   .then(res => {
     const queries = []
     res.forEach(x => {
-      queries.push(conn.query("INSERT INTO news_reply(user_id, content, news_id, created_at, last_changed)", [x.profile_id, x.message, x.created, x.modified]))
+      queries.push(conn.query("INSERT INTO news_reply(user_id, content, news_id, created_at, last_changed) VALUES(?, ?, ?, ?, ?)", [x.profile_id, x.message, x.foreign_id, x.created, x.modified]).catch(e => console.log(e)))
     })
     return Promise.all(queries)
   })
@@ -199,11 +199,11 @@ dhc
     })
     return Promise.all(queries);
   })
-  .then(res => dhc.query("SELECT *, comments_gallery_pictures.profile_id, comments_gallery_pictures.created, comments_gallery_pictures.modified, profiles.id as profile_id FROM comments_gallery_pictures JOIN gallery_pictures ON foreign_id = gallery_pictures.id JOIN profiles ON profiles.user_id = comments_gallery_pictures.user_id"))
+  .then(res => dhc.query("SELECT *, comments_gallery_pictures.created, comments_gallery_pictures.modified, profiles.id as profile_id FROM comments_gallery_pictures JOIN gallery_pictures ON foreign_id = gallery_pictures.id JOIN profiles ON profiles.user_id = comments_gallery_pictures.user_id"))
   .then(res => {
     const queries = [];
     res.forEach(x => {
-      queries.push(conn.query("INSERT INTO album_reply(user_id, album_id, content, created_at, last_changed)", [x.profile_id, x.gallery_id, x.message, x.created, x.modified]))
+      queries.push(conn.query("INSERT INTO album_reply(user_id, album_id, content, created_at, last_changed) VALUES (?, ?, ?, ?, ?)", [x.profile_id, x.gallery_id, x.message, x.created, x.modified]).catch(e => console.log(e)))
     });
     return Promise.all(queries)
   })
