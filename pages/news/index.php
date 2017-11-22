@@ -184,8 +184,8 @@ if(!empty($_POST['role'])) {
                                         <a title="Verwijder" href="/includes/tools/news/del.php?id=<?php echo $value->id; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
 
                                             <!-- Button trigger modal -->
-                                            <a type="button" data-id="<?php echo $value->id;?>" class="btn btn-primary"> <i class=" glyphicon glyphicon-pencil"></i>
-                                            </a>
+                                            <button type="button" data-id="<?php echo $value->id;?>" class="btn btn-primary"> <i class=" glyphicon glyphicon-pencil"></i>
+                                            </button>
 
 <!--                                            <a title="Wijzig permissie" href="/includes/tools/news/wijzig.php?id=--><?php //echo $value->id; ?><!--" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-pencil"></i></a>-->
                                         </td>
