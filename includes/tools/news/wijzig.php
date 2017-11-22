@@ -29,7 +29,9 @@ $res = $sth->fetchAll(PDO::FETCH_ASSOC);
                 $in = false;
             }
             ?>
-            <?php echo ucfirst($perm["name"]) ?></label> <input class="form-check-input" name="role[]" value="<?php echo $perm["id"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox"><label class="form-check-label" for="<?php echo $perm["name"] ?>"><br>
+
+            <input class="form-check-input" name="role[]" value="<?php echo $perm["id"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox">
+            <label class="form-check-label" for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label><br>
                 <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
                 <?php endforeach; ?>
                 <input class="pull-right btn btn-primary" type="submit" name="bevestig" value="Bevestig">

@@ -133,13 +133,13 @@ require_once("../../includes/tools/messenger_handler.php");
             }
             ?>
             <div class="col-md-8">
-                <?php if($amount_of_items) :  ?>
+                <?php if($amount_of_items && $res) :  ?>
                 <div class="userTab">
                     <img alt="profielfoto" src="/images<?php echo $user ? $res[0]->user_1_path : $res[0]->user_2_path; ?>" class="imgUser imageStatic" />
                     <div class="username"><b> <?php echo $user ? $res[0]->user_1_first_name . " " . $res[0]->user_1_last_name : $res[0]->user_2_first_name . " " . $res[0]->user_2_last_name; ?></b></div>
                 </div>
                 <?php endif; ?>
-                <div id="message" style="background-image: url('/images<?php echo $_SESSION["user"]->messenger_img; ?>');<?php echo !$amount_of_items ? "height: 590px; max-height: 590px;" : null; ?>" class="imageBackgroundText flexcroll tab">
+                <div id="message" style="background-image: url('/images<?php echo $_SESSION["user"]->messenger_img; ?>');<?php echo !$amount_of_items || !$res ? "height: 590px; max-height: 590px;" : null; ?>" class="imageBackgroundText flexcroll tab">
                     <?php foreach ($res as $value) : ?>
                         <?php if(isset($value->message)) : ?>
                             <div class="messages <?php echo $value->user_id_1 === $_SESSION["user"]->id ? "right-message" : "left-message" ?>">
@@ -150,60 +150,10 @@ require_once("../../includes/tools/messenger_handler.php");
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
-                    <!-- <div class="responses ">
-                        <p>
-                            tekst Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor.
-                            Aenean massa.
-                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                            Nulla consequat massa quis enim.
-                            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                            Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
-                            Cras dapibus. Vivamus elementum semper nisi.
-                            Aenean vulputate eleifend tellus. Aenean leo ligula,
-                            porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-                            Aenean imperdiet. Etiam ultricies nisi vel augue.
-                            Curabitur ullamcorper ultricies nisi.
-                            Nam eget dui.die ze zelf invullen
-                        </p>
-                         <div><img src="http://chimpmania.com/forum/attachment.php?attachmentid=33425&d=1369770301&thumb=1" class="messageImage"></div>
-                    </div>
-                    <div class="messages">
-                            <p>
-                            tekst Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                            Aenean commodo ligula eget dolor.
-                             Aenean massa.
-                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                             Nulla consequat massa quis enim.
-                             Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                             In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                             Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
-                             Cras dapibus. Vivamus elementum semper nisi.
-                             Aenean vulputate eleifend tellus. Aenean leo ligula,
-                             porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                             Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-                             Aenean imperdiet. Etiam ultricies nisi vel augue.
-                             Curabitur ullamcorper ultricies nisi.
-                             Nam eget dui.die ze zelf invulldsaen
-                         </p>
-                    <div><img src="http://chimpmania.com/forum/attachment.php?attachmentid=33425&d=1369770301&thumb=1" class="messageImage"></div>
-                </div> -->
                 </div>
-                <?php if($amount_of_items) : ?>
+                <?php if($amount_of_items && $res) : ?>
                 <div class="searchUser">
                     <form enctype='multipart/form-data' class="inputWidth" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="input-group">
-                      <!-- <input name="message" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
-                      <span class="input-group-btn " id="basic-addon1">
-                        <button class="btn btn-secondary buttonHeight" type="button">
-                        </button>
-                      </span> -->
-                      <!-- button -->
-                      <!-- <button class="btn btn-secondary buttonHeight" type="button" type="file"><i class="glyphicon glyphicon-plus icon " ></i></button> -->
-
                       <div class="input-group inputWidth">
                         <input name="message" type="text" class="form-control inputWidth" placeholder="">
                         <span class="input-group-btn">
@@ -213,9 +163,6 @@ require_once("../../includes/tools/messenger_handler.php");
                                 <input id="file" type="file" name="upload" />
                             </div>
                         </span>
-<!--
-                        <input class="btn btn-secondary buttonHeight" type="file">
-                        <i class="glyphicon glyphicon-plus icon" ></i> -->
                       </div>
                       <input type="hidden" name="user_id_2" value="<?php echo $id; ?>" />
                     </form>
