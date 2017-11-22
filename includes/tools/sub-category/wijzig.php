@@ -35,4 +35,30 @@ $res = $sth->fetchAll(PDO::FETCH_ASSOC);
                 <input class="pull-right btn btn-primary" type="submit" name="bevestig" value="Bevestig">
         </form>
     </div>
+
+ <div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Wijzig permissie van: <?php echo isset($categorie[0]) ? $categorie[0]['name'] : "niet gevonden"; ?></h4>
+  </div>
+  <div class="modal-body">
+    <form method="POST" action="/forum/index.php">
+        <?php foreach($res as $perm) : ?>
+        <?php
+        $in = array_filter($categorie, function($x) use($perm) {
+          return $x["role_id"] == $perm["id"];
+        });
+        if(sizeof($in) > 0) {
+          $in = true;
+        } else {
+          $in = false;
+        }
+        ?>
+	      <?php echo ucfirst($perm["name"]) ?></label> <input class="form-check-input" name="role[]" value="<?php echo $perm["id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox"><label class="form-check-label" for="<?php echo $perm["name"] ?>"><br>
+          <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
+        <?php endforeach; ?>
+    	<input class="pull-right btn btn-primary" type="submit" name="bevestig" value="Bevestig">
+    </form>
+  </div>
+>>>>>>> 4e855fd8b9e8149a8e0eb5b3d84b642a95c17c00
 </div>
