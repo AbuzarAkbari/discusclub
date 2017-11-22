@@ -25,6 +25,11 @@ if (isset($_POST['post_add_topic'])) {
         $result->execute();
 
         $lastId = $dbc->lastInsertId();
+
+        // Nieuws permissions
+        $newsPermissionSql = "INSERT INTO news_permission (news_id, role_id) SELECT :id, id FROM role";
+        $newsPermissionQuery = $dbc->prepare($newsPermissionSql);
+        $newsPermissionQuery->execute([":id" => $lastId]);
     }
 }
 
