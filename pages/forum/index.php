@@ -118,7 +118,7 @@
                             <!-- <a title="Wijzig permissie" href="/includes/tools/category/wijzig.php?id=<?php //echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-pencil"></i></a> -->
 
                             <!-- Button trigger modal -->
-                            <button type="button" data-id="<?php echo $id ;?>" class="btn btn-primary btn-lg change-button">
+                            <button type="button" data-id="<?php echo $id ;?>" class="btn btn-primary  change-button">
                               <i class="buttonDelete glyphicon glyphicon-pencil"></i>
                             </button>
 
@@ -242,6 +242,6 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-      
+
   </div>
 </div>
