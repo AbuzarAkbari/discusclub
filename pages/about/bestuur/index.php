@@ -65,7 +65,7 @@
             <div class="panel-heading border-colors">Laatste reacties op topics</div>
             <div class="panel-body">
                   <?php
-                  $sth = $dbc->prepare("SELECT * FROM topic JOIN news_permission AS np ON np.news_id = news.id WHERE np.role_id = :role_id ORDER BY created_at DESC LIMIT 5");
+                  $sth = $dbc->prepare("SELECT * FROM topic JOIN topic_permission AS tp ON tp.topic_id = topic.id WHERE tp.role_id = :role_id ORDER BY last_changed DESC LIMIT 5");
                   $sth->execute([":role_id" => $_SESSION['user']->role_id]);
                   $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
