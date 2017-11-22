@@ -70,13 +70,11 @@
           </li>
           <li><a class="desktop" href="/houden-van">Houden van</a>
               <span class="mobile navItem">Houden van</span>
-              <?php if ($logged_in) { ?>
               <ul>
                   <li class="mobile"><a href="/houden-van">Houden van</a></li>
               <li><a href="/houden-van/kweken">Kweken</a></li>
               <li><a href="/houden-van/ziektes">Ziektes</a></li>
             </ul>
-        <?php } ?>
           </li>
           <li><a href="/news/">Nieuws</a></li>
           <li><a href="/wordlid">Word lid!</a></li>
