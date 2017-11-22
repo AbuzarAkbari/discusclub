@@ -118,9 +118,9 @@
                             <!-- <a title="Wijzig permissie" href="/includes/tools/category/wijzig.php?id=<?php //echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-pencil"></i></a> -->
 
                             <!-- Button trigger modal -->
-                            <button type="button" data-id="<?php echo $id ;?>" class="btn btn-primary  change-button">
+                            <a type="button" data-id="<?php echo $id ;?>" class="btn btn-primary ">
                               <i class="buttonDelete glyphicon glyphicon-pencil"></i>
-                            </button>
+                          </a>
 
                             <a title="Verwijder" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-remove-sign"></i></a>
                         </td>
