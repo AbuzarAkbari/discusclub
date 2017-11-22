@@ -61,7 +61,7 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
 
                         <?php
                             if ($user_data->news == 1) {
-                                $checked = "checked";
+                                $checked = "checked"; 
                             } else {
                                 $checked = "";
                             }

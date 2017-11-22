@@ -2,16 +2,18 @@
 require_once("../../includes/tools/security.php");
 if ($logged_in) {
     if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
+        $date = strtotime($_POST["date"]);
+        if (!$date) {
+            echo "<div class='message error'>Geboortedatum is geen datum of verkeerd opgegeven.</div>";
+        }
+        else{
         $error = '';
-
-
-
         //Start query
         $query = "UPDATE user SET id = :userId";
         $userId = $_POST["user_id"];
         $bindings = [":userId" => $userId];
         //Nieuwsbrief
-        if ($_POST['nieuwsbrief'] == "on") {
+        if ($_POST['news'] == "on") {
             $news = 1;
             $query .= ", news = :news";
             $bindings[":news"] = $news;
@@ -50,18 +52,12 @@ if ($logged_in) {
             exit();
         }
         //Geboortedatum
-        if (isset($_POST['date']) && !empty($_POST["date"])) {
+        if (isset($_POST['date']) && !empty($_POST["date"]) && strtotime($_POST["date"])) {
             $date = $_POST['date'];
             $query .= ", birthdate = :birthdate";
             $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
-            $datum = strtotime($_POST["birthdate"]);
+        }
 
-        }
-        else
-        {
-            $error = "Geboortedatum is geen datum";
-            exit();
-        }
         //Locatie
         if (isset($_POST['city']) && !empty($_POST["city"])) {
             $city = $_POST['city'];
@@ -267,5 +263,6 @@ if ($logged_in) {
         $result = $dbc->prepare($query);
         $result->execute($bindings);
         header("Location: /user/login?logout=true");
+        }
     }
 }
