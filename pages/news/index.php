@@ -184,8 +184,7 @@ if(!empty($_POST['role'])) {
                                         <a title="Verwijder" href="/includes/tools/news/del.php?id=<?php echo $value->id; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
 
                                             <!-- Button trigger modal -->
-                                            <a type="button" data-id="<?php echo $value->id;?>" class="btn btn-primary"> <i class=" glyphicon glyphicon-pencil"></i>
-                                            </a>
+                                            <button type="button" data-id="<?php echo $value->id;?>" class="btn btn-primary change-button"> <i class=" glyphicon glyphicon-pencil"></i></button>
 
 <!--                                            <a title="Wijzig permissie" href="/includes/tools/news/wijzig.php?id=--><?php //echo $value->id; ?><!--" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-pencil"></i></a>-->
                                         </td>
@@ -202,7 +201,7 @@ if(!empty($_POST['role'])) {
                 </div>
                 <?php
                 $path = "/news/:page";
-                $sql = "SELECT COUNT(*) AS x FROM news WHERE deleted_at IS NULL";
+                $sql = "SELECT COUNT(*) AS x FROM news as n JOIN news_permission AS np ON np.news_id = n.id JOIN sub_category as sc ON n.sub_category_id = sc.id WHERE np.role_id = :role_id ORDER BY n.created_at DESC";
                 require_once("../../includes/components/pagination.php");
                 ?>
             </div>
@@ -230,8 +229,8 @@ if(!empty($_POST['role'])) {
             <div class="panel-heading border-colors">Laatste reacties op topics</div>
             <div class="panel-body">
                 <?php
-                $sth = $dbc->prepare("SELECT * FROM topic ORDER BY created_at DESC LIMIT 5");
-                $sth->execute();
+                $sth = $dbc->prepare("SELECT * FROM topic JOIN topic_permission AS tp ON tp.topic_id = topic.id WHERE tp.role_id = :role_id ORDER BY last_changed DESC LIMIT 5");
+                $sth->execute([":role_id" => $_SESSION['user']->role_id]);
                 $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                 if(!empty($res)) :
@@ -251,8 +250,8 @@ if(!empty($_POST['role'])) {
                 <div class="panel-heading border-colors">Laatste reacties op nieuws</div>
                 <div class="panel-body">
                     <?php
-                        $sth = $dbc->prepare("SELECT *, news_reply.created_at AS news_reply_created_at FROM news_reply JOIN news ON news_reply.news_id = news.id ORDER BY news_reply.created_at DESC LIMIT 5");
-                        $sth->execute();
+                        $sth = $dbc->prepare("SELECT *, news_reply.created_at AS news_reply_created_at FROM news_reply JOIN news ON news_reply.news_id = news.id JOIN news_permission AS np ON np.news_id = news.id WHERE np.role_id = :role_id ORDER BY news_reply.created_at DESC LIMIT 5");
+                        $sth->execute([":role_id" => $_SESSION['user']->role_id]);
                         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                         if(!empty($res)) :

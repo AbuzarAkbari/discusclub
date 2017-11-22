@@ -178,7 +178,7 @@ dhc
                                              [x.id, newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
     return Promise.all(queries)
   })
-  .then(res => dhc.query("SELECT *, profiles.id, comments_news.created, comments_news.modified, comments_news.message as profile_id FROM comments_news JOIN profiles ON profiles.user_id = comments_news.user_id"))
+  .then(res => dhc.query("SELECT *, comments_news.created, comments_news.modified, comments_news.message, profiles.id as profile_id FROM comments_news JOIN profiles ON profiles.user_id = comments_news.user_id"))
   .then(res => {
     const queries = []
     res.forEach(x => {

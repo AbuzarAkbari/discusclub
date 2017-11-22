@@ -7,7 +7,7 @@
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
         $query->execute([":name" => htmlentities($_POST["new_category"])]);
-        $id = $query->last_insert_id();
+        $id = $dbc->lastInsertId();
 
         $categoryPermissionSql = "INSERT INTO category_permission (category_id, role_id) SELECT :id, id FROM role";
         $categoryPermissionQuery = $dbc->prepare($categoryPermissionSql);
@@ -118,9 +118,9 @@
                             <!-- <a title="Wijzig permissie" href="/includes/tools/category/wijzig.php?id=<?php //echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-pencil"></i></a> -->
 
                             <!-- Button trigger modal -->
-                            <a type="button" data-id="<?php echo $id ;?>" class="btn btn-primary ">
+                            <button type="button" href="/includes/tools/category/wijzig.php?id=<?php echo $id; ?>" class="btn btn-primary change-button">
                               <i class="buttonDelete glyphicon glyphicon-pencil"></i>
-                          </a>
+                          </button>
 
                             <a title="Verwijder" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-remove-sign"></i></a>
                         </td>
@@ -201,7 +201,7 @@
                                         <td>
                                             <a title="Verwijder" href="/includes/tools/sub-category/del.php?id=<?php echo $categorie['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
 
-                                            <a title="Wijzig permissie" href="/includes/tools/sub-category/wijzig.php?id=<?php echo $categorie['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-pencil"></i></a>
+                                            <button title="Wijzig permissie" href="/includes/tools/sub-category/wijzig.php?id=<?php echo $categorie['id']; ?>&sub_id=<?php echo $subCat['id']; ?>" type="button" class="btn btn-primary change-button" name="button"><i class="glyphicon glyphicon-pencil"></i></button>
                                         </td>
                                     <?php endif; ?>
 
@@ -227,10 +227,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
     $(".change-button").on("click", function () {
-         var id = $(this).data('id');
+         var href = $(this).attr('href');
          $('#myModal').modal('show');
 
-        fetch(`/includes/tools/category/wijzig?id=${id}`)
+        fetch(href)
             .then(res => res.text())
             .then(res => $(".modal-dialog").html(res))
     });

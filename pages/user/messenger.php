@@ -1,9 +1,7 @@
 <?php
 $levels = ["lid", "gebruiker"];
 require_once("../../includes/tools/security.php");
-
 require_once("../../includes/tools/messenger_handler.php");
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,17 +83,16 @@ require_once("../../includes/tools/messenger_handler.php");
                     }
 
                     if((sizeof($res) === 0 && $query === 2 && $id != 0) || !$found) {
-                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM user AS u LEFT JOIN message AS m ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE (u.id IN (:user_1) OR u2.id IN (:user_1)) AND u.id NOT IN (:notIn) AND u2.id NOT IN (:notIn) GROUP BY u.id, u2.id ORDER BY m.created_at DESC");
-                        $sth->execute(["user_1" => $id, ":notIn" => implode($ids)]);
+                        $sth = $dbc->prepare("SELECT *, u.username AS user_1_username, u2.username AS user_2_username, i.path as user_1_path, i2.path as user_2_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u2.first_name as user_2_first_name, u2.last_name AS user_2_last_name, m.message, m.id, m.created_at, u.id AS user_1_id, u2.id AS user_2_id FROM user AS u LEFT JOIN message AS m ON u.id = m.user_id_1 LEFT JOIN user as u2 ON u2.id = m.user_id_2 LEFT JOIN image AS i ON i.id = u.profile_img LEFT JOIN image as i2 ON u2.profile_img = i2.id WHERE (u.id IN (:user_1) OR u2.id IN (:user_1)) GROUP BY u.id, u2.id ORDER BY m.created_at DESC");
+                        $sth->execute([":user_1" => $id, ":notIn" => implode($ids)]);
                         $res = array_merge($sth->fetchAll(PDO::FETCH_OBJ), $res);
                     }
-                    $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
 
+                    $id = isset($_GET["id"]) ? $_GET["id"] : $res[0]->user_id_2;
                     $amount_of_items = false;
                     if(sizeof($res) > 0) {
                         $amount_of_items = true;
                     }
-
                     foreach ($res as $value) : ?>
                         <?php
                         $user = $_SESSION["user"]->id === $value->user_id_1;
@@ -241,4 +238,3 @@ require_once("../../includes/tools/messenger_handler.php");
     </script>
 </body>
 </html>
-<!-- https://twitter.com/DiscusHolland -->
