@@ -42,7 +42,7 @@
                 <input id="fname" type="text" class="form-control" name="naam" placeholder="Uw naam" required>
                 <br>
                 <label for="email">E-mail</label>
-                <input id="email" type="text" class="form-control" name="email" placeholder="Uw e-mail" required>
+                <input id="email" type="email" class="form-control" name="email" placeholder="Uw e-mail" required>
                 <br>
                 <label for="subject">Bericht</label>
                 <textarea id="subject" name="bericht" class="form-control" placeholder="Uw bericht" style="height:200px; resize: none;" required></textarea>
