@@ -30,9 +30,9 @@
         }
         ?>
 
+        <input class="" name="role[]" value="<?php echo $perm["id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox"><br>
+        <label class="form-check-label" for="<?php echo $perm["name"] ?>"><br>
 	      <?php echo ucfirst($perm["name"]) ?></label>
-          <input class="" name="role[]" value="<?php echo $perm["id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox"><br>
-          <label class="form-check-label" for="<?php echo $perm["name"] ?>"><br>
           <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
         <?php endforeach; ?>
     	<input class="pull-right btn btn-primary" type="submit" name="bevestig" value="Bevestig">
