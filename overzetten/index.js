@@ -178,11 +178,11 @@ dhc
                                              [x.id, newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
     return Promise.all(queries)
   })
-  .then(res => dhc.query("SELECT * FROM comments_news"))
+  .then(res => dhc.query("SELECT *, profiles.id, comments_news.created, comments_news.modified, comments_news.message as profile_id FROM comments_news JOIN profiles ON profiles.user_id = comments_news.user_id"))
   .then(res => {
     const queries = []
     res.forEach(x => {
-      queries.push(conn.query("INSERT INTO news_reply(user_id, content, news_id, created_at, last_changed)", [x.profile_id, x.message, x.]))
+      queries.push(conn.query("INSERT INTO news_reply(user_id, content, news_id, created_at, last_changed)", [x.profile_id, x.message, x.created, x.modified]))
     })
     return Promise.all(queries)
   })
@@ -199,7 +199,7 @@ dhc
     })
     return Promise.all(queries);
   })
-  .then(res => dhc.query("SELECT *, comments_gallery_pictures.profile_id, comments_gallery_pictures.created, comments_gallery_pictures.modified FROM comments_gallery_pictures JOIN gallery_pictures ON foreign_id = gallery_pictures.id"))
+  .then(res => dhc.query("SELECT *, comments_gallery_pictures.profile_id, comments_gallery_pictures.created, comments_gallery_pictures.modified, profiles.id as profile_id FROM comments_gallery_pictures JOIN gallery_pictures ON foreign_id = gallery_pictures.id JOIN profiles ON profiles.user_id = comments_gallery_pictures.user_id"))
   .then(res => {
     const queries = [];
     res.forEach(x => {
