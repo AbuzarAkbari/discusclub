@@ -29,6 +29,7 @@
 
     if(!empty($_POST['role'])) {
 
+
         $wijzigpermissieSQL = "DELETE FROM category_permission WHERE category_id = :id";
         $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
         $wijzigpermissieResult->execute([':id' => $_POST['id']]);
