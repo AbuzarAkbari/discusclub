@@ -94,13 +94,13 @@ $perPage = 10;
                                     <div class="carousel-inner">
                                         <?php foreach ($aquarium as $key => $image) : ?>
                                             <div class="item<?php echo $key == 0 ? " active" : null ?>">
-                                                <img alt='Album-img' class="slider" src="/images<?php echo $image['path'] ?>"  alt="fishing">
+                                                <img class="slider" src="/images<?php echo $image['path'] ?>" alt="<?php echo $aquarium[0]['title'] ?>">
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
 
                                     <!-- Indicators -->
-    
+
 
                                     <!-- Left and right controls -->
                                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">

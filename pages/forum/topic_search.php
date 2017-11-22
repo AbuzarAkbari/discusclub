@@ -46,7 +46,7 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
               <ol class="breadcrumb">
                   <li><a href="/">Home</a></li>
                   <li><a href="/forum/">Forum</a></li>
-                  <li><a href="/forum/topic/<?php echo $_GET['name']; ?>"><?php echo $_GET['name']; ?></a></li>
+                  <li><a href="/forum/topic/<?php echo $_GET['name']; ?>"><?php echo $_GET['id']; ?></a></li>
                   <li class="active">Zoek op topics</li>
               </ol>
           </div>
