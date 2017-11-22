@@ -54,13 +54,7 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                 <?php if(isset($_GET['error'])): ?>
                     <div class="alert alert-danger" role="alert"><?php echo $_GET['error']; ?></div>
                 <?php endif; ?>
-                <?php if (isset($_POST["opslaan"])) {
-                    $date = strtotime($_POST["date"]);
-                    if (!$date) {
-                        echo "<div class='message error'>Geboortedatum is geen datum of verkeerd opgegeven.</div>";
-                    }
-                }
-                    ?>
+
 
                 <div class="panel-body">
                     <form enctype="multipart/form-data" action="/includes/tools/profielParse" method="post">
