@@ -38,8 +38,7 @@ if(preg_match('/messen/', $_SERVER["REQUEST_URI"])) {
 
 <!-- font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,500" /> -->
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600" rel="stylesheet">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,500" />
 <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
 <!-- bootstrap style -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
