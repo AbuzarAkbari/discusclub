@@ -54,6 +54,14 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                 <?php if(isset($_GET['error'])): ?>
                     <div class="alert alert-danger" role="alert"><?php echo $_GET['error']; ?></div>
                 <?php endif; ?>
+                <?php if (isset($_POST["opslaan"])) {
+                    $date = strtotime($_POST["date"]);
+                    if (!$date) {
+                        echo "<div class='message error'>Geboortedatum is geen datum of verkeerd opgegeven.</div>";
+                    }
+                }
+                    ?>
+
                 <div class="panel-body">
                     <form enctype="multipart/form-data" action="/includes/tools/profielParse" method="post">
 
@@ -67,8 +75,8 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
 
                         <input type="hidden" name="news" value="off">
                         <input type="checkbox" name="news" id="news" <?php echo $checked; ?>> <label for="news">Ik wil de DCH news ontvangen </label> <br><br>
-                        <label for="email">Email</label><input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="email" class="form-control" type="email" name="email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Email"><br>
-                        <label for="repeat_email">Herhaal email</label><input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="repeat_email" class="form-control" type="email" name="repeat_email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Herhaal e-mail"><br>
+                        <label for="email">Email</label><input id="email" class="form-control" type="email" name="email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Email"><br>
+                        <label for="repeat_email">Herhaal email</label><input id="repeat_email" class="form-control" type="email" name="repeat_email" value="<?php echo isset($user_data->email) ? $user_data->email : ''; ?>" placeholder="Herhaal e-mail"><br>
                         <label for="new_password">Nieuw wachtwoord</label><br>
                         <input type="password" name="new_password" class="form-control"><br>
                         <label for="new_password_repeat">Nieuw wachtwoord herhalen</label><br>
@@ -88,7 +96,7 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                         <input type="text" class="form-control" id="address" name="address" value="<?php echo $user_data->address; ?>"><br>
                         <?php endif; ?>
                         <?php if(isset($user_data->postal_code)) : ?>
-                        <label for="postal_code">Huisnummer</label>
+                        <label for="postal_code">Postcode</label>
                         <input type="number" class="form-control" id="postal_code" name="postal_code" value="<?php echo $user_data->postal_code; ?>"><br>
                         <?php endif; ?>
                         <?php if(isset($user_data->house_number)) : ?>

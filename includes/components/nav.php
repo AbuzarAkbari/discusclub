@@ -121,7 +121,7 @@
           <?php if ($logged_in && in_array($current_level, $admin_levels)) {
               $sth = $dbc->prepare("SELECT count(*) as amount FROM sponsor WHERE approved = 0");
               $sth->execute([":id" => $_SESSION["user"]->id]);
-              $sth1 = $dbc->prepare("SELECT count(*) as amount FROM approval_signup JOIN user on user.id = approval_signup.user_id");
+              $sth1 = $dbc->prepare("SELECT count(*) as amount FROM approval_signup JOIN user on user.id = approval_signup.user_id WHERE approved = 0");
               $sth1->execute([":id" => $_SESSION["user"]->id]);
               ?>
           <li><a class="desktop" href="/admin/">Admin</a>

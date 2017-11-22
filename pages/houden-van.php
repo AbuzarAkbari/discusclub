@@ -34,6 +34,12 @@ require_once("../includes/components/nav.php");
 ?>
 <div class="container main">
     <br>
+    <div class="col-md-12">
+                <ol class="breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li class="active"><?php echo $page['name']; ?></li>
+                </ol>
+            </div>
     <div class="row">
         <h1><?php echo $page['name']; ?></h1>
         <hr class="col-md-12">

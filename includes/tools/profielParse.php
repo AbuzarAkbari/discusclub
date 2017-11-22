@@ -32,9 +32,10 @@ if ($logged_in) {
                 $bindings[":password"] = $password;
             }
         }
+
         //Email
         if ($_POST['email'] === $_POST['repeat_email']) {
-            $email = $_POST['email'];
+            $email = trim($_POST['email']);
             $query .= ", email = :email";
             $bindings[":email"] = $email;
         } else {
@@ -46,6 +47,8 @@ if ($logged_in) {
             $date = $_POST['date'];
             $query .= ", birthdate = :birthdate";
             $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
+            $datum = strtotime($_POST["birthdate"]);
+
         }
 
         //Locatie

@@ -102,7 +102,11 @@ $id = isset($_GET["id"]) ? $_GET["id"] : 1;
 
     <!-- summernote js -->
     <?php require_once("../../includes/components/summernote.php"); ?>
-
+    <script>
+    document.querySelector("#page_select").addEventListener("change", e => {
+        location.assign(e.target.selectedOptions[0].value)
+    })
+    </script>
 
 </body>
 
