@@ -35,7 +35,7 @@ if ($logged_in) {
 
         //Email
         if ($_POST['email'] === $_POST['repeat_email']) {
-            $email = $_POST['email'];
+            $email = trim($_POST['email']);
             $query .= ", email = :email";
             $bindings[":email"] = $email;
         } else {
