@@ -1,7 +1,6 @@
 <?php require_once("../../../includes/tools/security.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php var_dump($_SERVER) ?>
 
 <head>
     <title>Discusclub Holland</title>
