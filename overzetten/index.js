@@ -175,7 +175,9 @@ dhc
   .then(res => {
     const queries = []
     res.forEach(x => queries.push(conn.query("INSERT INTO news(id, sub_category_id, title, content, created_at, last_changed) VALUES(?, ?, ?, ?, ?, ?)",
-                                             [x.id, newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
+                                             [x.id, newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).then(res =>
+                                              conn.query("INSERT INTO news_permission(role_id, news_id) VALUES (?, ?), (?, ?), (?, ?), (?, ?), (?, ?)",
+                                              [1, x.id, 2, x.id, 3, x.id, 4, x.id, 5, x.id])).catch(e => console.log(e))))
     return Promise.all(queries)
   })
   .then(res => dhc.query("SELECT *, comments_news.created, comments_news.modified, comments_news.message, profiles.id as profile_id FROM comments_news JOIN profiles ON profiles.user_id = comments_news.user_id"))
