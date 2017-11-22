@@ -2,9 +2,8 @@
 require_once("../../includes/tools/security.php");
 if ($logged_in) {
     if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
-        $date = strtotime($_POST["date"]);
-        if (!$date) {
-            echo "<div class='message error'>Geboortedatum is geen datum of verkeerd opgegeven.</div>";
+        if (isset($_POST["date"]) && !strtotime($_POST["date"])) {
+            $error = "Geboortedatum is verkeerd";
         }
         else {
             $error = '';
@@ -23,13 +22,11 @@ if ($logged_in) {
                 $bindings[":news"] = $news;
             }
             //Nieuw wachtwoord
-            if(isset($_POST['new_password']) && !empty($_POST["new_password"])) {
-                if($_POST['new_password'] != $_POST['new_password_repeat']) {
+            if (isset($_POST['new_password']) && !empty($_POST["new_password"])) {
+                if ($_POST['new_password'] != $_POST['new_password_repeat']) {
                     $error = "Wachtwoorden komen niet overeen.";
                     exit();
-                }
-                else
-                {
+                } else {
                     $new_password = $_POST['new_password'];
                     $password = password_hash($new_password, PASSWORD_BCRYPT);
                     $query .= ", password = :password";
@@ -37,26 +34,33 @@ if ($logged_in) {
                 }
             }
 
-            if (strlen(trim($_POST['email'])) === 0) {
-                $error = "U heeft geen e-mail adres ingevuld";
-                exit;
-            }
+        //Email
+        if ($_POST['email'] === $_POST['repeat_email']) {
+            $email = trim($_POST['email']);
+            $query .= ", email = :email";
+            $bindings[":email"] = $email;
+        } else {
+            $error =  "Email adressen komen niet overeen";
+            exit();
+        }
+        //Geboortedatum
+        if (isset($_POST['date']) && !empty($_POST["date"]) && strtotime($_POST["date"])) {
+            $date = $_POST['date'];
+            $query .= ", birthdate = :birthdate";
+            $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
+        }
 
-            //Email
-            if ($_POST['email'] === $_POST['repeat_email']) {
-                $email = trim($_POST['email']);
-                $query .= ", email = :email";
-                $bindings[":email"] = $email;
-            } else {
-                $error =  "Email adressen komen niet overeen";
-                exit();
-            }
-            //Geboortedatum
-            if (isset($_POST['date']) && !empty($_POST["date"])) {
-                $date = $_POST['date'];
-                $query .= ", birthdate = :birthdate";
-                $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
-                $datum = strtotime($_POST["date"]);
+        //Locatie
+        if (isset($_POST['city']) && !empty($_POST["city"])) {
+            $city = $_POST['city'];
+            $query .= ", city = :city";
+            $bindings[":city"] = $city;
+        }
+        //Nieuwsbrief
+        if (isset($_POST['news']) && !empty($_POST["news"])) {
+            $news = $_POST['news'] == "on" ? 1 : 0;
+            $query .= ", news = :news";
+            $bindings[": news"] = $news;
 
                 if (!$datum)  {
                     $error = "Geboortedatum is geen datum";
@@ -262,15 +266,15 @@ if ($logged_in) {
             $result->bindParam(1, $_SESSION["user"]->id);
             $result->execute();
             $user = $result->fetch(PDO::FETCH_OBJ);
-            if(!password_verify($wachtwoord, $user->password)) {
+            if (!password_verify($wachtwoord, $user->password)) {
                 header("Location: /");
                 exit();
             }
+            //End query
+            $query .= " WHERE id = :userId";
+            $result = $dbc->prepare($query);
+            $result->execute($bindings);
+            header("Location: /user/login?logout=true");
         }
-        //End query
-        $query .= " WHERE id = :userId";
-        $result = $dbc->prepare($query);
-        $result->execute($bindings);
-        header("Location: /user/login?logout=true");
     }
 }

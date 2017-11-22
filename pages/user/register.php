@@ -41,7 +41,7 @@
 
               $res = $sth->fetch(PDO::FETCH_OBJ);
 
-              if (empty($res)) {
+              if (empty($res) && !preg_match("/[0-9]*/", $_post["first_name"]) && !preg_match("/[0-9]*/", $_post["last_name"])) {
                   $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email, created_at,birthdate, news) VALUES
                   (:first_name, :last_name, :username, :password, :email, NOW(),:birthdate, :news )");
 
@@ -59,13 +59,23 @@
                       <?php
                   } else {
                       $error = true;
-                      if ($res->email === $_POST["email"]) {
+                      if(preg_match("/[0-9]*/", $_post["first_name"])) {
+                          ?>
+                          <div class="message error">Voornaam bevat cijfers.</div>
+                          <?php
+                      }
+                      if(preg_match("/[0-9]*/", $_post["last_name"])) {
+                      ?>
+                      <div class="message error">Achternaam bevat cijfers.</div>
+                      <?php
+                     }
+                      if (isset($res) && $res->email === $_POST["email"]) {
                           ?>
                           <div class="message error">Email is al in gebruik. <a href="/user/password/forgot">Wijzig wachtwoord.</a></div>
                           <?php
                       } else {
                           ?>
-                          <div class="message error">Gebruikersnaam is al in gebruik, kies een andere gebruikersnaam.</div>
+                          <div class="message error">Gebruikersnaam is al in gebruik, kies een andere gebruikersnaam. <a href="/user/password/forgot">Wijzig wachtwoord.</a></div>
                           <?php
                       }
                   }
@@ -103,9 +113,9 @@
                 <div class="panel-body">
                   <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post" autocomplete="false" >
                       <label for="first_name" >Voornaam</label>
-                      <input class="form-control" required type="text" pattern="[a-zA-Z]*" name="first_name" id="first_name" value="<?php echo $firstName; ?>" placeholder="Voornaam "><br>
+                      <input class="form-control" required type="text" name="first_name" id="first_name" value="<?php echo $firstName; ?>" placeholder="Voornaam "><br>
                       <label for="last_name" >Achternaam</label>
-                      <input class="form-control" required type="text" pattern="[a-zA-Z]*" name="last_name" id="last_name" value="<?php echo $lastName; ?>" placeholder="Achternaam "><br>
+                      <input class="form-control" required type="text" name="last_name" id="last_name" value="<?php echo $lastName; ?>" placeholder="Achternaam "><br>
                       <label for="username" >Gebruikersnaam</label>
                       <input class="form-control" required type="text" name="username" id="username" value="<?php echo $userName; ?>" placeholder="Gebruikersnaam "><br>
                       <label for="datepicker">Geboortedatum</label>
