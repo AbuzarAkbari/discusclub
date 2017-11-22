@@ -5,6 +5,7 @@
 <head>
     <title>Discusclub Holland</title>
     <?php require_once("../../includes/components/head.php"); ?>
+    <?php var_dump( $_SERVER)?>
 </head>
 
 <body>
