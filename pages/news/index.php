@@ -31,6 +31,26 @@ if (isset($_POST['post_add_topic'])) {
         $newsPermissionQuery = $dbc->prepare($newsPermissionSql);
         $newsPermissionQuery->execute([":id" => $lastId]);
     }
+
+}
+if(!empty($_POST['role'])) {
+
+    $wijzigpermissieSQL = "DELETE FROM news_permission WHERE news_id = :id";
+    $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+    $wijzigpermissieResult->execute([':id' => $_POST['id']]);
+    $bindings = [':id' => $_POST['id']];
+    $wijzigpermissieSQL = "INSERT INTO news_permission (news_id, role_id) VALUES ";
+    $wijzigpermissieSQLS = [];
+    foreach ($_POST['role'] as $key => $role) {
+        $wijzigpermissieSQLS[] .= "(:id, :role_$key)";
+        $bindings[":role_$key"] = $role;
+    }
+    $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
+    echo "<pre>";
+    var_dump($wijzigpermissieSQL, $bindings);
+    exit;
+    $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+    $wijzigpermissieResult->execute($bindings);
 }
 
 ?>
@@ -139,6 +159,9 @@ if (isset($_POST['post_add_topic'])) {
                                 <th>Reacties</th>
                                 <th>Categorie</th>
                                 <th>Datum</th>
+                                <?php if(in_array($current_level, $admin_levels)) : ?>
+                                    <th>Admin tools</th>
+                                <?php endif; ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -150,21 +173,33 @@ if (isset($_POST['post_add_topic'])) {
                             if(!empty($res)) :
                             foreach ($res as $key => $value) { ?>
                                 <?php
-                                $sth = $dbc->prepare("SELECT count(*) as amount FROM news_reply WHERE news_id = :id");
-                                $sth->execute([":id" => $value->id]);
-                                $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
+                                    $sth = $dbc->prepare("SELECT count(*) as amount FROM news_reply WHERE news_id = :id");
+                                    $sth->execute([":id" => $value->id]);
+                                    $amount = $sth->fetch(PDO::FETCH_OBJ)->amount;
                                 ?>
                                 <tr>
                                     <td><a href="/news/post/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></td>
                                     <td><?php echo $amount; ?></td>
                                     <td><a href="/forum/topic/<?php echo $value->cat_id; ?>"><?php echo $value->sub_name; ?></a></td>
                                     <td><?php echo $value->created_at; ?></td>
-                                </tr>
+                                    <?php if($logged_in && in_array($current_level, $admin_levels)) : ?>
+                                        <td>
+                                        <a title="Verwijder" href="/includes/tools/news/del.php?id=<?php echo $value->id; ?>" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-remove-sign"></i></a>
 
+                                            <!-- Button trigger modal -->
+                                            <button type="button" data-id="<?php echo $id;?>" class="btn btn-primary btn-lg change-button">
+                                                <i class="buttonDelete glyphicon glyphicon-pencil"></i>
+                                            </button>
+
+<!--                                            <a title="Wijzig permissie" href="/includes/tools/news/wijzig.php?id=--><?php //echo $value->id; ?><!--" type="button" class="btn btn-primary " name="button"><i class="glyphicon glyphicon-pencil"></i></a>-->
+                                        </td>
+                                    <?php endif; ?>
+                                </tr>
                             <?php } ?>
                             <?php else : ?>
                             <tr><td>Geen nieuws gevonden</td></tr>
                             <?php endif ;?>
+
                         </tbody>
                     </table>
 
@@ -276,6 +311,22 @@ if (isset($_POST['post_add_topic'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <?php require_once("../../includes/components/summernote.php"); ?>
+    <script>
+        $(".change-button").on("click", function () {
+            var id = $(this).data('id');
+            $('#myModal').modal('show');
 
+            fetch(`/includes/tools/news/wijzig?id=${id}`)
+                .then(res => res.text())
+        .then(res => $(".modal-dialog").html(res))
+        });
+    </script>
 </body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+
+    </div>
+</div>

@@ -606,7 +606,7 @@
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; font-size: 16px;">
 
-                            <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:14px"><span style="color:#000000"><strong> Beste <?php echo $first_name . " " . $last_name ?>,  <br> <?php echo $username; ?></strong></span></span></span></div>
+                            <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:14px"><span style="color:#000000"><strong> Beste <?php echo $first_name . " " . $last_name; ?>,  <br> <?php echo $username; ?></strong></span></span></span></div>
 
                             <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:14px"><span style="color:#000000"><strong>Geen nood,&nbsp;we zijn hier om je te helpen!</strong></span></span></span></div>
 

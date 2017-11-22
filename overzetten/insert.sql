@@ -6,7 +6,7 @@ INSERT INTO `role`(`name`) VALUES
 ('admin');
 
 INSERT INTO `image`(`path`) VALUES
-('/default.png'),
+('/default.jpg'),
 ('/sponsor/ESHA-Banner_NL_discus_03B15.gif'),
 ('/sponsor/discusmania-toekan.gif'),
 ('/sponsor/banner-HVP-Aqua.gif'),
