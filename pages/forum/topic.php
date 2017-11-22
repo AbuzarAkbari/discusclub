@@ -140,7 +140,7 @@ $offset = $page * $perPage - $perPage;
                                 <td><?php echo $x_berichten; ?></td>
                                 <td><?php echo $x[0]['x']; ?></td>
                                 <?php
-                                    $userResult = $dbc->prepare("SELECT *, u.id as user_id, r.last_changed FROM reply as r JOIN topic as t ON t.id = r.topic_id JOIN user as u ON u.id = r.user_id WHERE t.id = :id ORDER BY r.last_changed DESC LIMIT 1 ");
+                                    $userResult = $dbc->prepare("SELECT *, u.id as user_id, r.last_changed FROM reply as r JOIN topic as t ON t.id = r.topic_id JOIN user as u ON u.id = r.user_id WHERE t.id = :id AND t.deleted_at IS NULL AND u.deleted_at IS NULL AND r.deleted_at IS NULL ORDER BY r.last_changed DESC LIMIT 1 ");
                                     $userResult->execute([":id" => $topic["id"]]);
                                     $user = $userResult->fetch(PDO::FETCH_ASSOC);
                                     if($user) :
