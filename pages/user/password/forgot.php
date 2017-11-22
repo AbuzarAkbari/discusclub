@@ -70,7 +70,7 @@ require_once("../../../includes/components/nav.php");
                             'X-Mailer: PHP/' . phpversion();
                         mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
                     }
-                    echo "<div class='message gelukt'>Mail is verstuurd </div>}";
+                    echo "<div class='message gelukt'>Mail is verstuurd </div>";
 
                 }
                 ?>
