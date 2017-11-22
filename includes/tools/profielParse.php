@@ -2,10 +2,12 @@
 require_once("../../includes/tools/security.php");
 if ($logged_in) {
     if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
+        $date = strtotime($_POST["date"]);
+        if (!$date) {
+            echo "<div class='message error'>Geboortedatum is geen datum of verkeerd opgegeven.</div>";
+        }
+        else{
         $error = '';
-
-
-
         //Start query
         $query = "UPDATE user SET id = :userId";
         $userId = $_POST["user_id"];
