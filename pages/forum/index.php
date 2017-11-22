@@ -181,7 +181,7 @@
                                 <td><?php echo $results3[0]['aantal_topics']; ?></td>
                                 <td><?php echo $berichten['x'] + $topic_x['x']; ?></td>
                                 <?php
-                                    $laasteberichtSql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name FROM topic AS t LEFT JOIN reply AS r ON r.topic_id = t.id LEFT JOIN user AS u ON u.id = r.user_id LEFT JOIN user AS u2 ON u2.id = t.user_id WHERE t.sub_category_id = :sub_id AND t.deleted_at IS NULL ORDER BY r.last_changed DESC, t.last_changed DESC LIMIT 1";
+                                    $laasteberichtSql = "SELECT *, r.last_changed AS reply_last_changed, t.last_changed AS topic_last_changed, r.user_id AS reply_user_id, t.user_id AS topic_user_id, u.first_name AS reply_first_name, u.last_name AS reply_last_name, u2.first_name AS topic_first_name, u2.last_name AS topic_last_name FROM topic AS t LEFT JOIN reply AS r ON r.topic_id = t.id LEFT JOIN user AS u ON u.id = r.user_id LEFT JOIN user AS u2 ON u2.id = t.user_id WHERE t.sub_category_id = :sub_id AND t.deleted_at IS NULL AND r.deleted_at IS NULL AND u.deleted_at IS NULL AND u2.deleted_at IS NULL ORDER BY r.last_changed DESC, t.last_changed DESC LIMIT 1";
                                     $laasteberichtResult = $dbc->prepare($laasteberichtSql);
                                     $laasteberichtResult->execute([":sub_id" => $subCat["id"]]);
 
