@@ -983,3 +983,9 @@ li.dropdown:hover > .dropdown-menu {
 .modal-body {
     padding: 40px !important;
 }
+
+
+/*opera webkit*/
+button, html [type=button], [type=reset], [type=submit] {
+    -webkit-appearance: none !important;
+}
