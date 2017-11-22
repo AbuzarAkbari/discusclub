@@ -100,12 +100,7 @@ $perPage = 10;
                                     </div>
 
                                     <!-- Indicators -->
-                                    <ol class="carousel-indicators">
-                                        <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-                                    <?php foreach ($aquarium as $key => $image) : ?>
-                                        <li class="<?php echo $key == 0 ? "active" : null; ?> " data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></li>
-                                    <?php endforeach; ?>
-                                    </ol>
+    
 
                                     <!-- Left and right controls -->
                                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
