@@ -55,6 +55,7 @@ if ($logged_in) {
             $query .= ", birthdate = :birthdate";
             $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
             $datum = strtotime($_POST["birthdate"]);
+
         }
         else
         {
