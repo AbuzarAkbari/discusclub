@@ -2,7 +2,7 @@
 require_once("../../includes/tools/security.php");
 if ($logged_in) {
     if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
-        if (isset($_POST["date"]) && !strtotime($_POST["date"]) && strtotime($_POST["date"]) > time() && strtotime($_POST["date"]) <  strtotime('1927-01-01')) {
+        if (isset($_POST["date"]) && !strtotime($_POST["date"]) && strtotime($_POST["date"]) > time() && strtotime($_POST["date"]) < (time() - (1000*60*60*24*365*110))) {
             $error = "Geboortedatum is verkeerd";
         }
         else {
