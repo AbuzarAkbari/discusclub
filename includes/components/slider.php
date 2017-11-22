@@ -11,7 +11,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <div class="sliderHome" style="background: url(/images/discusvis1.jpg); " alt="fishing">
+                    <div class="sliderHome" style="background: url('/images/discusvis1.jpg');height:500px" alt="fishing">
                         <div class="sliderTekst">
                             <h3>Houden van pagina</h3>
                             <p>Alles over het houden van discusvissen</p><br>
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="item">
-                    <div class="sliderHome" style="background: url(/images/discusvis2.jpg)" alt="fishing">
+                    <div class="sliderHome" style="background: url(/images/discusvis2.jpg);height:500px" alt="fishing">
                         <div class="sliderTekst">
                             <h3>Hier vindt u alles over ziektes</h3>
                             <p>Alles over ziektes </p> <br>
@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="item">
-                    <div class="sliderHome" style="background: url(/images/discusvis3.jpg)" alt="vissen">
+                    <div class="sliderHome" style="background: url(/images/discusvis3.jpg);height:500px" alt="vissen">
                         <div class="sliderTekst">
                             <h3>Hier vindt u alles over kweken</h3>
                             <p>Alles over kweken</p> <br>
