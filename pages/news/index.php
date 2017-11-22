@@ -202,6 +202,7 @@ if(!empty($_POST['role'])) {
                 <?php
                 $path = "/news/:page";
                 $sql = "SELECT COUNT(*) AS x FROM news as n JOIN news_permission AS np ON np.news_id = n.id JOIN sub_category as sc ON n.sub_category_id = sc.id WHERE np.role_id = :role_id ORDER BY n.created_at DESC";
+                $pagination_bindings = [":role_id" => $_SESSION['user']->role_id];
                 require_once("../../includes/components/pagination.php");
                 ?>
             </div>
