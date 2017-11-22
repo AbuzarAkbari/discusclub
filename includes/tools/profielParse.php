@@ -4,6 +4,8 @@ if ($logged_in) {
     if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
         $error = '';
 
+
+
         //Start query
         $query = "UPDATE user SET id = :userId";
         $userId = $_POST["user_id"];
@@ -33,6 +35,11 @@ if ($logged_in) {
             }
         }
 
+        if (strlen(trim($_POST['email'])) === 0) {
+            $error = "U heeft geen e-mail adres ingevuld";
+            exit;
+        }
+
         //Email
         if ($_POST['email'] === $_POST['repeat_email']) {
             $email = trim($_POST['email']);
@@ -48,9 +55,12 @@ if ($logged_in) {
             $query .= ", birthdate = :birthdate";
             $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
             $datum = strtotime($_POST["birthdate"]);
-
         }
-
+        else
+        {
+            $error = "Geboortedatum is geen datum";
+            exit();
+        }
         //Locatie
         if (isset($_POST['city']) && !empty($_POST["city"])) {
             $city = $_POST['city'];
