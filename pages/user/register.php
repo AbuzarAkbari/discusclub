@@ -103,9 +103,9 @@
                 <div class="panel-body">
                   <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post" autocomplete="false" >
                       <label for="first_name" >Voornaam</label>
-                      <input class="form-control" required type="text" name="first_name" id="first_name" value="<?php echo $firstName; ?>" placeholder="Voornaam "><br>
+                      <input class="form-control" required type="text" pattern="[a-zA-Z]*" name="first_name" id="first_name" value="<?php echo $firstName; ?>" placeholder="Voornaam "><br>
                       <label for="last_name" >Achternaam</label>
-                      <input class="form-control" required type="text" name="last_name" id="last_name" value="<?php echo $lastName; ?>" placeholder="Achternaam "><br>
+                      <input class="form-control" required type="text" pattern="[a-zA-Z]*" name="last_name" id="last_name" value="<?php echo $lastName; ?>" placeholder="Achternaam "><br>
                       <label for="username" >Gebruikersnaam</label>
                       <input class="form-control" required type="text" name="username" id="username" value="<?php echo $userName; ?>" placeholder="Gebruikersnaam "><br>
                       <label for="datepicker">Geboortedatum</label>
