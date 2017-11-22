@@ -38,10 +38,14 @@ if(isset($_POST['sponsorverzend'])) {
 
         $ratio = 480 / 70;
 
-        if (($width / $height) === $ratio){
-            $error = "Sorry, het bestand is te groot";
-            unlink($sponsor_file["tmp_name"]);
-            $uploadOk = 0;
+        try {
+            if (($width / $height) === $ratio){
+                $error = "Sorry, het bestand is te groot";
+                unlink($sponsor_file["tmp_name"]);
+                $uploadOk = 0;
+            }
+        } catch (Except $e) {
+
         }
 
         // Check if file already exists
