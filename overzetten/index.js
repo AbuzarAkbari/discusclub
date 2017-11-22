@@ -44,7 +44,7 @@ dhc
         role_id = 4
       }
       queries.push(
-        (x.uuid ? conn.query("INSERT INTO image(path) VALUES(?)", [`/images/profile/${x.uuid}.${x.extension}`]) : new Promise(res => res())).then(res =>
+        (x.uuid ? conn.query("INSERT INTO image(path) VALUES(?)", [`/profile/${x.id}-${x.uuid}.${x.extension}`]) : new Promise(res => res())).then(res =>
         conn
           .query(
             'INSERT INTO user(id, email, first_name, last_name, username, created_at, last_changed, role_id, city, news, birthdate, signature, profile_img) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, (SELECT id FROM image WHERE path = ?))',
@@ -69,7 +69,7 @@ dhc
               x.newsletter,
               x.birthdate,
               x.signature_cache,
-              x.uuid ? `/images/profile/${x.uuid}.${x.extension}` : null
+              x.uuid ? `/profile/${x.id}-${x.uuid}.${x.extension}` : `/default.png`
             ]
           )
           .catch(e => console.log(e))
@@ -110,10 +110,6 @@ dhc
       if (x.is_locked) {
         state = 2
       }
-      // const bla = forum_posts.filter(y => y.created == x.created)
-      // const content = bla.length > 0 ? bla[0].content_cache : ''
-      // const content = ""
-      // console.log(content)
       let forum_topic_id = null;
       queries.push(
         dhc.query("SELECT * FROM forum_posts WHERE profile_id = ? AND forum_id = ? AND created < (? + INTERVAL 1 MINUTE) AND created > (? - INTERVAL 1 MINUTE) ORDER BY created DESC LIMIT 1", [x.profile_id, x.forum_id, x.created, x.created]).then(res => {
@@ -129,7 +125,7 @@ dhc
         }).then(res => conn.query("SELECT id FROM topic WHERE user_id = ? AND created_at = ?", [x.profile_id, x.created])).catch(e => console.log(e))
          .then(res => {
             let id = false;
-            if(res.length > 0) {
+            if(res && res.length > 0) {
               id = {dhc: forum_topic_id, conn: res[0].id}
             }
             return new Promise((res, rej) => {
@@ -164,34 +160,52 @@ dhc
     })
     return Promise.all(queries);
   })
-  // .then(res => dhc.query("SELECT * FROM newscategories"))
-  // .then(res => Promise.all(res.map(x => conn.query(
-  //   "INSERT INTO sub_category(category_id, name, created_at) VALUES(?, ?, NOW())",
-  //   [1, x.name]
-  // ).catch(e => console.log(e)).then(res => conn.query("SELECT id FROM sub_category WHERE name = ?", [x.name])).then(res => Promise.resolve({conn: res[0].id, dhc: x.id})).catch(e => console.log(e)))))
-  // .then(res => {
-  //   res.forEach((x, i) => {
-  //     newsCats[x.dhc] = x.conn;
-  //   })
-  //   console.log(newsCats)
-  //   return dhc.query("SELECT * FROM news");
-  // })
-  // .then(res => {
-  //   const queries = []
-  //   res.forEach(x => queries.push(conn.query("INSERT INTO news(sub_category_id, title, content, created_at, last_changed) VALUES(?, ?, ?, ?, ?)",
-  //                                            [newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
-  //   return Promise.all(queries)
-  // })
-  .then(res => dhc.query("SELECT * FROM gallery_pictures JOIN galleries ON galleries.id = gallery_pictures.gallery_id"))
+  .then(res => dhc.query("SELECT * FROM newscategories"))
+  .then(res => Promise.all(res.map(x => conn.query(
+    "INSERT INTO sub_category(category_id, name, created_at) VALUES(?, ?, NOW())",
+    [1, x.name]
+  ).catch(e => console.log(e)).then(res => conn.query("SELECT id FROM sub_category WHERE name = ?", [x.name])).then(res => Promise.resolve({conn: res[0].id, dhc: x.id})).catch(e => console.log(e)))))
+  .then(res => {
+    res.forEach((x, i) => {
+      newsCats[x.dhc] = x.conn;
+    })
+    console.log(newsCats)
+    return dhc.query("SELECT * FROM news");
+  })
+  .then(res => {
+    const queries = []
+    res.forEach(x => queries.push(conn.query("INSERT INTO news(id, sub_category_id, title, content, created_at, last_changed) VALUES(?, ?, ?, ?, ?, ?)",
+                                             [x.id, newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
+    return Promise.all(queries)
+  })
+  .then(res => dhc.query("SELECT * FROM comments_news"))
+  .then(res => {
+    const queries = []
+    res.forEach(x => {
+      queries.push(conn.query("INSERT INTO news_reply(user_id, content, news_id, created_at, last_changed)", [x.profile_id, x.message, x.]))
+    })
+    return Promise.all(queries)
+  })
+
+
+  .then(res => dhc.query("SELECT *, gallery_pictures.id FROM gallery_pictures JOIN galleries ON galleries.id = gallery_pictures.gallery_id"))
   .then(res => {
     const queries = []
     res.forEach(x => {
       queries.push(conn.query("INSERT INTO album(id, title, created_at, user_id) VALUES(?, ?, ?, ?)", [x.gallery_id, x.title, x.created, x.profile_id]).catch(e =>
-        conn.query("INSERT INTO image(path, album_id) VALUES(?, ?)", [`/images/album/${x.uuid}.${x.extension}`, x.gallery_id]).then(res => {}).catch(e => console.log(e))
-      ).then(res => conn.query("INSERT INTO image(path, album_id) VALUES(?, ?)", [`/images/album/${x.uuid}.${x.extension}`, x.gallery_id]).catch(e => console.log(e)))
+        conn.query("INSERT INTO image(path, album_id) VALUES(?, ?)", [`/album/${x.id}-${x.uuid}.${x.extension}`, x.gallery_id]).then(res => {}).catch(e => console.log(e))
+      ).then(res => conn.query("INSERT INTO image(path, album_id) VALUES(?, ?)", [`/album/${x.id}-${x.uuid}.${x.extension}`, x.gallery_id]).catch(e => console.log(e)))
     )
     })
     return Promise.all(queries);
+  })
+  .then(res => dhc.query("SELECT *, comments_gallery_pictures.profile_id, comments_gallery_pictures.created, comments_gallery_pictures.modified FROM comments_gallery_pictures JOIN gallery_pictures ON foreign_id = gallery_pictures.id"))
+  .then(res => {
+    const queries = [];
+    res.forEach(x => {
+      queries.push(conn.query("INSERT INTO album_reply(user_id, album_id, content, created_at, last_changed)", [x.profile_id, x.gallery_id, x.message, x.created, x.modified]))
+    });
+    return Promise.all(queries)
   })
   .then(res => console.log("finished"))
   .catch(e => console.log(e))
