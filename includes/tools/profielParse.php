@@ -266,19 +266,15 @@ if ($logged_in) {
                 $error = "Wachtwoord verkeerd";
                 //header("Location: /");
             }
-
         }
-        echo '<pre>';
-        var_dump($error);
-        exit();
-//        if(empty($error)) {
-//            //End query
-//            $query .= " WHERE id = :userId";
-//            $result = $dbc->prepare($query);
-//            $result->execute($bindings);
-//            header("Location: /user/login?logout=true");
-//        } else {
-//            header("Location: /user/conf?error=".$error);
-//        }
+       if(empty($error)) {
+           //End query
+           $query .= " WHERE id = :userId";
+           $result = $dbc->prepare($query);
+           $result->execute($bindings);
+           header("Location: /user/login?logout=true");
+       } else {
+           header("Location: /user/conf?error=".$error);
+       }
     }
 }
