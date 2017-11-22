@@ -32,6 +32,14 @@ $page = $result->fetch();
 <?php
 require_once("../includes/components/nav.php");
 ?>
+<div class="col-md-12">
+                <ol class="breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about/">Over ons</a></li>
+                  <li><a href="/about/bestuur">Het bestuur</a></li>
+                  <li class="active">Jan Verkaik</li>
+                </ol>
+            </div>
 <div class="container main">
     <br>
     <div class="row">
