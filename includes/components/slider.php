@@ -11,7 +11,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <div class="sliderHome" style="background: url(/images/discusvis1.jpg)" alt="fishing">
+                    <div class="sliderHome" style="background: url(/images/discusvis1.jpg); " alt="fishing">
                         <div class="sliderTekst">
                             <h3>Houden van pagina</h3>
                             <p>Alles over het houden van discusvissen</p><br>
