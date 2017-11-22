@@ -7,6 +7,11 @@
         $sql = "INSERT INTO category (name, created_at) VALUES (:name, NOW())";
         $query = $dbc->prepare($sql);
         $query->execute([":name" => htmlentities($_POST["new_category"])]);
+        $id = $query->last_insert_id();
+
+        $categoryPermissionSql = "INSERT INTO category_permission (category_id, role_id) SELECT :id, id FROM role";
+        $categoryPermissionQuery = $dbc->prepare($categoryPermissionSql);
+        $categoryPermissionQuery->execute([":id" => $id]);
     }
 
     if(isset($_POST['add_new_sub_category']) && !empty($_POST['new_sub_category']) && $logged_in && in_array($current_level, $admin_levels))
@@ -16,20 +21,28 @@
         $query->execute([":category_id" => $_POST['cat_id'], ":name" => htmlentities($_POST["new_sub_category"])]);
     }
 
-    $categorieenSql = "SELECT * FROM category WHERE deleted_at IS NULL";
+    //Categorieen
+    $categorieenSql = "SELECT * FROM category JOIN category_permission AS cp ON cp.category_id = category.id WHERE deleted_at IS NULL AND cp.role_id = :role_id";
     $categorieenResult = $dbc->prepare($categorieenSql);
-    $categorieenResult->execute();
+    $categorieenResult->execute([":role_id" => $_SESSION['user']->role_id]);
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
-
     if(!empty($_POST['role'])) {
-        foreach($_POST['role'] as $role){
-            // $wijzigpermissieSQL = "UPDATE category_permission SET category_id = :id AND role_id = :role_id";
-            // $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
-            // $wijzigpermissieResult->execute([':id' => $_GET['id'], ':role_id' => $role]);
-            // $resultpermissie = $wijzigpermissieResult->fetchAll(PDO::FETCH_ASSOC);
-            echo $role;
+
+
+        $wijzigpermissieSQL = "DELETE FROM category_permission WHERE category_id = :id";
+        $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+        $wijzigpermissieResult->execute([':id' => $_POST['id']]);
+        $bindings = [':id' => $_POST['id']];
+        $wijzigpermissieSQL = "INSERT INTO category_permission (category_id, role_id) VALUES ";
+        $wijzigpermissieSQLS = [];
+        foreach ($_POST['role'] as $key => $role) {
+            $wijzigpermissieSQLS[] .= "(:id, :role_$key)";
+            $bindings[":role_$key"] = $role;
         }
+        $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
+        $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+        $wijzigpermissieResult->execute($bindings);
     }
 ?>
 
@@ -89,10 +102,9 @@
         <?php foreach ($results as $categorie) : ?>
             <?php
                 $id = $categorie['id'];
-                $subCategorieenSql = "SELECT * FROM sub_category WHERE category_id = ? AND deleted_at IS NULL";
+                $subCategorieenSql = "SELECT * FROM sub_category JOIN sub_category_permission as scp ON scp.sub_category_id = sub_category.id WHERE category_id = :topic_id AND deleted_at IS NULL AND scp.role_id = :role_id";
                 $subCategorieenResult = $dbc->prepare($subCategorieenSql);
-                $subCategorieenResult->bindParam(1, $id);
-                $subCategorieenResult->execute();
+                $subCategorieenResult->execute(["role_id" => $_SESSION["user"]->role_id, ":topic_id" => $id]);
                 $results2 = $subCategorieenResult->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
@@ -109,7 +121,6 @@
                             <button type="button" data-id="<?php echo $id ;?>" class="btn btn-primary btn-lg change-button">
                               <i class="buttonDelete glyphicon glyphicon-pencil"></i>
                             </button>
-
 
                             <a title="Verwijder" href="/includes/tools/category/del.php?id=<?php echo $categorie['id']; ?>" class="buttonDelete btn-primary" name="button" style="background-color: #0ba8ec;"> <i class="buttonDelete glyphicon glyphicon-remove-sign"></i></a>
                         </td>
@@ -231,7 +242,6 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-   
+      
   </div>
 </div>
-

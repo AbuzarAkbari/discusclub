@@ -23,10 +23,6 @@
     </script>
     <?php
         require_once("includes/components/nav.php");
-
-        $result = $dbc->prepare("SELECT * FROM `topic` JOIN sub_category ON category_id JOIN user ON user_id WHERE state_id = 3");
-        $result->execute();
-        $text = $result->fetch(PDO::FETCH_ASSOC);
       ?>
     <div class="container main">
         <div class="row">

@@ -44,9 +44,10 @@ dhc
         role_id = 4
       }
       queries.push(
+        (x.uuid ? conn.query("INSERT INTO image(path) VALUES(?)", [`/images/profile/${x.uuid}.${x.extension}`]) : new Promise(res => res())).then(res =>
         conn
           .query(
-            'INSERT INTO user(id, email, first_name, last_name, username, created_at, last_changed, role_id, city, news, birthdate, signature) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            'INSERT INTO user(id, email, first_name, last_name, username, created_at, last_changed, role_id, city, news, birthdate, signature, profile_img) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, (SELECT id FROM image WHERE path = ?))',
             [
               x.id,
               x.email,
@@ -67,11 +68,12 @@ dhc
               x.location,
               x.newsletter,
               x.birthdate,
-              x.signature_cache
+              x.signature_cache,
+              x.uuid ? `/images/profile/${x.uuid}.${x.extension}` : null
             ]
           )
           .catch(e => console.log(e))
-      )
+      ).catch(e => console.log(e)))
     })
     return Promise.all(queries)
   })
@@ -180,5 +182,16 @@ dhc
   //                                            [newsCats[x.newscategory_id], x.title, x.body, x.created, x.modified]).catch(e => console.log(e))))
   //   return Promise.all(queries)
   // })
+  .then(res => dhc.query("SELECT * FROM gallery_pictures JOIN galleries ON galleries.id = gallery_pictures.gallery_id"))
+  .then(res => {
+    const queries = []
+    res.forEach(x => {
+      queries.push(conn.query("INSERT INTO album(id, title, created_at, user_id) VALUES(?, ?, ?, ?)", [x.gallery_id, x.title, x.created, x.profile_id]).catch(e =>
+        conn.query("INSERT INTO image(path, album_id) VALUES(?, ?)", [`/images/album/${x.uuid}.${x.extension}`, x.gallery_id]).then(res => {}).catch(e => console.log(e))
+      ).then(res => conn.query("INSERT INTO image(path, album_id) VALUES(?, ?)", [`/images/album/${x.uuid}.${x.extension}`, x.gallery_id]).catch(e => console.log(e)))
+    )
+    })
+    return Promise.all(queries);
+  })
   .then(res => console.log("finished"))
   .catch(e => console.log(e))

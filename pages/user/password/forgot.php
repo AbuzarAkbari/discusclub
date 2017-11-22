@@ -46,10 +46,13 @@
                       <p>Houd in gedachten dat deze functionaliteit altijd zegt dat u uw e-mail moet nakijken. Het geeft geen enkele indicatie of het e-mail adres goed of fout is.</p>
 
                   </form>
+                    <?php if (isset($_POST["send"])) {
+                    echo "<div class='message gelukt'>Mail is verstuurd </div>}"
+                    ?>
 
                     <?php
                     if (isset($_POST["send"])) {
-                        $sth = $dbc->prepare("SELECT id, email FROM user WHERE email = :email");
+                        $sth = $dbc->prepare("SELECT id, email,usernanme,first_name,last_name FROM user WHERE email = :email");
                         $sth->execute([":email" => $_POST["email"]]);
                         $res = $sth->fetch(PDO::FETCH_OBJ);
 
@@ -59,8 +62,14 @@
                             $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
 
                             // TODO:: add mailing thingy, add this link and username
-                            $url = $_SERVER['HTTP_REFERER']."user/password/change?token=$token&id=".$dbc->lastInsertId();
-                            $message = require_once("wachtwoord-vergeten.php");
+                            $url = "discus.ricardokamerman.com/" ."user/password/change?token=$token&id=".$dbc->lastInsertId();
+                            $username = $res->username;
+                            $first_name = $res->first_name;
+                            $last_name = $res->last_name;
+                            ob_start();
+                            require_once("wachtwoord-vergeten.php");
+                            $message = ob_get_clean();
+
                             $headers =  'From: webmaster@example.com' . "\r\n" .
                                         'Content-Type: text/html; charset=utf-8'. "\r\n" .
                                         'X-Mailer: PHP/' . phpversion();
