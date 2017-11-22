@@ -54,13 +54,16 @@ if ($logged_in) {
             $date = $_POST['date'];
             $query .= ", birthdate = :birthdate";
             $bindings[":birthdate"] = date('Y-m-d', strtotime($date));
-            $datum = strtotime($_POST["birthdate"]);
+            $datum = strtotime($_POST["date"]);
+
+            if (!$datum)  {
+                $error = "Geboortedatum is geen datum";
+                exit();
+            }
         }
-        else
-        {
-            $error = "Geboortedatum is geen datum";
-            exit();
-        }
+
+
+
         //Locatie
         if (isset($_POST['city']) && !empty($_POST["city"])) {
             $city = $_POST['city'];
