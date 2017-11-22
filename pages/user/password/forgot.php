@@ -57,7 +57,7 @@ require_once("../../../includes/components/nav.php");
                         $sth = $dbc->prepare("INSERT INTO forgot(token, user_id, created_at) VALUES (:token, :user_id, NOW())");
                         $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
                         // TODO:: add mailing thingy, add this link and username
-                        $url = $_SERVER["HTTP_HOST"] ."user/password/change?token=$token&id=".$dbc->lastInsertId();
+                        $url = $_SERVER["HTTP_HOST"] ."/user/password/change?token=$token&id=".$dbc->lastInsertId();
                         $username = $res->username;
                         $first_name = $res->first_name;
                         $last_name = $res->last_name;
@@ -69,7 +69,7 @@ require_once("../../../includes/components/nav.php");
                             'X-Mailer: PHP/' . phpversion();
                         mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
                     }
-                    echo "<div class='message gelukt'>Mail is verstuurd </div>}";
+                    echo "<div class='message gelukt'>Mail is verstuurd </div>";
 
                 }
                 ?>
