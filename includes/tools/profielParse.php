@@ -263,18 +263,22 @@ if ($logged_in) {
             $result->execute();
             $user = $result->fetch(PDO::FETCH_OBJ);
             if (!password_verify($wachtwoord, $user->password)) {
-                header("Location: /");
+                $error = "Wachtwoord verkeerd";
+                //header("Location: /");
             }
 
         }
-        if(empty($error)) {
-            //End query
-            $query .= " WHERE id = :userId";
-            $result = $dbc->prepare($query);
-            $result->execute($bindings);
-            header("Location: /user/login?logout=true");
-        } else {
-            header("Location: /user/conf?error=".$error);
-        }
+        echo '<pre>';
+        var_dump($error);
+        exit();
+//        if(empty($error)) {
+//            //End query
+//            $query .= " WHERE id = :userId";
+//            $result = $dbc->prepare($query);
+//            $result->execute($bindings);
+//            header("Location: /user/login?logout=true");
+//        } else {
+//            header("Location: /user/conf?error=".$error);
+//        }
     }
 }
