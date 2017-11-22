@@ -1,6 +1,7 @@
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'open sans', sans-serif;
 }
+
 /*navbar collapse*/
 .navbar-collapse.in {
     overflow-y: unset !important;
@@ -832,6 +833,8 @@ li.dropdown:hover > .dropdown-menu {
 }
 .sliderHome {
     background-size: cover !important;
+    -o-background-size:	cover !important;
+    -webkit-background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     width: auto;
