@@ -230,4 +230,5 @@ div.upload-arrow {
     height: 34px;
     overflow: hidden;
     background: #e8e8e8;
+    border-left: 1px solid;
 }

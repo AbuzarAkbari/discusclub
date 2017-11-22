@@ -166,8 +166,8 @@ require_once("../../includes/tools/messenger_handler.php");
                         <span class="input-group-btn">
 
                             <div class="upload-arrow">
-                                <label for="file"></label>
-                                <input id="file" type="file" name="upload" />
+                                <label for="arrow"></label>
+                                <input id="arrow" type="submit" name="upload" />
                             </div>
                         </span>
                       </div>
