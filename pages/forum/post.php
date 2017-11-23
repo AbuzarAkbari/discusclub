@@ -189,7 +189,7 @@ require_once("../../includes/components/nav.php");
             <div class="panel panel-primary" id="post-<?php echo $reply['id']; ?>">
                 <div class="panel-heading border-color-blue">
                     <h3 class="panel-title text-left">Geplaatst door: <b><a
-                                    style="color: #fff; text-decoration: underline"
+                                    style="color: #fff"
                                     href="/user/<?php echo $reply["user_id"]; ?>"><?php echo $naam; ?></a></b>
                     </h3>
                     <?php if (in_array($current_level, $admin_levels)) : ?>

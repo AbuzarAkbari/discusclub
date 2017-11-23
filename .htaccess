@@ -10,6 +10,8 @@ ErrorDocument 404 /404.php
 
 # redirects
 Redirect 301 /vechthuis /
+Redirect 301 /topic/8355-quality-discus-gezocht /forum/
+Redirect 301 /topic/8355-quality-discus-gezocht /forum/
 
 # remove .php
 RewriteCond %{REQUEST_FILENAME}\.php -f
