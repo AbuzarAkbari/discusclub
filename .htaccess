@@ -173,11 +173,21 @@ Redirect 301 /topic/4096-artemia /forum
 Redirect 301 /news/89-aquavaria /news/
 Redirect 301 /news/69-clubbladen /news/
 Redirect 301 /topic/1571-japura /forum
-Redirect 301 /news/54-sponsoren /forum
+Redirect 301 /news/54-sponsoren /news/
 Redirect 301 /topic/2735-scheidingswand /forum
 Redirect 301 /topic/110-paringsgedrag /forum
 Redirect 301 /topic/2524-kempvis /forum
 Redirect 301 /category/17-sponsoren /
+Redirect 301 /sponsors/89-esha /sponsor/become
+Redirect 301 /topic/8978-discus /forum
+Redirect 301 /ruto-frozen-fishfood /
+Redirect 301 /forum/5-handel /forum/
+Redirect 301 /jmb-aqua-light /
+Redirect 301 /category/1-website /
+Redirect 301 album/8505-ledbak /album/
+Redirect 301 /topic/6281-kardinaal-ziekte /forum
+Redirect 301 /topic/6716-advies-bioloog /forum
+
 
 
 
