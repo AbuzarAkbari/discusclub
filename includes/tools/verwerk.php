@@ -10,7 +10,7 @@ if (isset($_POST['send'])) {
                 'X-Mailer: PHP/' . phpversion();
 
     // send email
-    mail("leon3110l@gmail.com","Bericht van " . htmlentities($_POST['naam']), $msg , $headers);
+    mail("redactie@discusclubholland.nl","Bericht van " . htmlentities($_POST['naam']), $msg , $headers);
 
 }
 

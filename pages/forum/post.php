@@ -13,8 +13,7 @@ if (false === intval($page)) {
 $perPage = 10;
 
 //Select query for sub_category, topics, users, replies and roles
-$sql = "SELECT *, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic LEFT JOIN sub_category
-ON topic.sub_category_id = sub_category.id LEFT JOIN user ON topic.user_id = user.id LEFT JOIN image ON user.profile_img = image.id LEFT JOIN role ON user.role_id = role.id JOIN category_permission AS cp ON cp.category_id = sub_category.category_id JOIN sub_category_permission AS scp ON scp.sub_category_id = sub_category.id JOIN topic_permission AS tp ON tp.topic_id = topic.id WHERE topic.id = :id AND cp.role_id = :role_id AND scp.role_id = :role_id AND tp.role_id = :role_id";
+$sql = "SELECT *, user.id AS user_id, role.name AS role_name, user.created_at AS user_created_at, topic.id as topic_id, topic.content AS topic_content, topic.created_at AS topic_created_at, sub_category.id AS sub_category_id, sub_category.name AS sub_category_name FROM topic LEFT JOIN sub_category ON topic.sub_category_id = sub_category.id LEFT JOIN user ON topic.user_id = user.id LEFT JOIN image ON user.profile_img = image.id LEFT JOIN role ON user.role_id = role.id JOIN category_permission AS cp ON cp.category_id = sub_category.category_id JOIN sub_category_permission AS scp ON scp.sub_category_id = sub_category.id JOIN topic_permission AS tp ON tp.topic_id = topic.id WHERE topic.id = :id AND cp.role_id = :role_id AND scp.role_id = :role_id AND tp.role_id = :role_id";
 $result = $dbc->prepare($sql);
 $result->execute([":id" => $_GET['id'], ":role_id" => $_SESSION['user']->role_id]);
 $rows = $result->fetch(PDO::FETCH_ASSOC);

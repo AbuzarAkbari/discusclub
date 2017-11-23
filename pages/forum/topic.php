@@ -173,7 +173,7 @@ if(!empty($_POST['bevestig_topic'])) {
                                     <a title="Bewerken" href="/includes/tools/topic/edit.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
                                     <a title="Verwijderen" href="/includes/tools/topic/del.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
                                     <!-- Button trigger modal -->
-                                    <button type="button" href="/includes/tools/topic/wijzig.php?id=<?php echo $topic['id']; ?>" class="btn btn-primary change-button">
+                                    <button type="button" href="/includes/tools/topic/wijzig.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" class="btn btn-primary change-button">
                                         <i class="buttonDelete glyphicon glyphicon-pencil"></i>
                                     </button>
                                 </td>
