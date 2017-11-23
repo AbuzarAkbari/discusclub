@@ -64,7 +64,7 @@ require_once("../../../includes/components/nav.php");
                         ob_start();
                         require_once("wachtwoord-vergeten.php");
                         $message = ob_get_clean();
-                        $headers =  'From: webmaster@example.com' . "\r\n" .
+                        $headers =  'From: redactie@discusclubholland.nl' . "\r\n" .
                             'Content-Type: text/html; charset=utf-8'. "\r\n" .
                             'X-Mailer: PHP/' . phpversion();
                         mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);

@@ -78,35 +78,42 @@
           </li>
           <li><a href="/news/">Nieuws</a></li>
           <li><a href="/wordlid">Word lid!</a></li>
+
           <li><a class="desktop" href="/album/">Albums</a>
               <span class="mobile navItem">Albums</span>
-              <?php if ($logged_in) { ?>
+
               <ul>
                   <li class="mobile"><a href="/album/">Albums</a></li>
+                  <?php if ($logged_in) { ?>
               <li><a href="/album/upload">Upload</a></li>
-        </ul>
-    <?php } ?>
+                  <?php } ?>
+            </ul>
+
           </li>
           <li><a class="desktop" href="/aquarium/">Aquaria</a>
               <span class="mobile navItem">Aquaria</span>
-              <?php if ($logged_in) { ?>
+
               <ul>
                   <li class="mobile"><a href="/aquarium/">Aquaria</a></li>
-              <li><a href="/aquarium/upload">Upload</a></li>
-        </ul>
-    <?php } ?>
+                    <?php if ($logged_in) { ?>
+                        <li><a href="/aquarium/upload">Upload</a></li>
+                    <?php } ?>
+              </ul>
+
           </li>
           <li><a class="desktop" href="/forum/">Forum</a>
               <span class="mobile navItem">Forum</span>
 
-              <?php if ($logged_in) { ?>
+
               <ul>
                   <li class="mobile"><a href="/forum/">Forum</a></li>
-              <li><a href="/forum/active-topics">Actieve topics</a></li>
-              <li><a href="/forum/new-topics">Nieuwe topics</a></li>
-              <li><a href="/forum/fav-topics">Favoriete topics</a></li>
-        </ul>
-    <?php } ?>
+                  <?php if ($logged_in) { ?>
+                      <li><a href="/forum/active-topics">Actieve topics</a></li>
+                      <li><a href="/forum/new-topics">Nieuwe topics</a></li>
+                      <li><a href="/forum/fav-topics">Favoriete topics</a></li>
+                  <?php } ?>
+              </ul>
+
           </li>
           <li><a class="desktop" href="/sponsor/become">Sponsoren</a>
               <span class="mobile navItem">Sponsoren</span>
