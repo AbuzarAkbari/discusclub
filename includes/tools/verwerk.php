@@ -16,8 +16,6 @@ if (isset($_POST['send'])) {
     mail("kaani@live.nl","Bericht " . htmlentities($_POST['naam']), $msg , $headers);
 >>>>>>> 24ade0868e4308cb4648e1969ba1e605cc63f355
 
-} else {
-
 }
 
 header('Location: /');

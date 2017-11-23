@@ -8,6 +8,9 @@ RewriteEngine on
 ErrorDocument 404 /404.php
 # ErrorDocument 500 /404
 
+# redirects
+Redirect 301 /vechthuis /
+
 # remove .php
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.+)$ $1.php [NC,QSA]
