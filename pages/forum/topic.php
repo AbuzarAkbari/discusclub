@@ -7,6 +7,23 @@ $page = intval(isset($_GET['pagina']) ? $_GET['pagina'] : 1);
 $perPage = 10;
 $offset = $page * $perPage - $perPage;
 
+if(!empty($_POST['bevestig_topic'])) {
+
+    $wijzigpermissieSQL = "DELETE FROM topic_permission WHERE topic_id = :id";
+    $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+    $wijzigpermissieResult->execute([':id' => $_POST['id']]);
+    $bindings = [':id' => $_POST['id']];
+    $wijzigpermissieSQL = "INSERT INTO topic_permission (topic_id, role_id) VALUES ";
+    $wijzigpermissieSQLS = [];
+    foreach ($_POST['role'] as $key => $role) {
+        $wijzigpermissieSQLS[] .= "(:id, :role_$key)";
+        $bindings[":role_$key"] = $role;
+    }
+    $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
+    $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+    $wijzigpermissieResult->execute($bindings);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +70,7 @@ $offset = $page * $perPage - $perPage;
                                 $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
                             }
 
-                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN topic_permission AS tp ON tp.topic_id = topic.id JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL AND tp.role_id = :role_id ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
+                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN category_permission AS cp ON cp.category_id = category.id JOIN sub_category_permission AS scp ON scp.sub_category_id = sub_category.id JOIN topic_permission AS tp ON tp.topic_id = topic.id JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL AND cp.role_id = :role_id AND scp.role_id = :role_id AND tp.role_id = :role_id ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"], ":role_id" => $_SESSION['user']->role_id]);
                             $results3 = array_merge($results3, $result->fetchAll(PDO::FETCH_ASSOC));
@@ -155,6 +172,10 @@ $offset = $page * $perPage - $perPage;
                                     <a  title="Locken" href="/includes/tools/topic/lock.php?id=<?php echo $topic['id']; ?>&sub_id=<?php echo $subRow['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-lock" ></i></a>
                                     <a title="Bewerken" href="/includes/tools/topic/edit.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-edit" ></i></a>
                                     <a title="Verwijderen" href="/includes/tools/topic/del.php?id=<?php echo $topic['id']; ?>" type="button" class="btn btn-primary " name="button"> <i class="glyphicon glyphicon-remove-sign" ></i></a>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" href="/includes/tools/topic/wijzig.php?id=<?php echo $topic['id']; ?>" class="btn btn-primary change-button">
+                                        <i class="buttonDelete glyphicon glyphicon-pencil"></i>
+                                    </button>
                                 </td>
                                 <?php endif; ?>
                             </tr>
@@ -226,5 +247,22 @@ $offset = $page * $perPage - $perPage;
     <!-- summernote js -->
     <?php require_once("../../includes/components/summernote.php"); ?>
 
+    <script>
+        $(".change-button").on("click", function () {
+            var href = $(this).attr('href');
+            $('#myModal').modal('show');
+
+            fetch(href)
+                .then(res => res.text())
+        .then(res => $(".modal-dialog").html(res))
+        });
+    </script>
 </body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+
+    </div>
+</div>
