@@ -14,4 +14,4 @@ if (isset($_POST['send'])) {
 
 }
 
-header('Location: /');
+header('Location: /contact?msg=Uw bericht is succesvol ontvangen en wordt zo spoedig mogelijk behandeld door ons.');

@@ -33,6 +33,9 @@
       </ol>
       </div>
     </div>
+          <?php if(isset($_GET['msg'])): ?>
+              <div class="alert alert-success" role="alert"><?php echo $_GET['msg']; ?></div>
+          <?php endif; ?>
       <div class="col-md-8">
         <div class="panel panel-primary ">
           <div class="panel-heading border-color-blue">Stel uw vraag</div>
