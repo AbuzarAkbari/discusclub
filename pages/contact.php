@@ -34,7 +34,9 @@
       </div>
     </div>
           <?php if(isset($_GET['msg'])): ?>
-              <div class="alert alert-success" role="alert"><?php echo $_GET['msg']; ?></div>
+              <div class="col-md-12">
+                  <div class="alert alert-success" role="alert"><?php echo $_GET['msg']; ?></div>
+              </div>
           <?php endif; ?>
       <div class="col-md-8">
         <div class="panel panel-primary ">
