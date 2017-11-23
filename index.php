@@ -134,7 +134,7 @@
                                                     <b><?php echo html_entity_decode($value["title"]); ?></b>
                                                 </p>
                                                 <p>
-                                                <?php echo strlen($value["content"]) > 45 ? substr($value["content"], 0, 45) . "..." : html_entity_decode($value["content"]); ?>
+                                                <?php echo strlen($value["content"]) > 45 ? substr(strip_tags($value["content"]), 0, 45) . "..." : html_entity_decode($value["content"]); ?>
                                                 <p>
                                                 <?php
                                                     if(sizeof($res)-1 != $key) {
