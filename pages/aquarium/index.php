@@ -64,7 +64,7 @@ function custom_echo($x, $length){
                     <h3 class="panel-title">Contest</h3>
                   </div>
                    <div class="panel-body">
-                Op dit moment is er een contest bezig van <?php echo strftime("%A %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A %B %Y %T", strtotime($aquarium['end_at'])); ?>.
+                Op dit moment is er een contest bezig van <?php echo strftime("%A %e %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A %e %B %Y %T", strtotime($aquarium['end_at'])); ?>.
                   </div>
                 </div>
                 <?php endif; ?>
