@@ -1,6 +1,14 @@
 <?php
 require_once("../../includes/tools/security.php");
 
+// $aquariumSql = "SELECT * FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.start_at <= NOW() AND c.end_at >= NOW() AND c.deleted_at IS NULL GROUP BY c.start_at, l.aquarium_id ORDER BY c.end_at DESC, amount_of_likes DESC LIMIT 1";
+$aquariumSql = "SELECT * FROM contest WHERE start_at <= NOW() AND end_at >= NOW() AND deleted_at IS NULL";
+$aquariumResult = $dbc->prepare($aquariumSql);
+$aquariumResult->execute();
+$aquarium = $aquariumResult->fetch();
+
+setlocale(LC_ALL,'nl_NL.UTF-8', 'Dutch_Netherlands', 'Netherlands');
+
 $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 if (false === intval($page)) {
     exit;
@@ -50,6 +58,17 @@ function custom_echo($x, $length){
                         <li class="active">Aquaria</li>
                     </ol>
                 </div>
+                <?php if($aquarium): ?>
+                <div class="panel panel-primary">
+                  <div class="panel-heading border-color-blue">
+                    <h3 class="panel-title">Contest</h3>
+                  </div>
+                   <div class="panel-body">
+                Op dit moment is er een contest bezig van <?php echo strftime("%A %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A %B %Y %T", strtotime($aquarium['end_at'])); ?>.
+                  </div>
+                </div>
+                <?php endif; ?>
+                <br>
                 <div class="panel panel-primary">
                   <div class="panel-heading border-color-blue">
                     <h3 class="panel-title">Aquarium toevoegen</h3>

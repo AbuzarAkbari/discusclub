@@ -20,6 +20,10 @@ if (isset($_POST['post_add_topic'])) {
 
         $lastId = $dbc->lastInsertId();
 
+        $insertSql = "INSERT INTO topic_permission (topic_id, role_id) VALUES (:topic_id, :role_id)";
+        $insertQuery = $dbc->prepare($insertSql);
+        $insertQuery->execute([":topic_id" =>$lastId, ":role_id" => $_SESSION['user']->role_id]);
+
         header("Location: /forum/post/".$lastId);
     }
 }

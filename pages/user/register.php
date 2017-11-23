@@ -41,7 +41,7 @@
 
               $res = $sth->fetch(PDO::FETCH_OBJ);
 
-              if (empty($res) && !preg_match("/[0-9]*/", $_post["first_name"]) && !preg_match("/[0-9]*/", $_post["last_name"])) {
+              if (empty($res)) {
                   $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email, created_at,birthdate, news) VALUES
                   (:first_name, :last_name, :username, :password, :email, NOW(),:birthdate, :news )");
 
@@ -59,16 +59,6 @@
                       <?php
                   } else {
                       $error = true;
-                      if(preg_match("/[0-9]*/", $_post["first_name"])) {
-                          ?>
-                          <div class="message error">Voornaam bevat cijfers.</div>
-                          <?php
-                      }
-                      if(preg_match("/[0-9]*/", $_post["last_name"])) {
-                      ?>
-                      <div class="message error">Achternaam bevat cijfers.</div>
-                      <?php
-                     }
                       if (isset($res) && $res->email === $_POST["email"]) {
                           ?>
                           <div class="message error">Email is al in gebruik. <a href="/user/password/forgot">Wijzig wachtwoord.</a></div>
