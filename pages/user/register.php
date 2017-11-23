@@ -59,16 +59,6 @@
                       <?php
                   } else {
                       $error = true;
-                      if(!preg_match("/[0-9]*/", $_post["first_name"])) {
-                          ?>
-                          <div class="message error">Voornaam bevat cijfers.</div>
-                          <?php
-                      }
-                      if(!preg_match("/[0-9]*/", $_post["last_name"])) {
-                      ?>
-                      <div class="message error">Achternaam bevat cijfers.</div>
-                      <?php
-                     }
                       if (isset($res) && $res->email === $_POST["email"]) {
                           ?>
                           <div class="message error">Email is al in gebruik. <a href="/user/password/forgot">Wijzig wachtwoord.</a></div>
