@@ -40,8 +40,8 @@ require_once("../../includes/tools/security.php"); ?>
       $albumResult->bindParam(1, $id);
       $albumResult->execute();
       $album = $albumResult->fetchAll(PDO::FETCH_ASSOC);
-//      $user_id = $_SESSION['user']->id;
-      ?>
+      //$user_id = $_SESSION['user']->id;
+    ?>
     <div class="container main">
         <?php if(!$album) :?>
         <div class="message error">Deze pagina bestaat niet, <a href="/album/"> ga terug</a></div>
@@ -57,7 +57,7 @@ require_once("../../includes/tools/security.php"); ?>
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading heading-padding">
-                        <h3 class="panel-title"><?php echo $album[0]['title'] . ' | Geplaatst door: &nbsp; <a href="/user/'. $album['auid'] .'">' . $album[0]['first_name'].' '.
+                        <h3 class="panel-title"><?php echo $album[0]['title'] . ' | Geplaatst door: &nbsp; <a href="/user/'. $album[0]['auid'] .'">' . $album[0]['first_name'].' '.
                         $album[0]['last_name'] . '</a>  <span style="float: right;"> Geplaatst op: <i>'.$album[0]['album_created_at'].'</i></span>'  ;?></h3>
                     </div>
                     <div class="panel-body">
