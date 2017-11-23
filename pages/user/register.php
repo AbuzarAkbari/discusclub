@@ -41,7 +41,7 @@
 
               $res = $sth->fetch(PDO::FETCH_OBJ);
 
-              if (empty($res) && !preg_match("/[0-9]*/", $_post["first_name"]) && !preg_match("/[0-9]*/", $_post["last_name"])) {
+              if (empty($res)) {
                   $sth = $dbc->prepare("INSERT INTO user(first_name, last_name, username, password, email, created_at,birthdate, news) VALUES
                   (:first_name, :last_name, :username, :password, :email, NOW(),:birthdate, :news )");
 
