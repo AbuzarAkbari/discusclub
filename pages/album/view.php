@@ -34,7 +34,7 @@ require_once("../../includes/tools/security.php"); ?>
     <br><br>
     <?php
       $id = $_GET['id'];
-      $haal_albums = "SELECT * , a.created_at AS album_created_at, album.user_id AS auid FROM image as i JOIN album as a ON a.id = i.album_id JOIN user as u ON u.id = a.user_id WHERE album_id = ?";
+      $haal_albums = "SELECT * , a.created_at AS album_created_at, a.user_id AS auid FROM image as i JOIN album as a ON a.id = i.album_id JOIN user as u ON u.id = a.user_id WHERE album_id = ?";
 
       $albumResult = $dbc->prepare($haal_albums);
       $albumResult->bindParam(1, $id);
