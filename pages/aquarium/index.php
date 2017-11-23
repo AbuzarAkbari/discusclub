@@ -2,7 +2,7 @@
 require_once("../../includes/tools/security.php");
 
 // $aquariumSql = "SELECT * FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.start_at <= NOW() AND c.end_at >= NOW() AND c.deleted_at IS NULL GROUP BY c.start_at, l.aquarium_id ORDER BY c.end_at DESC, amount_of_likes DESC LIMIT 1";
-$aquariumSql = "SELECT * FROM contest WHERE start_at <= NOW() AND end_at >= NOW()";
+$aquariumSql = "SELECT * FROM contest WHERE start_at <= NOW() AND end_at >= NOW() AND deleted_at IS NULL";
 $aquariumResult = $dbc->prepare($aquariumSql);
 $aquariumResult->execute();
 $aquarium = $aquariumResult->fetch();
