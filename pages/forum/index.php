@@ -27,7 +27,7 @@
     $categorieenResult->execute([":role_id" => $_SESSION['user']->role_id]);
     $results = $categorieenResult->fetchAll(PDO::FETCH_ASSOC);
 
-    if(!empty($_POST['role'])) {
+    if(!empty($_POST['bevestig_category'])) {
 
 
         $wijzigpermissieSQL = "DELETE FROM category_permission WHERE category_id = :id";
@@ -35,6 +35,23 @@
         $wijzigpermissieResult->execute([':id' => $_POST['id']]);
         $bindings = [':id' => $_POST['id']];
         $wijzigpermissieSQL = "INSERT INTO category_permission (category_id, role_id) VALUES ";
+        $wijzigpermissieSQLS = [];
+        foreach ($_POST['role'] as $key => $role) {
+            $wijzigpermissieSQLS[] .= "(:id, :role_$key)";
+            $bindings[":role_$key"] = $role;
+        }
+        $wijzigpermissieSQL .= implode(", ", $wijzigpermissieSQLS);
+        $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+        $wijzigpermissieResult->execute($bindings);
+    }
+    if(!empty($_POST['bevestig_sub_category'])) {
+
+
+        $wijzigpermissieSQL = "DELETE FROM sub_category_permission WHERE sub_category_id = :id";
+        $wijzigpermissieResult = $dbc->prepare($wijzigpermissieSQL);
+        $wijzigpermissieResult->execute([':id' => $_POST['sub_id']]);
+        $bindings = [':id' => $_POST['sub_id']];
+        $wijzigpermissieSQL = "INSERT INTO sub_category_permission (sub_category_id, role_id) VALUES ";
         $wijzigpermissieSQLS = [];
         foreach ($_POST['role'] as $key => $role) {
             $wijzigpermissieSQLS[] .= "(:id, :role_$key)";

@@ -34,7 +34,7 @@
           <label class="form-check-label" for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label><br><br>
           <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
         <?php endforeach; ?>
-    	<input class="pull-right btn btn-primary" type="submit" name="bevestig" value="Bevestig"><br>
+    	<input class="pull-right btn btn-primary" type="submit" name="bevestig_category" value="Bevestig"><br>
     </form>
   </div>
 </div>

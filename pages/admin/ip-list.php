@@ -51,7 +51,7 @@ $perPage = 20;
                             <tr>
                                 <th>Gebruiker</th>
                                 <th>IP Adres</th>
-                                <th>Registratiedatum</th>
+                                <th>Datum</th>
                                 <th>Tools</th>
                             </tr>
                             <?php
@@ -75,7 +75,7 @@ $perPage = 20;
                                      echo $ip['ip_address'];
                                     ?></td>
                                     <td><?php
-                                     echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
+                                     echo $ip['created_at'];
                                     ?></td>
                                     <td>
                                     <a title="Blokeer" href="/includes/tools/ipBlock?ip=<?php echo $ip["ip_address"]; ?>&blocked=1" class="btn btn-danger" name="button">
