@@ -122,7 +122,7 @@ require_once("../../includes/tools/messenger_handler.php");
             $sth->execute([":user_1" => $_SESSION["user"]->id, ":user_2" => $id]);
             $res = $sth->fetchAll(PDO::FETCH_OBJ);
             if(!$res) {
-                $sth = $dbc->prepare("SELECT *, i.path as user_1_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u.id FROM user as u JOIN image as i ON i.id = u.profile_img WHERE u.id IN (:user_1) ORDER BY m.created_at");
+                $sth = $dbc->prepare("SELECT *, i.path as user_1_path, u.first_name as user_1_first_name, u.last_name AS user_1_last_name, u.id FROM user as u JOIN image as i ON i.id = u.profile_img WHERE u.id IN (:user_1)");
                 $sth->execute([":user_1" => $id]);
                 $res = $sth->fetchAll(PDO::FETCH_OBJ);
             }
