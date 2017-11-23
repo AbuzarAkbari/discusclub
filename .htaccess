@@ -181,7 +181,6 @@ Redirect 301 /category/17-sponsoren /
 
 
 
-
 # remove .php
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.+)$ $1.php [NC,QSA]

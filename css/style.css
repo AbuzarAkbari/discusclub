@@ -455,7 +455,7 @@ li.dropdown:hover > .dropdown-menu {
 
 .imgAlbum {
     margin: 0;
-    width: 150px;
+    width: auto;
     height: 150px;
     background-repeat: no-repeat;
     background-size: cover;
