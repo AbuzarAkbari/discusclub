@@ -17,7 +17,7 @@ $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         <h4 class="modal-title" id="myModalLabel">Wijzig permissie van: <?php echo isset($categorie[0]) ? $categorie[0]['name'] : "niet gevonden"; ?></h4>
     </div>
     <div class="modal-body">
-        <form method="POST" action="/forum/topic.php">
+        <form method="POST" action="/forum/topic<?php echo $_GET["id"]; ?>">
             <?php foreach($res as $perm) : ?>
                 <?php
                 $in = array_filter($categorie, function($x) use($perm) {
