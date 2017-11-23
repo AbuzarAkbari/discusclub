@@ -1,7 +1,8 @@
 <?php
 require_once("../../includes/tools/security.php");
 
-$aquariumSql = "SELECT *, (SELECT COUNT(*) AS amount_of_likes FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.end_at <= NOW() AND c.deleted_at IS NULL GROUP BY c.start_at, l.aquarium_id ORDER BY c.end_at DESC LIMIT 1) as amount_of_likes FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.start_at <= NOW() AND c.end_at >= NOW() AND c.deleted_at IS NULL GROUP BY c.start_at, l.aquarium_id ORDER BY c.end_at DESC, amount_of_likes DESC LIMIT 1";
+// $aquariumSql = "SELECT * FROM `like` as l LEFT JOIN contest as c ON c.id = l.contest_id LEFT JOIN aquarium as a ON a.id = l.aquarium_id LEFT JOIN image as i ON i.aquarium_id = l.aquarium_id LEFT JOIN user as u ON u.id = a.user_id WHERE c.start_at <= NOW() AND c.end_at >= NOW() AND c.deleted_at IS NULL GROUP BY c.start_at, l.aquarium_id ORDER BY c.end_at DESC, amount_of_likes DESC LIMIT 1";
+$aquariumSql = "SELECT * FROM contest WHERE start_at <= NOW() AND end_at >= NOW()";
 $aquariumResult = $dbc->prepare($aquariumSql);
 $aquariumResult->execute();
 $aquarium = $aquariumResult->fetch();
@@ -57,18 +58,16 @@ function custom_echo($x, $length){
                         <li class="active">Aquaria</li>
                     </ol>
                 </div>
+                <?php if($aquarium): ?>
                 <div class="panel panel-primary">
                   <div class="panel-heading border-color-blue">
                     <h3 class="panel-title">Contest</h3>
                   </div>
-                  <div class="panel-body">
-                     <?php if($aquarium): ?>
-                        Op dit moment is er een contest bezig van <?php echo strftime("%A %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A %B %Y %T", strtotime($aquarium['end_at'])); ?>.
-                     <?php else : ?>
-                        Er is op dit moment geen contest bezig.
-                     <?php endif; ?>
+                   <div class="panel-body">
+                Op dit moment is er een contest bezig van <?php echo strftime("%A %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A %B %Y %T", strtotime($aquarium['end_at'])); ?>.
                   </div>
                 </div>
+                <?php endif; ?>
                 <br>
                 <div class="panel panel-primary">
                   <div class="panel-heading border-color-blue">
