@@ -103,7 +103,7 @@ function custom_echo($x, $length){
                             $result->execute([":aid" => $aquarium['aquarium_id']]);
                             $like = $result->fetch();
 
-                            $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca AND start_at <= NOW() AND end_at >= NOW()";
+                            $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca AND start_at <= NOW() AND end_at >= NOW() AND deleted_at IS NULL";
                             $contestResult = $dbc->prepare($contestSql);
                             $contestResult->execute([":aca" => $aquarium["aquarium_created_at"]]);
                             $contest = $contestResult->fetch();
