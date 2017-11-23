@@ -12,6 +12,22 @@ require_once("../../includes/tools/messenger_handler.php");
 </head>
 
 <body><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-110090721-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-110090721-1');</script>
+    <div id="errorModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">error</h4>
+        </div>
+        <div class="modal-body">
+            <p><?php echo $error; ?></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Sluit</button>
+        </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <div id="fb-root"></div>
     <script>
     ;(function(d, s, id) {
@@ -160,7 +176,7 @@ require_once("../../includes/tools/messenger_handler.php");
 
                             <div class="upload">
                                 <label for="file"></label>
-                                <input id="file" type="file" name="upload" />
+                                <input id="file" type="file" name="upload" accept="image/*" />
                             </div>
                         </span>
                         <span class="input-group-btn">
@@ -190,5 +206,10 @@ require_once("../../includes/tools/messenger_handler.php");
     <script type="text/javascript">
     $(".tab").animate({ scrollTop: $(document).height() });
     </script>
+    <?php if(!empty($error) || $uploadOK != 0) : ?>
+    <script type="text/javascript">
+        $('#errorModal').modal('show');
+    </script>
+    <?php endif; ?>
 </body>
 </html>
