@@ -7,7 +7,7 @@ $res = $dbc->prepare($stm);
 $res->execute([":user_id" => $_SESSION['user']->id, ":aquarium_id" => $_GET["aid"]]);
 $user = $res->fetchAll(PDO::FETCH_ASSOC);
 
-$contestSql = "SELECT * FROM contest WHERE start_at <= NOW() AND end_at >= NOW()";
+$contestSql = "SELECT * FROM contest WHERE start_at <= NOW() AND end_at >= NOW() AND deleted_at IS NULL";
 $contestResult = $dbc->prepare($contestSql);
 $contestResult->execute();
 $contest = $contestResult->fetch();

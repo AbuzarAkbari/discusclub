@@ -64,7 +64,7 @@ function custom_echo($x, $length){
                     <h3 class="panel-title">Contest</h3>
                   </div>
                    <div class="panel-body">
-                Op dit moment is er een contest bezig van <?php echo strftime("%A %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A %B %Y %T", strtotime($aquarium['end_at'])); ?>.
+                Op dit moment is er een contest bezig van <?php echo strftime("%A %e %B %Y %T", strtotime($aquarium['start_at'])); ?> tot <?php echo strftime("%A %e %B %Y %T", strtotime($aquarium['end_at'])); ?>.
                   </div>
                 </div>
                 <?php endif; ?>
@@ -103,7 +103,7 @@ function custom_echo($x, $length){
                             $result->execute([":aid" => $aquarium['aquarium_id']]);
                             $like = $result->fetch();
 
-                            $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca AND start_at <= NOW() AND end_at >= NOW()";
+                            $contestSql = "SELECT count(*) as amount FROM contest WHERE start_at <= :aca AND end_at >= :aca AND start_at <= NOW() AND end_at >= NOW() AND deleted_at IS NULL";
                             $contestResult = $dbc->prepare($contestSql);
                             $contestResult->execute([":aca" => $aquarium["aquarium_created_at"]]);
                             $contest = $contestResult->fetch();
