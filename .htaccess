@@ -10,6 +10,27 @@ ErrorDocument 404 /404.php
 
 # redirects
 Redirect 301 /vechthuis /
+Redirect 301 /albums /album
+Redirect 301 /koidream /
+Redirect 301 /discusshop /
+Redirect 301 /sponsoren /sponsor
+Redirect 301 /wesdijk /
+Redirect 301 /discuscompleet /
+Redirect 301 /esha /
+Redirect 301 /discusvistotaal /
+Redirect 301 /discuspassie /
+Redirect 301 /rockzolid /pages/sponsor/
+Redirect 301 /sponsor-worden /sponsor/become
+Redirect 301 /topics/new /forum/new-topics
+Redirect 301 /subscriptions/subscribe /wordlid
+Redirect 301 /over-dch /about/
+Redirect 301 /hvp-aqua /
+Redirect 301 /mhb-glastechniek /
+Redirect 301 /mantaray-aquariumverwarming /
+Redirect 301 /discusmania-nl /
+Redirect 301 /aquaria-veldhuis /
+Redirect 301 /osmoseapparaat-nl /
+Redirect 301 /the-moonlight /
 
 # remove .php
 RewriteCond %{REQUEST_FILENAME}\.php -f
