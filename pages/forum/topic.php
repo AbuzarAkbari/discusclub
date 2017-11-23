@@ -70,7 +70,7 @@ if(!empty($_POST['bevestig_topic'])) {
                                 $results3 = $result->fetchAll(PDO::FETCH_ASSOC);
                             }
 
-                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN category_permission AS cp ON cp.category_id = category.id JOIN sub_category_permission AS scp ON scp.sub_category_id = sub_category.id JOIN topic_permission AS tp ON tp.topic_id = topic.id JOIN user as u ON u.id = topic.user_id WHERE sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL AND cp.role_id = :role_id AND scp.role_id = :role_id AND tp.role_id = :role_id ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
+                            $sql = "SELECT *, topic.id, topic.last_changed AS topic_last_changed FROM topic JOIN category_permission AS cp ON cp.category_id = category.id JOIN sub_category_permission AS scp ON scp.sub_category_id = sub_category.id JOIN topic_permission AS tp ON tp.topic_id = topic.id JOIN user as u ON u.id = topic.user_id WHERE topic.sub_category_id = :id AND state_id <> 3 AND topic.deleted_at IS NULL AND cp.role_id = :role_id AND scp.role_id = :role_id AND tp.role_id = :role_id ORDER BY topic.last_changed DESC LIMIT {$perPage} OFFSET {$offset}";
                             $result = $dbc->prepare($sql);
                             $result->execute([":id" => $_GET["id"], ":role_id" => $_SESSION['user']->role_id]);
                             $results3 = array_merge($results3, $result->fetchAll(PDO::FETCH_ASSOC));
