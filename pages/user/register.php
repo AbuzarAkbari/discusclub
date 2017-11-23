@@ -59,12 +59,12 @@
                       <?php
                   } else {
                       $error = true;
-                      if(preg_match("/[0-9]*/", $_post["first_name"])) {
+                      if(!preg_match("/[0-9]*/", $_post["first_name"])) {
                           ?>
                           <div class="message error">Voornaam bevat cijfers.</div>
                           <?php
                       }
-                      if(preg_match("/[0-9]*/", $_post["last_name"])) {
+                      if(!preg_match("/[0-9]*/", $_post["last_name"])) {
                       ?>
                       <div class="message error">Achternaam bevat cijfers.</div>
                       <?php
