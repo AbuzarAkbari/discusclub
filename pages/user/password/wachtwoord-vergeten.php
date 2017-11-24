@@ -610,10 +610,9 @@
 
                             <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:14px"><span style="color:#000000"><strong>Geen nood,&nbsp;we zijn hier om je te helpen!</strong></span></span></span></div>
 
-<div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:13px"><font color="#000000">Klik op de onderstaande URL om een nieuw wachtwoord te maken.</font><br>
+<div style="text-align: left;">Klik op de onderstaande URL om een nieuw wachtwoord te maken.<br>
 <br>
-<a href="https://<?php echo $url; ?>" target="_blank">https://<?php echo $url; ?></a></span><br>
-</span>
+<a href="https://<?php echo $url; ?>" target="_blank">https://<?php echo $url; ?></a><br>
 Als deze link niet werk kopieer en plak deze link in uw browser:<br>
 <?php echo $url; ?>
 </div>
@@ -784,11 +783,8 @@ Als deze link niet werk kopieer en plak deze link in uw browser:<br>
                             <em>Copyright © 2017 | <a href="http://www.discusclubholland.nl/" target="_blank">DiscusClubHolland</a> | Alle rechten voorbehouden.</em><br>
 <br>
 <strong>U kunt ons naar dit email adres mailen:</strong><br>
-EXAMPLE@EXAMPLE.NL<br>
-<br>
-Wilt u deze mails niet meer ontvangen?<br>
-u kunt <a href="http://|voorkeuren wijzigen| " target="_blank">hier uw voorkeuren updaten</a> of <a href="http://|uitschrijven| " target="_blank">uitschrijven voor deze lijst</a><br>
-&nbsp;
+                            redactie@discusclubholland.nl<br>
+
                         </td>
                     </tr>
                 </tbody></table>
