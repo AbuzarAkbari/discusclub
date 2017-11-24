@@ -612,9 +612,11 @@
 
 <div style="text-align: left;">Klik op de onderstaande URL om een nieuw wachtwoord te maken.<br>
 <br>
-<a href="https://<?php echo $url; ?>" target="_blank">https://<?php echo $url; ?></a><br>
+<a href="https://<?php echo $url; ?>" target="_blank">https://<?php echo $url; ?></a><br><br><br><br>
+<span>
 Als deze link niet werk kopieer en plak deze link in uw browser:<br>
 <?php echo $url; ?>
+</span>
 </div>
 
                         </td>
