@@ -175,12 +175,6 @@
         if(e.target.nodeName === "DIV" || e.target.nodeName === "svg") {
             document.getElementById("dinges").click();
         }
-    })
-    // document.getElementById("dinges").addEventListener("click", function(e) {
-    //     console.log(e);
-    //     if (e.explicitOriginalTarget.nodeName === "#text") {
-    //         e.preventDefault();
-    //     }
-    // });
+    });
 
 }( document, window, 0 ));
