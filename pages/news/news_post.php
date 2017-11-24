@@ -5,7 +5,7 @@ require_once("../../includes/tools/security.php");
 if (isset($_POST['post_reply'])) {
     require_once("../../includes/tools/security.php");
     if ($logged_in) {
-        $reply_content = $_POST['reply_content'];
+        $reply_content = rmScript($_POST['reply_content']);
         $bericht_id = $_POST['bericht_id'];
         $reply_auteur = $_SESSION['user']->id;
         $sql3 = "INSERT INTO news_reply (news_id, user_id, content, created_at) VALUES (:bericht_id, :reply_auteur, :reply_content, NOW())";
@@ -14,7 +14,6 @@ if (isset($_POST['post_reply'])) {
         $result = $dbc->prepare($sql);
         $result->bindParam(':bericht_id', $bericht_id);
         $result->execute();
-
 
         $result3 = $dbc->prepare($sql3);
         $result3->bindParam(':bericht_id', $bericht_id);

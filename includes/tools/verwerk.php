@@ -2,7 +2,7 @@
 if (isset($_POST['send'])) {
 
     // the message
-    $msg = htmlentities($_POST['email'])  . "\r\n" . htmlentities($_POST['bericht']);
+    $msg = rmScript(htmlentities($_POST['email'])  . "\r\n" . htmlentities($_POST['bericht']));
 
     $msg = wordwrap($msg, 70, "\r\n");
 
@@ -10,7 +10,7 @@ if (isset($_POST['send'])) {
                 'X-Mailer: PHP/' . phpversion();
 
     // send email
-    mail("redactie@discusclubholland.nl","Bericht van " . htmlentities($_POST['naam']), $msg , $headers);
+    mail("redactie@discusclubholland.nl","Bericht van " . rmScript(htmlentities($_POST['naam'])), $msg , $headers);
 
 }
 

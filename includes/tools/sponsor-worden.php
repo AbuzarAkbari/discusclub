@@ -1,11 +1,11 @@
 <?php
 require_once("security.php");
 if(isset($_POST['sponsorverzend'])) {
-    $bedrijf = htmlentities(ucfirst($_POST['naam']));
-    $url = htmlentities($_POST['url']);
-    $email = htmlentities($_POST['email']);
-    $phone = htmlentities($_POST['phone']);
-    $iban = htmlentities($_POST['iban']);
+    $bedrijf = rmScript(htmlentities(ucfirst($_POST['naam'])));
+    $url = rmScript(htmlentities($_POST['url']));
+    $email = rmScript(htmlentities($_POST['email']));
+    $phone = rmScript(htmlentities($_POST['phone']));
+    $iban = rmScript(htmlentities($_POST['iban']));
     $opties = $_POST['optie'];
 
 	if (isset($_FILES['afbeelding']) && $_FILES['afbeelding']['error'] !== 4) {
