@@ -33,7 +33,7 @@ if(isset($_POST['send'])) {
     $headers =  'From: ' . $_SESSION['user']->email . "\r\n" .
         'Content-Type: text/html; charset=utf-8 '. "\r\n" .
         'X-Mailer: PHP/' . phpversion();
-    mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
+    mail('redactie@discusclubholland.nl', "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
 }
 
 header('Location: /wordlid');
