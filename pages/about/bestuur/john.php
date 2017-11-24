@@ -44,7 +44,7 @@ require_once("../../../includes/components/nav.php");
                     <div class="col-md-4">
                         <img src="/images/bestuur/john.jpg" class="John">
                     </div>
-                    <p class="col-md-12">
+                    <p class="col-md-8">
                         <br>
                         In 2013, ben ik lid geworden van DCH, en in 2016, op de algemene leden vergadering, waar al geruime tijd van tevoren bestuursleden werden gevraagd, heb ik op dat moment besloten me aan te melden als bestuurslid, in eerste instantie als secretaris, later in 2017, toen Marcel van Hintum aftrad als voorzitter, heb ik de taak van voorzitter op me genomen.
                         Op diezelfde vergadering, stelden ook Jason en Rob zich niet meer verkiesbaar, zodat we met 4 man overbleven, inmiddels nog maar drie.
