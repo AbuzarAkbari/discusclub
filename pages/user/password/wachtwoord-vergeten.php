@@ -612,7 +612,7 @@
 
 <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:13px"><font color="#000000">Klik op de onderstaande URL om een nieuw wachtwoord te maken.</font><br>
 <br>
-<a href="<?php echo $url; ?>" target="_blank"><?php echo $url; ?></a></span><br>
+<a href="https://<?php echo $url; ?>" target="_blank">https://<?php echo $url; ?></a></span><br>
 </span>
 Als deze link niet werk kopieer en plak deze link in uw browser:<br>
 <?php echo $url; ?>
