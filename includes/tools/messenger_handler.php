@@ -7,7 +7,7 @@ if(isset($_GET["id"])) {
 }
 $m = !empty($_POST["message"]) || (isset($_FILES['upload']) && $_FILES['upload']['error'] !== 4);
 if(isset($_POST["message"]) && isset($_POST["user_id_2"]) && $m) {
-    $bindings = [":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message" => $_POST["message"]];
+    $bindings = [":user_id_1" => $_SESSION["user"]->id, ":user_id_2" => $_POST["user_id_2"], ":message" => rmScript($_POST["message"])];
   //Image check
   if (isset($_FILES['upload']) && $_FILES['upload']['error'] !== 4) {
     $target_dir = "/images/messenger/";

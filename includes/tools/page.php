@@ -4,10 +4,10 @@ if ($logged_in) {
     if (isset($_POST["send"])) {
         $error = '';
 
-        $title = $_POST['title'];
-        $content = $_POST['content'];
+        $title = rmScript($_POST['title']);
+        $content = rmScript($_POST['content']);
         $slug = $_POST['slug'];
-        
+
         // echo '<pre>';
         // var_dump($_POST);
         // exit();
@@ -16,7 +16,7 @@ if ($logged_in) {
         $query = "UPDATE page SET name = :name, content = :content";
         $pageId = $_POST["id"];
         $bindings = [":uri" => $slug, ":name" => $title, ":content" => $content];
-        
+
         //Image check
         if (isset($_FILES['image']) && $_FILES['image']['error'] !== 4) {
             $target_dir = "/images/";

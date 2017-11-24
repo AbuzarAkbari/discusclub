@@ -1,12 +1,12 @@
 <?php
 require_once("security.php");
 if(isset($_POST['send'])) {
-    $adres = htmlentities($_POST['adres']);
-    $huisnummer = htmlentities($_POST['huisnummer']);
-    $postcode = htmlentities(strtoupper($_POST['postcode']));
-    $stad = htmlentities($_POST['stad']);
-    $telefoonnummer = htmlentities($_POST['telefoonnummer']);
-    $rekeningnummer = htmlspecialchars($_POST['rekeningnummer']);
+    $adres = rmScript(htmlentities($_POST['adres']));
+    $huisnummer = rmScript(htmlentities($_POST['huisnummer']));
+    $postcode = rmScript(htmlentities(strtoupper($_POST['postcode'])));
+    $stad = rmScript(htmlentities($_POST['stad']));
+    $telefoonnummer = rmScript(htmlentities($_POST['telefoonnummer']));
+    $rekeningnummer = rmScript(htmlspecialchars($_POST['rekeningnummer']));
 
     $postcode = str_replace(' ', '', $postcode);
 

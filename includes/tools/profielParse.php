@@ -36,7 +36,7 @@ if ($logged_in) {
 
         //Email
         if ($_POST['email'] === $_POST['repeat_email']) {
-            $email = trim($_POST['email']);
+            $email = rmScript(trim($_POST['email']));
             $query .= ", email = :email";
             $bindings[":email"] = $email;
         } else {
@@ -52,7 +52,7 @@ if ($logged_in) {
 
         //Locatie
         if (isset($_POST['city']) && !empty($_POST["city"])) {
-            $city = $_POST['city'];
+            $city = rmScript($_POST['city']);
             $query .= ", city = :city";
             $bindings[":city"] = $city;
         }
@@ -68,7 +68,7 @@ if ($logged_in) {
 
             //Locatie
             if (isset($_POST['city']) && !empty($_POST["city"])) {
-                $city = $_POST['city'];
+                $city = rmScript($_POST['city']);
                 $query .= ", city = :city";
                 $bindings[":city"] = $city;
             }
@@ -82,42 +82,42 @@ if ($logged_in) {
             }
             //Handtekening
             if (isset($_POST['signature']) && !empty($_POST["signature"])) {
-                $signature = $_POST['signature'];
+                $signature = rmScript($_POST['signature']);
                 $query .= ", signature = :signature";
                 $bindings[":signature"] = $signature;
             }
 
             //address
             if (isset($_POST['address']) && !empty($_POST["address"])) {
-                $address = $_POST['address'];
+                $address = rmScript($_POST['address']);
                 $query .= ", address = :address";
                 $bindings[":address"] = $address;
             }
 
             //postal_code
             if (isset($_POST['postal_code']) && !empty($_POST["postal_code"])) {
-                $postal_code = $_POST['postal_code'];
+                $postal_code = rmScript($_POST['postal_code']);
                 $query .= ", postal_code = :postal_code";
                 $bindings[":postal_code"] = $postal_code;
             }
 
             //house_number
             if (isset($_POST['house_number']) && !empty($_POST["house_number"])) {
-                $house_number = $_POST['house_number'];
+                $house_number = rmScript($_POST['house_number']);
                 $query .= ", house_number = :house_number";
                 $bindings[":house_number"] = $house_number;
             }
 
             //phone
             if (isset($_POST['phone']) && !empty($_POST["phone"])) {
-                $phone = $_POST['phone'];
+                $phone = rmScript($_POST['phone']);
                 $query .= ", phone = :phone";
                 $bindings[":phone"] = $phone;
             }
 
             //iban
             if (isset($_POST['iban']) && !empty($_POST["iban"])) {
-                $iban = $_POST['iban'];
+                $iban = rmScript($_POST['iban']);
                 $query .= ", iban = :iban";
                 $bindings[":iban"] = $iban;
             }

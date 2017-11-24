@@ -4,7 +4,7 @@ require_once("../../includes/tools/security.php");
 
 if(isset($_POST['start_contest']))
 {
-    $date = explode(" - ", $_POST['daterange']);
+    $date = explode(" - ", rmScript($_POST['daterange']));
     $begin = $date[0];
     $end = $date[1];
 
@@ -27,7 +27,7 @@ if(isset($_POST['start_contest']))
 
 if(isset($_POST["daterange"]) && isset($_POST["id"])) {
     $id = $_POST['id'];
-    $date = explode(" - ", $_POST['daterange']);
+    $date = explode(" - ", rmScript($_POST['daterange']));
     $begin = $date[0];
     $end = $date[1];
 
