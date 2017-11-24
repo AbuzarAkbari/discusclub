@@ -19,19 +19,19 @@ $res = $sth->fetchAll(PDO::FETCH_ASSOC);
   <div class="modal-body">
     <form method="POST" action="/forum/index.php">
         <?php foreach($res as $perm) : ?>
-        <?php
-        $in = array_filter($categorie, function($x) use($perm) {
-          return $x["role_id"] == $perm["id"];
-        });
-        if(sizeof($in) > 0) {
-          $in = true;
-        } else {
-          $in = false;
-        }
-        ?>
-          <input class="form-check-input" name="role[]" value="<?php echo $perm["id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox">
-          <label class="form-check-label" for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label><br><br>
-          <input type="hidden" name="sub_id" value="<?php echo $_GET["sub_id"]; ?>">
+            <?php
+                $in = array_filter($categorie, function($x) use($perm) {
+                  return $x["role_id"] == $perm["id"];
+                });
+                if(sizeof($in) > 0) {
+                  $in = true;
+                } else {
+                  $in = false;
+                }
+            ?>
+            <input class="form-check-input" name="role[]" value="<?php echo $perm["id"] ?>" id="<?php echo $perm["name"] ?>" <?php echo $in ? "checked=\"checked\"" : null ?> type="checkbox">
+            <label class="form-check-label" for="<?php echo $perm["name"] ?>"><?php echo ucfirst($perm["name"]) ?></label><br><br>
+            <input type="hidden" name="sub_id" value="<?php echo $_GET["sub_id"]; ?>">
         <?php endforeach; ?>
     	<input class="pull-right btn btn-primary" type="submit" name="bevestig_sub_category" value="Bevestig"><br>
     </form>

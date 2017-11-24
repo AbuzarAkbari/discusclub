@@ -23,6 +23,8 @@ if(isset($_POST['send'])) {
     $result = $dbc->prepare($sql);
     $result->execute([":approved" => 0, ":user_id" => $_SESSION['user']->id]);
 
+    //Send email to redactie
+
 }
 
 header('Location: /wordlid');

@@ -1,12 +1,12 @@
-<?php require_once("../../includes/tools/security.php");
+<?php
+$levels = ["lid", "gebruiker"];
+require_once("../../includes/tools/security.php");
 //Pagination variables
 $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 if (false === intval($page)) {
     exit;
 }
 $perPage = 10;
-?>
-<?php
 $aantal = $page * $perPage - $perPage;
 
 $search = $_GET['q'];
@@ -40,7 +40,6 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
 
     <br><br>
     <div class="container main">
-      <?php if ($logged_in) :?>
       <div class="row columns">
           <div class="col-md-12">
               <ol class="breadcrumb">
@@ -105,7 +104,6 @@ $results = $sql->fetchAll(PDO::FETCH_OBJ);
            </div>
          </div>
         </div>
-      <?php endif; ?>
       <?php
       // $ad_in_row = true;
       require_once('../../includes/components/advertentie.php'); ?>
