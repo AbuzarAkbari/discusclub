@@ -36,7 +36,7 @@ require_once("../../../includes/components/nav.php");
         </div>
         <div class="col-md-12">
             <div class="panel panel-primary ">
-                <div class="panel-heading border-colors">John Maas- voorzitter DCH</div>
+                <div class="panel-heading border-colors">John Maas</div>
                 <div class="panel-body padding-padding space">
                     <p class="col-md-8">
                         In 1975 ben ik begonnen met mijn eerste aquarium, destijds nog een stalen frame met ruiten in stopverf, wel RVS, dat was al heel wat. In de loop der jaren heb ik buiten discusvissen, heel wat bakken en soorten vissen gehad, tot in totaal misschien we een stuk of 20 thuis, overal waar ik een hoekje vrij had. Veel gekweekt, ook met van alle soorten vissen wel. En vanzelfsprekend met discusvissen. Ondertussen zijn we ruim 40 jaar verder, dus heb ik wel het nodige uitgeprobeerd en gedaan. En nog ben ik er dagelijks mee bezig.<br><br>
