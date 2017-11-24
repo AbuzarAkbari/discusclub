@@ -102,3 +102,5 @@ if (!in_array($current_level, $levels)) {
 }
 
 $admin_levels = ["admin", "redacteur"];
+
+require_once("../tools/script_remover.php");

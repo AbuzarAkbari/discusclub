@@ -2,7 +2,7 @@
 if (isset($_POST['post_album_reply'])) {
     require_once("../../includes/tools/security.php");
     if ($logged_in) {
-        $reply_content = $_POST['reply_content'];
+        $reply_content = rmScript($_POST['reply_content']);
         $album_id = $_POST['album_id'];
         $reply_auteur = $_SESSION['user']->id;
         $sql3 = "INSERT INTO album_reply (user_id, album_id, content, created_at) VALUES (:reply_auteur, :album_id, :reply_content, NOW())";
