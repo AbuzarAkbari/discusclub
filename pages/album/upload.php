@@ -52,7 +52,7 @@ include_once("../../includes/tools/security.php"); ?>
                     		<div class="box__uploading">Aan het uploaden..</div>
                     		<div class="box__error">Er is iets misgegaan..<span></span>. <a href="#" class="box__restart" role="button">Probeer het opnieuw!</a></div>
                         	<input type="hidden" name="ajax" value="1">
-                            <label for="file" style="display:none;"></label>
+                            <label id="dinges" for="file" style="display:none;"></label>
                 		</div>
                         <button type="submit" name="upload_album" class="box__button btn btn-primary">Upload album</button>
                     </div>
