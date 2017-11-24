@@ -2,7 +2,7 @@
 if (isset($_POST['post_reply'])) {
     require_once("../../includes/tools/security.php");
     if ($logged_in) {
-        $reply_content = $_POST['reply_content'];
+        $reply_content = rmScript($_POST['reply_content']);
         $bericht_id = $_POST['bericht_id'];
         $reply_auteur = $_SESSION['user']->id;
 
