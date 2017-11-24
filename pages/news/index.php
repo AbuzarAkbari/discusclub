@@ -10,9 +10,9 @@ $perPage = 5;
 if (isset($_POST['post_add_topic'])) {
     if ($logged_in && in_array($current_level, ["redacteur", "admin"])) {
         $subId = $_POST['sub_category'];
-        $topicTitle = htmlentities($_POST['add_topic_title']);
+        $topicTitle = rmScript(htmlentities($_POST['add_topic_title']));
         $topicAuteur = $_SESSION['user']->id;
-        $topicContent = $_POST['add_topic_content'];
+        $topicContent = rmScript($_POST['add_topic_content']);
 
         $sql = "INSERT INTO news (sub_category_id, title, content, created_at) VALUES (:subId, :topicTitle, :topicContent, NOW())";
 
