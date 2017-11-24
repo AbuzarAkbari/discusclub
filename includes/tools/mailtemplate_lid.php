@@ -610,7 +610,7 @@
                                                                     <pre><?php echo $_SESSION["user"]->first_name . ' ' . $_SESSION["user"]->last_name; ?> heeft zich aangemeld als lid.</pre>
                                                                     <br>
                                                                     <span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:13px">Klik op de onderstaande link om hem te accepteren of verwijderen.<br>
-<a href="https://discusclubholland.nl/admin/approval-signup/" target="_blank"><span style="color:#0000FF">Klik hier om het lid te zien</span></a></span></span></div>
+<a href="https://discusclubholland.nl/admin/approval-signup" target="_blank"><span style="color:#0000FF">Klik hier om het lid te zien</span></a></span></span></div>
 
                                                             </td>
                                                         </tr>
