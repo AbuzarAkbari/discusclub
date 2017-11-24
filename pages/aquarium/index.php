@@ -108,7 +108,7 @@ function custom_echo($x, $length){
                             $contestResult->execute([":aca" => $aquarium["aquarium_created_at"]]);
                             $contest = $contestResult->fetch();
                             ?>
-                            <?php if(intval($contest["amount"]) > 0) : ?>
+                            <?php if(intval($contest["amount"]) > 0 && $logged_in) : ?>
                                 <div class="col-md-5 col-sm-4 col-xs-4 text-right">
                                     <?php echo isset($like['x']) ? $like['x'] : '0'; ?> <a href="/includes/tools/aquarium/add-like?aid=<?php echo $aquarium['aquarium_id']; ?>"><img alt="like-vis" class="like-vis" src="/images/favicon-wit.png" alt=""></a>
                                 </div>
