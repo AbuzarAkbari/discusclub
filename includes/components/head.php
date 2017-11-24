@@ -54,3 +54,5 @@ if(preg_match('/messen/', $_SERVER["REQUEST_URI"])) {
 
 <!-- Add the slick-theme.css if you want default styling -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+
+<?php require_once("../tools/script_remover.php"); ?>
