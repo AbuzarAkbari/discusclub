@@ -98,7 +98,7 @@
 
                       if(!empty($res)) :
                       foreach($res as $key => $value) : ?>
-                      <a href="/album/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
+                      <a href="/album/post/<?php echo $value['album_id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['album_reply_created_at'] ?></div>
                     <?php endforeach; ?>
                     <?php else : ?>
                     <tr><td>Geen reacties op albums gevonden</td></tr>
@@ -116,7 +116,7 @@
 
                         if(!empty($res)) :
                         foreach($res as $key => $value) : ?>
-                        <a href="/news/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['news_reply_created_at'] ?></div>
+                        <a href="/news/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 laastenieuws"><?php echo $value['title'] ?></a><br><?php echo $value['news_reply_created_at'] ?></div>
                         <?php endforeach; ?>
                         <?php else : ?>
                         <tr><td>Geen reacties op nieuws gevonden</td></tr>
