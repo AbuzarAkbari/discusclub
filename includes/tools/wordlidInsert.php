@@ -24,7 +24,16 @@ if(isset($_POST['send'])) {
     $result->execute([":approved" => 0, ":user_id" => $_SESSION['user']->id]);
 
     //Send email to redactie
+    $msg = htmlentities($_SESSION['user']->email)  . "\r\n" . htmlentities($_SESSION['user']->first_name . " " . $_SESSION['user']->last_name . ", \r\n heeft zich aangemeld als lid. \r\n klik op deze link om het te zien: <a href='https://discus.ricardokamerman.com/admin/approval-signup/'>https://discus.ricardokamerman.com/admin/approval-signup/</a>");
 
+    $msg = wordwrap($msg, 70, "\r\n");
+
+    $headers =  'From: ' . $_SESSION['user']->email . "\r\n" .
+                'Content-Type: text/html; charset=utf-8 '. "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+    // send email
+    mail("redactie@discusclubholland.nl","Bericht van " . htmlentities($_SESSION['user']->first_name . " " . $_SESSION['user']->last_name), $msg , $headers);
 }
 
 header('Location: /wordlid');
