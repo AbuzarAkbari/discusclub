@@ -171,4 +171,16 @@
         input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
 
     });
+    document.getElementById('uploader-box').addEventListener("click", function(e) {
+        if(e.target.nodeName === "DIV" || e.target.nodeName === "svg") {
+            document.getElementById("dinges").click();
+        }
+    })
+    // document.getElementById("dinges").addEventListener("click", function(e) {
+    //     console.log(e);
+    //     if (e.explicitOriginalTarget.nodeName === "#text") {
+    //         e.preventDefault();
+    //     }
+    // });
+
 }( document, window, 0 ));
