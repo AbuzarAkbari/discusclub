@@ -845,7 +845,7 @@
 <br>
 <a href="https://<?php echo $url; ?>" target="_blank">https://<?php echo $url; ?></a><br><br><br><br>
 <span>
-Als deze link niet werk kopieer en plak deze link in uw browser:<br>
+Als deze link niet werkt kopieer en plak deze link in uw browser:<br>
 <?php echo $url; ?>
 </span>
 </div>
@@ -1161,7 +1161,7 @@ Als deze link niet werk kopieer en plak deze link in uw browser:<br>
                                                                                     </td>
                                                                                 </tr>
                                                                                 </tbody>
-                                                                            </table>
+                                                                            </tabhttps://open.spotify.com/track/2yox08l4o0FnOL8Ih4yEfMle>
                                                                         </td>
                                                                     </tr>
                                                                     </tbody>
