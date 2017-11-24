@@ -760,6 +760,96 @@
                             <!--[if (gte mso 9)|(IE)]>
                             </td>
                             </tr>
+							<tr>
+								<td align="center" valign="top" id="templateBody" data-template-container>
+									<!--[if (gte mso 9)|(IE)]>
+									<table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
+									<tr>
+									<td align="center" valign="top" width="600" style="width:600px;">
+									<![endif]-->
+									<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer">
+										<tr>
+                                			<td valign="top" class="bodyContainer"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;">
+    <tbody class="mcnTextBlockOuter">
+        <tr>
+            <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
+              	<!--[if mso]>
+				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+				<tr>
+				<![endif]-->
+
+				<!--[if mso]>
+				<td valign="top" width="600" style="width:600px;">
+				<![endif]-->
+                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
+
+                            <h1 style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:32px">Wachtwoord vergeten?</span></span></h1>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+				<!--[if mso]>
+				</td>
+				<![endif]-->
+
+				<!--[if mso]>
+				</tr>
+				</table>
+				<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
+    <tbody class="mcnDividerBlockOuter">
+        <tr>
+            <td class="mcnDividerBlockInner" style="min-width: 100%; padding: 18px 18px 0px;">
+                <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;">
+                    <tbody><tr>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class="mcnDividerBlockInner" style="padding: 18px;">
+                <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;">
+    <tbody class="mcnTextBlockOuter">
+        <tr>
+            <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
+              	<!--[if mso]>
+				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+				<tr>
+				<![endif]-->
+
+				<!--[if mso]>
+				<td valign="top" width="600" style="width:600px;">
+				<![endif]-->
+                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; font-size: 16px;">
+
+                            <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:14px"><span style="color:#000000"><strong> Beste <?php echo $first_name . " " . $last_name; ?>,  <br> <?php echo $username; ?></strong></span></span></span></div>
+
+                            <div style="text-align: left;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="font-size:14px"><span style="color:#000000"><strong>Geen nood,&nbsp;we zijn hier om je te helpen!</strong></span></span></span></div>
+
+<div style="text-align: left;">Klik op de onderstaande URL om een nieuw wachtwoord te maken.<br>
+<br>
+<a href="https://<?php echo $url; ?>" target="_blank">https://<?php echo $url; ?></a><br><br><br><br>
+<span>
+Als deze link niet werk kopieer en plak deze link in uw browser:<br>
+<?php echo $url; ?>
+</span>
+</div>
+
                             </table>
                             <![endif]-->
                         </td>

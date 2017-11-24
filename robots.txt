@@ -1,2 +1,3 @@
 User-agent: *
-Disallow: /admin/ /user/conf
+Disallow: /admin/
+Disallow: /user/conf

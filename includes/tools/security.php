@@ -97,7 +97,7 @@ $levels[] = "admin";
 $levels[] = "redacteur";
 
 if (!in_array($current_level, $levels)) {
-    header("Location: /user/login?redirect=" . $_SERVER["REQUEST_URI"]);
+    header("Location: /user/login?redirect=" . urlencode($_SERVER["REQUEST_URI"]));
     die();
 }
 
