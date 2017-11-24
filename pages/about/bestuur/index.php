@@ -37,9 +37,8 @@
         <div class="panel panel-primary ">
           <div class="panel-heading border-colors">Het bestuur</div>
           <div class="panel-body padding-padding space">
-            <a href="/about/bestuur/jan"><img title="Jan Verkaik" class="col-md-4 bestuur" src="/images/bestuur/jan.PNG"></img></a>
-<!--           <a href="/about/bestuur/karel"><img class="col-md-4" src="http://via.placeholder.com/150x150"></img></a>-->
-<!--            <a href="/about/bestuur/peter"><img class="col-md-4" src="http://via.placeholder.com/150x150"></img></a>-->
+            <a href="/about/bestuur/jan"><img title="Jan Verkaik" class="col-md-4 bestuur" src="/images/bestuur/jan.PNG"></a>
+            <a href="/about/bestuur/john"><img title="John Maas" class="col-md-4 bestuur" src="/images/bestuur/john.jpg"></a>
           </div>
         </div>
       </div>
