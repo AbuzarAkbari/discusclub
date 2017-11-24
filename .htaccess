@@ -587,6 +587,7 @@ Redirect 301 /category/1-website /
 Redirect 301 album/8505-ledbak /album/
 Redirect 301 /topic/6281-kardinaal-ziekte /forum
 Redirect 301 /topic/6716-advies-bioloog /forum
+Redirect 301 /subscribe /user/register
 
 
 # remove .php
