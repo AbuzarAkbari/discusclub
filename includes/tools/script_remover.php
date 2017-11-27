@@ -2,7 +2,7 @@
 function rmScript($html) {
   $dom = new DOMDocument();
 
-  $dom->loadHTML(html_entity_decode($html));
+  $dom->loadHTML(html_entity_decode("<p>" . $html . "</p>"),  LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
   $script = $dom->getElementsByTagName('script');
 
@@ -17,5 +17,6 @@ function rmScript($html) {
     $item->parentNode->removeChild($item);
   }
 
-  return $dom->saveHTML();
+  $html = trim($dom->saveHTML());
+  return substr($html, 3, -4); // return  without p tag
 }

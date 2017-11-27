@@ -3,7 +3,7 @@ if (isset($_POST['post_add_topic'])) {
     require_once("../../includes/tools/security.php");
     if ($logged_in) {
         $subId = $_POST['subId'];
-        $topicTitle = rmScript(htmlentities($_POST['add_topic_title']));
+        $topicTitle = rmScript($_POST['add_topic_title']);
         $topicAuteur = $_SESSION['user']->id;
         $topicContent = rmScript($_POST['add_topic_content']);
 

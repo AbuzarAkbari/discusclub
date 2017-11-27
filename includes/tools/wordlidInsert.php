@@ -24,16 +24,16 @@ if(isset($_POST['send'])) {
     $result->execute([":approved" => 0, ":user_id" => $_SESSION['user']->id]);
 
     //Send email to redactie
-    $msg = htmlentities($_SESSION['user']->email)  . "\r\n" . htmlentities($_SESSION['user']->first_name . " " . $_SESSION['user']->last_name . ", \r\n heeft zich aangemeld als lid. \r\n klik op deze link om het te zien: <a href='https://discus.ricardokamerman.com/admin/approval-signup/'>https://discus.ricardokamerman.com/admin/approval-signup/</a>");
+    ob_start();
+    require_once("mailtemplate_lid.php");
+    $message = ob_get_clean();
 
-    $msg = wordwrap($msg, 70, "\r\n");
+    $message = wordwrap($message, 70, "\r\n");
 
     $headers =  'From: ' . $_SESSION['user']->email . "\r\n" .
-                'Content-Type: text/html; charset=utf-8 '. "\r\n" .
-                'X-Mailer: PHP/' . phpversion();
-
-    // send email
-    mail("redactie@discusclubholland.nl","Bericht van " . htmlentities($_SESSION['user']->first_name . " " . $_SESSION['user']->last_name), $msg , $headers);
+        'Content-Type: text/html; charset=utf-8 '. "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+    mail('redactie@discusclubholland.nl', "Nieuw lid", wordwrap($message, 70, "\r\n"), $headers);
 }
 
 header('Location: /wordlid');
