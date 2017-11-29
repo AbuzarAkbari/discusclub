@@ -1,6 +1,6 @@
 <?php
 //Levels var
-$levels = ["lid", "gebruiker"];
+$levels = ["lid", "gebruiker", "gast"];
 
 //Security
 require_once("../../includes/tools/security.php");
@@ -281,9 +281,18 @@ require_once("../../includes/components/nav.php");
                 </div>
             </div>
         </div>
+        <?php elseif($rows["state_id"] === 2) : ?>
+        <div class="col-md-12 text-center">
+            <div class="border-color-blue message" style="width: 100%">
+                Dit topic is gesloten, u kunt niet meer reageren.
+                Keer terug naar het <a href="/forum/topic/<?php echo $rows['sub_category_id']; ?>">forum</a>
+            </div>
+        </div>
         <?php else : ?>
-        <div class="col-md-12 text-center border-color-blue message">Dit topic is gesloten, u kunt niet meer reageren.
-            Keer terug naar het <a href="/forum/topic/<?php echo $rows['sub_category_id']; ?>">forum</a>
+        <div class="col-md-12 text-center">
+            <div class="warning message">
+                Om een reactie te plaatsen moet u ingelogd zijn, <a href="/user/login?redirect=<?php echo $_SERVER["REQUEST_URI"]; ?>">login.</a>
+            </div>
         </div>
         <?php endif; ?>
 <?php endif; ?>

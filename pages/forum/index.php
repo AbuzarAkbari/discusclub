@@ -1,5 +1,5 @@
 <?php
-    $levels = ["lid", "gebruiker"];
+    $levels = ["gast", "lid", "gebruiker"];
     require_once("../../includes/tools/security.php");
 
     if(isset($_POST['add_new_category']) && !empty($_POST['new_category']) && $logged_in && in_array($current_level, $admin_levels))

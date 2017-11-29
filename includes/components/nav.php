@@ -105,11 +105,9 @@
 
               <ul>
                   <li class="mobile"><a href="/forum/">Forum</a></li>
-                  <?php if ($logged_in) { ?>
-                      <li><a href="/forum/active-topics">Actieve topics</a></li>
-                      <li><a href="/forum/new-topics">Nieuwe topics</a></li>
-                      <li><a href="/forum/fav-topics">Favoriete topics</a></li>
-                  <?php } ?>
+                    <li><a href="/forum/active-topics">Actieve topics</a></li>
+                    <li><a href="/forum/new-topics">Nieuwe topics</a></li>
+                    <li><a href="/forum/fav-topics">Favoriete topics</a></li>
               </ul>
 
           </li>

@@ -104,3 +104,10 @@ if (!in_array($current_level, $levels)) {
 $admin_levels = ["admin", "redacteur"];
 
 require_once("script_remover.php");
+
+
+if(!$logged_in) {
+    $_SESSION["user"] = new stdClass();
+    $_SESSION["user"]->role_id = 1;
+    $_SESSION["user"]->role_name = "gast";
+}

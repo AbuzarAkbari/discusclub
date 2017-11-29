@@ -1,4 +1,6 @@
-<?php require_once("../../includes/tools/security.php");
+<?php
+$levels = ["lid", "gebruiker"];
+require_once("../../includes/tools/security.php");
 //Pagination variables
 $page = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 if (false === intval($page)) {

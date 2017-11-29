@@ -1,6 +1,7 @@
 <?php
+$levels = ['lid', "gebruiker"];
+require_once("../../includes/tools/security.php");
 if (isset($_POST['post_add_topic'])) {
-    require_once("../../includes/tools/security.php");
     if ($logged_in) {
         $subId = $_POST['subId'];
         $topicTitle = rmScript($_POST['add_topic_title']);
