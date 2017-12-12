@@ -62,6 +62,11 @@ if($user_data == false){
             <!--                    </div>-->
             <!--                </div>-->
             <!--            </div>-->
+            <?php if($user_data->deleted_at):?>
+            <div class="col-md-12">
+                <div class="message warning">Dit account is verwijdert!</div>
+            </div>
+            <?php endif; ?>
             <div class="col-md-4">
 
                     <div class="panel panel-primary border-color-blues">
