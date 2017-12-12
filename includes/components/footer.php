@@ -29,7 +29,7 @@
                   </form>
               </div>
             </div>
-            <img src="../../images/MessengerIcon.png" onclick="window.open(this.src)">
+            <img src="../../images/MessengerIcon.png" onclick="showChat()">
             <br>
             <div class='col-md-12 text-center'>
                 <a href='/'>&copy; Discus Club Holland</a> | <a target="_blank" href='http://succes.media/'>Webdesign door Succes Media</a> | <a arget="_blank" href='/gebruiksvoorwaarden'>Algemene voorwaarden</a>
@@ -48,6 +48,10 @@
             version    : 'v2.6'
         });
     };
+
+    function showChat() {
+        $('.fb-page').show();
+    }
 </script>
 
 <div class="fb-page"
@@ -55,7 +59,7 @@
      data-tabs="messages"
      data-width="400"
      data-height="300"
-     data-small-header="true">
+     data-small-header="true" style="display: none;">
     <div class="fb-xfbml-parse-ignore">
         <blockquote></blockquote>
     </div>
