@@ -128,8 +128,7 @@ if(!empty($_POST['role'])) {
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-<!--                                    <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content" style="resize: none;" maxlength="50" placeholder="Uw bericht.."></textarea>-->
-                                    <div class="fb-comments" data-href="https://www.facebook.com/DiscusClubHolland/" data-numposts="5"></div>
+                                    <textarea required class="form-control editor" col="8" rows="8" name="add_topic_content" style="resize: none;" maxlength="50" placeholder="Uw bericht.."></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -308,16 +307,6 @@ if(!empty($_POST['role'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <?php require_once("../../includes/components/summernote.php"); ?>
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.11';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
     <script>
         $(".change-button").on("click", function () {
             var id = $(this).data('id');

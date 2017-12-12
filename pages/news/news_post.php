@@ -230,8 +230,9 @@ require_once("../../includes/components/nav.php");
                     <form class="form-horizontal" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                         <div class="form-group">
                             <div class="col-md-12">
-                            <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
-                                      style="resize: none;" placeholder="Uw bericht.."></textarea>
+<!--                            <textarea required class="form-control editor" col="8" rows="8" name="reply_content"-->
+<!--                                      style="resize: none;" placeholder="Uw bericht.."></textarea>-->
+                                <div class="fb-comments" data-href="https://www.facebook.com/DiscusClubHolland/" data-numposts="5"></div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -255,7 +256,14 @@ require_once("../../includes/components/nav.php");
 
     </div>
 </div>
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.11';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <footer>
     <?php require_once("../../includes/components/footer.php"); ?>
 </footer>
