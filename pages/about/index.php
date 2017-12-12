@@ -106,7 +106,7 @@
                   </div>
               </div>
 
-        <div class="panel panel-primary">
+<!--        <div class="panel panel-primary">-->
 <!--            <div class="panel-heading border-colors">Laatste reacties op nieuws</div>-->
 <!--            <div class="panel-body">-->
 <!--                    --><?php

@@ -207,7 +207,7 @@ if(!empty($_POST['role'])) {
                 ?>
             </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="panel panel-primary">
             <div class="panel-heading border-colors">Laatste reacties op albums</div>
             <div class="panel-body">
@@ -225,7 +225,7 @@ if(!empty($_POST['role'])) {
           </div>
           </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="panel panel-primary">
             <div class="panel-heading border-colors">Laatste reacties op topics</div>
             <div class="panel-body">
@@ -265,7 +265,7 @@ if(!empty($_POST['role'])) {
 <!--                </div>-->
 <!--            </div>-->
 <!--        </div>-->
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Advertentie</div>
                 <div class="panel-body">
@@ -273,7 +273,7 @@ if(!empty($_POST['role'])) {
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading border-colors">Bekijk de nieuwste albums</div>
                 <div class="panel-body">
