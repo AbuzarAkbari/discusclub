@@ -29,7 +29,9 @@
                   </form>
               </div>
             </div>
-            <img src="../../images/MessengerIcon.png" onclick="showChat()">
+            <div style="position: fixed; bottom: 0px; right: 0px;">
+                <img src="../../images/MessengerIcon.png" onclick="showChat()">
+            </div>
             <br>
             <div class='col-md-12 text-center'>
                 <a href='/'>&copy; Discus Club Holland</a> | <a target="_blank" href='http://succes.media/'>Webdesign door Succes Media</a> | <a arget="_blank" href='/gebruiksvoorwaarden'>Algemene voorwaarden</a>
@@ -43,9 +45,10 @@
 <script>
     window.fbAsyncInit = function() {
         FB.init({
-            appId      : '95100348886',
-            xfbml      : true,
-            version    : 'v2.6'
+            appId            : '557243647957650',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.10'
         });
     };
 
