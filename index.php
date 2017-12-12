@@ -83,7 +83,7 @@
                 <?php endif; ?>
             <br><br>
             <div class="">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="panel panel-default">
 
                         <div class="nieuws-box">
@@ -115,43 +115,43 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="panel panel-default ">
-                        <div class="panel-heading border-color-black">Reacties op nieuws</div>
-                        <div class="panel-body">
-                            <?php
-                                $sth = $dbc->prepare("SELECT *, news_reply.content, news_reply.id, news.id as news_id FROM news_reply JOIN news ON news.id = news_reply.news_id JOIN news_permission AS np ON np.news_id = news.id WHERE np.role_id = :role_id ORDER BY news_reply.created_at DESC LIMIT 5");
-                                $sth->execute([":role_id" => $_SESSION['user']->role_id]);
-                                $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-                                if(!empty($res)) :
-                                foreach($res as $key => $value) : ?>
-                                <div class="box">
-                                    <div class="col-md-12">
-                                        <a href="/news/post/<?php echo $value['news_id']; ?>">
-                                            <div class="col-md-12">
-                                                <p class="title-box-color">
-                                                    <b><?php echo html_entity_decode($value["title"]); ?></b>
-                                                </p>
-                                                <p>
-                                                <?php echo strlen($value["content"]) > 45 ? substr(strip_tags($value["content"]), 0, 45) . "..." : html_entity_decode($value["content"]); ?>
-                                                <p>
-                                                <?php
-                                                    if(sizeof($res)-1 != $key) {
-                                                        echo "<hr>";
-                                                }
-                                                ?>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <?php endforeach; ?>
-                                 <?php else : ?>
-                                <tr><td>Geen reacties gevonden</td></tr>
-                                <?php endif ;?>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="col-md-6">-->
+<!--                    <div class="panel panel-default ">-->
+<!--                        <div class="panel-heading border-color-black">Reacties op nieuws</div>-->
+<!--                        <div class="panel-body">-->
+<!--                            --><?php
+//                                $sth = $dbc->prepare("SELECT *, news_reply.content, news_reply.id, news.id as news_id FROM news_reply JOIN news ON news.id = news_reply.news_id JOIN news_permission AS np ON np.news_id = news.id WHERE np.role_id = :role_id ORDER BY news_reply.created_at DESC LIMIT 5");
+//                                $sth->execute([":role_id" => $_SESSION['user']->role_id]);
+//                                $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+//
+//                                if(!empty($res)) :
+//                                foreach($res as $key => $value) : ?>
+<!--                                <div class="box">-->
+<!--                                    <div class="col-md-12">-->
+<!--                                        <a href="/news/post/--><?php //echo $value['news_id']; ?><!--">-->
+<!--                                            <div class="col-md-12">-->
+<!--                                                <p class="title-box-color">-->
+<!--                                                    <b>--><?php //echo html_entity_decode($value["title"]); ?><!--</b>-->
+<!--                                                </p>-->
+<!--                                                <p>-->
+<!--                                                --><?php //echo strlen($value["content"]) > 45 ? substr(strip_tags($value["content"]), 0, 45) . "..." : html_entity_decode($value["content"]); ?>
+<!--                                                <p>-->
+<!--                                                --><?php
+//                                                    if(sizeof($res)-1 != $key) {
+//                                                        echo "<hr>";
+//                                                }
+//                                                ?>
+<!--                                            </div>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                --><?php //endforeach; ?>
+<!--                                 --><?php //else : ?>
+<!--                                <tr><td>Geen reacties gevonden</td></tr>-->
+<!--                                --><?php //endif ;?>
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
         <?php require 'includes/components/advertentie.php'; ?>

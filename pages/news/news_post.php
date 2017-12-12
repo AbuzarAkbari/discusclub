@@ -227,26 +227,7 @@ require_once("../../includes/components/nav.php");
                     <h3 class="panel-title">Antwoord toevoegen</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-                        <div class="form-group">
-                            <div class="col-md-12">
-<!--                            <textarea required class="form-control editor" col="8" rows="8" name="reply_content"-->
-<!--                                      style="resize: none;" placeholder="Uw bericht.."></textarea>-->
-                                <div class="fb-comments" data-href="https://www.facebook.com/DiscusClubHolland/" data-numposts="5"></div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="hidden" name="bericht_id" value="<?php echo $_GET['id']; ?>">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="submit" class="btn btn-primary" class="form-control" name="post_reply"
-                                       value="Plaats reactie">
-                            </div>
-                        </div>
-                    </form>
+                    <div class="fb-comments" data-href="https://www.facebook.com/DiscusClubHolland/" data-numposts="5"></div>
                 </div>
             </div>
         </div>
