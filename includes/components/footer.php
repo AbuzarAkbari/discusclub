@@ -53,7 +53,7 @@
     };
 
     function showChat() {
-        $('.fb-page').show();
+        $('.fb-page').toggle();
     }
 </script>
 
@@ -62,7 +62,7 @@
      data-tabs="messages"
      data-width="400"
      data-height="300"
-     data-small-header="true" style="display: none;">
+     data-small-header="true" style="display: none; position: fixed; bottom: 150px; right: 0px;">
     <div class="fb-xfbml-parse-ignore">
         <blockquote></blockquote>
     </div>
