@@ -59,7 +59,7 @@
 
 <div class="fb-page"
      id="fb-chat"
-     data-href="https://www.facebook.com/DiscusClubHolland/"
+     data-href="https://www.facebook.com/wesley.keiman.35/"
      data-tabs="messages"
      data-width="400"
      data-height="300"
