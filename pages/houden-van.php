@@ -48,7 +48,7 @@ require_once("../includes/components/nav.php");
         </div>
         <div class="col-md-6">
             <img src="/images<?php echo $page['path']; ?>">
-        </div>
+        </div><br><br>
         <?php if ($logged_in && $page) : ?>
             <div class="col-md-12">
                 <div class="panel panel-primary">
