@@ -195,25 +195,7 @@ require_once("../../includes/tools/security.php"); ?>
                                 <h3 class="panel-title">Antwoord op album toevoegen</h3>
                             </div>
                             <div class="panel-body">
-                                <form class="form-horizontal" action="/includes/tools/albumParse" method="post">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                <textarea required class="form-control editor" col="8" rows="8" name="reply_content"
-                                          style="resize: none;" placeholder="Uw bericht.."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <input type="hidden" name="album_id" value="<?php echo $_GET['id']; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <input type="submit" class="btn btn-primary" class="form-control" name="post_album_reply"
-                                                   value="Plaats reactie">
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="fb-comments" data-href="https://www.facebook.com/DiscusClubHolland/" data-numposts="5"></div>
                             </div>
                         </div>
                     </div>
@@ -234,6 +216,13 @@ require_once("../../includes/tools/security.php"); ?>
     <!-- summer note -->
     <!-- summernote js -->
     <?php require_once("../../includes/components/summernote.php"); ?>
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.11';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>

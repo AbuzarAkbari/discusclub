@@ -49,6 +49,9 @@ require_once("../includes/components/nav.php");
         <div class="col-md-6">
             <img src="/images<?php echo $page['path']; ?>">
         </div>
+        <div class="col-md-12">
+            <div class="fb-comments" data-href="https://www.facebook.com/DiscusClubHolland/" data-numposts="5"></div>
+        </div>
     </div>
     <br>
     <?php
@@ -61,6 +64,13 @@ require_once("../includes/components/nav.php");
 <!-- bootstrap script -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.11';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 
 </html>
