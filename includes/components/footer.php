@@ -29,7 +29,7 @@
                   </form>
               </div>
             </div>
-            <img src="MessengerIcon.png" onclick="window.open(this.src)">
+            <img src="../../images/MessengerIcon.png" onclick="window.open(this.src)">
             <br>
             <div class='col-md-12 text-center'>
                 <a href='/'>&copy; Discus Club Holland</a> | <a target="_blank" href='http://succes.media/'>Webdesign door Succes Media</a> | <a arget="_blank" href='/gebruiksvoorwaarden'>Algemene voorwaarden</a>
