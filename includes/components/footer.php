@@ -43,6 +43,7 @@
 
   </div>
 <script>
+    var messengerOpen = false;
     window.fbAsyncInit = function() {
         FB.init({
             appId            : '557243647957650',
@@ -54,7 +55,15 @@
 
     function showChat() {
         $('#fb-chat').toggle();
+        messengerOpen = !messengerOpen;
     }
+
+    $(document.body).click(function(e) {
+        if(messengerOpen) {
+            $("#fb-chat").hide();
+            messengerOpen = false;
+        }
+    })
 </script>
 
 <div class="fb-page"
