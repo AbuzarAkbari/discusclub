@@ -142,7 +142,7 @@ if(!empty($_POST['role'])) {
                 </div>
             </div>
         </div>
-    </div>
+
     <?php endif; ?>
     <div class="col-md-12">
             <div class="panel panel-primary" id="news">
@@ -297,6 +297,7 @@ if(!empty($_POST['role'])) {
     <?php require ('../../includes/components/advertentie.php'); ?>
 
     </div>
+</div>
   </div>
     <footer>
 <?php require_once("../../includes/components/footer.php") ; ?>
