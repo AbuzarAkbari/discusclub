@@ -42,18 +42,31 @@ $perPage = 20;
                     <li class="active">Ledenlijst</li>
                 </ol>
             </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading border-colors">
+                    <h3 class="panel-title">Zoek op leden</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="get" action="/admin/user_search">
+                        <input type="text" class="form-control" name="q" placeholder='Zoek op leden..' required ><br>
+                        <button type="submit" class="form-control btn btn-primary">Zoek op leden</button>
+                    </form>
+                </div>
+            </div>
                 <div class="panel panel-primary ">
                     <div class="panel-heading border-colors">Ledenlijst</div>
                     <div class="panel-body padding-padding table-responsive">
                         <table>
                             <tr>
+                                <th>id</th>
                                 <th>Naam</th>
                                 <th>IP Adres</th>
-                                <th>Rekeningnummer</th>
+                                <th>Registratiedatum</th>
                                 <th>Telefoonnummer</th>
                                 <th>Postcode</th>
                                 <th>Adres</th>
                                 <th>Stad</th>
+                                <th>tools</th>
                             </tr>
                             <?php
                                 $a = $page * $perPage - $perPage;
@@ -66,6 +79,9 @@ $perPage = 20;
                             foreach ($rows as $ip) :
                                 ?>
                                 <tr>
+                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>">
+                                        <?php echo $ip["user_id"]; ?>
+                                    </a></td>
                                     <td><a href="/user/<?php echo $ip["user_id"]; ?>">
                                         <?php $name = $ip['first_name'] . " " . $ip['last_name']; ?>
                                         <?php echo isset($ip['first_name']) ? $name : 'Gast'; ?>
@@ -88,6 +104,13 @@ $perPage = 20;
                                     <td><?php
                                      echo isset($ip['city']) ? $ip['city'] : 'Geen stad bekend';
                                     ?></td>
+                                    <td>
+                                        <?php if($ip["deleted_at"]): ?>
+                                            <a href="/includes/tools/admin/delete_user?id=<?php echo $ip["user_id"]; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                                        <?php else : ?>
+                                            <a href="/includes/tools/admin/add_user?id=<?php echo $ip["user_id"]; ?>" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
+                                        <?php endif; ?>
+                                    </td>
                                 </tr>
                             <?php
                             endforeach;
