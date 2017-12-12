@@ -96,7 +96,7 @@
 
                                 if(!empty($res)) :
                                 foreach($res as $key => $value) : ?>
-                                    <div class=" col-md-12 verticalLine">
+                                    <div class=" col-md-6 verticalLine">
                                         <p><b><?php echo strip_tags($value['title']);?></b></p>
                                         <?php echo strlen($value["content"]) > 200 ? substr(strip_tags($value['content']),0 ,55) . "..." : strip_tags($value["content"]);
                                         ?>
