@@ -49,9 +49,18 @@ require_once("../includes/components/nav.php");
         <div class="col-md-6">
             <img src="/images<?php echo $page['path']; ?>">
         </div>
-        <div class="col-md-12">
-            <div class="fb-comments" data-href="https://www.facebook.com/DiscusClubHolland/" data-numposts="5"></div>
-        </div>
+        <?php if ($logged_in && $rows) : ?>
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Antwoord toevoegen</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="fb-comments" data-href="https://www.facebook.com/DiscusClubHolland/" data-numposts="5"></div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
     <br>
     <?php
