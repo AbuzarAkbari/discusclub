@@ -34,7 +34,7 @@
             </div>
             <br>
             <div class='col-md-12 text-center'>
-                <a href='/'>&copy; Discus Club Holland</a> | <a target="_blank" href='http://succes.media/'>Webdesign door Succes Media</a> | <a arget="_blank" href='/gebruiksvoorwaarden'>Algemene voorwaarden</a>
+                <a href='/'>&copy; Discus Club Holland</a> | <a target="_blank" href='http://succes.media/'>Webdesign door Succes Media</a> | <a target="_blank" href='/gebruiksvoorwaarden'>Algemene voorwaarden</a>
             </div>
             <br><br>
         </div>
@@ -53,17 +53,17 @@
     };
 
     function showChat() {
-        $('#show-fb-chat').toggle();
+        $('.fb-page').toggle();
     }
 </script>
 
 <div class="fb-page"
-     id = "show-fb-chat"
      data-href="https://www.facebook.com/wesley.keiman.35"
      data-tabs="messages"
      data-width="400"
      data-height="300"
-     data-small-header="true" style="display: none; position: fixed; bottom: 150px; right: 0px;">
+     data-small-header="true"
+     style="display: none; position: fixed; bottom: 150px; right: 0px;">
     <div class="fb-xfbml-parse-ignore">
         <blockquote></blockquote>
     </div>
