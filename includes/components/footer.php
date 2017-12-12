@@ -53,11 +53,11 @@
     };
 
     function showChat() {
-        $('.fb-page').toggle();
+        $('.show-chat').toggle();
     }
 </script>
 
-<div class="fb-page"
+<div class="fb-page show-chat"
      data-href="https://www.facebook.com/DiscusClubHolland/"
      data-tabs="messages"
      data-width="400"
