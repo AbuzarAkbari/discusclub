@@ -29,7 +29,7 @@
                   </form>
               </div>
             </div>
-            <div style="position: fixed; bottom: 0px; right: 0px;">
+            <div style="position: fixed; bottom: 0px; right: 0px; cursor: pointer;">
                 <img src="../../images/MessengerIcon.png" onclick="showChat()">
             </div>
             <br>
