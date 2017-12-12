@@ -58,11 +58,13 @@
         messengerOpen = !messengerOpen;
     }
 
-    $(document.body).click(function(e) {
-        if(messengerOpen) {
-            $("#fb-chat").hide();
-            messengerOpen = false;
-        }
+    window.addEventListener("load", function(e) {
+        $(document.body).click(function(e) {
+            if(messengerOpen) {
+                $("#fb-chat").hide();
+                messengerOpen = false;
+            }
+        })
     })
 </script>
 
