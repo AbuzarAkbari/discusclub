@@ -66,13 +66,12 @@ $perPage = 20;
                                 <th>Postcode</th>
                                 <th>Adres</th>
                                 <th>Stad</th>
-                                <th>tools</th>
                             </tr>
                             <?php
                                 $a = $page * $perPage - $perPage;
-                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM user LEFT JOIN ip ON ip.user_id = user.id LIMIT {$perPage} OFFSET {$a}";
+                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM user LEFT JOIN ip ON ip.user_id = user.id WHERE (user.first_name LIKE :search OR user.last_name LIKE :search OR user.username LIKE :search OR CONCAT(user.first_name, \" \", user.last_name) LIKE :search) OR user.email LIKE :search LIMIT {$perPage} OFFSET {$a}";
                                 $result = $dbc->prepare($sql);
-                                $result->execute();
+                                $result->execute([":search" => "%". $_GET["q"] . "%"]);
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <?php if(!empty($rows)) :
@@ -104,13 +103,6 @@ $perPage = 20;
                                     <td><?php
                                      echo isset($ip['city']) ? $ip['city'] : 'Geen stad bekend';
                                     ?></td>
-                                    <td>
-                                        <?php if($ip["deleted_at"]): ?>
-                                            <a href="/includes/tools/admin/delete_user?id=<?php echo $ip["user_id"]; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                                        <?php else : ?>
-                                            <a href="/includes/tools/admin/add_user?id=<?php echo $ip["user_id"]; ?>" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
-                                        <?php endif; ?>
-                                    </td>
                                 </tr>
                             <?php
                             endforeach;
@@ -122,7 +114,8 @@ $perPage = 20;
                     </div>
                     <?php
                     $path = "/admin/user-list/:page";
-                    $sql = "SELECT COUNT(*) AS x FROM user WHERE deleted_at IS NULL";
+                    $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM user LEFT JOIN ip ON ip.user_id = user.id WHERE (user.first_name LIKE :search OR user.last_name LIKE :search OR user.username LIKE :search OR CONCAT(user.first_name, \" \", user.last_name) LIKE :search) OR user.email LIKE :search";
+                    $pagination_bindings = [":search" => "%". $_GET["q"] . "%"];
                     require_once("../../includes/components/pagination.php");
                     ?>
                 </div>

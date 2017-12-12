@@ -10,6 +10,9 @@ RewriteRule ^ip-list/([0-9]+) ip-list.php?pagina=$1 [NC,L]
 # added pagination stuff to ledenlijst
 RewriteRule ^user-list/([0-9]+) user-list.php?pagina=$1 [NC,L]
 
+# added pagination stuff to ledenlijst
+RewriteRule ^user-search/([0-9]+) user-search.php?pagina=$1 [NC,L]
+
 # added pagination stuff to inschrijvingen
 RewriteRule ^approval-signup/([0-9]+) approval-signup.php?pagina=$1 [NC,L]
 
