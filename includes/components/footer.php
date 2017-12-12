@@ -58,7 +58,7 @@
 </script>
 
 <div class="fb-page"
-     data-href="https://www.facebook.com/wesley.keiman.35"
+     data-href="https://www.facebook.com/DiscusClubHolland/"
      data-tabs="messages"
      data-width="400"
      data-height="300"
