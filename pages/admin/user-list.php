@@ -105,10 +105,10 @@ $perPage = 20;
                                      echo isset($ip['city']) ? $ip['city'] : 'Geen stad bekend';
                                     ?></td>
                                     <td>
-                                        <?php if($ip["deleted_at"]): ?>
-                                            <a href="/includes/tools/admin/delete_user?id=<?php echo $ip["user_id"]; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                                        <?php if(!$ip["deleted_at"]): ?>
+                                            <a title="verwijderen" href="/includes/tools/admin/delete_user?id=<?php echo $ip["user_id"]; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                                         <?php else : ?>
-                                            <a href="/includes/tools/admin/add_user?id=<?php echo $ip["user_id"]; ?>" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
+                                            <a title="toevoegen" href="/includes/tools/admin/add_user?id=<?php echo $ip["user_id"]; ?>" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
                                         <?php endif; ?>
                                     </td>
                                 </tr>
