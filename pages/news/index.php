@@ -144,8 +144,7 @@ if(!empty($_POST['role'])) {
         </div>
     </div>
     <?php endif; ?>
-    <div class="col-md-7">
-        <div class="col-md-12">
+    <div class="col-md-12">
             <div class="panel panel-primary" id="news">
                 <div class="panel-heading border-colors">Nieuws</div>
                 <div class="panel-body padding-padding table-responsive">
@@ -205,8 +204,9 @@ if(!empty($_POST['role'])) {
                 $pagination_bindings = [":role_id" => $_SESSION['user']->role_id];
                 require_once("../../includes/components/pagination.php");
                 ?>
-            </div>
         </div>
+    </div>
+        <div class="col-md-6">
           <div class="panel panel-primary">
             <div class="panel-heading border-colors">Laatste reacties op albums</div>
             <div class="panel-body">
@@ -223,23 +223,28 @@ if(!empty($_POST['role'])) {
                 <?php endif ;?>
           </div>
           </div>
-          <div class="panel panel-primary">
-            <div class="panel-heading border-colors">Laatste reacties op topics</div>
-            <div class="panel-body">
-                <?php
-                $sth = $dbc->prepare("SELECT * FROM topic JOIN topic_permission AS tp ON tp.topic_id = topic.id WHERE tp.role_id = :role_id ORDER BY last_changed DESC LIMIT 5");
-                $sth->execute([":role_id" => $_SESSION['user']->role_id]);
-                $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+        </div>
+    </div>
+<div class="col-md-6">
 
-                if(!empty($res)) :
-                foreach($res as $key => $value) : ?>
-                <a href="/forum/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 "><?php echo $value['title'] ?></a><br><?php echo $value['created_at'] ?></div>
-                <?php endforeach; ?>
-                <?php else : ?>
-                <tr><td>Geen reacties op topics gevonden</td></tr>
-                <?php endif ;?>
-            </div>
-          </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading border-colors">Laatste reacties op topics</div>
+        <div class="panel-body">
+            <?php
+            $sth = $dbc->prepare("SELECT * FROM topic JOIN topic_permission AS tp ON tp.topic_id = topic.id WHERE tp.role_id = :role_id ORDER BY last_changed DESC LIMIT 5");
+            $sth->execute([":role_id" => $_SESSION['user']->role_id]);
+            $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+            if(!empty($res)) :
+            foreach($res as $key => $value) : ?>
+            <a href="/forum/post/<?php echo $value['id']; ?>" class="blauwtxt"><div class="col-md-12 col-sm-12 "><?php echo $value['title'] ?></a><br><?php echo $value['created_at'] ?></div>
+        <?php endforeach; ?>
+        <?php else : ?>
+            <tr><td>Geen reacties op topics gevonden</td></tr>
+        <?php endif ;?>
+    </div>
+</div>
+</div>
         </div>
 <!--    <div class="col-md-5">-->
 <!--        <div class="col-md-12">-->

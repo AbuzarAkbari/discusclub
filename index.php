@@ -89,28 +89,32 @@
                         <div class="nieuws-box">
                             <div class="panel-heading border-color-black">Nieuws</div>
                             <div class="panel-body ">
-                                <?php
-                                $sth = $dbc->prepare("SELECT * FROM news JOIN news_permission AS np ON np.news_id = news.id WHERE np.role_id = :role_id ORDER BY news.created_at LIMIT 5");
-                                $sth->execute([":role_id" => $_SESSION['user']->role_id]);
-                                $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+                                <div class="row">
+                                    <?php
+                                    $sth = $dbc->prepare("SELECT * FROM news JOIN news_permission AS np ON np.news_id = news.id WHERE np.role_id = :role_id ORDER BY news.created_at LIMIT 5");
+                                    $sth->execute([":role_id" => $_SESSION['user']->role_id]);
+                                    $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-                                if(!empty($res)) :
-                                foreach($res as $key => $value) : ?>
-                                    <div class=" col-md-6 verticalLine">
-                                        <p><b><?php echo strip_tags($value['title']);?></b></p>
-                                        <?php echo strlen($value["content"]) > 200 ? substr(strip_tags($value['content']),0 ,55) . "..." : strip_tags($value["content"]);
-                                        ?>
-                                        <br><br>
-                                        <a href="/news/post/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
-                                        <br><br>
-                                    </div>
-                                    <br><div class="col-md-12"><br></div>
+                                    if(!empty($res)) :
+                                        foreach($res as $key => $value) : ?>
+                                            <div class=" col-md-6 verticalLine">
+                                                <p><b><?php echo strip_tags($value['title']);?></b></p>
+                                                <?php echo strlen($value["content"]) > 200 ? substr(strip_tags($value['content']),0 ,55) . "..." : strip_tags($value["content"]);
+                                                ?>
+                                                <br><br>
+                                                <a href="/news/post/<?php echo $value['id'];?>"><button class="lees-meer-btn" type="button" name="button">Lees meer</button></a>
+                                                <br><br>
+                                            </div>
+                                            <br><div class="col-md-12"><br></div>
 
-                                <?php endforeach; ?>
-                                <?php else : ?>
-                                <tr><td>Geen nieuws gevonden</td></tr>
-                                <?php endif ;?>
-                                <br><br>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <tr><td>Geen nieuws gevonden</td></tr>
+                                    <?php endif ;?>
+                                    <br><br>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
