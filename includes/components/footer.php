@@ -53,11 +53,12 @@
     };
 
     function showChat() {
-        $('.show-chat').toggle();
+        $('#show-fb-chat').toggle();
     }
 </script>
 
-<div class="fb-page show-chat"
+<div class="fb-page"
+     id = "show-fb-chat"
      data-href="https://www.facebook.com/wesley.keiman.35"
      data-tabs="messages"
      data-width="400"
