@@ -14,6 +14,12 @@ if (isset($_POST["send"])) {
             header("Location: /user/password/forgot.php?" . http_build_query(["err"=> "Vanwege de nieuwe website moet u een nieuw wachtwoord maken"]));
             exit();
         }
+
+        if($res->deleted_at) {
+            header("Location: " . $_SERVER["REQUEST_URI"] . "?deleted");
+            exit();
+        }
+
         if (password_verify($_POST["password"], $res->password)) {
             $_SESSION["user"] = $res;
             if (isset($_GET["redirect"])) {
@@ -63,6 +69,10 @@ if (isset($_POST["send"])) {
                 ?>
                 <div class="message warning">Login om verder te gaan.</div>
                 <?php
+            } else if(isset($_GET["deleted"])) {
+                ?>
+                <div class="message warning">Uw account is verwijdert!</div>
+                <?php
             }
             ?>
           <div class="panel panel-primary">
@@ -81,6 +91,7 @@ if (isset($_POST["send"])) {
 
                       <input type="submit" class="btn btn-primary" name="send" value="Inloggen">
                   </form>
+                  <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email,user_birthday" onlogin="checkLoginState();"></div>
                     <?php
                     if ($error) {
                         ?>
@@ -97,6 +108,7 @@ if (isset($_POST["send"])) {
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/facebook.js"></script>
 </body>
 
 </html>
