@@ -1,4 +1,12 @@
 <?php require_once("../../../includes/tools/security.php"); ?>
+<?php
+
+if($logged_in) {
+    header("Location: /");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
