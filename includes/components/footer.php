@@ -30,7 +30,8 @@
               </div>
             </div>
             <div style="position: fixed; bottom: 0px; right: 0px; cursor: pointer;">
-                <img src="../../images/MessengerIcon.png" onclick="showChat()">
+                <img src="../../images/MessengerIcon.png" id="messengerButton">
+                <!-- onclick="showChat()" -->
             </div>
             <br>
             <div class='col-md-12 text-center'>
@@ -43,29 +44,58 @@
 
   </div>
 <script>
-    var messengerOpen = false;
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId            : '557243647957650',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v2.10'
+    // var messengerOpen = false;
+    // window.fbAsyncInit = function() {
+    //     FB.init({
+    //         appId            : '557243647957650',
+    //         autoLogAppEvents : true,
+    //         xfbml            : true,
+    //         version          : 'v2.10'
+    //     });
+    // };
+    //
+    // function showChat() {
+    //     $('#fb-chat').toggle();
+    //     messengerOpen = !messengerOpen;
+    // }
+    //
+    // window.addEventListener("load", function(e) {
+    //     $(document.body).click(function(e) {
+    //         if(messengerOpen) {
+    //             $("#fb-chat").hide();
+    //             messengerOpen = false;
+    //         }
+    //     })
+    // })
+
+
+    window.addEventListener("load", function() {
+        $(document).ready(function(){
+
+            $('#messengerButton').click( function(e) {
+
+                e.preventDefault(); // stops link from making page jump to the top
+                e.stopPropagation(); // when you click the button, it stops the page from seeing it as clicking the body too
+                $('#fb-chat').toggle();
+
+            });
+
+            $('#fb-chat').click( function(e) {
+
+                e.stopPropagation(); // when you click within the content area, it stops the page from seeing it as clicking the body too
+
+            });
+
+            $('body').click( function() {
+
+                $('#fb-chat').hide();
+
+            });
+
         });
-    };
+    });
 
-    function showChat() {
-        $('#fb-chat').toggle();
-        messengerOpen = !messengerOpen;
-    }
 
-    window.addEventListener("load", function(e) {
-        $(document.body).click(function(e) {
-            if(messengerOpen) {
-                $("#fb-chat").hide();
-                messengerOpen = false;
-            }
-        })
-    })
 </script>
 
 <div class="fb-page"
