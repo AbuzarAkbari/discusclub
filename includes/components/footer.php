@@ -100,7 +100,7 @@
 
 <div class="fb-page"
      id="fb-chat"
-     data-href="https://www.facebook.com/Anonymous-co-200617366814033/"
+     data-href="https://www.facebook.com/DiscusClubHolland/"
      data-tabs="messages"
      data-width="400"
      data-height="300"
