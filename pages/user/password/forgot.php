@@ -1,5 +1,9 @@
 <?php require_once("../../../includes/tools/security.php"); ?>
 <?php
+if($logged_in) {
+    header("Location: /");
+    exit();
+}
 $success = false;
 if (isset($_POST["send"])) {
     $sth = $dbc->prepare("SELECT id, email,username,first_name,last_name FROM user WHERE email = :email");
