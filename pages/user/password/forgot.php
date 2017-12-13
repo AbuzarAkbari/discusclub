@@ -1,4 +1,30 @@
 <?php require_once("../../../includes/tools/security.php"); ?>
+<?php
+$success = false;
+if (isset($_POST["send"])) {
+    $sth = $dbc->prepare("SELECT id, email,username,first_name,last_name FROM user WHERE email = :email");
+    $sth->execute([":email" => $_POST["email"]]);
+    $res = $sth->fetch(PDO::FETCH_OBJ);
+    if($res) {
+        $token = md5(microtime (true)*100000);
+        $sth = $dbc->prepare("INSERT INTO forgot(token, user_id, created_at) VALUES (:token, :user_id, NOW())");
+        $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
+        // TODO:: add mailing thingy, add this link and username
+        $url = $_SERVER["HTTP_HOST"] ."/user/password/change?token=$token&id=".$dbc->lastInsertId();
+        $username = $res->username;
+        $first_name = $res->first_name;
+        $last_name = $res->last_name;
+        ob_start();
+        require_once("wachtwoord-vergeten.php");
+        $message = ob_get_clean();
+        $headers =  'From: redactie@discusclubholland.nl' . "\r\n" .
+            'Content-Type: text/html; charset=utf-8'. "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
+    }
+    $success = true;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,8 +56,10 @@ require_once("../../../includes/components/nav.php");
             <div class="panel-heading panel-heading1">
                 <h4>Wachtwoord vergeten</h4></div>
             <div class="panel-body">
-                <?php if(isset($_GET['err'])) : ?>
+                <?php if(isset($_GET['err'])  && !$success) : ?>
                     <div class="alert alert-danger" role="alert"><?php echo $_GET['err']; ?></div>
+                <?php else: ?>
+                    <div class='message gelukt'>Mail is verstuurd </div>
                 <?php endif; ?>
                 <form class="" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
 
@@ -47,32 +75,8 @@ require_once("../../../includes/components/nav.php");
 
                 </form>
 
-                <?php
-                if (isset($_POST["send"])) {
-                    $sth = $dbc->prepare("SELECT id, email,username,first_name,last_name FROM user WHERE email = :email");
-                    $sth->execute([":email" => $_POST["email"]]);
-                    $res = $sth->fetch(PDO::FETCH_OBJ);
-                    if($res) {
-                        $token = md5(microtime (true)*100000);
-                        $sth = $dbc->prepare("INSERT INTO forgot(token, user_id, created_at) VALUES (:token, :user_id, NOW())");
-                        $sth->execute([":token" => password_hash($token, PASSWORD_BCRYPT), ":user_id" => $res->id]);
-                        // TODO:: add mailing thingy, add this link and username
-                        $url = $_SERVER["HTTP_HOST"] ."/user/password/change?token=$token&id=".$dbc->lastInsertId();
-                        $username = $res->username;
-                        $first_name = $res->first_name;
-                        $last_name = $res->last_name;
-                        ob_start();
-                        require_once("wachtwoord-vergeten.php");
-                        $message = ob_get_clean();
-                        $headers =  'From: redactie@discusclubholland.nl' . "\r\n" .
-                            'Content-Type: text/html; charset=utf-8'. "\r\n" .
-                            'X-Mailer: PHP/' . phpversion();
-                        mail($res->email, "Wachtwoord vergeten", wordwrap($message, 70, "\r\n"), $headers);
-                    }
-                    echo "<div class='message gelukt'>Mail is verstuurd </div>";
 
-                }
-                ?>
+
             </div>
         </div>
     </div>
