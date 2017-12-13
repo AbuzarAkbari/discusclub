@@ -1,7 +1,9 @@
 <?php
+session_save_path('/');
 if (!isset($_SESSION)) {
     session_start();
 }
+
 require_once("dbc.php");
 
 // logout script

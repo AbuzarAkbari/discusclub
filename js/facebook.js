@@ -27,37 +27,33 @@ window.fbAsyncInit = function() {
         version          : 'v2.10'
     });
 
-    FB.getLoginStatus(function(response) {
-        console.log(response)
-        FB.api("/me?fields=id,address,first_name,last_name,birthday,email,name", res => {
-            console.log(res)
-            var data = new FormData();
-            Object.keys(res).forEach(key => {
-                data.append( key, res[key] );
-            })
-            var x = parseURLParams(window.location.href);
-            if(x && x.redirect) {
-                data.append("redirect", x ? x.redirect[0] : "/")
-            }
-            fetch("/includes/tools/facebook_login", {
-                method: "POST",
-                body: data
-            })
-                .then(res => res.json())
-                .then(res => {
-                    console.log(res)
-                    window.location = res.redirect
-                });
-        })
-    });
+    checkLogin()
 
 };
 
-function checkLoginState() {
+function checkLogin() {
     FB.getLoginStatus(function(response) {
-        console.log(response);
+        console.log(response)
+        var data = new FormData();
+        Object.keys(response.authResponse).forEach(key => {
+            data.append( key, response.authResponse[key] );
+        })
+        var x = parseURLParams(window.location.href);
+        if(x && x.redirect) {
+            data.append("redirect", x ? x.redirect[0] : "/")
+        }
+        fetch("/includes/tools/facebook_login", {
+            method: "POST",
+            body: data,
+            credentials: "same-origin"
+        })
+            .then(res => res.json())
+            .then(res => {
+                window.location = res.redirect
+            });
     });
-    FB.api("/me?fields=id,address,first_name,last_name,birthday,email,name", res => {
-        console.log(res)
-    });
+}
+
+function checkLoginState() {
+    checkLogin()
 }

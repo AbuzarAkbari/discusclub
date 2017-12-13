@@ -1,6 +1,7 @@
 <?php
 $levels = ["gast", "lid", "gebruiker"];
-require("../../includes/tools/security.php"); ?>
+require("../../includes/tools/security.php");
+?>
 <?php
 $error = false;
 if (isset($_POST["send"])) {
