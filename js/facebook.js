@@ -34,8 +34,11 @@ window.fbAsyncInit = function() {
 function checkLogin() {
     FB.getLoginStatus(function(response) {
         console.log(response)
+        if(response.status != "connected") {
+            return
+        }
         var data = new FormData();
-        Object.keys(response.authResponse).forEach(key => {
+        Object.keys(response.authResponse).forEach(function(key) {
             data.append( key, response.authResponse[key] );
         })
         var x = parseURLParams(window.location.href);
@@ -47,8 +50,8 @@ function checkLogin() {
             body: data,
             credentials: "same-origin"
         })
-            .then(res => res.json())
-            .then(res => {
+            .then(function(res) { return res.json()})
+            .then(function(res) {
                 window.location = res.redirect
             });
     });

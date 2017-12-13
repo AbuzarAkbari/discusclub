@@ -1,5 +1,4 @@
 <?php
-session_save_path('/');
 if (!isset($_SESSION)) {
     session_start();
 }
