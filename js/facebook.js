@@ -33,7 +33,6 @@ window.fbAsyncInit = function() {
 
 function checkLogin() {
     FB.getLoginStatus(function(response) {
-        console.log(response)
         if(response.status != "connected") {
             return
         }
