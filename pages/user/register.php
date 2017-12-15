@@ -128,7 +128,7 @@ if($logged_in) {
                       <input type="submit" class="btn btn-primary" name="send" value="Registeren">
                   </form>
                   <br>
-                  <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email,user_birthday" onlogin="checkLoginState();"></div>
+                  <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
               </div>
           </div>
         </div>

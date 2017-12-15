@@ -4,7 +4,7 @@ const repeatPasswordField = document.querySelector(
   'input[name=repeat_password]',
 )
 
-const change = e => {
+function change(e) {
   // set custom validity
   passwordField.value === repeatPasswordField.value
     ? repeatPasswordField.setCustomValidity('')
