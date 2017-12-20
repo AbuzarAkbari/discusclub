@@ -60,49 +60,53 @@ $perPage = 20;
                             <tr>
                                 <th>id</th>
                                 <th>Naam</th>
-                                <th>IP Adres</th>
                                 <th>Registratiedatum</th>
                                 <th>Telefoonnummer</th>
                                 <th>Postcode</th>
                                 <th>Adres</th>
                                 <th>Stad</th>
+                                <th>tools</th>
                             </tr>
                             <?php
                                 $a = $page * $perPage - $perPage;
-                                $sql = "SELECT *, ip.id, user.id as user_id, user.created_at as user_created_at FROM user LEFT JOIN ip ON ip.user_id = user.id WHERE (user.first_name LIKE :search OR user.last_name LIKE :search OR user.username LIKE :search OR CONCAT(user.first_name, \" \", user.last_name) LIKE :search) OR user.email LIKE :search LIMIT {$perPage} OFFSET {$a}";
+                                $sql = "SELECT *, user.id as user_id, user.created_at as user_created_at FROM user WHERE (user.first_name LIKE :search OR user.last_name LIKE :search OR user.username LIKE :search OR CONCAT(user.first_name, \" \", user.last_name) LIKE :search) OR user.email LIKE :search LIMIT {$perPage} OFFSET {$a}";
                                 $result = $dbc->prepare($sql);
                                 $result->execute([":search" => "%". $_GET["q"] . "%"]);
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <?php if(!empty($rows)) :
-                            foreach ($rows as $ip) :
+                            foreach ($rows as $user) :
                                 ?>
                                 <tr>
-                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>">
-                                        <?php echo $ip["user_id"]; ?>
+                                    <td><a href="/user/<?php echo $user["user_id"]; ?>">
+                                        <?php echo $user["user_id"]; ?>
                                     </a></td>
-                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>">
-                                        <?php $name = $ip['first_name'] . " " . $ip['last_name']; ?>
-                                        <?php echo isset($ip['first_name']) ? $name : 'Gast'; ?>
+                                    <td><a href="/user/<?php echo $user["user_id"]; ?>">
+                                        <?php $name = $user['first_name'] . " " . $user['last_name']; ?>
+                                        <?php echo isset($user['first_name']) ? $name : 'Gast'; ?>
                                     </a></td>
                                     <td><?php
-                                     echo isset($ip['ip_address']) ? $ip['ip_address'] : 'Geen ip-adres bekend';
+                                     echo isset($user['user_created_at']) ? $user['user_created_at'] : $user['created_at'];
                                     ?></td>
                                     <td><?php
-                                     echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
+                                     echo isset($user['phone']) ? $user['phone'] : 'Geen telefoonnummer bekend';
                                     ?></td>
                                     <td><?php
-                                     echo isset($ip['phone']) ? $ip['phone'] : 'Geen telefoonnummer bekend';
+                                     echo isset($user['postal_code']) ? $user['postal_code'] : 'Geen postcode bekend';
                                     ?></td>
                                     <td><?php
-                                     echo isset($ip['postal_code']) ? $ip['postal_code'] : 'Geen postcode bekend';
+                                     echo isset($user['address']) && isset($user['house_number']) ? $user['address'].''.$user['house_number'] : 'Geen adres bekend';
                                     ?></td>
                                     <td><?php
-                                     echo isset($ip['address']) && isset($ip['house_number']) ? $ip['address'].''.$ip['house_number'] : 'Geen adres bekend';
+                                     echo isset($user['city']) ? $user['city'] : 'Geen stad bekend';
                                     ?></td>
-                                    <td><?php
-                                     echo isset($ip['city']) ? $ip['city'] : 'Geen stad bekend';
-                                    ?></td>
+                                    <td>
+                                        <?php if(!$user["deleted_at"]): ?>
+                                            <a title="verwijderen" href="/includes/tools/admin/delete_user?id=<?php echo $user["user_id"]; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                                        <?php else : ?>
+                                            <a title="toevoegen" href="/includes/tools/admin/add_user?id=<?php echo $user["user_id"]; ?>" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
+                                        <?php endif; ?>
+                                    </td>
                                 </tr>
                             <?php
                             endforeach;

@@ -105,7 +105,9 @@ if (isset($_GET["id"]) && in_array($current_level, $admin_levels)) {
                         <label for="iban">Rekeningnummer</label>
                         <input type="text" class="form-control" id="iban" name="iban" value="<?php echo $user_data->iban; ?>"><br>
                         <?php endif; ?>
+                        <?php if($_SESSION["user"]->password): ?>
                         <label for="wachtwoord">Wachtwoord</label><input required id="wachtwoord" class="form-control" type="password" name="wachtwoord" value="" placeholder="Wachtwoord ter bevestiging"><br>
+                        <?php endif; ?>
                         <input type="hidden" value="<?php echo $user_data->id; ?>" name="user_id">
                         <input type="hidden" class="form-control-file" value="<?php echo $user_data->profile_img_id; ?>" name="profile_img_id">
                         <input type="hidden" value="<?php echo $user_data->profile_img_id; ?>" name="profile_img_id">

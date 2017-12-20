@@ -2,7 +2,9 @@
 function rmScript($html) {
   $dom = new DOMDocument();
 
-  $dom->loadHTML(html_entity_decode("<p>" . $html . "</p>"),  LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+  $dom->encoding = "UTF-8";
+
+  $dom->loadHTML(mb_convert_encoding(html_entity_decode("<p>" . $html . "</p>"), "HTML-ENTITIES", "UTF-8"),  LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
   $script = $dom->getElementsByTagName('script');
 

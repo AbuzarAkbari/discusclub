@@ -27,7 +27,7 @@ window.fbAsyncInit = function() {
         version          : 'v2.10'
     });
 
-    checkLogin()
+    // checkLogin()
 
 };
 

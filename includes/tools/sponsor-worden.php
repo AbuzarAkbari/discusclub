@@ -36,11 +36,9 @@ if(isset($_POST['sponsorverzend'])) {
         $width = $check[0];
         $height = $check[1];
 
-        $ratio = 480 / 70;
-
         try {
-            if (($width / $height) === $ratio){
-                $error = "Sorry, het bestand is te groot";
+            if (($width / $height) > 5.5 && ($width / $height) < 7.5){
+                $error = "Sorry, het bestand heeft een verkeerd formaat. Het heeft een ratio van 1:5.5 tot 1:7.5 nodig.";
                 unlink($sponsor_file["tmp_name"]);
                 $uploadOk = 0;
             }

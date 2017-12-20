@@ -1,7 +1,7 @@
 <?php
 require_once("../../includes/tools/security.php");
 if ($logged_in) {
-    if (isset($_POST["profiel_parse"]) && !empty($_POST["wachtwoord"])) {
+    if (isset($_POST["profiel_parse"])) {
         if (isset($_POST["date"]) && !strtotime($_POST["date"]) && strtotime($_POST["date"]) > time() && strtotime($_POST["date"]) < (time() - (1000*60*60*24*365*110))) {
             $error = "Geboortedatum is verkeerd";
         }
@@ -72,6 +72,7 @@ if ($logged_in) {
                 $query .= ", city = :city";
                 $bindings[":city"] = $city;
             }
+
             //Nieuwsbrief
             if (isset($_POST['news']) && !empty($_POST["news"])) {
                 $news = $_POST['news'] == "on" ? 1 : 0;
@@ -254,20 +255,24 @@ if ($logged_in) {
                 }
             }
         }
-        //Wachtwoord
-        if(isset($_POST['wachtwoord']) && !empty($_POST["wachtwoord"])) {
-            $wachtwoord = $_POST['wachtwoord'];
-            $sql = "SELECT * FROM user WHERE id = ?";
-            $result = $dbc->prepare($sql);
-            $result->bindParam(1, $_SESSION["user"]->id);
-            $result->execute();
-            $user = $result->fetch(PDO::FETCH_OBJ);
-            if (!password_verify($wachtwoord, $user->password)) {
-                $error = "Wachtwoord verkeerd";
-                //header("Location: /");
+
+        if(isset($_SESSION["user"]->password)) {
+            //Wachtwoord
+            if(isset($_POST['wachtwoord']) && !empty($_POST["wachtwoord"])) {
+                $wachtwoord = $_POST['wachtwoord'];
+                $sql = "SELECT * FROM user WHERE id = ?";
+                $result = $dbc->prepare($sql);
+                $result->bindParam(1, $_SESSION["user"]->id);
+                $result->execute();
+                $user = $result->fetch(PDO::FETCH_OBJ);
+                if (!password_verify($wachtwoord, $user->password)) {
+                    $error = "Wachtwoord verkeerd";
+                    //header("Location: /");
+                }
             }
         }
-       if(empty($error)) {
+
+        if(empty($error)) {
            //End query
            $query .= " WHERE id = :userId";
            $result = $dbc->prepare($query);

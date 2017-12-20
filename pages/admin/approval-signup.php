@@ -50,7 +50,6 @@ $perPage = 20;
                             <tr>
                                 <th>Status</th>
                                 <th>Naam</th>
-                                <th>IP Adres</th>
                                 <th>Rekeningnummer</th>
                                 <th>Telefoonnummer</th>
                                 <th>Postcode</th>
@@ -60,19 +59,19 @@ $perPage = 20;
                             </tr>
                             <?php
                                 $a = $page * $perPage - $perPage;
-                                $sql = "SELECT *, u.id FROM approval_signup as app LEFT JOIN user as u LEFT JOIN ip ON u.id = ip.user_id ON u.id = app.user_id ORDER BY app.approved LIMIT {$perPage} OFFSET {$a}";
+                                $sql = "SELECT *, u.id FROM approval_signup as app JOIN user as u ON u.id = app.user_id ORDER BY app.approved LIMIT {$perPage} OFFSET {$a}";
                                 $result = $dbc->prepare($sql);
                                 $result->execute();
                                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <?php if(!empty($rows)) : ?>
                             <?php
-                            foreach ($rows as $ip) :
+                            foreach ($rows as $appr) :
                                 ?>
                                 <tr>
                                     <td>  <?php
 
-                                        switch ($ip['approved']) {
+                                        switch ($appr['approved']) {
                                             case 0:
                                             echo "<div class='status-block text-center'><span class='open-eye glyphicon glyphicon-eye-open'></span></div>";
                                             break;
@@ -84,34 +83,31 @@ $perPage = 20;
                                             break;
                                         }?>
                                    </td>
-                                    <td><a href="/user/<?php echo $ip["user_id"]; ?>"><?php
-                                     echo $ip['first_name'] . " " . $ip['last_name'];
+                                    <td><a href="/user/<?php echo $appr["user_id"]; ?>"><?php
+                                     echo $appr['first_name'] . " " . $appr['last_name'];
                                     ?></a></td>
                                     <td><?php
-                                     echo $ip['ip_address'];
+                                     echo $appr['iban'];
                                     ?></td>
                                     <td><?php
-                                     echo isset($ip['user_created_at']) ? $ip['user_created_at'] : $ip['created_at'];
+                                     echo $appr['phone'];
                                     ?></td>
                                     <td><?php
-                                     echo $ip['phone'];
+                                     echo $appr['postal_code'];
                                     ?></td>
                                     <td><?php
-                                     echo $ip['postal_code'];
-                                    ?></td>
-                                    <td><?php
-                                     echo $ip['address'],$ip['house_number'];
+                                     echo $appr['address'],$appr['house_number'];
                                     ?></td>
                                     <!-- <td><?php
-                                    // echo $ip['birthdate'];
+                                    // echo $appr['birthdate'];
                                     ?></td> -->
                                     <td><?php
-                                     echo $ip['city'];
+                                     echo $appr['city'];
                                     ?></td>
                                     <td>
-                                        <a title="Weiger" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=2" class="btn btn-danger" name="button">
+                                        <a title="Weiger" href="/includes/tools/approval/accept-signup?id=<?php echo $appr["id"]; ?>&new=2" class="btn btn-danger" name="button">
                                              <i class="glyphicon glyphicon-remove"></i></a>
-                                        <a title="Accepteer" href="/includes/tools/approval/accept-signup?id=<?php echo $ip["id"]; ?>&new=3" class="btn btn-success" name="button">
+                                        <a title="Accepteer" href="/includes/tools/approval/accept-signup?id=<?php echo $appr["id"]; ?>&new=3" class="btn btn-success" name="button">
                                          <i class="glyphicon glyphicon-ok"></i></a>
                                     </td>
                                 </tr>
